@@ -2,6 +2,18 @@
 title: Setup
 ---
 
+Possible data 
+[Metagenomics 1](https://www.frontiersin.org/articles/10.3389/fmicb.2018.02606/full)  
+[mg-RAST data](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp80319)  
+[4 cienegas](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3426889/)  
+[Metagenomics metrics](https://academic.oup.com/femsec/article/82/1/37/567182)  
+[Terrestrial metagenomics data base](https://academic.oup.com/nar/article/48/D1/D626/5625925)  
+[AnVioTutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/)  
+[A tutorial on assembly-based metagenomics](http://merenlab.org/tutorials/assembly-based-metagenomics/)  
+[Basics of metagenomic read recruitment](https://www.youtube.com/watch?v=MqD4aN1p1qA&t=2032s)  
+[AnvioVideo Metapangenomics](https://www.youtube.com/watch?v=C3fHlccFxJw&t=70s)  
+[AnVio Reconstructing genomes](Reconstructing genomes from metagenomes: key concepts)  
+
 Our lesson template is kept in the [`carpentries/styles` repository][styles]. The `styles`
 repository is carefully curated so that changes made to it are easily mergeable by downstream
 lessons. The `styles` repository contains various bits that take Markdown files and render them as a
