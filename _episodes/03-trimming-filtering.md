@@ -1,9 +1,9 @@
 ---
-title: "Lesson Organization"
+title: "Trimming and Filtering"
 teaching: 10
 exercises: 0
 questions:
-- "How are the files in a lesson organized?"
+- "Lesson Organization: How are the files in a lesson organized?"
 objectives:
 - "Explain overall organization of lesson files."
 keypoints:
