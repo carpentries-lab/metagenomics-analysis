@@ -1,5 +1,5 @@
 ---
-title: "Quality Control"
+title: "Assessing Read Quality"
 teaching: 10
 exercises: 0
 questions:
