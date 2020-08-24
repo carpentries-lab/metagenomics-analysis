@@ -1,9 +1,9 @@
 ---
-title: "Style Guide"
+title: "MAGs"
 teaching: 10
 exercises: 0
 questions:
-- "How are keyboard key combinations written?"
+- "Style Guide: How are keyboard key combinations written?"
 objectives:
 - "Explain keyboard key combination."
 keypoints:
