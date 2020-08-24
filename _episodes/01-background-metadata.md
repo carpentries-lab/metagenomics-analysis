@@ -16,10 +16,12 @@ keypoints:
 - "Groups of files are stored in collection directories whose names begin with an underscore."
 ---
 
-This episode describes the tools we use to build and manage lessons.
-These simplify many tasks, but make other things more complicated.
+This episode describes diferences in metagenomics analysis.  
 
-## Repositories on GitHub
+## Different metagenomic analyses
+Shotgun  
+Amplicon 16S
+
 
 Visit our [new curriculum development guide](https://carpentries.github.io/curriculum-development/).
 
