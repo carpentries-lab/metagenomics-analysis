@@ -1,5 +1,5 @@
 ---
-title: "Back Ground and Metadata"
+title: "Background and Metadata"
 teaching: 10
 exercises: 0
 questions:
