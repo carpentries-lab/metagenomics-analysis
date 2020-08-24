@@ -1,5 +1,5 @@
 ---
-title: "GitHub, Markdown, and Jekyll"
+title: "Quality Control"
 teaching: 10
 exercises: 0
 questions:
