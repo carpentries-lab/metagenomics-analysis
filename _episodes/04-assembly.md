@@ -1,9 +1,9 @@
 ---
-title: "Formatting"
+title: "Metagenome Assembly"
 teaching: 10
 exercises: 0
 questions:
-- "How are The Carpentries lessons formatted?"
+- "Formatting: How are The Carpentries lessons formatted?"
 objectives:
 - "Explain the header of each episode."
 - "Explain the overall structure of each episode."
