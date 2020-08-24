@@ -1,9 +1,9 @@
 ---
-title: "Checking and Previewing"
+title: "Visualization"
 teaching: 5
 exercises: 0
 questions:
-- "How can lesson formatting be checked?"
+- "Checking and Previewing: How can lesson formatting be checked?"
 - "How can lessons be previewed?"
 objectives:
 - "Run the lesson checking script and interpret its output correctly."
