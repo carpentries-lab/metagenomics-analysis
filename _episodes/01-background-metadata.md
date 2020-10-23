@@ -19,7 +19,7 @@ keypoints:
 This episode describes diferences in metagenomics analysis.  
 
 ## Different metagenomic analyses
-Shotgun  
+Shotgun  test
 Amplicon 16S
 
 
