@@ -36,7 +36,7 @@ Databases [MGnify](https://www.ebi.ac.uk/metagenomics/)
 Other references 
 
 Visit our [new curriculum development guide](https://carpentries.github.io/curriculum-development/).
-
+https://www.mg-rast.org/mgmain.html?mgpage=download&metagenome=mgm4442467.3
 
 Our lessons are stored in Git repositories (or "repos") on GitHub.
 We use the term *fork* to mean
