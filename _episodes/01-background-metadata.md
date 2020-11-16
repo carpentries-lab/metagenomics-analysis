@@ -6,7 +6,7 @@ questions:
 - "What data are we using?"  
 - "Why is this experiment important?"  
 objectives:
-- "Why study E. coli?."
+- "Why study cuatro Cienegas?."
 - "What is the difference between shotgun and amplicon metagenomics?"  
 - "Understand the data set."
 keypoints:
@@ -15,16 +15,18 @@ keypoints:
 - "Amplicon metagenomics amplifies and secuences a selected region of DNA."   
 ---
 
-This episode describes diferences in metagenomics analysis.  
-
-## Metagenomic  
+# Background  
 A metagenomics study is one in which we study the genetic composition of various
-species that coexist in a defined and preferably closed space. For this type of studies 
-a workflow is followed that goes from the sampling design to the statistical analysis 
-of the sequencing data.  
+species that coexist in a defined and preferably closed space. Cuatro Cienegas 
 
+## What is cuatro Cienegas  
+Cuatro Cienegas is an oasis in the mexican desert that can be a model for a 
+[lost world](https://elifesciences.org/articles/38278).  
+  
 ## Shotgun and Amplicons   
-
+For this type of studies 
+it is followed a workflow that goes from the sampling design to the statistical analysis 
+of the data sequenced.  
 In metagenomics, two types of studies are carried out: amplicons and whole-genome sequencings 
 (WGS) or shotgun. In those of amplicons, a region typical of a community of microorganisms is 
 amplified and sequenced, for example the hypervariable regions of 16S in Bacteria, or ITS in Fungi.  
