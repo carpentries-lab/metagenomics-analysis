@@ -82,13 +82,18 @@ FB1NV1SS26_S4_L004_R2.fastq
 
 Next, lets visualize the first read of one of the files by the next commando:
 
-$ head -n 4 FB1NV1SS26_S4_L001_R1.fastq
+~~~
+  $ head -n 4 FB1NV1SS26_S4_L001_R1.fastq
+~~~
+{: .source}
 
-Output
-@FB1NV1SS26_S4_L001_R1 HWI-ST957:244:H73TDADXX:1:1101:4712:2181/1
-TTCACATCCTGACCATTCAGTTGAGCAAAATAGTTCTTCAGTGCCTGTTTAACCGAGTCACGCAGGGGTTTTTGGGTTACCTGATCCTGAGAGTTAACGGTAGAAACGGTCAGTACGTCAGAATTTACGCGTTGTTCGAACATAGTTCTG
-+
-CCCFFFFFGHHHHJIJJJJIJJJIIJJJJIIIJJGFIIIJEDDFEGGJIFHHJIJJDECCGGEGIIJFHFFFACD:BBBDDACCCCAA@@CA@C>C3>@5(8&>C:9?8+89<4(:83825C(:A#########################
+~~~
+  @FB1NV1SS26_S4_L001_R1 HWI-ST957:244:H73TDADXX:1:1101:4712:2181/1
+  TTCACATCCTGACCATTCAGTTGAGCAAAATAGTTCTTCAGTGCCTGTTTAACCGAGTCACGCAGGGGTTTTTGGGTTACCTGATCCTGAGAGTTAACGGTAGAAACGGTCAGTACGTCAGAATTTACGCGTTGTTCGAACATAGTTCTG
+  +
+  CCCFFFFFGHHHHJIJJJJIJJJIIJJJJIIIJJGFIIIJEDDFEGGJIFHHJIJJDECCGGEGIIJFHFFFACD:BBBDDACCCCAA@@CA@C>C3>@5(8&>C:9?8+89<4(:83825C(:A#########################
+~~~
+{: .output}
 
 At first,  the information displayed can be overwhelming, although it is complicated, the fastq format can be decoded by hoarding knowledge regarding its main characteristics, the code lines which composed this type of files are the following:
 The first line always begins with a “@” and this specified information regarding the equipment used for the generation of the reads
@@ -114,24 +119,31 @@ Phred Error-rate     Accuracy
 
 Returning to the first read of the FB1NV1SS26_S4_L001_R1.fastq file:
 
+~~~
 $ head -n 4 FB1NV1SS26_S4_L001_R1.fastq
+~~~
+{: .source}
 
-Output
+~~~
 @FB1NV1SS26_S4_L001_R1 HWI-ST957:244:H73TDADXX:1:1101:4712:2181/1
 TTCACATCCTGACCATTCAGTTGAGCAAAATAGTTCTTCAGTGCCTGTTTAACCGAGTCACGCAGGGGTTTTTGGGTTACCTGATCCTGAGAGTTAACGGTAGAAACGGTCAGTACGTCAGAATTTACGCGTTGTTCGAACATAGTTCTG
 +
 CCCFFFFFGHHHHJIJJJJIJJJIIJJJJIIIJJGFIIIJEDDFEGGJIFHHJIJJDECCGGEGIIJFHFFFACD:BBBDDACCCCAA@@CA@C>C3>@5(8&>C:9?8+89<4(:83825C(:A#########################
-
+~~~
+{: .output}
 It is evident that the nucleotides in the read have a range of quality scores, and that there are sites of the read where the sequence has poor results (i.e. #=02)
 
 Assessing quality using FastQC
 
 It will be a sisyphean task to evaluate manually the quality of all the reads inside a single file. Luckily there are programs contrived to assess the read quality in order to decide which of them can be keeped or discarded. The canonical program for the evaluation and visualization of read quality is FastQC. By providing a summary of the different characteristics of the reads, FastQC gives information regarding issues like quality, %GC, presence of adapters, among others that will be helpful to consider before moving forward with other analyses. Let's take a look at the different options that the program FastQC offers:
 
+~~~
 $ fastqc -h
+~~~
+{: .source}
 
-Output
-           FastQC - A high throughput sequence QC analysis tool
+~~~
+  FastQC - A high throughput sequence QC analysis tool
 
 SYNOPSIS
 
@@ -242,13 +254,24 @@ DESCRIPTION
 BUGS
 
     Any bugs in fastqc should be reported either to simon.andrews@babraham.ac.uk
-    or in www.bioinformatics.babraham.ac.uk/bugzilla/
+        or in www.bioinformatics.babraham.ac.uk/bugzilla/
+
+~~~
+{: .output}
 
 If an error like this is displayed in place of the above lines, FastQC is not installed or is incorrectly installed:
 
+~~~
 The program 'fastqc' is currently not installed. You can install it by typing:
 sudo apt-get install fastqc
+~~~
+{: .error}
 
 Check with your instructor before you proceed.
 
-As it is displayed at the begging, several files can be examined in a single run; the -o flag is used to indicate where the output files will be delivered; the -f parameter is useful if your files are in other format then fastq; other flags as --contaminants and --adapters are used to so the program can locate a priori undesirable strings in the reads; and parameters like --threads, --noextract, among others, are useful to instruct the program to obtain a desired output.  
+As it is displayed at the begging, several files can be examined in a single run;
+the -o flag is used to indicate where the output files will be delivered; 
+the -f parameter is useful if your files are in other format then fastq; 
+other flags as --contaminants and --adapters are used to so the program can locate a priori
+undesirable strings in the reads; and parameters like --threads, --noextract, among others, 
+are useful to instruct the program to obtain a desired output.  
