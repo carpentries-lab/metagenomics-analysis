@@ -57,12 +57,10 @@ i.e., use [Jekyll's tag link](https://jekyllrb.com/docs/templates/#links) and th
 MEGAHIT is a NGS de novo assembler for assembling large and complex metagenomics data in a 
 time- and cost-efficient manner.  
 
-{% raw %}
-    ~~~
+~~~
     ./megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_result
-    ~~~
-    {: .source}
-{% endraw %}
+~~~
+{: .source}
 
 
 The class specified at the bottom using an opening curly brace and colon,
@@ -80,13 +78,8 @@ The [template]({{ site.template_repo }}) provides three styles for code blocks:
 ~~~
 .error: error messages.
 ~~~
-{:  ls.error}
+{: .error}
 
-### Syntax Highlighting
-The following styles like `.source`, but include syntax highlighting for the
-specified language.
-Please use them where possible to indicate the type of source being displayed,
-and to make code easier to read.
 
 `.language-bash`: Bash shell commands:
 
@@ -94,56 +87,6 @@ and to make code easier to read.
 echo "Hello World"
 ~~~
 {: .language-bash}
-
-`.html`: HTML source:
-
-~~~
-<html>
-<body>
-<em>Hello World</em>
-</body>
-</html>
-~~~
-{: .html}
-
-`.language-make`: Makefiles:
-
-~~~
-all:
-    g++ main.cpp hello.cpp -o hello
-~~~
-{: .language-make}
-
-`.language-matlab`: MATLAB source:
-
-~~~
-disp('Hello, world!')
-~~~
-{: .language-matlab}
-
-`.language-python`: Python source:
-
-~~~
-print("Hello World")
-~~~
-{: .language-python}
-
-`.language-r`: R source:
-
-~~~
-cat("Hello World")
-~~~
-{: .language-r}
-
-`.language-sql`: SQL source:
-
-~~~
-CREATE PROCEDURE HelloWorld AS
-PRINT 'Hello, world!'
-RETURN (0)
-~~~
-{: .language-sql}
-
 
 
 ## Special Blockquotes
@@ -260,8 +203,7 @@ but are instead put on the `setup.md` page.
 
 Note also that solutions are nested inside exercises as shown below:
 
-~~~
-> ## Challenge Title
+> ## Challenge Title `.challenge`
 >
 > This is the body of the challenge.
 >
@@ -280,19 +222,5 @@ Note also that solutions are nested inside exercises as shown below:
 > > {: .output}
 > {: .solution}
 {: .challenge}
-~~~
-{: .source}
-
-The double indentation is annoying to edit,
-but the alternatives we considered and discarded are worse:
-
-1.  Use HTML `<div>` elements for the challenges.
-    Most people dislike mixing HTML and Markdown,
-    and experience shows that it's all too easy to confuse Jekyll's Markdown parser.
-
-2.  Put solutions immediately after challenges rather than inside them.
-    This is simpler to edit,
-    but clutters up the page
-    and makes it harder for tools to tell which solutions belong to which exercises.
 
 {% include links.md %}
