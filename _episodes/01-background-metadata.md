@@ -17,29 +17,24 @@ keypoints:
 
 # Background  
 A metagenomics study is one in which we study the genetic composition of various
-species that coexist in a defined and preferably closed space. Cuatro Cienegas 
+species that coexist in a defined and preferably closed space. 
 
 ## What is cuatro Cienegas  
 Cuatro Cienegas is an oasis in the mexican desert that can be a model for a 
-[lost world](https://elifesciences.org/articles/38278).  
+[lost world](https://elifesciences.org/articles/38278).  Cuatro Cienegas shows
+high content of sulphur and magnesium but little phosphorus and nutrients, conditions 
+that resemble the ones found in the ancient seas. Some of the few live stromatolite
+can be found at the lagoons of the Basin.  
   
-## Shotgun and Amplicons   
-For this type of studies 
-it is followed a workflow that goes from the sampling design to the statistical analysis 
-of the data sequenced.  
-In metagenomics, two types of studies are carried out: amplicons and whole-genome sequencings 
-(WGS) or shotgun. In those of amplicons, a region typical of a community of microorganisms is 
-amplified and sequenced, for example the hypervariable regions of 16S in Bacteria, or ITS in Fungi.  
-In shotgun, random fragments of all genomes of all organisms in the sample are amplified and sequenced
-Which is the most suitable? That depends on the question of the study.  
+## Shotgun and Amplicons    
+A metagenomic study goes from the sampling design to the statistical analysis of the data sequenced. 
+Mainly, two types of studies are carried out: amplicons and whole-genome sequencing (WGS) or shotgun. 
+In amplicon studies, a region typical of a community of microorganisms is amplified and sequenced, 
+for example the hypervariable regions of 16S in Bacteria, or ITS in Fungi.  In shotgun, random fragments 
+of all genomes of all organisms in the sample are amplified and sequenced. Which is the most suitable? 
+That depends on the question of the study.  
 
-Examples:  
-
-Amplicon study  
-
-Shotgun  study  
-
-> ## Amplicon or Shotgun? `.discussion`
+> ## Amplicon or Shotgun? 
 >
 > Suppose you would like to compare the microbiome of sintomatic vs asintomatic pacients in certain disease.  
 > Which type or metageomics would you choose?  
