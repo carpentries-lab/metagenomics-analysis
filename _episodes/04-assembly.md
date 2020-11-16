@@ -34,7 +34,6 @@ The diagram below shows the internal structure of a single episode file
 
 ## Maximum Line Length
 
-megahit -1 $FILE1 -2 $FILE2 -t 16 -o $root/MEGAHIT 
 
 
 {% raw %}
@@ -74,8 +73,7 @@ with a class specifier after the block:
 
 {% raw %}
     ~~~
-    for thing in collection:
-        do_something
+    megahit -1 $FILE1 -2 $FILE2 -t 16 -o MEGAHIT 
     ~~~
     {: .source}
 {% endraw %}
