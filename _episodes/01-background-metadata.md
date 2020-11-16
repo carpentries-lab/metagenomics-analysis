@@ -18,10 +18,26 @@ keypoints:
 
 This episode describes diferences in metagenomics analysis.  
 
-## Different metagenomic analyses
+## Metagenomic  
+A metagenomics study is one in which we study the genetic composition of various
+species that coexist in a defined and preferably closed space. For this type of studies 
+a workflow is followed that goes from the sampling design to the statistical analysis 
+of the sequencing data.  
 
-Shotgun  test2
-Amplicon 16S
+## Shotgun and Amplicons   
+
+In metagenomics, two types of studies are carried out: amplicons and whole-genome sequencings 
+(WGS) or shotgun. In those of amplicons, a region typical of a community of microorganisms is 
+amplified and sequenced, for example the hypervariable regions of 16S in Bacteria, or ITS in Fungi.  
+In shotgun, random fragments of all genomes of all organisms in the sample are amplified and sequenced
+Which is the most suitable? That depends on the question of the study.  
+
+Examples:  
+
+Amplicon study  
+
+Shotgun  study  
+
 ## Data 
 Databases [MGnify](https://www.ebi.ac.uk/metagenomics/)    
           [Marine Metagenomics Portal](https://mmp.sfb.uit.no/)    
@@ -37,63 +53,6 @@ Other references
 
 Visit our [new curriculum development guide](https://carpentries.github.io/curriculum-development/).
 https://www.mg-rast.org/mgmain.html?mgpage=download&metagenome=mgm4442467.3
-
-Our lessons are stored in Git repositories (or "repos") on GitHub.
-We use the term *fork* to mean
-"a copy of a GitHub-hosted repo that is also hosted on GitHub"
-and the term *clone* to mean
-"a copy of a GitHub-hosted repo that's located on someone else's machine".
-In both cases,
-the duplicate has a reference that points to the original repo.
-
-In an ideal world,
-we would put all of the common files used by our lessons
-(such as the CSS style files and the image files with project logos)
-in a template repo.
-The master copy of each lesson would be a fork of that repo,
-and each author's working copy would be a fork of that master:
-
-![Forking Repositories]({{ page.root }}/fig/forking.svg)
-
-However, GitHub only allows a user to have one fork of any particular repo.
-This creates a problem for us because an author may be involved in writing several lessons,
-each with its own repo.
-We therefore use [GitHub Importer][github-importer] to create new lessons.
-After the lesson has been created,
-we manually add the [template repository]({{ site.template_repo }}) as a remote called `template`
-to update the lesson when the template changes.
-
-![Repository Links]({{ page.root }}/fig/repository-links.svg)
-
-## GitHub Pages
-
-If a repository has a branch called `gh-pages` (short for "GitHub Pages"),
-GitHub publishes its content to create a website for the repository.
-If the repository's URL is `https://github.com/USERNAME/REPOSITORY`,
-the website is `https://USERNAME.github.io/REPOSITORY`.
-
-GitHub Pages sites can include static HTML pages,
-which are published as-is,
-or they can use [Jekyll][jekyll] as described below
-to compile HTML and/or Markdown pages with embedded directives
-to create the pages for display.
-
-> ## Why Doesn't My Site Appear?
->
-> If the root directory of a repository contains a file called `.nojekyll`,
-> GitHub will *not* generate a website for that repository's `gh-pages` branch.
-{: .callout}
-
-We write lessons in Markdown because it's simple to learn
-and isn't tied to any specific language.
-(The ReStructured Text format popular in the Python world,
-for example,
-is a complete unknown to R programmers.)
-If authors want to write lessons in something else,
-such as [R Markdown][r-markdown],
-they must generate HTML or Markdown that [Jekyll][jekyll] can process
-and commit that to the repository.
-A [later episode]({{ page.root }}/04-formatting/) describes the Markdown we use.
 
 > ## Teaching Tools
 >
@@ -156,33 +115,4 @@ is translated into:
 > but complicated the common case for the sake of uncommon cases,
 > and didn't model the workflow we want learners to use.
 {: .callout}
-
-## Configuration
-
-[Jekyll][jekyll] also reads values from a configuration file called `_config.yml`,
-which are referred to in pages as `site.variable`.
-The [lesson template]({{ site.template_repo }}) does *not* include `_config.yml`,
-since each lesson will change some of its value,
-which would result in merge collisions each time the lesson was updated from the template.
-Instead,
-the [template]({{ site.template_repo }}) contains a script called `bin/lesson_initialize.py`
-which should be run *once* to create an initial `_config.yml` file
-(and a few other files as well).
-The author should then edit the values in the top half of the file.
-
-## Collections
-
-If several Markdown files are stored in a directory whose name begins with an underscore,
-[Jekyll][jekyll] creates a [collection][jekyll-collection] for them.
-We rely on this for both lesson episodes (stored in `_episodes`)
-and extra files (stored in `_extras`).
-For example,
-putting the extra files in `_extras` allows us to populate the "Extras" menu pulldown automatically.
-To clarify what will appear where,
-we store files that appear directly in the navigation bar
-in the root directory of the lesson.
-[The next episode]({{ page.root }}/03-organization/) describes these files.
-
-{% include links.md %}
-
 
