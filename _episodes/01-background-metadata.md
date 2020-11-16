@@ -10,12 +10,9 @@ objectives:
 - "What is the difference between shotgun and amplicon metagenomics?"  
 - "Understand the data set."
 keypoints:
-- "Lessons are stored in Git repositories on GitHub."
-- "Lessons are written in Markdown."
-- "Jekyll translates the files in the gh-pages branch into HTML for viewing."
-- "The site's configuration is stored in _config.yml."
-- "Each page's configuration is stored at the top of that page."
-- "Groups of files are stored in collection directories whose names begin with an underscore."
+- "It’s important to record and understand your experiment’s metadata."  
+- "Shotgun metagenomics sequences genomes of all organisms in a community."     
+- "Amplicon metagenomics amplifies and secuences a selected region of DNA."   
 ---
 
 This episode describes diferences in metagenomics analysis.  
