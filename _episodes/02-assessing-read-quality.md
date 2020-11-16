@@ -1,12 +1,15 @@
 ---
 title: "Assessing Read Quality"
-teaching: 10
-exercises: 0
+teaching: 30
+exercises: 15
 questions:
-- "GitHub, Markdown, and Jekyll, How are pages published?"
+- "How can the quality of a sequencing process be evaluated? "
+- "It is possible to know if my sequenced organisms are the desired ones? "
 objectives:
-- "Explain how GitHub Pages produce web sites from Git repositories."
-- "Explain Jekyll's formatting rules."
+- "Explain how it is possible to measure the quality from a fastq file"  
+- "Learn the main tool to evaluate reads quality: FastQC"  
+- "Interpret a FastQC output."  
+
 keypoints:
 - "Lessons are stored in Git repositories on GitHub."
 - "Lessons are written in Markdown."
@@ -16,50 +19,55 @@ keypoints:
 - "Groups of files are stored in collection directories whose names begin with an underscore."
 ---
 
-This episode describes the tools we use to build and manage lessons.
-These simplify many tasks, but make other things more complicated.
+As was remarked by Plato among other philosophers, it is important to be intertwined 
+in a process to unravel all the essential details concerning the desired results. 
+In this sense, the second step in working with high-throughput sequencing data is
+to evaluate how accurate the sequencer worked in generating the desired information. 
+The location of the assessment of quality inside a metagenome workflow is exampled 
+in the next picture (Figure 1)  
 
 ## Repositories on GitHub
+Hans on the data
+What a sequencing process will deliver are raw reads: sets of files in “fastq” format (i.e the file name will end with a “.fastq” label):
 
-Our lessons are stored in Git repositories (or "repos") on GitHub.
-We use the term *fork* to mean
-"a copy of a GitHub-hosted repo that is also hosted on GitHub"
-and the term *clone* to mean
-"a copy of a GitHub-hosted repo that's located on someone else's machine".
-In both cases,
-the duplicate has a reference that points to the original repo.
+FB1NV1SS26_S4_L001_R1.fastq.gz
+FB1NV1SS26_S4_L001_R2.fastq.gz
+FB1NV1SS26_S4_L002_R1.fastq.gz
+FB1NV1SS26_S4_L002_R2.fastq.gz
+FB1NV1SS26_S4_L003_R1.fastq.gz
+FB1NV1SS26_S4_L003_R2.fastq.gz
+FB1NV1SS26_S4_L004_R1.fastq.gz
+FB1NV1SS26_S4_L004_R2.fastq.gz
 
-In an ideal world,
-we would put all of the common files used by our lessons
-(such as the CSS style files and the image files with project logos)
-in a template repo.
-The master copy of each lesson would be a fork of that repo,
-and each author's working copy would be a fork of that master:
+Is commun that the files are in a compress format, which is why all the files end with “.gz” making them faster to transfer and easy to handle. To uncompress these files the gunzip command will be used as follows:
 
-![Forking Repositories]({{ page.root }}/fig/forking.svg)
+> ## Why Doesn't My Site Appear?
+>
+> If the root directory of a repository contains a file called `.nojekyll`,
+> GitHub will *not* generate a website for that repository's `gh-pages` branch.
+{: .callout}
 
-However, GitHub only allows a user to have one fork of any particular repo.
-This creates a problem for us because an author may be involved in writing several lessons,
-each with its own repo.
-We therefore use [GitHub Importer][github-importer] to create new lessons.
-After the lesson has been created,
-we manually add the [template repository]({{ site.template_repo }}) as a remote called `template`
-to update the lesson when the template changes.
+We write lessons in Markdown because it's simple to learn
 
-![Repository Links]({{ page.root }}/fig/repository-links.svg)
+$ gunzip FB1NV1SS26_S4_L001_R1.fastq.gz
 
-## GitHub Pages
+Output
+FB1NV1SS26_S4_L001_R1.fastq
 
-If a repository has a branch called `gh-pages` (short for "GitHub Pages"),
-GitHub publishes its content to create a website for the repository.
-If the repository's URL is `https://github.com/USERNAME/REPOSITORY`,
-the website is `https://USERNAME.github.io/REPOSITORY`.
+There is an option to decompress all the files in a folder that share a combination of strings in their file names:
 
-GitHub Pages sites can include static HTML pages,
-which are published as-is,
-or they can use [Jekyll][jekyll] as described below
-to compile HTML and/or Markdown pages with embedded directives
-to create the pages for display.
+$ gunzip *.fastq.gz
+
+ Here the rest of the files that have “.fastq.gz” at the end of their names will be decompressed
+
+Output
+FB1NV1SS26_S4_L001_R2.fastq
+FB1NV1SS26_S4_L002_R1.fastq
+FB1NV1SS26_S4_L002_R2.fastq
+FB1NV1SS26_S4_L003_R1.fastq
+FB1NV1SS26_S4_L003_R2.fastq
+FB1NV1SS26_S4_L004_R1.fastq
+FB1NV1SS26_S4_L004_R2.fastq
 
 > ## Why Doesn't My Site Appear?
 >
