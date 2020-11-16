@@ -32,7 +32,7 @@ The diagram below shows the internal structure of a single episode file
   <img src="{{ page.root }}/fig/episode-format-small.png" alt="Formatting Rules" />
 </a>
 
-## Maximum Line Length
+## Assembling reads
 
 
 
@@ -43,29 +43,16 @@ The diagram below shows the internal structure of a single episode file
 i.e., use [Jekyll's tag link](https://jekyllrb.com/docs/templates/#links) and the name of the file.
 
 
-## Episode Structure
+## Megahit options  
 
-authors should use only:
-
-*   paragraphs
-*   images
-*   tables
-*   ordered and unordered lists
-*   code samples (described below).
-*   special blockquotes (described below)
-
-
-> ## Linking section IDs
+> ## Assembling genomes
 >
-> In the HTML output each header of a section, code sample, exercise will be associated with an unique ID (the rules of
-> the ID generation are given in kramdown [documentation](https://kramdown.gettalong.org/converter/html.html#auto-ids),
-> but it is easier to look for them directly in the page sources).
-> These IDs can be used to easily link to the section by attaching the hash (`#`) followed by the ID to the page's URL
+> When metagenomics is shotgun instead of amplicon metagenomics an extra assembly step must be run
+> [documentation](https://kramdown.gettalong.org/converter/html.html#auto-ids),
 > (like [this](#linking-section-ids)). For example, the instructor might copy the link to
 > the etherpad, so that the lesson opens in learners' web browser directly at the right spot.
 {: .callout}
 
-## Megahit  
 
 MEGAHIT is a NGS de novo assembler for assembling large and complex metagenomics data in a 
 time- and cost-efficient manner.  
