@@ -20,8 +20,12 @@ A metagenomics study is one in which we study the genetic composition of various
 species that coexist in a defined and preferably closed space. 
 
 ## What is cuatro Cienegas  
-<a href="{{ page.root }}/fig/episode-format.png">
+<a href="{{ page.root }}/fig/md-01-data-Stromatolites.jpeg">
   <img src="{{ page.root }}/fig/md-01-data-Stromatolites.jpeg" alt="Formatting Rules" />
+</a>
+
+ <a href="{{ page.root }}/fig/episode-format.png">
+  <img src="{{ page.root }}/fig/episode-format.png" alt="Formatting Rules" />
 </a>
 
 Cuatro Cienegas is an oasis in the mexican desert that can be a model for a 
