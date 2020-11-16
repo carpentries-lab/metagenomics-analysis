@@ -59,41 +59,30 @@ time- and cost-efficient manner.
 
 {% raw %}
     ~~~
-    megahit -1 $FILE1 -2 $FILE2 -t 16 -o MEGAHIT 
+    ./megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_result
     ~~~
     {: .source}
 {% endraw %}
 
-which is rendered as:
-
-~~~
-for thing in collection:
-    do_something
-~~~
-{: .source}
 
 The class specified at the bottom using an opening curly brace and colon,
 the class identifier with a leading dot,
 and a closing curly brace.
 The [template]({{ site.template_repo }}) provides three styles for code blocks:
 
-~~~
-.source: program source.
-~~~
-{: .source}
+
 
 ~~~
-.output: program output.
+.output: ls megahit_result/final.contigs.fa
 ~~~
 {: .output}
 
 ~~~
 .error: error messages.
 ~~~
-{: .error}
+{:  ls.error}
 
 ### Syntax Highlighting
-
 The following styles like `.source`, but include syntax highlighting for the
 specified language.
 Please use them where possible to indicate the type of source being displayed,
