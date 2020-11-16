@@ -65,11 +65,10 @@ authors should use only:
 > the etherpad, so that the lesson opens in learners' web browser directly at the right spot.
 {: .callout}
 
-## Formatting Code
+## Megahit  
 
-Inline code fragments are formatted using back-quotes.
-Longer code blocks are formatted by opening and closing the block with `~~~` (three tildes),
-with a class specifier after the block:
+MEGAHIT is a NGS de novo assembler for assembling large and complex metagenomics data in a 
+time- and cost-efficient manner.  
 
 {% raw %}
     ~~~
