@@ -44,35 +44,27 @@ That depends on the question of the study.
 {: .discussion}
 
 ## Data 
-The data [mgm4887293.3](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgm4887293.3)   [Valeria souza](https://es.wikipedia.org/wiki/Valeria_Souza_Saldivar)  
+  - The data we are going to use are part of an environemtal study in perturbation of microbial mats led 
+    by Valerie de Anda from the group of [Valeria souza](https://es.wikipedia.org/wiki/Valeria_Souza_Saldivar).  
+   
+   -The suty traces the responses to anthropogenic perturbation caused by water depletion in microbial mats 
+   from Cuatro Cienegas Basin (CCB), Mexico, by using a time-series spatially resolved analysis.  
+   
+  - Results indicate that microbial mats from CCB contain an enormous taxonomic diversity with at least 
+  100 phyla, mainly represented by members of the rare biosphere (RB).  
+  
+  - Data were deposited at MG-RAST database in the project 
+  [mgp80319](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp80319)   
 
-Databases [MGnify](https://www.ebi.ac.uk/metagenomics/)    
-          [Marine Metagenomics Portal](https://mmp.sfb.uit.no/)    
-          [GM Repo](https://gmrepo.humangut.info/home)   
-          [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/)  
-
-
-
-
-[MG RAST analysis of this data](https://www.mg-rast.org/mgmain.html?mgpage=overview&metagenome=mgm4442467.3)
-[Basin 1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3426886/), [Basin 2](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3426889/)  
-Other references 
-
-## Understanding the dataset  
-
-> ## Teaching Tools
+> ## Metagenomic databases
 >
-> We do *not* prescribe what tools instructors should use when actually teaching:
-> the [Jupyter Notebook][jupyter],
-> [RStudio][rstudio],
-> and the good ol' command line are equally welcome up on stage.
-> All we specify is the format of the lesson notes.
+> MG-RAST is not the only one metagenomic database, there is also [MGnify](https://www.ebi.ac.uk/metagenomics/), 
+> [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/)  
+> and the [GM Repo](https://gmrepo.humangut.info/home).   
 {: .callout}
 
-## Jekyll
 
-GitHub uses [Jekyll][jekyll] to turn Markdown into HTML.
-It looks for text files that begin with a header formatted like this:
+## Understanding the dataset  
 
 ~~~
 ---
@@ -82,43 +74,4 @@ other_variable: other_value
 ...stuff in the page...
 ~~~
 {: .source}
-
-and inserts the values of those variables into the page when formatting it.
-The three dashes that start the header *must* be the first three characters in the file:
-even a single space before them will make [Jekyll][jekyll] ignore the file.
-
-The header's content must be formatted as [YAML][yaml],
-and may contain Booleans, numbers, character strings, lists, and dictionaries of name/value pairs.
-Values from the header are referred to in the page as `page.variable`.
-For example,
-this page:
-
-~~~
----
-name: Science
----
-{% raw %}Today we are going to study {{page.name}}.{% endraw %}
-~~~
-{: .source}
-
-is translated into:
-
-~~~
-<html>
-  <body>
-    <p>Today we are going to study Science.</p>
-  </body>
-</html>
-~~~
-{: .html}
-
-> ## Back in the Day...
->
-> The previous version of our template did not rely on Jekyll,
-> but instead required authors to build HTML on their desktops
-> and commit that to the lesson repository's `gh-pages` branch.
-> This allowed us to use whatever mix of tools we wanted for creating HTML (e.g., [Pandoc][pandoc]),
-> but complicated the common case for the sake of uncommon cases,
-> and didn't model the workflow we want learners to use.
-{: .callout}
 
