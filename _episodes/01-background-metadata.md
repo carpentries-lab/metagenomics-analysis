@@ -44,20 +44,21 @@ That depends on the question of the study.
 {: .discussion}
 
 ## Data 
+The data [mgm4887293.3](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgm4887293.3)   [Valeria souza](https://es.wikipedia.org/wiki/Valeria_Souza_Saldivar)  
+
 Databases [MGnify](https://www.ebi.ac.uk/metagenomics/)    
           [Marine Metagenomics Portal](https://mmp.sfb.uit.no/)    
           [GM Repo](https://gmrepo.humangut.info/home)   
           [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/)  
 
-[Valeria souza](https://es.wikipedia.org/wiki/Valeria_Souza_Saldivar)  
 
-[mgp2321](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp2321)  
+
+
 [MG RAST analysis of this data](https://www.mg-rast.org/mgmain.html?mgpage=overview&metagenome=mgm4442467.3)
 [Basin 1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3426886/), [Basin 2](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3426889/)  
 Other references 
 
-Visit our [new curriculum development guide](https://carpentries.github.io/curriculum-development/).
-https://www.mg-rast.org/mgmain.html?mgpage=download&metagenome=mgm4442467.3
+## Understanding the dataset  
 
 > ## Teaching Tools
 >
