@@ -38,6 +38,15 @@ Amplicon study
 
 Shotgun  study  
 
+> ## Amplicon or Shotgun? `.discussion`
+>
+> Suppose you would like to compare the microbiome of sintomatic vs asintomatic pacients in certain disease.  
+> Which type or metageomics would you choose?  
+> If you would to investigate variation of a certain gene in a microorganisms community would you use Amplicon
+> or shotgun metagenomics?
+> In which cases would you use Shotgun metagenomics?  
+{: .discussion}
+
 ## Data 
 Databases [MGnify](https://www.ebi.ac.uk/metagenomics/)    
           [Marine Metagenomics Portal](https://mmp.sfb.uit.no/)    
