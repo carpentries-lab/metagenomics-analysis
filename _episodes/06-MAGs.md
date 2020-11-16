@@ -5,12 +5,12 @@ exercises: 0
 questions:
 - "Style Guide: How are keyboard key combinations written?"
 objectives:
-- "Explain keyboard key combination."
+- "Explain how a genome is reconstructed from a metagenome"
 keypoints:
 - "Keyboard keys need to use `<kbd>` HTML tag."
 ---
 
-## Emphasis
+## MAGs (Metagenome Assembly Genome)  
 
 Markdown treats asterisks (_*_) indicators of emphasis,
 and renders text marked up like this in italics.
