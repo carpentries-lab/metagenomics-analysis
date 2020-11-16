@@ -34,31 +34,8 @@ The diagram below shows the internal structure of a single episode file
 
 ## Maximum Line Length
 
-Limit all lines to a maximum of 100 characters.
-`bin/lesson_check.py` will report lines longer than 100 characters
-and this can block your contributions of being accepted.
+megahit -1 $FILE1 -2 $FILE2 -t 16 -o $root/MEGAHIT 
 
-The two reasons behind the decision to enforce a maximum line length are
-(1) make diff and merge easier in the command line and other user interfaces
-and
-(2) make update of translation of the lessons easier.
-
-## Locations and Names
-
-Episode files are stored in `_episodes`
-or, for the case of R Markdown files, `_episodes_rmd`
-so that [Jekyll][jekyll] will create a [collection][jekyll-collection] for them.
-Episodes are named `dd-subject.md`,
-where `dd` is a two-digit sequence number (with a leading 0)
-and `subject` is a one- or two-word identifier.
-For example,
-the first three episodes of this example lesson are
-`_episodes/01-design.md`,
-`_episodes/02-tooling.md`
-and `_episodes/03-formatting.md`.
-These become `/01-design/index.html`, `/02-tooling/index.html`, and `/03-formatting/index.html`
-in the published site.
-When referring to other episodes, use:
 
 {% raw %}
     [link text]({{ page.root }}{% link _episodes/dd-subject.md %})
@@ -66,32 +43,9 @@ When referring to other episodes, use:
 
 i.e., use [Jekyll's tag link](https://jekyllrb.com/docs/templates/#links) and the name of the file.
 
-## Episode Header
-
-Each episode's [YAML][yaml] header must contain:
-
-*   the episode's title
-*   time estimates for teaching and exercises
-*   motivating questions
-*   lesson objectives
-*   a summary of key points
-
-These values are stored in the header so that [Jekyll][jekyll] will read them
-and make them accessible in other pages as `site.episodes.the_episode.key`,
-where `the_episode` is the particular episode
-and `key` is the key in the [YAML][yaml] header.
-This lets us do things like
-list each episode's key questions in the syllabus on the lesson home page.
 
 ## Episode Structure
 
-The episode layout template in `_layouts/episode.html` automatically creates
-an introductory block that summarizes the lesson's teaching time,
-exercise time,
-key questions,
-and objectives.
-It also automatically creates a closing block that lists its key points.
-In between,
 authors should use only:
 
 *   paragraphs
@@ -100,11 +54,6 @@ authors should use only:
 *   ordered and unordered lists
 *   code samples (described below).
 *   special blockquotes (described below)
-
-Authors should *not* use:
-
-*   sub-titles (instead, use H2 subheadings (`##`) in the episode files)
-*   HTML layout (e.g., `div` elements).
 
 
 > ## Linking section IDs
