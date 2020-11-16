@@ -3,10 +3,12 @@ title: "Background and Metadata"
 teaching: 10
 exercises: 0
 questions:
-- "GitHub, Markdown, and Jekyll, How are pages published?"
+- "What data are we using?"  
+- "Why is this experiment important?"  
 objectives:
-- "Explain how GitHub Pages produce web sites from Git repositories."
-- "Explain Jekyll's formatting rules."
+- "Why study E. coli?."
+- "What is the difference between shotgun and amplicon metagenomics?"  
+- "Understand the data set."
 keypoints:
 - "Lessons are stored in Git repositories on GitHub."
 - "Lessons are written in Markdown."
