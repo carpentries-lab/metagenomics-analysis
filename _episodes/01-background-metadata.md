@@ -65,6 +65,19 @@ That depends on the question of the study.
 
 
 ## Understanding the dataset  
+This metadata describes information on the *Ara-3* clones and the columns represent:
+
+| Column           | Description                                |
+|------------------|--------------------------------------------|
+| file_name	          | PR3_R.fastq				|
+| investigation_type	       | metagenome		|
+| seq_meth            | illumina	|
+| project_description	        |  16s Amplicon from red ponds at Cuatro Cienegas Basin			|
+| collection_date       | 2013-03-25 |
+| country          | Mexico |
+| feature         | pond water |
+| latitude              | 26.8717055555556	|
+| longitude        | .102.021061111111 |
 
 ~~~
 ---
