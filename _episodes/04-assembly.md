@@ -151,10 +151,7 @@ for the following special blockquotes:
 > Checklists.
 {: .checklist}
 
-> ## `.discussion`
->
-> Discussion questions.
-{: .discussion}
+
 
 > ## `.keypoints`
 >
