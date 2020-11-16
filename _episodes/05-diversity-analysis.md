@@ -8,8 +8,8 @@ exercises: 2
 questions:
 - "How to write a lesson using RMarkdown?"
 objectives:
-- "Understand \alpha diversity"
-- "Demonstrate how to include pieces of code, figures, and challenges."
+- "Understand α diversity"
+- "Understand β diversity"
 keypoints:
 - "Edit the .Rmd files not the .md files"
 - "Run `make serve` to knit documents and preview lesson website locally"
