@@ -1,5 +1,5 @@
 ---
-title: "Visualization"
+title: "Communities"
 teaching: 5
 exercises: 0
 questions:
