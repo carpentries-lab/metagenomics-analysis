@@ -36,6 +36,12 @@ The diagram below shows the internal structure of a single episode file
 
 
 
+> ## Activating metagenomic environment  
+>
+>conda activate metagenomics /home/ubuntu/.conda/envs/metagenomics  
+{: .code}
+
+
 {% raw %}
     [link text]({{ page.root }}{% link _episodes/dd-subject.md %})
 {% endraw %}
