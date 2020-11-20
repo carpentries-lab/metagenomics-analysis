@@ -17,10 +17,14 @@ keypoints:
 
 # Background  
 A metagenomics study is one in which we study the genetic composition of various
-species that coexist in a defined and preferably closed space. Examples of a closed
-space are parts of the human body, 
+species that coexist in a defined and preferably closed space. Examples of these
+studies are gut and nasopharinx human metagenomes that may be used in biomedical 
+research. There are also environmental samples that can be terrestrial or marine 
+metagenomes, and finally the agroindustry has interest in study the microorganism 
+communities that live in plant roots and leaves.
 
-## What is cuatro Cienegas  
+
+## Cuatro Cienegas  
 <a href="{{ page.root }}/fig/md-01-data-Stromatolites.jpeg">
   <img src="{{ page.root }}/fig/md-01-data-Stromatolites.jpeg" alt="Cuatro Cienegas" />
 </a>
