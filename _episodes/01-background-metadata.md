@@ -16,13 +16,13 @@ keypoints:
 ---
 
 # Background  
-A metagenomics study is one in which we study the genetic composition of various
-species that coexist in a defined and preferably closed space. Examples of these
-studies are gut and nasopharinx human metagenomes that may be used in biomedical 
-research. There are also environmental samples that can be terrestrial or marine 
-metagenomes, and finally the agroindustry has interest in study the microorganism 
-communities that live in plant roots and leaves.
-
+A metagenomic study is one in which we aim to understand the genetic composition 
+of the species that coexist in a defined and preferably closed space. The microbiome
+is the set of species that inhabit the same location. So, metagenomics studies try 
+to gain knowledge about the microbiome composition of some place. Gut and nasopharinx 
+human metagenomes are frequently used in biomedical research. Other examples of metagenome 
+studies are environmental samples either terrestrial or marine. Finally, the agroindustry 
+has interest in known trough metagenomics the microbiome that lives in plant roots and leaves.
 
 ## Cuatro Cienegas  
 <a href="{{ page.root }}/fig/md-01-data-Stromatolites.jpeg">
