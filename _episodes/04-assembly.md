@@ -55,7 +55,7 @@ MEGAHIT is a NGS de novo assembler for assembling large and complex metagenomics
 time- and cost-efficient manner.  
 
 ~~~
-    ./megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_result
+    megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_result
 ~~~
 {: .source}
 
@@ -87,5 +87,29 @@ The [template]({{ site.template_repo }}) provides three styles for code blocks:
 ~~~
 {: .source}
 
+~~~
+2020-11-21 05:33:32 - MEGAHIT v1.2.9                                                        
+2020-11-21 05:33:32 - Maximum number of available CPU thread is 2.                          
+2020-11-21 05:33:32 - Number of thread is reset to the 2.                                   
+2020-11-21 05:33:32 - Using megahit_core with POPCNT and BMI2 support                       
+2020-11-21 05:33:32 - Convert reads to binary library                                       
+2020-11-21 05:33:38 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/home/dcuser/dc_workshop/data/trimmed_fastq/JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz,/home/dcuser/dc_workshop/data/trimmed_fastq/JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz): pe, 1502854 reads, 251 max length'                                                                          
+2020-11-21 05:33:38 - b'INFO  utils/utils.h:152 - Real: 6.0234\tuser: 2.1600\tsys: 0.4680\tmaxrss: 160028'                          
+2020-11-21 05:33:38 - k-max reset to: 141                                                   
+2020-11-21 05:33:38 - Start assembly. Number of CPU threads 2                               
+2020-11-21 05:33:38 - k list: 21,29,39,59,79,99,119,141                                     
+2020-11-21 05:33:38 - Memory used: 2070839296                                               
+2020-11-21 05:33:38 - Extract solid (k+1)-mers for k = 21                                   
+2020-11-21 05:34:39 - Build graph for k = 21                                                
+2020-11-21 05:35:58 - Assemble contigs from SdBG for k = 21                                 
+2020-11-21 05:39:58 - Local assembly for k = 21                                             
+2020-11-21 05:41:00 - Extract iterative edges from k = 21 to 29                             
+2020-11-21 05:41:37 - Build graph for k = 29                                                
+2020-11-21 05:42:19 - Assemble contigs from SdBG for k = 29                                 
+2020-11-21 05:44:58 - Local assembly for k = 29                                             
+2020-11-21 05:46:53 - Extract iterative edges from k = 29 to 39                             
+2020-11-21 05:47:14 - Build graph for k = 39          
+~~~
+{: .bash}
                                              
 {% include links.md %}
