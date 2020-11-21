@@ -18,15 +18,6 @@ keypoints:
 - "Special sections may be callouts or challenges; other styles are used by the template itself."
 ---
 
-A lesson consists of one or more episodes,
-each of which has:
-
-*   a [YAML][yaml] header containing required values
-*   some teachable content
-*   some exercises
-
-The diagram below shows the internal structure of a single episode file
-(click on the image to see a larger version):
 
 <a href="{{ page.root }}/fig/episode-format.png">
   <img src="{{ page.root }}/fig/episode-format-small.png" alt="Formatting Rules" />
