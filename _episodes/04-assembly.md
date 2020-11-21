@@ -1,7 +1,7 @@
 ---
 title: "Metagenome Assembly"
-teaching: 10
-exercises: 0
+teaching: 30
+exercises: 10
 questions:
 - "Formatting: How are The Carpentries lessons formatted?"
 objectives:
