@@ -1,6 +1,6 @@
 ---
 layout: break
-title: "Coffee Break"
+title: "Taxonomic assignation"
 break: 15
 ---
 
