@@ -56,6 +56,8 @@ cd ~/dc_workshop/data/untrimmed_fastq
 
 curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz
 curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143795/JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz 
+curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R1.fastq.gz
+curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R2.fastq.gz
 ~~~
 {: .bash}
 
