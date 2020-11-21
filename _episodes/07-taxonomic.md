@@ -4,8 +4,8 @@ title: "Taxonomic assignation"
 break: 15
 ---
 
-Use the `break` layout for placeholder episodes representing coffee breaks and lunches.
-These episodes do *not* have exercises, questions, objectives, or keypoints in their metadata,
-but *must* have a "break" field to show how long the break is (in minutes).
+https://github.com/DerrickWood/kraken2/wiki/Manual#installation 
+https://genomics.sschmeier.com/ngs-taxonomic-investigation/index.html
+https://www.biostars.org/p/221964/
 
 {% include links.md %}
