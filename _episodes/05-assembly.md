@@ -29,7 +29,7 @@ keypoints:
 
 > ## Activating metagenomic environment  
 >
->conda activate metagenomics /home/ubuntu/.conda/envs/metagenomics  
+>conda activate /home/ubuntu/.conda/envs/metagenomics  
 {: .code}
 
 
