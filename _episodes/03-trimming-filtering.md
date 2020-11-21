@@ -124,11 +124,11 @@ $ cd ~/dc_workshop/data/untrimmed_fastq
 {: .bash}
 
 We are going to run Trimmomatic on one of our paired-end samples. 
-While using FastQC we saw that Nextera adapters were present in our samples. 
+While using FastQC we saw that Universal adapters were present in our samples. 
 The adapter sequences came with the installation of trimmomatic, so we will first copy these sequences into our current directory.
 
 ~~~
-$ cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/NexteraPE-PE.fa .
+$ cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/TruSeq3-PE.fa .
 ~~~
 {: .bash}
 
@@ -141,14 +141,14 @@ this trimming step. This command will take a few minutes to run.
 $ trimmomatic PE SRR2589044_1.fastq.gz SRR2589044_2.fastq.gz \
                 SRR2589044_1.trim.fastq.gz SRR2589044_1un.trim.fastq.gz \
                 SRR2589044_2.trim.fastq.gz SRR2589044_2un.trim.fastq.gz \
-                SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:NexteraPE-PE.fa:2:40:15 
+                SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 
 ~~~
 {: .bash}
 
 
 ~~~
 TrimmomaticPE: Started with arguments:
- SRR2589044_1.fastq.gz SRR2589044_2.fastq.gz SRR2589044_1.trim.fastq.gz SRR2589044_1un.trim.fastq.gz SRR2589044_2.trim.fastq.gz SRR2589044_2un.trim.fastq.gz SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:NexteraPE-PE.fa:2:40:15
+ SRR2589044_1.fastq.gz SRR2589044_2.fastq.gz SRR2589044_1.trim.fastq.gz SRR2589044_1un.trim.fastq.gz SRR2589044_2.trim.fastq.gz SRR2589044_2un.trim.fastq.gz SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15
 Multiple cores found: Using 2 threads
 Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
 Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
