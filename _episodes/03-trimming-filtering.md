@@ -138,27 +138,24 @@ discard any reads that do not have at least 25 bases remaining after
 this trimming step. This command will take a few minutes to run.
 
 ~~~
-$ trimmomatic PE SRR2589044_1.fastq.gz SRR2589044_2.fastq.gz \
-                SRR2589044_1.trim.fastq.gz SRR2589044_1un.trim.fastq.gz \
-                SRR2589044_2.trim.fastq.gz SRR2589044_2un.trim.fastq.gz \
-                SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 
+$ trimmomatic PE JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz \
+          JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz \ 
+          JP4DASH2120627WA TERAMPRESIZED_R1.trim.fastq.gz 
+          JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz \
+          JP4DASH2120 627WATERAMPRESIZED_R2.trim.fastq.gz \
+          JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz \
+          SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 
 ~~~
 {: .bash}
 
 
 ~~~
-TrimmomaticPE: Started with arguments:
- SRR2589044_1.fastq.gz SRR2589044_2.fastq.gz SRR2589044_1.trim.fastq.gz SRR2589044_1un.trim.fastq.gz SRR2589044_2.trim.fastq.gz SRR2589044_2un.trim.fastq.gz SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15
-Multiple cores found: Using 2 threads
-Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
-Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
-Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
-Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC'
-Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
-ILLUMINACLIP: Using 1 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
-Quality encoding detected as phred33
-Input Read Pairs: 1107090 Both Surviving: 885220 (79.96%) Forward Only Surviving: 216472 (19.55%) Reverse Only Surviving: 2850 (0.26%) Dropped: 2548 (0.23%)
-TrimmomaticPE: Completed successfully
+TrimmomaticPE: Started with arguments:  
+JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15                            
+Multiple cores found: Using 2 threads                                                       
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'                                                        ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences                                    Quality encoding detected as phred33                                                        
+Input Read Pairs: 1123987 Both Surviving: 751427 (66.85%) Forward Only Surviving: 341434 (30.38%) Reverse Only Surviving: 11303 (1.01%) Dropped: 19823 (1.76%)                          
+TrimmomaticPE: Completed successfully    
 ~~~
 {: .output}
 
