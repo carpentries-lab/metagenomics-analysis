@@ -54,12 +54,8 @@ It will take about 15 minutes to download the files.
 mkdir -p ~/dc_workshop/data/untrimmed_fastq/
 cd ~/dc_workshop/data/untrimmed_fastq
 
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/004/SRR2589044/SRR2589044_1.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/004/SRR2589044/SRR2589044_2.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/003/SRR2584863/SRR2584863_1.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/003/SRR2584863/SRR2584863_2.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_1.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_2.fastq.gz 
+curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz
+curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143795/JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz 
 ~~~
 {: .bash}
 
@@ -81,7 +77,7 @@ curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_2.fa
 The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the fastq format.
 
 ~~~
-$ gunzip SRR2584863_1.fastq.gz 
+$ gunzip ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz 
 ~~~
 {: .bash}
 
@@ -107,7 +103,7 @@ We can view the first complete read in one of the files our dataset by using `he
 the first four lines. 
 
 ~~~
-$ head -n 4 SRR2584863_1.fastq 
+$ head -n 4 ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq
 ~~~
 {: .bash}
 
@@ -165,12 +161,12 @@ very poor (`#` = a quality score of 2).
 
 > ## Exercise
 > 
-> What is the last read in the `SRR2584863_1.fastq ` file? How confident
+> What is the last read in the `ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
 > are you in this read? 
 > 
 >> ## Solution
 >> ~~~
->> $ tail -n 4 SRR2584863_1.fastq 
+>> $ tail -n 4 ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq
 >> ~~~
 >> {: .bash}
 >> 
@@ -375,12 +371,8 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >> {: .bash}
 >> 
 >> ~~~
->> -rw-rw-r-- 1 dcuser dcuser 545M Jul  6 20:27 SRR2584863_1.fastq
->> -rw-rw-r-- 1 dcuser dcuser 183M Jul  6 20:29 SRR2584863_2.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 309M Jul  6 20:34 SRR2584866_1.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 296M Jul  6 20:37 SRR2584866_2.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 124M Jul  6 20:22 SRR2589044_1.fastq.gz
->> -rw-rw-r-- 1 dcuser dcuser 128M Jul  6 20:24 SRR2589044_2.fastq.gz
+>> -rw-rw-r-- 1 dcuser dcuser 545M Jul  6 20:27 ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq
+>> -rw-rw-r-- 1 dcuser dcuser 183M Jul  6 20:29 ERR2143795/JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
 >> ~~~
 >> {: .output}
 >> 
@@ -400,16 +392,16 @@ You will see an automatically updating output message telling you the
 progress of the analysis. It will start like this: 
 
 ~~~
-Started analysis of SRR2584863_1.fastq
-Approx 5% complete for SRR2584863_1.fastq
-Approx 10% complete for SRR2584863_1.fastq
-Approx 15% complete for SRR2584863_1.fastq
-Approx 20% complete for SRR2584863_1.fastq
-Approx 25% complete for SRR2584863_1.fastq
-Approx 30% complete for SRR2584863_1.fastq
-Approx 35% complete for SRR2584863_1.fastq
-Approx 40% complete for SRR2584863_1.fastq
-Approx 45% complete for SRR2584863_1.fastq
+Started analysis of JP4DAS20627WATERAMPRESIZED_R1.fastq
+Approx 5% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
+Approx 10% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
+Approx 15% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
+Approx 20% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
+Approx 25% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
+Approx 30% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
+Approx 35% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
+Approx 40% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
+Approx 45% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
 ~~~
 {: .output}
 
@@ -418,11 +410,11 @@ six of our FASTQ files. When the analysis completes, your prompt
 will return. So your screen will look something like this:
 
 ~~~
-Approx 80% complete for SRR2589044_2.fastq.gz
-Approx 85% complete for SRR2589044_2.fastq.gz
-Approx 90% complete for SRR2589044_2.fastq.gz
-Approx 95% complete for SRR2589044_2.fastq.gz
-Analysis complete for SRR2589044_2.fastq.gz
+Approx 80% complete for JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
+Approx 85% complete for JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
+Approx 90% complete for JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
+Approx 95% complete for JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
+Analysis complete for JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
 $
 ~~~
 {: .output}
@@ -436,14 +428,15 @@ $ ls
 {: .bash}
 
 ~~~
-SRR2584863_1.fastq        SRR2584866_1_fastqc.html  SRR2589044_1_fastqc.html
-SRR2584863_1_fastqc.html  SRR2584866_1_fastqc.zip   SRR2589044_1_fastqc.zip
-SRR2584863_1_fastqc.zip   SRR2584866_1.fastq.gz     SRR2589044_1.fastq.gz
-SRR2584863_2_fastqc.html  SRR2584866_2_fastqc.html  SRR2589044_2_fastqc.html
-SRR2584863_2_fastqc.zip   SRR2584866_2_fastqc.zip   SRR2589044_2_fastqc.zip
-SRR2584863_2.fastq.gz     SRR2584866_2.fastq.gz     SRR2589044_2.fastq.gz
+JP4DASH2120627WATERAMPRESIZED_R1.fastq       
+JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html  
+JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip   
+JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html  
+JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip   
+JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz   
 ~~~
 {: .output}
+
 
 For each input FASTQ file, FastQC has created a `.zip` file and a
 `.html` file. The `.zip` file extension indicates that this is 
@@ -522,12 +515,8 @@ directory we just created `~/Desktop/fastqc_html`.
 You should see a status output like this:
 
 ~~~
-SRR2584863_1_fastqc.html                      100%  249KB 152.3KB/s   00:01    
-SRR2584863_2_fastqc.html                      100%  254KB 219.8KB/s   00:01    
-SRR2584866_1_fastqc.html                      100%  254KB 271.8KB/s   00:00    
-SRR2584866_2_fastqc.html                      100%  251KB 252.8KB/s   00:00    
-SRR2589044_1_fastqc.html                      100%  249KB 370.1KB/s   00:00    
-SRR2589044_2_fastqc.html                      100%  251KB 592.2KB/s   00:00  
+JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html                      100%  249KB 152.3KB/s   00:01    
+JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html                      100%  254KB 219.8KB/s   00:01    
 ~~~
 {: .output}
 
@@ -578,10 +567,10 @@ $ ls
 {: .bash}
 
 ~~~
-SRR2584863_1_fastqc.html  SRR2584866_1_fastqc.html  SRR2589044_1_fastqc.html
-SRR2584863_1_fastqc.zip   SRR2584866_1_fastqc.zip   SRR2589044_1_fastqc.zip
-SRR2584863_2_fastqc.html  SRR2584866_2_fastqc.html  SRR2589044_2_fastqc.html
-SRR2584863_2_fastqc.zip   SRR2584866_2_fastqc.zip   SRR2589044_2_fastqc.zip
+JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html
+JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip 
+JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html
+JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip 
 ~~~
 {: .output}
 
