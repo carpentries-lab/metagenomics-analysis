@@ -15,4 +15,9 @@ https://github.com/DerrickWood/kraken2/wiki/Manual#installation
 https://genomics.sschmeier.com/ngs-taxonomic-investigation/index.html  
 https://www.biostars.org/p/221964/  
 
+~~~
+kraken2 
+~~~
+{: .code}
+
 {% include links.md %}
