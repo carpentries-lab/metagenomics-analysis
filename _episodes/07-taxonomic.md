@@ -59,9 +59,17 @@ kraken report
 ~~~
 {: .output}
 
-Several visualizations  
+## Visualization of taxonomic assignation results  
+[Krona](https://github.com/marbl/Krona/wiki) is 
+
+~~~
 krona updateTaxonomy.sh
-https://github.com/marbl/Krona/wiki
+cut -f2,3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken >  krona.input
+ ktImportTaxonomy krona.input -o krona.out.html
+grep -v $'\t'0 krona.input >krona.input2  
+ ktImportTaxonomy krona.input2 -o krona2.out.html
+ ~~~
+ :{ .bash}
 
 <a href="{{ page.root }}/fig/snapshot.svg">
   <img src="{{ page.root }}/fig/snapshot.svg" alt="Krona Visualization" />
