@@ -68,6 +68,5 @@ https://github.com/marbl/Krona/wiki
 </a>
 
 Pavian
-https://github.com/fbreitwieser/pavian
-https://fbreitwieser.shinyapps.io/pavian/.
+[Pavian](https://github.com/fbreitwieser/pavian) is a tool for interactive analysis of metagenomics classification results that supports Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and Shiny, but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) to visualize our results.  
 {% include links.md %}
