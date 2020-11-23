@@ -81,4 +81,4 @@ The data used in this workshop is available on FigShare. Because this workshop w
 
 [Zenodo Data Carpentry MetaGenomics Alfa 2.0](https://figshare.com/articles/Data_Carpentry_Genomics_beta_2_0/7726454)
 
-More information about these data will be presented in the [first lesson of the workshop]().
+More information about these data will be presented in the [first lesson of the workshop](https://carpentries-incubator.github.io/metagenomics/01-background-metadata/index.html).
