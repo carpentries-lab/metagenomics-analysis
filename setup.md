@@ -6,12 +6,26 @@ title: Setup
 # Overview
 
 This workshop is designed to be run on pre-imaged Amazon Web Services (AWS)
-instances. With the exception of a spreadsheet program, all of the software and data used in the workshop are hosted on an Amazon 
+instances. With the exception of a spreadsheet program, all of the command line software and data used in the workshop are hosted on an Amazon 
 Machine Image (AMI). Please follow the instructions below to prepare your computer for the workshop:
 
-- Required additional software + Option A   
-**OR**
-- Required additional software + Option B
+- Accounts in online webservers (Rstudio cloud + MG-RAST)  
+- Required additional software + AWS
+
+## Accounts in on line servers  
+- This lesson requires an account in [Rstudio cloud](https://rstudio.cloud/). 
+ 1. Select "Get Started for Free" 
+ 2. Click "Sign Up"
+ 3. Chose your credentials to sign up 
+ 
+- This lesson requires an account in [MG-Rast](https://www.mg-rast.org/). 
+1. Go to [MG-RAST](https://www.mg-rast.org/)  
+2. Click on "Register" at the top right corner.  
+3. Fill in the form and click on "register" at the bottom right. 
+
+Please consider that MG-RAST consider may take several days to authorize an account.
+
+
 
 ## Required additional software
 
@@ -65,6 +79,6 @@ If you're an Instructor or Maintainer or want to contribute to these lessons, pl
 
 The data used in this workshop is available on FigShare. Because this workshop works with real data, be aware that file sizes for the data are large. Please read the FigShare page linked below for information about the data and access to the data files.
 
-[FigShare Data Carpentry Genomics Beta 2.0](https://figshare.com/articles/Data_Carpentry_Genomics_beta_2_0/7726454)
+[Zenodo Data Carpentry MetaGenomics Alfa 2.0](https://figshare.com/articles/Data_Carpentry_Genomics_beta_2_0/7726454)
 
-More information about these data will be presented in the [first lesson of the workshop](http://www.datacarpentry.org/organization-genomics/data/).
+More information about these data will be presented in the [first lesson of the workshop]().
