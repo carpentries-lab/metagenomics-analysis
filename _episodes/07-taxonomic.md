@@ -62,13 +62,14 @@ kraken report
 ~~~
 krona updateTaxonomy.sh
 ~~~
+{: .language-bash}
 
 ~~~
 cut -f2,3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken >  krona.input
 ktImportTaxonomy krona.input -o krona.out.html
 scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/results/krona*html . 
 ~~~
-:{ .bash}
+{: .language-bash}
 
 
 ~~~
@@ -76,13 +77,13 @@ grep -v $'\t'0 krona.input >krona.input2
 ktImportTaxonomy krona.input2 -o krona2.out.html
 scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/results/krona*html . 
 ~~~
-:{ .bash}
+{: .language-bash}
 
 ~~~
 cut -f2,3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken >  krona.input
 ktImportTaxonomy krona.input -o krona.out.html
 ~~~
-:{ .bash}
+{: .language-bash}
 
 
 <a href="{{ page.root }}/fig/snapshot.svg">
