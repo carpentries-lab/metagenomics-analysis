@@ -95,5 +95,25 @@ time- and cost-efficient manner.
 2020-11-21 05:47:14 - Build graph for k = 39          
 ~~~
 {: .bash}
-                                             
+                             
+> ## Exercise
+> 
+> Ejercicio `ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
+> 
+>> ## Solution
+>> ~~~
+>> $ tail 
+>> ~~~
+>> {: .bash}
+>> 
+>> ~~~
+>> texto
+>> ~~~
+>> {: .output}
+>> 
+>> soluion
+>> 
+> {: .solution}
+{: .challenge}                             
+                             
 {% include links.md %}
