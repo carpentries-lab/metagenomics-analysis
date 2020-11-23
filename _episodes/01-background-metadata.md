@@ -103,13 +103,17 @@ This metadata describes information on the *Ara-3* clones and the columns repres
 | longitude        | -102.14|  
 | env_package  |	water|  
 | depth	| 0.165 |   
-| 
-~~~
--| -- |   
-variable: value
-other_variable: other_value
----
-...stuff in the page...
-~~~
-{: .source}
+
+
+> ## `.callout`
+>
+> An aside or other comment.
+{: .callout}
+
+> ## `.discussion`
+>
+> Discussion questions.
+{: .discussion}
+
+
 
