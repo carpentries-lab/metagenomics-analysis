@@ -24,3 +24,15 @@ The lesson template comes with several utilities to simplify lesson development 
 - [Computational Genomics tutorial](https://genomics.sschmeier.com/)
 - [Evomics](http://evomics.org/learning/genomics/)
 
+> ## `.callout`
+>
+> An aside or other comment.
+{: .callout}
+
+> ## `.discussion`
+>
+> Discussion questions.
+{: .discussion}
+
+                             
+{% include links.md %}
