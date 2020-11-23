@@ -60,21 +60,37 @@ kraken report
 {: .output}
 
 ## Visualization of taxonomic assignation results  
-[Krona](https://github.com/marbl/Krona/wiki) is 
+[Krona](https://github.com/marbl/Krona/wiki) is a hierarchical data visualization software. Krona allows data to be explored with zooming, multi-layered pie charts and includes support for several bioinformatics tools and raw data formats. 
 
 ~~~
 krona updateTaxonomy.sh
+~~~
+
+~~~
 cut -f2,3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken >  krona.input
- ktImportTaxonomy krona.input -o krona.out.html
+ktImportTaxonomy krona.input -o krona.out.html
+scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/results/krona*html . 
+~~~
+:{ .bash}
+
+
+~~~
 grep -v $'\t'0 krona.input >krona.input2  
- ktImportTaxonomy krona.input2 -o krona2.out.html
- ~~~
- :{ .bash}
+ktImportTaxonomy krona.input2 -o krona2.out.html
+scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/results/krona*html . 
+~~~
+:{ .bash}
+
+~~~
+cut -f2,3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken >  krona.input
+ktImportTaxonomy krona.input -o krona.out.html
+~~~
+:{ .bash}
+
 
 <a href="{{ page.root }}/fig/snapshot.svg">
   <img src="{{ page.root }}/fig/snapshot.svg" alt="Krona Visualization" />
 </a>
 
-Pavian
-[Pavian](https://github.com/fbreitwieser/pavian) is a tool for interactive analysis of metagenomics classification results that supports Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and Shiny, but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) to visualize our results.  
+Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and Shiny, but we can try the [Pavian demo WebSite]https://fbreitwieser.shinyapps.io/pavian/) to visualize our results.  
 {% include links.md %}
