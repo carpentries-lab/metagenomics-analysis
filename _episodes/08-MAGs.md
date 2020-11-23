@@ -192,15 +192,26 @@ e.g.:
 "Help" > "Check for updates"  
 
 ## Title Casing
+> ## Exercise
+> 
+> Ejercicio `ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
+> 
+>> ## Solution
+>> ~~~
+>> $ tail 
+>> ~~~
+>> {: .bash}
+>> 
+>> ~~~
+>> texto
+>> ~~~
+>> {: .output}
+>> 
+>> soluion
+>> 
+> {: .solution}
+{: .challenge}                             
+                             
 
-Lesson and episode titles should be written in title case e.g.
-
-> Saving the World, One Commit at a Time
-
-An exception should be made where the title includes the name of a tool/library/command that must be typed in lower case when used, e.g.
-
-> Data Visualisation with `matplotlib`
-
-(In HTML files, such as the workshop schedule and syllabus files in the [workshop webpage template](https://github.com/carpentries/workshop-template), tool/command/library names such as `matplotlib` in the example above can be correctly formatted using `<code></code>` tags.)
 
 {% include links.md %}
