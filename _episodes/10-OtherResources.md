@@ -21,3 +21,5 @@ The lesson template comes with several utilities to simplify lesson development 
 - [The power of metagenomic read recruitment](https://youtu.be/MqD4aN1p1qA)  
 - [Genome-resolved metagenomics: key concepts in reconstructing genomes from metagenomes](https://youtu.be/RjNdHGK4ruo)  
 - [Metapangenomics: A nexus between pangenomes and metagenomes](https://youtu.be/C3fHlccFxJw)  
+- [Computational Genomics tutorial](https://genomics.sschmeier.com/)
+
