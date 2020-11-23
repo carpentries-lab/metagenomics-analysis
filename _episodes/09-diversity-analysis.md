@@ -24,4 +24,26 @@ BiocManager::install("phyloseq")
 ~~~
 {: .lenguage-R}
 
+> ## Exercise
+> 
+> Ejercicio `ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
+> 
+>> ## Solution
+>> ~~~
+>> $ tail 
+>> ~~~
+>> {: .bash}
+>> 
+>> ~~~
+>> texto
+>> ~~~
+>> {: .output}
+>> 
+>> soluion
+>> 
+> {: .solution}
+{: .challenge}                             
+                             
+
+
 {% include links.md %}
