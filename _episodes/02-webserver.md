@@ -57,4 +57,13 @@ The lesson template comes with several utilities to simplify lesson development 
  ## Upload  your metadata.  
  ## Upload your data  
  ## Run the project  
- 
+ > ## `.callout`
+>
+> An aside or other comment.
+{: .callout}
+
+> ## `.discussion`
+>
+> Discussion questions.
+{: .discussion}
+
