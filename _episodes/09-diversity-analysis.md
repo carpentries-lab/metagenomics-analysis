@@ -46,4 +46,16 @@ BiocManager::install("phyloseq")
                              
 
 
+> ## `.callout`
+>
+> An aside or other comment.
+{: .callout}
+
+> ## `.discussion`
+>
+> Discussion questions.
+{: .discussion}
+
+                             
 {% include links.md %}
+
