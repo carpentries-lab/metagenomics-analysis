@@ -475,5 +475,17 @@ $ bash run_variant_calling.sh
 > you don't, there is a copy in `~/.solutions/wrangling-solutions/trimmed_fastq`. Does the number of variants change per sample?
 {: .challenge} 
 
+> ## `.callout`
+>
+> An aside or other comment.
+{: .callout}
+
+> ## `.discussion`
+>
+> Discussion questions.
+{: .discussion}
+
+                             
+{% include links.md %}
 
 
