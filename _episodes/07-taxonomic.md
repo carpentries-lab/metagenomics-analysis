@@ -140,5 +140,15 @@ Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and
 {: .challenge}                             
                              
 
+> ## `.callout`
+>
+> An aside or other comment.
+{: .callout}
 
+> ## `.discussion`
+>
+> Discussion questions.
+{: .discussion}
+
+                             
 {% include links.md %}
