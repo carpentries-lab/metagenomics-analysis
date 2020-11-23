@@ -22,4 +22,5 @@ The lesson template comes with several utilities to simplify lesson development 
 - [Genome-resolved metagenomics: key concepts in reconstructing genomes from metagenomes](https://youtu.be/RjNdHGK4ruo)  
 - [Metapangenomics: A nexus between pangenomes and metagenomes](https://youtu.be/C3fHlccFxJw)  
 - [Computational Genomics tutorial](https://genomics.sschmeier.com/)
+- [Evomics](http://evomics.org/learning/genomics/)
 
