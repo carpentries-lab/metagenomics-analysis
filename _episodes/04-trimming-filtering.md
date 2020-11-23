@@ -337,3 +337,13 @@ SRR2584863_2un.trim.fastq.gz  SRR2584866_2un.trim.fastq.gz  SRR2589044_2un.trim.
 >> is good enough for our workflow.
 > {: .solution}
 {: .challenge}
+
+> ## `.callout`
+>
+> An aside or other comment.
+{: .callout}
+
+> ## `.discussion`
+>
+> Discussion questions.
+{: .discussion}
