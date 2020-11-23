@@ -1,12 +1,12 @@
 ---
 source: Rmd
-title: "Taxonomic assignment"
+title: "Visualization"
 teaching: 10
 exercises: 2
 questions:
-- "R markdown How to write a lesson using RMarkdown?"
+- "How to visualize taxonomy assignation results?"
 objectives:
-- "Explain how to use RMarkdown with the new lesson template."
+- "Explain how to visualize kraken results"
 - "Demonstrate how to include pieces of code, figures, and challenges."
 keypoints:
 - "Edit the .Rmd files not the .md files"
