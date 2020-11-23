@@ -94,20 +94,20 @@ ktImportTaxonomy krona.input -o krona.out.html
 
 Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and Shiny, but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) to visualize our results.  
 
-<a href="{{ page.root }}/fig/uploadPavian.png">
-  <img src="{{ page.root }}/fig/uploadPavian.png" alt="upload Pavian" />
+<a href="{{ page.root }}/fig/uploadPavian.PNG">
+  <img src="{{ page.root }}/fig/uploadPavian.PNG" alt="upload Pavian" />
 </a>
 
-<a href="{{ page.root }}/fig/sample.png">
-  <img src="{{ page.root }}/fig/sample.png" alt="sample" />
+<a href="{{ page.root }}/fig/sample.PNG">
+  <img src="{{ page.root }}/fig/sample.PNG" alt="sample" />
 </a>
 
-<a href="{{ page.root }}/fig/SampleSelected.png">
-  <img src="{{ page.root }}/fig/SampleSelected.png" alt="Sample Selected" />
+<a href="{{ page.root }}/fig/SampleSelected.PNG">
+  <img src="{{ page.root }}/fig/SampleSelected.PNG" alt="Sample Selected" />
 </a>
 
-<a href="{{ page.root }}/fig/Comparison.png">
-  <img src="{{ page.root }}/fig/Comparison.png" alt="Comparison" />
+<a href="{{ page.root }}/fig/Comparison.PNG">
+  <img src="{{ page.root }}/fig/Comparison.PNG" alt="Comparison" />
 </a>
 
 {% include links.md %}
