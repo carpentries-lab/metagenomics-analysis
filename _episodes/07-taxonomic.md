@@ -62,6 +62,11 @@ kraken report
 Several visualizations  
 krona updateTaxonomy.sh
 https://github.com/marbl/Krona/wiki
+
+<a href="{{ page.root }}/fig/snapshot.svg">
+  <img src="{{ page.root }}/fig/snapshot.svg" alt="Krona Visualization" />
+</a>
+
 Pavian
 https://github.com/fbreitwieser/pavian
 https://fbreitwieser.shinyapps.io/pavian/.
