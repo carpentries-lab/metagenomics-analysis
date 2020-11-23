@@ -119,4 +119,26 @@ Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and
   <img src="{{ page.root }}/fig/Comparison.PNG" alt="Comparison" />
 </a>
 
+> ## Exercise
+> 
+> Ejercicio `ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
+> 
+>> ## Solution
+>> ~~~
+>> $ tail 
+>> ~~~
+>> {: .bash}
+>> 
+>> ~~~
+>> texto
+>> ~~~
+>> {: .output}
+>> 
+>> soluion
+>> 
+> {: .solution}
+{: .challenge}                             
+                             
+
+
 {% include links.md %}
