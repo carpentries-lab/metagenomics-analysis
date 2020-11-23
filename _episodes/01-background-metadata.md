@@ -92,18 +92,20 @@ This metadata describes information on the *Ara-3* clones and the columns repres
 
 | Column           | Description                                |
 |------------------|--------------------------------------------|
-| file_name	          | PR3_R.fastq				|
+| file_name	          | JP4DASH2120627WATERAMPRESIZED.fasta				|
 | investigation_type	       | metagenome		|
 | seq_meth            | illumina	|
-| project_description	        |  16s Amplicon from red ponds at Cuatro Cienegas Basin			|
-| collection_date       | 2013-03-25 |
+| project_description	        |  1This project is a teaching project and uses data from Okie et al Elife 2020			|
+| collection_date       | 2012-06-27 |
 | country          | Mexico |
 | feature         | pond water |
-| latitude              | 26.8717055555556	|
-| longitude        | .102.021061111111 |
-
+| latitude              | 26.8717055555556	|  
+| longitude        | -102.14|  
+| env_package  |	water|  
+| depth	| 0.165 |   
+| 
 ~~~
----
+-| -- |   
 variable: value
 other_variable: other_value
 ---
