@@ -19,10 +19,6 @@ keypoints:
 ---
 
 
-<a href="{{ page.root }}/fig/episode-format.png">
-  <img src="{{ page.root }}/fig/episode-format-small.png" alt="Formatting Rules" />
-</a>
-
 ## Assembling reads
 
 
