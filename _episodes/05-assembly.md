@@ -27,17 +27,11 @@ keypoints:
 
 
 
-> ## Activating metagenomic environment  
->
->conda activate /home/ubuntu/.conda/envs/metagenomics  
+## Activating metagenomic environment  
+~~~
+conda activate /home/ubuntu/.conda/envs/metagenomics  
+~~~
 {: .code}
-
-
-{% raw %}
-    [link text]({{ page.root }}{% link _episodes/dd-subject.md %})
-{% endraw %}
-
-i.e., use [Jekyll's tag link](https://jekyllrb.com/docs/templates/#links) and the name of the file.
 
 
 ## Megahit options  
@@ -58,12 +52,6 @@ time- and cost-efficient manner.
     megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_result
 ~~~
 {: .source}
-
-
-The class specified at the bottom using an opening curly brace and colon,
-the class identifier with a leading dot,
-and a closing curly brace.
-The [template]({{ site.template_repo }}) provides three styles for code blocks:
 
 
 
