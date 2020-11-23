@@ -6,34 +6,25 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 
 {% include gh_variables.html %}
 
-For guidelines on how to develop curriculum content, please visit [The Carpentries Curriculum Development Handbook](https://carpentries.github.io/curriculum-development/).
+A lot of metagenomics analysis is done using command-line tools for three reasons:
+1) you will often be working with a large number of files, and working through the command-line rather than through a graphical user interface (GUI) allows you to automate repetitive tasks,
+2) you will often need more compute power than is available on your personal computer, and connecting to and interacting with remote computers requires a command-line interface, and
+3) you will often need to customize your analyses, and command-line tools often enable more customization than the corresponding GUI tools (if in fact a GUI tool even exists).
 
-This lesson shows how to use [The Carpentries]({{ site.carpentries_site}})
-lesson template. The materials below assume familiarity with tools such as GitHub, Markdown, and Jekyll. For more guidance, please visit the [Technological introductions](https://carpentries.github.io/curriculum-development/technological-introductions.html) section of The Carpentries Curriculum Development Handbook.
-   
-For guidelines on how to help improve our lessons and this template,
-please see [the contribution guidelines][contributing];
-for guidelines on how to set up your machine to preview changes locally,
-please see [the setup instructions]({{ page.root }}{% link setup.md %}).
+In a previous lesson, you learned how to use the bash shell to interact with your computer through a command line interface. In this lesson, you will be applying this new knowledge to carry out a common metagenomics workflow - identifying Operational Taxonomic Unities (OTUs) among samples taken from two metagenomes within a location. We will be starting with a set of sequenced reads (.fastq files), performing some quality control steps, assembly those reads into contigs, and ending by identifying and visualizing the OTUs among these samples.
+
+As you progress through this lesson, keep in mind that, even if you aren’t going to be doing this same workflow in your research, you will be learning some very important lessons about using command-line bioinformatic tools. What you learn here will enable you to use a variety of bioinformatic tools with confidence and greatly enhance your research efficiency and productivity.
 
 > ## Prerequisites
 >
 > Use the `.prereq` style to specify prerequisites.
 {: .prereq}
 
-> ## Ten Things You Need To Know
+> ## Things You Need To Know
 >
 > 0.  Don't panic.
-> 1.  Create a new lesson by using GitHub Import, *not* by forking.
-> 2.  Run `bin/lesson_initialize.py` *once* in a new lesson repository to set up standard files.
-> 3.  Run `make lesson-check` to check that the lesson is formatted correctly.
-> 4.  Put lesson episodes in `_episodes` (or `_episodes_rmd` if you are writing in RMarkdown).
-> 5.  Run `make serve` to preview the lesson website locally.
-> 6.  Do *not* commit the generated HTML files in the `_site` directory.
-> 7.  Style blocks and code samples by putting `{: .stylename}` on a newline *after* the block or code.
-> 8.  Put solutions inside challenges using nested blockquotes.
-> 9.  File issues and template fixes in the [styles repository][styles],
->     and enhancements to this documentation in this one.
+> 1.  Everything is going to be fine.}
+> 2.  We are learning togheter.
 {: .checklist}
 
 {% include links.md %}
