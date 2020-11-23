@@ -92,15 +92,18 @@ ktImportTaxonomy krona.input -o krona.out.html
   <img src="{{ page.root }}/fig/snapshot.svg" alt="Krona Visualization" />
 </a>
 
-Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and Shiny, but we can try the [Pavian demo WebSite]https://fbreitwieser.shinyapps.io/pavian/) to visualize our results.  
+Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and Shiny, but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) to visualize our results.  
 
+<a href="{{ page.root }}/fig/uploadPavian.png">
+  <img src="{{ page.root }}/fig/uploadPavian.png" alt="upload Pavian" />
+</a>
 
 <a href="{{ page.root }}/fig/sample.png">
-  <img src="{{ page.root }}/fig/sample.png" alt="sample.png" />
+  <img src="{{ page.root }}/fig/sample.png" alt="sample" />
 </a>
 
 <a href="{{ page.root }}/fig/SampleSelected.png">
-  <img src="{{ page.root }}/fig/SampleSelected.png" alt="SampleSelected.png" />
+  <img src="{{ page.root }}/fig/SampleSelected.png" alt="Sample Selected" />
 </a>
 
 <a href="{{ page.root }}/fig/Comparison.png">
