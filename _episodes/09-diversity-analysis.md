@@ -4,7 +4,8 @@ title: "Diversity analysis"
 teaching: 10
 exercises: 2
 questions:
-- "How to write a lesson using RMarkdown?"
+- "What is diversity intra metagenome?"
+- "What is diversity inter metagenomes?"
 objectives:
 - "Understand α diversity"
 - "Understand β diversity"
