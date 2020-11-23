@@ -60,4 +60,9 @@ kraken report
 {: .output}
 
 Several visualizations  
+krona updateTaxonomy.sh
+https://github.com/marbl/Krona/wiki
+Pavian
+https://github.com/fbreitwieser/pavian
+https://fbreitwieser.shinyapps.io/pavian/.
 {% include links.md %}
