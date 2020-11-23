@@ -9,10 +9,11 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 A lot of metagenomics analysis is done using command-line tools for three reasons:
 1) you will often be working with a large number of files, and working through the 
 command-line rather than through a graphical user interface (GUI) allows you to automate 
-repetitive tasks,
+repetitive tasks,  
 
 2) you will often need more compute power than is available on your personal computer, 
-and connecting to and interacting with remote computers requires a command-line interface, and
+and connecting to and interacting with remote computers requires a command-line interface, and  
+  
 3) you will often need to customize your analyses, and command-line tools often enable more 
 customization than the corresponding GUI tools (if in fact a GUI tool even exists).
 
@@ -23,7 +24,8 @@ As you progress through this lesson, keep in mind that, even if you aren’t goi
 
 > ## Prerequisites
 >
-> This lesson assumes a working understanding of the bash shell. If you haven’t already completed the Shell Genomics lesson, and aren’t 
+> This lesson assumes a working understanding of the bash shell. If you haven’t already 
+> completed the Shell Genomics lesson, and aren’t 
 > familiar with the bash shell, please review those materials before starting this lesson.
 >
 > This lesson also assumes some familiarity with biological concepts, 
@@ -34,14 +36,14 @@ As you progress through this lesson, keep in mind that, even if you aren’t goi
 > will be given information on how to log-in to the AMI during the workshop. Learners using 
 > these materials for self-directed study will need to set up their own AMI. Information 
 > on setting up an AMI and accessing the required data is provided on the 
-> [Genomics Workshop setup page](http://carpentries-incubator.github.io/metagenomics/setup.html).
+> [Metagenomics Workshop setup page](http://carpentries-incubator.github.io/metagenomics/setup.html).
 >
 {: .prereq}
 
 > ## Things You Need To Know
 >
 > 0.  Don't panic.
-> 1.  Everything is going to be fine.}
+> 1.  Everything is going to be fine.
 > 2.  We are learning togheter.
 {: .checklist}
 
