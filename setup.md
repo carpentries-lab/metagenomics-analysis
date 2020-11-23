@@ -77,8 +77,8 @@ If you're an Instructor or Maintainer or want to contribute to these lessons, pl
 
 ### Data
 
-The data used in this workshop is available on FigShare. Because this workshop works with real data, be aware that file sizes for the data are large. Please read the FigShare page linked below for information about the data and access to the data files.
+The data used in this workshop are available on Zenodo. Because this workshop works with real data, be aware that file sizes for the data are large. Please read the Zenodo page linked below for information about the data and access to the data files. 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4285901.svg)](https://doi.org/10.5281/zenodo.4285901)
 
-[Zenodo Data Carpentry MetaGenomics Alfa 2.0](https://figshare.com/articles/Data_Carpentry_Genomics_beta_2_0/7726454)
 
 More information about these data will be presented in the [first lesson of the workshop](https://carpentries-incubator.github.io/metagenomics/01-background-metadata/index.html).
