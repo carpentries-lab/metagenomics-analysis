@@ -114,6 +114,17 @@ time- and cost-efficient manner.
 >> soluion
 >> 
 > {: .solution}
-{: .challenge}                             
+{: .challenge}          
+
+> ## `.callout`
+>
+> An aside or other comment.
+{: .callout}
+
+> ## `.discussion`
+>
+> Discussion questions.
+{: .discussion}
+
                              
 {% include links.md %}
