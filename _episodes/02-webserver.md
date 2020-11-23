@@ -1,5 +1,5 @@
 ---
-title: "Web servers"
+title: "Metagenomic web services"
 teaching: 5
 exercises: 0
 questions:
