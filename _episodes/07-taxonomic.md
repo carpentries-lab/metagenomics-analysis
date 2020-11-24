@@ -11,7 +11,30 @@ keypoints:
 - "Kraken2 is a program for taxonomic assignation"
 ---
 
-¿How does taxonomic assignators work?
+After reads has been assembled into contigs, or even using unassembled reads, 
+the taxonomic identity assignation of each sequence into Operational Taxonomic
+Units (OTUs) can be done. Complete genomes must be used as a comparison database
+in this assignation process.  
+
+There are many programs for doing taxonomic mapping, almost all of them use one 
+of the following strategies:  
+
+1. BLAST: Using BLAST or DIAMOND, these mappers search for the most likely hit 
+for each sequence within a database of genomes. This strategy is slow.    
+  
+2. Kmers: A genome database is broken into pieces of length k, search 
+for unique pieces by taxonomic group, from species to LCA. Then they break the 
+sequence into pieces of length k, look for where these are placed within the tree 
+and make the classification with the most probable position.    
+
+3. Markers: They look for markers of a database made a priori in the sequences 
+to be classified and assign the taxonomy depending on the hits obtained  
+
+
+> ## Taxonomy assignation software `.callout`
+>
+> There are three strategies for taxonomy assignation: blast, kmers and markers. 
+{: .callout}
 
 
 ~~~
@@ -140,10 +163,6 @@ Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and
 {: .challenge}                             
                              
 
-> ## `.callout`
->
-> An aside or other comment.
-{: .callout}
 
 > ## `.discussion`
 >
