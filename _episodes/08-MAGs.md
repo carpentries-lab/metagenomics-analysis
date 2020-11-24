@@ -9,110 +9,31 @@ objectives:
 keypoints:
 - "Keyboard keys need to use `<kbd>` HTML tag."
 ---
+## Bining 
+As the contigs that we obtain from the assembly come from different species, 
+it is necessary to separate them by species to be able to analyze each species 
+individually. This process is called binning.  
+
+We can do binning based on the taxonomic assignment, or using characteristics 
+of the contigs, such as their GC content, coverage or the use of tetranucleotides.
+
+Binning dependent on taxonomy is relatively trivial, but there are different algorithms 
+for binning independent of taxonomy. These algorithms can be based on composition or abundance,
+Maxbin is a binning algorithm with an hybrid composition-abundance approach.  
+
+> ## Bining strategies `.callout`
+>
+> Reads can be assembled into contigs according to two main strategies: composition and abbundance.
+> Many binning algorithms uses a combination of both strategies.  
+{: .callout}
 
 ## MAGs (Metagenome Assembly Genome)  
-
-Markdown treats asterisks (_*_) indicators of emphasis,
-and renders text marked up like this in italics.
-We use emphasis
-
-- to highlight a word, phrase, or character where it is itself the object of discussion.
-
-  For example,
-
-  ~~~
-  We want to output the lines that do not contain the word *the*.
-  ~~~
-  {: .source}
-
-  This is preferable instead of the use of quotation marks.
-
-  See the "Keyboard Key" section for characters or keyboard keys that the learn should type.
-
-- for words and phrases that are still regarded as unfamiliar.
-- for titles of books, periodicals, plays, films, TV, radio series, and music albums.
-
-  For example,
-
-  ~~~
-  We will use a file that contains three haikus taken from a 1998 competition in *Salon* magazine.
-  ~~~
-  {: .source}
-
-## Strong Emphasis
-
-Markdown treats double asterisks (_**_) as indicators of strong emphasis,
-and renders text marked up like this in boldface.
-We use strong emphasis
-
-- to highlight a newly introduced term, often one that is going to be defined or explained.
-  For example,
-
-  ~~~
-  We are all familiar with **graphical user interfaces**
-  ~~~
-  {: .source}
-
-## Span of Code
-
-Markdown treats backtick quotes (_\`_) as indicators of a span of code.
-We use span of code
-
-- to highlight part of some code where it is itself the object of discussion.
-
-  For example,
-
-  ~~~
-  For example, `range(3, 10, 2)` produces
-  ~~~
-  {: .source}
-- to highlight one command where it is itself the object of discussion.
-
-  For example,
-
-  ~~~
-  you can run it by opening a terminal and typing `bash`.
-  ~~~
-  {: .source}
-
-  When the object of discussion is the program or language in a broad sense,
-  we don't use span of code. For example,
-
-  ~~~
-  The most popular Unix shell is Bash.
-  ~~~
-  {: .source}
-- to highlight one function where it is itself the object of discussion.
-
-  For example,
-
-  ~~~
-  `len` is much faster than any function we could write ourselves.
-  ~~~
-  {: .source}
-- to highlight one file name where it is itself the object of discussion.
-
-  For example,
-
-  ~~~
-  `my_file.txt` can also be viewed in your GUI file explorer.
-  ~~~
-  {: .source}
-- to highlight any sequence of character that the user is expected to type.
-
-## Keyboard Key
-
-When making reference to a keyboard key that the reader should press
-the HTML tag `<kbd>` **must** be used to enclose the key label.
-For example, "to delete the cell press <kbd>D</kbd>" should be write as
-
-~~~
-to delete the cell press <kbd>D</kbd>
-~~~
-{: .html}
-
-The table below covers most of the keyboard key labels.
-
+After doing the binning we can assemble MAGs, either by putting together the contigs 
+that correspond to a single species or using the reads that were used to assemble 
+those contigs to reassemble a genome using a traditional assembler
+The quality of a MAG is highly dependent on the size of the genome of the species, 
+its abundance in the community, and the depth at which we sequence. Anvio is a good program to see the quality of our MAGs
+ 
 |-------------------+--------------------------------------------------------------------+--------------------------|
 |   Keyboard key    |                             Style Note                             |         Example          |
 |-------------------+--------------------------------------------------------------------+--------------------------|
@@ -165,31 +86,6 @@ The table below covers most of the keyboard key labels.
 |     Up arrow      |                Use Unicode "Upwards arrow" (8593).                 |      `<kbd>↑</kbd>`      |
 |-------------------+--------------------------------------------------------------------+--------------------------|
 
-## Keyboard Key Combination
-
-When making reference to a keyboard key combination that the reader should press,
-insert a plus sign **without space** between each one of the keys.
-For example, "press <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit nano" should be written as:
-
-~~~
-press <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit nano.
-~~~
-{: .html}
-
-
-## Links
-
-Please label links with meaningful texts, in order to [improve
-accessibility](https://webaccess.berkeley.edu/ask-pecan/click-here). Please avoid
-`click here` or similar.
-
-## Menu Items
-
-Use double quotes for menu and submenu items. For multiple menu and submenu options in a sequence, use the right angle bracket or greater than sign.
-
-e.g.:
-
-"Help" > "Check for updates"  
 
 ## Title Casing
 > ## Exercise
@@ -214,10 +110,6 @@ e.g.:
                              
 
 
-> ## `.callout`
->
-> An aside or other comment.
-{: .callout}
 
 > ## `.discussion`
 >
