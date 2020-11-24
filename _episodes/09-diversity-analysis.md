@@ -26,17 +26,19 @@ Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio
 [Rstudio cloud](https://rstudio.cloud/) and select "GET STARTED FOR FREE"
 
 ## α diversity  
-|-------------------+------------------------------------------------------------------------------|
-| Diversity Indices |                             Description                                      |
-|-------------------+------------------------------------------------------------------------------|
-|      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.|
-|-------------------+------------------------------------------------------------------------------|
-|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness. |                               
-|-------------------+------------------------------------------------------------------------------|
-|      ACE          | Abundance based coverage estimator of species richness.                      |
-|-------------------+------------------------------------------------------------------------------|
-|     Chao1         | Abundance based coverage estimator of species richness.                      |         
-|-------------------+------------------------------------------------------------------------------|
+
+|-------------------+------------------------------------------------------------------------------|  
+| Diversity Indices |                             Description                                      |  
+|-------------------+------------------------------------------------------------------------------|  
+|      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.|  
+|-------------------+------------------------------------------------------------------------------|  
+|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness. |                                 
+|-------------------+------------------------------------------------------------------------------|  
+|      ACE          | Abundance based coverage estimator of species richness.                      |  
+|-------------------+------------------------------------------------------------------------------|  
+|     Chao1         | Abundance based coverage estimator of species richness.                      |           
+|-------------------+------------------------------------------------------------------------------|  
+
 
 - Shannon (H): <img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i\:ln{p_i}">
   Where S is the number of OTUs and <img src="https://render.githubusercontent.com/render/math?math=p_i">  the proportion of the community represented by OTU i. 
@@ -49,7 +51,7 @@ Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio
   Where <img src="https://render.githubusercontent.com/render/math?math=S_{abund}"> and <img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  are the number of abundant and rare OTUs respectively,  <img src="https://render.githubusercontent.com/render/math?math=C_{ACE}"> is the sample abundance coverage estimator, <img src="https://render.githubusercontent.com/render/math?math=F_1"> is the frequency of singletons, and <img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> is the estimated coefficient  of variation in rare OTUs.
 
 - Chao1 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Os}+\frac{F_1(F_1-1)}{2(F_2+1)}">  
- Where <img src="https://render.githubusercontent.com/render/math?math=F_1">  and <img src="https://render.githubusercontent.com/render/math?math=F_2">  are the count of singletons and doubletons respectively, and Sobs is the number of observed species.
+ Where <img src="https://render.githubusercontent.com/render/math?math=F_1"> and <img src="https://render.githubusercontent.com/render/math?math=F_2">  are the count of singletons and doubletons respectively, and Sobs is the number of observed species.
 
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
 In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
