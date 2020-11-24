@@ -42,6 +42,8 @@ In metagenomics this is equivalent to knowing if the sequencing depth was suffic
 |   Chao1           |                                                                              |      `<kbd>*</kbd>`      |
 |-------------------+------------------------------------------------------------------------------+--------------------------|
 
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+
 ## Distance between two communities  
 Diversity β measures how different two communities are, either in their composition (diversity)
 or in the abundance of the organisms that compose it (abundance). 
