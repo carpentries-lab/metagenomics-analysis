@@ -23,7 +23,9 @@ For example, Bray-Curtis dissimilarity, Jaccard distance or UniFrac are used.
 
 Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio in our data. 
 [Rstudio cloud](https://rstudio.cloud/) and select "GET STARTED FOR FREE"
+
 ## Alfa diversity  
+
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
 In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
 
