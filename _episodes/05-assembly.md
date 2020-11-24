@@ -20,7 +20,8 @@ keypoints:
 
 
 ## Assembling reads
-
+There are many programs to assemble metagenomes, but the main strategies they use are three: 
+Greedy extension, OLC and De Bruijn charts.
 
 
 ## Activating metagenomic environment  
