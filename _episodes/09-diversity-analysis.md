@@ -25,27 +25,26 @@ For example, Bray-Curtis dissimilarity, Jaccard distance or UniFrac are used.
 Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio in our data. 
 [Rstudio cloud](https://rstudio.cloud/) and select "GET STARTED FOR FREE"
 
-## Alfa diversity  
-
-The rarefaction curves allow us to know if the sampling was exhaustive or not. 
-In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
-
+## α diversity  
 |-------------------+------------------------------------------------------------------------------|
 | Diversity Indices |                             Description                                      |
 |-------------------+------------------------------------------------------------------------------|
-|      Shannon (D)  | Estimation of species richness and species evenness. More weigth on richness.|
+|      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.|
 |-------------------+------------------------------------------------------------------------------|
-|    Simpson's      |Estimation of species richness and species evenness. More weigth on evenness. |                                                                             
+|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness. |                                                                             
 |-------------------+------------------------------------------------------------------------------|
 |      ACE          | Abundance based coverage estimator of species richness.                      |
 |-------------------+------------------------------------------------------------------------------|
 |     Chao1         | Abundance based coverage estimator of species richness.           <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1"|         
 |-------------------+------------------------------------------------------------------------------|
 
-<img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i ln{p_i}">
-<img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{\sum_{i=1}^{S}p_i^2i}">
-<img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{a}{b}+\frac{c}{d}+\gamma^2">
-<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Os}+\frac{q}{b}">
+- Shannon (H): <img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i ln{p_i}">
+- Simpson's (D) <img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{\sum_{i=1}^{S}p_i^2i}">
+- ACE <img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{a}{b}+\frac{c}{d}+\gamma^2">
+- Chao1 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Os}+\frac{q}{b}">
+
+The rarefaction curves allow us to know if the sampling was exhaustive or not. 
+In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
 
 ## Distance between two communities  
 Diversity β measures how different two communities are, either in their composition (diversity)
