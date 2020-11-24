@@ -39,10 +39,13 @@ In metagenomics this is equivalent to knowing if the sequencing depth was suffic
 |-------------------+------------------------------------------------------------------------------|
 |      ACE          | Abundance based coverage estimator of species richness.                      |
 |-------------------+------------------------------------------------------------------------------|
-|   Chao1           | Abundance based coverage estimator of species richness.                      |
+|     Chao1         | Abundance based coverage estimator of species richness.           <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1"|         
 |-------------------+------------------------------------------------------------------------------|
 
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+<img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i ln{p_i}">
+<img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{\sum_{i=1}^{S}p_i^2i}">
+<img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{a}{b}+\frac{c}{d}+\gamma^2">
+<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Os}+\frac{q}{b}">
 
 ## Distance between two communities  
 Diversity β measures how different two communities are, either in their composition (diversity)
