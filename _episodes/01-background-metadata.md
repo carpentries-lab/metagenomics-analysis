@@ -48,7 +48,8 @@ abundance (and our sequencing depth))) of the organisms in the community.
 It allows us to assemble regions of different genomes, with which we can investigate their genomic potential, i.e. what genes does it contain. It is more expensive because it requires greater depth of sequencing and requires more start gDNA because it does not include PCR amplification steps prior to library construction
 
 *Amplicon 16s* To do metagenomics of amplicons, the first step is to amplify the region of interest through PCR reactions.
-The primers we choose are VERY IMPORTANT. We always have biases that can change the results
+The primers we choose are VERY IMPORTANT. We always have biases that can change the results. Different primers show phylum specificity. 
+
 
 
 > ## Amplicon or Shotgun? 
@@ -60,13 +61,7 @@ The primers we choose are VERY IMPORTANT. We always have biases that can change 
 > In which cases would you use Shotgun metagenomics?  
 {: .discussion}
 
-> ## Choosing a set of primers
->
-> Are all primers the same? Suppose you would like to know wich Actinobacteria are present on the microbiome of certain environment.
-> Which primers would you chose? [Conservative Fragments in Bacterial 16S rRNA Genes and Primer Design for 16S Ribosomal DNA Amplicons in Metagenomic Studies](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0007401)
-> or shotgun metagenomics?
-> 
-{: .discussion}
+
 
 
 
