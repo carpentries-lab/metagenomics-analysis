@@ -30,17 +30,17 @@ Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
 In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
 
-|-------------------+------------------------------------------------------------------------------+--------------------------|
-| Diversity Indices |                             Description                                      |         Formula          |
-|-------------------+------------------------------------------------------------------------------+--------------------------|
-|      Shannon (D)  | Estimation of species richness and species evenness. More weigth on richness.|    $\alpha$              |
-|-------------------+------------------------------------------------------------------------------+--------------------------|
-|    Simpson's      |                                                                              |      `<kbd>1</kbd>`      |
-|-------------------+------------------------------------------------------------------------------+--------------------------|
-|      ACE          |                                                                              |      `<kbd>*</kbd>`      |
-|-------------------+------------------------------------------------------------------------------+--------------------------|
-|   Chao1           |                                                                              |      `<kbd>*</kbd>`      |
-|-------------------+------------------------------------------------------------------------------+--------------------------|
+|-------------------+------------------------------------------------------------------------------|
+| Diversity Indices |                             Description                                      |
+|-------------------+------------------------------------------------------------------------------|
+|      Shannon (D)  | Estimation of species richness and species evenness. More weigth on richness.|
+|-------------------+------------------------------------------------------------------------------|
+|    Simpson's      |Estimation of species richness and species evenness. More weigth on evenness. |                                                                             
+|-------------------+------------------------------------------------------------------------------|
+|      ACE          | Abundance based coverage estimator of species richness.                      |
+|-------------------+------------------------------------------------------------------------------|
+|   Chao1           | Abundance based coverage estimator of species richness.                      |
+|-------------------+------------------------------------------------------------------------------|
 
 <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
