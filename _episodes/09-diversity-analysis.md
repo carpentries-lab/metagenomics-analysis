@@ -14,7 +14,8 @@ keypoints:
 ---
 
 Once we know what our metagenome is made of, we can do the diversity analysis. 
-Here we can see the diversity α (within the group) and β (between groups).  
+Here we can see the diversity α (within the group) and β (between groups).   
+
 - α Diversity: It can be measured by calculating wealth, 
  Eveness Shannon diversity index, Simpson diversity index, Chao1, etc.  
  
