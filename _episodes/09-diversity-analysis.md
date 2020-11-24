@@ -30,6 +30,18 @@ Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
 In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
 
+|-------------------+------------------------------------------------------------------------------+--------------------------|
+| Diversity Indices |                             Description                                      |         Formula          |
+|-------------------+------------------------------------------------------------------------------+--------------------------|
+|      Shannon (D)  | Estimation of species richness and species evenness. More weigth on richness.|    $\alpha$              |
+|-------------------+------------------------------------------------------------------------------+--------------------------|
+|    Simpson's      |                                                                              |      `<kbd>1</kbd>`      |
+|-------------------+------------------------------------------------------------------------------+--------------------------|
+|      ACE          |                                                                              |      `<kbd>*</kbd>`      |
+|-------------------+------------------------------------------------------------------------------+--------------------------|
+|   Chao1           |                                                                              |      `<kbd>*</kbd>`      |
+|-------------------+------------------------------------------------------------------------------+--------------------------|
+
 ## Distance between two communities  
 Diversity β measures how different two communities are, either in their composition (diversity)
 or in the abundance of the organisms that compose it (abundance). 
