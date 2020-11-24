@@ -31,7 +31,7 @@ Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio
 |-------------------+------------------------------------------------------------------------------|
 |      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.|
 |-------------------+------------------------------------------------------------------------------|
-|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness. |                                                                             
+|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness. |                               
 |-------------------+------------------------------------------------------------------------------|
 |      ACE          | Abundance based coverage estimator of species richness.                      |
 |-------------------+------------------------------------------------------------------------------|
