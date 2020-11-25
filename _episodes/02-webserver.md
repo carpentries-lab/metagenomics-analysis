@@ -63,15 +63,15 @@ The lesson template comes with several utilities to simplify lesson development 
 </a>
 
  <a href="{{ page.root }}/fig/bioinformatic workflow.png">
-  <img src="{{ page.root }}/fig/bioinformatic workflow" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/bioinformatic workflow.png" alt="Cog Metagenome" />
 </a>
 
 <a href="{{ page.root }}/fig/metagenomic workflow.png">
-  <img src="{{ page.root }}/fig/metagenomic workflow" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/metagenomic workflow.png" alt="Cog Metagenome" />
 </a>
 
 <a href="{{ page.root }}/fig/sesgos.png">
-  <img src="{{ page.root }}/fig/sesgos" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/sesgos.png" alt="Cog Metagenome" />
 </a>
 
 
