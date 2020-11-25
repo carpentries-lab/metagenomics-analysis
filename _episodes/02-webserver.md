@@ -54,12 +54,12 @@ The lesson template comes with several utilities to simplify lesson development 
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_subsystems.png" alt="Subsystems" />
 </a>
 
-<a href="{{ page.root }}/fig/Ensamblado(35).png">
-  <img src="{{ page.root }}/fig/Ensamblado(35).png" alt="Cog Metagenome" />
+<a href="{{ page.root }}/fig/Binning.png">
+  <img src="{{ page.root }}/fig/Binning.png" alt="Cog Metagenome" />
 </a>
 
-<a href="{{ page.root }}/fig/Binning(47).png">
-  <img src="{{ page.root }}/fig/Binning(47).png" alt="Cog Metagenome" />
+<a href="{{ page.root }}/fig/Assembly.png">
+  <img src="{{ page.root }}/fig/Assembly.png" alt="Cog Metagenome" />
 </a>
 
  ## Upload  your metadata.  
