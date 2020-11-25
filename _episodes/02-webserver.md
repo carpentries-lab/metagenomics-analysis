@@ -55,10 +55,10 @@ The lesson template comes with several utilities to simplify lesson development 
 </a>
 
 <a href="{{ page.root }}/fig/Binning(47).png">
-  <img src="{{ page.root }}/fig/Binning(47).png" { height: auto; width: auto; max-width: 300px; max-height: 300px; }  alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/Binning(47).png" alt="Cog Metagenome" />
 </a>
 
-<a href="{{ page.root }}/fig/Assembly(35).png">
+<a href="{{ page.root }}/fig/Assembly.png">
   <img src="{{ page.root }}/fig/Assembly(35).png" alt="Cog Metagenome" />
 </a>
 
