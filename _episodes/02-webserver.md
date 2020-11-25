@@ -58,8 +58,8 @@ The lesson template comes with several utilities to simplify lesson development 
   <img src="{{ page.root }}/fig/Binning(47).png" width="350" height="600" alt="Cog Metagenome" />
 </a>
 
-<a href="{{ page.root }}/fig/Assembly(35).png">
-  <img src="{{ page.root }}/fig/Assembly(35).png" alt="Cog Metagenome" />
+<a href="{{ page.root }}/fig/Ensamblado(35).png">
+  <img src="{{ page.root }}/fig/Ensamblado(35).png"width="500" height="600" alt="Cog Metagenome" />
 </a>
 
  <a href="{{ page.root }}/fig/bioinformatic workflow">
