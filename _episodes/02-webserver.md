@@ -62,6 +62,19 @@ The lesson template comes with several utilities to simplify lesson development 
   <img src="{{ page.root }}/fig/Assembly(35).png" alt="Cog Metagenome" />
 </a>
 
+ <a href="{{ page.root }}/fig/bioinformatic workflow">
+  <img src="{{ page.root }}/fig/bioinformatic workflow" alt="Cog Metagenome" />
+</a>
+
+<a href="{{ page.root }}/fig/metagenomic workflow">
+  <img src="{{ page.root }}/fig/metagenomic workflow" alt="Cog Metagenome" />
+</a>
+
+<a href="{{ page.root }}/fig/sesgos">
+  <img src="{{ page.root }}/fig/sesgos" alt="Cog Metagenome" />
+</a>
+
+
  ## Upload  your metadata.  
  ## Upload your data  
  ## Run the project  
