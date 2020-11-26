@@ -193,7 +193,30 @@ $ rm ranked
 ~~~
 :{ .bash}
 
+~~~
+$ cut -f1 JC1ASEDIMENT120627.merged  | while read line;\
+ do \
+    echo perl -ne  'print if !/119065/'  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table >  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table-wc;\
+ done    
+~~~
+:{ .bash}
 
+~~~
+$ cut -f1 JC1ASEDIMENT120627.merged  | while read line;\
+ do \
+    echo perl -ne  'print if !/$line/'  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table >  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table-wc;\
+ done    
+~~~
+:{ .bash}
+
+
+~~~
+$ cut -f1 JC1ASEDIMENT120627.merged  | while read line;\
+ do \
+    echo perl -ne  'print if !/$line/'  JC1ASEDIMENT120627_kraken.kraken_ranked_lineage_table >  JC1ASEDIMENT120627_kraken.kraken_ranked_lineage_table-wc;\
+ done    
+~~~
+:{ .bash}
 
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
 tar -xzf taxdump.tar.gz       
