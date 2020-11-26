@@ -391,12 +391,14 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >> {: .bash}
 >> 
 >> ~~~
->> -rw-rw-r-- 1 dcuser dcuser 545M Jul  6 20:27 ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq
->> -rw-rw-r-- 1 dcuser dcuser 183M Jul  6 20:29 ERR2143795/JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
+>> -rw-r--r-- 1 dcuser dcuser  24M Nov 26 21:34 JC1ASEDIMENT120627_R1.fastq.gz                      
+>> -rw-r--r-- 1 dcuser dcuser  24M Nov 26 21:34 JC1ASEDIMENT120627_R2.fastq.gz                      
+>> -rw-r--r-- 1 dcuser dcuser 616M Nov 26 21:34 JP4DASH2120627WATERAMPRESIZED_R1.fastq              
+>> -rw-r--r-- 1 dcuser dcuser 203M Nov 26 21:35 JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz   
 >> ~~~
 >> {: .output}
 >> 
->> There are six FASTQ files ranging from 124M (124MB) to 545M. 
+>> There are four FASTQ files ranging from 24M (24MB) to 616M. 
 >> 
 > {: .solution}
 {: .challenge}
@@ -412,21 +414,19 @@ You will see an automatically updating output message telling you the
 progress of the analysis. It will start like this: 
 
 ~~~
-Started analysis of JP4DAS20627WATERAMPRESIZED_R1.fastq
-Approx 5% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
-Approx 10% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
-Approx 15% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
-Approx 20% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
-Approx 25% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
-Approx 30% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
-Approx 35% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
-Approx 40% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
-Approx 45% complete for JP4DASH2120627WATERAMPRESIZED_R1.fastq
+Started analysis of JC1ASEDIMENT120627_R1.fastq.gz                                               
+Approx 5% complete for JC1ASEDIMENT120627_R1.fastq.gz                                            
+Approx 10% complete for JC1ASEDIMENT120627_R1.fastq.gz                                           
+Approx 15% complete for JC1ASEDIMENT120627_R1.fastq.gz                                           
+Approx 20% complete for JC1ASEDIMENT120627_R1.fastq.gz                                           
+Approx 25% complete for JC1ASEDIMENT120627_R1.fastq.gz                                           
+Approx 30% complete for JC1ASEDIMENT120627_R1.fastq.gz                                          
+Approx 35% complete for JC1ASEDIMENT120627_R1.fastq.gz  
 ~~~
 {: .output}
 
 In total, it should take about five minutes for FastQC to run on all
-six of our FASTQ files. When the analysis completes, your prompt
+four of our FASTQ files. When the analysis completes, your prompt
 will return. So your screen will look something like this:
 
 ~~~
@@ -448,12 +448,12 @@ $ ls
 {: .bash}
 
 ~~~
-JP4DASH2120627WATERAMPRESIZED_R1.fastq       
-JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html  
-JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip   
-JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html  
-JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip   
-JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz   
+JC1ASEDIMENT120627_R1_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R1.fastq                   
+JC1ASEDIMENT120627_R1_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html 
+JC1ASEDIMENT120627_R1.fastq.gz                JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip                   
+JC1ASEDIMENT120627_R2_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html           
+JC1ASEDIMENT120627_R2_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip 
+JC1ASEDIMENT120627_R2.fastq.gz                JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz       
 ~~~
 {: .output}
 
