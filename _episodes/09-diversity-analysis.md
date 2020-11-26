@@ -129,13 +129,9 @@ $ grep deleted JP4D.error
 The file contains one line with the word `deleted`.  
 
 ~~~
- C k141_0  1365647 416     0:1 1365647:5 2:5 1:23 0:348  
-~~~
-{: .output}
-~~~
 04:29:50.903 [WARN] taxid 119065 was deleted  
 ~~~
-{: .output}  
+{: .output}
 
 We can remove this line by using a one liner.  
 ~~~
@@ -145,9 +141,10 @@ $ grep 119065 JP4DA.kraken-wc
 :{ .bash}
 
 ~~~
-$
+$ 
 ~~~
 :{ .output}
+
 And the line that contains 119065 is gone from the new file JP4D.kraken-wc.    
 
 Now lets ser fot the `merged` error in the `JP4D` error file.
