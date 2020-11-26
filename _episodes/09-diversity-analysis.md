@@ -16,13 +16,13 @@ keypoints:
 Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
 Here we will talk about the two most used diversity metrics, diversity α (within one metagenome) and β (between metagenomes).   
 
-- α Diversity: It can be measured by calculating richness (e.g. number of different species), 
+- α Diversity: Represents the richness (e.g. number of different species) and species' abundance. It can be measured by calculating richness, 
  Eveness, or using a diversity index, such as Shannon's, Simpson's, Chao's, etc.  
  
-- Diversity β: The difference (or distance) between two communities is measured. 
-For example, Bray-Curtis dissimilarity, Jaccard distance or UniFrac are used.  
+- β Diversity: It is the difference (measured as distance) between two or more metagenomes. 
+It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance or UniFrac, to name a few.  
 
-Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio in our data. 
+For this lesson we will use phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
 [Rstudio cloud](https://rstudio.cloud/) and select "GET STARTED FOR FREE"
 
 ## α diversity  
@@ -55,8 +55,8 @@ Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
 In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
 
-## Distance between two communities  
-Diversity β measures how different two communities are, either in their composition (diversity)
+## Distance between two metagenomes  
+Diversity β measures how different two or more metagenomes are, either in their composition (diversity)
 or in the abundance of the organisms that compose it (abundance). 
 - Bray-Curtis dissimilarity: Emphasis on abundance. Measures the differences 
 from 0 (equal communities) to 1 (different communities)
@@ -345,38 +345,43 @@ row.names(lineages) = names2
 ~~~
 OTU = otu_table(abundances, taxa_are_rows = TRUE)
 TAX = tax_table(lineages)
-metagenomes = phyloseq(OTU, TAX)
+metagenome_JC1A = phyloseq(OTU, TAX)
 ~~~
 {: .language-r}
 
 ~~~
-Bacteria <- subset_taxa(metagenomes, superkingdom == "Bacteria")
-metagenomes <- prune_taxa(c(taxa_names(Bacteria)), metagenomes)
-no_contam <- subset_taxa(metagenomes, family != "mitochondria" & class != "Chloroplast" & genus != "Escherichia" & genus != "Staphylococcus", genus != "Wolbachia") 
-metagenomes <- prune_taxa(c(taxa_names(no_contam)),metagenomes)
+Bacteria <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
+metagenome_JC1A <- prune_taxa(c(taxa_names(Bacteria)), metagenome_JC1A)
 ~~~
 {: .language-r}
 
 ~~~
-####----------plotting richness and depth--------#####
-plot(sort(sample_sums(metagenomes), TRUE), type = "h", main = "Sequences per Sample", ylab = "# sequences",xlab="Samples", xaxt='n')   #plot of the sequencing depth
+metagenome_JC1A <- prune_taxa(taxa_sums(metagenome_JC1A)>10,metagenome_JC1A)
+max(sample_sums(metagenome_JC1A))
+min(sample_sums(metagenome_JC1A))
+mean(sample_sums(metagenome_JC1A))
 ~~~
 {: .language-r}
 
 ~~~
-metagenomes <- prune_taxa(taxa_sums(metagenomes)>100,metagenomes)
-max(sample_sums(metagenomes))
-min(sample_sums(metagenomes))
-mean(sample_sums(metagenomes))
-~~~
-{: .language-r}
-
-~~~
-p = plot_richness(metagenomes, measures = c("Observed", "Chao1", "Shannon")) 
+p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon")) 
 p + geom_point(size=5, alpha=0.7)  #plot of richness
 ~~~
 {: .language-r}
 
+
+> ## Exercise
+> 
+> How can you import the `JC1A metagenome` to phyloseq? 
+> 
+>> ## Solution
+>> ~~~
+>> $ tail 
+>> 
+>> Repeat the previous instructions replacing JP4D for JC1A whenever it's appropiate
+>> 
+> {: .solution}
+{: .challenge}  
 
 
 
