@@ -241,7 +241,8 @@ tar -xzf taxdump.tar.gz
 
 ~~~
 $ rm *.kraken-wc                            
-$ mv -p ../results/*wc
+$ mkdir ../results
+$ mv *wc ../results/.
 $ rm *lineage* *ranked* *merged  
 ~~~
 {: .bash}  
