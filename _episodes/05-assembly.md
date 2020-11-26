@@ -24,6 +24,16 @@ There are many programs to assemble metagenomes, but the main strategies they us
 Greedy extension, OLC and De Bruijn charts.
 
 
+<a href="{{ page.root }}/fig/Binning(47).png">
+  <img src="{{ page.root }}/fig/Binning(47).png" width="350" height="600" alt="Cog Metagenome" />
+</a>
+
+<a href="{{ page.root }}/fig/EnsambladoFinal.png">
+  <img src="{{ page.root }}/fig/EnsambladoFinal.png" width="500" height="600" alt="Cog Metagenome" />
+</a>
+
+
+
 ## Activating metagenomic environment  
 ~~~
 conda activate /home/ubuntu/.conda/envs/metagenomics  
