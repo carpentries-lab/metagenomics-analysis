@@ -247,13 +247,31 @@ $ rm *lineage* *ranked* *merged
 ~~~
 {: .bash}  
 
+In console:  
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
 BiocManager::install("phyloseq")
 ~~~
-{: .lenguage-R}
+:{ .lenguage-R}
+
+~~~
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("phyloseq")
+~~~
+:{ .lenguage-R}
+
+~~~
+library("phyloseq")
+library("ggplot2")
+library("readr")
+library("patchwork")
+~~~
+:{ .lenguage-R}
+
 
 > ## Exercise
 > 
