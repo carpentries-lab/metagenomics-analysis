@@ -107,12 +107,16 @@ $ rm ranked
 
 First column
 ~~~
-$ cut -f1 JP4D.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JP4D.kraken_ranked_lineage_table
+$ cut -f1 JP4D.kraken_ranked |taxonkit lineage | \
+taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | \
+cut  -f1,3 >JP4D.lineage_table
 ~~~
 {: .bash}
 
 ~~~
-$ cut -f1 JC1A.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A.kraken_ranked_lineage_table
+$ cut -f1 JC1A.kraken_ranked |taxonkit lineage |\
+taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | \ 
+cut  -f1,3 >JC1A.lineage_table
 ~~~
 {: .bash}
 
@@ -191,14 +195,14 @@ $ rm ranked
 :{ .bash}
 
 ~~~
-$  perl -ne  'print if !/119065/'  JP4D.kraken_ranked_lineage_table >JP4D.kraken_ranked_lineage_table-2 
+$  perl -ne  'print if !/119065/'  JP4D.lineage_table >JP4D.lineage_table-2 
 ~~~
 :{ .bash}
 
 ~~~
 $ cut -f1 JC1A.merged  | while read line;\
  do \
-    echo perl -ne  'print if !/$line/'  JP4D.kraken_ranked_lineage_table-2  >  JP4D.kraken_ranked_lineage_table-wc;\
+    echo perl -ne  'print if !/$line/'  JP4D.ineage_table-2  >  JP4D.lineage_table-wc;\
  done    
 ~~~
 :{ .bash}
@@ -207,7 +211,7 @@ $ cut -f1 JC1A.merged  | while read line;\
 ~~~
 $ cut -f1 JC1A.merged  | while read line;\
  do \
-    echo perl -ne  'print if !/$line/'  JC1A.kraken_ranked_lineage_table >  JC1A.kraken_ranked_lineage_table-wc;\
+    echo perl -ne  'print if !/$line/'  JC1A.lineage_table >  JC1A.lineage_table-wc;\
  done    
 ~~~
 :{ .bash}
