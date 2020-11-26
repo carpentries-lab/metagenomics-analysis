@@ -119,7 +119,9 @@ $ cut -f1 JC1ASEDIMENT120627_kraken.kraken_ranked |taxonkit lineage |taxonkit re
 ~~~
 {: .bash}
 
+Errors are saved in `JC1ASEDIMENT120627.error` and ` JP4DASH2120627WATERAMPRESIZED.error` files 
 ~~~
+$  grep merged JC1ASEDIMENT120627.error | cut -d' ' -f4,8 > JC1ASEDIMENT120627.merged   
 $ cp JP4DASH2120627WATERAMPRESIZED.merged JP4DASH2120627WATERAMPRESIZED.merged-bu
 $ grep merged JC1ASEDIMENT120627_kraken.kraken | cut -d' ' -f4,8 > JC1ASEDIMENT120627_kraken.kraken.merged                     
 $ cat  JC1ASEDIMENT120627_kraken.kraken.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$(echo $line|cut -d' '  -f2); echo sed 's/\t$original\t/\t$new\t' JC1ASEDIMENT120627_kraken.kraken-bu ; done                      
@@ -127,6 +129,7 @@ $ cat  JC1ASEDIMENT120627_kraken.kraken.merged  |while read line; do original=$(
 :{ .bash}
 
 ~~~
+$ grep merged JP4DASH2120627WATERAMPRESIZED.error | cut -d' ' -f4,8 > JP4DASH2120627WATERAMPRESIZED.merged 
 $ cp JP4DASH2120627WATERAMPRESIZED.merged JP4DASH2120627WATERAMPRESIZED.merged-bu
 $ grep merged JP4DASH2120627WATERAMPRESIZED.error | cut -d' ' -f4,8 > JP4DASH2120627WATERAMPRESIZED.merged                     
 $ cat  JP4DASH2120627WATERAMPRESIZED.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$(echo $line|cut -d' '  -f2); echo sed 's/\t$original\t/\t$new\t' JP4DASH2120627WATERAMPRESIZED_kraken.kraken-bu ; done                      
