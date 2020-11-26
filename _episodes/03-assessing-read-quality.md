@@ -362,7 +362,9 @@ acceptable (yellow), and bad (red) quality scores.
 
 Now let's take a look at a quality plot on the other end of the spectrum. 
 
-![bad_quality](../img/bad_quality1.8.png)
+ <a href="{{ page.root }}/fig/bad_quality1.8.png">
+  <img src="{{ page.root }}/fig/bad_quality1.8.png" alt="BadQuality" />
+</a>
 
 Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the "bad" range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above. 
 
