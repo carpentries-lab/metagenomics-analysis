@@ -235,8 +235,7 @@ $ cut -f1 JP4D.kraken_ranked-wc |taxonkit lineage |\
 ~~~
 $ 10:34:06.833 [WARN] taxid 0 not found          
 ~~~
-{: output}  
-
+{: .output}  
 
 ~~~
 $ cut -f1 JC1A.kraken_ranked-wc |taxonkit lineage |\
@@ -248,7 +247,7 @@ $ cut -f1 JC1A.kraken_ranked-wc |taxonkit lineage |\
 ~~~
 $ 10:34:06.833 [WARN] taxid 0 not found          
 ~~~
-{: output}  
+{: .output}  
 
 
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
