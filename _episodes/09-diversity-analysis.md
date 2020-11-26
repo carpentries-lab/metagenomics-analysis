@@ -96,6 +96,19 @@ head JC1A.kraken
 
 ~~~
 $ cut -f3 JP4D.kraken  |sort -n |uniq -c > ranked
+~~~
+{: .bash}
+
+~~~
+0       77818
+1       5
+2       562
+22      4
+32      2
+~~~
+{: .output}  
+
+~~~
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked
 $ rm ranked
 ~~~
@@ -220,7 +233,7 @@ $  perl -ne  'print if !/119065/'  JP4D.lineage_table >JP4D.lineage_table-2
 ~~~
 $ cut -f1 JP4D.merged  | while read line;\
  do \
-    echo perl -ne  'print if !/$line/'  JP4D.lineage_table-2  >  JP4D.lineage_table-wc;\
+    perl -ne  'print if !/$line/'  JP4D.lineage_table-2  >  JP4D.lineage_table-wc;\
  done    
 ~~~
 {: .bash}
@@ -229,7 +242,7 @@ $ cut -f1 JP4D.merged  | while read line;\
 ~~~
 $ cut -f1 JC1A.merged  | while read line;\
  do \
-    echo perl -ne  'print if !/$line/'  JC1A.lineage_table >  JC1A.lineage_table-wc;\
+    perl -ne  'print if !/$line/'  JC1A.lineage_table >  JC1A.lineage_table-wc;\
  done   
 ~~~
 {: .bash}
@@ -257,21 +270,24 @@ $ rm *lineage* *ranked* *merged
 
 In console:  
 `.language-r`: R source:
-~~~
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-
-BiocManager::install("phyloseq")
-~~~
-{: .language-R}
 
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
 BiocManager::install("phyloseq")
+
 ~~~
-{: .language-R}
+{: .language-r}
+
+
+~~~
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("phyloseq")
+~~~
+{: .language-r}
 
 ~~~
 library("phyloseq")
@@ -279,7 +295,7 @@ library("ggplot2")
 library("readr")
 library("patchwork")
 ~~~
-{: .language-R}
+{: .language-r}
 
 
 > ## Exercise
