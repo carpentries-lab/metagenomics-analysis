@@ -150,17 +150,12 @@ And the line that contains 119065 is gone from the new file JP4D.kraken-wc.
 Now lets ser fot the `merged` error in the `JP4D` error file.  
   
 ~~~
-$ grep merged JP4D.error
-~~~
-:{ .bash}
-
-
-~~~
 $ grep merged JP4D.error | cut -d' ' -f4,8 > JP4D.merged 
-$ head -n5 JP4D.merged                                                                 
+$ head -n5 JP4D.merged 
 ~~~
 :{ .bash}
 
+  
 ~~~
 62928 418699                                                                                             
 335659 1404864                                                                                           
@@ -168,7 +163,7 @@ $ head -n5 JP4D.merged
 640511 2654982                                                                                           
 644968 694327 
 ~~~
-:{ .output}
+{: .output} 
 
 ~~~
 $ cat  JP4D.merged  | while read line;\
@@ -178,7 +173,7 @@ $ cat  JP4D.merged  | while read line;\
     perl -p -i -e "s/$original/$new/" JP4D.kraken-wc;\
      done                      
 $ cut -f3 JP4D.kraken-wc    |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken-wc_ranked
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked-wc
 $ rm ranked
 ~~~
 :{ .bash}  
@@ -194,7 +189,7 @@ $ cat  JC1A.merged  | while read line;\
     perl -p -i -e "s/$original/$new/" JC1A.kraken-wc;\
      done    
 $ cut -f3 JC1A.kraken-wc |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A_wc_ranked
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked-wc
 $ rm ranked
 ~~~
 :{ .bash}  
@@ -223,6 +218,13 @@ $ cut -f1 JC1A.merged  | while read line;\
 
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
 tar -xzf taxdump.tar.gz       
+
+~~~
+$ rm *.kraken-wc                            
+$ mv -p ../results/*wc
+$ rm *lineage* *ranked*
+~~~
+{: .bash}  
 
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
