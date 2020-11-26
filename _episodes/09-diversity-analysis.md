@@ -248,7 +248,7 @@ $ cut -d' ' -f1 JC1A.merged  | while read line;\
  do \
      perl -p -i -e  "s/$line/DELETE/" JC1A.lineage_table-2 ;\     
  done   
- $  $ grep -v DELETE JC1A.lineage_table-2 > JC1A.lineage_table-wc
+ $  grep -v DELETE JC1A.lineage_table-2 > JC1A.lineage_table-wc
 ~~~
 {: .bash}
 
