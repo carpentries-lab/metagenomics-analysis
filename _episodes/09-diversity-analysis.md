@@ -122,7 +122,7 @@ $ cut -f1 JC1ASEDIMENT120627_kraken.kraken_ranked |taxonkit lineage |taxonkit re
 Errors are saved in `JC1ASEDIMENT120627.error` and ` JP4DASH2120627WATERAMPRESIZED.error` files 
 ~~~
 $  grep merged JC1ASEDIMENT120627.error | cut -d' ' -f4,8 > JC1ASEDIMENT120627.merged                   
-$ cat  JC1ASEDIMEN T120627.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$( echo $line|cut -d' '  -f2); sed "s/$original/$new/" JC1ASEDIMENT120627_kraken.kraken ; done > JC1ASEDIMENT120627_kraken.kraken-2   
+$ cat  JC1ASEDIMENT120627.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$( echo $line|cut -d' '  -f2); sed "s/$original/$new/" JC1ASEDIMENT120627_kraken.kraken ; done > JC1ASEDIMENT120627_kraken.kraken-2   
 $ cut -f3 JC1ASEDIMENT120627_kraken.kraken-2    |sort -n |uniq -c > ranked  
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1ASEDIMENT120627_kraken.kraken-2_ranked
 $ rm ranked
@@ -141,12 +141,7 @@ $ rm ranked
 
 
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
-tar -xzf taxdump.tar.gz  
-
-cat JP4DASH2120627WATERAMPRESIZED_kraken.kraken| cut -f3|sort -n |uniq -c  |  while read a b; do echo "$b $a"; done > ranked
-head JP4DASH2120627WATERAMPRESIZED_kraken.kraken| cut -f3|sort -n |uniq -c  | awk '{print $2,$1}'                     
-head JP4DASH2120627WATERAMPRESIZED_kraken.kraken| cut -f3|sort |uniq -c | cut -f2,1    
-grep deleted error| cut -d' ' -f4 | while read line; do grep -v $line$'\s' ranked; done >salida        
+tar -xzf taxdump.tar.gz       
 
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
