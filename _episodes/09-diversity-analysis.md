@@ -27,18 +27,18 @@ Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio
 
 ## α diversity  
 
-|-------------------+------------------------------------------------------------------------------|  
-| Diversity Indices |                             Description                                      |  
-|-------------------+------------------------------------------------------------------------------|  
-|      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.|  
-|-------------------+------------------------------------------------------------------------------|  
-|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness. |                            
-|-------------------+------------------------------------------------------------------------------|  
-|      ACE          | Abundance based coverage estimator of species richness.                      |  
-|-------------------+------------------------------------------------------------------------------|  
-|     Chao1         | Abundance based coverage estimator of species richness.                      |           
-|-------------------+------------------------------------------------------------------------------|  
-
+|-------------------+------------------------------------------------------------------------------|   
+| Diversity Indices |                             Description                                      |   
+|-------------------+------------------------------------------------------------------------------|   
+|      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.|   
+|-------------------+------------------------------------------------------------------------------|   
+|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness. |                             
+|-------------------+------------------------------------------------------------------------------|   
+|      ACE          | Abundance based coverage estimator of species richness.                      |   
+|-------------------+------------------------------------------------------------------------------|   
+|     Chao1         | Abundance based coverage estimator of species richness.                      |            
+|-------------------+------------------------------------------------------------------------------|   
+ 
 
 - Shannon (H): <img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i\:ln{p_i}">
   Where S is the number of OTUs and <img src="https://render.githubusercontent.com/render/math?math=p_i">  the proportion of the community represented by OTU i. 
@@ -69,12 +69,12 @@ It is easy to visualize using PCA, PCoA or NMDS
 We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
 
 ~~~
-cut -f4 JP4DASH2120627WATERAMPRESIZE D_kraken.kraken  |sort -n |uniq -c > JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked|while read a b; do echo "$b $a"; done > ranked
+cut -f4 JP4DASH2120627WATERAMPRESIZED_kraken.kraken  |sort -n |uniq -c > JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked|while read a b; do echo "$b $a"; done > ranked
 
 cut -f4 JC1ASEDIMENT120627_kraken.kraken   |sort -n |uniq -c > JC1ASEDIMENT120627_kraken.kraken_ranked|while read a b; do echo "$b $a"; done > ranked
 
 ~~~
-{: .code}
+{: .bash}
 
 ~~~
  C k141_0  1365647 416     0:1 1365647:5 2:5 1:23 0:348  
@@ -108,7 +108,7 @@ cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.report |sort|uniq|taxonkit lineage 
 
 cut -f3 JC1ASEDIMENT120627_kraken.report  |sort|uniq|taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1ASEDIMENT120627_kraken.report_lineage_table
 ~~~
-{: .code}
+{: .bash}
 
 
 
