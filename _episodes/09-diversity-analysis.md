@@ -69,17 +69,17 @@ It is easy to visualize using PCA, PCoA or NMDS
 We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
 
 ~~~
-cut -f4 JP4DASH2120627WATERAMPRESIZED_kraken.kraken  |sort -n |uniq -c > ranked
+cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken  |sort -n |uniq -c > ranked
 cat ranked |while read a b; do echo "$b $a"; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked
 rm ranked
 ~~~
-{: .lenguage-bash}
+{: .bash}
 
 ~~~
-cut -f4 JC1ASEDIMENT120627_kraken.kraken   |sort -n |uniq -c > ranked  
+cut -f3 JC1ASEDIMENT120627_kraken.kraken   |sort -n |uniq -c > ranked  
 cat ranked |while read a b; do echo "$b $a"; done > JC1ASEDIMENT120627_kraken.kraken_ranked
 ~~~
-{: .lenguage-bash}
+{: .bash}
 
 ~~~
  C k141_0  1365647 416     0:1 1365647:5 2:5 1:23 0:348  
