@@ -647,27 +647,27 @@ It then repeats this process for the four other `.zip` files in our directory.
 When we run our `for` loop, you will see output that starts like this:
 
 ~~~
-Archive:  SRR2589044_2_fastqc.zip
-   creating: SRR2589044_2_fastqc/
-   creating: SRR2589044_2_fastqc/Icons/
-   creating: SRR2589044_2_fastqc/Images/
-  inflating: SRR2589044_2_fastqc/Icons/fastqc_icon.png  
-  inflating: SRR2589044_2_fastqc/Icons/warning.png  
-  inflating: SRR2589044_2_fastqc/Icons/error.png  
-  inflating: SRR2589044_2_fastqc/Icons/tick.png  
-  inflating: SRR2589044_2_fastqc/summary.txt  
-  inflating: SRR2589044_2_fastqc/Images/per_base_quality.png  
-  inflating: SRR2589044_2_fastqc/Images/per_tile_quality.png  
-  inflating: SRR2589044_2_fastqc/Images/per_sequence_quality.png  
-  inflating: SRR2589044_2_fastqc/Images/per_base_sequence_content.png  
-  inflating: SRR2589044_2_fastqc/Images/per_sequence_gc_content.png  
-  inflating: SRR2589044_2_fastqc/Images/per_base_n_content.png  
-  inflating: SRR2589044_2_fastqc/Images/sequence_length_distribution.png  
-  inflating: SRR2589044_2_fastqc/Images/duplication_levels.png  
-  inflating: SRR2589044_2_fastqc/Images/adapter_content.png  
-  inflating: SRR2589044_2_fastqc/fastqc_report.html  
-  inflating: SRR2589044_2_fastqc/fastqc_data.txt  
-  inflating: SRR2589044_2_fastqc/fastqc.fo  
+Archive:  JC1ASEDIMENT120627_R1_fastqc.zip                                            
+creating: JC1ASEDIMENT120627_R1_fastqc/                                            
+creating: JC1ASEDIMENT120627_R1_fastqc/Icons/                                      
+creating: JC1ASEDIMENT120627_R1_fastqc/Images/                                    
+inflating: JC1ASEDIMENT120627_R1_fastqc/Icons/fastqc_icon.png                      
+inflating: JC1ASEDIMENT120627_R1_fastqc/Icons/warning.png                          
+inflating: JC1ASEDIMENT120627_R1_fastqc/Icons/error.png                            
+inflating: JC1ASEDIMENT120627_R1_fastqc/Icons/tick.png                             
+inflating: JC1ASEDIMENT120627_R1_fastqc/summary.txt                                
+inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_base_quality.png                
+inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_tile_quality.png                
+inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_sequence_quality.png            
+inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_base_sequence_content.png       
+inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_sequence_gc_content.png         
+inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_base_n_content.png              
+inflating: JC1ASEDIMENT120627_R1_fastqc/Images/sequence_length_distribution.png 
+inflating: JC1ASEDIMENT120627_R1_fastqc/Images/duplication_levels.png              
+inflating: JC1ASEDIMENT120627_R1_fastqc/Images/adapter_content.png                 
+inflating: JC1ASEDIMENT120627_R1_fastqc/fastqc_report.html                         
+inflating: JC1ASEDIMENT120627_R1_fastqc/fastqc_data.txt                            
+inflating: JC1ASEDIMENT120627_R1_fastqc/fastqc.fo  
 ~~~
 {: .output}
 
@@ -680,12 +680,12 @@ are a lot of files here. The one we're going to focus on is the
 If you list the files in our directory now you will see: 
 
 ~~~
-SRR2584863_1_fastqc       SRR2584866_1_fastqc       SRR2589044_1_fastqc
-SRR2584863_1_fastqc.html  SRR2584866_1_fastqc.html  SRR2589044_1_fastqc.html
-SRR2584863_1_fastqc.zip   SRR2584866_1_fastqc.zip   SRR2589044_1_fastqc.zip
-SRR2584863_2_fastqc       SRR2584866_2_fastqc       SRR2589044_2_fastqc
-SRR2584863_2_fastqc.html  SRR2584866_2_fastqc.html  SRR2589044_2_fastqc.html
-SRR2584863_2_fastqc.zip   SRR2584866_2_fastqc.zip   SRR2589044_2_fastqc.zip
+JC1ASEDIMENT120627_R1_fastqc                  JP4DASH2120627WATERAMPRESIZED_R1_fastqc                                                     
+JC1ASEDIMENT120627_R1_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html                                        
+JC1ASEDIMENT120627_R1_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip                                                  
+JC1ASEDIMENT120627_R2_fastqc                  JP4DASH2120627WATERAMPRESIZED_R2_fastqc                                               
+JC1ASEDIMENT120627_R2_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html                                             
+JC1ASEDIMENT120627_R2_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip                                         
 ~~~
 {:. output}
 
@@ -699,19 +699,19 @@ $ ls -F
 {: .bash}
 
 ~~~
-SRR2584863_1_fastqc/      SRR2584866_1_fastqc/      SRR2589044_1_fastqc/
-SRR2584863_1_fastqc.html  SRR2584866_1_fastqc.html  SRR2589044_1_fastqc.html
-SRR2584863_1_fastqc.zip   SRR2584866_1_fastqc.zip   SRR2589044_1_fastqc.zip
-SRR2584863_2_fastqc/      SRR2584866_2_fastqc/      SRR2589044_2_fastqc/
-SRR2584863_2_fastqc.html  SRR2584866_2_fastqc.html  SRR2589044_2_fastqc.html
-SRR2584863_2_fastqc.zip   SRR2584866_2_fastqc.zip   SRR2589044_2_fastqc.zip
+JC1ASEDIMENT120627_R1_fastqc/                  JP4DASH2120627WATERAMPRESIZED_R1_fastqc/                                                     
+JC1ASEDIMENT120627_R1_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html                                        
+JC1ASEDIMENT120627_R1_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip                                                  
+JC1ASEDIMENT120627_R2_fastqc/                  JP4DASH2120627WATERAMPRESIZED_R2_fastqc/                                               
+JC1ASEDIMENT120627_R2_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html                                             
+JC1ASEDIMENT120627_R2_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip                                         
 ~~~
 {: .output}
 
 Let's see what files are present within one of these output directories.
 
 ~~~
-$ ls -F SRR2584863_1_fastqc/ 
+$ ls -F JC1ASEDIMENT120627_R1_fastqc/ 
 ~~~
 {: .bash}
 
@@ -723,22 +723,22 @@ fastqc_data.txt  fastqc.fo  fastqc_report.html	Icons/	Images/  summary.txt
 Use `less` to preview the `summary.txt` file for this sample. 
 
 ~~~
-$ less SRR2584863_1_fastqc/summary.txt 
+$ less JC1ASEDIMENT120627_R1_fastqc/summary.txt 
 ~~~
 {: .bash}
 
 ~~~
-PASS    Basic Statistics        SRR2584863_1.fastq
-PASS    Per base sequence quality       SRR2584863_1.fastq
-PASS    Per tile sequence quality       SRR2584863_1.fastq
-PASS    Per sequence quality scores     SRR2584863_1.fastq
-WARN    Per base sequence content       SRR2584863_1.fastq
-WARN    Per sequence GC content SRR2584863_1.fastq
-PASS    Per base N content      SRR2584863_1.fastq
-PASS    Sequence Length Distribution    SRR2584863_1.fastq
-PASS    Sequence Duplication Levels     SRR2584863_1.fastq
-PASS    Overrepresented sequences       SRR2584863_1.fastq
-WARN    Adapter Content SRR2584863_1.fastq
+PASS    Basic Statistics        JC1ASEDIMENT120627_R1.fastq.gz                     
+FAIL    Per base sequence quality       JC1ASEDIMENT120627_R1.fastq.gz             
+PASS    Per tile sequence quality       JC1ASEDIMENT120627_R1.fastq.gz             
+PASS    Per sequence quality scores     JC1ASEDIMENT120627_R1.fastq.gz             
+WARN    Per base sequence content       JC1ASEDIMENT120627_R1.fastq.gz             
+FAIL    Per sequence GC content JC1ASEDIMENT120627_R1.fastq.gz                     
+PASS    Per base N content      JC1ASEDIMENT120627_R1.fastq.gz                     
+PASS    Sequence Length Distribution    JC1ASEDIMENT120627_R1.fastq.gz             
+FAIL    Sequence Duplication Levels     JC1ASEDIMENT120627_R1.fastq.gz             
+PASS    Overrepresented sequences       JC1ASEDIMENT120627_R1.fastq.gz             
+FAIL    Adapter Content JC1ASEDIMENT120627_R1.fastq.gz  
 ~~~
 {: .output}
 
