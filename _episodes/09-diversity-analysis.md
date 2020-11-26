@@ -67,7 +67,14 @@ There are two types, without weights (diversity) and with weights (diversity and
 
 It is easy to visualize using PCA, PCoA or NMDS
 We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
-
+cut -f3 report |sort -n |uniq -c >ranked
+cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.report |sort|uniq|taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f };{g};{s};{S}" | cut  -f1,3 >
+wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
+tar -xzf taxdump.tar.gz  
+cat JP4DASH2120627WATERAMPRESIZED_kraken.kraken| cut -f3|so rt -n |uniq -c  |  while read a b; do echo "$b $a"; done > ranked
+head JP4DASH2120627WATERAMPRESIZED_kraken.kraken| cut -f3|sort -n |uniq -c  | awk '{print $2,$1}'                     
+head JP4DASH2120627WATERAMPRESIZED_kraken.kraken| cut -f3|sort |uniq -c | cut -f2,1    
+grep deleted error| cut -d' ' -f4 | wh ile read line; do grep -v $line$'\s' ranked; done >salida        
 
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
