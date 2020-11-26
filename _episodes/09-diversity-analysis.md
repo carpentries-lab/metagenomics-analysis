@@ -120,13 +120,12 @@ cut  -f1,3 >JC1A.lineage_table
 ~~~
 {: .bash}
 
-Errors are saved in `JC1A.error` and ` JP4D.error` files 
-Common errors are `deleted` and `merged`. 
+Errors are saved in `JC1A.error` and ` JP4D.error` files  Common errors are `deleted` and `merged`.   
 
 ~~~
 $ grep deleted JP4D.error
 ~~~
-:{ .bash}
+{: .bash}
 
 ~~~
 04:29:50.903 [WARN] taxid 119065 was deleted  
