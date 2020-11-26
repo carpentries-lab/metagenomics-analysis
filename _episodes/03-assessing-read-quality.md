@@ -85,7 +85,7 @@ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R
 The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the fastq format.
 
 ~~~
-$ gunzip ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz 
+$ gunzip JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz 
 ~~~
 {: .bash}
 
