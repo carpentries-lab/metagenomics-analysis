@@ -69,15 +69,15 @@ It is easy to visualize using PCA, PCoA or NMDS
 We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
 
 ~~~
-$ cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken  |sort -n |uniq -c > ranked
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked
+$ cut -f3 JP4D_kraken.kraken  |sort -n |uniq -c > ranked
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D_kraken.kraken_ranked
 $ rm ranked
 ~~~
 {: .bash}
 
 ~~~
-$ cut -f3 JC1ASEDIMENT120627_kraken.kraken   |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1ASEDIMENT120627_kraken.kraken_ranked
+$ cut -f3 JC1A_kraken.kraken   |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A_kraken.kraken_ranked
 $ rm ranked
 ~~~
 {: .bash}
@@ -107,20 +107,20 @@ $ rm ranked
 
 First column
 ~~~
-$ cut -f1 JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table
+$ cut -f1 JP4D_kraken.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JP4D_kraken.kraken_ranked_lineage_table
 ~~~
 {: .bash}
 
 ~~~
-$ cut -f1 JC1ASEDIMENT120627_kraken.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1ASEDIMENT120627_kraken.kraken_ranked_lineage_table
+$ cut -f1 JC1A_kraken.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A_kraken.kraken_ranked_lineage_table
 ~~~
 {: .bash}
 
-Errors are saved in `JC1ASEDIMENT120627.error` and ` JP4DASH2120627WATERAMPRESIZED.error` files 
+Errors are saved in `JC1A.error` and ` JP4D.error` files 
 Common errors are `deleted` and `merged`. 
 
 ~~~
-$ grep deleted JP4DASH2120627WATERAMPRESIZED.error
+$ grep deleted JP4D.error
 ~~~
 :{ .bash}
 
@@ -130,7 +130,7 @@ $ grep deleted JP4DASH2120627WATERAMPRESIZED.error
 :{ .output}
 
 ~~~
-$ perl -ne 'print if !/119065/' JP4DASH2120627WATERAMPRESIZED_kraken.kraken >JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc
+$ perl -ne 'print if !/119065/' JP4D_kraken.kraken >JP4D_kraken.kraken-wc
 $ grep 119065 JP4DASH2120627WATERAMPRESI ZED_kraken.kraken-wc                            
 ~~~
 :{ .bash}
@@ -141,14 +141,14 @@ $
 :{ .output}
 
 ~~~
-$ grep merged JP4DASH2120627WATERAMPRESIZED.error
+$ grep merged JP4D.error
 ~~~
 :{ .bash}
 
 
 ~~~
-$ grep merged JP4DASH2120627WATERAMPRESIZED.error | cut -d' ' -f4,8 > JP4DASH2120627WATERAMPRESIZED.merged 
-$ head -n5 JP4DASH2120627WATERAMPRESIZED.merged                                                                 
+$ grep merged JP4D.error | cut -d' ' -f4,8 > JP4D.merged 
+$ head -n5 JP4D.merged                                                                 
 ~~~
 :{ .bash}
 
@@ -162,52 +162,52 @@ $ head -n5 JP4DASH2120627WATERAMPRESIZED.merged
 :{ .output}
 
 ~~~
-$ cat  JP4DASH2120627WATERAMPRESIZED.merged  | while read line;\
+$ cat  JP4D.merged  | while read line;\
  do \
     original=$(echo $line|cut -d' ' -f 1); \
     new=$( echo $line|cut -d' '  -f2); \
-    perl -p -i -e "s/$original/$new/" JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc;\
+    perl -p -i -e "s/$original/$new/" JP4D_kraken.kraken-wc;\
      done                      
-$ cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc    |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc_ranked
+$ cut -f3 JP4D_kraken.kraken-wc    |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D_kraken.kraken-wc_ranked
 $ rm ranked
 ~~~
 :{ .bash}
 
 ~~~
-$ grep deleted JC1ASEDIMENT120627.error 
-$ grep merged JC1ASEDIMENT120627.error | cut -d' ' -f4,8 > JC1ASEDIMENT120627.merged    
-$ cp JC1ASEDIMENT120627_kraken.kraken JC1ASEDIMENT120627_kraken.kraken-wc
-$ cat  JC1ASEDIMENT120627.merged  | while read line;\
+$ grep deleted JC1A.error 
+$ grep merged JC1A.error | cut -d' ' -f4,8 > JC1A.merged    
+$ cp JC1A_kraken.kraken JC1A_kraken.kraken-wc
+$ cat  JC1A.merged  | while read line;\
  do \
     original=$(echo $line|cut -d' ' -f 1); \
     new=$( echo $line|cut -d' '  -f2); \
-    perl -p -i -e "s/$original/$new/" JC1ASEDIMENT120627_kraken.kraken-wc;\
+    perl -p -i -e "s/$original/$new/" JC1A_kraken.kraken-wc;\
      done    
-$ cut -f3 JC1ASEDIMENT120627_kraken.kraken-wc |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1ASEDIMENT120627_wc_ranked
+$ cut -f3 JC1A_kraken.kraken-wc |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A_wc_ranked
 $ rm ranked
 ~~~
 :{ .bash}
 
 ~~~
-$  perl -ne  'print if !/119065/'  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table >JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table-2 
+$  perl -ne  'print if !/119065/'  JP4D_kraken.kraken_ranked_lineage_table >JP4D_kraken.kraken_ranked_lineage_table-2 
 ~~~
 :{ .bash}
 
 ~~~
-$ cut -f1 JC1ASEDIMENT120627.merged  | while read line;\
+$ cut -f1 JC1A.merged  | while read line;\
  do \
-    echo perl -ne  'print if !/$line/'  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table-2  >  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table-wc;\
+    echo perl -ne  'print if !/$line/'  JP4D_kraken.kraken_ranked_lineage_table-2  >  JP4D_kraken.kraken_ranked_lineage_table-wc;\
  done    
 ~~~
 :{ .bash}
 
 
 ~~~
-$ cut -f1 JC1ASEDIMENT120627.merged  | while read line;\
+$ cut -f1 JC1A.merged  | while read line;\
  do \
-    echo perl -ne  'print if !/$line/'  JC1ASEDIMENT120627_kraken.kraken_ranked_lineage_table >  JC1ASEDIMENT120627_kraken.kraken_ranked_lineage_table-wc;\
+    echo perl -ne  'print if !/$line/'  JC1A_kraken.kraken_ranked_lineage_table >  JC1A_kraken.kraken_ranked_lineage_table-wc;\
  done    
 ~~~
 :{ .bash}
@@ -225,7 +225,7 @@ BiocManager::install("phyloseq")
 
 > ## Exercise
 > 
-> Ejercicio `ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
+> Ejercicio `ERR2143795/JP4D_R1.fastq ` file? How confident
 > 
 >> ## Solution
 >> ~~~
