@@ -226,34 +226,29 @@ $ rm ranked
 {: .bash} 
 
 ~~~
-$  perl -ne  'print if !/119065/'  JP4D.lineage_table >JP4D.lineage_table-2 
+$ cut -f1 JP4D.kraken_ranked-wc |taxonkit lineage |\
+  taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s };{S}" |\
+  cut  -f1,3 > JP4D.lineage_table-wc                                        
 ~~~
 {: .bash}
 
-
 ~~~
-$ cut -d' ' -f1 JP4D.merged  | while read line;\
- do \
-    perl -p -i -e  "s/$line/DELETE/"  JP4D.lineage_table-2;\
- done    
- $  perl -p -i -e  "s/;/\t/g" JP4D.lineage_table-2;\ 
- $ grep -v DELETE JP4D.lineage_table-2 > JP4D.lineage_table-wc
+$ 10:34:06.833 [WARN] taxid 0 not found          
 ~~~
-{: .bash}
+{: output}  
 
 
 ~~~
-$ cp JC1A.lineage_table JC1A.lineage_table-2
-$ cut -d' ' -f1 JC1A.merged  | while read line;\
- do \
-     perl -p -i -e  "s/$line/DELETE/" JC1A.lineage_table-2 ;\     
- done   
- 
- $  perl -p -i -e  "s/;/\t/g" JC1A.lineage_table-2 ;\ 
- $  grep -v DELETE JC1A.lineage_table-2 > JC1A.lineage_table-wc
+$ cut -f1 JC1A.kraken_ranked-wc |taxonkit lineage |\
+  taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s };{S}" |\
+  cut  -f1,3 > JC1A.lineage_table-wc                                        
 ~~~
 {: .bash}
 
+~~~
+$ 10:34:06.833 [WARN] taxid 0 not found          
+~~~
+{: output}  
 
 
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
