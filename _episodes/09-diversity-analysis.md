@@ -89,9 +89,6 @@ $ rm ranked
 
 
 
-   
-
-
 |------------------------------+------------------------------------------------------------------------------|  
 | column                       |                              Description                                     |  
 |------------------------------+------------------------------------------------------------------------------|  
@@ -194,17 +191,14 @@ $ rm ranked
 :{ .bash}
 
 ~~~
-$ cut -f1 JC1ASEDIMENT120627.merged  | while read line;\
- do \
-    echo perl -ne  'print if !/119065/'  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table >  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table-wc;\
- done    
+$  perl -ne  'print if !/119065/'  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table >JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table-2 
 ~~~
 :{ .bash}
 
 ~~~
 $ cut -f1 JC1ASEDIMENT120627.merged  | while read line;\
  do \
-    echo perl -ne  'print if !/$line/'  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table >  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table-wc;\
+    echo perl -ne  'print if !/$line/'  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table-2  >  JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table-wc;\
  done    
 ~~~
 :{ .bash}
