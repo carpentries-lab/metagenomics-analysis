@@ -132,18 +132,22 @@ $ cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/Tru
 ~~~
 {: .bash}
 
+
 We will also use a sliding window of size 4 that will remove bases if their
 phred score is below 20 (like in our example above). We will also
 discard any reads that do not have at least 25 bases remaining after
 this trimming step. This command will take a few minutes to run.
 
 ~~~
-$ trimmomatic PE JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz \
-          JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz \ 
-          JP4DASH2120627WA TERAMPRESIZED_R1.trim.fastq.gz 
-          JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz \
-          JP4DASH2120 627WATERAMPRESIZED_R2.trim.fastq.gz \
-          JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz \
+$ gzip -q JP4DASH2120627WATERAMPRESIZED_R1.fastq 
+~~~
+{: .bash}
+ 
+
+~~~
+$ trimmomatic PE JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz \ 
+          JP4DASH2120627WA TERAMPRESIZED_R1.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz \
+          JP4DASH2120 627WATERAMPRESIZED_R2.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz \
           SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 
 ~~~
 {: .bash}
