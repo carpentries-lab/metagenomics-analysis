@@ -13,11 +13,11 @@ keypoints:
 - "Edit the .Rmd files not the .md files"
 ---
 
-Once we know what our metagenome is made of, we can do the diversity analysis. 
-Here we can see the diversity α (within the group) and β (between groups).   
+Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
+Here we will talk about the two most used diversity metrics, diversity α (within one metagenome) and β (between metagenomes).   
 
-- α Diversity: It can be measured by calculating wealth, 
- Eveness Shannon diversity index, Simpson diversity index, Chao1, etc.  
+- α Diversity: It can be measured by calculating richness (e.g. number of different species), 
+ Eveness, or using a diversity index, such as Shannon's, Simpson's, Chao's, etc.  
  
 - Diversity β: The difference (or distance) between two communities is measured. 
 For example, Bray-Curtis dissimilarity, Jaccard distance or UniFrac are used.  
