@@ -134,8 +134,14 @@ $ grep deleted JP4DASH2120627WATERAMPRESIZED.error
 
 ~~~
 $ perl -ne 'print if !/119065/' JP4DASH2120627WATERAMPRESIZED_kraken.kraken >JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc
+$ grep 119065 JP4DASH2120627WATERAMPRESI ZED_kraken.kraken-wc                            
 ~~~
 :{ .bash}
+
+~~~
+$
+~~~
+:{ .output}
 
 ~~~
 $ grep merged JP4DASH2120627WATERAMPRESIZED.error
