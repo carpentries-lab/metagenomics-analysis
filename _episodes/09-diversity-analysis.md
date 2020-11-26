@@ -153,8 +153,7 @@ Now lets ser fot the `merged` error in the `JP4D` error file.
 $ grep merged JP4D.error | cut -d' ' -f4,8 > JP4D.merged 
 $ head -n5 JP4D.merged 
 ~~~
-:{ .bash}
-
+{: .bash}
   
 ~~~
 62928 418699                                                                                             
@@ -168,23 +167,22 @@ $ head -n5 JP4D.merged
 ~~~
 $ cat  JP4D.merged  | while read line;\
  do \
+ 
     original=$(echo $line|cut -d' ' -f 1); \
     new=$( echo $line|cut -d' '  -f2); \
     perl -p -i -e "s/$original/$new/" JP4D.kraken-wc;\
      done                      
-$ cut -f3 JP4D.kraken-wc    |sort -n |uniq -c > ranked  
+$ cut -f3 JP4D.kraken-wc    |sort -n |uniq -c > ranked 
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked-wc
 $ rm ranked
 ~~~
-:{ .bash}  
+{: .bash}  
 
 ~~~
 $ grep deleted JC1A.error 
 $ grep merged JC1A.error | cut -d' ' -f4,8 > JC1A.merged    
 $ cp JC1A.kraken JC1A.kraken-wc
 $ cat  JC1A.merged  | while read line;\
- do \
-    original=$(echo $line|cut -d' ' -f 1); \
     new=$( echo $line|cut -d' '  -f2); \
     perl -p -i -e "s/$original/$new/" JC1A.kraken-wc;\
      done    
