@@ -110,7 +110,7 @@ $ rm ranked
 
 First column
 ~~~
-$ cut -f1 JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JP4DASH2120627WATERAMPRESIZED_kraken.kraken_rankedt_lineage_table
+$ cut -f1 JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked_lineage_table
 ~~~
 {: .bash}
 
