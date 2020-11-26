@@ -151,6 +151,20 @@ $ grep merged JP4DASH2120627WATERAMPRESIZED.error
 
 ~~~
 $ grep merged JP4DASH2120627WATERAMPRESIZED.error | cut -d' ' -f4,8 > JP4DASH2120627WATERAMPRESIZED.merged 
+$ head -n5 JP4DASH2120627WATERAMPRESIZED.merged                                                                 
+~~~
+:{ .bash}
+
+~~~
+62928 418699                                                                                             
+335659 1404864                                                                                           
+354203 263377                                                                                            
+640511 2654982                                                                                           
+644968 694327 
+~~~
+:{ .output}
+
+~~~
 $ cat  JP4DASH2120627WATERAMPRESIZED.merged  | while read line;\
  do \
     original=$(echo $line|cut -d' ' -f 1); \
