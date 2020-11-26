@@ -22,7 +22,10 @@ tools in a specified order is commonly referred to as a *workflow* or a *pipelin
 An example of the workflow we will be using for our variant calling analysis is provided below with a brief
 description of each step. 
 
-![workflow](../img/variant_calling_workflow.png)
+
+ <a href="{{ page.root }}/fig/bioinformatic workflow.png">
+  <img src="{{ page.root }}/fig/bioinformatic workflow.png" alt="Cog Metagenome" />
+</a>
 
 
 1. Quality control - Assessing quality using FastQC
