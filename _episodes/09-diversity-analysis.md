@@ -167,7 +167,6 @@ $ head -n5 JP4D.merged
 ~~~
 $ cat  JP4D.merged  | while read line;\
  do \
- 
     original=$(echo $line|cut -d' ' -f 1); \
     new=$( echo $line|cut -d' '  -f2); \
     perl -p -i -e "s/$original/$new/" JP4D.kraken-wc;\
@@ -176,43 +175,48 @@ $ cut -f3 JP4D.kraken-wc    |sort -n |uniq -c > ranked
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked-wc
 $ rm ranked
 ~~~
-{: .bash}  
+{: .bash} 
 
 ~~~
 $ grep deleted JC1A.error 
 $ grep merged JC1A.error | cut -d' ' -f4,8 > JC1A.merged    
 $ cp JC1A.kraken JC1A.kraken-wc
 $ cat  JC1A.merged  | while read line;\
+  do\
+    original=$(echo $line|cut -d' ' -f 1); \
     new=$( echo $line|cut -d' '  -f2); \
     perl -p -i -e "s/$original/$new/" JC1A.kraken-wc;\
-     done    
+  done    
 $ cut -f3 JC1A.kraken-wc |sort -n |uniq -c > ranked  
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked-wc
 $ rm ranked
 ~~~
-:{ .bash}  
+{: .bash} 
 
 ~~~
 $  perl -ne  'print if !/119065/'  JP4D.lineage_table >JP4D.lineage_table-2 
 ~~~
-:{ .bash}  
+{: .bash}
+
 
 ~~~
-$ cut -f1 JC1A.merged  | while read line;\
+$ cut -f1 JP4D.merged  | while read line;\
  do \
-    echo perl -ne  'print if !/$line/'  JP4D.ineage_table-2  >  JP4D.lineage_table-wc;\
+    echo perl -ne  'print if !/$line/'  JP4D.lineage_table-2  >  JP4D.lineage_table-wc;\
  done    
 ~~~
-:{ .bash}  
+{: .bash}
 
 
 ~~~
 $ cut -f1 JC1A.merged  | while read line;\
  do \
     echo perl -ne  'print if !/$line/'  JC1A.lineage_table >  JC1A.lineage_table-wc;\
- done    
+ done   
 ~~~
-:{ .bash}  
+{: .bash}
+
+
 
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
 tar -xzf taxdump.tar.gz       
