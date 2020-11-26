@@ -127,16 +127,19 @@ $ grep deleted JP4D.error
 ~~~
 {: .bash}
 
+
 ~~~
 04:29:50.903 [WARN] taxid 119065 was deleted  
 ~~~
 :{ .output}
+
 
 ~~~
 $ perl -ne 'print if !/119065/' JP4D.kraken >JP4D.kraken-wc
 $ grep 119065 JP4DASH2120627WATERAMPRESI ZED.kraken-wc                            
 ~~~
 :{ .bash}
+
 
 ~~~
 $
