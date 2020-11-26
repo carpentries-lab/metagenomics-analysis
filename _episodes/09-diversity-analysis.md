@@ -32,7 +32,7 @@ Phyloseq is an R package specialized in metagenomic metrics. We will use Rstudio
 |-------------------+------------------------------------------------------------------------------|  
 |      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.|  
 |-------------------+------------------------------------------------------------------------------|  
-|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness. |                                 
+|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness. |                            
 |-------------------+------------------------------------------------------------------------------|  
 |      ACE          | Abundance based coverage estimator of species richness.                      |  
 |-------------------+------------------------------------------------------------------------------|  
@@ -69,33 +69,56 @@ It is easy to visualize using PCA, PCoA or NMDS
 We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
 
 ~~~
-cut -f4 JP4DASH2120627WATERAMPRESIZE D_kraken.kraken  |sort -n |uniq -c >JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked  
+cut -f4 JP4DASH2120627WATERAMPRESIZE D_kraken.kraken  |sort -n |uniq -c > JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked|while read a b; do echo "$b $a"; done > ranked
+
+cut -f4 JC1ASEDIMENT120627_kraken.kraken   |sort -n |uniq -c > JC1ASEDIMENT120627_kraken.kraken_ranked|while read a b; do echo "$b $a"; done > ranked
+
 ~~~
-{: code}
+{: .code}
 
 ~~~
  C k141_0  1365647 416     0:1 1365647:5 2:5 1:23 0:348  
 ~~~
-:{output}
+{: .output}
 
-C Classified or unclassified  
-k141_0 fasta header of the read(contig)  
-1365647 tax id
-416     read length  
-0:1 1365647:5 2:5 1:23 0:348  hits on database
-E.g. 0:1 root 1 hit, 1365647 has 5 hits, etc.  
+
+
+   
+
+
+|------------------------------+------------------------------------------------------------------------------|  
+| column                       |                              Description                                     |  
+|------------------------------+------------------------------------------------------------------------------|  
+|   C                          |  Classified or unclassified                                                  |  
+|------------------------------+------------------------------------------------------------------------------|  
+|    k141_0                    |fasta header of the read(contig)  .                                           |                
+|------------------------------+------------------------------------------------------------------------------|  
+|  1365647                     | tax id                                                                       |  
+|------------------------------+------------------------------------------------------------------------------|  
+|    416                       |read length                                                                   |           
+|------------------------------+------------------------------------------------------------------------------|  
+| 0:1 1365647:5 2:5 1:23 0:348 |hits on database E.g. 0:1 root 1 hit, 1365647 has 5 hits, etc.                |           
+|-------------------+-----------------------------------------------------------------------------------------|  
 
 
 
 First column
+~~~
+cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.report |sort|uniq|taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JP4DASH2120627WATERAMPRESIZED_kraken.report_lineage_table
 
-cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.report |sort|uniq|taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f };{g};{s};{S}" | cut  -f1,3 >
+cut -f3 JC1ASEDIMENT120627_kraken.report  |sort|uniq|taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1ASEDIMENT120627_kraken.report_lineage_table
+~~~
+{: .code}
+
+
+
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
 tar -xzf taxdump.tar.gz  
-cat JP4DASH2120627WATERAMPRESIZED_kraken.kraken| cut -f3|so rt -n |uniq -c  |  while read a b; do echo "$b $a"; done > ranked
+
+cat JP4DASH2120627WATERAMPRESIZED_kraken.kraken| cut -f3|sort -n |uniq -c  |  while read a b; do echo "$b $a"; done > ranked
 head JP4DASH2120627WATERAMPRESIZED_kraken.kraken| cut -f3|sort -n |uniq -c  | awk '{print $2,$1}'                     
 head JP4DASH2120627WATERAMPRESIZED_kraken.kraken| cut -f3|sort |uniq -c | cut -f2,1    
-grep deleted error| cut -d' ' -f4 | wh ile read line; do grep -v $line$'\s' ranked; done >salida        
+grep deleted error| cut -d' ' -f4 | while read line; do grep -v $line$'\s' ranked; done >salida        
 
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
