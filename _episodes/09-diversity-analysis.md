@@ -166,7 +166,7 @@ $ 04:29:50.903 [WARN] taxid 119065 was deleted
   
 We can remove this line by using a one liner.  
 ~~~
-$ grep 119065 JP4D.kraken-wc                            
+$ grep 119065 JP4D.kraken                        
 $ perl -ne 'print if !/119065/' JP4D.kraken >JP4D.kraken-wc
 $ grep 119065 JP4D.kraken-wc                            
 ~~~
@@ -236,8 +236,8 @@ $ cut -d' ' -f1 JP4D.merged  | while read line;\
  do \
     perl -p -i -e  "s/$line/DELETE/"  JP4D.lineage_table-2;\
  done    
- 
- $ grep -v DELETE JP4D.lineage_table-2 > JP4D.lineage_table-wc
+ $  perl -p -i -e  "s/;/\t/g" JP4D.lineage_table-3 ;\ 
+ $ grep -v DELETE JP4D.lineage_table-3 > JP4D.lineage_table-wc
 ~~~
 {: .bash}
 
@@ -248,7 +248,9 @@ $ cut -d' ' -f1 JC1A.merged  | while read line;\
  do \
      perl -p -i -e  "s/$line/DELETE/" JC1A.lineage_table-2 ;\     
  done   
- $  grep -v DELETE JC1A.lineage_table-2 > JC1A.lineage_table-wc
+ 
+ $  perl -p -i -e  "s/;/\t/g" JC1A.lineage_table-3 ;\ 
+ $  grep -v DELETE JC1A.lineage_table-3 > JC1A.lineage_table-wc
 ~~~
 {: .bash}
 
