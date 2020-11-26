@@ -102,14 +102,19 @@ $ rm ranked
 {: .bash}
 
 ~~~
-head JP4D.kraken_ranked
+head -n5 JP4D.kraken_ranked
 ~~~
 {: .bash}
 
 ~~~
-head JP4D.kraken_ranked
+0       77818
+1       5
+2       562
+22      4
+32      2
 ~~~
-{: .output}
+{: .output}  
+
 
 ~~~
 $ cut -f3 JC1A.kraken   |sort -n |uniq -c > ranked  
