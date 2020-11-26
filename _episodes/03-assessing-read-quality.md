@@ -608,12 +608,10 @@ $ unzip *.zip
 {: .bash}
 
 ~~~
-Archive:  SRR2584863_1_fastqc.zip
-caution: filename not matched:  SRR2584863_2_fastqc.zip
-caution: filename not matched:  SRR2584866_1_fastqc.zip
-caution: filename not matched:  SRR2584866_2_fastqc.zip
-caution: filename not matched:  SRR2589044_1_fastqc.zip
-caution: filename not matched:  SRR2589044_2_fastqc.zip
+Archive:  JC1ASEDIMENT120627_R1_fastqc.zip                                                       
+caution: filename not matched:  JC1ASEDIMENT120627_R2_fastqc.zip                                 
+caution: filename not matched:  JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip                      
+caution: filename not matched:  JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip  
 ~~~
 {: .output}
 
