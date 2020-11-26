@@ -21,6 +21,12 @@ Binning dependent on taxonomy is relatively trivial, but there are different alg
 for binning independent of taxonomy. These algorithms can be based on composition or abundance,
 Maxbin is a binning algorithm with an hybrid composition-abundance approach.  
 
+
+<a href="{{ page.root }}/fig/Binning(47).png">
+  <img src="{{ page.root }}/fig/Binning(47).png" width="350" height="600" alt="Cog Metagenome" />
+</a>
+
+
 > ## Bining strategies `.callout`
 >
 > Reads can be assembled into contigs according to two main strategies: composition and abbundance.
