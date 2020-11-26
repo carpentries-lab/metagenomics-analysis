@@ -70,14 +70,14 @@ We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
 
 ~~~
 $ cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken  |sort -n |uniq -c > ranked
-$ cat ranked |while read a b; do echo "$b$'\t'$a"; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked
 $ rm ranked
 ~~~
 {: .bash}
 
 ~~~
 $ cut -f3 JC1ASEDIMENT120627_kraken.kraken   |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo "$b$'\t'$a"; done > JC1ASEDIMENT120627_kraken.kraken_ranked
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1ASEDIMENT120627_kraken.kraken_ranked
 $ rm ranked
 ~~~
 {: .bash}
