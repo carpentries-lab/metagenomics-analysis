@@ -123,7 +123,7 @@ Errors are saved in `JC1ASEDIMENT120627.error` and ` JP4DASH2120627WATERAMPRESIZ
 ~~~
 $  grep merged JC1ASEDIMENT120627.error | cut -d' ' -f4,8 > JC1ASEDIMENT120627.merged   
 $ cp JC1ASEDIMENT120627_kraken.kraken JC1ASEDIMENT120627_kraken.kraken-bu                  
-$ cat  JC1ASEDIMENT120627_kraken.kraken.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$(echo $line|cut -d' '  -f2); echo sed 's/\t$original\t/\t$new\t' JC1ASEDIMENT120627_kraken.kraken-bu ; done                      
+$ cat  JC1ASEDIMENT120627.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$(echo $line|cut -d' '  -f2); echo sed 's/\t$original\t/\t$new\t' JC1ASEDIMENT120627_kraken.kraken-bu ; done                      
 ~~~
 :{ .bash}
 
