@@ -259,9 +259,14 @@ $ nano JC1A.kraken_ranked-wc
 $ OTU  JC1A
 $ nano JC1A.lineage_table-wc
 $ OTU	superkingdom	phylum	class	order	family	genus	species	subspecies	subspecies_2
-
 ~~~
 {: .bash}  
+
+~~~
+$ perl -p -i -e 's/;/\t/g' *.lineage_table-wc                                                                                                              
+$ head -n5 *.lineage_table-wc 
+~~~
+{: .bash}
 
 ~~~
 $ rm *.kraken-wc                            
