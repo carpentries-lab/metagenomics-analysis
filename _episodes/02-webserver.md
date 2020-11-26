@@ -54,10 +54,6 @@ The lesson template comes with several utilities to simplify lesson development 
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_subsystems.png" alt="Subsystems" />
 </a>
 
-<a href="{{ page.root }}/fig/sesgos.png">
-  <img src="{{ page.root }}/fig/sesgos.png" alt="Cog Metagenome" />
-</a>
-
 
  ## Upload  your metadata.  
  ## Upload your data  
