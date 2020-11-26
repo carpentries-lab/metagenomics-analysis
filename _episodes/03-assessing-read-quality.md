@@ -91,8 +91,8 @@ $ gunzip ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz
 We will now assess the quality of the sequence reads contained in our fastq files. 
 
 
- <a href="{{ page.root }}/fig/md-03-qualitycontrol.PNG">
-  <img src="{{ page.root }}/fig/md-03-qualitycontrol.PNG" alt="Quality Control" />
+ <a href="{{ page.root }}/fig/md-03-qualitycontrol.png">
+  <img src="{{ page.root }}/fig/md-03-qualitycontrol.png" alt="Quality Control" />
 </a>
 
 
