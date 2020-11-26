@@ -24,6 +24,10 @@ human metagenomes are frequently used in biomedical research. Other examples of 
 studies are environmental samples either terrestrial or marine. Finally, the agroindustry 
 has interest in known trough metagenomics the microbiome that lives in plant roots and leaves.
 
+<a href="{{ page.root }}/fig/metagenomic workflow.png">
+  <img src="{{ page.root }}/fig/metagenomic workflow.png" alt="Cog Metagenome" />
+</a>
+
 ## Cuatro Cienegas  
 <a href="{{ page.root }}/fig/md-01-data-Stromatolites.jpeg">
   <img src="{{ page.root }}/fig/md-01-data-Stromatolites.jpeg" alt="Cuatro Cienegas" />
