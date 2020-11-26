@@ -115,8 +115,7 @@ cut  -f1,3 >JP4D.lineage_table
 
 ~~~
 $ cut -f1 JC1A.kraken_ranked |taxonkit lineage |\
-taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | \ 
-cut  -f1,3 >JC1A.lineage_table
+taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A.lineage_table
 ~~~
 {: .bash}
 
@@ -134,6 +133,10 @@ The file contains one line with the word `deleted`.
 {: .output}  
   
 We can remove this line by using a one liner.  
+~~~
+$ grep deleted JP4D.error
+~~~
+{: .bash}  
   
 ~~~
 $ perl -ne 'print if !/119065/' JP4D.kraken >JP4D.kraken-wc
