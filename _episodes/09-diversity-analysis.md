@@ -232,7 +232,7 @@ $  perl -ne  'print if !/119065/'  JP4D.lineage_table >JP4D.lineage_table-2
 
 
 ~~~
-$ cut -f1 JP4D.merged  | while read line;\
+$ cut -d' ' -f1 JP4D.merged  | while read line;\
  do \
     perl -p -i -e  "s/$line/DELETE/"  JP4D.lineage_table-2;\
  done    
@@ -244,7 +244,7 @@ $ cut -f1 JP4D.merged  | while read line;\
 
 ~~~
 $ cp JC1A.lineage_table JC1A.lineage_table-2
-$ cut -f1 JC1A.merged  | while read line;\
+$ cut -d' ' -f1 JC1A.merged  | while read line;\
  do \
      perl -p -i -e  "s/$line/DELETE/" JC1A.lineage_table-2 ;\     
  done   
