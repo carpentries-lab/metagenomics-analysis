@@ -96,16 +96,17 @@ head JC1A.kraken
 
 ~~~
 $ cut -f3 JP4D.kraken  |sort -n |uniq -c > ranked
+$ head -n5 ranked
 ~~~
 {: .bash}
 
 ~~~
-0       77818
-1       5
-2       562
-22      4
-32      2
-~~~
+ 77818 0
+ 5 1
+ 562 2
+ 4 22
+ 2 32
+ ~~~
 {: .output}  
 
 ~~~
