@@ -70,11 +70,14 @@ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R
 > avoid needing to download the data and instead use the data files provided in the `.backup/` directory.
 > 
 > ~~~
-> $ cp ~/.backup/untrimmed_fastq/*fastq.gz .
+> $ cd ~
+> $ tar -xzf ~/mgdata.tar.gz 
+> $ cd ~/dc_workshop/data/untrimmed_fastq
+> $ cp ~/dc_workshop/data/*fastq.gz .
 > ~~~
 > {: .bash}
 > 
-> This command creates a copy of each of the files in the `.backup/untrimmed_fastq/` directory that end in `fastq.gz` and
+> This command creates a copy of each of the files in the `~/dc_workshop/data/` directory that end in `fastq.gz` and
 > places the copies in the current working directory (signified by `.`). 
 {: .callout}
 
