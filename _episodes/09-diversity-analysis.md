@@ -121,16 +121,21 @@ $ cut -f1 JC1ASEDIMENT120627_kraken.kraken_ranked |taxonkit lineage |taxonkit re
 
 Errors are saved in `JC1ASEDIMENT120627.error` and ` JP4DASH2120627WATERAMPRESIZED.error` files 
 ~~~
-$  grep merged JC1ASEDIMENT120627.error | cut -d' ' -f4,8 > JC1ASEDIMENT120627.merged   
-$ cp JC1ASEDIMENT120627_kraken.kraken JC1ASEDIMENT120627_kraken.kraken-bu                  
-$ cat  JC1ASEDIMENT120627.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$(echo $line|cut -d' '  -f2); sed 's/\t'"$original"'\t/\t'"$new"'\t/' JC1ASEDIMENT120627_kraken.kraken-bu ; done > JC1ASEDIMENT120627.ranked-2                     
+$  grep merged JC1ASEDIMENT120627.error | cut -d' ' -f4,8 > JC1ASEDIMENT120627.merged                   
+$ cat  JC1ASEDIMEN T120627.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$( echo $line|cut -d' '  -f2); sed "s/$original/$new/" JC1ASEDIMENT120627_kraken.kraken ; done > JC1ASEDIMENT120627_kraken.kraken-2   
+$ cut -f3 JC1ASEDIMENT120627_kraken.kraken-2    |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1ASEDIMENT120627_kraken.kraken-2_ranked
+$ rm ranked
 ~~~
 :{ .bash}
 
 ~~~
 $ grep merged JP4DASH2120627WATERAMPRESIZED.error | cut -d' ' -f4,8 > JP4DASH2120627WATERAMPRESIZED.merged 
-$ cp JP4DASH2120627WATERAMPRESIZED_kraken.kraken JP4DASH2120627WATERAMPRESIZED_kraken.kraken-bu                    
-$ cat  JP4DASH2120627WATERAMPRESIZED.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$(echo $line|cut -d' '  -f2); echo sed 's/\t$original\t/\t$new\t' JP4DASH2120627WATERAMPRESIZED_kraken.kraken-bu ; done                      
+$ cat  JP4DASH2120627WATERAMPRESIZED.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$(echo $line|cut -d' '  -f2); echo sed "s/\t$original/\t$new" JP4DASH2120627WATERAMPRESIZED_kraken.kraken ; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken-2                     
+$ cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken-2    |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken-2_ranked
+$ rm ranked
+
 ~~~
 :{ .bash}
 
