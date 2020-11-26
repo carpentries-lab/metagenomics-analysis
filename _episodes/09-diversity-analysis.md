@@ -69,15 +69,15 @@ It is easy to visualize using PCA, PCoA or NMDS
 We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
 
 ~~~
-$ cut -f3 JP4D_kraken.kraken  |sort -n |uniq -c > ranked
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D_kraken.kraken_ranked
+$ cut -f3 JP4D.kraken  |sort -n |uniq -c > ranked
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked
 $ rm ranked
 ~~~
 {: .bash}
 
 ~~~
-$ cut -f3 JC1A_kraken.kraken   |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A_kraken.kraken_ranked
+$ cut -f3 JC1A.kraken   |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked
 $ rm ranked
 ~~~
 {: .bash}
@@ -107,12 +107,12 @@ $ rm ranked
 
 First column
 ~~~
-$ cut -f1 JP4D_kraken.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JP4D_kraken.kraken_ranked_lineage_table
+$ cut -f1 JP4D.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JP4D.kraken_ranked_lineage_table
 ~~~
 {: .bash}
 
 ~~~
-$ cut -f1 JC1A_kraken.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A_kraken.kraken_ranked_lineage_table
+$ cut -f1 JC1A.kraken_ranked |taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A.kraken_ranked_lineage_table
 ~~~
 {: .bash}
 
@@ -130,8 +130,8 @@ $ grep deleted JP4D.error
 :{ .output}
 
 ~~~
-$ perl -ne 'print if !/119065/' JP4D_kraken.kraken >JP4D_kraken.kraken-wc
-$ grep 119065 JP4DASH2120627WATERAMPRESI ZED_kraken.kraken-wc                            
+$ perl -ne 'print if !/119065/' JP4D.kraken >JP4D.kraken-wc
+$ grep 119065 JP4DASH2120627WATERAMPRESI ZED.kraken-wc                            
 ~~~
 :{ .bash}
 
@@ -166,10 +166,10 @@ $ cat  JP4D.merged  | while read line;\
  do \
     original=$(echo $line|cut -d' ' -f 1); \
     new=$( echo $line|cut -d' '  -f2); \
-    perl -p -i -e "s/$original/$new/" JP4D_kraken.kraken-wc;\
+    perl -p -i -e "s/$original/$new/" JP4D.kraken-wc;\
      done                      
-$ cut -f3 JP4D_kraken.kraken-wc    |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D_kraken.kraken-wc_ranked
+$ cut -f3 JP4D.kraken-wc    |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken-wc_ranked
 $ rm ranked
 ~~~
 :{ .bash}
@@ -177,28 +177,28 @@ $ rm ranked
 ~~~
 $ grep deleted JC1A.error 
 $ grep merged JC1A.error | cut -d' ' -f4,8 > JC1A.merged    
-$ cp JC1A_kraken.kraken JC1A_kraken.kraken-wc
+$ cp JC1A.kraken JC1A.kraken-wc
 $ cat  JC1A.merged  | while read line;\
  do \
     original=$(echo $line|cut -d' ' -f 1); \
     new=$( echo $line|cut -d' '  -f2); \
-    perl -p -i -e "s/$original/$new/" JC1A_kraken.kraken-wc;\
+    perl -p -i -e "s/$original/$new/" JC1A.kraken-wc;\
      done    
-$ cut -f3 JC1A_kraken.kraken-wc |sort -n |uniq -c > ranked  
+$ cut -f3 JC1A.kraken-wc |sort -n |uniq -c > ranked  
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A_wc_ranked
 $ rm ranked
 ~~~
 :{ .bash}
 
 ~~~
-$  perl -ne  'print if !/119065/'  JP4D_kraken.kraken_ranked_lineage_table >JP4D_kraken.kraken_ranked_lineage_table-2 
+$  perl -ne  'print if !/119065/'  JP4D.kraken_ranked_lineage_table >JP4D.kraken_ranked_lineage_table-2 
 ~~~
 :{ .bash}
 
 ~~~
 $ cut -f1 JC1A.merged  | while read line;\
  do \
-    echo perl -ne  'print if !/$line/'  JP4D_kraken.kraken_ranked_lineage_table-2  >  JP4D_kraken.kraken_ranked_lineage_table-wc;\
+    echo perl -ne  'print if !/$line/'  JP4D.kraken_ranked_lineage_table-2  >  JP4D.kraken_ranked_lineage_table-wc;\
  done    
 ~~~
 :{ .bash}
@@ -207,7 +207,7 @@ $ cut -f1 JC1A.merged  | while read line;\
 ~~~
 $ cut -f1 JC1A.merged  | while read line;\
  do \
-    echo perl -ne  'print if !/$line/'  JC1A_kraken.kraken_ranked_lineage_table >  JC1A_kraken.kraken_ranked_lineage_table-wc;\
+    echo perl -ne  'print if !/$line/'  JC1A.kraken_ranked_lineage_table >  JC1A.kraken_ranked_lineage_table-wc;\
  done    
 ~~~
 :{ .bash}
