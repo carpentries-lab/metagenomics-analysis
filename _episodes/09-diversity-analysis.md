@@ -67,7 +67,28 @@ There are two types, without weights (diversity) and with weights (diversity and
 
 It is easy to visualize using PCA, PCoA or NMDS
 We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
-cut -f3 report |sort -n |uniq -c >ranked
+
+~~~
+cut -f4 JP4DASH2120627WATERAMPRESIZE D_kraken.kraken  |sort -n |uniq -c >JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked  
+~~~
+{: code}
+
+~~~
+ C k141_0  1365647 416     0:1 1365647:5 2:5 1:23 0:348  
+~~~
+:{output}
+
+C Classified or unclassified  
+k141_0 fasta header of the read(contig)  
+1365647 tax id
+416     read length  
+0:1 1365647:5 2:5 1:23 0:348  hits on database
+E.g. 0:1 root 1 hit, 1365647 has 5 hits, etc.  
+
+
+
+First column
+
 cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.report |sort|uniq|taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f };{g};{s};{S}" | cut  -f1,3 >
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
 tar -xzf taxdump.tar.gz  
