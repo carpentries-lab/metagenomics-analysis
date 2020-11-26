@@ -372,19 +372,23 @@ p + geom_point(size=5, alpha=0.7)  #plot of richness
 
 > ## Exercise
 > 
-> How can you import the `JC1A metagenome` to phyloseq? 
+> How can you import the `JP4D metagenome` to phyloseq? 
 > 
 >> ## Solution
 >> ~~~
 >> $ tail 
 >> 
->> Repeat the previous instructions replacing JP4D for JC1A whenever it's appropiate
+>> Repeat the previous instructions replacing JC1A for JP4D whenever it's appropiate
 >> 
 > {: .solution}
 {: .challenge}  
 
+Now that you have both pyloseq objects, one for each metagenome, you can merge them into one object
 
-
+~~~
+merged_phyloseq = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
+~~~
+{: .language-r}
 
 > ## Exercise
 > 
