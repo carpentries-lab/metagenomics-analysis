@@ -254,7 +254,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 
 BiocManager::install("phyloseq")
 ~~~
-:{ .lenguage-R}
+{: .language-R}
 
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -262,7 +262,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 
 BiocManager::install("phyloseq")
 ~~~
-:{ .lenguage-R}
+{: .language-R}
 
 ~~~
 library("phyloseq")
@@ -270,7 +270,7 @@ library("ggplot2")
 library("readr")
 library("patchwork")
 ~~~
-:{ .lenguage-R}
+{: .language-R}
 
 
 > ## Exercise
