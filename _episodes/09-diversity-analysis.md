@@ -131,19 +131,19 @@ The file contains one line with the word `deleted`.
 ~~~
 04:29:50.903 [WARN] taxid 119065 was deleted  
 ~~~
-{: .output}
+{: .output}  
 
 We can remove this line by using a one liner.  
 ~~~
 $ perl -ne 'print if !/119065/' JP4D.kraken >JP4D.kraken-wc
 $ grep 119065 JP4DA.kraken-wc                            
 ~~~
-:{ .bash}
+:{ .bash}  
 
 ~~~
 $ 
 ~~~
-:{ .output}
+:{ .output}  
 
 And the line that contains 119065 is gone from the new file JP4D.kraken-wc.    
 
@@ -180,7 +180,7 @@ $ cut -f3 JP4D.kraken-wc    |sort -n |uniq -c > ranked
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken-wc_ranked
 $ rm ranked
 ~~~
-:{ .bash}
+:{ .bash}  
 
 ~~~
 $ grep deleted JC1A.error 
@@ -196,12 +196,12 @@ $ cut -f3 JC1A.kraken-wc |sort -n |uniq -c > ranked
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A_wc_ranked
 $ rm ranked
 ~~~
-:{ .bash}
+:{ .bash}  
 
 ~~~
 $  perl -ne  'print if !/119065/'  JP4D.lineage_table >JP4D.lineage_table-2 
 ~~~
-:{ .bash}
+:{ .bash}  
 
 ~~~
 $ cut -f1 JC1A.merged  | while read line;\
@@ -209,7 +209,7 @@ $ cut -f1 JC1A.merged  | while read line;\
     echo perl -ne  'print if !/$line/'  JP4D.ineage_table-2  >  JP4D.lineage_table-wc;\
  done    
 ~~~
-:{ .bash}
+:{ .bash}  
 
 
 ~~~
@@ -218,7 +218,7 @@ $ cut -f1 JC1A.merged  | while read line;\
     echo perl -ne  'print if !/$line/'  JC1A.lineage_table >  JC1A.lineage_table-wc;\
  done    
 ~~~
-:{ .bash}
+:{ .bash}  
 
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
 tar -xzf taxdump.tar.gz       
