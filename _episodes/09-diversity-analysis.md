@@ -239,6 +239,13 @@ $ cut -f1 JC1A.merged  | while read line;\
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
 tar -xzf taxdump.tar.gz       
 
+
+~~~
+$ nano JC1A.kraken_ranked-wc
+$ OTU  JC1A
+~~~
+{: .bash}  
+
 ~~~
 $ rm *.kraken-wc                            
 $ mkdir ../results
