@@ -307,6 +307,80 @@ library("patchwork")
 {: .language-r}
 
 
+~~~
+####----------Import files--------#####
+OTUS <- read_delim("JC1A.kraken_ranked-wc","\t", escape_double = FALSE, trim_ws = TRUE)
+TAXAS <- read_delim("JC1A.lineage_table-wc", "\t", escape_double = FALSE, \
+                    col_types = cols(subspecies = col_character(),  \
+                    subspecies_2 = col_character()), trim_ws = TRUE)
+
+theme_set(theme_bw())
+~~~
+{: .language-r}
+
+~~~
+names1 = OTUS$OTU
+names2 = TAXAS$OTU
+~~~
+{: .language-r}
+
+~~~
+OTUS$OTU = NULL
+TAXAS$OTU = NULL
+~~~
+{: .language-r}
+
+~~~
+abundances = as.matrix(OTUS)
+lineages = as.matrix(TAXAS)
+~~~
+{: .language-r}
+
+~~~
+row.names(abundances) = names1
+row.names(lineages) = names2
+~~~
+{: .language-r}
+
+~~~
+OTU = otu_table(abundances, taxa_are_rows = TRUE)
+TAX = tax_table(lineages)
+metagenomes = phyloseq(OTU, TAX)
+~~~
+{: .language-r}
+
+~~~
+Bacteria <- subset_taxa(metagenomes, superkingdom == "Bacteria")
+metagenomes <- prune_taxa(c(taxa_names(Bacteria)), metagenomes)
+no_contam <- subset_taxa(metagenomes, family != "mitochondria" & class != "Chloroplast" & genus != "Escherichia" & genus != "Staphylococcus", genus != "Wolbachia") 
+metagenomes <- prune_taxa(c(taxa_names(no_contam)),metagenomes)
+~~~
+{: .language-r}
+
+~~~
+####----------plotting richness and depth--------#####
+plot(sort(sample_sums(metagenomes), TRUE), type = "h", main = "Sequences per Sample", ylab = "# sequences",xlab="Samples", xaxt='n')   #plot of the sequencing depth
+~~~
+{: .language-r}
+
+~~~
+metagenomes <- prune_taxa(taxa_sums(metagenomes)>100,metagenomes)
+max(sample_sums(metagenomes))
+min(sample_sums(metagenomes))
+mean(sample_sums(metagenomes))
+~~~
+{: .language-r}
+
+~~~
+p = plot_richness(metagenomes, measures = c("Observed", "Chao1", "Shannon")) 
+p + geom_point(size=5, alpha=0.7)  #plot of richness
+~~~
+{: .language-r}
+
+
+
+
+
 > ## Exercise
 > 
 > Ejercicio `ERR2143795/JP4D_R1.fastq ` file? How confident
