@@ -67,18 +67,18 @@ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R
 > ## Faster option
 > 
 > If your workshop is short on time or the venue's internet connection is weak or unstable, learners can 
-> avoid needing to download the data and instead use the data files provided in the `.backup/` directory.
+> avoid needing to download the data and instead use the data files provided in the `~/mgdata.tar.gz` file.
 > 
 > ~~~
 > $ cd ~
 > $ tar -xzf ~/mgdata.tar.gz 
 > $ cd ~/dc_workshop/data/untrimmed_fastq
-> $ cp ~/dc_workshop/data/*fastq.gz .
+> $ cp ~/dc_workshop/data/*fastq.gz ~/dc_workshop/data/untrimmed_fastq/.
 > ~~~
 > {: .bash}
 > 
-> This command creates a copy of each of the files in the `~/dc_workshop/data/` directory that end in `fastq.gz` and
-> places the copies in the current working directory (signified by `.`). 
+> This command first goes to the `/home/dcusers` directory and decompresses the `mgdata.tar.gz` file. Then, creates a copy of each of the files in the `~/dc_workshop/data/` directory that end in `fastq.gz` and
+> places the copies in the `~/dc_workshop/data/untrimmed_fastq/` directory  with the same name (signified by `.`). 
 {: .callout}
 
 
