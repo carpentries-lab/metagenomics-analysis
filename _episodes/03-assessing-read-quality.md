@@ -535,12 +535,14 @@ directory we just created `~/Desktop/fastqc_html`.
 You should see a status output like this:
 
 ~~~
-JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html                      100%  249KB 152.3KB/s   00:01    
-JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html                      100%  254KB 219.8KB/s   00:01    
+JC1ASEDIMENT120627_R1_fastqc.html                100%  253KB 320.0KB/s   00:00     
+JC1ASEDIMENT120627_R2_fastqc.html                100%  262KB 390.1KB/s   00:00     
+JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html     100%  237KB 360.8KB/s   00:00     
+JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html     100%  244KB 385.2KB/s   00:00
 ~~~
 {: .output}
 
-Now we can go to our new directory and open the 6 HTML files. 
+Now we can go to our new directory and open the 4 HTML files. 
 
 Depending on your system, 
 you should be able to select and open them all at once via a right click menu
@@ -554,7 +556,7 @@ in your file browser.
 > 
 >> ## Solution
 >> All of the reads contain usable data, but the quality decreases toward
->> the end of the reads.
+>> the end of the reads. File JC1ASEDIMENT120627_R2_fastqc shows the lowest quality.
 > {: .solution}
 {: .challenge}
 
@@ -587,10 +589,10 @@ $ ls
 {: .bash}
 
 ~~~
-JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html
-JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip 
-JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html
-JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip 
+JC1ASEDIMENT120627_R1_fastqc.html           JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html                  
+JC1ASEDIMENT120627_R1_fastqc.zip            JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip                   
+JC1ASEDIMENT120627_R2_fastqc.html           JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html                  
+JC1ASEDIMENT120627_R2_fastqc.zip            JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip 
 ~~~
 {: .output}
 
