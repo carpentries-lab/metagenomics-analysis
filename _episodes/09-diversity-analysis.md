@@ -67,18 +67,8 @@ There are two types, without weights (diversity) and with weights (diversity and
 
 It is easy to visualize using PCA, PCoA or NMDS
 We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
-
 ~~~
-$ cut -f3 JP4D.kraken  |sort -n |uniq -c > ranked
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked
-$ rm ranked
-~~~
-{: .bash}
-
-~~~
-$ cut -f3 JC1A.kraken   |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked
-$ rm ranked
+head JC1A.kraken   
 ~~~
 {: .bash}
 
@@ -104,8 +94,31 @@ $ rm ranked
 |-------------------+-----------------------------------------------------------------------------------------|  
 
 
+~~~
+$ cut -f3 JP4D.kraken  |sort -n |uniq -c > ranked
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked
+$ rm ranked
+~~~
+{: .bash}
 
-First column
+~~~
+head JP4D.kraken_ranked
+~~~
+{: .bash}
+
+~~~
+head JP4D.kraken_ranked
+~~~
+{: .output}
+
+~~~
+$ cut -f3 JC1A.kraken   |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked
+$ rm ranked
+~~~
+{: .bash}
+
+
 ~~~
 $ cut -f1 JP4D.kraken_ranked |taxonkit lineage | \
 taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | \
