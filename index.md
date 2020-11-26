@@ -45,7 +45,7 @@ As you progress through this lesson, keep in mind that, even if you aren’t goi
 >
 > 0.  Don't panic.
 > 1.  Everything is going to be fine.
-> 2.  We are learning togheter.
+> 2.  We are learning together.
 {: .checklist}
 
 {% include links.md %}
