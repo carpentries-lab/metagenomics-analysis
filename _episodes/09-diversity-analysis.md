@@ -247,7 +247,9 @@ $ rm *lineage* *ranked* *merged
 ~~~
 {: .bash}  
 
+
 In console:  
+`.language-r`: R source:
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
