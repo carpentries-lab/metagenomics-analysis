@@ -127,6 +127,11 @@ $ grep deleted JP4D.error
 {: .bash}
 
 The file contains one line with the word `deleted`.  
+
+~~~
+ C k141_0  1365647 416     0:1 1365647:5 2:5 1:23 0:348  
+~~~
+{: .output}
 ~~~
 04:29:50.903 [WARN] taxid 119065 was deleted  
 ~~~
