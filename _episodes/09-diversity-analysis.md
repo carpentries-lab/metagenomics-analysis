@@ -120,7 +120,36 @@ $ cut -f1 JC1ASEDIMENT120627_kraken.kraken_ranked |taxonkit lineage |taxonkit re
 {: .bash}
 
 Errors are saved in `JC1ASEDIMENT120627.error` and ` JP4DASH2120627WATERAMPRESIZED.error` files 
+Common errors are `deleted` and `merged`. 
+
 ~~~
+$ grep deleted JP4DASH2120627WATERAMPRESIZED.error
+$ perl -ne 'print if !/119065/' JP4DASH2120627WATERAMPRESIZED_kraken.kraken >JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc
+~~~
+:{ .bash}
+
+~~~
+$ grep merged JP4DASH2120627WATERAMPRESIZED.error
+~~~
+:{ .bash}
+
+
+~~~
+$ grep merged JP4DASH2120627WATERAMPRESIZED.error | cut -d' ' -f4,8 > JP4DASH2120627WATERAMPRESIZED.merged 
+$ cat  JP4DASH2120627WATERAMPRESIZED.merged  | while read line;\
+ do \
+    original=$(echo $line|cut -d' ' -f 1); \
+    new=$( echo $line|cut -d' '  -f2); \
+    perl -p -i -e "s/$original/$new/" JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc;\
+     done                      
+$ cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc    |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc_ranked
+$ rm ranked
+~~~
+:{ .bash}
+
+~~~
+$ grep deleted JC1ASEDIMENT120627.error 
 $ grep merged JC1ASEDIMENT120627.error | cut -d' ' -f4,8 > JC1ASEDIMENT120627.merged    
 $ cp JC1ASEDIMENT120627_kraken.kraken JC1ASEDIMENT120627_kraken.kraken-wc
 $ cat  JC1ASEDIMENT120627.merged  | while read line;\
@@ -135,21 +164,6 @@ $ rm ranked
 ~~~
 :{ .bash}
 
-~~~
-$ grep merged JP4DASH2120627WATERAMPRESIZED.error | cut -d' ' -f4,8 > JP4DASH2120627WATERAMPRESIZED.merged 
-$ cp JP4DASH2120627WATERAMPRESIZED_kraken.kraken JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc
-$ cat  JP4DASH2120627WATERAMPRESIZED.merged  | while read line;\
- do \
-    original=$(echo $line|cut -d' ' -f 1); \
-    new=$( echo $line|cut -d' '  -f2); \
-    perl -p -i -e "s/$original/$new/" JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc;\
-     done                      
-$ cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc    |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc_ranked
-$ rm ranked
-
-~~~
-:{ .bash}
 
 
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
