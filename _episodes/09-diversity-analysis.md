@@ -119,6 +119,19 @@ $ cut -f1 JC1ASEDIMENT120627_kraken.kraken_ranked |taxonkit lineage |taxonkit re
 ~~~
 {: .bash}
 
+~~~
+$ cp JP4DASH2120627WATERAMPRESIZED.merged JP4DASH2120627WATERAMPRESIZED.merged-bu
+$ grep merged JC1ASEDIMENT120627_kraken.kraken | cut -d' ' -f4,8 > JC1ASEDIMENT120627_kraken.kraken.merged                     
+$ cat  JC1ASEDIMENT120627_kraken.kraken.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$(echo $line|cut -d' '  -f2); echo sed 's/\t$original\t/\t$new\t' JC1ASEDIMENT120627_kraken.kraken-bu ; done                      
+~~~
+:{ .bash}
+
+~~~
+$ cp JP4DASH2120627WATERAMPRESIZED.merged JP4DASH2120627WATERAMPRESIZED.merged-bu
+$ grep merged JP4DASH2120627WATERAMPRESIZED.error | cut -d' ' -f4,8 > JP4DASH2120627WATERAMPRESIZED.merged                     
+$ cat  JP4DASH2120627WATERAMPRESIZED.merged  |while read line; do original=$(echo $line|cut -d' ' -f 1); new=$(echo $line|cut -d' '  -f2); echo sed 's/\t$original\t/\t$new\t' JP4DASH2120627WATERAMPRESIZED_kraken.kraken-bu ; done                      
+~~~
+:{ .bash}
 
 
 wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
