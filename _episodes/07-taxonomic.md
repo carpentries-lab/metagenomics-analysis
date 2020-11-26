@@ -11,6 +11,10 @@ keypoints:
 - "Kraken2 is a program for taxonomic assignation"
 ---
 
+<a href="{{ page.root }}/fig/sesgos.png">
+  <img src="{{ page.root }}/fig/sesgos.png" alt="Cog Metagenome" />
+</a>
+
 After reads has been assembled into contigs, or even using unassembled reads, 
 the taxonomic identity assignation of each sequence into Operational Taxonomic
 Units (OTUs) can be done. Complete genomes must be used as a comparison database
