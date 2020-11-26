@@ -227,7 +227,7 @@ $ rm ranked
 
 ~~~
 $ cut -f1 JP4D.kraken_ranked-wc |taxonkit lineage |\
-  taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s };{S}" |\
+  taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" |\
   cut  -f1,3 > JP4D.lineage_table-wc                                        
 ~~~
 {: .bash}
@@ -240,7 +240,7 @@ $ 10:34:06.833 [WARN] taxid 0 not found
 
 ~~~
 $ cut -f1 JC1A.kraken_ranked-wc |taxonkit lineage |\
-  taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s };{S}" |\
+  taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" |\
   cut  -f1,3 > JC1A.lineage_table-wc                                        
 ~~~
 {: .bash}
