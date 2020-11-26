@@ -124,6 +124,15 @@ Common errors are `deleted` and `merged`.
 
 ~~~
 $ grep deleted JP4DASH2120627WATERAMPRESIZED.error
+~~~
+:{ .bash}
+
+~~~
+04:29:50.903 [WARN] taxid 119065 was deleted  
+~~~
+:{ .output}
+
+~~~
 $ perl -ne 'print if !/119065/' JP4DASH2120627WATERAMPRESIZED_kraken.kraken >JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc
 ~~~
 :{ .bash}
