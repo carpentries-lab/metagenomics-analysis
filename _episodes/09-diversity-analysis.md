@@ -137,7 +137,7 @@ $ rm ranked
 
 ~~~
 $ grep merged JP4DASH2120627WATERAMPRESIZED.error | cut -d' ' -f4,8 > JP4DASH2120627WATERAMPRESIZED.merged 
-$ JP4DASH2120627WATERAMPRESIZED_kraken.kraken JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc
+$ cp JP4DASH2120627WATERAMPRESIZED_kraken.kraken JP4DASH2120627WATERAMPRESIZED_kraken.kraken-wc
 $ cat  JP4DASH2120627WATERAMPRESIZED.merged  | while read line;\
  do \
     original=$(echo $line|cut -d' ' -f 1); \
