@@ -774,18 +774,19 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 >> {: .bash}
 >> 
 >> ~~~
->> FAIL    Per base sequence quality       SRR2584863_2.fastq.gz
->> FAIL    Per tile sequence quality       SRR2584863_2.fastq.gz
->> FAIL    Per base sequence content       SRR2584863_2.fastq.gz
->> FAIL    Per base sequence quality       SRR2584866_1.fastq.gz
->> FAIL    Per base sequence content       SRR2584866_1.fastq.gz
->> FAIL    Adapter Content SRR2584866_1.fastq.gz
->> FAIL    Adapter Content SRR2584866_2.fastq.gz
->> FAIL    Adapter Content SRR2589044_1.fastq.gz
->> FAIL    Per base sequence quality       SRR2589044_2.fastq.gz
->> FAIL    Per tile sequence quality       SRR2589044_2.fastq.gz
->> FAIL    Per base sequence content       SRR2589044_2.fastq.gz
->> FAIL    Adapter Content SRR2589044_2.fastq.gz
+>> FAIL    Per base sequence quality       JC1ASEDIMENT120627_R1.fastq.gz             
+>> FAIL    Per sequence GC content JC1ASEDIMENT120627_R1.fastq.gz                     
+>> FAIL    Sequence Duplication Levels     JC1ASEDIMENT120627_R1.fastq.gz             
+>> FAIL    Adapter Content JC1ASEDIMENT120627_R1.fastq.gz                             
+>> FAIL    Per base sequence quality       JC1ASEDIMENT120627_R2.fastq.gz             
+>> FAIL    Per sequence GC content JC1ASEDIMENT120627_R2.fastq.gz                     
+>> FAIL    Sequence Duplication Levels     JC1ASEDIMENT120627_R2.fastq.gz             
+>> FAIL    Adapter Content JC1ASEDIMENT120627_R2.fastq.gz                             
+>> FAIL    Per base sequence content       JP4DASH2120627WATERAMPRESIZED_R1.fastq     
+>> FAIL    Adapter Content JP4DASH2120627WATERAMPRESIZED_R1.fastq                     
+>> FAIL    Per base sequence quality       JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz  
+>> FAIL    Per base sequence content       JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz  
+>> FAIL    Adapter Content JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
 >> ~~~
 >> {: .output}
 >> 
