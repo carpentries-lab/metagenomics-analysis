@@ -116,7 +116,7 @@ We can view the first complete read in one of the files our dataset by using `he
 the first four lines. 
 
 ~~~
-$ head -n 4 ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq
+$ head -n 4 JP4DASH2120627WATERAMPRESIZED_R1.fastq
 ~~~
 {: .bash}
 
@@ -174,7 +174,7 @@ very poor (`#` = a quality score of 2).
 
 > ## Exercise
 > 
-> What is the last read in the `ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
+> What is the last read in the `JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
 > are you in this read? 
 > 
 >> ## Solution
