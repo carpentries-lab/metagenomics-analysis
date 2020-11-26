@@ -69,15 +69,16 @@ It is easy to visualize using PCA, PCoA or NMDS
 We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
 
 ~~~
-cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken  |sort -n |uniq -c > ranked
-cat ranked |while read a b; do echo "$b $a"; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked
-rm ranked
+$ cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken  |sort -n |uniq -c > ranked
+$ cat ranked |while read a b; do echo "$b $a"; done > JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked
+$ rm ranked
 ~~~
 {: .bash}
 
 ~~~
-cut -f3 JC1ASEDIMENT120627_kraken.kraken   |sort -n |uniq -c > ranked  
-cat ranked |while read a b; do echo "$b $a"; done > JC1ASEDIMENT120627_kraken.kraken_ranked
+$ cut -f3 JC1ASEDIMENT120627_kraken.kraken   |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo "$b $a"; done > JC1ASEDIMENT120627_kraken.kraken_ranked
+$ rm ranked
 ~~~
 {: .bash}
 
@@ -109,9 +110,12 @@ cat ranked |while read a b; do echo "$b $a"; done > JC1ASEDIMENT120627_kraken.kr
 
 First column
 ~~~
-cut -f3 JP4DASH2120627WATERAMPRESIZED_kraken.report |sort|uniq|taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JP4DASH2120627WATERAMPRESIZED_kraken.report_lineage_table
+$ cut -f1 JP4DASH2120627WATERAMPRESIZED_kraken.kraken_ranked  |sort|uniq|taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JP4DASH2120627WATERAMPRESIZED_kraken.kraken_rankedt_lineage_table
+~~~
+{: .bash}
 
-cut -f3 JC1ASEDIMENT120627_kraken.report  |sort|uniq|taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1ASEDIMENT120627_kraken.report_lineage_table
+~~~
+$ cut -f1 JC1ASEDIMENT120627_kraken.kraken_ranked |sort|uniq|taxonkit lineage |taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1ASEDIMENT120627_kraken.kraken_ranked_lineage_table
 ~~~
 {: .bash}
 
