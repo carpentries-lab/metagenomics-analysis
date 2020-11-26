@@ -132,14 +132,16 @@ The file contains one line with the word `deleted`.
 04:29:50.903 [WARN] taxid 119065 was deleted  
 ~~~
 {: .output}  
-
+  
 We can remove this line by using a one liner.  
+  
 ~~~
 $ perl -ne 'print if !/119065/' JP4D.kraken >JP4D.kraken-wc
 $ grep 119065 JP4DA.kraken-wc                            
 ~~~
 :{ .bash}  
 
+  
 ~~~
 $ 
 ~~~
@@ -147,7 +149,8 @@ $
 
 And the line that contains 119065 is gone from the new file JP4D.kraken-wc.    
 
-Now lets ser fot the `merged` error in the `JP4D` error file.
+Now lets ser fot the `merged` error in the `JP4D` error file.  
+  
 ~~~
 $ grep merged JP4D.error
 ~~~
