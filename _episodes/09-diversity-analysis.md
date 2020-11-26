@@ -263,6 +263,9 @@ tar -xzf taxdump.tar.gz
 ~~~
 $ nano JC1A.kraken_ranked-wc
 $ OTU  JC1A
+$ nano JC1A.lineage_table-wc
+$ OTU	superkingdom	phylum	class	order	family	genus	species	subspecies	subspecies_2
+
 ~~~
 {: .bash}  
 
