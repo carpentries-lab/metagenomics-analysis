@@ -236,8 +236,8 @@ $ cut -d' ' -f1 JP4D.merged  | while read line;\
  do \
     perl -p -i -e  "s/$line/DELETE/"  JP4D.lineage_table-2;\
  done    
- $  perl -p -i -e  "s/;/\t/g" JP4D.lineage_table-3 ;\ 
- $ grep -v DELETE JP4D.lineage_table-3 > JP4D.lineage_table-wc
+ $  perl -p -i -e  "s/;/\t/g" JP4D.lineage_table-2;\ 
+ $ grep -v DELETE JP4D.lineage_table-2 > JP4D.lineage_table-wc
 ~~~
 {: .bash}
 
@@ -249,8 +249,8 @@ $ cut -d' ' -f1 JC1A.merged  | while read line;\
      perl -p -i -e  "s/$line/DELETE/" JC1A.lineage_table-2 ;\     
  done   
  
- $  perl -p -i -e  "s/;/\t/g" JC1A.lineage_table-3 ;\ 
- $  grep -v DELETE JC1A.lineage_table-3 > JC1A.lineage_table-wc
+ $  perl -p -i -e  "s/;/\t/g" JC1A.lineage_table-2 ;\ 
+ $  grep -v DELETE JC1A.lineage_table-2 > JC1A.lineage_table-wc
 ~~~
 {: .bash}
 
