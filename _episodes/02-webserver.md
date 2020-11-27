@@ -79,12 +79,6 @@ Going deeply in taxonomy, we can see that the mos abundant phylum is Proteobacte
 {: .challenge}
 
 
-<a href="{{ page.root }}/fig/md-02-mgm4913055.3_sequence_breakdown.png">
-  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_sequence_breakdown.png" alt="Sequence breakdown" />
-</a>
-
-
-
 ## AWS is a command line cloud server. 
 The machine that you are going to use is provided by amazon web services, it is equiped with all 
 command line nd metagenomic tools needed fot this workshop. Lets practice log in this service and 
