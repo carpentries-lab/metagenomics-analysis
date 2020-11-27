@@ -34,6 +34,10 @@ the distribution of the metaboliccontent of its genes can be known, even without
 taxonomical lineage those genes are comming. Here it is shown that the genetic material of 
 this sample is mainly devoted to metabolism.  
 
+<a href="{{ page.root }}/fig/md-02-mgm4913055.3_cog.png">
+  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_cog.png" alt="Cog Metagenome" />
+</a>
+
 <a href="{{ page.root }}/fig/md-02-mgm4913055.3_subsystems.png">
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_subsystems.png" alt="Subsystems" />
 </a>
@@ -42,8 +46,8 @@ this sample is mainly devoted to metabolism.
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_predicted_features.png" alt="Predicted features" />
 </a>
  
-<a href="{{ page.root }}/fig/md-02-mgm4913055.3_cog.png">
-  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_cog.png" alt="Cog Metagenome" />
+<a href="{{ page.root }}/fig/md-02-mgm4913055.3_source_hits_distribution.png">
+  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_source_hits_distribution.png" alt="Source Hits" />
 </a>
 
 After metabolic features, there is some information about the taxonomixal distribution of the 
@@ -79,9 +83,6 @@ Going deeply in taxonomy, we can see that the mos abundant phylum is Proteobacte
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_sequence_breakdown.png" alt="Sequence breakdown" />
 </a>
 
-<a href="{{ page.root }}/fig/md-02-mgm4913055.3_source_hits_distribution.png">
-  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_source_hits_distribution.png" alt="Source Hits" />
-</a>
 
 
 ## AWS is a command line cloud server. 
