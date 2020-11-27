@@ -93,36 +93,93 @@ copy files from your local computer to your remote instance of AWS.
 ~~~
 $ ssh dcuser@ec2-3-238-253-45.compute-1.amazonaws.com 
 ~~~
-:{} 
+{: .bash} 
 
+~~~
+Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.13.0-48-generic x86_64)                                                                                                     * 
+Documentation:  https://help.ubuntu.com/                                                                                                                             
+System information as of Fri Nov 27 06:29:17 UTC 2020 
+~~~
+{: .output}
+
+You can ask the remote AWS machine to print working directory with `pwd` .
 ~~~
 $ pwd 
 ~~~
 {: .bash}
-
+  
+And it will will show you that you are in dcuser.  
 ~~~
 $ /home/dcuser  
 ~~~
 {: .output}
 
+Data have been loaded for you over there
+Please decompress them 
 
+To log out from your remote machine you can use `exit`.  
 ~~~
 $ exit
-$pwd
 ~~~
 {: .bash}
 
+If you now ask the terminal to print the working directory with `pwd` 
+it will show some local directory in your local computer. 
+You can copy files from you locarl to your remote machine and viceversa. 
+A general guideline using the command secure copy (`scp`) would be as follows: 
 ~~~
-$ /myadress
+$ scp <where is the file> <where you want the file to be>  
 ~~~
-{: .output}
+{: .output}  
+
+For example, you have the metadata file `MGRAST _MetaData_JP.xlsx` in your remote machine. 
+This file is located at the directory `/home/dcuser/dc_workshop/metadata/`.  To copy this file
+into our local machine lets use `scp` command. 
 
 ~~~
-$ scp adress :/home/dcuser/execll .
+$ scp dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/dc_workshop/metadata/MGRAST_MetaData_JP.xlsx .
 ~~~
-{: .output}
+{: .data}  
 
- Open the excell file 
+~~~
+MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00  
+~~~
+{: output}  
+
+
+> ## Exercise copy local files into AWS remote instance
+> 
+> What would be the correctsinatx to upload some local file named `APJ4_MetaData_JP.xlsx.` 
+> into you AWS remote instance?
+>   a) ssh dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/. APJ4_MetaData_JP.xlsx.
+>   b) ssh APJ4_MetaData_JP.xlsx dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/.
+>   c) scp APJ4_MetaData_JP.xlsx dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/.
+>> ## Solution
+>> ~~~
+>> $  scp APJ4_MetaData_JP.xlsx dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/.
+>> ~~~
+>> {: .bash}
+>> 
+>> ~~~
+>> {: .output}
+>> 
+>> c option is the only one that uses secure copy command.  
+>> 
+> {: .solution}
+{: .challenge}
+
+
+
+
+Ejercicio 2 que dicen el metadato profundidad
+
+
+Ejercicio 3 Sube a tu cuenta de mgrast este metadata y tu genoma en /home/dcuse/dc_workshop/assembly/JP4DASH2120627WATERAMPRESIZED.fasta 
+> ## `.discussion`
+>
+> 
+{: .discussion}
+ Open the excell file in your local computer. 
  
 > ## Exercise copy local files into remote instance
 > 
