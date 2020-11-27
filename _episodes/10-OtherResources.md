@@ -3,11 +3,10 @@ title: "Other Resources"
 teaching: 5
 exercises: 0
 questions:
-- "Checking and Previewing: How can lesson formatting be checked?"
+- "Where are ohter metagenomic resources"
 - "How can lessons be previewed?"
 objectives:
-- "Run the lesson checking script and interpret its output correctly."
-- "Preview a lesson locally."
+- "Know some place where to find more information"
 keypoints:
 - "Lessons are checked by running `make lesson-check`."
 - "The checker uses the same Markdown parser as Jekyll."
