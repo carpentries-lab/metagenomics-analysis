@@ -79,6 +79,75 @@ Lets explore some of the MgRAST results to our data. First we can see a metaboli
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_subsystems.png" alt="Subsystems" />
 </a>
 
+## AWS is a command line cloud server. 
+The machine that you are going to use is provided by amazon web services, it is equiped with all 
+command line nd metagenomic tools needed fot this workshop. Lets practice log in this service and 
+copy files from your local computer to your remote instance of AWS.  
+
+~~~
+$ ssh dcuser@ec2-3-238-253-45.compute-1.amazonaws.com 
+~~~
+:{} 
+
+~~~
+$ pwd 
+~~~
+{: .bash}
+
+~~~
+$ /home/dcuser  
+~~~
+{: .output}
+
+
+~~~
+$ exit
+$pwd
+~~~
+{: .bash}
+
+~~~
+$ /myadress
+~~~
+{: .output}
+
+~~~
+$ scp adress :/home/dcuser/execll .
+~~~
+{: .output}
+
+ Open the excell file 
+ 
+> ## Exercise copy local files into remote instance
+> 
+> What is the last read in the `JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
+> are you in this read? 
+> 
+>> ## Solution
+>> ~~~
+>> $ tail -n 4 JP4DASH2120627WATERAMPRESIZED_R1.fastq
+>> ~~~
+>> {: .bash}
+>> 
+>> ~~~
+>>@MISEQ-LAB244-W7:156:000000000-A80CV:1:2114:17866:28868 1:N:0:CTCAGA
+>>
+>>CCCGTTCTCCACCTCGGCGCGCGCCAGCTGCGGCTCGTCCTTCCACAGGAACTTCCACGTCGCCGTCAGCCGCGACACGTTCTCCCCCCTCGCATGCTCGTCCTGTCTCTCGTGCTTGGCCGACGCCTGCGCCTCGCACTGCGCCCGCTCGGTGTCGTTCATGTTGATCTTCACCGTGGCGTGCATGAAGCGGTTCCCGGCCTCGTCGCCACCCACGCCATCCGCGTCGGCCAGCCACTCTCACTGCTCGC
+>>
+>>+
+>>
+>>AA11AC1>3@DC1F1111000A0/A///BB#############################################################################################################################################################################################################################          
+>> ~~~
+>> {: .output}
+>> 
+>> This read has more consistent quality at its first than at the end
+>> but still has a range of quality scores, 
+>> most of them low. We will look at variations in position-based quality
+>> in just a moment.
+>> 
+> {: .solution}
+{: .challenge}
+
 
 > ## `.callout`
 >
