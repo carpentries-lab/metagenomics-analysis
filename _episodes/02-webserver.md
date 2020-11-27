@@ -150,8 +150,11 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 > What would be the correctsinatx to upload some local file named `APJ4_MetaData_JP.xlsx.` 
 > into you AWS remote instance?
 >   a) ssh dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/. APJ4_MetaData_JP.xlsx  
+>
 >   b) ssh APJ4_MetaData_JP.xlsx dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/.  
+>
 >   c) scp APJ4_MetaData_JP.xlsx dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/.  
+>
 >> ## Solution  
 >> ~~~ 
 >> $  scp APJ4_MetaData_JP.xlsx dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/.
@@ -159,6 +162,7 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 >> {: .bash}
 >> ~~~ 
 >> c option is the only one that uses secure copy command.   
+>> ~~~
 >> {: .output}
 > {: .solution}
 {: .challenge}
@@ -178,10 +182,14 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 >  With this data upload your own project to mgRAST. What else do you need?   
 >> ## Solution
 >> MgRAST will ask you for a metadata file and genomic data. 
+>>
 >> The metadata file has been previously downloaded in this lesson.    
+>>
 >> To download the genomic file use `scp`      
+>>
 >> ~~~
 >>  scp dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/dc_workshop/assembly/JP4DASH2120627WATERAMPRESIZED.fasta .
+>> ~~~
 >> {: .bash}
 >>
 >> Upload this files to your MgRAST account.  
