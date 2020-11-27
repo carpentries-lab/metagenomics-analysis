@@ -16,7 +16,7 @@ keypoints:
 
 
 ## Pipelines can be web or command-line based
-Through this lesson we will run a full example using the command line, nevertheless there are also metagenomic web services available. For example, MG Rast is an on line metagenomic plataform where you can upload your raw data with its corresponding metadata and obtain a full run of their pipeline. MgRAST is a great resource as a public repository for your datasets. Although command line workflows are more flexible and adaptabble to individual needs, automatzed web servers can give us a preliminar idea of the content of our data. Cuatro cienegas data of this tutorial are available at MG RAST as [mgp96823](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
+Through this lesson we will run a full example using the command line, nevertheless there are also metagenomic web services available. For example, MG Rast is an on line metagenomic plataform where you can upload your raw data with its corresponding metadata and obtain a full run of their pipeline. MgRAST is a great resource as a public repository for your datasets. Although command line workflows are more flexible and adaptable to individual needs, automatized web servers can give us a preliminar idea of the content of our data. Cuatro cienegas data used in this tutorial are available at MG RAST as [mgp96823](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
 
 
 Lets explore some of the MgRAST results to our data.  
