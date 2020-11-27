@@ -121,15 +121,5 @@ Metadata is the data about data. This metadata describes information on one Cuat
 | depth	| 0.165 |   
 
 
-> ## `.callout`
->
-> An aside or other comment.
-{: .callout}
-
-> ## `.discussion`
->
-> Discussion questions.
-{: .discussion}
-
 
 
