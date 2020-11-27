@@ -277,7 +277,8 @@ $ rm *lineage* *ranked* *merged
 {: .bash}  
 
 
-In console:  
+Let's install phyloseq (This instruction might not work on certain version of R) 
+and the rest of the required libraries:  
 `.language-r`: R source:
 
 ~~~
@@ -286,16 +287,11 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 
 BiocManager::install("phyloseq")
 
-~~~
-{: .language-r}
-
+install.packages(c("ggplot2", "readr", "patchwork"))
 
 ~~~
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
 
-BiocManager::install("phyloseq")
-~~~
+Now let's load the libraries 
 {: .language-r}
 
 ~~~
@@ -306,17 +302,22 @@ library("patchwork")
 ~~~
 {: .language-r}
 
+Now we have to load the our metagenomes on R 
 
 ~~~
-####----------Import files--------#####
 OTUS <- read_delim("JC1A.kraken_ranked-wc","\t", escape_double = FALSE, trim_ws = TRUE)
 TAXAS <- read_delim("JC1A.lineage_table-wc", "\t", escape_double = FALSE, \
                     col_types = cols(subspecies = col_character(),  \
                     subspecies_2 = col_character()), trim_ws = TRUE)
 
-theme_set(theme_bw())
 ~~~
 {: .language-r}
+
+Phyloseq objects are a collection of information about one or more metagenomes, these
+objects can manually constructed using the basic data structures available in R or can
+be created by importing the output of other programs, such as QUIIME.
+
+Since we imported our data to basic R data types, we will make our phyloseq object manually.
 
 ~~~
 names1 = OTUS$OTU
@@ -342,30 +343,59 @@ row.names(lineages) = names2
 ~~~
 {: .language-r}
 
+All that we've done so far is transforming the taxonomic lineage table 
+and the OTU abundance table into a format that can be read by phyloseq,
+now we will make the phyloseq data types out of our tables.
+
 ~~~
 OTU = otu_table(abundances, taxa_are_rows = TRUE)
 TAX = tax_table(lineages)
+~~~
+{: .language-r}
+
+We will now construct a phyloseq object using phyloseq data types 
+
+~~~
 metagenome_JC1A = phyloseq(OTU, TAX)
 ~~~
 {: .language-r}
 
+If you look at our phyloseq object, you will see that there's more data types 
+that we can use to build our object. These are optional, so we will use our basic
+phyloseq object for now. 
+
+We then will prune all of the non-bacterial organisms in our metagenome. To do this 
+we will make a subset of all bacterial groups and save them
 ~~~
 Bacteria <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
-metagenome_JC1A <- prune_taxa(c(taxa_names(Bacteria)), metagenome_JC1A)
 ~~~
 {: .language-r}
 
+We will then filter out the taxonomic groups that have less than 10 reads assigned to them.
+
 ~~~
 metagenome_JC1A <- prune_taxa(taxa_sums(metagenome_JC1A)>10,metagenome_JC1A)
+~~~
+{: .language-r}
+
+
+Now let's look at some statistics of our metagenomes, like the mean number 
+of reads assigned to a taxonomic group
+
+~~~
 max(sample_sums(metagenome_JC1A))
 min(sample_sums(metagenome_JC1A))
 mean(sample_sums(metagenome_JC1A))
 ~~~
 {: .language-r}
 
+The max, min and mean can give us an idea of the eveness, but to have a more 
+visual representation of the alpha diversity we can now look at a ggplot2
+graph created using phyloseq 
+
 ~~~
 p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon")) 
-p + geom_point(size=5, alpha=0.7)  #plot of richness
+p + geom_point(size=5, alpha=0.7)  
 ~~~
 {: .language-r}
 
