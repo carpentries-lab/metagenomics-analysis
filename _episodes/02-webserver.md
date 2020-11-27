@@ -3,15 +3,19 @@ title: "Metagenomic Cloud services"
 teaching: 5
 exercises: 15
 questions:
-- "Checking and Previewing: How can lesson formatting be checked?"
-- "How can lessons be previewed?"
+- "What does it mean cloud services"
+- "How can I share and preview my metagenomic data?"
 objectives:
-- "Run the lesson checking script and interpret its output correctly."
-- "Preview a lesson locally."
+- "Explore our data in a metagenomic web server."
+- "Log in by command line in metagenomic remote machine."
+- "Understand differences between command line and web servers"  
 keypoints:
-- "Lessons are checked by running `make lesson-check`."
-- "The checker uses the same Markdown parser as Jekyll."
-- "Lessons can be previewed by running `make serve`."
+- "There are metagenomic cloud services."
+- "MgRAST is a metagenomic web server."
+- "AWS is a computer cloud that contain some bioinformatic instances."
+- "In web services data van be shared and visualized"
+- "Command line metagenomic workflows can be personalized"
+
 ---
 
 
