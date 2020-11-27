@@ -172,8 +172,8 @@ TrimmomaticPE: Completed successfully
 > 2) What percent of reads did we keep both pairs?
 >
 >> ## Solution
->> 1) 0.23%
->> 2) 79.96%
+>> 1) 1.76%    
+>> 2) 66.85%
 > {: .solution}
 {: .challenge}
 
