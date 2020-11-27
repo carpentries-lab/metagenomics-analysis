@@ -3,7 +3,7 @@ title: "MAGs"
 teaching: 10
 exercises: 0
 questions:
-- "Style Guide: How are keyboard key combinations written?"
+- "How are Metagenome assembly genomes (MAG) conformed"
 objectives:
 - "Explain how a genome is reconstructed from a metagenome"
 keypoints:
