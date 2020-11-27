@@ -228,7 +228,7 @@ $ for infile in *_R1.fastq.gz
 >   trimmomatic PE ${infile} ${base}_R2.fastq.gz \
 >                ${base}_R1.trim.fastq.gz ${base}_R1un.trim.fastq.gz \
 >                ${base}_R2.trim.fastq.gz ${base}_R2un.trim.fastq.gz \
->                SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:NexteraPE-PE.fa:2:40:15 
+>                SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15  
 > done
 ~~~
 {: .bash}
@@ -236,7 +236,7 @@ $ for infile in *_R1.fastq.gz
 
 Go ahead and run the for loop. It should take a few minutes for
 Trimmomatic to run for each of our six input files. Once it's done
-running, take a look at your directory contents. You'll notice that even though we ran Trimmomatic on file `SRR2589044` before running the for loop, there is only one set of files for it. Because we matched the ending `_1.fastq.gz`, we re-ran Trimmomatic on this file, overwriting our first results. That's ok, but it's good to be aware that it happened.
+running, take a look at your directory contents. You'll notice that even though we ran Trimmomatic on file `JP4DASH2120627WATERAMPRESIZED` before running the for loop, there is only one set of files for it. Because we matched the ending `_R1.fastq.gz`, we re-ran Trimmomatic on this file, overwriting our first results. That's ok, but it's good to be aware that it happened.
 
 ~~~
 $ ls
@@ -244,13 +244,13 @@ $ ls
 {: .bash}
 
 ~~~
-NexteraPE-PE.fa               SRR2584866_1.fastq.gz         SRR2589044_1.trim.fastq.gz
-SRR2584863_1.fastq.gz         SRR2584866_1.trim.fastq.gz    SRR2589044_1un.trim.fastq.gz
-SRR2584863_1.trim.fastq.gz    SRR2584866_1un.trim.fastq.gz  SRR2589044_2.fastq.gz
-SRR2584863_1un.trim.fastq.gz  SRR2584866_2.fastq.gz         SRR2589044_2.trim.fastq.gz
-SRR2584863_2.fastq.gz         SRR2584866_2.trim.fastq.gz    SRR2589044_2un.trim.fastq.gz
-SRR2584863_2.trim.fastq.gz    SRR2584866_2un.trim.fastq.gz
-SRR2584863_2un.trim.fastq.gz  SRR2589044_1.fastq.gz
+JC1ASEDIMENT120627_R1.fastq.gz                     JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz                                    
+JC1ASEDIMENT120627_R1.trim.fastq.gz                JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz                                  
+JC1ASEDIMENT120627_R1un.trim.fastq.gz              JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz                                
+JC1ASEDIMENT120627_R2.fastq.gz                     JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz                                 
+JC1ASEDIMENT120627_R2.trim.fastq.gz                JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz                                 
+JC1ASEDIMENT120627_R2un.trim.fastq.gz              JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz                                 
+TruSeq3-PE.fa   
 ~~~
 {: .output}
 
@@ -289,10 +289,10 @@ $ ls
 {: .bash}
 
 ~~~
-SRR2584863_1.trim.fastq.gz    SRR2584866_1.trim.fastq.gz    SRR2589044_1.trim.fastq.gz
-SRR2584863_1un.trim.fastq.gz  SRR2584866_1un.trim.fastq.gz  SRR2589044_1un.trim.fastq.gz
-SRR2584863_2.trim.fastq.gz    SRR2584866_2.trim.fastq.gz    SRR2589044_2.trim.fastq.gz
-SRR2584863_2un.trim.fastq.gz  SRR2584866_2un.trim.fastq.gz  SRR2589044_2un.trim.fastq.gz
+JC1ASEDIMENT120627_R1.trim.fastq.gz    JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz                
+JC1ASEDIMENT120627_R1un.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz              
+JC1ASEDIMENT120627_R2.trim.fastq.gz    JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz                
+JC1ASEDIMENT120627_R2un.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz   
 ~~~
 {: .output}
 
@@ -329,11 +329,8 @@ SRR2584863_2un.trim.fastq.gz  SRR2584866_2un.trim.fastq.gz  SRR2589044_2un.trim.
 >> After trimming and filtering, our overall quality is much higher, 
 >> we have a distribution of sequence lengths, and more samples pass 
 >> adapter content. However, quality trimming is not perfect, and some
->> programs are better at removing some sequences than others. Because our
->> sequences still contain 3' adapters, it could be important to explore
->> other trimming tools like [cutadapt](http://cutadapt.readthedocs.io/en/stable/) to remove these, depending on your
->> downstream application. Trimmomatic did pretty well though, and its performance
->> is good enough for our workflow.
+>> programs are better at removing some sequences than others. Trimmomatic 
+>> did pretty well though, and its performance is good enough for our workflow.
 > {: .solution}
 {: .challenge}
 
