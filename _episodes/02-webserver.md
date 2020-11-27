@@ -14,7 +14,6 @@ keypoints:
 - "Lessons can be previewed by running `make serve`."
 ---
 
-The lesson template comes with several utilities to simplify lesson development and maintenance.
 
 ## Checking
  MG Rast is an on line metagenomic plataform   
