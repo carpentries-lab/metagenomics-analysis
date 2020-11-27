@@ -279,7 +279,6 @@ $ rm *lineage* *ranked* *merged
 
 Let's install phyloseq (This instruction might not work on certain version of R) 
 and the rest of the required libraries:  
-`.language-r`: R source:
 
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -292,7 +291,6 @@ install.packages(c("ggplot2", "readr", "patchwork"))
 ~~~
 
 Now let's load the libraries 
-{: .language-r}
 
 ~~~
 library("phyloseq")
@@ -360,9 +358,13 @@ metagenome_JC1A = phyloseq(OTU, TAX)
 ~~~
 {: .language-r}
 
-If you look at our phyloseq object, you will see that there's more data types 
-that we can use to build our object. These are optional, so we will use our basic
-phyloseq object for now. 
+> ## `.callout`
+>
+>If you look at our phyloseq object, you will see that there's more data types 
+>that we can use to build our object. These are optional, so we will use our basic
+>phyloseq object for now.  
+{: .callout}
+
 
 We then will prune all of the non-bacterial organisms in our metagenome. To do this 
 we will make a subset of all bacterial groups and save them
@@ -390,7 +392,7 @@ mean(sample_sums(metagenome_JC1A))
 {: .language-r}
 
 The max, min and mean can give us an idea of the eveness, but to have a more 
-visual representation of the alpha diversity we can now look at a ggplot2
+visual representation of the α diversity we can now look at a ggplot2
 graph created using phyloseq 
 
 ~~~
@@ -398,6 +400,13 @@ p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon"))
 p + geom_point(size=5, alpha=0.7)  
 ~~~
 {: .language-r}
+
+
+> ## `.discussion`
+>
+> How much did the α diversity change due to the filterings that we made?
+{: .discussion}
+
 
 > ## Exercise
 > 
@@ -415,7 +424,30 @@ p + geom_point(size=5, alpha=0.7)
 Now that you have both pyloseq objects, one for each metagenome, you can merge them into one object
 
 ~~~
-merged_phyloseq = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
+merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
+~~~
+{: .language-r}
+
+
+Let´s look at the phylum abundance of our metagenomes. 
+Since our metagenomes have different sizes it might be a good idea to 
+convert the number of assigned read into percentages. 
+
+~~~
+percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
+~~~
+{: .language-r}
+
+Now we can make a comparative graph between absolute reads and percentages.
+
+~~~
+absolute_count = plot_bar(merged_metagenomes, fill="phylum")
+absolute_count = absolute_count + geom_bar(aes(color=phylum, fill=phylum), stat="identity", position="stack") + ggtitle("Absolute abundance")
+
+percentages = plot_bar(percentages, fill="phylum")
+percentages = percentages + geom_bar(aes(color=phylum, fill=phylum), stat="identity", position="stack") + ggtitle("Relative abundance")
+
+absolute_count | percentages
 ~~~
 {: .language-r}
 
