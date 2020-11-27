@@ -38,7 +38,31 @@ Lets explore some of the MgRAST results to our data. First we can see a metaboli
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_phylum.png" alt="Phylum" />
 </a>
 
- 
+ > ## Exercise
+> 
+> Which phylum is more abundant?
+> 
+> 
+>> ## Solution
+>> ~~~
+>> $ head metadata
+>> ~~~
+>> {: .bash}
+>> 
+>> ~~~
+>> $linea 1
+>>##########################################################################          
+>> ~~~
+>> {: .output}
+>> 
+>> This read has more consistent quality at its first than at the end
+>> but still has a range of quality scores, 
+>> most of them low. We will look at variations in position-based quality
+>> in just a moment.
+>> 
+> {: .solution}
+{: .challenge}
+
  <a href="{{ page.root }}/fig/md-02-mgm4913055.3_predicted_features.png">
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_predicted_features.png" alt="Predicted features" />
 </a>
