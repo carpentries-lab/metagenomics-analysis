@@ -1,35 +1,36 @@
 ---
 title: "Metagenome Assembly"
-teaching: 30
-exercises: 10
+teaching: 15
+exercises: 5
 questions:
-- "Formatting: How are The Carpentries lessons formatted?"
-objectives:
-- "Explain the header of each episode."
-- "Explain the overall structure of each episode."
-- "Explain why blockquotes are used to format parts of episodes."
-- "Explain the use of code blocks in episodes."
+- "Why genomic data should be assembled?"
+- "What is the difference between reads and contigs"
+- "How can we enamble a metagenome"
 keypoints:
-- "Lesson episodes are stored in _episodes/dd-subject.md."
-- "Each episode's title must include a title, time estimates, motivating questions, lesson objectives, and key points."
-- "Episodes should not use sub-titles or HTML layout."
-- "Code blocks can have the source, regular output, or error class."
-- "Special sections are formatted as blockquotes that open with a level-2 header and close with a class identifier."
-- "Special sections may be callouts or challenges; other styles are used by the template itself."
+- "Assemblies uses algorithms to group reads into contigs"
+- "Three famous algorithms are Greedy extension, OLC and De Bruijin graphs"
+- "Megahit is a metagenome assembly"
+- "The fastq files from quality control process are the inputs for the assembly software"
+- "A fasta file with contigs is the output of the assembly process"
 ---
 
 
 ## Assembling reads
-There are many programs to assemble metagenomes, but the main strategies they use are three: 
-Greedy extension, OLC and De Bruijn charts.
+An assembly is a data structure that maps the sequence data to a reconstruction of the target.
+Assemblies groups reads into contigs and contigs into scaffolds. There are many programs devoted to
+[genome](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874646/) and metagenome assembly, some of the
+main strategies they use are: Greedy extension, OLC and De Bruijn charts. When metagenomics is
+shotgun instead of amplicon metagenomics an extra assembly step must be run
+[documentation](https://kramdown.gettalong.org/converter/html.html#auto-ids),
 
 <a href="{{ page.root }}/fig/EnsambladoFinal.png">
   <img src="{{ page.root }}/fig/EnsambladoFinal.png" width="500" height="600" alt="Cog Metagenome" />
 </a>
 
 
+MEGAHIT is a NGS de novo assembler for assembling large and complex metagenomics data in a 
+time- and cost-efficient manner.  
 
-## Activating metagenomic environment  
 ~~~
     megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_result
 ~~~
@@ -40,27 +41,49 @@ megahit: command not found
 ~~~
 {: .error}
 
-Environments are part of a bioinformatic tendency to make repdoucible research, they are a way to share our computational environments with our colleges and with us in the future.  
-megahit is not activated in the (base) environment but this AWS instances came with an environment called metagenomics. 
+
+## Activating metagenomic environment  
+Environments are part of a bioinformatic tendency to make repdoucible research, 
+they are a way to share our computational environments with our colleges and 
+with our future self.  Megahit is not activated in the (base) environment but 
+this AWS instances came with an environment called metagenomics. We need to activate 
+it in order to satrt using megahit. 
+
+Conda environments are activated with `conda activate` direction:  
 ~~~
 conda activate metagenomics  
 ~~~
 {: .code}
 
+After the environment has been activated a label is shown before the `$` sign.
+~~~
+(metagenomics) $
+~~~
+{: .output}
+
+Now if we call megahit at the command line it wont be any error, 
+instead a long help will be displayed at our screen.   
+~~~
+megahit
+~~~
+{: .bash}
+
+~~~
+megahit: MEGAHIT v1.2.9 
+contact: Dinghua Li <voutcn@gmail.com>
+Usage:   megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_dir>]             
+~~~
+{: .output}
+ 
+> ## `.callout`
+>
+> Enviroments help in science reproducibility, allowing to share the specific conditions in which a pipeline is run
+> Conda is an open source package management system and environment management system that runs on Windows, macOS and 
+> Linux.
+{: .callout}
 
 ## Megahit options  
 
-> ## Assembling genomes
->
-> When metagenomics is shotgun instead of amplicon metagenomics an extra assembly step must be run
-> [documentation](https://kramdown.gettalong.org/converter/html.html#auto-ids),
-> (like [this](#linking-section-ids)). For example, the instructor might copy the link to
-> the etherpad, so that the lesson opens in learners' web browser directly at the right spot.
-{: .callout}
-
-
-MEGAHIT is a NGS de novo assembler for assembling large and complex metagenomics data in a 
-time- and cost-efficient manner.  
 
 ~~~
     megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_result
@@ -111,35 +134,13 @@ time- and cost-efficient manner.
 2020-11-21 05:47:14 - Build graph for k = 39          
 ~~~
 {: .bash}
-                             
-> ## Exercise
-> 
-> Ejercicio `ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
-> 
->> ## Solution
->> ~~~
->> $ tail 
->> ~~~
->> {: .bash}
->> 
->> ~~~
->> texto
->> ~~~
->> {: .output}
->> 
->> soluion
->> 
-> {: .solution}
-{: .challenge}          
+       
 
-> ## `.callout`
->
-> An aside or other comment.
-{: .callout}
+
 
 > ## `.discussion`
 >
-> Discussion questions.
+> ¿Does amplicon metagenomics needs an assembly step in its analysis worflow?  
 {: .discussion}
 
                              
