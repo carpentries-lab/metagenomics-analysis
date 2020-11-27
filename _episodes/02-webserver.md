@@ -148,7 +148,8 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 > ## Exercise 1 copy local files into AWS remote instance
 > 
 > What would be the correctsinatx to upload some local file named `APJ4_MetaData_JP.xlsx.` 
-> into you AWS remote instance?
+> into you AWS remote instance?  
+>
 >   a) ssh dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/. APJ4_MetaData_JP.xlsx  
 >
 >   b) ssh APJ4_MetaData_JP.xlsx dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/.  
