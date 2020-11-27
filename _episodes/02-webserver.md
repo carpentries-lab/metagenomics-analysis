@@ -1,7 +1,7 @@
 ---
 title: "Metagenomic Cloud services"
 teaching: 5
-exercises: 0
+exercises: 15
 questions:
 - "Checking and Previewing: How can lesson formatting be checked?"
 - "How can lessons be previewed?"
