@@ -31,7 +31,19 @@ Greedy extension, OLC and De Bruijn charts.
 
 ## Activating metagenomic environment  
 ~~~
-conda activate /home/ubuntu/.conda/envs/metagenomics  
+    megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_result
+~~~
+{: .source}
+
+~~~
+megahit: command not found   
+~~~
+{: .error}
+
+Environments are part of a bioinformatic tendency to make repdoucible research, they are a way to share our computational environments with our colleges and with us in the future.  
+megahit is not activated in the (base) environment but this AWS instances came with an environment called metagenomics. 
+~~~
+conda activate metagenomics  
 ~~~
 {: .code}
 
@@ -62,10 +74,8 @@ time- and cost-efficient manner.
 ~~~
 {: .output}
 
-~~~
-.error: error messages.
-~~~
-{: .error}
+
+
 
 
 ## Special Blockquotes
