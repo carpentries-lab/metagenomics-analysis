@@ -46,7 +46,9 @@ this sample is mainly devoted to metabolism.
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_cog.png" alt="Cog Metagenome" />
 </a>
 
-The predominant taxonomic lineage of this sample is bacteria.  
+After metabolic features, there is some information about the taxonomixal distribution of the 
+sample. First we can see that according to MgRAST the predominant taxonomic lineage of this sample is bacteria.  
+
 <a href="{{ page.root }}/fig/md-02-mgm4913055.3_domain.png">
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_domain.png" alt="Domain" />
 </a>
