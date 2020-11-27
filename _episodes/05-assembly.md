@@ -6,6 +6,9 @@ questions:
 - "Why genomic data should be assembled?"
 - "What is the difference between reads and contigs"
 - "How can we enamble a metagenome"
+objectives: 
+- "Understand what is an assembly"  
+- "Use an enviroment in a bioinformatic pipeline"   
 keypoints:
 - "Assemblies uses algorithms to group reads into contigs"
 - "Three famous algorithms are Greedy extension, OLC and De Bruijin graphs"
