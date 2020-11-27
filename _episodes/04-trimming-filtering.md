@@ -138,8 +138,9 @@ phred score is below 20 (like in our example above). We will also
 discard any reads that do not have at least 25 bases remaining after
 this trimming step. This command will take a few minutes to run.
 
+We unzipped one of our files before to work with it, let's compress it again before we run trimmomatic.
 ~~~
-$ gzip -q JP4DASH2120627WATERAMPRESIZED_R1.fastq 
+gzip JP4DASH2120627WATERAMPRESIZED_R1.fastq 
 ~~~
 {: .bash}
  
@@ -198,17 +199,17 @@ The output files are also FASTQ files. It should be smaller than our
 input file, because we've removed reads. We can confirm this:
 
 ~~~
-$ ls SRR2589044* -l -h
+$ ls JP4DASH2120627WATERAMPRESIZED* -l -h
 ~~~
 {: .bash}
 
 ~~~
--rw-rw-r-- 1 dcuser dcuser 124M Jul  6 20:22 SRR2589044_1.fastq.gz
--rw-rw-r-- 1 dcuser dcuser  94M Jul  6 22:33 SRR2589044_1.trim.fastq.gz
--rw-rw-r-- 1 dcuser dcuser  18M Jul  6 22:33 SRR2589044_1un.trim.fastq.gz
--rw-rw-r-- 1 dcuser dcuser 128M Jul  6 20:24 SRR2589044_2.fastq.gz
--rw-rw-r-- 1 dcuser dcuser  91M Jul  6 22:33 SRR2589044_2.trim.fastq.gz
--rw-rw-r-- 1 dcuser dcuser 271K Jul  6 22:33 SRR2589044_2un.trim.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser 124M Jul  6 20:22 JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser  94M Jul  6 22:33 JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser  18M Jul  6 22:33 JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser 128M Jul  6 20:24 JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser  91M Jul  6 22:33 JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser 271K Jul  6 22:33 JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz
 ~~~
 {: .output}
 
@@ -219,20 +220,14 @@ one sample at a time and we have more than one sample. The good news
 is that we can use a `for` loop to iterate through our sample files
 quickly! 
 
-We unzipped one of our files before to work with it, let's compress it again before we run our for loop.
 
 ~~~
-gzip SRR2584863_1.fastq 
-~~~
-{: .bash}
-
-~~~
-$ for infile in *_1.fastq.gz
+$ for infile in *_R1.fastq.gz
 > do
->   base=$(basename ${infile} _1.fastq.gz)
->   trimmomatic PE ${infile} ${base}_2.fastq.gz \
->                ${base}_1.trim.fastq.gz ${base}_1un.trim.fastq.gz \
->                ${base}_2.trim.fastq.gz ${base}_2un.trim.fastq.gz \
+>   base=$(basename ${infile} _R1.fastq.gz)
+>   trimmomatic PE ${infile} ${base}_R2.fastq.gz \
+>                ${base}_R1.trim.fastq.gz ${base}_R1un.trim.fastq.gz \
+>                ${base}_R2.trim.fastq.gz ${base}_R2un.trim.fastq.gz \
 >                SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:NexteraPE-PE.fa:2:40:15 
 > done
 ~~~
