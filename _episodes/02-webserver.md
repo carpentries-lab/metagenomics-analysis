@@ -151,7 +151,7 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 
 > ## Exercise 1 copy local files into AWS remote instance
 > 
-> What would be the correctsinatx to upload some local file named `APJ4_MetaData_JP.xlsx.` 
+> What would be the correct syntax to upload some local file named `APJ4_MetaData_JP.xlsx.` 
 > into you AWS remote instance?  
 >
 >   a) ssh dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/. APJ4_MetaData_JP.xlsx  
@@ -182,9 +182,9 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 {: .challenge}
 
 > ## Exercise 3 Your own project  
->  You can find metagenomic data in your AWS remote instance
-> located at /home/dcuser/dc_workshop/assembly/JP4DASH2120627WATERAMPRESIZED.fasta 
->  With this data upload your own project to mgRAST. What else do you need?   
+>  You can find metagenomic data in your AWS remote instance   
+> located at /home/dcuser/dc_workshop/assembly/JP4DASH2120627WATERAMPRESIZED.fasta   
+>  With this data upload your own project to mgRAST. What else do you need?      
 >> ## Solution
 >> MgRAST will ask you for a metadata file and genomic data. 
 >>
