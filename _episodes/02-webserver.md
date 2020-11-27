@@ -123,7 +123,7 @@ $ exit
 
 If you now ask the terminal to print the working directory with `pwd` 
 it will show some local directory in your local computer. 
-You can copy files from you locarl to your remote machine and viceversa. 
+You can copy files from you local to your remote machine and viceversa. 
 A general guideline using the command secure copy (`scp`) would be as follows: 
 ~~~
 $ scp <where is the file> <where you want the file to be>  
