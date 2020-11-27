@@ -15,9 +15,11 @@ keypoints:
 ---
 
 
-## Checking
- MG Rast is an on line metagenomic plataform   
- Our data is available at MG RAST as [mgp96823](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823)
+## Pipelines can be web or command-line based
+Through this lesson we will run a full example using the command line, nevertheless there are also metagenomic web services available. For example, MG Rast is an on line metagenomic plataform where you can upload your raw data with its corresponding metadata and obtain a full run of their pipeline. MgRAST is a great resource as a public repository for your datasets. Although command line workflows are more flexible and adaptabble to individual needs, automatzed web servers can give us a preliminar idea of the content of our data. Cuatro cienegas data of this tutorial are available at MG RAST as [mgp96823](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
+
+
+Lets explore some of the MgRAST results to our data.  
  
  <a href="{{ page.root }}/fig/md-02-mgm4913055.3_cog.png">
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_cog.png" alt="Cog Metagenome" />
@@ -54,16 +56,14 @@ keypoints:
 </a>
 
 
- ## Upload  your metadata.  
- ## Upload your data  
- ## Run the project  
- > ## `.callout`
+> ## `.callout`
 >
-> An aside or other comment.
+> To analize data from a metagenome experiment web and command line based strategies are available, the can complement each other.
 {: .callout}
+
 
 > ## `.discussion`
 >
-> Discussion questions.
+> If you have to analize data from 200 metagenomic samples which kind of strategy would you use.
 {: .discussion}
 
