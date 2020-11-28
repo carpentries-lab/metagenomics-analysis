@@ -267,7 +267,7 @@ $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*repo
 
 > ## `.discussion`
 >
-> Discussion questions.
+> What do you think is harder to assign, a species (like E. coli) or a phylum (like Proteobacteria)?
 {: .discussion}
 
                              
