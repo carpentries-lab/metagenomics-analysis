@@ -40,17 +40,28 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
 |-------------------+------------------------------------------------------------------------------|   
  
 
-- Shannon (H): <img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i\:ln{p_i}">
-  Where S is the number of OTUs and <img src="https://render.githubusercontent.com/render/math?math=p_i">  the proportion of the community represented by OTU i. 
+- Shannon (H): 
 
-- Simpson's (D) <img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{\sum_{i=1}^{S}p_i^2}">
-  Where S is the total number of the species in the community and<img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> is the proportion of community represented by OTU i.  
+| image             |  Description |  
+:-------------------------:|:-------------------------:  
+<img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i\:ln{p_i}"> | Definition
+<img src="https://render.githubusercontent.com/render/math?math=H=S"> | number of OTUs  
+<img src="https://render.githubusercontent.com/render/math?math=p_i">|  the proportion of the community represented by OTU i.   
+
+- Simpson's (D) 
+
+| image             |  Description |   
+:-------------------------:|:-------------------------:  
+<img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{\sum_{i=1}^{S}p_i^2}">| Definition   
+<img src="https://render.githubusercontent.com/render/math?math=H=S"> | total number of the species in the community   
+<img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> | proportion of community represented by OTU i.    
   
-- ACE <img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{S_{rare}}{C_{ACE}}+\frac{F_1}{C_{ACE}}+\gamma_{ACE}^2"> 
+- ACE 
 
 
 | Italic             |  Block letters |
 :-------------------------:|:-------------------------:
+<img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{S_{rare}}{C_{ACE}}+\frac{F_1}{C_{ACE}}+\gamma_{ACE}^2"> | Definition  
 <img float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}"> | number of abundant OTUs  
 <img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  | number of rare OTUs  
 <img src="https://render.githubusercontent.com/render/math?math=C_{ACE}">  | sample abundance coverage estimator
