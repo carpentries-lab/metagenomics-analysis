@@ -51,13 +51,17 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
 
 | Italic             |  Block letters |
 :-------------------------:|:-------------------------:
-![]<img float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}"> | ![]<img src="https://render.githubusercontent.com/render/math?math=S_{rare}">   
- 
-  Where <img src="https://render.githubusercontent.com/render/math?math=S_{abund}"> and <img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  are the number of abundant and rare OTUs respectively,
-<img src="https://render.githubusercontent.com/render/math?math=C_{ACE}"> is the sample abundance coverage estimator, <img src="https://render.githubusercontent.com/render/math?math=F_1"> is the frequency of singletons, and <img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> is the estimated coefficient  of variation in rare OTUs.
+<img float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}"> | number of abundant OTUs  
+<img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  | number of rare OTUs  
+<img src="https://render.githubusercontent.com/render/math?math=C_{ACE}">  | sample abundance coverage estimator
+<img src="https://render.githubusercontent.com/render/math?math=F_1">   | frequency of singletons
+<img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> | estimated coefficient  of variation in rare OTUs.  
 
-- Chao1 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Os}+\frac{F_1(F_1-1)}{2(F_2+1)}">  
- Where <img src="https://render.githubusercontent.com/render/math?math=F_1,F_2"> are the count of singletons and doubletons respectively, and Sobs is the number of observed species.
+- Chao1 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Obs}+\frac{F_1(F_1-1)}{2(F_2+1)}">  
+| Variable             |  Desription |
+:-------------------------:|:-------------------------:
+<img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|count of singletons and doubletons respectively  
+<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Obs}">| the number of observed species.  
 
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
 In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
