@@ -169,7 +169,7 @@ head ~/dc_workshop/report/JP4D_kraken.report
 ~~~
 {: .output}  
 
-We have reach the tsv files, the final step in our metagenomic pipeline showed in lesson-3.  
+We have reach the tsv files, the final step in our metagenomic pipeline showed in [lesson-3](https://carpentries-incubator.github.io/metagenomics/03-assessing-read-quality/index.html).  
 After we have the taxnomy assignation what follows is some visualization of our results.  
 
 
