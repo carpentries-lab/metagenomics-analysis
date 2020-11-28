@@ -178,12 +178,12 @@ After we have the taxnomy assignation what follows is some visualization of our 
 
 ### Krona  
 ~~~
-$ cd ~/dc_workshop/taxnomy  
+$ cd ~/dc_workshop/taxonomy  
 $ pwd
 ~~~
 {: .bash}  
 ~~~
-$ home/dcuser/dc_workshop/taxnomy  
+$ home/dcuser/dc_workshop/taxonomy  
 ~~~
 {: .output}  
 
