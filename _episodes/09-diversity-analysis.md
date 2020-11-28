@@ -51,7 +51,7 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
 
 | Italic             |  Block letters |
 :-------------------------:|:-------------------------:
-![]<|mg float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}">|![]<img src="https://render.githubusercontent.com/render/math?math=S_{rare}">   
+![]<img float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}"> | ![]<img src="https://render.githubusercontent.com/render/math?math=S_{rare}">   
  
   Where <img src="https://render.githubusercontent.com/render/math?math=S_{abund}"> and <img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  are the number of abundant and rare OTUs respectively,
 <img src="https://render.githubusercontent.com/render/math?math=C_{ACE}"> is the sample abundance coverage estimator, <img src="https://render.githubusercontent.com/render/math?math=F_1"> is the frequency of singletons, and <img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> is the estimated coefficient  of variation in rare OTUs.
