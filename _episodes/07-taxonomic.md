@@ -211,10 +211,15 @@ What do you see?
   <img src="{{ page.root }}/fig/krona1.svg" alt="Krona Visualization" />
 </a>
 
-
+Now lets only keep the reads were taxonomic assignation was done.  
 ~~~
 $ grep -v $'\t'0 JP4D.krona.input >JP4D.krona.input-filtered
 $ ktImportTaxonomy JP4D.krona.input-filtered -o JP4D.krona.out-filtered.html
+~~~
+{: .language-bash}
+
+And in our local computer lets copy the output from our remote instance.  
+~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out-filtered.html . 
 ~~~
 {: .language-bash}
