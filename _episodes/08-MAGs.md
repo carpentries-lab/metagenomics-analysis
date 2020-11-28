@@ -7,7 +7,7 @@ questions:
 objectives:
 - "Explain how a genome is reconstructed from a metagenome"
 keypoints:
-- "Keyboard keys need to use `<kbd>` HTML tag."
+- "MAGs are genome assembled from metagenomes after a binning process".  
 ---
 ## Bining 
 As the contigs that we obtain from the assembly come from different species, 
@@ -30,7 +30,8 @@ with an hybrid composition-abundance approach.
 ~~~
 $ run_MaxBin.pl 
 ~~~
-{: .bash}
+{: .bash}  
+
 ~~~
 MaxBin 2.2.7                                                                                           
 No Contig file. Please specify contig file by -contig                                                  
@@ -40,7 +41,7 @@ run_MaxBin.pl
 -contig (contig file)                                                                                   
 -out (output file)                                                                                                               
 ~~~
-{: output}
+{: .output}
 
 
 ~~~
