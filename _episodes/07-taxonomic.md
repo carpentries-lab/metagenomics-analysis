@@ -15,13 +15,12 @@ keypoints:
   <img src="{{ page.root }}/fig/sesgos.png" alt="Cog Metagenome" />
 </a>
 
-After reads has been assembled into contigs, or even using unassembled reads, 
-the taxonomic identity assignation of each sequence into Operational Taxonomic
-Units (OTUs) can be done. Complete genomes must be used as a comparison database
-in this assignation process.  
-
-There are many programs for doing taxonomic mapping, almost all of them use one 
-of the following strategies:  
+Taxonomic assignation of each sequence into Operational Taxonomic
+Units (OTUs) can be done either after reads has been assembled into 
+contigs, or using unassembled reads. The comparison database in this 
+assignation process must be constructed using complete genomes. There are 
+many programs for doing taxonomic mapping, almost all of them follows one 
+of the next strategies:  
 
 1. BLAST: Using BLAST or DIAMOND, these mappers search for the most likely hit 
 for each sequence within a database of genomes. This strategy is slow.    
@@ -32,19 +31,37 @@ sequence into pieces of length k, look for where these are placed within the tre
 and make the classification with the most probable position.    
 
 3. Markers: They look for markers of a database made a priori in the sequences 
-to be classified and assign the taxonomy depending on the hits obtained  
-
+to be classified and assign the taxonomy depending on the hits obtained.    
 
 > ## Taxonomy assignation software `.callout`
 >
 > There are three strategies for taxonomy assignation: blast, kmers and markers. 
 {: .callout}
 
+[Kraken 2](https://ccb.jhu.edu/software/kraken2/) is the newest version of Kraken, 
+a taxonomic classification system using exact k-mer matches to achieve 
+high accuracy and fast classification speeds. kraken2 is already installed in the metagenome
+environment, lets have a look at kraken2 help.  
+ 
+> ## Activate metagenomics environment
+> To be able to use kraken2, remember to activate the metagenomics environment with `conda activate metagenomics` 
+{: .callout}
 
 ~~~
-kraken2 
+$ kraken2 
 ~~~
 {: .code}
+~~~
+Need to specify input filenames!                                                                      
+Usage: kraken2 [options] <filename(s)>                                                                                                                                                                      
+Options:                                                                                                  
+--db NAME               Name for Kraken 2 DB                                                                                   
+                        (default: none)                                                               
+--threads NUM           Number of threads (default: 1)                                                
+--quick                 Quick operation (use first hit or hits)    
+~~~  
+{: .output}
+
 
 kraken 
 ~~~
