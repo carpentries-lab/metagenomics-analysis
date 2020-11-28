@@ -47,10 +47,11 @@ environment, lets have a look at kraken2 help.
 > To be able to use kraken2, remember to activate the metagenomics environment with `conda activate metagenomics` 
 {: .callout}
 
-~~~
-$ kraken2 
-~~~
-{: .code}
+~~~  
+$ kraken2  
+~~~ 
+{: .bash}
+
 ~~~
 Need to specify input filenames!                                                                      
 Usage: kraken2 [options] <filename(s)>                                                                                                                                                                      
@@ -79,7 +80,7 @@ despite its small size (Needs 8GB of RAM for classification).  Lets download min
 $ curl -O ftp://ftp.ccb.jhu.ed u/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
 $ tar -xvzf minikraken2_v2_8GB_201904.tgz 
 ~~~
-{: .code}
+{: .bash}
 
 > ## Exercise
 > 
