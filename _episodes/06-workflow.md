@@ -195,6 +195,7 @@ for filename in *.zip
     done
 
 echo "Saving summary..."
+mkdir -p ~/dc_workshop/docs
 cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 ~~~
 {: .output}
@@ -207,24 +208,16 @@ $ bash read_qc.sh
 {: .bash}
 
 ~~~
-Running FastQC ...
-Started analysis of SRR2584866.fastq
-Approx 5% complete for SRR2584866.fastq
-Approx 10% complete for SRR2584866.fastq
-Approx 15% complete for SRR2584866.fastq
-Approx 20% complete for SRR2584866.fastq
-Approx 25% complete for SRR2584866.fastq
+Running FastQC ...                                                                                         
+Started analysis of JC1ASEDIMENT120627_R1.fastq.gz                                                      
+Approx 5% complete for JC1ASEDIMENT120627_R1.fastq.gz                                                   
+Approx 10% complete for JC1ASEDIMENT120627_R1.fastq.gz                                                   
+Approx 15% complete for JC1ASEDIMENT120627_R1.fastq.gz                                                  
+Approx 20% complete for JC1ASEDIMENT120627_R1.fastq.gz                                                  
+Approx 25% complete for JC1ASEDIMENT120627_R1.fastq.gz                                                  
+Approx 30% complete for JC1ASEDIMENT120627_R1.fastq.gz   
 . 
 . 
 . 
-~~~
-{: .output}
-
-For each of your sample files, FastQC will ask if you want to replace the existing version with a new version. This is 
-because we have already run FastQC on this samples files and generated all of the outputs. We are now doing this again using
-our scripts. Go ahead and select `A` each time this message appears. It will appear once per sample file (six times total).
-
-~~~
-replace SRR2584866_fastqc/Icons/fastqc_icon.png? [y]es, [n]o, [A]ll, [N]one, [r]ename:
 ~~~
 {: .output}
