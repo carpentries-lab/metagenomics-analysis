@@ -234,6 +234,15 @@ Pavian should be locally installed and needs R and Shiny,
 but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) 
 to visualize our results.  
 
+First we need to download the files `JC1ASEDIMENT120627_kraken.report` 
+and `JP4DASH2120627WATERAMPRESIZED_kraken.report`  
+that corresponds to our kraken reports, because they are the files needed 
+as inputs in pavian. Again in our local machine lets use `scp` command.  
+~~~
+$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*report . 
+~~~
+{: .language-bash}
+
 <a href="{{ page.root }}/fig/uploadPavian.PNG">
   <img src="{{ page.root }}/fig/uploadPavian.PNG" alt="upload Pavian" />
 </a>
