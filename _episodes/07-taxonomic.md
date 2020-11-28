@@ -72,7 +72,7 @@ Despite we have our input files we also need a comparison database before
 start working with kraken2. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
 compatibles to be used with kraken2 in the taxonomical assignation process. 
 Minikraken is a popular database that attempts to conserve its sensitivity 
-despite its small size (8G).  Lets download minikraken database using the command
+despite its small size (Needs 8GB of RAM for classification).  Lets download minikraken database using the command
 `curl`.   
 
 ~~~
@@ -102,19 +102,34 @@ JP4DA_kraken.report  and the file JP4DA.kraken.
 $ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report JP4D_kraken.report  --gzip-compressed --paired JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz  > JP4DA.kraken
 ~~~
 {: .bash}
+~~~
+Unknown option: fastq-input                                                                            
+Loading database information...Failed attempt to allocate 8000000000bytes;                             
+you may not have enough free memory to load this database.                                             
+If your computer has enough RAM, perhaps reducing memory usage from                                    
+other programs could help you load this database?                                                      
+classify: unable to allocate hash table memory    
+~~~
+{: .error}
 
+As we can see in the output we need 8000000000bytes=8G in RAM to run kraken2, 
+and seems that we do not have them. In fact if we consult our memory with `free -b` 
+we can see that we only have `135434240bytes`, and we wont be able to run kraken2 in 
+this machine.For that reason we precomputed in a more powerful machine the taxonomy 
+assignation of this reads. The command that was run was in fact not with fastq files,
 kraken2 can also be run after the assembly process, in this case the input is a fasta file, 
-the one that we assembled with megahit. Lets first copy our assembly into this directoy. 
-Output files are also JP4DA.kraken and JP4DA_kraken.report.  
+the one that we assembled with megahit. In a more powerful machine
+we would first copy our assembly into this directory and run kraken2. 
+Output files in this command are also JP4DA.kraken and JP4DA_kraken.report.  
 ~~~
 $ cp ../../data/trimmed_fastq/megahit_result/final.contigs.fa  JP4DA.fasta  
 $ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input  JP4DA.fasta --threads 12 --output JP4DA.kraken --report JP4DA_kraken.report 
 ~~~
 {: .bash}  
 
-
+Lets visualize the precoomputed outputs of kraken2 in our assembled metagenome.  
 ~~~
-head JP4DA.kraken  
+head ~/dc_workshop/taxonomy/JP4DA.kraken  
 ~~~
 {: .bash}
 
@@ -136,7 +151,7 @@ C	k141_6	1	413	1:379
 {: .output}
 
 ~~~
-head JP4DA_kraken.report
+head ~/dc_workshop/report/JP4DA_kraken.report
 ~~~
 {: .bash} 
 ~~~
@@ -154,7 +169,11 @@ head JP4DA_kraken.report
   0.07	2	2	S	2057741	                Bradyrhizobium sp. SK17
   0.07	2	2	S	1437360	                Bradyrhizobium erythrophlei
 ~~~
-{: .output}
+{: .output}  
+
+We have reach the tsv files, the final step in our metagenomic pipeline showed in lesson-3.  
+After we have the taxnomy assignation what follows is some visualization of our results.  
+
 
 ## Visualization of taxonomic assignation results  
 [Krona](https://github.com/marbl/Krona/wiki) is a hierarchical data visualization software. Krona allows data to be explored with zooming, multi-layered pie charts and includes support for several bioinformatics tools and raw data formats. 
