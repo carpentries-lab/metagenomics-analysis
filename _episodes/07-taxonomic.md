@@ -174,47 +174,60 @@ After we have the taxnomy assignation what follows is some visualization of our 
 
 
 ## Visualization of taxonomic assignation results  
-[Krona](https://github.com/marbl/Krona/wiki) is a hierarchical data visualization software. Krona allows data to be explored with zooming, multi-layered pie charts and includes support for several bioinformatics tools and raw data formats. 
+[Krona](https://github.com/marbl/Krona/wiki) is a hierarchical data visualization software. Krona allows data to be explored with zooming, multi-layered pie charts and includes support for several bioinformatics tools and raw data formats. To use krona in our results, lets go first into our taxonomy directory, which contains the precalculated kraken outputs.  
 
+### Krona  
 ~~~
-krona updateTaxonomy.sh
+$ cd ~/dc_workshop/taxnomy  
+$ pwd
 ~~~
-{: .language-bash}
+{: .bash}  
+~~~
+$ home/dcuser/dc_workshop/taxnomy  
+~~~
+{: .output}  
 
+Krona is called with the `ktImportTaxonomy` command that needs an input and an output file.  
+In our case we will create the input file with the columns three and four from `JP4D.kraken` file.     
 ~~~
-cut -f2,3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken >  krona.input
-ktImportTaxonomy krona.input -o krona.out.html
-scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/results/krona*html . 
+cut -f2,3 JP4D.kraken >  JP4D.krona.input
 ~~~
-{: .language-bash}
+{: .language-bash}  
 
+Now we call krona in our ` JP4D.krona.input` file and save results in `JP4D.krona.out.html`.  
+~~~
+ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
+~~~
+{: .language-bash}  
 
+And finally, open another terminal in your local computer, and download krona output.
 ~~~
-grep -v $'\t'0 krona.input >krona.input2  
-ktImportTaxonomy krona.input2 -o krona2.out.html
-scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/results/krona*html . 
+scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out.html . 
 ~~~
-{: .language-bash}
-
-~~~
-cut -f2,3 JP4DASH2120627WATERAMPRESIZED_kraken.kraken >  krona.input
-ktImportTaxonomy krona.input -o krona.out.html
-~~~
-{: .language-bash}
-
+{: .bash}  
+What do you see? 
 
 <a href="{{ page.root }}/fig/krona1.svg">
   <img src="{{ page.root }}/fig/krona1.svg" alt="Krona Visualization" />
 </a>
 
 
+~~~
+grep -v $'\t'0 JP4D.krona.input >JP4D.krona.input-filtered
+ktImportTaxonomy JP4D.krona.input-filtered -o JP4D.krona.out-filtered.html
+scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out-filtered.html . 
+~~~
+{: .language-bash}
 
 <a href="{{ page.root }}/fig/krona2.svg">
   <img src="{{ page.root }}/fig/krona2.svg" alt="Krona Visualization" />
 </a>
 
-
-Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and Shiny, but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) to visualize our results.  
+### Pavian
+Pavian is another visualization tool that allows comparison between multiple samples. 
+Pavian should be locally installed and needs R and Shiny, 
+but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) 
+to visualize our results.  
 
 <a href="{{ page.root }}/fig/uploadPavian.PNG">
   <img src="{{ page.root }}/fig/uploadPavian.PNG" alt="upload Pavian" />
