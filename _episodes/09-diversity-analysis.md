@@ -78,7 +78,7 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
 In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
 
-## Distance between two metagenomes  
+## β diversity  
 Diversity β measures how different two or more metagenomes are, either in their composition (diversity)
 or in the abundance of the organisms that compose it (abundance). 
 - Bray-Curtis dissimilarity: Emphasis on abundance. Measures the differences 
@@ -89,7 +89,11 @@ It goes from 0 (same species in the community) to 1 (no species in common)
 There are two types, without weights (diversity) and with weights (diversity and abundance)  
 
 It is easy to visualize using PCA, PCoA or NMDS
-We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
+
+## Creating lineage and rank tables  
+Packages like Quiime2, MEGAN and vegan or phyloseq in R allows to obtain diversity index.  
+We will use phyloseq, and then we need to generate an abundance matrix from kraken output.  
+
 ~~~
 $ cd ~/dc_workshop/taxonomy
 $ head JC1A.kraken   
@@ -123,6 +127,7 @@ $ head JC1A.kraken
 |-------------------+-----------------------------------------------------------------------------------------|  
 
 
+First lets coun the occurrences of each taxon.  
 ~~~
 $ cut -f3 JP4D.kraken  |sort -n |uniq -c > ranked
 $ head -n5 ranked
@@ -138,12 +143,14 @@ $ head -n5 ranked
  ~~~
 {: .output}  
 
+Now let reverse the columns.  
 ~~~
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked
 $ rm ranked
 ~~~
 {: .bash}
 
+Lets see our `JP4D.kraken_ranked` file.  
 ~~~
 head -n5 JP4D.kraken_ranked
 ~~~
@@ -158,7 +165,7 @@ head -n5 JP4D.kraken_ranked
 ~~~
 {: .output}  
 
-
+Lets repeat the process for `JC1A` sample.  
 ~~~
 $ cut -f3 JC1A.kraken   |sort -n |uniq -c > ranked  
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked
@@ -166,7 +173,7 @@ $ rm ranked
 ~~~
 {: .bash}
 
-
+Now we will use `taxonkit` to obtain the taxonomy classification of each read.  
 ~~~
 $ cut -f1 JP4D.kraken_ranked |taxonkit lineage | \
 taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | \
@@ -174,11 +181,13 @@ cut  -f1,3 >JP4D.lineage_table
 ~~~
 {: .bash}
 
+And also lets obtaine a lineage table for `JC1A` sample.  
 ~~~
 $ cut -f1 JC1A.kraken_ranked |taxonkit lineage |\
 taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A.lineage_table
 ~~~
 {: .bash}
+
 
 Errors are saved in `JC1A.error` and `JP4D.error` files  Common errors are `deleted` and `merged`.   
 ~~~
@@ -187,13 +196,12 @@ $ grep deleted JP4D.error
 {: .bash}
 
 The file contains one line with the word `deleted`.  
-
 ~~~
 $ 04:29:50.903 [WARN] taxid 119065 was deleted  
 ~~~
 {: .output}  
   
-We can remove this line by using a one liner.  
+We can remove this line by using a `perl` one liner.  
 ~~~
 $ grep 119065 JP4D.kraken                        
 $ perl -ne 'print if !/119065/' JP4D.kraken >JP4D.kraken-wc
@@ -209,7 +217,6 @@ $
 And the line that contains 119065 is gone from the new file JP4D.kraken-wc.    
 
 Now lets ser fot the `merged` error in the `JP4D` error file.  
-  
 ~~~
 $ grep merged JP4D.error | cut -d' ' -f4,8 > JP4D.merged 
 $ head -n5 JP4D.merged 
@@ -225,6 +232,7 @@ $ head -n5 JP4D.merged
 ~~~
 {: .output} 
 
+And lets subsitute all the merged taxon by the corresponding new one. 
 ~~~
 $ cat  JP4D.merged  | while read line;\
  do \
@@ -254,6 +262,8 @@ $ rm ranked
 ~~~
 {: .bash} 
 
+With this new working copy of th proportion in taxonomy classification
+we can run again taxonkit to obtain the curated lineage table.  
 ~~~
 $ cut -f1 JP4D.kraken_ranked-wc |taxonkit lineage |\
   taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" |\
@@ -277,12 +287,8 @@ $ cut -f1 JC1A.kraken_ranked-wc |taxonkit lineage |\
 $ 10:34:06.833 [WARN] taxid 0 not found          
 ~~~
 {: .output}  
-
-
-wget  ftp://ftp.ncbi.nih.gov/pub/taxonomy/  
-tar -xzf taxdump.tar.gz       
-
-
+   
+And finally we need to add headers to our rank file and our lineage table.  
 ~~~
 $ nano JC1A.kraken_ranked-wc
  OTU  JC1A
@@ -295,6 +301,8 @@ OTU	superkingdom	phylum	class	order	family	genus	species	subspecies	subspecies_2
 ~~~
 {: .bash}  
 
+As a last cleaning step  we need to subsitute the "," separator in the csv file to "\t" 
+After this step we have our tables ready to phyloseq.  
 ~~~
 $ perl -p -i -e 's/;/\t/g' *.lineage_table-wc                                                                                    
 $ head -n5 *.lineage_table-wc 
@@ -309,7 +317,7 @@ $ rm *lineage* *ranked* *merged
 ~~~
 {: .bash}  
 
-
+##  Manipulating lineage and rank tables in phyloseq  
 Let's install phyloseq (This instruction might not work on certain version of R) 
 and the rest of the required libraries:  
 
