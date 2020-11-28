@@ -96,10 +96,10 @@ As we have learned, taxonomic assignation can be attempted before the assembly p
 In this case we can use fastq files as inputs, in this case the inputs would be files 
 ` JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz` and ` JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz`
 which are the outputs of our trimming process. In this case the outputs will be two files, the report
-JP4DA_kraken.report  and the file JP4DA.kraken.  
+JP4D_kraken.report and the file JP4D.kraken.  
   
 ~~~
-$ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report JP4D_kraken.report  --gzip-compressed --paired JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz  > JP4DA.kraken
+$ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report JP4D_kraken.report  --gzip-compressed --paired JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz  > JP4D.kraken
 ~~~
 {: .bash}
 ~~~
@@ -122,14 +122,14 @@ the one that we assembled with megahit. In a more powerful machine
 we would first copy our assembly into this directory and run kraken2. 
 Output files in this command are also JP4DA.kraken and JP4DA_kraken.report.  
 ~~~
-$ cp ../../data/trimmed_fastq/megahit_result/final.contigs.fa  JP4DA.fasta  
-$ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input  JP4DA.fasta --threads 12 --output JP4DA.kraken --report JP4DA_kraken.report 
+$ cp ../../data/trimmed_fastq/megahit_result/final.contigs.fa  JP4D.fasta  
+$ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input  JP4D.fasta --threads 12 --output JP4D.kraken --report JP4D_kraken.report 
 ~~~
 {: .bash}  
 
 Lets visualize the precoomputed outputs of kraken2 in our assembled metagenome.  
 ~~~
-head ~/dc_workshop/taxonomy/JP4DA.kraken  
+head ~/dc_workshop/taxonomy/JP4D.kraken  
 ~~~
 {: .bash}
 
@@ -151,7 +151,7 @@ C	k141_6	1	413	1:379
 {: .output}
 
 ~~~
-head ~/dc_workshop/report/JP4DA_kraken.report
+head ~/dc_workshop/report/JP4D_kraken.report
 ~~~
 {: .bash} 
 ~~~
