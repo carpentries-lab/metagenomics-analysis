@@ -95,7 +95,7 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
                              
 As we have learned, taxonomic assignation can be attempted before the assembly process. 
 In this case we can use fastq files as inputs, in this case the inputs would be files 
-` JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz` and ` JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz`
+`JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz` and `JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz`
 which are the outputs of our trimming process. In this case the outputs will be two files, the report
 JP4D_kraken.report and the file JP4D.kraken.  
   
