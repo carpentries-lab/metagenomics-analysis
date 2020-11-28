@@ -19,7 +19,8 @@ of the contigs, such as their GC content, coverage or the use of tetranucleotide
 
 Binning dependent on taxonomy is relatively trivial, but there are different algorithms 
 for binning independent of taxonomy. These algorithms can be based on composition or abundance,
-Maxbin is a binning algorithm with an hybrid composition-abundance approach.  
+[Maxbin](https://sourceforge.net/projects/maxbin/files/) is a binning algorithm
+with an hybrid composition-abundance approach.  
 
 
 <a href="{{ page.root }}/fig/Binning(47).png">
