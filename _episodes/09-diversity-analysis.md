@@ -68,12 +68,18 @@ There are two types, without weights (diversity) and with weights (diversity and
 It is easy to visualize using PCA, PCoA or NMDS
 We can see them in Quiime2, MEGAN or in R with the vegan or phyloseq packages
 ~~~
-head JC1A.kraken   
+$ cd ~/dc_workshop/taxonomy
+$ head JC1A.kraken   
 ~~~
 {: .bash}
 
 ~~~
- C k141_0  1365647 416     0:1 1365647:5 2:5 1:23 0:348  
+ C k141_0  1365647 416     0:1 1365647:5 2:5 1:23 0:348    
+ U       k141_1411       0       411     0:377                                       
+ U       k141_1  0       425     0:391                                               
+ C       k141_1412       1484116 478     0:439 1484116:3 0:2                          
+ C       k141_2  72407   459     0:350 2:3 0:50 2:6 72407:5 0:3 72407:2 0:6           
+ U       k141_1413       0       335     0:301     
 ~~~
 {: .output}
 
@@ -256,14 +262,18 @@ tar -xzf taxdump.tar.gz
 
 ~~~
 $ nano JC1A.kraken_ranked-wc
-$ OTU  JC1A
-$ nano JC1A.lineage_table-wc
-$ OTU	superkingdom	phylum	class	order	family	genus	species	subspecies	subspecies_2
+ OTU  JC1A
 ~~~
 {: .bash}  
 
 ~~~
-$ perl -p -i -e 's/;/\t/g' *.lineage_table-wc                                                                                                              
+$ nano JC1A.lineage_table-wc
+OTU	superkingdom	phylum	class	order	family	genus	species	subspecies	subspecies_2
+~~~
+{: .bash}  
+
+~~~
+$ perl -p -i -e 's/;/\t/g' *.lineage_table-wc                                                                                    
 $ head -n5 *.lineage_table-wc 
 ~~~
 {: .bash}
