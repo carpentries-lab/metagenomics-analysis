@@ -94,12 +94,9 @@ The primers we choose are VERY IMPORTANT. We always have biases that can change 
   
 
 > ## Metagenomic databases
-> There are several public metagenomic
-> [MG-RAST](https://www.mg-rast.org/index.html?stay=1)  
-> [MGnify](https://www.ebi.ac.uk/metagenomics/), 
-> [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), 
-> [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/)  
-> and the [GM Repo](https://gmrepo.humangut.info/home).   
+> There are several public metagenomic [MG-RAST](https://www.mg-rast.org/index.html?stay=1)  
+> [MGnify](https://www.ebi.ac.uk/metagenomics/), [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), 
+> [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/) and the [GM Repo](https://gmrepo.humangut.info/home).   
 {: .callout}
 
 
