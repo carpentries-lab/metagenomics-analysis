@@ -42,24 +42,22 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
 
 - Shannon (H): 
 
-| image             |  Description |  
+| image             |  Description |   
 :-------------------------:|:-------------------------:  
 <img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i\:ln{p_i}"> | Definition
-<img src="https://render.githubusercontent.com/render/math?math=H=S"> | number of OTUs  
+<img src="https://render.githubusercontent.com/render/math?math=S"> | number of OTUs  
 <img src="https://render.githubusercontent.com/render/math?math=p_i">|  the proportion of the community represented by OTU i.   
 
 - Simpson's (D) 
 
-| image             |  Description |   
+| Variable             |  Definition |   
 :-------------------------:|:-------------------------:  
 <img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{\sum_{i=1}^{S}p_i^2}">| Definition   
-<img src="https://render.githubusercontent.com/render/math?math=H=S"> | total number of the species in the community   
+<img src="https://render.githubusercontent.com/render/math?math=S"> | total number of the species in the community   
 <img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> | proportion of community represented by OTU i.    
   
 - ACE 
-
-
-| Italic             |  Block letters |
+| Variable             |  Definition |
 :-------------------------:|:-------------------------:
 <img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{S_{rare}}{C_{ACE}}+\frac{F_1}{C_{ACE}}+\gamma_{ACE}^2"> | Definition  
 <img float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}"> | number of abundant OTUs  
@@ -68,11 +66,13 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
 <img src="https://render.githubusercontent.com/render/math?math=F_1">   | frequency of singletons
 <img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> | estimated coefficient  of variation in rare OTUs.  
 
-- Chao1 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Obs}+\frac{F_1(F_1-1)}{2(F_2+1)}">  
-| Variable             |  Desription |
-:-------------------------:|:-------------------------:
-<img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|count of singletons and doubletons respectively  
-<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Obs}">| the number of observed species.  
+- Chao1  
+  
+| Variable             |  Desription |  
+:-------------------------:|:-------------------------:  
+ <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Obs}+\frac{F_1(F_1-1)}{2(F_2+1)}">  | Definition  
+<img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|count of singletons and doubletons respectively    
+<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Obs}">| the number of observed species.    
 
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
 In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
