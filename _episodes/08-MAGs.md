@@ -26,6 +26,26 @@ Maxbin is a binning algorithm with an hybrid composition-abundance approach.
   <img src="{{ page.root }}/fig/Binning(47).png" width="350" height="600" alt="Cog Metagenome" />
 </a>
 
+~~~
+$ run_MaxBin.pl 
+~~~
+{: .bash}
+~~~
+MaxBin 2.2.7                                                                                           
+No Contig file. Please specify contig file by -contig                                                  
+MaxBin - a metagenomics binning software.                                                              
+Usage:                                                                                                   
+run_MaxBin.pl                                                                                             
+-contig (contig file)                                                                                   
+-out (output file)                                                                                                               
+~~~
+{: output}
+
+
+~~~
+$ run_MaxBin.pl 
+~~~
+{: .bash}
 
 > ## Bining strategies `.callout`
 >
@@ -39,89 +59,7 @@ that correspond to a single species or using the reads that were used to assembl
 those contigs to reassemble a genome using a traditional assembler
 The quality of a MAG is highly dependent on the size of the genome of the species, 
 its abundance in the community, and the depth at which we sequence. Anvio is a good program to see the quality of our MAGs
+
+
  
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|   Keyboard key    |                             Style Note                             |         Example          |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|      Letters      |                          Always capital.                           |      `<kbd>A</kbd>`      |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|      Numbers      |                                                                    |      `<kbd>1</kbd>`      |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|  Punctuation mark |                                                                    |      `<kbd>*</kbd>`      |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|     Function      |                 Capital F followed by the number.                  |     `<kbd>F12</kbd>`     |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|        Alt        |                     Only first letter capital.                     |     `<kbd>Alt</kbd>`     |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|     Backspace     |                     Only first letter capital.                     |  `<kbd>Backspace</kbd>`  |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|      Command      |                     Only first letter capital.                     |   `<kbd>Command</kbd>`   |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|       Ctrl        |                     Only first letter capital.                     |    `<kbd>Ctrl</kbd>`     |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|      Delete       |                     Only first letter capital.                     |   `<kbd>Delete</kbd>`    |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|        End        |                     Only first letter capital.                     |     `<kbd>End</kbd>`     |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|        Esc        |                     Only first letter capital.                     |     `<kbd>Esc</kbd>`     |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|       Home        |                     Only first letter capital.                     |    `<kbd>Home</kbd>`     |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|      Insert       |                     Only first letter capital.                     |   `<kbd>Insert</kbd>`    |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|     Page Down     |                            Use "PgDn".                             |    `<kbd>PgDn</kbd>`     |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|      Page Up      |                            Use "PgUp".                             |    `<kbd>PgUp</kbd>`     |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|   Print Screen    |                           Use "PrtScr".                            |   `<kbd>PrtScr</kbd>`    |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|      Return       |   Only first letter capital. We use "Return" instead of "Enter".   |   `<kbd>Return</kbd>`    |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|       Shift       |                     Only first letter capital.                     |    `<kbd>Shift</kbd>`    |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|      Spacebar     |                     Only first letter capital.                     |  `<kbd>Spacebar</kbd>`   |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|        Tab        |                     Only first letter capital.                     |     `<kbd>Tab</kbd>`     |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|    Down arrow     |               Use Unicode "Downwards arrow" (8595).                |      `<kbd>↓</kbd>`      |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|    Left arrow     |               Use Unicode "Leftwards arrow" (8592).                |      `<kbd>←</kbd>`      |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|    Right arrow    |               Use Unicode "Rightwards arrow" (8594).               |      `<kbd>→</kbd>`      |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-|     Up arrow      |                Use Unicode "Upwards arrow" (8593).                 |      `<kbd>↑</kbd>`      |
-|-------------------+--------------------------------------------------------------------+--------------------------|
-
-
-## Title Casing
-> ## Exercise
-> 
-> Ejercicio `ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
-> 
->> ## Solution
->> ~~~
->> $ tail 
->> ~~~
->> {: .bash}
->> 
->> ~~~
->> texto
->> ~~~
->> {: .output}
->> 
->> soluion
->> 
-> {: .solution}
-{: .challenge}                             
-                             
-
-
-
-> ## `.discussion`
->
-> Discussion questions.
-{: .discussion}
-
-                             
-{% include links.md %}
 
