@@ -52,7 +52,7 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
 <img align="left" src="https://render.githubusercontent.com/render/math?math=C_{ACE}"> is the sample abundance coverage estimator, <img src="https://render.githubusercontent.com/render/math?math=F_1"> is the frequency of singletons, and <img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> is the estimated coefficient  of variation in rare OTUs.
 
 - Chao1 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Os}+\frac{F_1(F_1-1)}{2(F_2+1)}">  
- Where <img src="https://render.githubusercontent.com/render/math?math=F_1"> and <img src="https://render.githubusercontent.com/render/math?math=F_2">  are the count of singletons and doubletons respectively, and Sobs is the number of observed species.
+ Where <img src="https://render.githubusercontent.com/render/math?math=F_1,F_2"> are the count of singletons and doubletons respectively, and Sobs is the number of observed species.
 
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
 In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
