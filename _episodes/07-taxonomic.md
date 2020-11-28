@@ -62,7 +62,14 @@ Options:
 ~~~  
 {: .output}
 
-There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
+Now lets go to the directory were our trimmed reads are located.  
+~~~
+$ cd /home/dcuser/dc_workshop/data/trimmed_fastq 
+~~~
+{: .bash}
+
+Despite we have our input files we also need a comparison database before 
+start working with kraken2. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
 compatibles to be used with kraken2 in the taxonomical assignation process. 
 Minikraken is a popular database that attempts to conserve its sensitivity 
 despite its small size (8G).  Lets download minikraken database using the command
@@ -85,18 +92,29 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 > {: .solution}
 {: .challenge}                             
                              
+As we have learned, taxonomic assignation can be attempted before the assembly process. 
+In this case we can use fastq files as inputs, in this case the inputs would be files 
+` JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz` and ` JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz`
+which are the outputs of our trimming process. In this case the outputs will be two files, the report
+JP4DA_kraken.report  and the file JP4DA.kraken.  
+  
 ~~~
-$ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report evol1 --gzip-compressed --paired JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz  > evol1.kraken
+$ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report JP4D_kraken.report  --gzip-compressed --paired JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz  > JP4DA.kraken
 ~~~
 {: .bash}
 
+kraken2 can also be run after the assembly process, in this case the input is a fasta file, 
+the one that we assembled with megahit. Lets first copy our assembly into this directoy. 
+Output files are also JP4DA.kraken and JP4DA_kraken.report.  
 ~~~
-$ kraken2 --db kraken-db --fasta-input JP4DASH2120627WATERAMPRESIZED_megahit --threads 12 --output JP4DASH2120627WATERAMPRESIZED_kraken.kraken --report JP4DASH2120627WATERAMPRESIZED_kraken.report 
+$ cp ../../data/trimmed_fastq/megahit_result/final.contigs.fa  JP4DA.fasta  
+$ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input  JP4DA.fasta --threads 12 --output JP4DA.kraken --report JP4DA_kraken.report 
 ~~~
-{: .bash}
+{: .bash}  
+
 
 ~~~
-head evol.kraken
+head JP4DA.kraken  
 ~~~
 {: .bash}
 
@@ -117,7 +135,10 @@ C	k141_6	1	413	1:379
 ~~~
 {: .output}
 
-kraken report  
+~~~
+head JP4DA_kraken.report
+~~~
+{: .bash} 
 ~~~
  62.10	1748	1748	U	0	unclassified
  37.90	1067	8	R	1	root
