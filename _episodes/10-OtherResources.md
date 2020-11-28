@@ -8,9 +8,7 @@ questions:
 objectives:
 - "Know some place where to find more information"
 keypoints:
-- "Lessons are checked by running `make lesson-check`."
-- "The checker uses the same Markdown parser as Jekyll."
-- "Lessons can be previewed by running `make serve`."
+- "Enjoy metagenomics"
 ---
 
 The lesson template comes with several utilities to simplify lesson development and maintenance.
@@ -22,6 +20,10 @@ The lesson template comes with several utilities to simplify lesson development 
 - [Metapangenomics: A nexus between pangenomes and metagenomes](https://youtu.be/C3fHlccFxJw)  
 - [Computational Genomics tutorial](https://genomics.sschmeier.com/)
 - [Evomics](http://evomics.org/learning/genomics/)
+- [Cuatro Cienegas](https://www.sciencemag.org/news/2020/06/pools-mexican-desert-are-window-earth-s-early-life)
+- [Mexican oasis in the desert]https://www.sciencemag.org/podcast/oasis-biodiversity-mexican-desert-and-making-sound-heat
+- [Pod Cast MExican Oasis]( https://youtu.be/xMMm_GKZsnU)
+- [Cuatro Cienegas Video](https://www.youtube.com/embed/VzImXRI9wYE?autoplay=1&rel=0)
 
 > ## `.callout`
 >
