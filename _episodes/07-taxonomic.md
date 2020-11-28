@@ -62,8 +62,44 @@ Options:
 ~~~  
 {: .output}
 
+There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
+compatibles to be used with kraken2 in the taxonomical assignation process. 
+Minikraken is a popular database that attempts to conserve its sensitivity 
+despite its small size (8G).  Lets download minikraken database using the command
+`curl`.   
 
-kraken 
+~~~
+$ curl -O ftp://ftp.ccb.jhu.ed u/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
+$ tar -xvzf minikraken2_v2_8GB_201904.tgz 
+~~~
+{: .code}
+
+> ## Exercise
+> 
+> What is the command `tar` doing to the file `minikraken2_v2_8GB_201904.tgz`.  
+> 
+>> ## Solution
+>> `tar` command is used in linux to decompress files, so in this case it 
+>> is extracting the content of the compressed file  `minikraken2_v2_8GB_201904.tgz`  
+>> 
+> {: .solution}
+{: .challenge}                             
+                             
+~~~
+$ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report evol1 --gzip-compressed --paired JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz  > evol1.kraken
+~~~
+{: .bash}
+
+~~~
+$ kraken2 --db kraken-db --fasta-input JP4DASH2120627WATERAMPRESIZED_megahit --threads 12 --output JP4DASH2120627WATERAMPRESIZED_kraken.kraken --report JP4DASH2120627WATERAMPRESIZED_kraken.report 
+~~~
+{: .bash}
+
+~~~
+head evol.kraken
+~~~
+{: .bash}
+
 ~~~
 C	k141_0	1365647	416	0:1 1365647:5 2:5 1:23 0:348
 U	k141_1411	0	411	0:377
@@ -78,7 +114,6 @@ U	k141_5	0	303	0:269
 U	k141_1415	0	443	0:409
 U	k141_1416	0	304	0:270
 C	k141_6	1	413	1:379
-
 ~~~
 {: .output}
 
@@ -163,26 +198,6 @@ Kraken, Centrifuge and MetaPhlAn. Pavian should be locally installed using R and
   <img src="{{ page.root }}/fig/Comparison.PNG" alt="Comparison" />
 </a>
 
-> ## Exercise
-> 
-> Ejercicio `ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
-> 
->> ## Solution
->> ~~~
->> $ tail 
->> ~~~
->> {: .bash}
->> 
->> ~~~
->> texto
->> ~~~
->> {: .output}
->> 
->> soluion
->> 
-> {: .solution}
-{: .challenge}                             
-                             
 
 
 > ## `.discussion`
