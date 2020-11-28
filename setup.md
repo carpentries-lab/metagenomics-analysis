@@ -68,12 +68,43 @@ If you are signed up to take a Genomics Data Carpentry workshop, you do *not* ne
 staff will create an instance for you and this will be provided to you at no cost. This is true for both self-organized and centrally-organized workshops. Your Instructor will provide instructions for connecting to the AMI instance at the workshop.
 
 If you would like to work through these lessons independently, outside of a workshop, you will need to start your own AMI instance. 
-Follow these [instructions on creating an Amazon instance](https://datacarpentry.org/genomics-workshop/AMI-setup/). Use the AMI `ami-0985860a69ae4cb3d` (Data Carpentry Genomics Beta 2.0 (April 2019)) listed on the Community AMIs page. Please note that you must set your location as `N. Virginia` in order to access this community AMI. You can change your location in the upper right corner of the main AWS menu bar. The cost of using this AMI for a few days, with the t2.medium instance type is very low (about USD $1.50 per user, per day). Data Carpentry has *no* control over AWS pricing structure and provides this
-cost estimate with no guarantees. Please read AWS documentation on pricing for up-to-date information.
+Follow these [instructions on creating an Amazon instance](https://datacarpentry.org/genomics-workshop/AMI-setup/). Use the AMI `ami-0985860a69ae4cb3d` (Data Carpentry Genomics Beta 2.0 (April 2019)) listed on the Community AMIs page. Please note that you must set your location as `N. Virginia` in order to access this community AMI. You can change your location in the upper right corner of the main AWS menu bar. The cost of using this AMI for a few days, with the t2.medium instance type is very low (about USD $1.50 per user, per day). Data Carpentry has *no* control over AWS pricing structure and provides this cost estimate with no guarantees. Please read AWS documentation on pricing for up-to-date information. 
 
 If you're an Instructor or Maintainer or want to contribute to these lessons, please get in touch with us [team@carpentries.org](mailto:team@carpentries.org) and we will start instances for you. 
 
+After the genomic instace is setup you need to addition the metagenomics environment. First create the file `metagenomics.yml`
+with the following content:  
+~~~
+$ cat metagenomics.yml
+~~~
+{: .bash}
+~~~
+name: metagenomics                                                                
+dependencies:                             
+  - megahit              
+  - kraken2 
+  - krona             
+  - maxbin2
+  - taxonkit  
+~~~
+{: .output}
 
+Then create the metagenomics conda environment using the metagenomics.yml file.  
+~~~
+$ conda env create -f metagenomics.yml
+~~~
+{: .bash}  
+
+Finally execute some remaining installation scripts.  
+~~~
+bash /home/dcuser/.miniconda3/envs/metagenomics/opt/krona/updateTaxonomy.sh                                
+wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz 
+tar -xzf taxdump.tar.gz 
+mkdir .taxonkit
+cp names.dmp nodes.dmp delnodes.dmp merged.dmp /home/dcuser/.taxonkit
+rm *dmp readme.txt taxdump.tar.gz gc.prt 
+~~~
+{: .bash}  
 
 ### Data
 
