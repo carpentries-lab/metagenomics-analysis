@@ -77,7 +77,7 @@ despite its small size (Needs 8GB of RAM for classification).  Lets download min
 `curl`.   
 
 ~~~
-$ curl -O ftp://ftp.ccb.jhu.ed u/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
+$ curl -O ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
 $ tar -xvzf minikraken2_v2_8GB_201904.tgz 
 ~~~
 {: .bash}
