@@ -128,7 +128,7 @@ $ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input  JP4D.fasta --thre
 ~~~
 {: .bash}  
 
-Lets visualize the precoomputed outputs of kraken2 in our assembled metagenome.  
+Lets visualize the precomputed outputs of kraken2 in our assembled metagenome.  
 ~~~
 head ~/dc_workshop/taxonomy/JP4D.kraken  
 ~~~
