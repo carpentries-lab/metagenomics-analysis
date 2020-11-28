@@ -190,19 +190,19 @@ $ home/dcuser/dc_workshop/taxonomy
 Krona is called with the `ktImportTaxonomy` command that needs an input and an output file.  
 In our case we will create the input file with the columns three and four from `JP4D.kraken` file.     
 ~~~
-cut -f2,3 JP4D.kraken >  JP4D.krona.input
+$ cut -f2,3 JP4D.kraken >  JP4D.krona.input
 ~~~
 {: .language-bash}  
 
 Now we call krona in our ` JP4D.krona.input` file and save results in `JP4D.krona.out.html`.  
 ~~~
-ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
+$ ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
 ~~~
 {: .language-bash}  
 
 And finally, open another terminal in your local computer, and download krona output.
 ~~~
-scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out.html . 
+$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out.html . 
 ~~~
 {: .bash}  
 What do you see? 
@@ -213,9 +213,9 @@ What do you see?
 
 
 ~~~
-grep -v $'\t'0 JP4D.krona.input >JP4D.krona.input-filtered
-ktImportTaxonomy JP4D.krona.input-filtered -o JP4D.krona.out-filtered.html
-scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out-filtered.html . 
+$ grep -v $'\t'0 JP4D.krona.input >JP4D.krona.input-filtered
+$ ktImportTaxonomy JP4D.krona.input-filtered -o JP4D.krona.out-filtered.html
+$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out-filtered.html . 
 ~~~
 {: .language-bash}
 
