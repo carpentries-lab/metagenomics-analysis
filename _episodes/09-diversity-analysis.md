@@ -47,7 +47,20 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
   Where S is the total number of the species in the community and<img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> is the proportion of community represented by OTU i.  
   
 - ACE <img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{S_{rare}}{C_{ACE}}+\frac{F_1}{C_{ACE}}+\gamma_{ACE}^2"> 
-  Where <img src="https://render.githubusercontent.com/render/math?math=S_{abund}"> and <img src="https://render.githubusercontent.com/render/math?math=S_{rare}",  style="color:blue;text-align:center">  are the number of abundant and rare OTUs respectively,  <img src="https://render.githubusercontent.com/render/math?math=C_{ACE}"> is the sample abundance coverage estimator, <img src="https://render.githubusercontent.com/render/math?math=F_1"> is the frequency of singletons, and <img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> is the estimated coefficient  of variation in rare OTUs.
+
+<div class="row">
+  <div class="column">
+  Where <img src="https://render.githubusercontent.com/render/math?math=S_{abund}"> 
+  </div>
+  <div class="column">
+   <img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  a
+  </div>
+  <div class="column">
+ re the number of abundant and rare OTUs respectively,
+  </div>
+</div>
+
+  Where and  <img src="https://render.githubusercontent.com/render/math?math=C_{ACE}"> is the sample abundance coverage estimator, <img src="https://render.githubusercontent.com/render/math?math=F_1"> is the frequency of singletons, and <img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> is the estimated coefficient  of variation in rare OTUs.
 
 - Chao1 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S{Os}+\frac{F_1(F_1-1)}{2(F_2+1)}">  
  Where <img src="https://render.githubusercontent.com/render/math?math=F_1"> and <img src="https://render.githubusercontent.com/render/math?math=F_2">  are the count of singletons and doubletons respectively, and Sobs is the number of observed species.
