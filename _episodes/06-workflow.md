@@ -1,5 +1,5 @@
 ---
-title: "Automating an Assembly Workflow"
+title: "Automating a quality control workflow"
 teaching: 30
 exercises: 15
 questions:
