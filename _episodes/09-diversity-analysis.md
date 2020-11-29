@@ -27,17 +27,17 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
 
 ## α diversity  
 
-|-------------------+------------------------------------------------------------------------------|   
-| Diversity Indices |                             Description                                      |   
-|-------------------+------------------------------------------------------------------------------|   
-|      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.|   
-|-------------------+------------------------------------------------------------------------------|   
-|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness. |                             
-|-------------------+------------------------------------------------------------------------------|   
-|      ACE          | Abundance based coverage estimator of species richness.                      |   
-|-------------------+------------------------------------------------------------------------------|   
-|     Chao1         | Abundance based coverage estimator of species richness.                      |            
-|-------------------+------------------------------------------------------------------------------|   
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+| Diversity Indices |                             Description                                                                         |   
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+|      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.                                   |   
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness.                                    |                           
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+|      ACE          | Abundance based coverage estimator of species richness.                                                         |   
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+|     Chao1         | Abundance based on species represented by a single individual (singletons) and two individuals (doubletons).    |            
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
  
 
 - Shannon (H): 
@@ -76,7 +76,7 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}">| the number of observed species.    
 
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
-In metagenomics this is equivalent to knowing if the sequencing depth was sufficient
+In metagenomics this is equivalent to knowing if the sequencing depth was sufficient.
 
 ## β diversity  
 Diversity β measures how different two or more metagenomes are, either in their composition (diversity)
@@ -88,11 +88,11 @@ It goes from 0 (same species in the community) to 1 (no species in common)
 - UniFrac: Measures the phylogenetic distance; how alike the trees in each community are. 
 There are two types, without weights (diversity) and with weights (diversity and abundance)  
 
-It is easy to visualize using PCA, PCoA or NMDS
+It is easy to visualize using PCA, PCoA or NMDS analysis.
 
 ## Creating lineage and rank tables  
-Packages like Quiime2, MEGAN and vegan or phyloseq in R allows to obtain diversity index.  
-We will use phyloseq, and then we need to generate an abundance matrix from kraken output.  
+Packages like Quiime2, MEGAN, vegan or phyloseq in R allows to obtain these diversity indexes.  
+We will use phyloseq, in order to do so we need to generate an abundance matrix from the kraken output.  
 
 ~~~
 $ cd ~/dc_workshop/taxonomy
@@ -127,7 +127,7 @@ $ head JC1A.kraken
 |-------------------+-----------------------------------------------------------------------------------------|  
 
 
-First lets coun the occurrences of each taxon.  
+First, lets count the occurrences of each taxon.  
 ~~~
 $ cut -f3 JP4D.kraken  |sort -n |uniq -c > ranked
 $ head -n5 ranked
@@ -143,7 +143,7 @@ $ head -n5 ranked
  ~~~
 {: .output}  
 
-Now let reverse the columns.  
+Now, let reverse the columns.  
 ~~~
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked
 $ rm ranked
@@ -181,7 +181,7 @@ cut  -f1,3 >JP4D.lineage_table
 ~~~
 {: .bash}
 
-And also lets obtaine a lineage table for `JC1A` sample.  
+Also, lets obtaine a lineage table for `JC1A` sample.  
 ~~~
 $ cut -f1 JC1A.kraken_ranked |taxonkit lineage |\
 taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A.lineage_table
@@ -216,7 +216,7 @@ $
 
 And the line that contains 119065 is gone from the new file JP4D.kraken-wc.    
 
-Now lets ser fot the `merged` error in the `JP4D` error file.  
+Now lets see for the `merged` error in the `JP4D` error file.  
 ~~~
 $ grep merged JP4D.error | cut -d' ' -f4,8 > JP4D.merged 
 $ head -n5 JP4D.merged 
@@ -262,7 +262,7 @@ $ rm ranked
 ~~~
 {: .bash} 
 
-With this new working copy of th proportion in taxonomy classification
+With this new working copy of the proportion in taxonomy classification
 we can run again taxonkit to obtain the curated lineage table.  
 ~~~
 $ cut -f1 JP4D.kraken_ranked-wc |taxonkit lineage |\
@@ -288,7 +288,7 @@ $ 10:34:06.833 [WARN] taxid 0 not found
 ~~~
 {: .output}  
    
-And finally we need to add headers to our rank file and our lineage table.  
+Finally, we need to add headers to our rank file and our lineage table.  
 ~~~
 $ nano JC1A.kraken_ranked-wc
  OTU  JC1A
@@ -301,7 +301,7 @@ OTU	superkingdom	phylum	class	order	family	genus	species	subspecies	subspecies_2
 ~~~
 {: .bash}  
 
-As a last cleaning step  we need to subsitute the "," separator in the csv file to "\t" 
+As a last cleaning step, we need to substitute the "," separator in the csv file to "\t" 
 After this step we have our tables ready to phyloseq.  
 ~~~
 $ perl -p -i -e 's/;/\t/g' *.lineage_table-wc                                                                                    
@@ -319,7 +319,7 @@ $ rm *lineage* *ranked* *merged
 
 ##  Manipulating lineage and rank tables in phyloseq  
 Let's install phyloseq (This instruction might not work on certain version of R) 
-and the rest of the required libraries:  
+and the rest of the required libraries for its execution:  
 
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -331,7 +331,8 @@ install.packages(c("ggplot2", "readr", "patchwork"))
 
 ~~~
 
-Now let's load the libraries 
+Now, let's load the libraries (a process needed every time we began a new work 
+in R and we are going to use phyloseq):
 
 ~~~
 library("phyloseq")
@@ -341,19 +342,19 @@ library("patchwork")
 ~~~
 {: .language-r}
 
-Now we have to load the our metagenomes on R 
+Now we have to load our metagenomes files on R 
 
 ~~~
 OTUS <- read_delim("JC1A.kraken_ranked-wc","\t", escape_double = FALSE, trim_ws = TRUE)
-TAXAS <- read_delim("JC1A.lineage_table-wc", "\t", escape_double = FALSE, \
-                    col_types = cols(subspecies = col_character(),  \
+TAXAS <- read_delim("JC1A.lineage_table-wc", "\t", escape_double = FALSE, 
+                    col_types = cols(subspecies = col_character(),  
                     subspecies_2 = col_character()), trim_ws = TRUE)
 
 ~~~
 {: .language-r}
 
-Phyloseq objects are a collection of information about one or more metagenomes, these
-objects can manually constructed using the basic data structures available in R or can
+Phyloseq objects are a collection of information regarding a single or a group pf metagenomes, 
+these objects can be manually constructed using the basic data structures available in R or can
 be created by importing the output of other programs, such as QUIIME.
 
 Since we imported our data to basic R data types, we will make our phyloseq object manually.
@@ -383,8 +384,8 @@ row.names(lineages) = names2
 {: .language-r}
 
 All that we've done so far is transforming the taxonomic lineage table 
-and the OTU abundance table into a format that can be read by phyloseq,
-now we will make the phyloseq data types out of our tables.
+and the OTU abundance table into a format that can be read by phyloseq.
+Now we will make the phyloseq data types out of our tables.
 
 ~~~
 OTU = otu_table(abundances, taxa_are_rows = TRUE)
@@ -392,7 +393,7 @@ TAX = tax_table(lineages)
 ~~~
 {: .language-r}
 
-We will now construct a phyloseq object using phyloseq data types 
+We will now construct a phyloseq object using phyloseq data types: 
 
 ~~~
 metagenome_JC1A = phyloseq(OTU, TAX)
@@ -407,7 +408,7 @@ metagenome_JC1A = phyloseq(OTU, TAX)
 {: .callout}
 
 
-We then will prune all of the non-bacterial organisms in our metagenome. To do this 
+Then, we will prune all of the non-bacterial organisms in our metagenome. To do this 
 we will make a subset of all bacterial groups and save them
 ~~~
 Bacteria <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
@@ -462,7 +463,7 @@ p + geom_point(size=5, alpha=0.7)
 
 
 
-Now that you have both pyloseq objects, one for each metagenome, you can merge them into one object
+Now that you have both phyloseq objects, one for each metagenome, you can merge them into one object:
 
 ~~~
 merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
@@ -472,14 +473,14 @@ merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
 
 Let´s look at the phylum abundance of our metagenomes. 
 Since our metagenomes have different sizes it might be a good idea to 
-convert the number of assigned read into percentages. 
+convert the number of assigned read into percentages (i.e. relative abundances). 
 
 ~~~
 percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
 ~~~
 {: .language-r}
 
-Now we can make a comparative graph between absolute reads and percentages.
+Now, we can make a comparative graph between absolute reads and percentages.
 
 ~~~
 absolute_count = plot_bar(merged_metagenomes, fill="phylum")
