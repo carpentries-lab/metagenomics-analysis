@@ -52,13 +52,13 @@ Here we are using the `-p` option for `mkdir`. This option allows `mkdir` to cre
 
 It will take about 15 minutes to download the files.
 ~~~
-mkdir -p ~/dc_workshop/data/untrimmed_fastq/
-cd ~/dc_workshop/data/untrimmed_fastq
+$ mkdir -p ~/dc_workshop/data/untrimmed_fastq/
+$ cd ~/dc_workshop/data/untrimmed_fastq
 
-curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz
-curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143795/JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz 
-curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R1.fastq.gz
-curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R2.fastq.gz
+$ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz
+$ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143795/JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz 
+$ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R1.fastq.gz
+$ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R2.fastq.gz
 ~~~
 {: .bash}
 
@@ -80,10 +80,18 @@ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R
 {: .callout}
 
 
+~~~
+$ cp JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz JP4D_R1.fastq.gz
+$ cp JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz JP4D_R2.fastq.gz
+$ cp JC1ASEDIMENT120627_R1.fastq.gz JC1A_R1.fastq.gz
+$ cp JC1ASEDIMENT120627_R2.fastq.gz JC1A_R2.fastq.gz
+~~~
+{: .bash}
+
 The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the fastq format.
 
 ~~~
-$ gunzip JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz 
+$ gunzip JP4D_R1.fastq.gz 
 ~~~
 {: .bash}
 
@@ -114,7 +122,7 @@ We can view the first complete read in one of the files our dataset by using `he
 the first four lines. 
 
 ~~~
-$ head -n 4 JP4DASH2120627WATERAMPRESIZED_R1.fastq
+$ head -n 4 JP4D_R1.fastq
 ~~~
 {: .bash}
 
@@ -172,12 +180,12 @@ very poor (`#` = a quality score of 2).
 
 > ## Exercise
 > 
-> What is the last read in the `JP4DASH2120627WATERAMPRESIZED_R1.fastq ` file? How confident
+> What is the last read in the `JP4D_R1.fastq ` file? How confident
 > are you in this read? 
 > 
 >> ## Solution
 >> ~~~
->> $ tail -n 4 JP4DASH2120627WATERAMPRESIZED_R1.fastq
+>> $ tail -n 4 JP4D_R1.fastq
 >> ~~~
 >> {: .bash}
 >> 
@@ -389,10 +397,10 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >> {: .bash}
 >> 
 >> ~~~
->> -rw-r--r-- 1 dcuser dcuser  24M Nov 26 21:34 JC1ASEDIMENT120627_R1.fastq.gz                      
->> -rw-r--r-- 1 dcuser dcuser  24M Nov 26 21:34 JC1ASEDIMENT120627_R2.fastq.gz                      
->> -rw-r--r-- 1 dcuser dcuser 616M Nov 26 21:34 JP4DASH2120627WATERAMPRESIZED_R1.fastq              
->> -rw-r--r-- 1 dcuser dcuser 203M Nov 26 21:35 JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz   
+>> -rw-r--r-- 1 dcuser dcuser  24M Nov 26 21:34 JC1A_R1.fastq.gz                      
+>> -rw-r--r-- 1 dcuser dcuser  24M Nov 26 21:34 JC1A_R2.fastq.gz                      
+>> -rw-r--r-- 1 dcuser dcuser 616M Nov 26 21:34 JP4D_R1.fastq              
+>> -rw-r--r-- 1 dcuser dcuser 203M Nov 26 21:35 JP4D_R2.fastq.gz   
 >> ~~~
 >> {: .output}
 >> 
@@ -412,14 +420,14 @@ You will see an automatically updating output message telling you the
 progress of the analysis. It will start like this: 
 
 ~~~
-Started analysis of JC1ASEDIMENT120627_R1.fastq.gz                                               
-Approx 5% complete for JC1ASEDIMENT120627_R1.fastq.gz                                            
-Approx 10% complete for JC1ASEDIMENT120627_R1.fastq.gz                                           
-Approx 15% complete for JC1ASEDIMENT120627_R1.fastq.gz                                           
-Approx 20% complete for JC1ASEDIMENT120627_R1.fastq.gz                                           
-Approx 25% complete for JC1ASEDIMENT120627_R1.fastq.gz                                           
-Approx 30% complete for JC1ASEDIMENT120627_R1.fastq.gz                                          
-Approx 35% complete for JC1ASEDIMENT120627_R1.fastq.gz  
+Started analysis of JC1A_R1.fastq.gz                                               
+Approx 5% complete for JC1A_R1.fastq.gz                                            
+Approx 10% complete for JC1A_R1.fastq.gz                                           
+Approx 15% complete for JC1A_R1.fastq.gz                                           
+Approx 20% complete for JC1A_R1.fastq.gz                                           
+Approx 25% complete for JC1A_R1.fastq.gz                                           
+Approx 30% complete for JC1A_R1.fastq.gz                                          
+Approx 35% complete for JC1A_R1.fastq.gz  
 ~~~
 {: .output}
 
@@ -428,11 +436,11 @@ four of our FASTQ files. When the analysis completes, your prompt
 will return. So your screen will look something like this:
 
 ~~~
-Approx 80% complete for JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
-Approx 85% complete for JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
-Approx 90% complete for JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
-Approx 95% complete for JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
-Analysis complete for JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
+Approx 80% complete for JP4D_R2.fastq.gz
+Approx 85% complete for JP4D_R2.fastq.gz
+Approx 90% complete for JP4D_R2.fastq.gz
+Approx 95% complete for JP4D_R2.fastq.gz
+Analysis complete for JP4D_R2.fastq.gz
 $
 ~~~
 {: .output}
@@ -446,12 +454,12 @@ $ ls
 {: .bash}
 
 ~~~
-JC1ASEDIMENT120627_R1_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R1.fastq                   
-JC1ASEDIMENT120627_R1_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html 
-JC1ASEDIMENT120627_R1.fastq.gz                JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip                   
-JC1ASEDIMENT120627_R2_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html           
-JC1ASEDIMENT120627_R2_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip 
-JC1ASEDIMENT120627_R2.fastq.gz                JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz       
+JC1A_R1_fastqc.html             JP4D_R1.fastq                   
+JC1A_R1_fastqc.zip              JP4D_R1_fastqc.html 
+JC1A_R1.fastq.gz                JP4D_R1_fastqc.zip                   
+JC1A_R2_fastqc.html             JP4D_R2_fastqc.html           
+JC1A_R2_fastqc.zip              JP4D_R2_fastqc.zip 
+JC1A_R2.fastq.gz                JP4D_R2.fastq.gz       
 ~~~
 {: .output}
 
@@ -533,10 +541,10 @@ directory we just created `~/Desktop/fastqc_html`.
 You should see a status output like this:
 
 ~~~
-JC1ASEDIMENT120627_R1_fastqc.html                100%  253KB 320.0KB/s   00:00     
-JC1ASEDIMENT120627_R2_fastqc.html                100%  262KB 390.1KB/s   00:00     
-JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html     100%  237KB 360.8KB/s   00:00     
-JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html     100%  244KB 385.2KB/s   00:00
+JC1A_R1_fastqc.html                100%  253KB 320.0KB/s   00:00     
+JC1A_R2_fastqc.html                100%  262KB 390.1KB/s   00:00     
+JP4D_R1_fastqc.html     100%  237KB 360.8KB/s   00:00     
+JP4D_R2_fastqc.html     100%  244KB 385.2KB/s   00:00
 ~~~
 {: .output}
 
@@ -554,7 +562,7 @@ in your file browser.
 > 
 >> ## Solution
 >> All of the reads contain usable data, but the quality decreases toward
->> the end of the reads. File JC1ASEDIMENT120627_R2_fastqc shows the lowest quality.
+>> the end of the reads. File JC1A_R2_fastqc shows the lowest quality.
 > {: .solution}
 {: .challenge}
 
@@ -587,10 +595,10 @@ $ ls
 {: .bash}
 
 ~~~
-JC1ASEDIMENT120627_R1_fastqc.html           JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html                  
-JC1ASEDIMENT120627_R1_fastqc.zip            JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip                   
-JC1ASEDIMENT120627_R2_fastqc.html           JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html                  
-JC1ASEDIMENT120627_R2_fastqc.zip            JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip 
+JC1A_R1_fastqc.html           JP4D_R1_fastqc.html                  
+JC1A_R1_fastqc.zip            JP4D_R1_fastqc.zip                   
+JC1A_R2_fastqc.html           JP4D_R2_fastqc.html                  
+JC1A_R2_fastqc.zip            JP4D_R2_fastqc.zip 
 ~~~
 {: .output}
 
@@ -606,10 +614,10 @@ $ unzip *.zip
 {: .bash}
 
 ~~~
-Archive:  JC1ASEDIMENT120627_R1_fastqc.zip                                                       
-caution: filename not matched:  JC1ASEDIMENT120627_R2_fastqc.zip                                 
-caution: filename not matched:  JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip                      
-caution: filename not matched:  JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip  
+Archive:  JC1A_R1_fastqc.zip                                                       
+caution: filename not matched:  JC1A_R2_fastqc.zip                                 
+caution: filename not matched:  JP4D_R1_fastqc.zip                      
+caution: filename not matched:  JP4D_R2_fastqc.zip  
 ~~~
 {: .output}
 
@@ -645,27 +653,27 @@ It then repeats this process for the four other `.zip` files in our directory.
 When we run our `for` loop, you will see output that starts like this:
 
 ~~~
-Archive:  JC1ASEDIMENT120627_R1_fastqc.zip                                            
-creating: JC1ASEDIMENT120627_R1_fastqc/                                            
-creating: JC1ASEDIMENT120627_R1_fastqc/Icons/                                      
-creating: JC1ASEDIMENT120627_R1_fastqc/Images/                                    
-inflating: JC1ASEDIMENT120627_R1_fastqc/Icons/fastqc_icon.png                      
-inflating: JC1ASEDIMENT120627_R1_fastqc/Icons/warning.png                          
-inflating: JC1ASEDIMENT120627_R1_fastqc/Icons/error.png                            
-inflating: JC1ASEDIMENT120627_R1_fastqc/Icons/tick.png                             
-inflating: JC1ASEDIMENT120627_R1_fastqc/summary.txt                                
-inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_base_quality.png                
-inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_tile_quality.png                
-inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_sequence_quality.png            
-inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_base_sequence_content.png       
-inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_sequence_gc_content.png         
-inflating: JC1ASEDIMENT120627_R1_fastqc/Images/per_base_n_content.png              
-inflating: JC1ASEDIMENT120627_R1_fastqc/Images/sequence_length_distribution.png 
-inflating: JC1ASEDIMENT120627_R1_fastqc/Images/duplication_levels.png              
-inflating: JC1ASEDIMENT120627_R1_fastqc/Images/adapter_content.png                 
-inflating: JC1ASEDIMENT120627_R1_fastqc/fastqc_report.html                         
-inflating: JC1ASEDIMENT120627_R1_fastqc/fastqc_data.txt                            
-inflating: JC1ASEDIMENT120627_R1_fastqc/fastqc.fo  
+Archive:  JC1A_R1_fastqc.zip                                            
+creating: JC1A_R1_fastqc/                                            
+creating: JC1A_R1_fastqc/Icons/                                      
+creating: JC1A_R1_fastqc/Images/                                    
+inflating: JC1A_R1_fastqc/Icons/fastqc_icon.png                      
+inflating: JC1A_R1_fastqc/Icons/warning.png                          
+inflating: JC1A_R1_fastqc/Icons/error.png                            
+inflating: JC1A_R1_fastqc/Icons/tick.png                             
+inflating: JC1A_R1_fastqc/summary.txt                                
+inflating: JC1A_R1_fastqc/Images/per_base_quality.png                
+inflating: JC1A_R1_fastqc/Images/per_tile_quality.png                
+inflating: JC1A_R1_fastqc/Images/per_sequence_quality.png            
+inflating: JC1A_R1_fastqc/Images/per_base_sequence_content.png       
+inflating: JC1A_R1_fastqc/Images/per_sequence_gc_content.png         
+inflating: JC1A_R1_fastqc/Images/per_base_n_content.png              
+inflating: JC1A_R1_fastqc/Images/sequence_length_distribution.png 
+inflating: JC1A_R1_fastqc/Images/duplication_levels.png              
+inflating: JC1A_R1_fastqc/Images/adapter_content.png                 
+inflating: JC1A_R1_fastqc/fastqc_report.html                         
+inflating: JC1A_R1_fastqc/fastqc_data.txt                            
+inflating: JC1A_R1_fastqc/fastqc.fo  
 ~~~
 {: .output}
 
@@ -678,12 +686,12 @@ are a lot of files here. The one we're going to focus on is the
 If you list the files in our directory now you will see: 
 
 ~~~
-JC1ASEDIMENT120627_R1_fastqc                  JP4DASH2120627WATERAMPRESIZED_R1_fastqc                                                     
-JC1ASEDIMENT120627_R1_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html                                        
-JC1ASEDIMENT120627_R1_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip                                                  
-JC1ASEDIMENT120627_R2_fastqc                  JP4DASH2120627WATERAMPRESIZED_R2_fastqc                                               
-JC1ASEDIMENT120627_R2_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html                                             
-JC1ASEDIMENT120627_R2_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip                                         
+JC1A_R1_fastqc                  JP4D_R1_fastqc                                                     
+JC1A_R1_fastqc.html             JP4D_R1_fastqc.html                                        
+JC1A_R1_fastqc.zip              JP4D_R1_fastqc.zip                                                  
+JC1A_R2_fastqc                  JP4D_R2_fastqc                                               
+JC1A_R2_fastqc.html             JP4D_R2_fastqc.html                                             
+JC1A_R2_fastqc.zip              JP4D_R2_fastqc.zip                                         
 ~~~
 {:. output}
 
@@ -697,19 +705,19 @@ $ ls -F
 {: .bash}
 
 ~~~
-JC1ASEDIMENT120627_R1_fastqc/                  JP4DASH2120627WATERAMPRESIZED_R1_fastqc/                                                     
-JC1ASEDIMENT120627_R1_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R1_fastqc.html                                        
-JC1ASEDIMENT120627_R1_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R1_fastqc.zip                                                  
-JC1ASEDIMENT120627_R2_fastqc/                  JP4DASH2120627WATERAMPRESIZED_R2_fastqc/                                               
-JC1ASEDIMENT120627_R2_fastqc.html             JP4DASH2120627WATERAMPRESIZED_R2_fastqc.html                                             
-JC1ASEDIMENT120627_R2_fastqc.zip              JP4DASH2120627WATERAMPRESIZED_R2_fastqc.zip                                         
+JC1A_R1_fastqc/                  JP4D_R1_fastqc/                                                     
+JC1A_R1_fastqc.html             JP4D_R1_fastqc.html                                        
+JC1A_R1_fastqc.zip              JP4D_R1_fastqc.zip                                                  
+JC1A_R2_fastqc/                  JP4D_R2_fastqc/                                               
+JC1A_R2_fastqc.html             JP4D_R2_fastqc.html                                             
+JC1A_R2_fastqc.zip              JP4D_R2_fastqc.zip                                         
 ~~~
 {: .output}
 
 Let's see what files are present within one of these output directories.
 
 ~~~
-$ ls -F JC1ASEDIMENT120627_R1_fastqc/ 
+$ ls -F JC1A_R1_fastqc/ 
 ~~~
 {: .bash}
 
@@ -721,22 +729,22 @@ fastqc_data.txt  fastqc.fo  fastqc_report.html	Icons/	Images/  summary.txt
 Use `less` to preview the `summary.txt` file for this sample. 
 
 ~~~
-$ less JC1ASEDIMENT120627_R1_fastqc/summary.txt 
+$ less JC1A_R1_fastqc/summary.txt 
 ~~~
 {: .bash}
 
 ~~~
-PASS    Basic Statistics        JC1ASEDIMENT120627_R1.fastq.gz                     
-FAIL    Per base sequence quality       JC1ASEDIMENT120627_R1.fastq.gz             
-PASS    Per tile sequence quality       JC1ASEDIMENT120627_R1.fastq.gz             
-PASS    Per sequence quality scores     JC1ASEDIMENT120627_R1.fastq.gz             
-WARN    Per base sequence content       JC1ASEDIMENT120627_R1.fastq.gz             
-FAIL    Per sequence GC content JC1ASEDIMENT120627_R1.fastq.gz                     
-PASS    Per base N content      JC1ASEDIMENT120627_R1.fastq.gz                     
-PASS    Sequence Length Distribution    JC1ASEDIMENT120627_R1.fastq.gz             
-FAIL    Sequence Duplication Levels     JC1ASEDIMENT120627_R1.fastq.gz             
-PASS    Overrepresented sequences       JC1ASEDIMENT120627_R1.fastq.gz             
-FAIL    Adapter Content JC1ASEDIMENT120627_R1.fastq.gz  
+PASS    Basic Statistics        JC1A_R1.fastq.gz                     
+FAIL    Per base sequence quality       JC1A_R1.fastq.gz             
+PASS    Per tile sequence quality       JC1A_R1.fastq.gz             
+PASS    Per sequence quality scores     JC1A_R1.fastq.gz             
+WARN    Per base sequence content       JC1A_R1.fastq.gz             
+FAIL    Per sequence GC content JC1A_R1.fastq.gz                     
+PASS    Per base N content      JC1A_R1.fastq.gz                     
+PASS    Sequence Length Distribution    JC1A_R1.fastq.gz             
+FAIL    Sequence Duplication Levels     JC1A_R1.fastq.gz             
+PASS    Overrepresented sequences       JC1A_R1.fastq.gz             
+FAIL    Adapter Content JC1A_R1.fastq.gz  
 ~~~
 {: .output}
 
@@ -772,19 +780,19 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 >> {: .bash}
 >> 
 >> ~~~
->> FAIL    Per base sequence quality       JC1ASEDIMENT120627_R1.fastq.gz             
->> FAIL    Per sequence GC content JC1ASEDIMENT120627_R1.fastq.gz                     
->> FAIL    Sequence Duplication Levels     JC1ASEDIMENT120627_R1.fastq.gz             
->> FAIL    Adapter Content JC1ASEDIMENT120627_R1.fastq.gz                             
->> FAIL    Per base sequence quality       JC1ASEDIMENT120627_R2.fastq.gz             
->> FAIL    Per sequence GC content JC1ASEDIMENT120627_R2.fastq.gz                     
->> FAIL    Sequence Duplication Levels     JC1ASEDIMENT120627_R2.fastq.gz             
->> FAIL    Adapter Content JC1ASEDIMENT120627_R2.fastq.gz                             
->> FAIL    Per base sequence content       JP4DASH2120627WATERAMPRESIZED_R1.fastq     
->> FAIL    Adapter Content JP4DASH2120627WATERAMPRESIZED_R1.fastq                     
->> FAIL    Per base sequence quality       JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz  
->> FAIL    Per base sequence content       JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz  
->> FAIL    Adapter Content JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
+>> FAIL    Per base sequence quality       JC1A_R1.fastq.gz             
+>> FAIL    Per sequence GC content JC1A_R1.fastq.gz                     
+>> FAIL    Sequence Duplication Levels     JC1A_R1.fastq.gz             
+>> FAIL    Adapter Content JC1A_R1.fastq.gz                             
+>> FAIL    Per base sequence quality       JC1A_R2.fastq.gz             
+>> FAIL    Per sequence GC content JC1A_R2.fastq.gz                     
+>> FAIL    Sequence Duplication Levels     JC1A_R2.fastq.gz             
+>> FAIL    Adapter Content JC1A_R2.fastq.gz                             
+>> FAIL    Per base sequence content       JP4D_R1.fastq     
+>> FAIL    Adapter Content JP4D_R1.fastq                     
+>> FAIL    Per base sequence quality       JP4D_R2.fastq.gz  
+>> FAIL    Per base sequence content       JP4D_R2.fastq.gz  
+>> FAIL    Adapter Content JP4D_R2.fastq.gz
 >> ~~~
 >> {: .output}
 >> 
