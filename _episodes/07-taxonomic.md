@@ -7,7 +7,7 @@ questions:
 objectives:
 - "Understand how taxonomic assignation works"
 keypoints:
-- "A database with previous knowledge is needed for taxonomic assignation"
+- "A database with previous gathered knowledge (genomes) is needed for taxonomic assignation"
 - "Kraken2 is a program for taxonomic assignation"
 ---
 
@@ -15,20 +15,22 @@ keypoints:
   <img src="{{ page.root }}/fig/sesgos.png" alt="Cog Metagenome" />
 </a>
 
-Taxonomic assignation of each sequence into Operational Taxonomic
-Units (OTUs) can be done either after reads has been assembled into 
-contigs, or using unassembled reads. The comparison database in this 
-assignation process must be constructed using complete genomes. There are 
-many programs for doing taxonomic mapping, almost all of them follows one 
-of the next strategies:  
+Taxonomic assignation follows the sequence assignation into Operational Taxonomic
+Units (OTUs, that is, groups of related individuals). This can be done either
+after reads has been assembled into contigs, or using unassembled reads. 
+The comparison database in this assignation process must be constructed using 
+complete genomes. There are many programs for doing taxonomic mapping, 
+almost all of them follows one of the next strategies:  
 
 1. BLAST: Using BLAST or DIAMOND, these mappers search for the most likely hit 
-for each sequence within a database of genomes. This strategy is slow.    
+for each sequence within a database of genomes (i.e. mapping). This strategy is slow.    
   
-2. Kmers: A genome database is broken into pieces of length k, search 
-for unique pieces by taxonomic group, from species to LCA. Then they break the 
-sequence into pieces of length k, look for where these are placed within the tree 
-and make the classification with the most probable position.    
+2. K-mers: A genome database is broken into pieces of length k, so as to be able to 
+search for unique pieces by taxonomic group, from lowest common ancestor (LCA), 
+passing through phylum, class, order, to species. Then, the algorithm 
+break the query sequence (reads, contigs) into pieces of length k,
+look for where these are placed within the tree and make the 
+classification with the most probable position.    
 
 3. Markers: They look for markers of a database made a priori in the sequences 
 to be classified and assign the taxonomy depending on the hits obtained.    
@@ -69,15 +71,15 @@ $ cd /home/dcuser/dc_workshop/data/trimmed_fastq
 ~~~
 {: .bash}
 
-Despite we have our input files we also need a comparison database before 
+Despite we have our input files we also need a database to compare with before 
 start working with kraken2. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
 compatibles to be used with kraken2 in the taxonomical assignation process. 
 Minikraken is a popular database that attempts to conserve its sensitivity 
-despite its small size (Needs 8GB of RAM for classification).  Lets download minikraken database using the command
+despite its small size (Needs 8GB of RAM for the assignation). Lets download minikraken database using the command
 `curl`.   
 
 ~~~
-$ curl -O ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
+$ curl -O ftp://ftp.ccb.jhu.ed u/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
 $ tar -xvzf minikraken2_v2_8GB_201904.tgz 
 ~~~
 {: .bash}
@@ -96,7 +98,7 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 As we have learned, taxonomic assignation can be attempted before the assembly process. 
 In this case we can use fastq files as inputs, in this case the inputs would be files 
 `JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz` and `JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz`
-which are the outputs of our trimming process. In this case the outputs will be two files, the report
+which are the outputs of our trimming process. In this case, the outputs will be two files: the report
 JP4D_kraken.report and the file JP4D.kraken.  
   
 ~~~
@@ -114,9 +116,9 @@ classify: unable to allocate hash table memory
 {: .error}
 
 As we can see in the output we need 8000000000bytes=8G in RAM to run kraken2, 
-and seems that we do not have them. In fact if we consult our memory with `free -b` 
+and seems that we do not have them. In fact, if we consult our memory with `free -b` 
 we can see that we only have `135434240bytes`, and we wont be able to run kraken2 in 
-this machine.For that reason we precomputed in a more powerful machine the taxonomy 
+this machine. For that reason, we precomputed in a more powerful machine the taxonomy 
 assignation of this reads. The command that was run was in fact not with fastq files,
 kraken2 can also be run after the assembly process, in this case the input is a fasta file, 
 the one that we assembled with megahit. In a more powerful machine
@@ -234,14 +236,15 @@ Pavian should be locally installed and needs R and Shiny,
 but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) 
 to visualize our results.  
 
-First we need to download the files `JC1ASEDIMENT120627_kraken.report` 
-and `JP4DASH2120627WATERAMPRESIZED_kraken.report`  
-that corresponds to our kraken reports, because they are the files needed 
-as inputs in pavian. Again in our local machine lets use `scp` command.  
+First we need to download the files needed as inputs in pavian:
+`JC1ASEDIMENT120627_kraken.report` and `JP4DASH2120627WATERAMPRESIZED_kraken.report`.  
+This files corresponds to our kraken reports. Again in our local machine lets use `scp` command.  
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*report . 
 ~~~
 {: .language-bash}
+
+The next figures depicted what you should get by looking at the downloaded file:
 
 <a href="{{ page.root }}/fig/uploadPavian.PNG">
   <img src="{{ page.root }}/fig/uploadPavian.PNG" alt="upload Pavian" />
