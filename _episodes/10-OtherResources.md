@@ -14,6 +14,7 @@ keypoints:
 The lesson template comes with several utilities to simplify lesson development and maintenance.
 
 ## Checking
+- [Data Carpentry in 16S Metagenomics](https://datacarpentry.org/blog/2017/11/16s-dc)  
 - [History of metagenomics](http://merenlab.org/2020/07/27/history-of-metagenomics/)  
 - [The power of metagenomic read recruitment](https://youtu.be/MqD4aN1p1qA)  
 - [Genome-resolved metagenomics: key concepts in reconstructing genomes from metagenomes](https://youtu.be/RjNdHGK4ruo)  
