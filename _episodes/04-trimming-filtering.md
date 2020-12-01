@@ -140,15 +140,15 @@ this trimming step. This command will take a few minutes to run.
 
 We unzipped one of our files before to work with it, let's compress it again before we run trimmomatic.
 ~~~
-gzip JP4DASH2120627WATERAMPRESIZED_R1.fastq 
+gzip JP4D_R1.fastq 
 ~~~
 {: .bash}
  
 
 ~~~
-$ trimmomatic PE JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz \ 
-          JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz \
-          JP4DASH2120 627WATERAMPRESIZED_R2.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz \
+$ trimmomatic PE JP4D_R1.fastq.gz JP4D_R2.fastq.gz \ 
+          JP4D_R1.trim.fastq.gz  JP4D_R1un.trim.fastq.gz \
+          JP4DASH2120 627WATERAMPRESIZED_R2.trim.fastq.gz  JP4D_R2un.trim.fastq.gz \
           SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 
 ~~~
 {: .bash}
@@ -156,7 +156,7 @@ $ trimmomatic PE JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz JP4DASH2120627WATERAM
 
 ~~~
 TrimmomaticPE: Started with arguments:  
-JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15                            
+JC1AJP4D_R1.fastq.gz JC1AJP4D_R2.fastq.gz JC1AJP4D_R1.trim.fastq.gz JC1AJP4D_R1un.trim.fastq.gz JC1AJP4D_R2.trim.fastq.gz JC1AJP4D_R2un.trim.fastq.gz SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15                            
 Multiple cores found: Using 2 threads                                                       
 Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'                                                        ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences                                    Quality encoding detected as phred33                                                        
 Input Read Pairs: 1123987 Both Surviving: 751427 (66.85%) Forward Only Surviving: 341434 (30.38%) Reverse Only Surviving: 11303 (1.01%) Dropped: 19823 (1.76%)                          
@@ -199,17 +199,17 @@ The output files are also FASTQ files. It should be smaller than our
 input file, because we've removed reads. We can confirm this:
 
 ~~~
-$ ls JP4DASH2120627WATERAMPRESIZED* -l -h
+$ ls JC1AJP4D* -l -h
 ~~~
 {: .bash}
 
 ~~~
--rw-rw-r-- 1 dcuser dcuser 124M Jul  6 20:22 JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz
--rw-rw-r-- 1 dcuser dcuser  94M Jul  6 22:33 JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz
--rw-rw-r-- 1 dcuser dcuser  18M Jul  6 22:33 JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz
--rw-rw-r-- 1 dcuser dcuser 128M Jul  6 20:24 JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz
--rw-rw-r-- 1 dcuser dcuser  91M Jul  6 22:33 JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz
--rw-rw-r-- 1 dcuser dcuser 271K Jul  6 22:33 JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser 124M Jul  6 20:22 JC1AJP4D_R1.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser  94M Jul  6 22:33 JC1AJP4D_R1.trim.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser  18M Jul  6 22:33 JC1AJP4D_R1un.trim.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser 128M Jul  6 20:24 JC1AJP4D_R2.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser  91M Jul  6 22:33 JC1AJP4D_R2.trim.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser 271K Jul  6 22:33 JC1AJP4D_R2un.trim.fastq.gz
 ~~~
 {: .output}
 
@@ -236,7 +236,7 @@ $ for infile in *_R1.fastq.gz
 
 Go ahead and run the for loop. It should take a few minutes for
 Trimmomatic to run for each of our six input files. Once it's done
-running, take a look at your directory contents. You'll notice that even though we ran Trimmomatic on file `JP4DASH2120627WATERAMPRESIZED` before running the for loop, there is only one set of files for it. Because we matched the ending `_R1.fastq.gz`, we re-ran Trimmomatic on this file, overwriting our first results. That's ok, but it's good to be aware that it happened.
+running, take a look at your directory contents. You'll notice that even though we ran Trimmomatic on file `JC1AJP4D` before running the for loop, there is only one set of files for it. Because we matched the ending `_R1.fastq.gz`, we re-ran Trimmomatic on this file, overwriting our first results. That's ok, but it's good to be aware that it happened.
 
 ~~~
 $ ls
@@ -244,12 +244,12 @@ $ ls
 {: .bash}
 
 ~~~
-JC1ASEDIMENT120627_R1.fastq.gz                     JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz                                    
-JC1ASEDIMENT120627_R1.trim.fastq.gz                JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz                                  
-JC1ASEDIMENT120627_R1un.trim.fastq.gz              JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz                                
-JC1ASEDIMENT120627_R2.fastq.gz                     JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz                                 
-JC1ASEDIMENT120627_R2.trim.fastq.gz                JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz                                 
-JC1ASEDIMENT120627_R2un.trim.fastq.gz              JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz                                 
+JC1A_R1.fastq.gz                     JC1AJP4D_R1.fastq.gz                                    
+JC1A_R1.trim.fastq.gz                JC1AJP4D_R1.trim.fastq.gz                                  
+JC1A_R1un.trim.fastq.gz              JC1AJP4D_R1un.trim.fastq.gz                                
+JC1A_R2.fastq.gz                     JC1AJP4D_R2.fastq.gz                                 
+JC1A_R2.trim.fastq.gz                JC1AJP4D_R2.trim.fastq.gz                                 
+JC1A_R2un.trim.fastq.gz              JC1AJP4D_R2un.trim.fastq.gz                                 
 TruSeq3-PE.fa   
 ~~~
 {: .output}
@@ -289,10 +289,10 @@ $ ls
 {: .bash}
 
 ~~~
-JC1ASEDIMENT120627_R1.trim.fastq.gz    JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz                
-JC1ASEDIMENT120627_R1un.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R1un.trim.fastq.gz              
-JC1ASEDIMENT120627_R2.trim.fastq.gz    JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz                
-JC1ASEDIMENT120627_R2un.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2un.trim.fastq.gz   
+JC1A_R1.trim.fastq.gz    JC1AJP4D_R1.trim.fastq.gz                
+JC1A_R1un.trim.fastq.gz  JC1AJP4D_R1un.trim.fastq.gz              
+JC1A_R2.trim.fastq.gz    JC1AJP4D_R2.trim.fastq.gz                
+JC1A_R2un.trim.fastq.gz  JC1AJP4D_R2un.trim.fastq.gz   
 ~~~
 {: .output}
 
