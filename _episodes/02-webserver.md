@@ -134,7 +134,7 @@ $ scp <where is the file> <where you want the file to be>
 ~~~
 {: .output}  
 
-For example, you have the metadata file `MGRAST _MetaData_JP.xlsx` in your remote machine. 
+For example, you have the metadata file `MGRAST_MetaData_JP.xlsx` in your remote machine. 
 This file is located at the directory `/home/dcuser/dc_workshop/metadata/`.  To copy this file
 into our local machine lets use `scp` command. 
 
@@ -183,7 +183,7 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 
 > ## Exercise 3 Your own project  
 >  You can find metagenomic data in your AWS remote instance   
-> located at /home/dcuser/dc_workshop/assembly/JP4DASH2120627WATERAMPRESIZED.fasta   
+> located at /home/dcuser/dc_workshop/assembly/JP4D.fasta   
 >  With this data upload your own project to mgRAST. What else do you need?      
 >> ## Solution
 >> MgRAST will ask you for a metadata file and genomic data. 
@@ -193,7 +193,7 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 >> To download the genomic file use `scp`      
 >>
 >> ~~~
->>  scp dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/dc_workshop/assembly/JP4DASH2120627WATERAMPRESIZED.fasta .
+>>  scp dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/dc_workshop/assembly/JP4D.fasta .
 >> ~~~
 >> {: .bash}
 >>
