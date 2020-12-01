@@ -89,14 +89,14 @@ Usage:   megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_
 
 
 ~~~
-    megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_result
+    megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_SAMPLE
 ~~~
 {: .source}
 
 
 
 ~~~
-.output: ls megahit_result/final.contigs.fa
+.output: ls megahit_SAMPLE/final.contigs.fa
 ~~~
 {: .output}
 
@@ -107,9 +107,9 @@ Usage:   megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_
 ## Special Blockquotes
 
 ~~~
-    megahit -1 JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz \
-             -2 JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz \
-             -m 0.5 -t 12 -o megahit_result 
+    megahit -1 JP4D_R1.trim.fastq.gz \
+             -2 JP4D_R2.trim.fastq.gz \
+             -m 0.5 -t 12 -o megahit_JP4D
 ~~~
 {: .source}
 
@@ -119,7 +119,7 @@ Usage:   megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_
 2020-11-21 05:33:32 - Number of thread is reset to the 2.                                   
 2020-11-21 05:33:32 - Using megahit_core with POPCNT and BMI2 support                       
 2020-11-21 05:33:32 - Convert reads to binary library                                       
-2020-11-21 05:33:38 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/home/dcuser/dc_workshop/data/trimmed_fastq/JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz,/home/dcuser/dc_workshop/data/trimmed_fastq/JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz): pe, 1502854 reads, 251 max length'                                                                          
+2020-11-21 05:33:38 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/home/dcuser/dc_workshop/data/trimmed_fastq/JP4D_R1.trim.fastq.gz,/home/dcuser/dc_workshop/data/trimmed_fastq/JP4D_R2.trim.fastq.gz): pe, 1502854 reads, 251 max length'                                                                          
 2020-11-21 05:33:38 - b'INFO  utils/utils.h:152 - Real: 6.0234\tuser: 2.1600\tsys: 0.4680\tmaxrss: 160028'                          
 2020-11-21 05:33:38 - k-max reset to: 141                                                   
 2020-11-21 05:33:38 - Start assembly. Number of CPU threads 2                               
