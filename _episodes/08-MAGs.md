@@ -1,5 +1,4 @@
----
-source: md  
+--- 
 title: "MAGs"
 teaching: 10
 exercises: 0
