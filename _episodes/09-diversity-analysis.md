@@ -12,6 +12,8 @@ objectives:
 keypoints:
 - "Edit the .Rmd files not the .md files"
 ---
+## Using R studio
+`http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
 
 ##  Manipulating lineage and rank tables in phyloseq  
 Let's install phyloseq (This instruction might not work on certain version of R) 
