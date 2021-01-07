@@ -10,6 +10,8 @@ keypoints:
 - "MAGs are genome assembled from metagenomes after a binning process".  
 ---  
 
+
+
 Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
 Here we will talk about the two most used diversity metrics, diversity α (within one metagenome) and β (between metagenomes).   
 
