@@ -313,3 +313,5 @@ $ mv *wc ../results/.
 $ rm *lineage* *ranked* *merged  
 ~~~
 {: .bash}  
+
+[Download full script](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/abundance.sh) 
