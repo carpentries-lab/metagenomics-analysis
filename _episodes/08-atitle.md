@@ -1,14 +1,14 @@
 ---
-title: "Taxonomic Assignation"
+title: "Automatizing abundance tables"
 teaching: 30
 exercises: 15
 questions:
-- "How can I assign a taxonomy to my contigs?"
+- "How can I obtain the abundance of the reads?"
 objectives:
-- "Understand how taxonomic assignation works"
+- "Understand how taxonomic is used to obtain abundance tables"
 keypoints:
-- "A database with previous gathered knowledge (genomes) is needed for taxonomic assignation"
-- "Kraken2 is a program for taxonomic assignation"
+- "Abundance can be obtain either before or after the assembly process"
+- "A bash script can automatice this work"
 ---
 
 <a href="{{ page.root }}/fig/sesgos.png">
