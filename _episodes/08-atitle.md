@@ -11,267 +11,311 @@ keypoints:
 - "A bash script can automatice this work"
 ---
 
-<a href="{{ page.root }}/fig/sesgos.png">
-  <img src="{{ page.root }}/fig/sesgos.png" alt="Cog Metagenome" />
-</a>
 
-Taxonomic assignation follows the sequence assignation into Operational Taxonomic
-Units (OTUs, that is, groups of related individuals). This can be done either
-after reads has been assembled into contigs, or using unassembled reads. 
-The comparison database in this assignation process must be constructed using 
-complete genomes. There are many programs for doing taxonomic mapping, 
-almost all of them follows one of the next strategies:  
 
-1. BLAST: Using BLAST or DIAMOND, these mappers search for the most likely hit 
-for each sequence within a database of genomes (i.e. mapping). This strategy is slow.    
-  
-2. K-mers: A genome database is broken into pieces of length k, so as to be able to 
-search for unique pieces by taxonomic group, from lowest common ancestor (LCA), 
-passing through phylum, class, order, to species. Then, the algorithm 
-break the query sequence (reads, contigs) into pieces of length k,
-look for where these are placed within the tree and make the 
-classification with the most probable position.    
+Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
+Here we will talk about the two most used diversity metrics, diversity α (within one metagenome) and β (between metagenomes).   
 
-3. Markers: They look for markers of a database made a priori in the sequences 
-to be classified and assign the taxonomy depending on the hits obtained.    
-
-> ## Taxonomy assignation software `.callout`
->
-> There are three strategies for taxonomy assignation: blast, kmers and markers. 
-{: .callout}
-
-[Kraken 2](https://ccb.jhu.edu/software/kraken2/) is the newest version of Kraken, 
-a taxonomic classification system using exact k-mer matches to achieve 
-high accuracy and fast classification speeds. kraken2 is already installed in the metagenome
-environment, lets have a look at kraken2 help.  
+- α Diversity: Represents the richness (e.g. number of different species) and species' abundance. It can be measured by calculating richness, 
+ Eveness, or using a diversity index, such as Shannon's, Simpson's, Chao's, etc.  
  
-> ## Activate metagenomics environment
-> To be able to use kraken2, remember to activate the metagenomics environment with `conda activate metagenomics` 
-{: .callout}
+- β Diversity: It is the difference (measured as distance) between two or more metagenomes. 
+It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance or UniFrac, to name a few.  
 
-~~~  
-$ kraken2  
-~~~ 
+For this lesson we will use phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
+[Rstudio cloud](https://rstudio.cloud/) and select "GET STARTED FOR FREE"
+
+## α diversity  
+
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+| Diversity Indices |                             Description                                                                         |   
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+|      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.                                   |   
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness.                                    |                           
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+|      ACE          | Abundance based coverage estimator of species richness.                                                         |   
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+|     Chao1         | Abundance based on species represented by a single individual (singletons) and two individuals (doubletons).    |            
+|-------------------+-----------------------------------------------------------------------------------------------------------------|   
+ 
+
+- Shannon (H): 
+
+| Variable             |  Definition   |     
+:-------------------------:|:-------------------------:  
+<img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i\:ln{p_i}"> | Definition
+<img src="https://render.githubusercontent.com/render/math?math=S"> | number of OTUs  
+<img src="https://render.githubusercontent.com/render/math?math=p_i">|  the proportion of the community represented by OTU i.   
+
+- Simpson's (D) 
+
+| Variable             |  Definition |   
+:-------------------------:|:-------------------------:  
+<img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{\sum_{i=1}^{S}p_i^2}">| Definition   
+<img src="https://render.githubusercontent.com/render/math?math=S"> | total number of the species in the community   
+<img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> | proportion of community represented by OTU i.    
+  
+- ACE  
+
+| Variable             |  Definition |  
+:-------------------------:|:-------------------------:  
+<img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{S_{rare}}{C_{ACE}}+\frac{F_1}{C_{ACE}}+\gamma_{ACE}^2"> | Definition    
+<img float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}"> | number of abundant OTUs   
+<img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  | number of rare OTUs   
+<img src="https://render.githubusercontent.com/render/math?math=C_{ACE}">  | sample abundance coverage estimator  
+<img src="https://render.githubusercontent.com/render/math?math=F_1">   | frequency of singletons  
+<img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> | estimated coefficient  of variation in rare OTUs.  
+
+- Chao1  
+  
+| Variable             |  Desription |  
+:-------------------------:|:-------------------------:  
+ <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}+\frac{F_1(F_1-1)}{2(F_2+1)}">  | Definition  
+<img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|count of singletons and doubletons respectively    
+<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}">| the number of observed species.    
+
+The rarefaction curves allow us to know if the sampling was exhaustive or not. 
+In metagenomics this is equivalent to knowing if the sequencing depth was sufficient.
+
+## β diversity  
+Diversity β measures how different two or more metagenomes are, either in their composition (diversity)
+or in the abundance of the organisms that compose it (abundance). 
+- Bray-Curtis dissimilarity: Emphasis on abundance. Measures the differences 
+from 0 (equal communities) to 1 (different communities)
+- Jaccard distance: Based on presence / absence of species (diversity). 
+It goes from 0 (same species in the community) to 1 (no species in common)
+- UniFrac: Measures the phylogenetic distance; how alike the trees in each community are. 
+There are two types, without weights (diversity) and with weights (diversity and abundance)  
+
+It is easy to visualize using PCA, PCoA or NMDS analysis.
+
+## Creating lineage and rank tables  
+Packages like Quiime2, MEGAN, vegan or phyloseq in R allows to obtain these diversity indexes.  
+We will use phyloseq, in order to do so we need to generate an abundance matrix from the kraken output.  
+
+~~~
+$ cd ~/dc_workshop/taxonomy
+$ head JC1A.kraken   
+~~~
 {: .bash}
 
 ~~~
-Need to specify input filenames!                                                                      
-Usage: kraken2 [options] <filename(s)>                                                                                                                                                                      
-Options:                                                                                                  
---db NAME               Name for Kraken 2 DB                                                                                   
-                        (default: none)                                                               
---threads NUM           Number of threads (default: 1)                                                
---quick                 Quick operation (use first hit or hits)    
-~~~  
+ C k141_0  1365647 416     0:1 1365647:5 2:5 1:23 0:348    
+ U       k141_1411       0       411     0:377                                       
+ U       k141_1  0       425     0:391                                               
+ C       k141_1412       1484116 478     0:439 1484116:3 0:2                          
+ C       k141_2  72407   459     0:350 2:3 0:50 2:6 72407:5 0:3 72407:2 0:6           
+ U       k141_1413       0       335     0:301     
+~~~
 {: .output}
 
-Now lets go to the directory were our trimmed reads are located.  
+
+
+|------------------------------+------------------------------------------------------------------------------|  
+| column                       |                              Description                                     |  
+|------------------------------+------------------------------------------------------------------------------|  
+|   C                          |  Classified or unclassified                                                  |  
+|------------------------------+------------------------------------------------------------------------------|  
+|    k141_0                    |fasta header of the read(contig)  .                                           |                
+|------------------------------+------------------------------------------------------------------------------|  
+|  1365647                     | tax id                                                                       |  
+|------------------------------+------------------------------------------------------------------------------|  
+|    416                       |read length                                                                   |           
+|------------------------------+------------------------------------------------------------------------------|  
+| 0:1 1365647:5 2:5 1:23 0:348 |hits on database E.g. 0:1 root 1 hit, 1365647 has 5 hits, etc.                |           
+|-------------------+-----------------------------------------------------------------------------------------|  
+
+
+First, lets count the occurrences of each taxon.  
 ~~~
-$ cd /home/dcuser/dc_workshop/data/trimmed_fastq 
+$ cut -f3 JP4D.kraken  |sort -n |uniq -c > ranked
+$ head -n5 ranked
 ~~~
 {: .bash}
 
-Despite we have our input files we also need a database to compare with before 
-start working with kraken2. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
-compatibles to be used with kraken2 in the taxonomical assignation process. 
-Minikraken is a popular database that attempts to conserve its sensitivity 
-despite its small size (Needs 8GB of RAM for the assignation). Lets download minikraken database using the command
-`curl`.   
-
 ~~~
-$ curl -O ftp://ftp.ccb.jhu.ed u/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
-$ tar -xvzf minikraken2_v2_8GB_201904.tgz 
+ 77818 0
+ 5 1
+ 562 2
+ 4 22
+ 2 32
+ ~~~
+{: .output}  
+
+Now, let reverse the columns.  
+~~~
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked
+$ rm ranked
 ~~~
 {: .bash}
 
-> ## Exercise
-> 
-> What is the command `tar` doing to the file `minikraken2_v2_8GB_201904.tgz`.  
-> 
->> ## Solution
->> `tar` command is used in linux to decompress files, so in this case it 
->> is extracting the content of the compressed file  `minikraken2_v2_8GB_201904.tgz`  
->> 
-> {: .solution}
-{: .challenge}                             
-                             
-As we have learned, taxonomic assignation can be attempted before the assembly process. 
-In this case we can use fastq files as inputs, in this case the inputs would be files 
-`JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz` and `JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz`
-which are the outputs of our trimming process. In this case, the outputs will be two files: the report
-JP4D_kraken.report and the file JP4D.kraken.  
+Lets see our `JP4D.kraken_ranked` file.  
+~~~
+head -n5 JP4D.kraken_ranked
+~~~
+{: .bash}
+
+~~~
+0       77818
+1       5
+2       562
+22      4
+32      2
+~~~
+{: .output}  
+
+Lets repeat the process for `JC1A` sample.  
+~~~
+$ cut -f3 JC1A.kraken   |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked
+$ rm ranked
+~~~
+{: .bash}
+
+Now we will use `taxonkit` to obtain the taxonomy classification of each read.  
+~~~
+$ cut -f1 JP4D.kraken_ranked |taxonkit lineage | \
+taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | \
+cut  -f1,3 >JP4D.lineage_table
+~~~
+{: .bash}
+
+Also, lets obtaine a lineage table for `JC1A` sample.  
+~~~
+$ cut -f1 JC1A.kraken_ranked |taxonkit lineage |\
+taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A.lineage_table
+~~~
+{: .bash}
+
+
+Errors are saved in `JC1A.error` and `JP4D.error` files  Common errors are `deleted` and `merged`.   
+~~~
+$ grep deleted JP4D.error
+~~~
+{: .bash}
+
+The file contains one line with the word `deleted`.  
+~~~
+$ 04:29:50.903 [WARN] taxid 119065 was deleted  
+~~~
+{: .output}  
   
+We can remove this line by using a `perl` one liner.  
 ~~~
-$ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report JP4D_kraken.report  --gzip-compressed --paired JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz  > JP4D.kraken
-~~~
-{: .bash}
-~~~
-Unknown option: fastq-input                                                                            
-Loading database information...Failed attempt to allocate 8000000000bytes;                             
-you may not have enough free memory to load this database.                                             
-If your computer has enough RAM, perhaps reducing memory usage from                                    
-other programs could help you load this database?                                                      
-classify: unable to allocate hash table memory    
-~~~
-{: .error}
-
-As we can see in the output we need 8000000000bytes=8G in RAM to run kraken2, 
-and seems that we do not have them. In fact, if we consult our memory with `free -b` 
-we can see that we only have `135434240bytes`, and we wont be able to run kraken2 in 
-this machine. For that reason, we precomputed in a more powerful machine the taxonomy 
-assignation of this reads. The command that was run was in fact not with fastq files,
-kraken2 can also be run after the assembly process, in this case the input is a fasta file, 
-the one that we assembled with megahit. In a more powerful machine
-we would first copy our assembly into this directory and run kraken2. 
-Output files in this command are also JP4DA.kraken and JP4DA_kraken.report.  
-~~~
-$ cp ../../data/trimmed_fastq/megahit_result/final.contigs.fa  JP4D.fasta  
-$ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input  JP4D.fasta --threads 12 --output JP4D.kraken --report JP4D_kraken.report 
+$ grep 119065 JP4D.kraken                        
+$ perl -ne 'print if !/119065/' JP4D.kraken >JP4D.kraken-wc
+$ grep 119065 JP4D.kraken-wc                            
 ~~~
 {: .bash}  
-
-Lets visualize the precomputed outputs of kraken2 in our assembled metagenome.  
+  
 ~~~
-head ~/dc_workshop/taxonomy/JP4D.kraken  
+$
+~~~
+{: .output} 
+
+And the line that contains 119065 is gone from the new file JP4D.kraken-wc.    
+
+Now lets see for the `merged` error in the `JP4D` error file.  
+~~~
+$ grep merged JP4D.error | cut -d' ' -f4,8 > JP4D.merged 
+$ head -n5 JP4D.merged 
 ~~~
 {: .bash}
+  
+~~~
+62928 418699                                                                                             
+335659 1404864                                                                                           
+354203 263377                                                                                            
+640511 2654982                                                                                           
+644968 694327 
+~~~
+{: .output} 
 
+And lets subsitute all the merged taxon by the corresponding new one. 
 ~~~
-U       k141_55805      0       371     0:337                                                         
-U       k141_0  0       462     0:428                                                                 
-U       k141_55806      0       353     0:319                                                         
-U       k141_55807      0       296     0:262                                                         
-C       k141_1  953     711     0:54 1224:2 0:152 28211:2 0:15 953:3 0:449                           
-U       k141_2  0       480     0:446                                                                 
-C       k141_3  28384   428     0:6 1286:2 0:8 28384:14 0:11 1:3 0:350                                
-U       k141_4  0       302     0:268                                                                 
-U       k141_5  0       714     0:680                                                                 
-U       k141_6  0       662     0:628 
-~~~
-{: .output}
-
-~~~
-head ~/dc_workshop/report/JP4D_kraken.report
+$ cat  JP4D.merged  | while read line;\
+ do \
+    original=$(echo $line|cut -d' ' -f 1); \
+    new=$( echo $line|cut -d' '  -f2); \
+    perl -p -i -e "s/$original/$new/" JP4D.kraken-wc;\
+     done                      
+$ cut -f3 JP4D.kraken-wc    |sort -n |uniq -c > ranked 
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked-wc
+$ rm ranked
 ~~~
 {: .bash} 
-~~~
- 62.10	1748	1748	U	0	unclassified
- 37.90	1067	8	R	1	root
- 37.48	1055	0	R1	131567	  cellular organisms
- 37.48	1055	33	D	2	    Bacteria
- 27.99	788	40	P	1224	      Proteobacteria
- 17.05	480	32	C	28211	        Alphaproteobacteria
-  6.32	178	16	O	356	          Rhizobiales
-  1.17	33	1	F	41294	            Bradyrhizobiaceae
-  0.75	21	4	G	374	              Bradyrhizobium
-  0.11	3	3	S	114615	                Bradyrhizobium sp. ORS 278
-  0.07	2	2	S	722472	                Bradyrhizobium lablabi
-  0.07	2	2	S	2057741	                Bradyrhizobium sp. SK17
-  0.07	2	2	S	1437360	                Bradyrhizobium erythrophlei
-~~~
-{: .output}  
 
-We have reach the tsv files, the final step in our metagenomic pipeline showed in [lesson-3](https://carpentries-incubator.github.io/metagenomics/03-assessing-read-quality/index.html).  
-After we have the taxnomy assignation what follows is some visualization of our results.  
-
-
-## Visualization of taxonomic assignation results  
-[Krona](https://github.com/marbl/Krona/wiki) is a hierarchical data visualization software. Krona allows data to be explored with zooming, multi-layered pie charts and includes support for several bioinformatics tools and raw data formats. To use krona in our results, lets go first into our taxonomy directory, which contains the precalculated kraken outputs.  
-
-### Krona  
 ~~~
-$ cd ~/dc_workshop/taxonomy  
-$ pwd
+$ grep deleted JC1A.error 
+$ grep merged JC1A.error | cut -d' ' -f4,8 > JC1A.merged    
+$ cp JC1A.kraken JC1A.kraken-wc
+$ cat  JC1A.merged  | while read line;\
+  do\
+    original=$(echo $line|cut -d' ' -f 1); \
+    new=$( echo $line|cut -d' '  -f2); \
+    perl -p -i -e "s/$original/$new/" JC1A.kraken-wc;\
+  done    
+$ cut -f3 JC1A.kraken-wc |sort -n |uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked-wc
+$ rm ranked
 ~~~
-{: .bash}  
+{: .bash} 
+
+With this new working copy of the proportion in taxonomy classification
+we can run again taxonkit to obtain the curated lineage table.  
 ~~~
-$ home/dcuser/dc_workshop/taxonomy  
+$ cut -f1 JP4D.kraken_ranked-wc |taxonkit lineage |\
+  taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" |\
+  cut  -f1,3 > JP4D.lineage_table-wc                                        
+~~~
+{: .bash}
+
+~~~
+$ 10:34:06.833 [WARN] taxid 0 not found          
 ~~~
 {: .output}  
 
-Krona is called with the `ktImportTaxonomy` command that needs an input and an output file.  
-In our case we will create the input file with the columns three and four from `JP4D.kraken` file.     
 ~~~
-$ cut -f2,3 JP4D.kraken >  JP4D.krona.input
+$ cut -f1 JC1A.kraken_ranked-wc |taxonkit lineage |\
+  taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" |\
+  cut  -f1,3 > JC1A.lineage_table-wc                                        
 ~~~
-{: .language-bash}  
+{: .bash}
 
-Now we call krona in our ` JP4D.krona.input` file and save results in `JP4D.krona.out.html`.  
 ~~~
-$ ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
+$ 10:34:06.833 [WARN] taxid 0 not found          
 ~~~
-{: .language-bash}  
-
-And finally, open another terminal in your local computer, and download krona output.
+{: .output}  
+   
+Finally, we need to add headers to our rank file and our lineage table.  
 ~~~
-$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out.html . 
+$ nano JC1A.kraken_ranked-wc
+ OTU  JC1A
 ~~~
 {: .bash}  
-What do you see? 
 
-<a href="{{ page.root }}/fig/krona1.svg">
-  <img src="{{ page.root }}/fig/krona1.svg" alt="Krona Visualization" />
-</a>
-
-Now lets only keep the reads were taxonomic assignation was done.  
 ~~~
-$ grep -v $'\t'0 JP4D.krona.input >JP4D.krona.input-filtered
-$ ktImportTaxonomy JP4D.krona.input-filtered -o JP4D.krona.out-filtered.html
+$ nano JC1A.lineage_table-wc
+OTU	superkingdom	phylum	class	order	family	genus	species	subspecies	subspecies_2
 ~~~
-{: .language-bash}
+{: .bash}  
 
-And in our local computer lets copy the output from our remote instance.  
+As a last cleaning step, we need to substitute the "," separator in the csv file to "\t" 
+After this step we have our tables ready to phyloseq.  
 ~~~
-$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out-filtered.html . 
+$ perl -p -i -e 's/;/\t/g' *.lineage_table-wc                                                                                    
+$ head -n5 *.lineage_table-wc 
 ~~~
-{: .language-bash}
+{: .bash}
 
-<a href="{{ page.root }}/fig/krona2.svg">
-  <img src="{{ page.root }}/fig/krona2.svg" alt="Krona Visualization" />
-</a>
-
-### Pavian
-Pavian is another visualization tool that allows comparison between multiple samples. 
-Pavian should be locally installed and needs R and Shiny, 
-but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) 
-to visualize our results.  
-
-First we need to download the files needed as inputs in pavian:
-`JC1ASEDIMENT120627_kraken.report` and `JP4DASH2120627WATERAMPRESIZED_kraken.report`.  
-This files corresponds to our kraken reports. Again in our local machine lets use `scp` command.  
 ~~~
-$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*report . 
+$ rm *.kraken-wc                            
+$ mkdir ../results
+$ mv *wc ../results/.
+$ rm *lineage* *ranked* *merged  
 ~~~
-{: .language-bash}
+{: .bash}  
 
-The next figures depicted what you should get by looking at the downloaded file:
-
-<a href="{{ page.root }}/fig/uploadPavian.PNG">
-  <img src="{{ page.root }}/fig/uploadPavian.PNG" alt="upload Pavian" />
-</a>
-
-<a href="{{ page.root }}/fig/ResultsOverview.PNG">
-  <img src="{{ page.root }}/fig/ResultsOverview.PNG" alt="Results Overview" />
-</a>
-
-<a href="{{ page.root }}/fig/sample.PNG">
-  <img src="{{ page.root }}/fig/sample.PNG" alt="sample" />
-</a>
-
-<a href="{{ page.root }}/fig/SampleSelected.PNG">
-  <img src="{{ page.root }}/fig/SampleSelected.PNG" alt="Sample Selected" />
-</a>
-
-<a href="{{ page.root }}/fig/Comparison.PNG">
-  <img src="{{ page.root }}/fig/Comparison.PNG" alt="Comparison" />
-</a>
-
-
-
-> ## `.discussion`
->
-> What do you think is harder to assign, a species (like E. coli) or a phylum (like Proteobacteria)?
-{: .discussion}
-
-                             
+[Download full script](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/abundance.sh) 
 {% include links.md %}
