@@ -23,12 +23,11 @@ Your credencials are user: dcuser pass:data4Carp.
 
 ## Exploring metagenome data with the terminal.  
 The terminal is a program that executes programs, and is better to deal with long data sets than a visual interface.  
-
-`head()` 
-
+Lets explore the content of some of our data files.  
+`head JC1A.kraken ` 
 
 ##  Manipulating lineage and rank tables in phyloseq  
-Let's install phyloseq (This instruction might not work on certain version of R) 
+Let's install [phyloseq](https://joey711.github.io/phyloseq/) (This instruction might not work on certain version of R) 
 and the rest of the required libraries for its execution:  
 
 ~~~
