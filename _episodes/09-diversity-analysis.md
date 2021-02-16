@@ -18,7 +18,7 @@ keypoints:
 - "Use `help()` to discover the capabilities of libraries"
 ---
   
-  # Welcome CientíficasMexicanas
+# Welcome CientíficasMexicanas
   
 ## Using R studio
 In this lesson we will use R studio to analize two microbiome samples from 4C, you don't have to install anything, you already have an instance on the cloud ready to be used. 
