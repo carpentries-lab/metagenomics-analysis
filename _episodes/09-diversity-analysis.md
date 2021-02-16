@@ -32,6 +32,7 @@ Your credencials are user: dcuser pass:data4Carp.
 3. Data are already stored at your instance, but in case you lose your data you can donwload it [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
 
 ## Exploring metagenome data with the terminal.  
+  
 The terminal is a program that executes programs, and is better to deal with long data sets than a visual interface.  
 First to visualize the content of our directory you can use the `ls` command.  
 `ls`  
@@ -41,15 +42,15 @@ Now you can also known in which directoryare you standing by using `pwd`
 Lets explore the content of some of our data files.  
 Files `.kraken` are the output of the kraken program, we can see a few lines of the file using the command `head`    
 ~~~
-`head JC1A.kraken ` 
+head JC1A.kraken 
 ~~~
-{: .language-r}  
+{: .language-Shell}  
 
 How would you see the last lines of the file report?  
 ~~~
-`tail JC1A.report ` 
+tail JC1A.report 
 ~~~
-{: .language-r}  
+{: .language-Shell}  
   
 
 
