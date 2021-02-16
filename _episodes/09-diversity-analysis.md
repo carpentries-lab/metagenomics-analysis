@@ -1,8 +1,8 @@
 ---
 source: md
 title: "Diversity analysis"
-teaching: 10
-exercises: 2
+teaching: 20
+exercises: 20
 questions:
 - "How can I use R to explore diversity?"
 objectives:
@@ -10,6 +10,8 @@ objectives:
 keypoints:
 - "Edit the .Rmd files not the .md files"
 ---
+# Welcome CientíficasMexicanas
+
 ## Using R studio
 In this lesson we will use R studio to analize two microbiome samples from 4C, you don't have to install anything, you already have an instance on the cloud ready to be used. 
 
@@ -19,7 +21,7 @@ In this lesson we will use R studio to analize two microbiome samples from 4C, y
 The address should look like:  `http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
 Your credencials are user: dcuser pass:data4Carp.  
 
-3. Data are already stored at your instance, but nn case you lost your data you can donwload them [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
+3. Data are already stored at your instance, but in case you lose your data you can donwload it [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
 
 ## Exploring metagenome data with the terminal.  
 The terminal is a program that executes programs, and is better to deal with long data sets than a visual interface.  
@@ -36,20 +38,23 @@ Files `.kraken` are the output of the kraken program, we can see a few lines of 
 `tail JC1A.report ` 
 
 ##  Manipulating lineage and rank tables in phyloseq  
-Let's install [phyloseq](https://joey711.github.io/phyloseq/) (This instruction might not work on certain version of R) 
-and the rest of the required libraries for its execution:  
+
+  
+### Load required packages  
+
+Phyloseq is a library with tools to analyze and plot your metagenomics tables. Let's install [phyloseq](https://joey711.github.io/phyloseq/) (This instruction might not work on certain versions of R) and other libraries required for its execution:  
 
 ~~~
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
-BiocManager::install("phyloseq")
+BiocManager::install("phyloseq") # Install phyloseq
 
-install.packages(c("ggplot2", "readr", "patchwork"))
+install.packages(c("ggplot2", "readr", "patchwork")) #install ggplot2 and patchwork to chart publication-quality plots. readr to read rectangular datasets.
 ~~~
 {: .language-r}  
 
-Now, let's load the libraries (a process needed every time we began a new work 
+Once the libraries are installed, we must make them available for this R session. Now load the libraries (a process needed every time we began a new work 
 in R and we are going to use phyloseq):
 
 ~~~
@@ -59,6 +64,9 @@ library("readr")
 library("patchwork")
 ~~~
 {: .language-r}
+
+  
+### Load data with number of reads per OTU and Taxonomic labels for each OTU.  
 
 Now we have to load our metagenomes files on R 
 
@@ -71,31 +79,32 @@ TAXAS <- read_delim("JC1A.lineage_table-wc", "\t", escape_double = FALSE,
 ~~~
 {: .language-r}
 
+
+### Build Phyloseq object  
+
 Phyloseq objects are a collection of information regarding a single or a group pf metagenomes, 
 these objects can be manually constructed using the basic data structures available in R or can
 be created by importing the output of other programs, such as QUIIME.
 
-Since we imported our data to basic R data types, we will make our phyloseq object manually.
+Since we imported our data to basic R data types, we will build our phyloseq object manually.
 
 ~~~
+# Get OTU IDs from both lists
 names1 = OTUS$OTU
 names2 = TAXAS$OTU
-~~~
-{: .language-r}
 
-~~~
+# Remove OTU IDs from both lists
 OTUS$OTU = NULL
 TAXAS$OTU = NULL
 ~~~
 {: .language-r}
 
 ~~~
+# Convert both lists to matrix
 abundances = as.matrix(OTUS)
 lineages = as.matrix(TAXAS)
-~~~
-{: .language-r}
 
-~~~
+# Assign the OTU IDs as the names of the rows of the matrixes you just built
 row.names(abundances) = names1
 row.names(lineages) = names2
 ~~~
@@ -125,15 +134,16 @@ metagenome_JC1A = phyloseq(OTU, TAX)
 >phyloseq object for now.  
 {: .callout}
 
+### Plot diversity estimates at desired taxonomic resolution
 
-Then, we will prune all of the non-bacterial organisms in our metagenome. To do this 
+We want to know how is bacterial diversity yhen, we will prune all of the non-bacterial organisms in our metagenome. To do this 
 we will make a subset of all bacterial groups and save them
 ~~~
 Bacteria <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
 ~~~
 {: .language-r}
 
-We will then filter out the taxonomic groups that have less than 10 reads assigned to them.
+We will also filter out the taxonomic groups that have less than 10 reads assigned to them.
 
 ~~~
 metagenome_JC1A <- prune_taxa(taxa_sums(metagenome_JC1A)>10,metagenome_JC1A)
@@ -162,24 +172,6 @@ p + geom_point(size=5, alpha=0.7)
 {: .language-r}
 
 
-> ## `.discussion`
->
-> How much did the α diversity change due to the filterings that we made?
-{: .discussion}
-
-
-> ## Exercise
-> 
-> What else can we learn about plot_richness in the help? 
-> 
->> ## Solution
->> 
->> ?plot_richness
->> carga los datos del suelo
->> 
-> {: .solution}
-{: .challenge}  
-
 
 > ## Exercise
 > 
@@ -192,6 +184,27 @@ p + geom_point(size=5, alpha=0.7)
 > {: .solution}
 {: .challenge}  
 
+
+
+
+> ## `.discussion`
+>
+> How much did the α diversity change due to the filterings that we made?
+{: .discussion}
+
+
+> ## Exercise
+> 
+> Use plot_richness help to discover other ways to plot diversity estimates using phyloseq
+> 
+>> ## Solution
+>> 
+>> ?plot_richness
+>> Go to the Examples in the help panel and run plot_richness using soulrep and GlobalPatterns datasets
+>> 
+>> 
+> {: .solution}
+{: .challenge}  
 
 
 Now that you have both phyloseq objects, one for each metagenome, you can merge them into one object:
