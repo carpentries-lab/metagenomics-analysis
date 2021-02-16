@@ -24,7 +24,7 @@ The lesson template comes with several utilities to simplify lesson development 
 - [Evomics](http://evomics.org/learning/genomics/)
 - [Cuatro Cienegas](https://www.sciencemag.org/news/2020/06/pools-mexican-desert-are-window-earth-s-early-life)
 - [Mexican oasis in the desert](https://www.sciencemag.org/podcast/oasis-biodiversity-mexican-desert-and-making-sound-heat)
-- [Pod Cast MExican Oasis]( https://youtu.be/xMMm_GKZsnU)
+- [Pod Cast Mexican Oasis]( https://youtu.be/xMMm_GKZsnU)
 - [Cuatro Cienegas Video](https://www.youtube.com/embed/VzImXRI9wYE?autoplay=1&rel=0)
 
 > ## `.callout`
