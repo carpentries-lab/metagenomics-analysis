@@ -44,13 +44,13 @@ Files `.kraken` are the output of the kraken program, we can see a few lines of 
 ~~~
 head JC1A.kraken 
 ~~~
-{: .language-Shell}  
+{: .bash}
 
 How would you see the last lines of the file report?  
 ~~~
 tail JC1A.report 
 ~~~
-{: .language-Shell}  
+{: .bash}
   
 
 
