@@ -8,7 +8,10 @@ questions:
 objectives:
 - "Visualize α diversity"
 keypoints:
-- "Edit the .Rmd files not the .md files"
+- "Load libraries required for metagenomes alfa diversity plotting"  
+- "Transform named matrixes into phyloseq objects"
+- "Use help to discover the capabilities of libraries"
+- "Chart diversity estimates"
 ---
 # Welcome CientíficasMexicanas
 
