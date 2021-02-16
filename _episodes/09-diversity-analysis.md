@@ -6,12 +6,16 @@ exercises: 30
 questions:
 - "How can I use R to explore diversity?"
 objectives:
-- "Visualize α diversity"
-keypoints:
-- "Load libraries required for metagenomes alfa diversity plotting"  
+- "Visualize different estimates of α diversity"
+- "Load libraries required for metagenomes alpha diversity plotting"  
 - "Transform named matrixes into phyloseq objects"
 - "Use help to discover the capabilities of libraries"
 - "Chart diversity estimates"
+keypoints:
+- "The library 'phyloseq' manages metagenomics objects and computes alpha diversity"  
+- "The libraries 'ggplot2' and 'patchwork' allow publication-quality plotting in R"
+- "Transform your named matrixes into phyloseq objects using 'pyhloseq(TAX, OTU)'"
+- "Use help to discover the capabilities of libraries"
 ---
 # Welcome CientíficasMexicanas
 
