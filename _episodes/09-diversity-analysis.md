@@ -1,8 +1,8 @@
 ---
 source: md
 title: "Diversity analysis"
-teaching: 20
-exercises: 20
+teaching: 30
+exercises: 30
 questions:
 - "How can I use R to explore diversity?"
 objectives:
@@ -66,7 +66,7 @@ library("patchwork")
 {: .language-r}
 
   
-### Load data with number of reads per OTU and Taxonomic labels for each OTU.  
+### Load data with the number of reads per OTU and Taxonomic labels for each OTU.  
 
 Now we have to load our metagenomes files on R 
 
@@ -173,39 +173,36 @@ p + geom_point(size=5, alpha=0.7)
 
 
 
-> ## Exercise
+> ## Exercise: build a phyloseq object by yourself
 > 
-> How can you import the `JP4D metagenome` to phyloseq? 
+> Import the `JP4D metagenome` and plot its α diversity
 > 
 >> ## Solution
 >> 
 >> Repeat the previous instructions replacing JC1A for JP4D whenever it's appropiate
+>> at the end, you should have the phyloseq object 'metagenome_JP4D'. 
 >> 
 > {: .solution}
 {: .challenge}  
 
 
 
-
-> ## `.discussion`
->
-> How much did the α diversity change due to the filterings that we made?
-{: .discussion}
-
-
 > ## Exercise
 > 
-> Use plot_richness help to discover other ways to plot diversity estimates using phyloseq
+> Use the help from plot_richness to discover other ways to plot diversity estimates using phyloseq
 > 
 >> ## Solution
 >> 
->> ?plot_richness
+>> '?plot_richness' or help("plot_richness")
+>> 
 >> Go to the Examples in the help panel and run plot_richness using soulrep and GlobalPatterns datasets
 >> 
 >> 
 > {: .solution}
 {: .challenge}  
-
+  
+  
+### Merge two metagenomes to compare them  
 
 Now that you have both phyloseq objects, one for each metagenome, you can merge them into one object:
 
@@ -215,9 +212,8 @@ merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
 {: .language-r}
 
 
-Let´s look at the phylum abundance of our metagenomes. 
-Since our metagenomes have different sizes it might be a good idea to 
-convert the number of assigned read into percentages (i.e. relative abundances). 
+Let´s look at the phylum abundance of our metagenomes.  
+Since our metagenomes have different sizes it might be a good idea to convert the number of assigned read into percentages (i.e. relative abundances). 
 
 ~~~
 percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
@@ -257,6 +253,12 @@ absolute_count | percentages
 > {: .solution}
 {: .challenge}                             
                              
+
+> ## `.discussion`
+>
+> How much did the α diversity change due to the filterings that we made?
+{: .discussion}
+
 
 
 > ## `.callout`
