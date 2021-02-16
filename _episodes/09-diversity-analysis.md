@@ -170,6 +170,19 @@ p + geom_point(size=5, alpha=0.7)
 
 > ## Exercise
 > 
+> What else can we learn about plot_richness in the help? 
+> 
+>> ## Solution
+>> 
+>> ?plot_richness
+>> carga los datos del suelo
+>> 
+> {: .solution}
+{: .challenge}  
+
+
+> ## Exercise
+> 
 > How can you import the `JP4D metagenome` to phyloseq? 
 > 
 >> ## Solution
