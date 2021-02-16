@@ -13,7 +13,19 @@ keypoints:
 - "Edit the .Rmd files not the .md files"
 ---
 ## Using R studio
-`http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
+In this lesson we will use R studio to analice two microbiome samples from 4C, you don't have to install anything, you already have an instance om the cloud ready to be used. 
+
+1. Click on this [shared google sheet](https://docs.google.com/spreadsheets/d/1w78TuQUdtI2Fgk4DFG26YYkXTkUg2vTjVLaRH-D_7xk/edit?usp=sharing) and in the first column write without spaces your name and lastname. Check that you do not overwrite other participant's names. 
+
+2. Now copy your instance address into your browser (Chrome or firefox) and login into R studio.  
+The address should look like:  `http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
+Your credencials are user: dcuser pass:data4Carp.  
+
+## Exploring metagenome data with the terminal.  
+The terminal is a program that executes programs, and is better to deal with long data sets than a visual interface.  
+
+`head()` 
+
 
 ##  Manipulating lineage and rank tables in phyloseq  
 Let's install phyloseq (This instruction might not work on certain version of R) 
