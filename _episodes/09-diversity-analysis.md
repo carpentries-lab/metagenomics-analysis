@@ -4,11 +4,9 @@ title: "Diversity analysis"
 teaching: 10
 exercises: 2
 questions:
-- "What is diversity intra metagenome?"
-- "What is diversity inter metagenomes?"
+- "How can I use R to explore diversity?"
 objectives:
-- "Understand α diversity"
-- "Understand β diversity"
+- "Visualize α diversity"
 keypoints:
 - "Edit the .Rmd files not the .md files"
 ---
@@ -20,6 +18,8 @@ In this lesson we will use R studio to analice two microbiome samples from 4C, y
 2. Now copy your instance address into your browser (Chrome or firefox) and login into R studio.  
 The address should look like:  `http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
 Your credencials are user: dcuser pass:data4Carp.  
+
+3. Data are already stored at your instance, but nn case you lost your data you can donwload them [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
 
 ## Exploring metagenome data with the terminal.  
 The terminal is a program that executes programs, and is better to deal with long data sets than a visual interface.  
