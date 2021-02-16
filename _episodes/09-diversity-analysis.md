@@ -12,10 +12,10 @@ objectives:
 - "Use help to discover the capabilities of libraries"
 - "Chart diversity estimates"
 keypoints:
-- "The library 'phyloseq' manages metagenomics objects and computes alpha diversity"  
-- "The libraries 'ggplot2' and 'patchwork' allow publication-quality plotting in R"
-- "Transform your named matrixes into phyloseq objects using 'pyhloseq(TAX, OTU)'"
-- "Use help to discover the capabilities of libraries"
+- "The library `phyloseq` manages metagenomics objects and computes alpha diversity"  
+- "The libraries `ggplot2` and 'patchwork' allow publication-quality plotting in R"
+- "Transform your named matrixes into phyloseq objects using `pyhloseq(TAX, OTU)`"
+- "Use `help()` to discover the capabilities of libraries"
 ---
   
   # Welcome CientíficasMexicanas
@@ -39,11 +39,19 @@ First to visualize the content of our directory you can use the `ls` command.
 Now you can also known in which directoryare you standing by using `pwd`  
 
 Lets explore the content of some of our data files.  
-Files `.kraken` are the output of the kraken program, we can see a few lines of the file using the command `head`  
+Files `.kraken` are the output of the kraken program, we can see a few lines of the file using the command `head`    
+~~~
 `head JC1A.kraken ` 
+~~~
+{: .language-r}  
 
-¿How would you see the last lines of the file report? 
+How would you see the last lines of the file report?  
+~~~
 `tail JC1A.report ` 
+~~~
+{: .language-r}  
+  
+
 
 ##  Manipulating lineage and rank tables in phyloseq  
 
