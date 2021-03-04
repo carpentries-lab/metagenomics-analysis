@@ -6,7 +6,7 @@ questions:
 - "Why genomic data should be assembled?"
 - "What is the difference between reads and contigs?"
 - "How can we assemble a metagenome?"
-- "How can we obtain individual genomes from a metagenome?
+- "How can we obtain individual genomes from a metagenome?"
 objectives: 
 - "Understand what is an assembly"  
 - "Use an enviroment in a bioinformatic pipeline"
