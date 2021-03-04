@@ -12,7 +12,7 @@ keypoints:
 ---
 
 The lesson template comes with several utilities to simplify lesson development and maintenance.
-
+## How our results compare with the original research
 ## Checking
 - [Data Carpentry in 16S Metagenomics](https://datacarpentry.org/blog/2017/11/16s-dc)  
 - [Phyloseq Análisis de diversidad](http://www.castrolab.org/isme/biodiversity/biodiversity.html)
