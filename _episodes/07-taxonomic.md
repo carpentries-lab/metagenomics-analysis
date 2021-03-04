@@ -265,7 +265,11 @@ The next figures depicted what you should get by looking at the downloaded file:
 <a href="{{ page.root }}/fig/Comparison.PNG">
   <img src="{{ page.root }}/fig/Comparison.PNG" alt="Comparison" />
 </a>
+
+
 ### Nanopore
+
+
 
 
 > ## `.discussion`
