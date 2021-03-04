@@ -4,17 +4,20 @@ teaching: 15
 exercises: 5
 questions:
 - "Why genomic data should be assembled?"
-- "What is the difference between reads and contigs"
-- "How can we enamble a metagenome"
+- "What is the difference between reads and contigs?"
+- "How can we assemble a metagenome?"
+- "How can we obtain individual genomes from a metagenome?
 objectives: 
 - "Understand what is an assembly"  
-- "Use an enviroment in a bioinformatic pipeline"   
+- "Use an enviroment in a bioinformatic pipeline"
+- "Generate MAGs from an assembled metagenome"
 keypoints:
 - "Assemblies uses algorithms to group reads into contigs"
 - "Three famous algorithms are Greedy extension, OLC and De Bruijin graphs"
-- "Megahit is a metagenome assembly"
+- "Megahit is a metagenome assembler"
 - "The fastq files from quality control process are the inputs for the assembly software"
 - "A fasta file with contigs is the output of the assembly process"
+- "Binning can be used to obtain individual genomes (MAGs) from metagenomes"
 ---
 
 
@@ -147,18 +150,13 @@ Usage:   megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_
 {: .discussion}
 
 
-## Bining 
-As the contigs that we obtain from the assembly come from different species, 
-it is necessary to separate them by species to be able to analyze each species 
-individually. This process is called binning.  
+## Bining
+To be abel to analyze each species individualy we can separate the original genomes in the sample with a process called binning. 
+In this process, the assembled contigs from the metagenome will be assigned to different bins (fasta files that contain certain contigs). Ideally, each bin corresponds to only one original genome.
 
-We can do binning based on the taxonomic assignment, or using characteristics 
-of the contigs, such as their GC content, coverage or the use of tetranucleotides.
+Although an obvious way to separate contigs that correspond to a different species is by their taxonomic assignation, there are more reliable methods that do the binning using characteristics of the contigs, such as their GC content, the use of tetranucleotides (composition) or their coverage (abundance).
 
-Binning dependent on taxonomy is relatively trivial, but there are different algorithms 
-for binning independent of taxonomy. These algorithms can be based on composition or abundance,
-[Maxbin](https://sourceforge.net/projects/maxbin/files/) is a binning algorithm
-with an hybrid composition-abundance approach.  
+[Maxbin](https://sourceforge.net/projects/maxbin/files/) is a binning algorithm. The information it uses to distinguish contigs that correspond to different genomes, is the coverage levels of the contigs and the tetranucleotide frequencies they have.
 
 
 <a href="{{ page.root }}/fig/Binning(47).png">
@@ -189,15 +187,17 @@ $ run_MaxBin.pl
 
 > ## Bining strategies `.callout`
 >
-> Reads can be assembled into contigs according to two main strategies: composition and abbundance.
+> Contigs can be assigned to bins according to two main strategies: composition and abbundance.
 > Many binning algorithms uses a combination of both strategies.  
 {: .callout}
 
-## MAGs (Metagenome Assembly Genome)  
-After doing the binning we can assemble MAGs, either by putting together the contigs 
-that correspond to a single species or using the reads that were used to assemble 
-those contigs to reassemble a genome using a traditional assembler
+## MAGs (Metagenome-Assembled Genomes)  
+MAGs are the original genomes that we are looking for with the binning process. The binned contigs can be used as MAGs, but a more reliable way to obtain MAGs is by re-assembling the reads from the binned contigs. For this we need to map the original reads to the binned contigs and then re-assemble them. 
+
 The quality of a MAG is highly dependent on the size of the genome of the species, 
-its abundance in the community, and the depth at which we sequence. Anvio is a good program to see the quality of our MAGs
+its abundance in the community, and the depth at which we sequence.
+Two important things that can be meassured to know its quallity is the completeness (is the MAG a complete genome?) and the distinctiveness (does the MAG contain only one genome?). 
+
+Anvio is a good program to see the quality of our MAGs
 
 {% include links.md %}
