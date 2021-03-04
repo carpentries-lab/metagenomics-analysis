@@ -83,7 +83,7 @@ library("patchwork")
   
 ### Load data with the number of reads per OTU and Taxonomic labels for each OTU.  
 
-Now we have to load our metagenomes files on R 
+Now, we have to load the taxonomic assignation data into objets in R:
 
 ~~~
 OTUS <- read_delim("JC1A.kraken_ranked-wc","\t", escape_double = FALSE, trim_ws = TRUE)
@@ -97,11 +97,12 @@ TAXAS <- read_delim("JC1A.lineage_table-wc", "\t", escape_double = FALSE,
 
 ### Build Phyloseq object  
 
-Phyloseq objects are a collection of information regarding a single or a group pf metagenomes, 
+Phyloseq objects are a collection of information regarding a single or a group of metagenomes, 
 these objects can be manually constructed using the basic data structures available in R or can
-be created by importing the output of other programs, such as QUIIME.
+be created by importing the output of other programs, such as QUIIME and kraken-biom.
 
-Since we imported our data to basic R data types, we will build our phyloseq object manually.
+Since we imported our data to basic R data types, we will build our phyloseq object manually
+by extracting the OTU's names and abundances.
 
 ~~~
 # Get OTU IDs from both lists
@@ -127,7 +128,7 @@ row.names(lineages) = names2
 
 All that we've done so far is transforming the taxonomic lineage table 
 and the OTU abundance table into a format that can be read by phyloseq.
-Now we will make the phyloseq data types out of our tables.
+Now we will make the phyloseq data types out of our matrices.
 
 ~~~
 OTU = otu_table(abundances, taxa_are_rows = TRUE)
@@ -145,40 +146,43 @@ metagenome_JC1A = phyloseq(OTU, TAX)
 > ## `.callout`
 >
 >If you look at our phyloseq object, you will see that there's more data types 
->that we can use to build our object. These are optional, so we will use our basic
+>that we can use to build our object, as a phylogenetic tree and metadata 
+>concerning our samples. These are optional, so we will use our basic
 >phyloseq object for now.  
 {: .callout}
+
+## Creating a phyloseq object by kraken-biom
+
+In the above lines we explored how to create a phyloseq object using basic R functions.
+Certainly, this is a method that helps to practize and masterize the manipulation of 
+different type of objects and information. But we can obtain the same result by using
+programs that will extract the information from the kraken output files and will
+save us time. One of this options is kraken-biom
+
+kraken-biom is a programm that creates BIOM tables from the kraken output 
+(https://github.com/smdabdoub/kraken-biom)
+
+
 
 ### Plot diversity estimates at desired taxonomic resolution
 
 We want to know how is bacterial diversity yhen, we will prune all of the non-bacterial organisms in our metagenome. To do this 
 we will make a subset of all bacterial groups and save them
 ~~~
-Bacteria <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
+metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
 ~~~
 {: .language-r}
 
-We will also filter out the taxonomic groups that have less than 10 reads assigned to them.
+Now let's look at some statistics of our metagenomes:
 
 ~~~
-metagenome_JC1A <- prune_taxa(taxa_sums(metagenome_JC1A)>10,metagenome_JC1A)
-~~~
-{: .language-r}
-
-
-Now let's look at some statistics of our metagenomes, like the mean number 
-of reads assigned to a taxonomic group
-
-~~~
-max(sample_sums(metagenome_JC1A))
-min(sample_sums(metagenome_JC1A))
-mean(sample_sums(metagenome_JC1A))
+summary(metagenome_JC1A@otu_table@.Data)
 ~~~
 {: .language-r}
 
-The max, min and mean can give us an idea of the eveness, but to have a more 
+The Max, Min and Mean can give us an idea of the eveness, but to have a more 
 visual representation of the α diversity we can now look at a ggplot2
-graph created using phyloseq 
+graph created using phyloseq:
 
 ~~~
 p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon")) 
@@ -186,16 +190,21 @@ p + geom_point(size=5, alpha=0.7)
 ~~~
 {: .language-r}
 
-
+Each of these metrics can give insight of the distribution of the OTUs inside 
+our samples. For example. Chao1 diversity index gives more weight to singletons
+and doubletons observed in our samples. While Shannon is a entrophy index 
+remarking the impossiblity of taking two reads out of the metagenome "bag" 
+and that these two will belong to the same OTU.
 
 > ## Exercise: build a phyloseq object by yourself
 > 
-> Import the `JP4D metagenome` and plot its α diversity
+> Import the `JP4D metagenome` and plot its α diversity with the mentioned metrics
 > 
 >> ## Solution
 >> 
->> Repeat the previous instructions replacing JC1A for JP4D whenever it's appropiate
->> at the end, you should have the phyloseq object 'metagenome_JP4D'. 
+>> Repeat the previous instructions replacing JC1A for JP4D whenever it's appropiate:
+>>
+>>  At the end, you should have the phyloseq object 'metagenome_JP4D'. 
 >> 
 > {: .solution}
 {: .challenge}  
@@ -205,12 +214,15 @@ p + geom_point(size=5, alpha=0.7)
 > ## Exercise
 > 
 > Use the help from plot_richness to discover other ways to plot diversity estimates using phyloseq
+> and use another index to show the alpha diversity in our samples
 > 
 >> ## Solution
 >> 
 >> '?plot_richness' or help("plot_richness")
 >> 
->> Go to the Examples in the help panel and run plot_richness using soulrep and GlobalPatterns datasets
+>>One of the widely alpha diversity indexes used is Simpson diversity index, as an example
+>>of solution, here it is the plot with an extra metric, which is Simpson alpha index:
+>> p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon", "Simpson")) 
 >> 
 >> 
 > {: .solution}
@@ -227,8 +239,33 @@ merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
 {: .language-r}
 
 
-Let´s look at the phylum abundance of our metagenomes.  
-Since our metagenomes have different sizes it might be a good idea to convert the number of assigned read into percentages (i.e. relative abundances). 
+Let´s look at the abundance of our metagenomes.  
+
+~~~
+summary(merged_metagenomes@otu_table@.Data)
+~~~
+{: .language-r}
+
+Now, it is evident that there is a great difference in the total reads(i.e. information) of each sample.
+Before we further process our data, lets take a look if we have any no-identified read. Marked as "NA"
+on the different taxonomic levels:
+
+~~~
+summary(merged_metagenomes@tax_table@.Data== "NA")
+~~~
+{: .language-r}
+
+By the above line, we can see that there are NA on the different taxonomic leves. Although it is
+expected to see some NAs at species, or even at genus level, we will get rid of the ones at phylum
+lever to procced with the analysis:
+
+~~~
+merged_metagenomes <- subset_taxa(merged_metagenomes, phylum != "NA")
+~~~
+{: .language-r}
+
+
+Next, since our metagenomes have different sizes it might be a good idea to convert the number of assigned read into percentages (i.e. relative abundances). 
 
 ~~~
 percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
