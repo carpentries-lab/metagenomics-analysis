@@ -1,4 +1,3 @@
-
 ---
 title: "Amplicon metagenomics"  
 teaching: 30
