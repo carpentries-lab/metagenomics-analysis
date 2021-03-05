@@ -57,7 +57,7 @@ Open reference OTU picking combines closed reference OTU picking and de novo OTU
 
 ### Using NINJA for OTU picking
 
-For this workshop we will use a closed reference OTU-picker called NINJA, which stands for NINJA Is Not Just Another aligner. NINJA requires the input to be a single fasta file that contains the clean sequences for each sample. SHI7 is designed to specifically produce the type of input file required by NINJA. The `combined_seqs.fna` file produced by SHI7 is also compatible with other OTU pickers. The default database used by NINJA is the GreenGenes 97% ID database. The full documentation for NINJA is located here: [NINJA documnetation](https://github.com/GabeAl/NINJA-OPS).
+For this workshop we will use a closed reference OTU-picker called NINJA, which stands for NINJA Is Not Just Another aligner. NINJA requires the input to be a single fasta file that contains the clean sequences for each sample. SHI7 is designed to specifically produce the type of input file required by NINJA. The `combined_seqs.fna` file produced by SHI7 is also compatible with other OTU pickers. The default database used by NINJA is the GreenGenes 97% ID database. The full documentation for NINJA is located here: [NINJA documentation](https://github.com/GabeAl/NINJA-OPS).
 
 We can run NINJA with the following parameters: *Time estimate: 3 minutes*
 
