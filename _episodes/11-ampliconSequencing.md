@@ -57,13 +57,15 @@ Open reference OTU picking combines closed reference OTU picking and de novo OTU
 
 ### Using NINJA for OTU picking
 
-For this workshop we will use a closed reference OTU-picker called NINJA, which stands for NINJA Is Not Just Another aligner. NINJA requires the input to be a single fasta file that contains the clean sequences for each sample. SHI7 is designed to specifically produce the type of input file required by NINJA. The `combined_seqs.fna` file produced by SHI7 is also compatible with other OTU pickers. The default database used by NINJA is the GreenGenes 97% ID database. The full documentation for NINJA is located here: https://github.com/GabeAl/NINJA-OPS.
+For this workshop we will use a closed reference OTU-picker called NINJA, which stands for NINJA Is Not Just Another aligner. NINJA requires the input to be a single fasta file that contains the clean sequences for each sample. SHI7 is designed to specifically produce the type of input file required by NINJA. The `combined_seqs.fna` file produced by SHI7 is also compatible with other OTU pickers. The default database used by NINJA is the GreenGenes 97% ID database. The full documentation for NINJA is located here: [NINJA documnetation](https://github.com/GabeAl/NINJA-OPS).
 
 We can run NINJA with the following parameters: *Time estimate: 3 minutes*
 
-```{r, eval=F}
+~~~
 ninja.py -i qc_reads/combined_seqs.fna -o ninja_otus -m normal -p 4 -z -d 2
-```
+~~~
+{: .bash}
+
 
 `-i` Specifies the path to the combined_seqs.fna file  
 `-o` Specifes the directory we'd like to create for our output  
@@ -81,9 +83,10 @@ The output of NINJA is a directory containing 2 files:
 
 This file contains all the commands and outputs from OTU picking. To open this file and look at the performance of OTU picking we can use `less`. 
 
-``` {r, eval=F}
+~~~
 less ninja_log.txt
-```
+~~~
+{: .bash}
 
 #### ninja_otutable.biom
 
@@ -95,9 +98,13 @@ To double check if our OTU picking was successful and to run summary statistics 
 
 ### Biom summary
 To create a summary file of our OTU table we can use the `biom summarize-table` command:
-```{r ,eval=F}
+
+~~~
 biom summarize-table -i ninja_otus/ninja_otutable.biom -o otu_summary.txt
-```  
+~~~
+{: .bash}
+
+
 `-i` Specifies the path to the OTU table created by NINJA  
 `-o` Specifes the path to the summary file we'd like to create  
 
@@ -110,9 +117,10 @@ The summary file will contain:
 
 To open this file and look at the summary we can use `less`. 
 
-``` {r, eval=F}
+~~~
 less OTU_summary.txt
-```
+~~~
+{: .bash}
 
 ## Converting an OTU table from .biom to .txt
 
@@ -120,9 +128,11 @@ Right now the OTU table we have is in biom format, which is not human readable. 
 
 ### Biom convert
 To create a .txt file of our OTU table we can use the `biom convert` command:
-```{r ,eval=F}
+~~~
 biom convert -i ninja_otus/ninja_otutable.biom -o ninja_otus/ninja_otutable.txt --to-tsv --header-key taxonomy
-```  
+~~~
+{: .bash}
+
 `-i` Specifies the path to the OTU table created by NINJA  
 `-o` Specifes the path to the summary file we'd like to create  
 `--to-tsv` Specifies that we want to make it a tab separated text file  
@@ -135,10 +145,10 @@ The new OTU table will have:
 * Taxonomy in the last column
 
 To open this file we can use `less`. 
-
-``` {r, eval=F}
+~~~
 less ninja_otutable.txt
-```
+~~~
+{: .bash}
 
 ## Exploratory analysis with QIIME
 
@@ -165,23 +175,27 @@ By specifying `-h` the command will list the documentation associated with it.  
 
 ### Example
 This command uses the mapping file to collapse the OTU table.  
-```{r eval=F}
+
+~~~
 collapse_samples.py -h
-```
+~~~
+{: .bash}
 
 Online Documentation Page:
-![](Fig5.png)
+![](../fig/Fig5.png)
 
 
 ### Parameter file
 
 Some of the commands in QIIME require a parameter file to specify some extra details. In this workshop we will create a parameters file that will house the parameters needed for alpha and beta diversity. We can create a text file with `nano`. We close the file with the commands located at the bottom of the nano-screen.
 
-```{r, eval=F}
+~~~
 nano parameters.txt
 beta_diversity:metrics  bray_curtis,unweighted_unifrac,weighted_unifrac
 alpha_diversity:metrics shannon,PD_whole_tree,observed_species
-```
+~~~
+{: .bash}
+
 
 ## Validating metadata
 
