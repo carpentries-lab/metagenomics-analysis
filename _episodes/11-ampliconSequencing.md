@@ -153,6 +153,7 @@ less ninja_otutable.txt
 ## Exploratory analysis with QIIME
 
 ### What is QIIME?
+[Benchmarking taxonomic assignments based on 16S rRNA gene profiling of the microbiota from commonly sampled environments](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5967554/)
 QIIME stands for Quantitative Insights Into Microbial Ecology, and is pronounced 'chime'.   It is pipeline for performing microbiome analysis of DNA sequences.  Some of the things QIIME can do for us include:  
 
 * Quality filtering
