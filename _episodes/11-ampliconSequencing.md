@@ -26,12 +26,12 @@ keypoints:
 
 The 16S ribosomal RNA gene (16S rRNA) is approximately 1,500 bp long, and contains nine variable regions separated by conserved regions. We use the variable regions of the gene to distinguish one bacterial type from another. One of the most commonly sequenced variable regions is the V3 - V4 region that spans approaximately 469 bp (Fadrosh et al. 2014. Microbiome).   
 
-![16S rRNA Variable Regions (http://www.lcsciences.com/)](./fig/16s-gene.png)
+![16S rRNA Variable Regions (http://www.lcsciences.com/)](../fig/16s-gene.png)
 
 One reason this region is a popular sequencing target is the length. Often we use paired-end 250 bp sequencing, which allows us to span more than half of the V3-V4 region in each direction. This means we can stitch the paired reads together to produce a longer sequence read that increases the accuracy and specificity of our data.   
 
 
-![16S Paired-End Sequencing (Illumina.com)](./fig/paired_end.jpg)
+![16S Paired-End Sequencing (Illumina.com)](../fig/paired_end.jpg)
 
 ## Workshop data
 
