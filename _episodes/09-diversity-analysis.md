@@ -146,7 +146,7 @@ metagenome_JC1A = phyloseq(OTU, TAX)
 > ## `.callout`
 >
 >If you look at our phyloseq object, you will see that there's more data types 
->that we can use to build our object, as a phylogenetic tree and metadata 
+>that we can use to build our object(?phyloseq), as a phylogenetic tree and metadata 
 >concerning our samples. These are optional, so we will use our basic
 >phyloseq object for now.  
 {: .callout}
@@ -160,9 +160,28 @@ programs that will extract the information from the kraken output files and will
 save us time. One of this options is kraken-biom
 
 kraken-biom is a programm that creates BIOM tables from the kraken output 
-(https://github.com/smdabdoub/kraken-biom)
+[kraken-biom](https://github.com/smdabdoub/kraken-biom)
+
+First, lets take a look at the different flags that kraken-biom have and an example
+of its usage:
+
+~~~
+usage: kraken-biom [-h] [--max {D,P,C,O,F,G,S}] [--min {D,P,C,O,F,G,S}]
+                      [-o OUTPUT_FP] [--fmt {hdf5,json,tsv}] [--gzip]
+                      [--version] [-v]
+                      kraken_reports [kraken_reports ...]                   
+~~~
+{: .bash}
+
+By a close look at the code lines, it is noticeable that we need a specific output
+from krakre, those are the kraken.reports. 
 
 
+
+~~~
+kraken-biom S1.txt S2.txt --fmt json
+~~~
+{: .bash}
 
 ### Plot diversity estimates at desired taxonomic resolution
 
