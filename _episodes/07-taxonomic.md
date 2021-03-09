@@ -5,10 +5,10 @@ exercises: 15
 questions:
 - "How can I assign a taxonomy to my contigs?"
 objectives:
-- "Understand how taxonomic assignation works"
+- "Understand how taxonomic assignation works."
 keypoints:
-- "A database with previous gathered knowledge (genomes) is needed for taxonomic assignation"
-- "Kraken2 is a program for taxonomic assignation"
+- "A database with previous gathered knowledge (genomes) is needed for taxonomic assignation."
+- "Kraken2 is a program for taxonomic assignation."
 ---
 
 <a href="{{ page.root }}/fig/sesgos.png">
@@ -17,7 +17,7 @@ keypoints:
 
 Taxonomic assignation follows the sequence assignation into Operational Taxonomic
 Units (OTUs, that is, groups of related individuals). This can be done either
-after reads has been assembled into contigs, or using unassembled reads. 
+after reads have been assembled into contigs, or using unassembled reads. 
 The comparison database in this assignation process must be constructed using 
 complete genomes. There are many programs for doing taxonomic mapping, 
 almost all of them follows one of the next strategies:  
@@ -37,7 +37,7 @@ to be classified and assign the taxonomy depending on the hits obtained.
 
 > ## Taxonomy assignation software `.callout`
 >
-> There are three strategies for taxonomy assignation: blast, kmers and markers. 
+> There are three strategies for taxonomy assignation: BLAST, k-mers and markers. 
 {: .callout}
 
 [Kraken 2](https://ccb.jhu.edu/software/kraken2/) is the newest version of Kraken, 
@@ -96,7 +96,7 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 {: .challenge}                             
                              
 As we have learned, taxonomic assignation can be attempted before the assembly process. 
-In this case we can use fastq files as inputs, in this case the inputs would be files 
+In this case we can use FASTQ files as inputs, in this case the inputs would be files 
 `JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz` and `JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz`
 which are the outputs of our trimming process. In this case, the outputs will be two files: the report
 JP4D_kraken.report and the file JP4D.kraken.  
@@ -119,9 +119,9 @@ As we can see in the output we need 8000000000bytes=8G in RAM to run kraken2,
 and seems that we do not have them. In fact, if we consult our memory with `free -b` 
 we can see that we only have `135434240bytes`, and we wont be able to run kraken2 in 
 this machine. For that reason, we precomputed in a more powerful machine the taxonomy 
-assignation of this reads. The command that was run was in fact not with fastq files,
+assignation of this reads. The command that was run was in fact not with FASTQ files,
 kraken2 can also be run after the assembly process, in this case the input is a fasta file, 
-the one that we assembled with megahit. In a more powerful machine
+the one that we assembled with MEGAHIT. In a more powerful machine
 we would first copy our assembly into this directory and run kraken2. 
 Output files in this command are also JP4DA.kraken and JP4DA_kraken.report.  
 ~~~
@@ -171,12 +171,12 @@ head ~/dc_workshop/report/JP4D_kraken.report
 ~~~
 {: .output}  
 
-We have reach the tsv files, the final step in our metagenomic pipeline showed in [lesson-3](https://carpentries-incubator.github.io/metagenomics/03-assessing-read-quality/index.html).  
+We have reached the tsv files, the final step in our metagenomic pipeline showed in [lesson-3](https://carpentries-incubator.github.io/metagenomics/03-assessing-read-quality/index.html).  
 After we have the taxnomy assignation what follows is some visualization of our results.  
 
 
 ## Visualization of taxonomic assignation results  
-[Krona](https://github.com/marbl/Krona/wiki) is a hierarchical data visualization software. Krona allows data to be explored with zooming, multi-layered pie charts and includes support for several bioinformatics tools and raw data formats. To use krona in our results, lets go first into our taxonomy directory, which contains the precalculated kraken outputs.  
+[Krona](https://github.com/marbl/Krona/wiki) is a hierarchical data visualization software. Krona allows data to be explored with zooming, multi-layered pie charts and includes support for several bioinformatics tools and raw data formats. To use Krona in our results, lets go first into our taxonomy directory, which contains the precalculated Kraken outputs.  
 
 ### Krona  
 ~~~
@@ -196,13 +196,13 @@ $ cut -f2,3 JP4D.kraken >  JP4D.krona.input
 ~~~
 {: .language-bash}  
 
-Now we call krona in our ` JP4D.krona.input` file and save results in `JP4D.krona.out.html`.  
+Now we call Krona in our ` JP4D.krona.input` file and save results in `JP4D.krona.out.html`.  
 ~~~
 $ ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
 ~~~
 {: .language-bash}  
 
-And finally, open another terminal in your local computer, and download krona output.
+And finally, open another terminal in your local computer, and download Krona output.
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out.html . 
 ~~~
@@ -213,14 +213,14 @@ What do you see?
   <img src="{{ page.root }}/fig/krona1.svg" alt="Krona Visualization" />
 </a>
 
-Now lets only keep the reads were taxonomic assignation was done.  
+Now lets only keep the reads were the taxonomic assignation was done.  
 ~~~
 $ grep -v $'\t'0 JP4D.krona.input >JP4D.krona.input-filtered
 $ ktImportTaxonomy JP4D.krona.input-filtered -o JP4D.krona.out-filtered.html
 ~~~
 {: .language-bash}
 
-And in our local computer lets copy the output from our remote instance.  
+And in our local computer let's copy the output from our remote instance.  
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out-filtered.html . 
 ~~~
@@ -236,9 +236,9 @@ Pavian should be locally installed and needs R and Shiny,
 but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) 
 to visualize our results.  
 
-First we need to download the files needed as inputs in pavian:
+First we need to download the files needed as inputs in Pavian:
 `JC1ASEDIMENT120627_kraken.report` and `JP4DASH2120627WATERAMPRESIZED_kraken.report`.  
-This files corresponds to our kraken reports. Again in our local machine lets use `scp` command.  
+This files corresponds to our Kraken reports. Again in our local machine lets use `scp` command.  
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*report . 
 ~~~
@@ -274,7 +274,7 @@ The next figures depicted what you should get by looking at the downloaded file:
 
 > ## `.discussion`
 >
-> What do you think is harder to assign, a species (like E. coli) or a phylum (like Proteobacteria)?
+> What do you think is harder to assign, a species (like _E. coli_) or a phylum (like Proteobacteria)?
 {: .discussion}
 
                              
