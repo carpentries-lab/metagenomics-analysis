@@ -1,14 +1,14 @@
 ---
-title: "Automatizing abundance tables"
+title: "Automating Abundance Tables"
 teaching: 30
 exercises: 15
 questions:
 - "How can I obtain the abundance of the reads?"
 objectives:
-- "Understand how taxonomic is used to obtain abundance tables"
+- "Understand how taxonomy is used to obtain abundance tables."
 keypoints:
-- "Abundance can be obtain either before or after the assembly process"
-- "A bash script can automatice this work"
+- "Abundance can be obtain either before or after the assembly process."
+- "A bash script can automate this work."
 ---
 
 
@@ -16,12 +16,12 @@ Once we know the taxonomic composition of our metagenomes, we can do diversity a
 Here we will talk about the two most used diversity metrics, diversity α (within one metagenome) and β (between metagenomes).   
 
 - α Diversity: Represents the richness (e.g. number of different species) and species' abundance. It can be measured by calculating richness, 
- Eveness, or using a diversity index, such as Shannon's, Simpson's, Chao's, etc.  
+ and eveness, or by using a diversity index, such as Shannon's, Simpson's, Chao's, etc.  
  
 - β Diversity: It is the difference (measured as distance) between two or more metagenomes. 
 It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance or UniFrac, to name a few.  
 
-For this lesson we will use phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
+For this lesson we will use Phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
 [Rstudio cloud](https://rstudio.cloud/) and select "GET STARTED FOR FREE"
 
 ## α diversity  
@@ -44,35 +44,35 @@ For this lesson we will use phyloseq, an R package specialized in metagenomic an
 | Variable             |  Definition   |     
 :-------------------------:|:-------------------------:  
 <img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i\:ln{p_i}"> | Definition
-<img src="https://render.githubusercontent.com/render/math?math=S"> | number of OTUs  
-<img src="https://render.githubusercontent.com/render/math?math=p_i">|  the proportion of the community represented by OTU i.   
+<img src="https://render.githubusercontent.com/render/math?math=S"> | Number of OTUs  
+<img src="https://render.githubusercontent.com/render/math?math=p_i">|  The proportion of the community represented by OTU i   
 
 - Simpson's (D) 
 
 | Variable             |  Definition |   
 :-------------------------:|:-------------------------:  
 <img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{\sum_{i=1}^{S}p_i^2}">| Definition   
-<img src="https://render.githubusercontent.com/render/math?math=S"> | total number of the species in the community   
-<img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> | proportion of community represented by OTU i.    
+<img src="https://render.githubusercontent.com/render/math?math=S"> | Total number of the species in the community   
+<img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> | Proportion of community represented by OTU i    
   
 - ACE  
 
 | Variable             |  Definition |  
 :-------------------------:|:-------------------------:  
 <img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{S_{rare}}{C_{ACE}}+\frac{F_1}{C_{ACE}}+\gamma_{ACE}^2"> | Definition    
-<img float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}"> | number of abundant OTUs   
-<img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  | number of rare OTUs   
-<img src="https://render.githubusercontent.com/render/math?math=C_{ACE}">  | sample abundance coverage estimator  
-<img src="https://render.githubusercontent.com/render/math?math=F_1">   | frequency of singletons  
-<img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> | estimated coefficient  of variation in rare OTUs.  
+<img float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}"> | Number of abundant OTUs   
+<img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  | Number of rare OTUs   
+<img src="https://render.githubusercontent.com/render/math?math=C_{ACE}">  | Sample abundance coverage estimator  
+<img src="https://render.githubusercontent.com/render/math?math=F_1">   | Frequency of singletons  
+<img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> | Estimated coefficient  of variation in rare OTUs 
 
 - Chao1  
   
 | Variable             |  Desription |  
 :-------------------------:|:-------------------------:  
  <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}+\frac{F_1(F_1-1)}{2(F_2+1)}">  | Definition  
-<img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|count of singletons and doubletons respectively    
-<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}">| the number of observed species.    
+<img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|Count of singletons and doubletons respectively    
+<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}">| The number of observed species    
 
 The rarefaction curves allow us to know if the sampling was exhaustive or not. 
 In metagenomics this is equivalent to knowing if the sequencing depth was sufficient.
@@ -90,8 +90,8 @@ There are two types, without weights (diversity) and with weights (diversity and
 It is easy to visualize using PCA, PCoA or NMDS analysis.
 
 ## Creating lineage and rank tables  
-Packages like Quiime2, MEGAN, vegan or phyloseq in R allows to obtain these diversity indexes.  
-We will use phyloseq, in order to do so we need to generate an abundance matrix from the kraken output.  
+Packages like Quiime2, MEGAN, Vegan or Phyloseq in R allows to obtain these diversity indexes.  
+We will use Phyloseq, in order to do so, we need to generate an abundance matrix from the Kraken output.  
 
 ~~~
 $ cd ~/dc_workshop/taxonomy
@@ -116,17 +116,17 @@ $ head JC1A.kraken
 |------------------------------+------------------------------------------------------------------------------|  
 |   C                          |  Classified or unclassified                                                  |  
 |------------------------------+------------------------------------------------------------------------------|  
-|    k141_0                    |fasta header of the read(contig)  .                                           |                
+|    k141_0                    |FASTA header of the read(contig)                                              |                
 |------------------------------+------------------------------------------------------------------------------|  
-|  1365647                     | tax id                                                                       |  
+|  1365647                     | Tax id                                                                       |  
 |------------------------------+------------------------------------------------------------------------------|  
-|    416                       |read length                                                                   |           
+|    416                       |Read length                                                                   |           
 |------------------------------+------------------------------------------------------------------------------|  
-| 0:1 1365647:5 2:5 1:23 0:348 |hits on database E.g. 0:1 root 1 hit, 1365647 has 5 hits, etc.                |           
+| 0:1 1365647:5 2:5 1:23 0:348 |Hits on database E.g. 0:1 root 1 hit, 1365647 has 5 hits, etc.                |           
 |-------------------+-----------------------------------------------------------------------------------------|  
 
 
-First, lets count the occurrences of each taxon.  
+First, let's count the occurrences of each taxon.  
 ~~~
 $ cut -f3 JP4D.kraken  |sort -n |uniq -c > ranked
 $ head -n5 ranked
@@ -142,14 +142,14 @@ $ head -n5 ranked
  ~~~
 {: .output}  
 
-Now, let reverse the columns.  
+Now, let's reverse the columns.  
 ~~~
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked
 $ rm ranked
 ~~~
 {: .bash}
 
-Lets see our `JP4D.kraken_ranked` file.  
+Let's see our `JP4D.kraken_ranked` file.  
 ~~~
 head -n5 JP4D.kraken_ranked
 ~~~
@@ -164,7 +164,7 @@ head -n5 JP4D.kraken_ranked
 ~~~
 {: .output}  
 
-Lets repeat the process for `JC1A` sample.  
+Let's repeat the process for `JC1A` sample.  
 ~~~
 $ cut -f3 JC1A.kraken   |sort -n |uniq -c > ranked  
 $ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked
@@ -180,7 +180,7 @@ cut  -f1,3 >JP4D.lineage_table
 ~~~
 {: .bash}
 
-Also, lets obtaine a lineage table for `JC1A` sample.  
+Also, let'ss obtaine a lineage table for `JC1A` sample.  
 ~~~
 $ cut -f1 JC1A.kraken_ranked |taxonkit lineage |\
 taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A.lineage_table
@@ -188,7 +188,7 @@ taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A.lineag
 {: .bash}
 
 
-Errors are saved in `JC1A.error` and `JP4D.error` files  Common errors are `deleted` and `merged`.   
+Errors are saved in `JC1A.error` and `JP4D.error` files.  Common errors are `deleted` and `merged`.   
 ~~~
 $ grep deleted JP4D.error
 ~~~
@@ -215,7 +215,7 @@ $
 
 And the line that contains 119065 is gone from the new file JP4D.kraken-wc.    
 
-Now lets see for the `merged` error in the `JP4D` error file.  
+Now let's see for the `merged` error in the `JP4D` error file.  
 ~~~
 $ grep merged JP4D.error | cut -d' ' -f4,8 > JP4D.merged 
 $ head -n5 JP4D.merged 
@@ -231,7 +231,7 @@ $ head -n5 JP4D.merged
 ~~~
 {: .output} 
 
-And lets subsitute all the merged taxon by the corresponding new one. 
+And let's subsitute all the merged taxon by the corresponding new one. 
 ~~~
 $ cat  JP4D.merged  | while read line;\
  do \
@@ -301,7 +301,7 @@ OTU	superkingdom	phylum	class	order	family	genus	species	subspecies	subspecies_2
 {: .bash}  
 
 As a last cleaning step, we need to substitute the "," separator in the csv file to "\t" 
-After this step we have our tables ready to phyloseq.  
+After this step we have our tables ready for Phyloseq.  
 ~~~
 $ perl -p -i -e 's/;/\t/g' *.lineage_table-wc                                                                                    
 $ head -n5 *.lineage_table-wc 
