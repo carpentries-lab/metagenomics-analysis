@@ -40,11 +40,11 @@ makes this feasible. Standards ensure that data is stored in a way that is gener
 within the community. The tools that are used to analyze data at different stages of the workflow are therefore 
 built under the assumption that the data will be provided in a specific format.  
 
-# Starting with Data
+# Starting with data
 
 Often times, the first step in a bioinformatic workflow is getting the data you want to work with onto a computer where you can work with it. If you have outsourced sequencing of your data, the sequencing center will usually provide you with a link that you can use to download your data. Today we will be working with publicly available sequencing data.
 
-The data are paired-end, so we will download two files for each sample. We will use the [European Nucleotide Archive](https://www.ebi.ac.uk/ena) to get our data. The ENA "provides a comprehensive record of the world's nucleotide sequencing information, covering raw sequencing data, sequence assembly information and functional annotation." The ENA also provides sequencing data in the fastq format, an important format for sequencing reads that we will be learning about today. 
+The data are paired-end, so we will download two files for each sample. We will use the [European Nucleotide Archive](https://www.ebi.ac.uk/ena) to get our data. The ENA "provides a comprehensive record of the world's nucleotide sequencing information, covering raw sequencing data, sequence assembly information and functional annotation." The ENA also provides sequencing data in the FASTQ format, an important format for sequencing reads that we will be learning about today. 
 
 To download the data, run the commands below. 
 
@@ -88,16 +88,16 @@ $ cp JC1ASEDIMENT120627_R2.fastq.gz JC1A_R2.fastq.gz
 ~~~
 {: .bash}
 
-The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the fastq format.
+The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the FASTQ format.
 
 ~~~
 $ gunzip JP4D_R1.fastq.gz 
 ~~~
 {: .bash}
 
-# Quality Control
+# Quality control
 
-We will now assess the quality of the sequence reads contained in our fastq files. 
+We will now assess the quality of the sequence reads contained in our FASTQ files. 
 
 
  <a href="{{ page.root }}/fig/md-03-qualitycontrol.png">
@@ -108,7 +108,7 @@ We will now assess the quality of the sequence reads contained in our fastq file
 ## Details on the FASTQ format
 
 Although it looks complicated (and it is), we can understand the
-[fastq](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format
+[FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format
 include...
 
 |Line|Description|
@@ -327,7 +327,7 @@ BUGS
 ~~~
 {: .bash}
 
-if fastqc is not installed then you would expect to see an error like
+if FastQC is not installed then you would expect to see an error like
 
 ~~~
 $ fastqc -h 
@@ -337,7 +337,7 @@ sudo apt-get install fastqc
 
 If this happens check with your instructor before trying to install it. 
 
-## Assessing Quality using FastQC
+## Assessing quality using FastQC
 In real life, you won't be assessing the quality of your reads by visually inspecting your 
 FASTQ files. Rather, you'll be using a software program to assess read quality and 
 filter out poor quality reads. We'll first use a program called [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to visualize the quality of our reads. 
@@ -575,8 +575,8 @@ We've now looked at quite a few "Per base sequence quality" FastQC graphs, but t
 + [**Per sequence GC content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html): a density plot of average GC content in each of the reads.  
 + [**Per base N content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/6%20Per%20Base%20N%20Content.html): the percent of times that 'N' occurs at a position in all reads. If there is an increase at a particular position, this might indicate that something went wrong during sequencing.  
 + [**Sequence Length Distribution**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/7%20Sequence%20Length%20Distribution.html): the distribution of sequence lengths of all reads in the file. If the data is raw, there is often on sharp peak, however if the reads have been trimmed, there may be a distribution of shorter lengths. 
-+ [**Sequence Duplication Levels**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/8%20Duplicate%20Sequences.html): A distribution of duplicated sequences. In sequencing, we expect most reads to only occur once. If some sequences are occurring more than once, it might indicate enrichment bias (e.g. from PCR). If the samples are high coverage (or RNA-seq or amplicon), this might not be true.  
-+ [**Overrepresented sequences**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/9%20Overrepresented%20Sequences.html): A list of sequences that occur more frequently than would be expected by chance. 
++ [**Sequence Duplication Levels**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/8%20Duplicate%20Sequences.html): a distribution of duplicated sequences. In sequencing, we expect most reads to only occur once. If some sequences are occurring more than once, it might indicate enrichment bias (e.g. from PCR). If the samples are high coverage (or RNA-seq or amplicon), this might not be true.  
++ [**Overrepresented sequences**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/9%20Overrepresented%20Sequences.html): a list of sequences that occur more frequently than would be expected by chance. 
 + [**Adapter Content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html): a graph indicating where adapater sequences occur in the reads.
 + [**K-mer Content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/11%20Kmer%20Content.html): a graph showing any sequences which may show a positional bias within the reads.
 
@@ -751,7 +751,7 @@ FAIL    Adapter Content JC1A_R1.fastq.gz
 The summary file gives us a list of tests that FastQC ran, and tells
 us whether this sample passed, failed, or is borderline (`WARN`). Remember, to quit from `less` you must type `q`.
 
-## Documenting Our Work
+## Documenting our work
 
 We can make a record of the results we obtained for all our samples
 by concatenating all of our `summary.txt` files into a single file 
