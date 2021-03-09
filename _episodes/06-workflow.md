@@ -1,5 +1,5 @@
 ---
-title: "Automating a quality control workflow"
+title: "Automating a Quality Control Workflow"
 teaching: 30
 exercises: 15
 questions:
@@ -29,7 +29,7 @@ That script was only two lines long, but shell scripts can be much more complica
 than that and can be used to perform a large number of operations on one or many 
 files. This saves you the effort of having to type each of those commands over for
 each of your data files and makes your work less error-prone and more reproducible. 
-For example, the variant calling workflow we just carried out had about eight steps
+For example, the variant calling workflow we just carried out, had about eight steps
 where we had to type a command into our terminal. Most of these commands were pretty 
 long. If we wanted to do this for all six of our data files, that would be forty-eight
 steps. If we had 50 samples (a more realistic number), it would be 400 steps! You can
@@ -64,7 +64,7 @@ $ for infile in *_1.fastq.gz
 
 Notice that in this `for` loop, we used two variables, `infile`, which was defined in the `for` statement, and `base`, which was created from the filename during each iteration of the loop.
 
-> ## Creating Variables
+> ## Creating variables
 > Within the Bash shell you can create variables at any time (as we did
 > above, and during the 'for' loop lesson). Assign any name and the
 > value using the assignment operator: '='. You can check the current
@@ -73,7 +73,7 @@ Notice that in this `for` loop, we used two variables, `infile`, which was defin
 
 In this lesson, we'll use two shell scripts to automate the variant calling analysis: one for FastQC analysis (including creating our summary file), and a second for the remaining variant calling. To write a script to run our FastQC analysis, we'll take each of the commands we entered to run FastQC and process the output files and put them into a single file with a `.sh` extension. The `.sh` is not essential, but serves as a reminder to ourselves and to the computer that this is a shell script.
 
-# Analyzing Quality with FastQC
+# Analyzing quality with FastQC
 
 We will use the command `touch` to create a new file where we will write our shell script. We will create this script in a new
 directory called `scripts/`. Previously, we used
