@@ -6,7 +6,7 @@ questions:
 - "What data are we using?"  
 - "Why is this experiment important?"  
 objectives:
-- "Why study cuatro Cienegas?."
+- "Why study Cuatro Cienegas?."
 - "What is the difference between shotgun and amplicon metagenomics?"  
 - "Understand the data set."
 keypoints:
@@ -44,12 +44,12 @@ A metagenomic study goes from the sampling design to the statistical analysis of
 Mainly, two types of studies are carried out: amplicons and whole-genome sequencing (WGS) or shotgun. 
 In amplicon studies, a region typical of a community of microorganisms is amplified and sequenced, 
 for example the hypervariable regions of 16S in Bacteria, or ITS in Fungi.  In shotgun, random fragments 
-of all genomes of all organisms in the sample are amplified and sequenced. Which is the most suitable? 
+of all genomes of all organisms in the sample are sequenced. Which is the most suitable? 
 That depends on the question of the study.  
 
-*Shotgun Metagenomics* Here we amplify and sequence random regions of the genome of all (or the vast majority (depends on their
-abundance (and our sequencing depth))) of the organisms in the community.
-It allows us to assemble regions of different genomes, with which we can investigate their genomic potential, i.e. what genes does it contain. It is more expensive because it requires greater depth of sequencing and requires more start gDNA because it does not include PCR amplification steps prior to library construction
+*Shotgun Metagenomics* Here we sequence random regions of the genome of all (or the vast majority (depends on their
+abundance and our sequencing depth)) of the organisms in the community.
+It allows us to assemble regions of different genomes, with which we can investigate their genomic potential, i.e. what genes does it contain. It is more expensive because it requires greater depth of sequencing and requires more start gDNA because it does not include PCR amplification steps prior to library construction.
 
 *Amplicon 16s* To do metagenomics of amplicons, the first step is to amplify the region of interest through PCR reactions.
 The primers we choose are VERY IMPORTANT. We always have biases that can change the results. Different primers show phylum specificity. 
@@ -60,9 +60,9 @@ The primers we choose are VERY IMPORTANT. We always have biases that can change 
 >
 > Suppose you would like to compare the microbiome of sintomatic vs asintomatic pacients in certain disease.  
 > Which type or metagenomics would you choose?  
-> If you would to investigate variation of a certain gene in a microorganisms community would you use Amplicon
+> If you were to investigate variation of a certain gene in a microorganisms community would you use amplicon
 > or shotgun metagenomics?
-> In which cases would you use Shotgun metagenomics?  
+> In which cases would you use shotgun metagenomics?  
 {: .discussion}
 
 
@@ -70,13 +70,12 @@ The primers we choose are VERY IMPORTANT. We always have biases that can change 
 
 
 ## Data 
-  - The data we are going to use are part of an 
+  - The data we are going to use are part of a 
   [study about responses of a microbial community to nutrient enrichment](https://elifesciences.org/articles/49816)
   led by Jordan Okie in cuatro Cienegas. 
    
-   - The study traces the genomic traits that madiated responses to nutrient enrichment
-   in microbial communities in an oligotrophic, phosphorus-deficient pond
-   from Cuatro Cienegas Basin (CCB), Mexico.
+   - The study compares the differences in certain genomic traits between the microbial community in an oligotrophic, 
+  phosphorus-deficient pond from Cuatro Cienegas Basin (CCB), Mexico, and the community of the same pond under a fertilization treatment.
    
   - Results indicate that traits such as mean bacterial genome size, GC content, 
   total number of tRNA genes, total number of rRNA genes, and codon usage bias in 
@@ -94,14 +93,14 @@ The primers we choose are VERY IMPORTANT. We always have biases that can change 
   
 
 > ## Metagenomic databases
-> There are several public metagenomic [MG-RAST](https://www.mg-rast.org/index.html?stay=1)  
+> There are several public metagenomic databases sucha as [MG-RAST](https://www.mg-rast.org/index.html?stay=1)  
 > [MGnify](https://www.ebi.ac.uk/metagenomics/), [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), 
 > [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/) and the [GM Repo](https://gmrepo.humangut.info/home).   
 {: .callout}
 
 
 ## Understanding the dataset  
-Metadata is the data about data. This metadata describes information on one Cuatro Cienegas sample:
+Metadata is the data about data. This metadata describes information on one Cuatro Ciénegas sample:
 
 | Column           | Description                                |
 |------------------|--------------------------------------------|
