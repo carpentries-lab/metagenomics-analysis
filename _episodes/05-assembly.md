@@ -6,24 +6,24 @@ questions:
 - "Why genomic data should be assembled?"
 - "What is the difference between reads and contigs?"
 - "How can we assemble a metagenome?"
-- "How can we obtain individual genomes from a metagenome?"
+- "How can we obtain the original genomes from a metagenome?"
 objectives: 
-- "Understand what is an assembly"  
-- "Use an enviroment in a bioinformatic pipeline"
-- "Generate MAGs from an assembled metagenome"
+- "Understand what is an assembly."  
+- "Use an enviroment in a bioinformatic pipeline."
+- "Generate MAGs from an assembled metagenome."
 keypoints:
-- "Assemblies uses algorithms to group reads into contigs"
-- "Three famous algorithms are Greedy extension, OLC and De Bruijin graphs"
-- "Megahit is a metagenome assembler"
-- "The fastq files from quality control process are the inputs for the assembly software"
-- "A fasta file with contigs is the output of the assembly process"
-- "Binning can be used to obtain individual genomes (MAGs) from metagenomes"
+- "Assemblies uses algorithms to group reads into contigs."
+- "Three famous algorithms are Greedy extension, OLC and De Bruijin graphs."
+- "Megahit is a metagenome assembler."
+- "The FASTQ files from the quality control process are the inputs for the assembly software."
+- "A FASTA file with contigs is the output of the assembly process."
+- "Binning can be used to obtain the original genomes (MAGs) from metagenomes."
 ---
 
 
 ## Assembling reads
 An assembly is a data structure that maps the sequence data to a reconstruction of the target.
-Assemblies groups reads into contigs and contigs into scaffolds. There are many programs devoted to
+The assembly process groups reads into contigs and contigs into scaffolds. There are many programs devoted to
 [genome](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874646/) and metagenome assembly, some of the
 main strategies they use are: Greedy extension, OLC and De Bruijn charts. When metagenomics is
 shotgun instead of amplicon metagenomics an extra assembly step must be run
@@ -51,9 +51,9 @@ megahit: command not found
 ## Activating metagenomic environment  
 Environments are part of a bioinformatic tendency to make repdoucible research, 
 they are a way to share our computational environments with our colleges and 
-with our future self.  Megahit is not activated in the (base) environment but 
+with our future self.  MEGAHIT is not activated in the (base) environment but 
 this AWS instances came with an environment called metagenomics. We need to activate 
-it in order to satrt using megahit. 
+it in order to start using MEGAHIT. 
 
 Conda environments are activated with `conda activate` direction:  
 ~~~
@@ -61,13 +61,13 @@ conda activate metagenomics
 ~~~
 {: .code}
 
-After the environment has been activated a label is shown before the `$` sign.
+After the environment has been activated, a label is shown before the `$` sign.
 ~~~
 (metagenomics) $
 ~~~
 {: .output}
 
-Now if we call megahit at the command line it wont be any error, 
+Now if we call MEGAHIT at the command line it wont be any error, 
 instead a long help will be displayed at our screen.   
 ~~~
 megahit
@@ -83,7 +83,7 @@ Usage:   megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_
  
 > ## `.callout`
 >
-> Enviroments help in science reproducibility, allowing to share the specific conditions in which a pipeline is run
+> Enviroments help in science reproducibility, allowing to share the specific conditions in which a pipeline is run.
 > Conda is an open source package management system and environment management system that runs on Windows, macOS and 
 > Linux.
 {: .callout}
@@ -107,7 +107,7 @@ Usage:   megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_
 
 
 
-## Special Blockquotes
+## Special blockquotes
 
 ~~~
     megahit -1 JP4D_R1.trim.fastq.gz \
@@ -146,13 +146,13 @@ Usage:   megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_
 
 > ## `.discussion`
 >
-> ¿Does amplicon metagenomics needs an assembly step in its analysis worflow?  
+> Does amplicon metagenomics needs an assembly step in its analysis worflow?  
 {: .discussion}
 
 
-## Bining
-To be abel to analyze each species individualy we can separate the original genomes in the sample with a process called binning. 
-In this process, the assembled contigs from the metagenome will be assigned to different bins (fasta files that contain certain contigs). Ideally, each bin corresponds to only one original genome.
+## Metagenomic binning
+To be able to analyze each species individualy we can separate the original genomes in the sample with a process called binning. 
+In this process, the assembled contigs from the metagenome will be assigned to different bins (FASTA files that contain certain contigs). Ideally, each bin corresponds to only one original genome.
 
 Although an obvious way to separate contigs that correspond to a different species is by their taxonomic assignation, there are more reliable methods that do the binning using characteristics of the contigs, such as their GC content, the use of tetranucleotides (composition) or their coverage (abundance).
 
@@ -187,7 +187,7 @@ $ run_MaxBin.pl
 
 > ## Bining strategies `.callout`
 >
-> Contigs can be assigned to bins according to two main strategies: composition and abbundance.
+> Contigs can be assigned to bins according to two main strategies: composition and abundance.
 > Many binning algorithms uses a combination of both strategies.  
 {: .callout}
 
