@@ -1,21 +1,21 @@
 ---
 source: md
-title: "Diversity analysis"
+title: "Diversity Analysis"
 teaching: 30
 exercises: 30
 questions:
 - "How can I use R to explore diversity?"
 objectives:
-- "Visualize different estimates of α diversity"
-- "Load libraries required for metagenomes alpha diversity plotting"  
-- "Transform named matrixes into phyloseq objects"
-- "Use help to discover the capabilities of libraries"
-- "Chart diversity estimates"
+- "Visualize different estimates of α diversity."
+- "Load libraries required for metagenomes alpha diversity plotting."  
+- "Transform named matrixes into Phyloseq objects."
+- "Use help to discover the capabilities of libraries."
+- "Chart diversity estimates."
 keypoints:
-- "The library `phyloseq` manages metagenomics objects and computes alpha diversity"  
-- "The libraries `ggplot2` and 'patchwork' allow publication-quality plotting in R"
-- "Transform your named matrixes into phyloseq objects using `pyhloseq(TAX, OTU)`"
-- "Use `help()` to discover the capabilities of libraries"
+- "The library `phyloseq` manages metagenomics objects and computes alpha diversity."  
+- "The libraries `ggplot2` and `patchwork`allow publication-quality plotting in R."
+- "Transform your named matrixes into Phyloseq objects using `pyhloseq(TAX, OTU)`."
+- "Use `help()` to discover the capabilities of libraries."
 ---
     
 ## Using R studio
@@ -23,22 +23,22 @@ In this lesson we will use R studio to analize two microbiome samples from 4C, y
 
 1. Click on this [shared google sheet](https://docs.google.com/spreadsheets/d/1w78TuQUdtI2Fgk4DFG26YYkXTkUg2vTjVLaRH-D_7xk/edit?usp=sharing) and in the first column write without spaces your name and lastname. Check that you do not overwrite other participant's names. 
 
-2. Now copy your instance address into your browser (Chrome or firefox) and login into R studio.  
+2. Now copy your instance address into your browser (Chrome or Firefox) and login into R studio.  
 The address should look like:  `http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
-Your credencials are user: dcuser pass:data4Carp.  
+Your credencials are user:dcuser pass:data4Carp.  
 
 3. Data are already stored at your instance, but in case you lose your data you can donwload it [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
 
-## Exploring metagenome data with the terminal.  
+## Exploring metagenome data with the terminal  
   
 The terminal is a program that executes programs, and is better to deal with long data sets than a visual interface.  
 First to visualize the content of our directory you can use the `ls` command.  
 `ls`  
 
-Now you can also known in which directoryare you standing by using `pwd`  
+Now you can also known in which directory you are standing by using `pwd`. 
 
-Lets explore the content of some of our data files.  
-Files `.kraken` are the output of the kraken program, we can see a few lines of the file using the command `head`    
+Let's explore the content of some of our data files.  
+Files `.kraken` are the output of the Kraken program, we can see a few lines of the file using the command `head`.   
 ~~~
 head JC1A.kraken 
 ~~~
@@ -81,7 +81,7 @@ library("patchwork")
 {: .language-r}
 
   
-### Load data with the number of reads per OTU and Taxonomic labels for each OTU.  
+### Load data with the number of reads per OTU and taxonomic labels for each OTU.  
 
 Now, we have to load the taxonomic assignation data into objets in R:
 
@@ -101,7 +101,7 @@ Phyloseq objects are a collection of information regarding a single or a group o
 these objects can be manually constructed using the basic data structures available in R or can
 be created by importing the output of other programs, such as QUIIME and kraken-biom.
 
-Since we imported our data to basic R data types, we will build our phyloseq object manually
+Since we imported our data to basic R data types, we will build our Phyloseq object manually
 by extracting the OTU's names and abundances.
 
 ~~~
@@ -136,7 +136,7 @@ TAX = tax_table(lineages)
 ~~~
 {: .language-r}
 
-We will now construct a phyloseq object using phyloseq data types: 
+We will now construct a Phyloseq object using Phyloseq data types: 
 
 ~~~
 metagenome_JC1A = phyloseq(OTU, TAX)
@@ -145,7 +145,7 @@ metagenome_JC1A = phyloseq(OTU, TAX)
 
 > ## `.callout`
 >
->If you look at our phyloseq object, you will see that there's more data types 
+>If you look at our Phyloseq object, you will see that there are more data types 
 >that we can use to build our object(?phyloseq), as a phylogenetic tree and metadata 
 >concerning our samples. These are optional, so we will use our basic
 >phyloseq object for now.  
@@ -157,12 +157,12 @@ In the above lines we explored how to create a phyloseq object using basic R fun
 Certainly, this is a method that helps to practize and masterize the manipulation of 
 different type of objects and information. But we can obtain the same result by using
 programs that will extract the information from the kraken output files and will
-save us time. One of this options is kraken-biom
+save us time. One of this options is kraken-biom.
 
-kraken-biom is a programm that creates BIOM tables from the kraken output 
+kraken-biom is a programm that creates BIOM tables from the Kraken output 
 [kraken-biom](https://github.com/smdabdoub/kraken-biom)
 
-First, lets take a look at the different flags that kraken-biom have and an example
+First, let's take a look at the different flags that kraken-biom have and an example
 of its usage:
 
 ~~~
@@ -174,7 +174,7 @@ usage: kraken-biom [-h] [--max {D,P,C,O,F,G,S}] [--min {D,P,C,O,F,G,S}]
 {: .bash}
 
 By a close look at the code lines, it is noticeable that we need a specific output
-from krakre, those are the kraken.reports. 
+from Kraken, those are the kraken.reports. 
 
 
 
@@ -185,8 +185,8 @@ kraken-biom S1.txt S2.txt --fmt json
 
 ### Plot diversity estimates at desired taxonomic resolution
 
-We want to know how is bacterial diversity yhen, we will prune all of the non-bacterial organisms in our metagenome. To do this 
-we will make a subset of all bacterial groups and save them
+We want to know how is the bacterial diversity, so, we will prune all of the non-bacterial organisms in our metagenome. To do this 
+we will make a subset of all bacterial groups and save them.
 ~~~
 metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
 ~~~
@@ -201,7 +201,7 @@ summary(metagenome_JC1A@otu_table@.Data)
 
 The Max, Min and Mean can give us an idea of the eveness, but to have a more 
 visual representation of the α diversity we can now look at a ggplot2
-graph created using phyloseq:
+graph created using Phyloseq:
 
 ~~~
 p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon")) 
@@ -215,15 +215,15 @@ and doubletons observed in our samples. While Shannon is a entrophy index
 remarking the impossiblity of taking two reads out of the metagenome "bag" 
 and that these two will belong to the same OTU.
 
-> ## Exercise: build a phyloseq object by yourself
+> ## Exercise: build a Phyloseq object by yourself
 > 
-> Import the `JP4D metagenome` and plot its α diversity with the mentioned metrics
+> Import the `JP4D metagenome` and plot its α diversity with the mentioned metrics.
 > 
 >> ## Solution
 >> 
 >> Repeat the previous instructions replacing JC1A for JP4D whenever it's appropiate:
 >>
->>  At the end, you should have the phyloseq object 'metagenome_JP4D'. 
+>>  At the end, you should have the Phyloseq object 'metagenome_JP4D'. 
 >> 
 > {: .solution}
 {: .challenge}  
@@ -232,15 +232,15 @@ and that these two will belong to the same OTU.
 
 > ## Exercise
 > 
-> Use the help from plot_richness to discover other ways to plot diversity estimates using phyloseq
-> and use another index to show the alpha diversity in our samples
+> Use the help from plot_richness to discover other ways to plot diversity estimates using Phyloseq
+> and use another index to show the α diversity in our samples.
 > 
 >> ## Solution
 >> 
 >> '?plot_richness' or help("plot_richness")
 >> 
->>One of the widely alpha diversity indexes used is Simpson diversity index, as an example
->>of solution, here it is the plot with an extra metric, which is Simpson alpha index:
+>>One of the widely α diversity indexes used is Simpson diversity index, as an example
+>>of solution, here it is the plot with an extra metric, which is Simpson α index:
 >> p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon", "Simpson")) 
 >> 
 >> 
@@ -250,7 +250,7 @@ and that these two will belong to the same OTU.
   
 ### Merge two metagenomes to compare them  
 
-Now that you have both phyloseq objects, one for each metagenome, you can merge them into one object:
+Now that you have both Phyloseq objects, one for each metagenome, you can merge them into one object:
 
 ~~~
 merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
@@ -266,7 +266,7 @@ summary(merged_metagenomes@otu_table@.Data)
 {: .language-r}
 
 Now, it is evident that there is a great difference in the total reads(i.e. information) of each sample.
-Before we further process our data, lets take a look if we have any no-identified read. Marked as "NA"
+Before we further process our data, let's take a look if we have any no-identified read. Marked as "NA"
 on the different taxonomic levels:
 
 ~~~
@@ -327,7 +327,7 @@ absolute_count | percentages
   
 > ## `.discussion`
 >
-> How much did the α diversity change due to the filterings that we made?
+> How much did the α diversity changed due to the filterings that we made?
 {: .discussion}
   
   
