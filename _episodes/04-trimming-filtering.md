@@ -6,14 +6,14 @@ questions:
 - "How can I get rid of sequence data that doesn't meet my quality standards?"
 objectives:
 - "Clean FASTQ reads using Trimmomatic."
-- "Select and set multiple options for command-line bioinformatic tools."
+- "Select and set multiple options for command line bioinformatic tools."
 - "Write `for` loops with two variables."
 keypoints:
 - "The options you set for the command-line tools you use are important!"
 - "Data cleaning is an essential step in a genomics workflow."
 ---
 
-# Cleaning Reads
+# Cleaning reads
 
 In the previous episode, we took a high-level look at the quality
 of each of our samples using FastQC. We visualized per-base quality
@@ -26,7 +26,7 @@ We will use a program called
 [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to
 filter poor quality reads and trim poor quality bases from our samples.
 
-## Trimmomatic Options
+## Trimmomatic options
 
 Trimmomatic has a variety of options to trim your reads. If we run the following command, we can see some of our options.
 
@@ -49,7 +49,7 @@ Usage:
 This output shows us that we must first specify whether we have paired end (`PE`) or single end (`SE`) reads.
 Next, we specify what flag we would like to run. For example, you can specify `threads` to indicate the number of
 processors on your computer that you want Trimmomatic to use. In most cases using multiple threads (processors) can help to run the trimming faster. These flags are not necessary, but they can give you more control over the command. The flags are followed by positional arguments, meaning the order in which you specify them is important. 
-In paired end mode, Trimmomatic expects the two input files, and then the names of the output files. These files are described below. While, in single end mode, Trimmomatic will expect 1 file as input, after which you can enter the optional settings and lastly the name of the output file.
+In paired end mode, Trimmomatic expects the two input files, and then the names of the output files. These files are described below. While, in single end mode, Trimmomatic will expect one file as input, after which you can enter the optional settings and lastly the name of the output file.
 
 | option    | meaning |
 | ------- | ---------- |
@@ -60,7 +60,7 @@ In paired end mode, Trimmomatic expects the two input files, and then the names 
 |  \<outputFile2P> | Output file that contains surviving pairs from the `_2` file.|
 |  \<outputFile2U> | Output file that contains orphaned reads from the `_2` file.|
 
-The last thing trimmomatic expects to see is the trimming parameters:
+The last thing Trimmomatic expects to see is the trimming parameters:
 
 | step   | meaning |
 | ------- | ---------- |
@@ -125,7 +125,7 @@ $ cd ~/dc_workshop/data/untrimmed_fastq
 
 We are going to run Trimmomatic on one of our paired-end samples. 
 While using FastQC we saw that Universal adapters were present in our samples. 
-The adapter sequences came with the installation of trimmomatic, so we will first copy these sequences into our current directory.
+The adapter sequences came with the installation of Trimmomatic, so we will first copy these sequences into our current directory.
 
 ~~~
 $ cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/TruSeq3-PE.fa .
@@ -138,7 +138,7 @@ phred score is below 20 (like in our example above). We will also
 discard any reads that do not have at least 25 bases remaining after
 this trimming step. This command will take a few minutes to run.
 
-We unzipped one of our files before to work with it, let's compress it again before we run trimmomatic.
+We unzipped one of our files before to work with it, let's compress it again before we run Trimmomatic.
 ~~~
 gzip JP4D_R1.fastq 
 ~~~
@@ -255,7 +255,7 @@ TruSeq3-PE.fa
 {: .output}
 
 > ## Exercise
-> We trimmed our fastq files with Nextera adapters, 
+> We trimmed our FASTSQ files with Nextera adapters, 
 > but there are other adapters that are commonly used.
 > What other adapter files came with Trimmomatic?
 >
