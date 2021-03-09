@@ -3,17 +3,17 @@ title: "Other Resources"
 teaching: 5
 exercises: 0
 questions:
-- "Where are other metagenomic resources"
+- "Where are other metagenomic resources?"
 - "How can lessons be previewed?"
 objectives:
-- "Know some place where to find more information"
+- "Know some places where to find more information."
 keypoints:
-- "Enjoy metagenomics"
+- "Enjoy metagenomics."
 ---
 
 The lesson template comes with several utilities to simplify lesson development and maintenance.
-## How our results compare with the original research
-## How can we improve the data analisis
+## How does our results compare with the original research
+## How can we improve the data analysis
 ## Checking
 - [Data Carpentry in 16S Metagenomics](https://datacarpentry.org/blog/2017/11/16s-dc)  
 - [Phyloseq Análisis de diversidad](http://www.castrolab.org/isme/biodiversity/biodiversity.html)
@@ -23,10 +23,10 @@ The lesson template comes with several utilities to simplify lesson development 
 - [Metapangenomics: A nexus between pangenomes and metagenomes](https://youtu.be/C3fHlccFxJw)  
 - [Computational Genomics tutorial](https://genomics.sschmeier.com/)
 - [Evomics](http://evomics.org/learning/genomics/)
-- [Cuatro Cienegas](https://www.sciencemag.org/news/2020/06/pools-mexican-desert-are-window-earth-s-early-life)
+- [Cuatro Ciénegas](https://www.sciencemag.org/news/2020/06/pools-mexican-desert-are-window-earth-s-early-life)
 - [Mexican oasis in the desert](https://www.sciencemag.org/podcast/oasis-biodiversity-mexican-desert-and-making-sound-heat)
 - [Pod Cast Mexican Oasis]( https://youtu.be/xMMm_GKZsnU)
-- [Cuatro Cienegas Video](https://www.youtube.com/embed/VzImXRI9wYE?autoplay=1&rel=0)
+- [Cuatro Ciénegas Video](https://www.youtube.com/embed/VzImXRI9wYE?autoplay=1&rel=0)
 
 > ## `.callout`
 >
