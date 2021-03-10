@@ -1,42 +1,72 @@
 ---
-title: "Metagenomic Cloud Services"
-teaching: 5
-exercises: 15
-questions:
-- "What does cloud services mean?"
-- "How can I share and preview my metagenomic data?"
+Title: "Metagenomic Cloud Services"
+Teaching: 5 minutes
+Exercises: 15
+Questions:
+- "What are cloud services?"
+- "How can I analyze metagenomic data with them?"
 objectives:
 - "Explore our data in a metagenomic web server."
-- "Log in by command line in a metagenomic remote machine."
-- "Understand differences between command line and web servers."  
+- "Log into a remote machine through command line."
+- "Understand the differences between local and web servers."  
 keypoints:
-- "There are metagenomic cloud services."
-- "MG-RAST is a metagenomic web server."
-- "AWS is a computer cloud that contain some bioinformatic instances."
-- "In web services data can be shared and visualized."
-- "Command line metagenomic workflows can be personalized."
+- "There are web services for metagenomic analysis, like MG-RAST."
+- "AWS is a computer cloud instance that can be used to do metagenomic analyzes."
+- "Web services are easy to use, but cannot be tweaked as much."
+- "AWS and local computers allow a greater degree of personalization."
 
 ---
 
 
 ## Cloud pipelines can be web or command-line based
-The cloud is that place where our files lives outside from our local computers. 
-There are web and command line cloud services. Through this lesson we will run a 
-full example using the command line, nevertheless there are also metagenomic web 
-services available. For example, MG-RAST is an on line metagenomic plataform where 
-you can upload your raw data with its corresponding metadata and obtain a full run
-of their pipeline. MG-RAST is a great resource as a public repository for your datasets. 
-Although command line workflows are more flexible and adaptable to individual needs, 
-automatized web servers can give us a preliminar idea of the content of our data. 
-Cuatro Ciénegas data used in this tutorial are available at MG-RAST 
-as [mgp96823](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
+The cloud is that place to where we can send our data to be stored and analyzed. 
+To access cloud services, we can use traditional web pages (think of Dropbox or Google Drive), or 
+use a more direct connecction through the command line. In this lesson we explore both approaches
+to upload, store and analyze our metagenomic data.
+
+For the web bounded cloud services we will use MG-RAST, an online metagenomic plataform where 
+you can upload your raw data with its corresponding metadata and get a full taxonomic analysis of
+it. MG-RAST is a great place to get started in this type of analyzes and it is also a big repository of 
+available data for future experiments. On the downside, it is not possible to greaty modifiy the steps 
+and parameters in the MG-RAST workflow, so there is not much leeway when it comes to implement our 
+prefered analysis tools when using MG-RAST.
+
+On the other hand, we have the other type of cloud services, like AWS. These, in contrast to 
+web-bound services like MG-RAST, are much more flexibe, since they are basically powerful computers 
+to which we access remotely. The downside here is that we access these cloud services 
+through the command line, so there is practically no graphical interface, which can be a little bit 
+jarring if you're not used to work through text commands alone. 
+
+In short, command line workflows are more flexible and adaptable to individual needs, 
+but automated web servers can quickly and easly give us a idea of the content of our data. 
+So easly and quickly that, in fact, our Cuatro Ciénegas data is already in MG-RAST! 
+You can check it out [here](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
 
 ## Cuatro Ciénegas in MG-RAST  
-Lets explore some of the MG-RAST results to our data. First we can see the metabolic content
-of our data in a metabolic piechart. Since our Cuatro Ciénegas data come from a shotgun experiment, 
-the distribution of the metabolic content of its genes can be known, even without knowin from which 
-taxonomical lineage those genes are comming. Here it is shown that the genetic material of 
-this sample is mainly devoted to metabolism.  
+
+Let's check the taxonomical distribution of our sample first. If you look at the MG-RAST charts, 
+we can see that our Cuatro Cienegas sample is mostly bacteria.  
+
+<a href="{{ page.root }}/fig/md-02-mgm4913055.3_domain.png">
+  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_domain.png" alt="Domain" />
+</a>
+
+
+The most abundant phylum is Proteobacteria.  
+<a href="{{ page.root }}/fig/md-02-mgm4913055.3_phylum.png">
+  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_phylum.png" alt="Phylum" />
+</a>
+
+ And going even further, we can see that the most abundant genera is *Erythrobacter*. 
+ <a href="{{ page.root }}/fig/md-02-mgm4913055.3_genus.png">
+  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_genus.png" alt="Genus" />
+</a>
+
+Since we have a shotgun metagenome, we can also investigate the metabolic functions 
+present in our sample. MG-RAST can find genes and annotate their function through 
+an implementation of RAST, or Rapid Annotation using Subsystems Technology. 
+By looking at the charts generated by this analysis, we see that most of the genes
+are dedicated to metabolism.  
 
 <a href="{{ page.root }}/fig/md-02-mgm4913055.3_cog.png">
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_cog.png" alt="Cog Metagenome" />
@@ -54,39 +84,25 @@ this sample is mainly devoted to metabolism.
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_source_hits_distribution.png" alt="Source Hits" />
 </a>
 
-After the metabolic features, there is some information about the taxonomical distribution of the 
-sample. First we can see that according to MG-RAST, the predominant taxonomic lineage of this sample is bacteria.  
-
-<a href="{{ page.root }}/fig/md-02-mgm4913055.3_domain.png">
-  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_domain.png" alt="Domain" />
-</a>
-
- And the most abundant taxon is *Erythrobacter*. 
- <a href="{{ page.root }}/fig/md-02-mgm4913055.3_genus.png">
-  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_genus.png" alt="Genus" />
-</a>
-
-Going deeply in taxonomy, we can see that the most abundant phylum is Proteobacteria.  
-<a href="{{ page.root }}/fig/md-02-mgm4913055.3_phylum.png">
-  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_phylum.png" alt="Phylum" />
-</a>
-
 > ## Exercise
 > 
-> According to MG-RAST, which family is the most abundant?
+> We saw the piecharts for kingdom, phylum and gnera, but what about family. Which family is the most abundant?
 > 
 > 
 >> ## Solution
->>  The piechart from MG-RAST shows Rodhobacteraceae as the most abundant family. 
+>>  The piechart from MG-RAST shows that *Rhodobacteraceae* is the most abundant family. 
 >> 
 > {: .solution}
 {: .challenge}
 
 
 ## AWS is a command line cloud server 
-The machine that you are going to use is provided by amazon web services, it is equiped with all 
-command line metagenomic tools needed fot this workshop. Let's practice log in to this service and 
-copy files from your local computer to your remote instance of AWS.  
+The cloud computer we are going to use is provided by Amazon Web Services (AWS). It is already equiped with 
+all of the metagenomic analysis command line utilities needed fot this workshop. To use it, we have to open our command line
+(it should be easly accesible in any Linux distribution and OSX10; for Windows, you can install wsl2. Please ask one of the
+helpers if you cannot find your command line) and then type the commands to log into the service and move files between  
+your remote and your local computer.  
+
 
 ~~~
 $ ssh dcuser@ec2-3-238-253-45.compute-1.amazonaws.com 
@@ -100,35 +116,59 @@ System information as of Fri Nov 27 06:29:17 UTC 2020
 ~~~
 {: .output}
 
-You can ask the remote AWS machine to print working directory with `pwd` .
+We need to know where are we located in the AWS machine, to know the direction 
+of the files that we are going to copy between the AWS machine and your local machine. 
+To do this, we can check the current directory with `pwd`.
 ~~~
 $ pwd 
 ~~~
-{: .bash}
-  
-And it will will show you that you are in dcuser.  
+{: .bash}  
 ~~~
 $ /home/dcuser  
 ~~~
 {: .output}
 
-Data have been preloaded for you but they are compressed,
-please decompress them using `tar` command.  
+We are inside a directory called dcuser, which is, itself, insde the home directory.
+
+Now, let's check what files do we have in our current working directory (dcuser) with `ls`.
+
 ~~~
-$ tar -xzf ~/mgdata.tar.gz 
+$ ls 
+~~~
+{: .bash}  
+~~~
+$ dc_workshop.tar.gz  
+~~~
+{: .output}
+
+This file is compressed, so we need to decompress it first.
+To do this we can use the `tar` command.  
+~~~
+$ tar -xzf ~/dc_workshop.tar.gz 
 ~~~
 {: .bash}  
 
-To log out from your remote machine you can use `exit`.  
+> ## Exercise
+> 
+> Now that we have decompressd our file, how can we check what files were extracted?
+> 
+> 
+>> ## Solution
+>> We can use `ls dc_workshop/*` again 
+>> 
+> {: .solution}
+{: .challenge}
+
+Let's go back to our local machine. To log out from the remote machine you can use `exit`.  
 ~~~
 $ exit
 ~~~
 {: .bash}
 
 If you now ask the terminal to print the working directory with `pwd` 
-it will show some local directory in your local computer. 
-You can copy files from you local to your remote machine and viceversa. 
-A general guideline using the command secure copy (`scp`) would be as follows: 
+it will show your local working directory. That's how we know we're back to it. 
+To copy files between your computer and the remote computer, we will use the `scp` command.  
+The general syntax to use it is this would be as follows: 
 ~~~
 $ scp <where is the file> <where you want the file to be>  
 ~~~
