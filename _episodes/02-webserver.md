@@ -148,13 +148,13 @@ $ tar -xzf ~/dc_workshop.tar.gz
 ~~~
 {: .bash}  
 
-> ## Exercise
+> ## Exercise 2
 > 
-> Now that we have decompressd our file, how can we check what files were extracted?
+> Now that we have decompressed our file, how can we check which files were extracted?
 > 
 > 
 >> ## Solution
->> We can use `ls dc_workshop/*` again 
+>> We can use `ls dc_workshop/*` to list every file inside the decompressed directory  
 >> 
 > {: .solution}
 {: .challenge}
@@ -166,17 +166,17 @@ $ exit
 {: .bash}
 
 If you now ask the terminal to print the working directory with `pwd` 
-it will show your local working directory. That's how we know we're back to it. 
+it should show your local working directory. That's how we know we're back to it. 
 To copy files between your computer and the remote computer, we will use the `scp` command.  
-The general syntax to use it is this would be as follows: 
+The general syntax to use it is this would be like this: 
 ~~~
-$ scp <where is the file> <where you want the file to be>  
+$ scp <where is the file> <where do you want the file to be>  
 ~~~
 {: .output}  
 
-For example, you have the metadata file `MGRAST_MetaData_JP.xlsx` in your remote machine. 
-This file is located at the directory `/home/dcuser/dc_workshop/metadata/`.  To copy this file
-into our local machine lets use `scp` command. 
+Let's copy the metadata file `MGRAST_MetaData_JP.xlsx` from your remote machine to your local one. 
+The file's at `/home/dcuser/dc_workshop/metadata/`, and our current directory can be represented by a dot, so to
+copy this file _from_ our remote machine _into_ our local machine wee have to do the following: 
 
 ~~~
 $ scp dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/dc_workshop/metadata/MGRAST_MetaData_JP.xlsx .
@@ -189,10 +189,9 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 {: .output}  
 
 
-> ## Exercise 1 copy local files into AWS remote instance
+> ## Exercise 3 
 > 
-> What would be the correct syntax to upload some local file named `APJ4_MetaData_JP.xlsx.` 
-> into you AWS remote instance?  
+> We want to send the file `APJ4_MetaData_JP.xlsx` to your remote computer. How can we do it? 
 >
 >   a) ssh dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/. APJ4_MetaData_JP.xlsx  
 >
@@ -212,43 +211,21 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 > {: .solution}
 {: .challenge}
 
+Now we put everything that we've learned into use.
+There is fasta file in your AWS remote computer called `JP4D.fasta`
+Let's download it, and then analyze it with MG-RAST
 
-> ## Exercise 2 Depth of the sample  
->  At what depth was the sample collected?
+> ## Exercise 4  
+> How can you download the file?   
 >> ## Solution
->> R- 0.165. Either open the metadata excell file in your local computer or go to 
->> the MgRAST website of the project. 
-> {: .solution}
-{: .challenge}
-
-> ## Exercise 3 Your own project  
->  You can find metagenomic data in your AWS remote instance   
-> located at /home/dcuser/dc_workshop/assembly/JP4D.fasta   
->  With this data upload your own project to mgRAST. What else do you need?      
->> ## Solution
->> MgRAST will ask you for a metadata file and genomic data. 
->>
->> The metadata file has been previously downloaded in this lesson.    
->>
->> To download the genomic file use `scp`      
->>
 >> ~~~
 >>  scp dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/dc_workshop/assembly/JP4D.fasta .
 >> ~~~
 >> {: .bash}
 >>
->> Upload this files to your MG-RAST account.  
 > {: .solution}
 {: .challenge}
 
-> ## `.callout`
->
-> To analize data from a metagenome experiment, web and command line based strategies are available, they can complement each other.
-{: .callout}
-
-
 > ## `.discussion`
->
-> If you have to analize data from 200 metagenomic samples, which kind of strategy would you use?
+> Now that you have the `JP4D.fasta` file, should you upload it directly to MG-RAST?   
 {: .discussion}
-
