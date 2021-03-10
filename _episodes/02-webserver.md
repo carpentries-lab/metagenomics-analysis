@@ -227,5 +227,5 @@ Let's download it, and then analyze it with MG-RAST
 {: .challenge}
 
 > ## `.discussion`
-> Now that you have the `JP4D.fasta` file, should you upload it directly to MG-RAST?   
+> Should we upload just the `JP4D.fasta` to MG-RAST?   
 {: .discussion}
