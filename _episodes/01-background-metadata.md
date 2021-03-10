@@ -1,15 +1,15 @@
 ---
-title: "Background and Metadata"
-teaching: 10
-exercises: 0
-questions:
+Title: "Background and Metadata"
+Teaching: 10 minutes
+Exercises: 0
+Questions:
 - "What data are we using?"  
 - "Why is this experiment important?"  
-objectives:
+Objectives:
 - "Why study Cuatro Ciénegas?."
 - "What is the difference between shotgun and amplicon metagenomics?"  
 - "Understand the data set."
-keypoints:
+Keypoints:
 - "It’s important to record and understand your experiment’s metadata."  
 - "Shotgun metagenomics sequences genomes of all organisms in a community."     
 - "Amplicon metagenomics amplifies and secuences a selected region of DNA."   
