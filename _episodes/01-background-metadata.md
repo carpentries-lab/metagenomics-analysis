@@ -3,26 +3,57 @@ Title: "Background and Metadata"
 Teaching: 10 minutes
 Exercises: 0
 Questions:
-- "What data are we using?"  
-- "Why is this experiment important?"  
+- "How do you plan a metagenomic experiment"   
 Objectives:
-- "Why study Cuatro Ciénegas?."
-- "What is the difference between shotgun and amplicon metagenomics?"  
-- "Understand the data set."
-Keypoints:
-- "It’s important to record and understand your experiment’s metadata."  
-- "Shotgun metagenomics sequences genomes of all organisms in a community."     
-- "Amplicon metagenomics amplifies and secuences a selected region of DNA."   
+- "Learn the difference between shotgun and amplicon metagenomics"
+- "Undestand the importance of metadata"  
+- "Familiarize yourself with the Cuatro Cienegas experiment"
+Keypoints:    
+- "Amplicon metagenomics can be used for taxonomic studies"
+- "Shotgun metagenomics can be used for taxonomic and functional studies"  
+- "Collecting metadata beforehand is important for downstream analysis"    
 ---
 
 # Background  
-A metagenomic study is one in which we aim to understand the genetic composition 
-of the species that coexist in a defined and preferably closed space. The microbiome
-is the set of species that inhabit the same location. So, metagenomics studies try 
-to gain knowledge about the microbiome composition of some place. Gut and nasopharinx 
-human metagenomes are frequently used in biomedical research. Other examples of metagenome 
-studies are environmental samples either terrestrial or marine. Finally, the agroindustry 
-has interest in known trough metagenomics the microbiome that lives in plant roots and leaves.
+Metagenomes are collections of genomic sequences from various (micro)organisms that
+coexist in any given space. They are like snapshots that can give us information 
+about the taxonomic, and even metabolic, or functional, composition of the communities 
+that we decide to study. Thus, metagenomes are usually employed to investigate the 
+ecology of defining characteristic of niches, like the human gut, or the ocean floor. 
+
+Since metagenomes are mixtures of sequences that belong to different species, 
+a metagenomic workflow is designed to answer two questions: what species are represented 
+in the metagenome and what do they do. To find which species are present in a niche, we have
+to do a taxonomic assignment of the metagenomic sequences, and to find the functions that these
+species do, we can look at the genes directly enconded in the metagenome, or the genes associated
+with the species that we found. To know which methodology we should use, it is important to know which 
+type of metagenomic sequence we have. 
+
+## Shotgun and Amplicons    
+There are two types of metagenomes, shotgun metagenomes and amplicon metagenomes. Each is named after the sequencing 
+methodology employed, and have particular use cases, with inherent advantages and disadventages.
+
+In a *Shotgun Metagenome* we sequence random parts of the genomes present in a niche. We can seach the
+origin of these pieces, _i.e._ their taxonomy, and also try to find to which gene they belong to. Given enough 
+pieces, it even possible to obtain full individual genomes from a shotgun metagenome, which could
+give us a bunch of information about the species in our study. This, however, requieres that we have
+a lot of genomic sequences from one organism, and since the sequencing is donde at random, we usually have to
+sequence our community a lot (have a high sequencing depth) to make sure that we obtain enough pieces of a
+given genome. This gets exponencially harder when our species of interest is not very abundant. It also requires
+that we have enough DNA to work with, which can be difficult to obtain in certain cases. Finally, a lot of sequencing 
+means a lot of expenses, and because of this, making technical and biological replicates can be prohibitively costly.   
+
+*Amplicon metagenomes*, on the contrary, tend to be cheap, which makes it more easy to duplicate and even triplicate them
+without taking a big financial hit. This is because amplicon metagenomes are the collection of small genomic fragments 
+present in the community and amplified through PCR. If the amplified region is present only once in every genome, ideally 
+we wouldn't need to sequence the amplicon metagenome so throughly, because one sequence is all we need to get the information
+about that genome, and by extension, about that species. On the other hand, if a genome in community lacks the region targeted 
+by the PCR primers, then no amount of sequencing can give us information about that genome. 
+This is why the most popular amplicon used for these metagenomes are 16S amplicons, since every known bacteria have this particular
+region. Other regions can be choosen, but they are used for very specific cases. However, even 16S amplicons are limited to, well, the
+16S region, so amplicon metagenomes cannot directly tell us a lot about the metabolic functions found in each genome, altough 
+educated guesses can be made by knowing which genes are commonly found in every identified species. 
+
 
 <a href="{{ page.root }}/fig/metagenomic workflow.png">
   <img src="{{ page.root }}/fig/metagenomic workflow.png" alt="Cog Metagenome" />
@@ -38,21 +69,7 @@ Cuatro Ciénegas is an oasis in the mexican desert that can be a model for a
 high content of sulphur and magnesium but little phosphorus and nutrients, conditions 
 that resemble the ones found in the ancient seas. Some of the few live stromatolite
 can be found at the lagoons of the Basin.  
-  
-## Shotgun and Amplicons    
-A metagenomic study goes from the sampling design to the statistical analysis of the data sequenced. 
-Mainly, two types of studies are carried out: amplicons and whole-genome sequencing (WGS) or shotgun. 
-In amplicon studies, a region typical of a community of microorganisms is amplified and sequenced, 
-for example the hypervariable regions of 16S in Bacteria, or ITS in Fungi.  In shotgun, random fragments 
-of all genomes of all organisms in the sample are sequenced. Which is the most suitable? 
-That depends on the question of the study.  
-
-*Shotgun Metagenomics* Here we sequence random regions of the genome of all (or the vast majority (depends on their
-abundance and our sequencing depth)) of the organisms in the community.
-It allows us to assemble regions of different genomes, with which we can investigate their genomic potential, i.e. what genes does it contain. It is more expensive because it requires greater depth of sequencing and requires more start gDNA because it does not include PCR amplification steps prior to library construction.
-
-*Amplicon 16s* To do metagenomics of amplicons, the first step is to amplify the region of interest through PCR reactions.
-The primers we choose are VERY IMPORTANT. We always have biases that can change the results. Different primers show phylum specificity. 
+ 
 
 
 
