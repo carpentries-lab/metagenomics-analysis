@@ -147,9 +147,9 @@ gzip JP4D_R1.fastq
 
 ~~~
 $ trimmomatic PE JP4D_R1.fastq.gz JP4D_R2.fastq.gz \ 
-          JP4D_R1.trim.fastq.gz  JP4D_R1un.trim.fastq.gz \
-          JP4DASH2120 627WATERAMPRESIZED_R2.trim.fastq.gz  JP4D_R2un.trim.fastq.gz \
-          SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 
+      JP4D_R1.trim.fastq.gz  JP4D_R1un.trim.fastq.gz \ 
+      JP4D_R2.trim.fastq.gz  JP4D_R2un.trim.fastq.gz \ 
+      SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 
 ~~~
 {: .bash}
 
@@ -185,13 +185,13 @@ double-check this or to enter the quality encoding manually.
 We can confirm that we have our output files:
 
 ~~~
-$ ls SRR2589044*
+$ ls JP4D*
 ~~~
 {: .bash}
 
 ~~~
-SRR2589044_1.fastq.gz       SRR2589044_1un.trim.fastq.gz  SRR2589044_2.trim.fastq.gz
-SRR2589044_1.trim.fastq.gz  SRR2589044_2.fastq.gz         SRR2589044_2un.trim.fastq.gz
+JP4D_R1.fastq.gz       JP4D_R1un.trim.fastq.gz	JP4D_R2.trim.fastq.gz
+JP4D_R1.trim.fastq.gz  JP4D_R2.fastq.gz		JP4D_R2un.trim.fastq.gz
 ~~~
 {: .output}
 
@@ -199,17 +199,17 @@ The output files are also FASTQ files. It should be smaller than our
 input file, because we've removed reads. We can confirm this:
 
 ~~~
-$ ls JC1AJP4D* -l -h
+$ ls JP4D* -l -h
 ~~~
 {: .bash}
 
 ~~~
--rw-rw-r-- 1 dcuser dcuser 124M Jul  6 20:22 JC1AJP4D_R1.fastq.gz
--rw-rw-r-- 1 dcuser dcuser  94M Jul  6 22:33 JC1AJP4D_R1.trim.fastq.gz
--rw-rw-r-- 1 dcuser dcuser  18M Jul  6 22:33 JC1AJP4D_R1un.trim.fastq.gz
--rw-rw-r-- 1 dcuser dcuser 128M Jul  6 20:24 JC1AJP4D_R2.fastq.gz
--rw-rw-r-- 1 dcuser dcuser  91M Jul  6 22:33 JC1AJP4D_R2.trim.fastq.gz
--rw-rw-r-- 1 dcuser dcuser 271K Jul  6 22:33 JC1AJP4D_R2un.trim.fastq.gz
+-rw-r--r-- 1 dcuser dcuser 179M Nov 26 12:44 JP4D_R1.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser 107M Mar 11 23:05 JP4D_R1.trim.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser  43M Mar 11 23:05 JP4D_R1un.trim.fastq.gz
+-rw-r--r-- 1 dcuser dcuser 203M Nov 26 12:51 JP4D_R2.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser 109M Mar 11 23:05 JP4D_R2.trim.fastq.gz
+-rw-rw-r-- 1 dcuser dcuser 1.3M Mar 11 23:05 JP4D_R2un.trim.fastq.gz
 ~~~
 {: .output}
 
@@ -235,8 +235,8 @@ $ for infile in *_R1.fastq.gz
 
 
 Go ahead and run the for loop. It should take a few minutes for
-Trimmomatic to run for each of our six input files. Once it's done
-running, take a look at your directory contents. You'll notice that even though we ran Trimmomatic on file `JC1AJP4D` before running the for loop, there is only one set of files for it. Because we matched the ending `_R1.fastq.gz`, we re-ran Trimmomatic on this file, overwriting our first results. That's ok, but it's good to be aware that it happened.
+Trimmomatic to run for each of our four input files. Once it's done
+running, take a look at your directory contents. You'll notice that even though we ran Trimmomatic on file `JP4D` before running the for loop, there is only one set of files for it. Because we matched the ending `_R1.fastq.gz`, we re-ran Trimmomatic on this file, overwriting our first results. That's ok, but it's good to be aware that it happened.
 
 ~~~
 $ ls
@@ -244,12 +244,12 @@ $ ls
 {: .bash}
 
 ~~~
-JC1A_R1.fastq.gz                     JC1AJP4D_R1.fastq.gz                                    
-JC1A_R1.trim.fastq.gz                JC1AJP4D_R1.trim.fastq.gz                                  
-JC1A_R1un.trim.fastq.gz              JC1AJP4D_R1un.trim.fastq.gz                                
-JC1A_R2.fastq.gz                     JC1AJP4D_R2.fastq.gz                                 
-JC1A_R2.trim.fastq.gz                JC1AJP4D_R2.trim.fastq.gz                                 
-JC1A_R2un.trim.fastq.gz              JC1AJP4D_R2un.trim.fastq.gz                                 
+JC1A_R1.fastq.gz                     JP4D_R1.fastq.gz                                    
+JC1A_R1.trim.fastq.gz                JP4D_R1.trim.fastq.gz                                
+JC1A_R1un.trim.fastq.gz              JP4D_R1un.trim.fastq.gz                                
+JC1A_R2.fastq.gz                     JP4D_R2.fastq.gz                                 
+JC1A_R2.trim.fastq.gz                JP4D_R2.trim.fastq.gz                                 
+JC1A_R2un.trim.fastq.gz              JP4D_R2un.trim.fastq.gz                                 
 TruSeq3-PE.fa   
 ~~~
 {: .output}
@@ -333,13 +333,3 @@ JC1A_R2un.trim.fastq.gz  JC1AJP4D_R2un.trim.fastq.gz
 >> did pretty well though, and its performance is good enough for our workflow.
 > {: .solution}
 {: .challenge}
-
-> ## `.callout`
->
-> An aside or other comment.
-{: .callout}
-
-> ## `.discussion`
->
-> Discussion questions.
-{: .discussion}
