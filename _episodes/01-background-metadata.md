@@ -14,7 +14,7 @@ Keypoints:
 - "Collecting metadata beforehand is important for downstream analysis"    
 ---
 
-# Background  
+# Metagenomics 
 Metagenomes are collections of genomic sequences from various (micro)organisms that
 coexist in any given space. They are like snapshots that can give us information 
 about the taxonomic, and even metabolic, or functional, composition of the communities 
@@ -97,11 +97,19 @@ The comparision between bacterial communites showed that many genomic traits, su
 total number of tRNA genes, total number of rRNA genes, and codon usage bias were significantly changed when the bacterial community 
 underwent the treatment. 
 
-> ## Experimental design? 
->
-> Knowing the resuts of the Cuatro Ciénegas study, what type of sequencing do you think the authors used?
-> What metadata do you think they recorded?  
-{: .discussion}
+> ## Exercise 
+> 
+> Knowing the results of this CCB study, what type of sequencing what type of metagenomic sequencing was used?
+> What was the most important piece of metadata that the authors took?
+> 
+>> ## Solution
+>> Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.
+>> The most important think to know about our data is which community was supplemented with fertilizers.
+>> However, any differences in the more technical parts of the study, such as the DNA extraction protocol,
+>> could have affected the results, so tracking those is also important
+>> 
+> {: .solution}
+{: .challenge}
 
 The results of this study, raw sequences and metadata, have been submitted to the NCBI Sequence Read Archive (SRA), 
 and are stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811).Here is how an entry of this BioProject 
