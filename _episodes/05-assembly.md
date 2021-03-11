@@ -34,16 +34,16 @@ shotgun instead of amplicon metagenomics an extra assembly step must be run
 </a>
 
 
-MEGAHIT is a NGS de novo assembler for assembling large and complex metagenomics data in a 
+MetaSPAdes is a NGS de novo assembler for assembling large and complex metagenomics data in a 
 time- and cost-efficient manner.  
 
 ~~~
-    megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_result
+    metaspades.py -1 data/JC1A_R1.fastq.gz -2 data/JC1A_R2.fastq.gz -o assembly_JC1A &
 ~~~
 {: .source}
 
 ~~~
-megahit: command not found   
+metaspades.py: command not found   
 ~~~
 {: .error}
 
@@ -51,9 +51,9 @@ megahit: command not found
 ## Activating metagenomic environment  
 Environments are part of a bioinformatic tendency to make repdoucible research, 
 they are a way to share our computational environments with our colleges and 
-with our future self.  MEGAHIT is not activated in the (base) environment but 
+with our future self.  MetaSPAdes is not activated in the (base) environment but 
 this AWS instances came with an environment called metagenomics. We need to activate 
-it in order to start using MEGAHIT. 
+it in order to start using MetaSPAdes. 
 
 Conda environments are activated with `conda activate` direction:  
 ~~~
@@ -67,17 +67,18 @@ After the environment has been activated, a label is shown before the `$` sign.
 ~~~
 {: .output}
 
-Now if we call MEGAHIT at the command line it wont be any error, 
+Now if we call MetaSPAdes at the command line it wont be any error, 
 instead a long help will be displayed at our screen.   
 ~~~
-megahit
+metaspades.py
 ~~~
 {: .bash}
 
 ~~~
-megahit: MEGAHIT v1.2.9 
-contact: Dinghua Li <voutcn@gmail.com>
-Usage:   megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_dir>]             
+SPAdes genome assembler v3.14.1 [metaSPAdes mode]
+
+Usage: spades.py [options] -o <output_dir>
+             
 ~~~
 {: .output}
  
@@ -88,23 +89,55 @@ Usage:   megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_
 > Linux.
 {: .callout}
 
-## Megahit options  
+## MetaSPAdes options  
 
 
 ~~~
-    megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m 0.5  -t 12  -o megahit_SAMPLE
+    mmetaspades.py -1 data/JC1A_R1.trim.fastq.gz -2 data/JC1A_R2.trim.fastq.gz -o assembly_JC1A &
 ~~~
 {: .source}
 
 
 
 ~~~
-.output: ls megahit_SAMPLE/final.contigs.fa
+cd assembly_JC1A
+ls
+~~~
+{: .bash}
+
+~~~
+6126594.log
+assembly_graph_after_simplification.gfa
+assembly_graph.fastg
+assembly_graph_with_scaffolds.gfa
+before_rr.fasta
+contigs.paths
+corrected
+dataset.info
+first_pe_contigs.fasta
+input_dataset.yaml
+contigs.fasta
+scaffolds.fasta
+K21
+K33
+K55
+misc
+params.txt
+pipeline_state
+run_spades.sh
+run_spades.yaml
+scaffolds.paths
+spades.log
+strain_graph.gfa
+tmp
+            
 ~~~
 {: .output}
 
-
-
+~~~
+mv contigs.fasta JC1A_contigs.fasta
+~~~
+{: .bash}
 
 
 ## Special blockquotes
