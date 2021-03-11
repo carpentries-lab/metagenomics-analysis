@@ -54,39 +54,40 @@ region. Other regions can be choosen, but they are used for very specific cases.
 16S region, so amplicon metagenomes cannot directly tell us a lot about the metabolic functions found in each genome, altough 
 educated guesses can be made by knowing which genes are commonly found in every identified species. 
 
-
 <a href="{{ page.root }}/fig/metagenomic workflow.png">
   <img src="{{ page.root }}/fig/metagenomic workflow.png" alt="Cog Metagenome" />
 </a>
+
+## On metadata
+
+Once we have choosen the most adequate type of metagenome for our study, it is important to take extensive notes on the origin of 
+our samples, and how we treated them. These notes are the metadata, or data about our data, and it is crucial to undestand
+and interpret the results that we are going to obtain later on our metagenomic analysis. Most of the times, the differences
+that we observe when comparing metagenomes can be correlated to the metadata, which is why we must include a whole section of our
+experimental design to the metadata that we expect to collect, and record it carefully. 
+
+> ## Amplicon or Shotgun? 
+>
+> Suppose you would like to compare the gut microbiome of people affected by a rather nasty bacterial disease against the gut microbiome of healty people.  
+> Which type or metagenomics would you choose?  
+> Which type of metadata would be useful to record?  
+{: .discussion}
+
 
 ## Cuatro Ciénegas  
 <a href="{{ page.root }}/fig/md-01-data-Stromatolites.jpeg">
   <img src="{{ page.root }}/fig/md-01-data-Stromatolites.jpeg" alt="Cuatro Cienegas" />
 </a>
 
-Cuatro Ciénegas is an oasis in the mexican desert that can be a model for a 
-[lost world](https://elifesciences.org/articles/38278).  Cuatro Ciénegas shows
-high content of sulphur and magnesium but little phosphorus and nutrients, conditions 
-that resemble the ones found in the ancient seas. Some of the few live stromatolite
-can be found at the lagoons of the Basin.  
- 
+During this lesson we will work with actual metagenomic information, so we should we familiarized with it. 
+
+The metagenomes that we will use were collected in Cuatro Ciénegas, an oasis in the mexican desert whose 
+enviromental conditions are often linked to the ones present in   
+[ancient seas](https://elifesciences.org/articles/38278). The Cuatro Ciénegas basin has
+a higher than average content of sulphur and magnesium but lower concentrations of phosphorus and 
+other nutrients. Because of this particular conditions, 
 
 
-
-> ## Amplicon or Shotgun? 
->
-> Suppose you would like to compare the microbiome of sintomatic vs asintomatic pacients in certain disease.  
-> Which type or metagenomics would you choose?  
-> If you were to investigate variation of a certain gene in a microorganisms community would you use amplicon
-> or shotgun metagenomics?
-> In which cases would you use shotgun metagenomics?  
-{: .discussion}
-
-
-
-
-
-## Data 
   - The data we are going to use are part of a 
   [study about responses of a microbial community to nutrient enrichment](https://elifesciences.org/articles/49816)
   led by Jordan Okie in cuatro Cienegas. 
