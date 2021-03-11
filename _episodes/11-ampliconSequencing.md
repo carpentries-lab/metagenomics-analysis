@@ -24,7 +24,7 @@ keypoints:
 
 ### 16S rRNA gene
 
-The 16S ribosomal RNA gene (16S rRNA) is approximately 1,500 bp long, and contains nine variable regions separated by conserved regions. We use the variable regions of the gene to distinguish one bacterial type from another. One of the most commonly sequenced variable regions is the V3 - V4 region that spans approaximately 469 bp (Fadrosh et al. 2014. Microbiome).   
+The 16S ribosomal RNA gene (16S rRNA) is approximately 1,500 bp long, and contains nine variable regions separated by conserved regions. We use the variable regions of the gene to distinguish one bacterial type from another. One of the most commonly sequenced variable regions is the V3 - V4 region that spans approximately 469 bp (Fadrosh et al. 2014. Microbiome).   
 
 ![16S rRNA Variable Regions (http://www.lcsciences.com/)](../fig/16s-gene.png)
 
@@ -40,7 +40,7 @@ One reason this region is a popular sequencing target is the length. Often we us
 
 ## OTU picking
 
-The processes of assigning sequences to operational taxonmic units (OTUs) is called OTU picking. Based on a similarity threshold, we determine which sequences belong to the same group. Often, the similarity threshold we use is 97%. This means that all sequences that are 97% similar will be denoted as the same OTU. We use the term OTU because OTUs can span different levels of the phylogenic tree. For example, one group of sequences that is 97% similar to one another (OTU) may represent Escherichia coli (species level), whereas another group of sequences 97% similar to one another (OTU) may represent Salmonella (genus level). There are 3 main methods to denote which microbes are within a sample, and we will cover these methods below.
+The process of assigning sequences to operational taxonomic units (OTUs) is called OTU picking. Based on a similarity threshold, we determine which sequences belong to the same group. Often, the similarity threshold we use is 97%. This means that all sequences that are 97% similar will be denoted as the same OTU. We use the term OTU because OTUs can span different levels of the phylogenic tree. For example, one group of sequences that is 97% similar to one another (OTU) may represent Escherichia coli (species level), whereas another group of sequences 97% similar to one another (OTU) may represent Salmonella (genus level). There are 3 main methods to denote which microbes are within a sample, and we will cover these methods below.
 
 #### De novo OTU picking
 
@@ -57,7 +57,7 @@ Open reference OTU picking combines closed reference OTU picking and de novo OTU
 
 ### Using NINJA for OTU picking
 
-For this workshop we will use a closed reference OTU-picker called NINJA, which stands for NINJA Is Not Just Another aligner. NINJA requires the input to be a single fasta file that contains the clean sequences for each sample. SHI7 is designed to specifically produce the type of input file required by NINJA. The `combined_seqs.fna` file produced by SHI7 is also compatible with other OTU pickers. The default database used by NINJA is the GreenGenes 97% ID database. The full documentation for NINJA is located here: [NINJA documentation](https://github.com/GabeAl/NINJA-OPS).
+For this workshop, we will use a closed reference OTU-picker called NINJA, which stands for NINJA Is Not Just Another aligner. NINJA requires the input to be a single FASTA file that contains the clean sequences for each sample. SHI7 is designed to specifically produce the type of input file required by NINJA. The `combined_seqs.fna` file produced by SHI7 is also compatible with other OTU pickers. The default database used by NINJA is the GreenGenes 97% ID database. The full documentation for NINJA is located here: [NINJA documentation](https://github.com/GabeAl/NINJA-OPS).
 
 We can run NINJA with the following parameters: *Time estimate: 3 minutes*
 
@@ -68,8 +68,8 @@ ninja.py -i qc_reads/combined_seqs.fna -o ninja_otus -m normal -p 4 -z -d 2
 
 
 `-i` Specifies the path to the combined_seqs.fna file  
-`-o` Specifes the directory we'd like to create for our output  
-`-m` Specifies the sensitivity mode to run with (normal is perfect for high quality data)  
+`-o` Specifies the directory we'd like to create for our output  
+`-m` Specifies the sensitivity mode to run with (normal is perfect for high-quality data)  
 `-p` Specifies the number of threads to use (to speed up the alignment)  
 `-z` Specifies to search both directions  
 `-d` Specifies the denoising level; 2 means discard any sequences appearing <2 times  
@@ -90,11 +90,11 @@ less ninja_log.txt
 
 #### ninja_otutable.biom
 
-This file is our OTU table in biom format. An OTU table contains the samples as columns, and OTUs as rows. The values in the table are the number of times an OTU was counted within each sample, as well as some corresponding metadata such as the taxonomy assocaited with each OTU. When in biom format, the file is not human readable. Biom is a way to package a lot of information in a way that doesn't take up too much space. If you call `head` on a biom file, the output will look mostly like gibberish. What is important is that QIIME and other microbiome softwares use biom files because they are smaller and fast to work with. If you want to put your OTU table in a human-readable format, you have to convert it to a tab-delimited file. We will cover how to do this later.
+This file is our OTU table in biom format. An OTU table contains the samples as columns, and OTUs as rows. The values in the table are the number of times an OTU was counted within each sample, as well as some corresponding metadata such as the taxonomy associated with each OTU. When in biom format, the file is not human readable. Biom is a way to package a lot of information in a way that doesn't take up too much space. If you call `head` on a biom file, the output will look mostly like gibberish. What is important is that QIIME and other microbiome software tools use biom files because they are smaller and fast to work with. If you want to put your OTU table in a human-readable format, you have to convert it to a tab-delimited file. We will cover how to do this later.
 
 ## Inspecting an OTU table
 
-To double check if our OTU picking was successful and to run summary statistics on our OTU table, we can use the `summarize-table` command from `biom`. Biom is a package used by QIIME, and its commands can be used the same way as the QIIME commands.  The full documentation for biom is here: http://biom-format.org/  
+To double-check if our OTU picking was successful and to run summary statistics on our OTU table, we can use the `summarize-table` command from `biom`. Biom is a package used by QIIME, and its commands can be used the same way as the QIIME commands.  The full documentation for biom is here: http://biom-format.org/  
 
 ### Biom summary
 To create a summary file of our OTU table we can use the `biom summarize-table` command:
@@ -106,7 +106,7 @@ biom summarize-table -i ninja_otus/ninja_otutable.biom -o otu_summary.txt
 
 
 `-i` Specifies the path to the OTU table created by NINJA  
-`-o` Specifes the path to the summary file we'd like to create  
+`-o` Specifies the path to the summary file we'd like to create  
 
 The summary file will contain:   
 * The number of samples  
@@ -124,7 +124,7 @@ less OTU_summary.txt
 
 ## Converting an OTU table from .biom to .txt
 
-Right now the OTU table we have is in biom format, which is not human readable. If we want the OTU table in a form easy to read and load into R, we can convert it to a tab separated text file with `biom convert`
+Right now the OTU table we have is in biom format, which is not human readable. If we want the OTU table in a form easy to read and load into R, we can convert it to a tab-separated text file with `biom convert`
 
 ### Biom convert
 To create a .txt file of our OTU table we can use the `biom convert` command:
@@ -134,8 +134,8 @@ biom convert -i ninja_otus/ninja_otutable.biom -o ninja_otus/ninja_otutable.txt 
 {: .bash}
 
 `-i` Specifies the path to the OTU table created by NINJA  
-`-o` Specifes the path to the summary file we'd like to create  
-`--to-tsv` Specifies that we want to make it a tab separated text file  
+`-o` Specifies the path to the summary file we'd like to create  
+`--to-tsv` Specifies that we want to make it a tab-separated text file  
 `--header-key` Specifies to include the taxonomy for each OTU  
 
 The new OTU table will have:   
@@ -154,7 +154,7 @@ less ninja_otutable.txt
 
 ### What is QIIME?
 [Benchmarking taxonomic assignments based on 16S rRNA gene profiling of the microbiota from commonly sampled environments](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5967554/)
-QIIME stands for Quantitative Insights Into Microbial Ecology, and is pronounced 'chime'.   It is pipeline for performing microbiome analysis of DNA sequences.  Some of the things QIIME can do for us include:  
+QIIME stands for Quantitative Insights Into Microbial Ecology and is pronounced 'chime'.   It is a pipeline for performing microbiome analysis of DNA sequences.  Some of the things QIIME can do for us include:  
 
 * Quality filtering
 * OTU picking
@@ -163,11 +163,11 @@ QIIME stands for Quantitative Insights Into Microbial Ecology, and is pronounced
 * Visualizations
 * Statistics  
   
-QIIME uses a mix of other existing softwares and algorithms to perform its tasks.  Because of this we call it a 'wrapper'. That means it wraps up many other existing tools and algorithms in a package that works as one cohesive unit. QIIME has many commands to accomplish various tasks, and these commands can be found at the link below.  
+QIIME uses a mix of other existing software tools and algorithms to perform its tasks.  Because of this, we call it a 'wrapper'. That means it wraps up many other existing tools and algorithms in a package that works as one cohesive unit. QIIME has many commands to accomplish various tasks, and these commands can be found at the link below.  
 
  **QIIME Commands:    [http://qiime.org/scripts/](http://qiime.org/scripts/)**
 
-Try going to this page and click some of the commands' links, for example click **`summarize_taxa.py`** and read what this command does, what the inputs are and the examples.
+Try going to this page and click some of the commands' links, for example, click **`summarize_taxa.py`** and read what this command does, what the inputs are and the examples.
 
 ### Using QIIME
 To determine how to run a command, we have to look up the documentation.  We can either go to the command webpage mentioned above and click on the command we want, or we can use the *help* flag for the command we are unsure about.  
@@ -188,7 +188,7 @@ Online Documentation Page:
 
 ### Parameter file
 
-Some of the commands in QIIME require a parameter file to specify some extra details. In this workshop we will create a parameters file that will house the parameters needed for alpha and beta diversity. We can create a text file with `nano`. We close the file with the commands located at the bottom of the nano-screen.
+Some of the commands in QIIME require a parameter file to specify some extra details. In this workshop, we will create a parameters file that will house the parameters needed for alpha and beta diversity. We can create a text file with `nano`. We close the file with the commands located at the bottom of the nano-screen.
 
 ~~~
 nano parameters.txt
@@ -200,7 +200,7 @@ alpha_diversity:metrics shannon,PD_whole_tree,observed_species
 
 ## Validating metadata
 
-At different steps in the analysis we use metadata stored in a metadata file (also called a mapping file). This file must be properly formated to work with QIIME. In particular, the mapping file needs:  
+At different steps in the analysis we use metadata stored in a metadata file (also called a mapping file). This file must be properly formatted to work with QIIME. In particular, the mapping file needs:  
 1. To be a tab-delimited text file
 2. The first column header to be `#SampleID`
 3. To have samples as rows
@@ -239,7 +239,7 @@ The command is run using these parameters: *time estimate: 27 minutes*
 alpha_rarefaction.py -i ninja_otus/ninja_otutable.biom -o alpha_rare -m mouse_mapfile.txt -t 97_otus.tree -p qiime_parameters.txt --min_rare_depth 1000
 ```
 `-i` Specifies the path to the OTU table  
-`-o` Specifes the directory we'd like to create for our output   
+`-o` Specifies the directory we'd like to create for our output   
 `-m` Specifies the path to the metadata/mapping file   
 `-t` Specifies the path to the phylogenic tree  
 `-p` Specifies the path to the parameters file  
@@ -286,7 +286,7 @@ single_rarefaction.py -i ninja_otus/ninja_otutable.biom -o otutable_r10k.biom -d
 
 __The output of this command will be the OTU table you use for alpha and beta diversity calculations.__
 
-## Alpha diveristy
+## Alpha diversity
 
 ### What is alpha diversity?
 
@@ -337,7 +337,7 @@ alpha_diversity.py -i otutable_r10k.biom -o alpha_diversity.txt -m shannon,simps
 `-i` Specifies the path to the rarefied OTU table  
 `-o` Specifies the path to the output file we'd like to create  
 `-m` Specifies which alpha diversity metrics to use  
-`-t` Specifies the path to the phylogenic tree (needed for phylogenetic metrics)  
+`-t` Specifies the path to the phylogenetic tree (needed for phylogenetic metrics)  
 
 ### alpha_diversity.py outputs
 The output of the `alpha_diversity.py` is a table, where the columns are the different diversity metrics and the rows are samples.  We can use this table to make different alpha diversity plots in R.
