@@ -289,10 +289,10 @@ $ ls
 {: .bash}
 
 ~~~
-JC1A_R1.trim.fastq.gz    JC1AJP4D_R1.trim.fastq.gz                
-JC1A_R1un.trim.fastq.gz  JC1AJP4D_R1un.trim.fastq.gz              
-JC1A_R2.trim.fastq.gz    JC1AJP4D_R2.trim.fastq.gz                
-JC1A_R2un.trim.fastq.gz  JC1AJP4D_R2un.trim.fastq.gz   
+JC1A_R1.trim.fastq.gz    JP4D_R1.trim.fastq.gz                
+JC1A_R1un.trim.fastq.gz  JP4D_R1un.trim.fastq.gz              
+JC1A_R2.trim.fastq.gz    JP4D_R2.trim.fastq.gz                
+JC1A_R2un.trim.fastq.gz  JP4D_R2un.trim.fastq.gz   
 ~~~
 {: .output}
 
