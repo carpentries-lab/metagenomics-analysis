@@ -505,42 +505,6 @@ This file can be used to plot the differences in abundance using the `group coun
 Trimmomatic has a variety of options to trim your reads. If we run the following command, we can see some of our options.
 
 
-
-
-> ## Bonus Exercise (Advanced)
->
-> Now that our samples have gone through quality control, they should perform
->
->> ## Solution
->>
->> In your AWS terminal window do:
->>
->> ~~~
->> $ fastqc ~/dc_workshop/data/trimmed_fastq/*.fastq*
->> ~~~
->> {: .bash}
->>
->> In a new tab in your terminal do:
->>
->> ~~~
->> $ mkdir ~/Desktop/fastqc_html/trimmed
->> $ scp dcuser@ec2-34-203-203-131.compute-1.amazonaws.com:~/dc_workshop/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
->> ~~~
->> {: .bash}
->> 
->> Then take a look at the html files in your browser.
->> 
->> Remember to replace everything between the `@` and `:` in your scp
->> command with your AWS instance number.
->>
->> After trimming and filtering, our overall quality is much higher, 
->> we have a distribution of sequence lengths, and more samples pass 
->> adapter content. However, quality trimming is not perfect, and some
->> programs are better at removing some sequences than others. Trimmomatic 
->> did pretty well though, and its performance is good enough for our workflow.
-> {: .solution}
-{: .challenge}
-
 > ## Other 16s platforms `.callout`
 >
 > What other 16s analysis platforms do you know?
