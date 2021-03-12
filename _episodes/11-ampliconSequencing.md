@@ -36,13 +36,13 @@ One reason this region is a popular sequencing target is the length. Often we us
 In this lesson we will be using 16s amplicon data from another mexican lake located in the directory 16s.
 
 ## Platforms 
-[Quime](https://docs.qiime2.org/2021.2/) [Mothur](https://mothur.org/) and [Dada2](https://benjjneb.github.io/dada2/index.html) are two popular 16s analysis software
+[Quime](https://docs.qiime2.org/2021.2/), [Mothur](https://mothur.org/) and [Dada2](https://benjjneb.github.io/dada2/index.html) are platforms designed to analyse metagenomic data. Mothur works with operational taxonomic units (OTUs) and Dada2 with Amplicon sequence variants (ASV).  Often the similarity threshold used in OTUs is 97%, while an ASV uses exact variants that resolve single nucleotide changes. In this 
 
 Other references:
-http://www.castrolab.org/post/bienvenidos-al-curso-precongreso-isme-la-2019/
-http://www.castrolab.org/post/bienvenidos-al-curso-mcv502-bcm634-bio625/
-http://www.metagenomics.wiki/
-Introducing mothur: Open-Source, Platform-Independent, Community-Supported Software for Describing and Comparing Microbial Communities
+[Metagenomics ISME course ISME 2019](http://www.castrolab.org/post/bienvenidos-al-curso-precongreso-isme-la-2019/)  
+[CastroLab R and metagenomics course in spanish](http://www.castrolab.org/post/bienvenidos-al-curso-mcv502-bcm634-bio625/)  
+[Metagenomics wiki](http://www.metagenomics.wiki/)  
+[Introducing mothur: Open-Source, Platform-Independent, Community-Supported Software for Describing and Comparing Microbial Communities](https://aem.asm.org/content/75/23/7537)  
 
 ## OTU picking
 
