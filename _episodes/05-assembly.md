@@ -34,11 +34,11 @@ shotgun instead of amplicon metagenomics an extra assembly step must be run
 </a>
 
 
-MetaSPAdes is a NGS de novo assembler for assembling large and complex metagenomics data in a 
-time- and cost-efficient manner.  
+[MetaSPAdes](https://github.com/ablab/spades) is a NGS de novo assembler for assembling large and complex metagenomics data, and it is one of the most used and recommended. It is part of the SPAdes toolkit, that contains several assembly pipelines, being metaSPAdes the one dedicated to metagenomic assembly.
+Let's see what happens if we enter the metaspades.py command on our terminal.
 
 ~~~
-    metaspades.py -1 data/JC1A_R1.fastq.gz -2 data/JC1A_R2.fastq.gz -o assembly_JC1A &
+metaspades.py
 ~~~
 {: .source}
 
@@ -59,7 +59,7 @@ Conda environments are activated with `conda activate` direction:
 ~~~
 conda activate metagenomics  
 ~~~
-{: .code}
+{: .bash}
 
 After the environment has been activated, a label is shown before the `$` sign.
 ~~~
@@ -68,17 +68,28 @@ After the environment has been activated, a label is shown before the `$` sign.
 {: .output}
 
 Now if we call MetaSPAdes at the command line it wont be any error, 
-instead a long help will be displayed at our screen.   
+instead a long help will be displayed at our screen.
 ~~~
 metaspades.py
 ~~~
 {: .bash}
 
 ~~~
-SPAdes genome assembler v3.14.1 [metaSPAdes mode]
+SPAdes genome assembler v3.15.0 [metaSPAdes mode]
 
 Usage: spades.py [options] -o <output_dir>
-             
+
+Basic options:
+  -o <output_dir>             directory to store all the resulting files (required)
+  --iontorrent                this flag is required for IonTorrent data
+  --test                      runs SPAdes on toy dataset
+  -h, --help                  prints this usage message
+  -v, --version               prints version
+
+Input data:
+  --12 <filename>             file with interlaced forward and reverse paired-end reads
+  -1 <filename>               file with forward paired-end reads
+  -2 <filename>               file with reverse paired-end reads    
 ~~~
 {: .output}
  
@@ -91,16 +102,32 @@ Usage: spades.py [options] -o <output_dir>
 
 ## MetaSPAdes options  
 
+The help that we just saw tells us how to run metaspades.py. We are going to use te most simple options, just specifying our forward paired end reads with `-1` and reverse paired end reads with `-2`, and the output directory where we want our results to be stored. 
+ ~~~
+cd ~/dc_workshop/data/trimmed_fastq
+mmetaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../assembly_JC1A &
+~~~
+{: .bash}
+
+> ## `.callout`
+> The `&` sign that we are using at the end of the command is for telling the machine to run the command on the background, this will help us to avoid the cancelation of the opperation in case the connection with the AWS machine is unstable. 
+{: .callout}
+
+When the run is finished it shows this message:
 
 ~~~
-    mmetaspades.py -1 data/JC1A_R1.trim.fastq.gz -2 data/JC1A_R2.trim.fastq.gz -o assembly_JC1A &
+======= SPAdes pipeline finished.
+
+SPAdes log can be found here: /home/dcuser/dc_workshop/assembly_JC1A/spades.log
+
+Thank you for using SPAdes!
+
 ~~~
-{: .source}
+{: .bash}
 
-
-
+If we now look at the contents of this directory...
 ~~~
-cd assembly_JC1A
+cd ../../assembly_JC1A
 ls
 ~~~
 {: .bash}
@@ -134,47 +161,11 @@ tmp
 ~~~
 {: .output}
 
+Let's rename the file that contains our assembled contigs. 
 ~~~
 mv contigs.fasta JC1A_contigs.fasta
 ~~~
 {: .bash}
-
-
-## Special blockquotes
-
-~~~
-    megahit -1 JP4D_R1.trim.fastq.gz \
-             -2 JP4D_R2.trim.fastq.gz \
-             -m 0.5 -t 12 -o megahit_JP4D
-~~~
-{: .source}
-
-~~~
-2020-11-21 05:33:32 - MEGAHIT v1.2.9                                                        
-2020-11-21 05:33:32 - Maximum number of available CPU thread is 2.                          
-2020-11-21 05:33:32 - Number of thread is reset to the 2.                                   
-2020-11-21 05:33:32 - Using megahit_core with POPCNT and BMI2 support                       
-2020-11-21 05:33:32 - Convert reads to binary library                                       
-2020-11-21 05:33:38 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/home/dcuser/dc_workshop/data/trimmed_fastq/JP4D_R1.trim.fastq.gz,/home/dcuser/dc_workshop/data/trimmed_fastq/JP4D_R2.trim.fastq.gz): pe, 1502854 reads, 251 max length'                                                                          
-2020-11-21 05:33:38 - b'INFO  utils/utils.h:152 - Real: 6.0234\tuser: 2.1600\tsys: 0.4680\tmaxrss: 160028'                          
-2020-11-21 05:33:38 - k-max reset to: 141                                                   
-2020-11-21 05:33:38 - Start assembly. Number of CPU threads 2                               
-2020-11-21 05:33:38 - k list: 21,29,39,59,79,99,119,141                                     
-2020-11-21 05:33:38 - Memory used: 2070839296                                               
-2020-11-21 05:33:38 - Extract solid (k+1)-mers for k = 21                                   
-2020-11-21 05:34:39 - Build graph for k = 21                                                
-2020-11-21 05:35:58 - Assemble contigs from SdBG for k = 21                                 
-2020-11-21 05:39:58 - Local assembly for k = 21                                             
-2020-11-21 05:41:00 - Extract iterative edges from k = 21 to 29                             
-2020-11-21 05:41:37 - Build graph for k = 29                                                
-2020-11-21 05:42:19 - Assemble contigs from SdBG for k = 29                                 
-2020-11-21 05:44:58 - Local assembly for k = 29                                             
-2020-11-21 05:46:53 - Extract iterative edges from k = 29 to 39                             
-2020-11-21 05:47:14 - Build graph for k = 39          
-~~~
-{: .bash}
-       
-
 
 
 > ## `.discussion`
