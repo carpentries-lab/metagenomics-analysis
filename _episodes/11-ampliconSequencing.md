@@ -504,30 +504,12 @@ This file can be used to plot the differences in abundance using the `group coun
 
 Trimmomatic has a variety of options to trim your reads. If we run the following command, we can see some of our options.
 
-~~~
-$ trimmomatic
-~~~
-{: .bash}
 
-Which will give you the following output:
-~~~
-Usage: 
-       PE [-version] [-threads <threads>] [-phred33|-phred64] [-trimlog <trimLogFile>] [-summary <statsSummaryFile>] [-quiet] [-validatePairs] [-basein <inputBase> | <inputFile1> <inputFile2>] [-baseout <outputBase> | <outputFile1P> <outputFile1U> <outputFile2P> <outputFile2U>] <trimmer1>...
-   or: 
-       SE [-version] [-threads <threads>] [-phred33|-phred64] [-trimlog <trimLogFile>] [-summary <statsSummaryFile>] [-quiet] <inputFile> <outputFile> <trimmer1>...
-   or: 
-       -version
-~~~
-{: .output}
 
 
 > ## Bonus Exercise (Advanced)
 >
 > Now that our samples have gone through quality control, they should perform
-> better on the quality tests run by FastQC. Go ahead and re-run
-> FastQC on your trimmed FASTQ files and visualize the HTML files
-> to see whether your per base sequence quality is higher after
-> trimming.
 >
 >> ## Solution
 >>
@@ -559,8 +541,12 @@ Usage:
 > {: .solution}
 {: .challenge}
 
-> ## `.callout`
+> ## Other 16s platforms `.callout`
 >
+> What other 16s analysis platforms do you know?
+> Mothur is another platform used to trim, screen, and align sequences; calculate distances; 
+> assign sequences to operational taxonomic units; and describe the α and β diversity of samples. 
+{: .output}
 > An aside or other comment.
 {: .callout}
 
