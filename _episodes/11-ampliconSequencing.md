@@ -33,10 +33,16 @@ One reason this region is a popular sequencing target is the length. Often we us
 
 ![16S Paired-End Sequencing (Illumina.com)](../fig/paired_end.jpg)
 
-## Workshop data
+In this lesson we will be using 16s amplicon data from another mexican lake located in the directory 16s.
 
-## Quality control of DNA sequences
+## Platforms 
+[Quime](https://docs.qiime2.org/2021.2/) [Mothur](https://mothur.org/) and [Dada2](https://benjjneb.github.io/dada2/index.html) are two popular 16s analysis software
 
+Other references:
+http://www.castrolab.org/post/bienvenidos-al-curso-precongreso-isme-la-2019/
+http://www.castrolab.org/post/bienvenidos-al-curso-mcv502-bcm634-bio625/
+http://www.metagenomics.wiki/
+Introducing mothur: Open-Source, Platform-Independent, Community-Supported Software for Describing and Comparing Microbial Communities
 
 ## OTU picking
 
