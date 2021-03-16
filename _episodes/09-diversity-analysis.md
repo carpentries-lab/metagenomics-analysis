@@ -4,7 +4,9 @@ title: "Diversity Analysis"
 teaching: 30
 exercises: 30
 questions:
+- "Which alternatives do we have to import taxonomic-assignation data in R?"
 - "How can I use R to explore diversity?"
+- "How can we compare depth-contrasting samples?"
 objectives:
 - "Visualize different estimates of α diversity."
 - "Load libraries required for metagenomes alpha diversity plotting."  
@@ -12,6 +14,7 @@ objectives:
 - "Use help to discover the capabilities of libraries."
 - "Chart diversity estimates."
 keypoints:
+- "The kraken-biom program can automatize the creation of the phyloseq object"
 - "The library `phyloseq` manages metagenomics objects and computes alpha diversity."  
 - "The libraries `ggplot2` and `patchwork`allow publication-quality plotting in R."
 - "Transform your named matrixes into Phyloseq objects using `pyhloseq(TAX, OTU)`."
@@ -37,8 +40,14 @@ First to visualize the content of our directory you can use the `ls` command.
 
 Now you can also known in which directory you are standing by using `pwd`. 
 
-Let's explore the content of some of our data files.  
-Files `.kraken` are the output of the Kraken program, we can see a few lines of the file using the command `head`.   
+Let's explore the content of some of our data files. So we have to move to the corresponding folder where our 
+taxonomic-data files are: 
+~~~
+cd /home/dcuser/dc_workshop/taxonomy
+~~~~
+{: .bash}
+
+Files `.kraken` and `kraken.report`are the output of the Kraken program, we can see a few lines of the file using the command `head`.   
 ~~~
 head JC1A.kraken 
 ~~~
@@ -106,23 +115,23 @@ by extracting the OTU's names and abundances.
 
 ~~~
 # Get OTU IDs from both lists
-names1 = OTUS$OTU
-names2 = TAXAS$OTU
+names1 <- OTUS$OTU
+names2 <- TAXAS$OTU
 
 # Remove OTU IDs from both lists
-OTUS$OTU = NULL
-TAXAS$OTU = NULL
+OTUS$OTU <- NULL
+TAXAS$OTU <- NULL
 ~~~
 {: .language-r}
 
 ~~~
 # Convert both lists to matrix
-abundances = as.matrix(OTUS)
-lineages = as.matrix(TAXAS)
+abundances <- as.matrix(OTUS)
+lineages <- as.matrix(TAXAS)
 
 # Assign the OTU IDs as the names of the rows of the matrixes you just built
-row.names(abundances) = names1
-row.names(lineages) = names2
+row.names(abundances) <- names1
+row.names(lineages) <- names2
 ~~~
 {: .language-r}
 
@@ -131,15 +140,15 @@ and the OTU abundance table into a format that can be read by phyloseq.
 Now we will make the phyloseq data types out of our matrices.
 
 ~~~
-OTU = otu_table(abundances, taxa_are_rows = TRUE)
-TAX = tax_table(lineages)
+OTU <- otu_table(abundances, taxa_are_rows = TRUE)
+TAX <- tax_table(lineages)
 ~~~
 {: .language-r}
 
-We will now construct a Phyloseq object using Phyloseq data types: 
+We will now construct a Phyloseq-object using Phyloseq data types we have created: 
 
 ~~~
-metagenome_JC1A = phyloseq(OTU, TAX)
+metagenome_JC1A <- phyloseq(OTU, TAX)
 ~~~
 {: .language-r}
 
@@ -148,34 +157,34 @@ metagenome_JC1A = phyloseq(OTU, TAX)
 >If you look at our Phyloseq object, you will see that there are more data types 
 >that we can use to build our object(?phyloseq), as a phylogenetic tree and metadata 
 >concerning our samples. These are optional, so we will use our basic
->phyloseq object for now.  
+>phyloseq object for now composed of the abundances of specific OTUs and the 
+>names of those OTUs.  
 {: .callout}
 
-## Creating a phyloseq object by kraken-biom
+## kraken-biom as an alternative to create a phyloseq object
 
 In the above lines we explored how to create a phyloseq object using basic R functions.
 Certainly, this is a method that helps to practize and masterize the manipulation of 
 different type of objects and information. But we can obtain the same result by using
-programs that will extract the information from the kraken output files and will
-save us time. One of this options is kraken-biom.
+programs that will extract the information from the kraken output files and will help
+us to save time. One program widely used for this purpose is kraken-biom.
 
-kraken-biom is a programm that creates BIOM tables from the Kraken output 
+kraken-biom is a program that creates BIOM tables from the Kraken output 
 [kraken-biom](https://github.com/smdabdoub/kraken-biom)
 
-First, let's take a look at the different flags that kraken-biom have and an example
-of its usage:
+
+### Using the kraken.report files with kraken-biom
+
+For the next few steps, lets return to the terminal since kraken-biom is ment to be
+used there. Lets take a look at the different flags that kraken-biom have:
 
 ~~~
-usage: kraken-biom [-h] [--max {D,P,C,O,F,G,S}] [--min {D,P,C,O,F,G,S}]
-                      [-o OUTPUT_FP] [--fmt {hdf5,json,tsv}] [--gzip]
-                      [--version] [-v]
-                      kraken_reports [kraken_reports ...]                   
+kraken-biom -h                  
 ~~~
 {: .bash}
 
 By a close look at the code lines, it is noticeable that we need a specific output
-from Kraken, those are the kraken.reports. 
-
+from Kraken, those are the `kraken.report`
 
 
 ~~~
