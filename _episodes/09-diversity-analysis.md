@@ -92,7 +92,7 @@ library("patchwork")
   
 ### Load data with the number of reads per OTU and taxonomic labels for each OTU.  
 
-Now, we have to load the taxonomic assignation data into objets in R:
+Next, we have to load the taxonomic assignation data into objets in R:
 
 ~~~
 OTUS <- read_delim("JC1A.kraken_ranked-wc","\t", escape_double = FALSE, trim_ws = TRUE)
@@ -175,6 +175,7 @@ metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
 Now let's look at some statistics of our metagenomes:
 
 ~~~
+metagenome_JC1A
 sample_sums(metagenome_JC1A)
 summary(metagenome_JC1A@otu_table@.Data)
 ~~~
@@ -233,7 +234,7 @@ and that these two will belong to the same OTU.
   
 ### Merge two metagenomes to compare them  
 
-Now that you have both Phyloseq objects, one for each metagenome, you can merge
+Next, as we have both Phyloseq objects, one for each metagenome, you can merge
 them into one object:
 
 ~~~
@@ -245,11 +246,13 @@ merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
 Let´s look at the abundance of our metagenomes.  
 
 ~~~
+merged_metagenomes
+sample_sums(merged_metagenomes)
 summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
 
-Now, it is evident that there is a great difference in the total reads(i.e. information) of each sample.
+It is evident that there is a great difference in the total reads(i.e. information) of each sample.
 Before we further process our data, let's take a look if we have any no-identified read. Marked as "NA"
 on the different taxonomic levels:
 
@@ -258,9 +261,9 @@ summary(merged_metagenomes@tax_table@.Data== "NA")
 ~~~
 {: .language-r}
 
-By the above line, we can see that there are NA on the different taxonomic leves. Although it is
+By the above command, we can see that there are NAs on the different taxonomic leves. Although it is
 expected to see some NAs at species, or even at genus level, we will get rid of the ones at phylum
-lever to procced with the analysis:
+level to procced with the analysis:
 
 ~~~
 merged_metagenomes <- subset_taxa(merged_metagenomes, phylum != "NA")
@@ -268,45 +271,59 @@ merged_metagenomes <- subset_taxa(merged_metagenomes, phylum != "NA")
 {: .language-r}
 
 
-Next, since our metagenomes have different sizes it might be a good idea to convert the number of assigned read into percentages (i.e. relative abundances). 
+Next, since our metagenomes have different sizes it is imperative to convert the number 
+of assigned read into percentages (i.e. relative abundances) so as to compare them. 
 
 ~~~
 percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
 ~~~
 {: .language-r}
 
-Now, we can make a comparative graph between absolute reads and percentages.
+In order to group all the OTUs that have the same taxonomy at a certain taxonomic rank,
+we will use the function "tax_grom". Also, the function "psmelt" lets melt phyloseq 
+objects into data.frame to manipulate them with ggplot and other libraries as vegan
 
 ~~~
-absolute_count = plot_bar(merged_metagenomes, fill="phylum")
-absolute_count = absolute_count + geom_bar(aes(color=phylum, fill=phylum), stat="identity", position="stack") + ggtitle("Absolute abundance")
+glom <- tax_glom(percentages, taxrank = 'phylum')
+data <- psmelt(glom)
+~~~
 
-percentages = plot_bar(percentages, fill="phylum")
-percentages = percentages + geom_bar(aes(color=phylum, fill=phylum), stat="identity", position="stack") + ggtitle("Relative abundance")
+With the new data.frame, we can change the identification of the OTUs whose 
+relative abundance is less than 0.2% so as to have a number of recommended OTUs
+to contrast them in different colors (8-9)
 
+~~~
+data$phylum <- as.character(data$phylum)
+data$phylum[data$Abundance < 0.2] <- "Phyla < 0.2% abund."
+~~~
+
+Whit this object, we can create a plot which let us compare this relative abundance
+against the absolute abundance that we have at the beggining
+
+~~~
+percentages <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
+  geom_bar(aes(), stat="identity", position="stack")
+  
+glom <- tax_glom(merged_metagenomes, taxrank = 'phylum')
+data <- psmelt(glom)
+data$phylum <- as.character(data$phylum)
+absolute_count <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
+  geom_bar(aes(), stat="identity", position="stack")
+  
 absolute_count | percentages
 ~~~
-{: .language-r}
 
-> ## Exercise
-> 
-> Ejercicio `ERR2143795/JP4D_R1.fastq ` file? How confident
-> 
->> ## Solution
->> ~~~
->> $ tail 
->> ~~~
->> {: .bash}
->> 
->> ~~~
->> texto
->> ~~~
->> {: .output}
->> 
->> soluion
->> 
-> {: .solution}
-{: .challenge}                             
+At once, we can denote the difference between the two plots and how the 
+presentation of the data can be enhanced by conscient management of the 
+different objects.
+
+
+
+> ## `.discussion`
+> Have you ever heard of the rarefaction process?
+> When you encounter depth.contrasting samples as these, What other 
+> methods beyond rarefaction you could think/heard/tried of?   
+{: .discussion}                             
 
 ## kraken-biom as an alternative to create a phyloseq object
 
@@ -369,7 +386,8 @@ Finally, we can review our object and see that both datasets
   
 > ## `.discussion`
 >
-> How much did the α diversity changed due to the filterings that we made?
+> How much did the α diversity can changed by elimination singletons
+> and doubletons?
 {: .discussion}
   
   
