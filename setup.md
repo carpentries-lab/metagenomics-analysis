@@ -85,7 +85,12 @@ dependencies:
   - kraken2 
   - krona             
   - maxbin2
-  - taxonkit  
+  - taxonkit
+  - quast
+  - spades
+  - kraken-biom
+  - checkm-genome
+
 ~~~
 {: .output}
 
