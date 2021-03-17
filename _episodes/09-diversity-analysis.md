@@ -1,24 +1,24 @@
 ---
 source: md
 title: "Diversity Analysis"
-teaching: 30
-exercises: 30
+teaching: 40
+exercises: 20
 questions:
-- "Which alternatives do we have to import taxonomic-assignation data in R?"
 - "How can I use R to explore diversity?"
+- "Which alternatives do we have to import taxonomic-assignation data in R?"
 - "How can we compare depth-contrasting samples?"
 objectives:
-- "Visualize different estimates of α diversity."
-- "Load libraries required for metagenomes alpha diversity plotting."  
-- "Transform named matrixes into Phyloseq objects."
-- "Use help to discover the capabilities of libraries."
-- "Chart diversity estimates."
+- "Comprehend which libraries are required for metagenomes diversity analysis."  
+- "Grasp how a phyloseq object is made"
+- "Understand how the help command can help to discover the capabilities of libraries."
+- "Apply the learned code to get diversity estimates."
+- "Use the diversity data to visualize different estimates of α diversity."
 keypoints:
-- "The kraken-biom program can automatize the creation of the phyloseq object"
 - "The library `phyloseq` manages metagenomics objects and computes alpha diversity."  
-- "The libraries `ggplot2` and `patchwork`allow publication-quality plotting in R."
 - "Transform your named matrixes into Phyloseq objects using `pyhloseq(TAX, OTU)`."
 - "Use `help()` to discover the capabilities of libraries."
+- "The libraries `ggplot2` and `patchwork`allow publication-quality plotting in R."
+- "The kraken-biom program can automatize the creation of the phyloseq object"
 ---
     
 ## Using R studio
@@ -40,20 +40,22 @@ First to visualize the content of our directory you can use the `ls` command.
 
 Now you can also known in which directory you are standing by using `pwd`. 
 
-Let's explore the content of some of our data files. So we have to move to the corresponding folder where our 
-taxonomic-data files are: 
+Let's explore the content of some of our data files. So we have to move to the corresponding folder where our taxonomic-data files are: 
+
 ~~~
 cd /home/dcuser/dc_workshop/taxonomy
 ~~~~
 {: .bash}
 
-Files `.kraken` and `kraken.report`are the output of the Kraken program, we can see a few lines of the file using the command `head`.   
+Files `.kraken` and `kraken.report`are the output of the Kraken program, we can see a few lines of the file `.kraken` using the command `head`.   
+
 ~~~
 head JC1A.kraken 
 ~~~
 {: .bash}
 
 How would you see the last lines of the file report?  
+
 ~~~
 tail JC1A.report 
 ~~~
