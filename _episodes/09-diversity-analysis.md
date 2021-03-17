@@ -175,12 +175,15 @@ metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
 Now let's look at some statistics of our metagenomes:
 
 ~~~
+sample_sums(metagenome_JC1A)
 summary(metagenome_JC1A@otu_table@.Data)
 ~~~
 {: .language-r}
 
-The Max, Min and Mean can give us an idea of the eveness, but to have a more 
-visual representation of the α diversity we can now look at a ggplot2
+By the output of the sample_sums command we can see how many reads they are
+in the library. Also, the Max, Min and Mean outout on summary can give us an
+idea of the eveness. Nevertheless, to have a more visual representation of the
+diversity inside the sample (i.e. α diversity) we can now look at a ggplot2
 graph created using Phyloseq:
 
 ~~~
