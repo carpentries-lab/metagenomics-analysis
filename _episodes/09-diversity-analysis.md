@@ -319,13 +319,51 @@ At once, we can denote the difference between the two plots and how the
 presentation of the data can be enhanced by conscient management of the 
 different objects.
 
+## Going further, lets took an interest lineaje and explore it thoroughly
+
+As we have already reviewed, phyloseq offers a lot of tools to manage  
+and explore data. Lets take a look deeply to a tool that we already
+use, but into a guided exploration. The "subset_taxa" command is used to
+extract specific lineages from a stated taxonomic level, we have used it
+to get rid from the reads that does not belong to bacteria at superkindom
+level:
+
+~~~
+metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
+~~~
+
+We are going to used this command to extract an specific phylum from our 
+data, and explore it at a more lower taxonomic lever: Genus
+
+~~~
+cyanos <- subset_taxa(merged_metagenomes, phylum == "Cyanobacteria")
+cyanos <- subset_taxa(cyanos, genus != "NA")
+cyanos  = transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
+glom <- tax_glom(cyanos, taxrank = "genus")
+data <- psmelt(glom)
+cyanos <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+ 
+  geom_bar(aes(), stat="identity", position="stack")
+~~~
 
 
-> ## `.discussion`
-> Have you ever heard of the rarefaction process?
-> When you encounter depth.contrasting samples as these, What other 
-> methods beyond rarefaction you could think/heard/tried of?   
-{: .discussion}                             
+> ## Exercise
+> 
+> Go into groups and choose one phylum that is interesting for your
+> group, and use the code learned to generate a plot where you can 
+> show us the abundance in each of the sample
+>> ## Solution
+>> Change "Cyanobacteria" wherever it is needed to get a result from
+>> other phylum, as an example, here is the solution for Proteobacteria:
+>>proteo <- subset_taxa(merged_metagenomes, phylum == "Proteobacteria")
+>>proteo <- subset_taxa(proteo, genus != "NA")
+>>proteo  = transform_sample_counts(proteo, function(x) x*100 / sum(x) )
+>>glom <- tax_glom(proteo, taxrank = "genus")
+>>data <- psmelt(glom)
+>>proteo <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+ 
+>>  geom_bar(aes(), stat="identity", position="stack")
+> {: .solution}
+{: .challenge} 
+                             
 
 ## kraken-biom as an alternative to create a phyloseq object
 
