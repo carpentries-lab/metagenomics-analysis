@@ -161,41 +161,12 @@ metagenome_JC1A <- phyloseq(OTU, TAX)
 >names of those OTUs.  
 {: .callout}
 
-## kraken-biom as an alternative to create a phyloseq object
-
-In the above lines we explored how to create a phyloseq object using basic R functions.
-Certainly, this is a method that helps to practize and masterize the manipulation of 
-different type of objects and information. But we can obtain the same result by using
-programs that will extract the information from the kraken output files and will help
-us to save time. One program widely used for this purpose is kraken-biom.
-
-kraken-biom is a program that creates BIOM tables from the Kraken output 
-[kraken-biom](https://github.com/smdabdoub/kraken-biom)
-
-
-### Using the kraken.report files with kraken-biom
-
-For the next few steps, lets return to the terminal since kraken-biom is ment to be
-used there. Lets take a look at the different flags that kraken-biom have:
-
-~~~
-kraken-biom -h                  
-~~~
-{: .bash}
-
-By a close look at the code lines, it is noticeable that we need a specific output
-from Kraken, those are the `kraken.report`
-
-
-~~~
-kraken-biom S1.txt S2.txt --fmt json
-~~~
-{: .bash}
 
 ### Plot diversity estimates at desired taxonomic resolution
 
-We want to know how is the bacterial diversity, so, we will prune all of the non-bacterial organisms in our metagenome. To do this 
-we will make a subset of all bacterial groups and save them.
+We want to know how is the bacterial diversity, so, we will prune all of the 
+non-bacterial organisms in our metagenome. To do this we will make a subset 
+of all bacterial groups and save them.
 ~~~
 metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
 ~~~
@@ -259,7 +230,8 @@ and that these two will belong to the same OTU.
   
 ### Merge two metagenomes to compare them  
 
-Now that you have both Phyloseq objects, one for each metagenome, you can merge them into one object:
+Now that you have both Phyloseq objects, one for each metagenome, you can merge
+them into one object:
 
 ~~~
 merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
@@ -332,7 +304,65 @@ absolute_count | percentages
 >> 
 > {: .solution}
 {: .challenge}                             
-                             
+
+## kraken-biom as an alternative to create a phyloseq object
+
+In the above lines we explored how to create a phyloseq object using basic R functions.
+Certainly, this is a method that helps to practize and masterize the manipulation of 
+different type of objects and information. But we can obtain the same result by using
+programs that will extract the information from the kraken output files and will help
+us to save time. One program widely used for this purpose is kraken-biom.
+
+kraken-biom is a program that creates BIOM tables from the Kraken output 
+[kraken-biom](https://github.com/smdabdoub/kraken-biom)
+
+
+### Using the kraken.report files with kraken-biom
+
+For the next few steps, lets return to the terminal since kraken-biom is ment to be
+used there. Lets take a look at the different flags that kraken-biom have:
+
+~~~
+kraken-biom -h                  
+~~~
+{: .bash}
+
+By a close look at the first output lines, it is noticeable that we need a specific output
+from Kraken, those are the `kraken.report`. If you explore the different files inside 
+the folder where we are located, you will see that the reports for each sample are 
+inside.
+~~~
+kraken-biom JC1A.report JP4D.report --fmt json -o cuatroc.biom
+~~~
+{: .bash}
+
+If we inspect our folder, we will see that the object "cuatroc.biom" is now part of 
+our folder, this is a biom object which contains both, the abundances of each OTU and 
+the identificator of each OTU. With this object we will procced to create the phyloseq 
+object.
+
+~~~
+merged_metagenomes <- import_biom("cuatroc.biom")
+~~~
+{: .language-r}
+
+Now, we can inspect the result by asking what class is the object created, and 
+doing a close inspection of some of its content:
+~~~
+class(merged_metagenomes)
+View(merged_metagenomes@tax_table@.Data)
+~~~
+The "class" command indicate that we already have our phyloseq object and 
+inside the tax_table we see that it looks just like the one created before.
+Lets get rid of some of the innecesary characters in the OTUs identificator
+and put name to the taxonomic ranks:
+~~~
+merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
+colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+~~~
+
+Finally, we can review our object and see that both datasets 
+(i.e. JC1A and JP4D) are in the our object.
   
 > ## `.discussion`
 >
