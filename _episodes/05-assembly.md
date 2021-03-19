@@ -10,11 +10,10 @@ questions:
 objectives: 
 - "Understand what is an assembly."  
 - "Use an enviroment in a bioinformatic pipeline."
-- "Generate MAGs from an assembled metagenome."
 keypoints:
 - "Assemblies uses algorithms to group reads into contigs."
 - "Three famous algorithms are Greedy extension, OLC and De Bruijin graphs."
-- "Megahit is a metagenome assembler."
+- "MetaSPAdes is a metagenome assembler."
 - "The FASTQ files from the quality control process are the inputs for the assembly software."
 - "A FASTA file with contigs is the output of the assembly process."
 - "Binning can be used to obtain the original genomes (MAGs) from metagenomes."
@@ -38,12 +37,12 @@ shotgun instead of amplicon metagenomics an extra assembly step must be run
 Let's see what happens if we enter the metaspades.py command on our terminal.
 
 ~~~
-metaspades.py
+$ metaspades.py
 ~~~
 {: .source}
 
 ~~~
-metaspades.py: command not found   
+$ metaspades.py: command not found   
 ~~~
 {: .error}
 
@@ -51,13 +50,13 @@ metaspades.py: command not found
 ## Activating metagenomic environment  
 Environments are part of a bioinformatic tendency to make repdoucible research, 
 they are a way to share our computational environments with our colleges and 
-with our future self.  MetaSPAdes is not activated in the (base) environment but 
+with our future self. MetaSPAdes is not activated in the (base) environment but 
 this AWS instances came with an environment called metagenomics. We need to activate 
 it in order to start using MetaSPAdes. 
 
 Conda environments are activated with `conda activate` direction:  
 ~~~
-conda activate metagenomics  
+$ conda activate metagenomics  
 ~~~
 {: .bash}
 
@@ -70,7 +69,7 @@ After the environment has been activated, a label is shown before the `$` sign.
 Now if we call MetaSPAdes at the command line it wont be any error, 
 instead a long help will be displayed at our screen.
 ~~~
-metaspades.py
+$ metaspades.py
 ~~~
 {: .bash}
 
@@ -102,10 +101,10 @@ Input data:
 
 ## MetaSPAdes options  
 
-The help that we just saw tells us how to run metaspades.py. We are going to use te most simple options, just specifying our forward paired end reads with `-1` and reverse paired end reads with `-2`, and the output directory where we want our results to be stored. 
+The help that we just saw tells us how to run metaspades.py. We are going to use the most simple options, just specifying our forward paired end reads with `-1` and reverse paired end reads with `-2`, and the output directory where we want our results to be stored. 
  ~~~
-cd ~/dc_workshop/data/trimmed_fastq
-mmetaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../assembly_JC1A &
+$ cd ~/dc_workshop/data/trimmed_fastq
+$ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../assembly_JC1A &
 ~~~
 {: .bash}
 
@@ -127,8 +126,8 @@ Thank you for using SPAdes!
 
 If we now look at the contents of this directory...
 ~~~
-cd ../../assembly_JC1A
-ls
+$ cd ../../assembly_JC1A
+$ ls
 ~~~
 {: .bash}
 
@@ -163,7 +162,7 @@ tmp
 
 Let's rename the file that contains our assembled contigs. 
 ~~~
-mv contigs.fasta JC1A_contigs.fasta
+$ mv contigs.fasta JC1A_contigs.fasta
 ~~~
 {: .bash}
 
@@ -175,7 +174,7 @@ mv contigs.fasta JC1A_contigs.fasta
 
 
 ## Metagenomic binning
-To be able to analyze each species individualy we can separate the original genomes in the sample with a process called binning. 
+To be able to analyze each species individualy the original genomes in the sample can be separated with a process called binning. 
 In this process, the assembled contigs from the metagenome will be assigned to different bins (FASTA files that contain certain contigs). Ideally, each bin corresponds to only one original genome.
 
 Although an obvious way to separate contigs that correspond to a different species is by their taxonomic assignation, there are more reliable methods that do the binning using characteristics of the contigs, such as their GC content, the use of tetranucleotides (composition) or their coverage (abundance).
@@ -187,27 +186,12 @@ Although an obvious way to separate contigs that correspond to a different speci
   <img src="{{ page.root }}/fig/Binning(47).png" width="350" height="600" alt="Cog Metagenome" />
 </a>
 
+We will not perform the binning process in this lesson because the data we are working with is not adequate for it, but let's look at the commands without running them.  
 ~~~
-$ run_MaxBin.pl 
+$ run_MaxBin.pl -thread 12 -contig contigs.fasta -reads reads_1.fastq -reads2 reads_2.fastq -out MaxBin/
 ~~~
 {: .bash}  
 
-~~~
-MaxBin 2.2.7                                                                                           
-No Contig file. Please specify contig file by -contig                                                  
-MaxBin - a metagenomics binning software.                                                              
-Usage:                                                                                                   
-run_MaxBin.pl                                                                                             
--contig (contig file)                                                                                   
--out (output file)                                                                                                               
-~~~
-{: .output}
-
-
-~~~
-$ run_MaxBin.pl 
-~~~
-{: .bash}
 
 > ## Bining strategies `.callout`
 >
@@ -217,11 +201,34 @@ $ run_MaxBin.pl
 
 ## MAGs (Metagenome-Assembled Genomes)  
 MAGs are the original genomes that we are looking for with the binning process. The binned contigs can be used as MAGs, but a more reliable way to obtain MAGs is by re-assembling the reads from the binned contigs. For this we need to map the original reads to the binned contigs and then re-assemble them. 
+With Bowtie2 we can do the mapping of the reads to the contigs to extract this reads. Let's see the command to do this with the bin named 01.
 
-The quality of a MAG is highly dependent on the size of the genome of the species, 
-its abundance in the community, and the depth at which we sequence.
-Two important things that can be meassured to know its quallity is the completeness (is the MAG a complete genome?) and the distinctiveness (does the MAG contain only one genome?). 
+~~~
+#Build the index
+$ bowtie2-build JP4D_contigs_MaxBin_01.fasta JP4D_contigs_MaxBin_01
 
-Anvio is a good program to see the quality of our MAGs
+#Perform de mapping using the corrected reads from the MetaSPAdes output
+$ bowtie2 --threads 12 --sensitive-local -x JP4D_contigs.fasta -1 assembly_JP4D/corrected/JP4D_R1_cor.fastq.gz -2 assembly_JP4D/corrected/JP4D_R2_cor.fastq.gz -S JP4D_01.sam
+
+#Convert from sam format to bam format
+$ samtools view -F 4 -bS JP4D_01.sam > JP4D_01.bam
+
+#Obtain the reads from the mapping file
+$ bamtools convert -in JP4D_01.bam -format fastq > JP4D_01.fastq
+
+~~~
+{: .bash}  
+
+Having the corrected reads that correspond to only one bin `JP4D_01.fastq`, we can re-assemble them to obtain the MAG using SPAdes.
+~~~
+$ spades.py -s JP4D_01.fastq -o JP4D_01
+~~~
+{: .bash}  
+
+The quality of a MAG is highly dependent on the size of the genome of the species, its abundance in the community, and the depth at which we sequenced it.
+Two important things that can be meassured to know its quality is the completeness (is the MAG a complete genome?) and the contamination (does the MAG contain only one genome?). 
+
+[CheckM] (https://github.com/Ecogenomics/CheckM) is a good program to see the quality of our MAGs. It gives a meassure of the completeness and the contamination by counting marker genes in the MAGs.
+
 
 {% include links.md %}
