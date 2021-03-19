@@ -188,7 +188,7 @@ Although an obvious way to separate contigs that correspond to a different speci
 
 We will not perform the binning process in this lesson because the data we are working with is not adequate for it, but let's look at the commands without running them.  
 ~~~
-$ run_MaxBin.pl -thread 12 -contig contigs.fasta -reads reads_1.fastq -reads2 reads_2.fastq -out MaxBin/
+$ run_MaxBin.pl -thread 12 -contig JC1A_contigs.fasta -reads JC1A_R1.fastq -reads2 JC1A_R2.fastq -out MaxBin/
 ~~~
 {: .bash}  
 
@@ -205,30 +205,30 @@ With Bowtie2 we can do the mapping of the reads to the contigs to extract this r
 
 ~~~
 #Build the index
-$ bowtie2-build JP4D_contigs_MaxBin_01.fasta JP4D_contigs_MaxBin_01
+$ bowtie2-build JC1A_contigs_MaxBin_01.fasta JC1A_contigs_MaxBin_01
 
 #Perform de mapping using the corrected reads from the MetaSPAdes output
-$ bowtie2 --threads 12 --sensitive-local -x JP4D_contigs.fasta -1 assembly_JP4D/corrected/JP4D_R1_cor.fastq.gz -2 assembly_JP4D/corrected/JP4D_R2_cor.fastq.gz -S JP4D_01.sam
+$ bowtie2 --threads 12 --sensitive-local -x JC1A_contigs.fasta -1 assembly_JC1A/corrected/JC1A_R1_cor.fastq.gz -2 assembly_JC1A/corrected/JC1A_R2_cor.fastq.gz -S JC1A_01.sam
 
 #Convert from sam format to bam format
-$ samtools view -F 4 -bS JP4D_01.sam > JP4D_01.bam
+$ samtools view -F 4 -bS JC1A_01.sam > JC1A_01.bam
 
 #Obtain the reads from the mapping file
-$ bamtools convert -in JP4D_01.bam -format fastq > JP4D_01.fastq
+$ bamtools convert -in JC1A_01.bam -format fastq > JC1A_01.fastq
 
 ~~~
 {: .bash}  
 
-Having the corrected reads that correspond to only one bin `JP4D_01.fastq`, we can re-assemble them to obtain the MAG using SPAdes.
+Having the corrected reads that correspond to only one bin `JC1A_01.fastq`, we can re-assemble them to obtain the MAG using SPAdes.
 ~~~
-$ spades.py -s JP4D_01.fastq -o JP4D_01
+$ spades.py -s JC1A_01.fastq -o JC1A_01
 ~~~
 {: .bash}  
 
 The quality of a MAG is highly dependent on the size of the genome of the species, its abundance in the community, and the depth at which we sequenced it.
 Two important things that can be meassured to know its quality is the completeness (is the MAG a complete genome?) and the contamination (does the MAG contain only one genome?). 
 
-[CheckM] (https://github.com/Ecogenomics/CheckM) is a good program to see the quality of our MAGs. It gives a meassure of the completeness and the contamination by counting marker genes in the MAGs.
+[CheckM](https://github.com/Ecogenomics/CheckM) is a good program to see the quality of our MAGs. It gives a meassure of the completeness and the contamination by counting marker genes in the MAGs.
 
 
 {% include links.md %}
