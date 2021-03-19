@@ -43,21 +43,21 @@ Now you can also known in which directory you are standing by using `pwd`.
 Let's explore the content of some of our data files. So we have to move to the corresponding folder where our taxonomic-data files are: 
 
 ~~~
-cd /home/dcuser/dc_workshop/taxonomy
+$ cd /home/dcuser/dc_workshop/taxonomy
 ~~~~
 {: .bash}
 
 Files `.kraken` and `kraken.report`are the output of the Kraken program, we can see a few lines of the file `.kraken` using the command `head`.   
 
 ~~~
-head JC1A.kraken 
+$ head JC1A.kraken 
 ~~~
 {: .bash}
 
 How would you see the last lines of the file report?  
 
 ~~~
-tail JC1A.report 
+$ tail JC1A.report 
 ~~~
 {: .bash}
   
@@ -383,7 +383,7 @@ For the next few steps, lets return to the terminal since kraken-biom is ment to
 used there. Lets take a look at the different flags that kraken-biom have:
 
 ~~~
-kraken-biom -h                  
+$ kraken-biom -h                  
 ~~~
 {: .bash}
 
@@ -392,7 +392,7 @@ from Kraken, those are the `kraken.report`. If you explore the different files i
 the folder where we are located, you will see that the reports for each sample are 
 inside.
 ~~~
-kraken-biom JC1A.report JP4D.report --fmt json -o cuatroc.biom
+$ kraken-biom JC1A.report JP4D.report --fmt json -o cuatroc.biom
 ~~~
 {: .bash}
 
