@@ -9,31 +9,13 @@ This workshop is designed to be run on pre-imaged Amazon Web Services (AWS)
 instances. With the exception of a spreadsheet program, all of the command line software and data used in the workshop are hosted on an Amazon 
 Machine Image (AMI). Please follow the instructions below to prepare your computer for the workshop:
 
-- Accounts in online webservers (Rstudio cloud + MG-RAST)  
-- Required additional software + AWS
-
-## Accounts in on line servers  
-- This lesson requires an account in [Rstudio cloud](https://rstudio.cloud/). 
- 1. Select "Get Started for Free" 
- 2. Click "Sign Up"
- 3. Chose your credentials to sign up 
- 
-- This lesson requires an account in [MG-Rast](https://www.mg-rast.org/). 
-1. Go to [MG-RAST](https://www.mg-rast.org/)  
-2. Click on "Register" at the top right corner.  
-3. Fill in the form and click on "register" at the bottom right. 
-
-Please consider that MG-RAST consider may take several days to authorize an account.
 
 
-
-## Required additional software
+## Required  software
 
 This lesson requires a working spreadsheet program. If you don't have a spreadsheet program already, you can use LibreOffice. It's a free, open source spreadsheet program.  Directions to install are included for each Windows, Mac OS X, and Linux systems below. For Windows, you will also need to install Git Bash, PuTTY, or the Ubuntu Subsystem.
 
 > ## Windows
-> - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Windows should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you don't need to make one. Your download should begin automatically.  
-> - Once the installer is downloaded, double click on it and LibreOffice should install.
 > - Download the [Git for Windows installer](https://git-for-windows.github.io/). Run the installer and follow the steps below:
 >   + Click on "Next" four times (two times if you've previously installed Git). You don't need to change anything in the Information, location, components, and start menu screens.
 >   + Select "Use the nano editor by default" and click on "Next".
@@ -53,18 +35,17 @@ This lesson requires a working spreadsheet program. If you don't have a spreadsh
 {: .solution}
 
 > ## Mac OS X
-> - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Mac should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you don't need to make one. Your download should begin automatically.  
-> - Once the installer is downloaded, double click on it and LibreOffice should install.
+> -  The default shell in some versions of macOS is Bash, and Bash is available in all versions, so no need to install anything. You access Bash from the Terminal (found in /Applications/Utilities). See the Git [installation video tutorial](https://www.youtube.com/watch?v=9LQhwETCdwY) for an example on how to open the Terminal. You may want to keep Terminal in your dock for this workshop.
 {: .solution}
 
 > ## Linux
->  - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Linux should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you don't need to make one. Your download should begin automatically.  
-> - Once the installer is downloaded, double click on it and LibreOffice should install.
+>  - The default shell is usually Bash and there is usually no need to install anything. To see if your default shell is Bash type echo $SHELL in a terminal and press the Enter key. If the message printed does not end with '/bash' then your default is something else and you can run Bash by typing bash.
 {: .solution}
+
 
 ## Using the lessons with Amazon Web Services (AWS)
 
-If you are signed up to take a Genomics Data Carpentry workshop, you do *not* need to worry about setting up an AMI instance. The Carpentries
+If you are signed up to take a Metaggenomics Data Carpentry workshop, you do *not* need to worry about setting up an AMI instance. The Carpentries
 staff will create an instance for you and this will be provided to you at no cost. This is true for both self-organized and centrally-organized workshops. Your Instructor will provide instructions for connecting to the AMI instance at the workshop.
 
 If you would like to work through these lessons independently, outside of a workshop, you will need to start your own AMI instance. 
