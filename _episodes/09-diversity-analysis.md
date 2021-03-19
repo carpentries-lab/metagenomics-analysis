@@ -36,7 +36,10 @@ Your credencials are user:dcuser pass:data4Carp.
   
 The terminal is a program that executes programs, and is better to deal with long data sets than a visual interface.  
 First to visualize the content of our directory you can use the `ls` command.  
-`ls`  
+
+~~~
+$ ls
+~~~~
 
 Now you can also known in which directory you are standing by using `pwd`. 
 
