@@ -40,61 +40,6 @@ makes this feasible. Standards ensure that data is stored in a way that is gener
 within the community. The tools that are used to analyze data at different stages of the workflow are therefore 
 built under the assumption that the data will be provided in a specific format.  
 
-# Starting with data
-
-Often times, the first step in a bioinformatic workflow is getting the data you want to work with onto a computer where you can work with it. If you have outsourced sequencing of your data, the sequencing center will usually provide you with a link that you can use to download your data. Today we will be working with publicly available sequencing data.
-
-The data are paired-end, so we will download two files for each sample. We will use the [European Nucleotide Archive](https://www.ebi.ac.uk/ena) to get our data. The ENA "provides a comprehensive record of the world's nucleotide sequencing information, covering raw sequencing data, sequence assembly information and functional annotation." The ENA also provides sequencing data in the FASTQ format, an important format for sequencing reads that we will be learning about today. 
-
-To download the data, run the commands below. 
-
-Here we are using the `-p` option for `mkdir`. This option allows `mkdir` to create the new directory, even if one of the parent directories doesn't already exist. It also supresses errors if the directory already exists, without overwriting that directory. 
-
-It will take about 15 minutes to download the files.
-~~~
-$ mkdir -p ~/dc_workshop/data/untrimmed_fastq/
-$ cd ~/dc_workshop/data/untrimmed_fastq
-
-$ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143795/JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz
-$ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143795/JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz 
-$ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R1.fastq.gz
-$ curl -O http://ftp.sra.ebi.ac.uk/vol1/run/ERR214/ERR2143758/JC1ASEDIMENT120627_R2.fastq.gz
-~~~
-{: .bash}
-
-> ## Faster option
-> 
-> If your workshop is short on time or the venue's internet connection is weak or unstable, learners can 
-> avoid needing to download the data and instead use the data files provided in the `~/mgdata.tar.gz` file.
-> 
-> ~~~
-> $ cd ~
-> $ tar -xzf ~/mgdata.tar.gz 
-> $ cd ~/dc_workshop/data/untrimmed_fastq
-> $ cp ~/dc_workshop/data/*fastq.gz ~/dc_workshop/data/untrimmed_fastq/.
-> ~~~
-> {: .bash}
-> 
-> This command first goes to the `/home/dcusers` directory and decompresses the `mgdata.tar.gz` file. Then, creates a copy of each of the files in the `~/dc_workshop/data/` directory that end in `fastq.gz` and
-> places the copies in the `~/dc_workshop/data/untrimmed_fastq/` directory  with the same name (signified by `.`). 
-{: .callout}
-
-
-~~~
-$ cp JP4DASH2120627WATERAMPRESIZED_R1.fastq.gz JP4D_R1.fastq.gz
-$ cp JP4DASH2120627WATERAMPRESIZED_R2.fastq.gz JP4D_R2.fastq.gz
-$ cp JC1ASEDIMENT120627_R1.fastq.gz JC1A_R1.fastq.gz
-$ cp JC1ASEDIMENT120627_R2.fastq.gz JC1A_R2.fastq.gz
-~~~
-{: .bash}
-
-The data comes in a compressed format, which is why there is a `.gz` at the end of the file names. This makes it faster to transfer, and allows it to take up less space on our computer. Let's unzip one of the files so that we can look at the FASTQ format.
-
-~~~
-$ gunzip JP4D_R1.fastq.gz 
-~~~
-{: .bash}
-
 # Quality control
 
 We will now assess the quality of the sequence reads contained in our FASTQ files. 
