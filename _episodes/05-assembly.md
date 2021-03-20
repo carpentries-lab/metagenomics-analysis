@@ -160,6 +160,10 @@ tmp
 ~~~
 {: .output}
 
+As we can see MetaSPAdes gave us a lot of files. The ones with the assembly are the `contigs.fasta` and the `scaffolds.fasta`. The contigs are just made from assembled reads, but the scaffolds are the result from a subsequent process in which the contigs are ordered and oriented and connected with Ns.
+
+Other interesting output is the folder `corrected`, it contains the reads with the sequencing errors corrected. We will return to it latter. 
+
 Let's rename the file that contains our assembled contigs. 
 ~~~
 $ mv contigs.fasta JC1A_contigs.fasta
@@ -200,20 +204,20 @@ $ run_MaxBin.pl -thread 12 -contig JC1A_contigs.fasta -reads JC1A_R1.fastq -read
 {: .callout}
 
 ## MAGs (Metagenome-Assembled Genomes)  
-MAGs are the original genomes that we are looking for with the binning process. The binned contigs can be used as MAGs, but a more reliable way to obtain MAGs is by re-assembling the reads from the binned contigs. For this we need to map the original reads to the binned contigs and then re-assemble them. 
-With Bowtie2 we can do the mapping of the reads to the contigs to extract this reads. Let's see the command to do this with the bin named 01.
+MAGs are the original genomes that we are looking for with the binning process. The binned contigs can be used as MAGs, but a more reliable way to obtain MAGs is by re-assembling the reads from the binned contigs. For this we need to map the reads to the binned contigs and then re-assemble them. 
+With Bowtie2 we can do the mapping of the reads to the contigs to extract this reads. Let's see the command to do this with the bin named `JC1A_contigs_MaxBin.01.fasta`.
 
 ~~~
 #Build the index
-$ bowtie2-build JC1A_contigs_MaxBin_01.fasta JC1A_contigs_MaxBin_01
+$ bowtie2-build JC1A_contigs_MaxBin.01.fasta JC1A_contigs_MaxBin.01
 
 #Perform de mapping using the corrected reads from the MetaSPAdes output
-$ bowtie2 --threads 12 --sensitive-local -x JC1A_contigs.fasta -1 assembly_JC1A/corrected/JC1A_R1_cor.fastq.gz -2 assembly_JC1A/corrected/JC1A_R2_cor.fastq.gz -S JC1A_01.sam
+$ bowtie2 --threads 12 --sensitive-local -x JC1A_contigs_MaxBin.01.fasta -1 corrected/JC1A_R1.00.0_0.cor.fastq -2 corrected/JC1A_R2.00.0_0.cor.fastq -S JC1A_01.sam
 
 #Convert from sam format to bam format
 $ samtools view -F 4 -bS JC1A_01.sam > JC1A_01.bam
 
-#Obtain the reads from the mapping file
+#Obtain the reads from the bam file
 $ bamtools convert -in JC1A_01.bam -format fastq > JC1A_01.fastq
 
 ~~~
