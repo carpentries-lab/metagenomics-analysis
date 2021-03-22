@@ -46,7 +46,7 @@ Now you can also known in which directory you are standing by using `pwd`.
 Let's explore the content of some of our data files. So we have to move to the corresponding folder where our taxonomic-data files are: 
 
 ~~~
-$ cd /home/dcuser/dc_workshop/taxonomy
+$ cd /home/dcuser/dc_workshop/results
 ~~~~
 {: .bash}
 
