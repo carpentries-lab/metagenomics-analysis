@@ -313,6 +313,8 @@ $ rm *.kraken-wc
 $ mkdir ../results
 $ mv *wc ../results/.
 $ rm *lineage* *ranked* *merged  
+$ mv *kraken* ../results/.
+$ mv *report* ../results/.
 ~~~
 {: .bash}  
 
