@@ -1,14 +1,14 @@
 ---
-Title: "Background and Metadata"
-Teaching: 10 minutes
-Exercises: 0
-Questions:
+title: "Background and Metadata"
+teaching: 10 minutes
+exercises: 0
+questions:
 - "How do you plan a metagenomic experiment"   
-Objectives:
+objectives:
 - "Learn the difference between shotgun and amplicon metagenomics"
 - "Undestand the importance of metadata"  
 - "Familiarize yourself with the Cuatro Cienegas experiment"
-Keypoints:    
+keypoints:    
 - "Amplicon metagenomics can be used for taxonomic studies"
 - "Shotgun metagenomics can be used for taxonomic and functional studies"  
 - "Collecting metadata beforehand is important for downstream analysis"    
