@@ -1,37 +1,122 @@
 ---
 source: md
-title: "Diversity Analysis"
+title: "Knowing how to navigate in R "
 teaching: 40
-exercises: 20
+exercises: 10
 questions:
+- "What is R and why is important to be learned?"
+- "How do I use R tools to manage an R object?"
 - "How can I use R to explore diversity?"
-- "Which alternatives do we have to import taxonomic-assignation data in R?"
-- "How can we compare depth-contrasting samples?"
 objectives:
+- "Undestand why R is important"
+- "
 - "Comprehend which libraries are required for metagenomes diversity analysis."  
 - "Grasp how a phyloseq object is made"
-- "Understand how the help command can help to discover the capabilities of libraries."
-- "Apply the learned code to get diversity estimates."
-- "Use the diversity data to visualize different estimates of α diversity."
+- "Use the help command to get more insight on R functions."
+- "Undestand the needed commands to create a phyloseq object for analysis"
 keypoints:
 - "The library `phyloseq` manages metagenomics objects and computes alpha diversity."  
 - "Transform your named matrixes into Phyloseq objects using `pyhloseq(TAX, OTU)`."
 - "Use `help()` to discover the capabilities of libraries."
-- "The libraries `ggplot2` and `patchwork`allow publication-quality plotting in R."
-- "The kraken-biom program can automatize the creation of the phyloseq object"
+- "The libraries `ggplot2` allow publication-quality plotting in R."
 ---
-    
-## Using R studio
-In this lesson we will use R studio to analize two microbiome samples from CCB, you don't have to install anything, you already have an instance on the cloud ready to be used. 
 
-Now copy your instance address into your browser (Chrome or Firefox) and login into R studio.  
+*It takes courage to sail in uncharted waters*
+  -Snoopy
+
+## First steps into R 
+
+### What is R and for what can it be use for?
+
+"R" is used to refer to the programming language and the software that reads and 
+interpets what is it on the scripst. RStudio is the most popular program to write
+scripts and interact with the R software.
+
+R use a series of written commands and that is great! When you rely in clicking 
+and pointing, and in remembering where and why to point here or click that, mistakes
+are prone to occur. Moreover, if you manage to get more data, it is easier to just
+re-run your script to obtain results. Also, working with scripts makes the steps 
+you follow for your analysis clear and shareable. Here are some of the advantages
+for working with R:
+- R code is reproducible
+- R produce high-quality graphics
+- R has a large community
+- R is interdisciplinary 
+- R works on data of all colors and sizes
+- R is free!
+
+### A nautical chart of RStudio
+
+RStudio is an Integrated Development Environment(IDE) which we will use to write code,
+navigate the files from our computer/cloud, try code, inspect the variables we are 
+going to create, and visualize our contribed plots.
+
+![image](https://user-images.githubusercontent.com/67386612/112203976-c046e300-8bd8-11eb-9ee6-72c95f9134f3.png)
+Figure 1. RStudio interface screenshot. Clockwise from top left: Source, Environment/History, 
+Files/Plots/Packages/Help/Viewer, Console.
+
+You can enter your online RStudio to see your own environment. Let's copy your instance address into your browser
+(Chrome or Firefox) and login into R studio.  
 The address should look like:  `http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
-Your credencials are user:dcuser pass:data4Carp.  
+Your credencials are **user**:dcuser **pass**:data4Carp.  
 
 Although data are already stored in your instance, in case you need it you can donwload it [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
 
-## Exploring metagenome data with the terminal  
+### Review of the set-up
+
+As we have revisited throughout the lesson, maintaining related data, analyses in a single folder
+is desireable. In R, this folder is called **Working directory**. Here is where R will be looking 
+for and saving the files. If you need to check where your working directory is located use `getwd()`.
+If your working directory is not what you expected, always can be changed by clicking on the blue 
+gear icon and pick the option "Set As Working Directory". Alternatively, you can use the `setwd()`
+command for changing it.
+
+Let's use this commands to set or working directiry where we have stored our files from the previos 
+lessons:
+
+~~~
+$ setwd("~/dc_workshop/results/")
+~~~
+{: .language-r}
+
+### Having a dialogue with R
+
+There are two main paths to interact with R:(i) by using the console or (ii)by using script files.
+The console is where commands can be typed and executed immediately by the software and where the 
+results from executed commands will be shown. If R is ready to accept commands, the R console shows
+a > prompt. You can type instructions directly into the console and press "Enter", but they will 
+be forgotten when you close the session.
+
+For example, let's do some math and save it in R objects:
+~~~ 
+$ 4+3
+$ suma <- 4+3
+$ resta <- 2+1
+$ total <- suma -resta
+$ total
+~~~
+
+What would happend if you tap `ctrl` + `l`. Without the lesson page, could you remember of which 
+su of numbers is `suma` made?. Reproducibility is in our minds when we program. For this purpose, 
+is convenient to type the commands we want in the script editor, and save the script periodically. 
+We can run our code lines in the script by the shortcut `ctrl` + `Enter` 
+(on Macs, `Cmd` + `Return` will work). Thus, the command on the current line, or the instructions
+in the currently selected text will be sent to the console and will be executed.
+
+### Seeking help
+
+If you face some trouble with some function, let's say `summary()`, you can always type `?summary()`
+and a help page will be displayed with useful information for the function use. Furthermore, if you
+already know what you want to do, but you do not know which function to use, you can type `??` 
+following your inquiry, for example `??barplot` will open a help files in the RStudio's help
+panel in the lower right corner.
+
+
+### Exploring metagenome data with the terminal  
   
+In this lesson we will use R studio to analize two microbiome samples from CCB, you don't have to install anything, 
+you already have an instance on the cloud ready to be used.   
+
 The terminal is a program that executes programs, and is better to deal with long data sets than a visual interface.  
 First to visualize the content of our directory you can use the `ls` command.  
 
@@ -39,7 +124,7 @@ First to visualize the content of our directory you can use the `ls` command.
 $ ls
 ~~~~
 
-Now you can also known in which directory you are standing by using `pwd`. 
+Now you can also known in which directory you are standing in the reminal,by using `pwd`. 
 
 Let's explore the content of some of our data files. So we have to move to the corresponding folder where our taxonomic-data files are: 
 
@@ -196,6 +281,9 @@ $ p + geom_point(size=5, alpha=0.7)
 ~~~
 {: .language-r}
 
+![image](https://user-images.githubusercontent.com/67386612/112221050-95ff2080-8bec-11eb-9fd0-b602d6f153ae.png)
+Figure 2. Alpha diversity indexes for JC1A sample
+
 Each of these metrics can give insight of the distribution of the OTUs inside 
 our samples. For example. Chao1 diversity index gives more weight to singletons
 and doubletons observed in our samples. While Shannon is a entrophy index 
@@ -229,209 +317,14 @@ and that these two will belong to the same OTU.
 >>One of the widely α diversity indexes used is Simpson diversity index, as an example
 >>of solution, here it is the plot with an extra metric, which is Simpson α index:  
 >> `p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon", "Simpson"))`
->> 
+>> ![image](https://user-images.githubusercontent.com/67386612/112221137-b62edf80-8bec-11eb-85aa-dd5be3e8ca16.png)
+>>
 >> 
 > {: .solution}
 {: .challenge}  
   
   
-### Merge two metagenomes to compare them  
 
-Next, as we have both Phyloseq objects, one for each metagenome, you can merge
-them into one object:
-
-~~~
-$ merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
-~~~
-{: .language-r}
-
-
-Let´s look at the abundance of our metagenomes.  
-
-~~~
-$ merged_metagenomes
-$ sample_sums(merged_metagenomes)
-$ summary(merged_metagenomes@otu_table@.Data)
-~~~
-{: .language-r}
-
-Moreover, we can made plots with the diversity indexes evaluated before, but with our
-entire database:
-
-~~~
-$ p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon")) 
-$ p + geom_point(size=5, alpha=0.7)
-~~~
-
-It is evident that there is a great difference in the total reads(i.e. information) of each sample.
-Before we further process our data, let's take a look if we have any no-identified read. Marked as "NA"
-on the different taxonomic levels:
-
-~~~
-$ summary(merged_metagenomes@tax_table@.Data== "NA")
-~~~
-{: .language-r}
-
-By the above command, we can see that there are NAs on the different taxonomic leves. Although it is
-expected to see some NAs at species, or even at genus level, we will get rid of the ones at phylum
-level to procced with the analysis:
-
-~~~
-$ merged_metagenomes <- subset_taxa(merged_metagenomes, phylum != "NA")
-~~~
-{: .language-r}
-
-
-Next, since our metagenomes have different sizes it is imperative to convert the number 
-of assigned read into percentages (i.e. relative abundances) so as to compare them. 
-
-~~~
-$ percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
-~~~
-{: .language-r}
-
-In order to group all the OTUs that have the same taxonomy at a certain taxonomic rank,
-we will use the function "tax_grom". Also, the function "psmelt" lets melt phyloseq 
-objects into data.frame to manipulate them with ggplot and other libraries as vegan
-
-~~~
-$ glom <- tax_glom(percentages, taxrank = 'phylum')
-$ data <- psmelt(glom)
-~~~
-
-With the new data.frame, we can change the identification of the OTUs whose 
-relative abundance is less than 0.2% so as to have a number of recommended OTUs
-to contrast them in different colors (8-9)
-
-~~~
-$ data$phylum <- as.character(data$phylum)
-$ data$phylum[data$Abundance < 0.2] <- "Phyla < 0.2% abund."
-~~~
-
-Whit this object, we can create a plot which let us compare this relative abundance
-against the absolute abundance that we have at the beggining
-
-~~~
-$ percentages <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
-    geom_bar(aes(), stat="identity", position="stack")
-  
-$ glom <- tax_glom(merged_metagenomes, taxrank = 'phylum')
-$ data <- psmelt(glom)
-$ data$phylum <- as.character(data$phylum)
-$ absolute_count <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
-    geom_bar(aes(), stat="identity", position="stack")
-  
-$ absolute_count | percentages
-~~~
-
-At once, we can denote the difference between the two plots and how the 
-presentation of the data can be enhanced by conscient management of the 
-different objects.
-
-## Going further, lets took an interest lineage and explore it thoroughly
-
-As we have already reviewed, phyloseq offers a lot of tools to manage  
-and explore data. Lets take a look deeply to a tool that we already
-use, but into a guided exploration. The "subset_taxa" command is used to
-extract specific lineages from a stated taxonomic level, we have used it
-to get rid from the reads that does not belong to bacteria at superkindom
-level:
-
-~~~
-$ metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
-~~~
-
-We are going to used this command to extract an specific phylum from our 
-data, and explore it at a more lower taxonomic lever: Genus
-
-~~~
-$ cyanos <- subset_taxa(merged_metagenomes, phylum == "Cyanobacteria")
-$ cyanos <- subset_taxa(cyanos, genus != "NA")
-$ cyanos  = transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
-$ glom <- tax_glom(cyanos, taxrank = "genus")
-$ data <- psmelt(glom)
-$ cyanos <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+ 
-    geom_bar(aes(), stat="identity", position="stack")
-~~~
-
-
-> ## Exercise
-> 
-> Go into groups and choose one phylum that is interesting for your
-> group, and use the code learned to generate a plot where you can 
-> show us the abundance in each of the sample
->> ## Solution
->> Change "Cyanobacteria" wherever it is needed to get a result from
->> other phylum, as an example, here is the solution for Proteobacteria:
->>proteo <- subset_taxa(merged_metagenomes, phylum == "Proteobacteria")
->>proteo <- subset_taxa(proteo, genus != "NA")
->>proteo  = transform_sample_counts(proteo, function(x) x*100 / sum(x) )
->>glom <- tax_glom(proteo, taxrank = "genus")
->>data <- psmelt(glom)
->>proteo <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+ 
->>  geom_bar(aes(), stat="identity", position="stack")
-> {: .solution}
-{: .challenge} 
-                             
-
-## kraken-biom as an alternative to create a phyloseq object
-
-In the above lines we explored how to create a phyloseq object using basic R functions.
-Certainly, this is a method that helps to practize and masterize the manipulation of 
-different type of objects and information. But we can obtain the same result by using
-programs that will extract the information from the kraken output files and will help
-us to save time. One program widely used for this purpose is kraken-biom.
-
-kraken-biom is a program that creates BIOM tables from the Kraken output 
-[kraken-biom](https://github.com/smdabdoub/kraken-biom)
-
-
-### Using the kraken.report files with kraken-biom
-
-For the next few steps, lets return to the terminal since kraken-biom is ment to be
-used there. Lets take a look at the different flags that kraken-biom have:
-
-~~~
-$ kraken-biom -h                  
-~~~
-{: .bash}
-
-By a close look at the first output lines, it is noticeable that we need a specific output
-from Kraken, those are the `kraken.report`. If you explore the different files inside 
-the folder where we are located, you will see that the reports for each sample are 
-inside.
-~~~
-$ kraken-biom JC1A.report JP4D.report --fmt json -o cuatroc.biom
-~~~
-{: .bash}
-
-If we inspect our folder, we will see that the object "cuatroc.biom" is now part of 
-our folder, this is a biom object which contains both, the abundances of each OTU and 
-the identificator of each OTU. With this object we will procced to create the phyloseq 
-object.
-
-~~~
-$ merged_metagenomes <- import_biom("cuatroc.biom")
-~~~
-{: .language-r}
-
-Now, we can inspect the result by asking what class is the object created, and 
-doing a close inspection of some of its content:
-~~~
-$ class(merged_metagenomes)
-$ View(merged_metagenomes@tax_table@.Data)
-~~~
-The "class" command indicate that we already have our phyloseq object and 
-inside the tax_table we see that it looks just like the one created before.
-Lets get rid of some of the innecesary characters in the OTUs identificator
-and put name to the taxonomic ranks:
-~~~
-$ merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
-$ colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
-~~~
-
-Finally, we can review our object and see that both datasets 
-(i.e. JC1A and JP4D) are in the our object.
   
 > ## `.discussion`
 >
