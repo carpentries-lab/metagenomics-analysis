@@ -30,29 +30,34 @@ with the species that we found. To know which methodology we should use, it is i
 type of metagenomic sequence we have. 
 
 ## Shotgun and Amplicons    
-There are two types of metagenomes, shotgun metagenomes and amplicon metagenomes. Each is named after the sequencing 
-methodology employed, and have particular use cases, with inherent advantages and disadventages.
+There are two types of metagenomes, shotgun metagenomes and amplicon metagenomes. 
+Each is named after the sequencing methodology employed, and have particular use cases, 
+with inherent advantages and disadventages.
 
-In a *Shotgun Metagenome* we sequence random parts of the genomes present in a niche. We can seach the
-origin of these pieces, _i.e._ their taxonomy, and also try to find to which gene they belong to. Given enough 
-pieces, it even possible to obtain full individual genomes from a shotgun metagenome, which could
-give us a bunch of information about the species in our study. This, however, requieres that we have
-a lot of genomic sequences from one organism, and since the sequencing is donde at random, we usually have to
-sequence our community a lot (have a high sequencing depth) to make sure that we obtain enough pieces of a
-given genome. This gets exponencially harder when our species of interest is not very abundant. It also requires
-that we have enough DNA to work with, which can be difficult to obtain in certain cases. Finally, a lot of sequencing 
-means a lot of expenses, and because of this, making technical and biological replicates can be prohibitively costly.   
+In a *Shotgun Metagenome* we sequence random parts of the genomes present in a niche. We can seach 
+the origin of these pieces, _i.e._ their taxonomy, and also try to find to which gene they belong to. 
+Given enough pieces, it even possible to obtain full individual genomes from a shotgun metagenome, 
+which could give us a bunch of information about the species in our study. This, however, requieres 
+that we have a lot of genomic sequences from one organism, and since the sequencing is donde at random, 
+we usually have to sequence our community a lot (have a high sequencing depth) to make sure that we obtain 
+enough pieces of a given genome. This gets exponencially harder when our species of interest is not 
+very abundant. It also requires that we have enough DNA to work with, which can be difficult to obtain 
+in certain cases. Finally, a lot of sequencing means a lot of expenses, and because of this, making 
+technical and biological replicates can be prohibitively costly.   
 
-*Amplicon metagenomes*, on the contrary, tend to be cheap, which makes it more easy to duplicate and even triplicate them
-without taking a big financial hit. This is because amplicon metagenomes are the collection of small genomic fragments 
-present in the community and amplified through PCR. If the amplified region is present only once in every genome, ideally 
-we wouldn't need to sequence the amplicon metagenome so throughly, because one sequence is all we need to get the information
-about that genome, and by extension, about that species. On the other hand, if a genome in community lacks the region targeted 
-by the PCR primers, then no amount of sequencing can give us information about that genome. 
-This is why the most popular amplicon used for these metagenomes are 16S amplicons, since every known bacteria have this particular
-region. Other regions can be choosen, but they are used for very specific cases. However, even 16S amplicons are limited to, well, the
-16S region, so amplicon metagenomes cannot directly tell us a lot about the metabolic functions found in each genome, altough 
-educated guesses can be made by knowing which genes are commonly found in every identified species. 
+*Amplicon metagenomes*, on the contrary, tend to be cheap, which makes it more easy to duplicate and 
+even triplicate them without taking a big financial hit. This is because amplicon metagenomes are 
+the collection of small genomic fragments present in the community and amplified through PCR. If 
+the amplified region is present only once in every genome, ideally we wouldn't need to sequence the 
+amplicon metagenome so throughly, because one sequence is all we need to get the information
+about that genome, and by extension, about that species. On the other hand, if a genome in community 
+lacks the region targeted by the PCR primers, then no amount of sequencing can give us information 
+about that genome. This is why the most popular amplicon used for these metagenomes are 16S amplicons, 
+since every known bacteria have this particular region. Other regions can be choosen, but they are 
+used for very specific cases. However, even 16S amplicons are limited to, well, the 16S region, so 
+amplicon metagenomes cannot directly tell us a lot about the metabolic functions found in each genome, 
+altough educated guesses can be made by knowing which genes are commonly found in every identified 
+species. 
 
 <a href="{{ page.root }}/fig/metagenomic workflow.png">
   <img src="{{ page.root }}/fig/metagenomic workflow.png" alt="Cog Metagenome" />
@@ -60,15 +65,17 @@ educated guesses can be made by knowing which genes are commonly found in every 
 
 ## On metadata
 
-Once we have choosen the most adequate type of metagenome for our study, it is important to take extensive notes on the origin of 
-our samples, and how we treated them. These notes are the metadata, or data about our data, and it is crucial to undestand
-and interpret the results that we are going to obtain later on our metagenomic analysis. Most of the times, the differences
-that we observe when comparing metagenomes can be correlated to the metadata, which is why we must include a whole section of our
-experimental design to the metadata that we expect to collect, and record it carefully. 
+Once we have choosen the most adequate type of metagenome for our study, it is important to take 
+extensive notes on the origin of our samples, and how we treated them. These notes are the metadata, 
+or data about our data, and it is crucial to undestand and interpret the results that we are going 
+to obtain later on our metagenomic analysis. Most of the times, the differences that we observe when 
+comparing metagenomes can be correlated to the metadata, which is why we must include a whole section 
+of our experimental design to the metadata that we expect to collect, and record it carefully. 
 
 > ## Amplicon or Shotgun? 
 >
-> Suppose you would like to compare the gut microbiome of people affected by a rather nasty bacterial disease against the gut microbiome of healty people.  
+> Suppose you would like to compare the gut microbiome of people affected by a rather nasty bacterial 
+> disease against the gut microbiome of healty people.  
 > Which type or metagenomics would you choose?  
 > Which type of metadata would be useful to record?  
 {: .discussion}
@@ -91,11 +98,12 @@ survive and thrive in that environment.
 
 The particular metagenomic study that we are going to work with was collected in a
 [study about the response of the Cuatro Cienegas' bacterial community to nutrient enrichment.](https://elifesciences.org/articles/49816) 
-In this study, the authors compared the differences between the microbial community in its natural, oligotrophic, 
-phosphorus-deficient environment, a pond from the Cuatro Ciénegas Basin (CCB), and the same microbial community under a fertilization treatment.
-The comparision between bacterial communites showed that many genomic traits, such as mean bacterial genome size, GC content, 
-total number of tRNA genes, total number of rRNA genes, and codon usage bias were significantly changed when the bacterial community 
-underwent the treatment. 
+In this study, the authors compared the differences between the microbial community in its natural, 
+oligotrophic, phosphorus-deficient environment, a pond from the Cuatro Ciénegas Basin (CCB), 
+and the same microbial community under a fertilization treatment. The comparision between bacterial 
+communites showed that many genomic traits, such as mean bacterial genome size, GC content, 
+total number of tRNA genes, total number of rRNA genes, and codon usage bias were significantly 
+changed when the bacterial community underwent the treatment. 
 
 > ## Exercise 
 > 
@@ -112,8 +120,8 @@ underwent the treatment.
 {: .challenge}
 
 The results of this study, raw sequences and metadata, have been submitted to the NCBI Sequence Read Archive (SRA), 
-and are stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811).Here is how an entry of this BioProject 
-looks like:
+and are stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811).
+Here is how an entry of this BioProject looks like:
 
 | Column           | Description                                |
 |------------------|--------------------------------------------|
