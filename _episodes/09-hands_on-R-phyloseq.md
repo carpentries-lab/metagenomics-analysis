@@ -20,10 +20,10 @@ keypoints:
 - "Use `help()` to discover the capabilities of libraries."
 - "The libraries `ggplot2` allow publication-quality plotting in R."
 ---
-
-
 ## First steps into R 
-
+*It takes courage to sail in uncharted waters*
+  -Snoopy
+  
 ### What is R and for what can it be use for?
 
 "R" is used to refer to the programming language and the software that reads and 
