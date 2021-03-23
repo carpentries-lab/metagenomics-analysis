@@ -22,15 +22,13 @@ keypoints:
 ---
     
 ## Using R studio
-In this lesson we will use R studio to analize two microbiome samples from 4C, you don't have to install anything, you already have an instance on the cloud ready to be used. 
+In this lesson we will use R studio to analize two microbiome samples from CCB, you don't have to install anything, you already have an instance on the cloud ready to be used. 
 
-1. Click on this [shared google sheet](https://docs.google.com/spreadsheets/d/1w78TuQUdtI2Fgk4DFG26YYkXTkUg2vTjVLaRH-D_7xk/edit?usp=sharing) and in the first column write without spaces your name and lastname. Check that you do not overwrite other participant's names. 
-
-2. Now copy your instance address into your browser (Chrome or Firefox) and login into R studio.  
+Now copy your instance address into your browser (Chrome or Firefox) and login into R studio.  
 The address should look like:  `http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
 Your credencials are user:dcuser pass:data4Carp.  
 
-3. Data are already stored at your instance, but in case you lose your data you can donwload it [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
+Although data are already stored in your instance, in case you need it you can donwload it [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
 
 ## Exploring metagenome data with the terminal  
   
@@ -330,7 +328,7 @@ At once, we can denote the difference between the two plots and how the
 presentation of the data can be enhanced by conscient management of the 
 different objects.
 
-## Going further, lets took an interest lineaje and explore it thoroughly
+## Going further, lets took an interest lineage and explore it thoroughly
 
 As we have already reviewed, phyloseq offers a lot of tools to manage  
 and explore data. Lets take a look deeply to a tool that we already
