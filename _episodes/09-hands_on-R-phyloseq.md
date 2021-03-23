@@ -21,8 +21,6 @@ keypoints:
 - "The libraries `ggplot2` allow publication-quality plotting in R."
 ---
 
-*It takes courage to sail in uncharted waters*
-  -Snoopy
 
 ## First steps into R 
 
