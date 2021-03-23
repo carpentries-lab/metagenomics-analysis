@@ -204,14 +204,14 @@ $ run_MaxBin.pl -thread 12 -contig JC1A_contigs.fasta -reads JC1A_R1.fastq -read
 {: .callout}
 
 ## MAGs (Metagenome-Assembled Genomes)  
-MAGs are the original genomes that we are looking for with the binning process. The binned contigs can be used as MAGs, but a more reliable way to obtain MAGs is by re-assembling the reads from the binned contigs. For this we need to map the reads to the binned contigs and then re-assemble them. 
-With Bowtie2 we can do the mapping of the reads to the contigs to extract this reads. Let's see the command to do this with the bin named `JC1A_contigs_MaxBin.01.fasta`.
+MAGs are the original genomes that we are looking for with the binning process. The binned contigs can be used as MAGs, but a more reliable way to obtain MAGs is by re-assembling the reads from the binned contigs. For this we need to map the reads to the binned contigs, to separate the reads that correspond to each bin, and then re-assemble them. 
+With Bowtie2 we can do the mapping (also called alignment) of the reads to the contigs of one bin to extract this reads. The reads we will be using are the reads corrected by MetaSPAdes. Let's see the command to do this with the bin named `JC1A_contigs_MaxBin.01.fasta`.
 
 ~~~
 #Build the index
 $ bowtie2-build JC1A_contigs_MaxBin.01.fasta JC1A_contigs_MaxBin.01
 
-#Perform de mapping using the corrected reads from the MetaSPAdes output
+#Perform the mapping using the corrected reads from the MetaSPAdes output
 $ bowtie2 --threads 12 --sensitive-local -x JC1A_contigs_MaxBin.01.fasta -1 corrected/JC1A_R1.00.0_0.cor.fastq -2 corrected/JC1A_R2.00.0_0.cor.fastq -S JC1A_01.sam
 
 #Convert from sam format to bam format
