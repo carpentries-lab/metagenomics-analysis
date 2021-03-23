@@ -52,9 +52,7 @@ We will now assess the quality of the sequence reads contained in our FASTQ file
 
 ## Details on the FASTQ format
 
-Although it looks complicated (and it is), we can understand the
-[FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format
-include...
+Although it looks complicated (and it is), we can understand the [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format include...
 
 |Line|Description|
 |----|-----------|
@@ -67,6 +65,8 @@ We can view the first complete read in one of the files our dataset by using `he
 the first four lines. 
 
 ~~~
+$ cd /dc_workshop/data/untrimmed_fastq/
+
 $ head -n 4 JP4D_R1.fastq
 ~~~
 {: .bash}
@@ -120,13 +120,13 @@ A>>1AFC>DD111A0E0001BGEC0AEGCCGEGGFHGHHGHGHHGGHHHGGGGGGGGGGGGGHHGEGGGHHHHGHHGHHH
 ~~~
 {: .output}
 
-we can now see that there is a range of quality scores, but that the end of the sequence is
+We can now see that there is a range of quality scores, but that the end of the sequence is
 very poor (`#` = a quality score of 2). 
 
 > ## Exercise
 > 
-> What is the last read in the `JP4D_R1.fastq ` file? How confident
-> are you in this read? 
+> What is the last read in the `JP4D_R1.fastq ` file? 
+> How confident are you in this read? 
 > 
 >> ## Solution
 >> ~~~
@@ -272,7 +272,7 @@ BUGS
 ~~~
 {: .bash}
 
-if FastQC is not installed then you would expect to see an error like
+If FastQC is not installed then you would expect to see an error like
 
 ~~~
 $ fastqc -h 
@@ -291,8 +291,7 @@ Later in our workflow, we'll use another program to filter out poor quality read
 FastQC has a number of features which can give you a quick impression of any problems your
 data may have, so you can take these issues into consideration before moving forward with your
 analyses. Rather than looking at quality scores for each individual read, FastQC looks at
-quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates
-a very high quality sample:
+quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
 
  <a href="{{ page.root }}/fig/good_quality1.8.png">
   <img src="{{ page.root }}/fig/good_quality1.8.png" alt="Good Quality" />
@@ -588,11 +587,11 @@ In this example, the input is six filenames (one filename for each of our `.zip`
 Each time the loop iterates, it will assign a file name to the variable `filename`
 and run the `unzip` command.
 The first time through the loop,
-`$filename` is `SRR2584863_1_fastqc.zip`. 
-The interpreter runs the command `unzip` on `SRR2584863_1_fastqc.zip`.
+`$filename` is `JC1A_R1_fastqc.zip`. 
+The interpreter runs the command `unzip` on `JC1A_R1_fastqc.zip`.
 For the second iteration, `$filename` becomes 
-`SRR2584863_2_fastqc.zip`. This time, the shell runs `unzip` on `SRR2584863_2_fastqc.zip`.
-It then repeats this process for the four other `.zip` files in our directory.
+`JC1A_R2_fastqc.zip`. This time, the shell runs `unzip` on `JC1A_R2_fastqc.zip`.
+It then repeats this process for the other `.zip` files in our directory.
 
 
 When we run our `for` loop, you will see output that starts like this:
