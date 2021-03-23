@@ -173,7 +173,7 @@ $ mv contigs.fasta JC1A_contigs.fasta
 
 > ## `.discussion`
 >
-> Does amplicon metagenomics needs an assembly step in its analysis worflow?  
+> Does amplicon metagenomics needs an assembly step in its analysis workflow?  
 {: .discussion}
 
 
