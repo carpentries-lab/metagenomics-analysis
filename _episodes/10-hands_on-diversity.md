@@ -56,6 +56,8 @@ $ p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shann
 $ p + geom_point(size=5, alpha=0.7)
 ~~~
 
+![image](https://user-images.githubusercontent.com/67386612/112223149-23dc0b00-8bef-11eb-8651-677a5713a5bb.png)
+Figure 1. Alpha diversity indexes for each of our samples
 
 It is evident that there is a great difference in the total reads(i.e. information) of each sample.
 Before we further process our data, let's take a look if we have any no-identified read. Marked as "NA"
@@ -117,6 +119,9 @@ $ absolute_count <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+
   
 $ absolute_count | percentages
 ~~~
+![image](https://user-images.githubusercontent.com/67386612/112223252-4706ba80-8bef-11eb-8f09-08d95191dcc1.png)
+Figure 2. Diversity at phylum level (i) with absolute abundances and (ii) relative abundance.
+
 
 At once, we can denote the difference between the two plots and how the 
 presentation of the data can be enhanced by conscient management of the 
@@ -147,7 +152,8 @@ $ data <- psmelt(glom)
 $ cyanos <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+ 
     geom_bar(aes(), stat="identity", position="stack")
 ~~~
-
+![image](https://user-images.githubusercontent.com/67386612/112223345-67cf1000-8bef-11eb-9bdc-4fe239bca9b2.png)
+Figure 3. Diversity of Cyanobacteria at genus level inside our samples.
 
 > ## Exercise
 > 
