@@ -1,8 +1,8 @@
 ---
-Title: "Metagenomic Cloud Services"
-Teaching: 5 minutes
-Exercises: 15
-Questions:
+title: "Metagenomic Cloud Services"
+teaching: 5 minutes
+exercises: 15
+questions:
 - "What are cloud services?"
 - "How can I analyze metagenomic data with them?"
 objectives:
@@ -19,15 +19,15 @@ keypoints:
 
 
 ## Cloud pipelines can be web or command-line based
-The cloud is that place to where we can send our data to be stored and analyzed. 
+The cloud is that place where we can send our data to be stored and analyzed. 
 To access cloud services, we can use traditional web pages (think of Dropbox or Google Drive), or 
-use a more direct connecction through the command line. In this lesson we explore both approaches
+use a more direct connection through the command line. In this lesson we explore both approaches
 to upload, store and analyze our metagenomic data.
 
 For the web bounded cloud services we will use MG-RAST, an online metagenomic plataform where 
 you can upload your raw data with its corresponding metadata and get a full taxonomic analysis of
 it. MG-RAST is a great place to get started in this type of analyzes and it is also a big repository of 
-available data for future experiments. On the downside, it is not possible to greaty modifiy the steps 
+available data for future experiments. On the downside, it is not possible to greatly modifiy the steps 
 and parameters in the MG-RAST workflow, so there is not much leeway when it comes to implement our 
 prefered analysis tools when using MG-RAST.
 
@@ -86,7 +86,7 @@ are dedicated to metabolism.
 
 > ## Exercise
 > 
-> We saw the piecharts for kingdom, phylum and gnera, but what about family. Which family is the most abundant?
+> We saw the piecharts for kingdom, phylum and genera, but what about family?. Which family is the most abundant?
 > 
 > 
 >> ## Solution
@@ -212,7 +212,7 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 {: .challenge}
 
 Now we put everything that we've learned into use.
-There is fasta file in your AWS remote computer called `JP4D.fasta`
+There is fasta file in your AWS remote computer called `JP4D.fasta` in the `dc_workshop/assembly/` directory.
 Let's download it, and then analyze it with MG-RAST
 
 > ## Exercise 4  
