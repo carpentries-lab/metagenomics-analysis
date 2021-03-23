@@ -117,7 +117,7 @@ looks like:
 
 | Column           | Description                                |
 |------------------|--------------------------------------------|
-| file_name	          | JP4DASH2120627WATERAMPRESIZED.fasta				|
+| file_name	          | JP4D.fasta				|
 | investigation_type	       | metagenome		|
 | seq_meth            | illumina	|
 | project_description	        |  This project is a teaching project and uses data from Okie et al Elife 2020			|
