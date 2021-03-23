@@ -9,7 +9,6 @@ questions:
 - "How can I use R to explore diversity?"
 objectives:
 - "Undestand why R is important"
-- "
 - "Comprehend which libraries are required for metagenomes diversity analysis."  
 - "Grasp how a phyloseq object is made"
 - "Use the help command to get more insight on R functions."
@@ -18,7 +17,7 @@ keypoints:
 - "The library `phyloseq` manages metagenomics objects and computes alpha diversity."  
 - "Transform your named matrixes into Phyloseq objects using `pyhloseq(TAX, OTU)`."
 - "Use `help()` to discover the capabilities of libraries."
-- "The libraries `ggplot2` allow publication-quality plotting in R."
+- "The library `ggplot2` allow publication-quality plotting in R."
 ---
 ## First steps into R 
 *It takes courage to sail in uncharted waters*
