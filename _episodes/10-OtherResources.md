@@ -35,7 +35,7 @@ The lesson template comes with several utilities to simplify lesson development 
 
 > ## `.discussion`
 >
-> Discussion questions.
+> Explore one of the suggested resources and discuss your findings with a neighbor.
 {: .discussion}
 
                              
