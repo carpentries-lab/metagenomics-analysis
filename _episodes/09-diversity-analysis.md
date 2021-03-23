@@ -224,11 +224,11 @@ and that these two will belong to the same OTU.
 > 
 >> ## Solution
 >> 
->> '?plot_richness' or help("plot_richness")
+>> `?plot_richness` or `help("plot_richness")`
 >> 
 >>One of the widely α diversity indexes used is Simpson diversity index, as an example
->>of solution, here it is the plot with an extra metric, which is Simpson α index:
->> p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon", "Simpson")) 
+>>of solution, here it is the plot with an extra metric, which is Simpson α index:  
+>> `p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon", "Simpson"))`
 >> 
 >> 
 > {: .solution}
