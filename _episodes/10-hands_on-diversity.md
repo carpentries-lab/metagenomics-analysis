@@ -25,13 +25,14 @@ goal*
 
   -Sergio Cuellar
 
-In the last lesson we created two phyloseq objects, each containing the information
-of one of our samples: "metagenome_JC1A" and "metagenome_JP4D". But useful 
+In the last lesson, we created two phyloseq objects, each containing the information 
+of one of our samples: "metagenome_JC1A" and "metagenome_JP4D". But useful as it can be, 
+we can not compare them until we put them together in a single phyloseq object.
 
 ### Merge two metagenomes to compare them  
 
-Next, as we have both Phyloseq objects, one for each metagenome, you can merge
-them into one object:
+With the two Phyloseq objects created, one for each metagenome, its time to merge
+them into one single phyloseq object with the next command:
 
 ~~~
 $ merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
@@ -60,7 +61,7 @@ $ p + geom_point(size=5, alpha=0.7)
 Figure 1. Alpha diversity indexes for each of our samples
 
 It is evident that there is a great difference in the total reads(i.e. information) of each sample.
-Before we further process our data, let's take a look if we have any no-identified read. Marked as "NA"
+Before we further process our data, take a look if we have any no-identified read. Marked as "NA"
 on the different taxonomic levels:
 
 ~~~
@@ -68,9 +69,9 @@ $ summary(merged_metagenomes@tax_table@.Data== "NA")
 ~~~
 {: .language-r}
 
-By the above command, we can see that there are NAs on the different taxonomic leves. Although it is
-expected to see some NAs at species, or even at genus level, we will get rid of the ones at phylum
-level to procced with the analysis:
+By the above command, we can see that there are NAs on different taxonomic leves. Although it is
+expected to see some NAs at the species, or even at the genus level, we will get rid of the ones at 
+the phylum level to proceed with the analysis:
 
 ~~~
 $ merged_metagenomes <- subset_taxa(merged_metagenomes, phylum != "NA")
@@ -78,7 +79,7 @@ $ merged_metagenomes <- subset_taxa(merged_metagenomes, phylum != "NA")
 {: .language-r}
 
 
-Next, since our metagenomes have different sizes it is imperative to convert the number 
+Next, since our metagenomes have different sizes, it is imperative to convert the number 
 of assigned read into percentages (i.e. relative abundances) so as to compare them. 
 
 ~~~
@@ -87,25 +88,26 @@ $ percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 /
 {: .language-r}
 
 In order to group all the OTUs that have the same taxonomy at a certain taxonomic rank,
-we will use the function "tax_grom". Also, the function "psmelt" lets melt phyloseq 
-objects into data.frame to manipulate them with ggplot and other libraries as vegan
+we will use the function `tax_grom`. Also, the function `psmelt` melt phyloseq 
+objects into a `data.frame` to manipulate them with packages like `ggplot` and `vegan`.
 
 ~~~
 $ glom <- tax_glom(percentages, taxrank = 'phylum')
 $ data <- psmelt(glom)
 ~~~
 
-With the new data.frame, we can change the identification of the OTUs whose 
-relative abundance is less than 0.2% so as to have a number of recommended OTUs
-to contrast them in different colors (8-9)
+With the new `data.frame`, we can change the identification of the OTUs whose 
+relative abundance is less than 0.2%, so as to have a number of OTUs that not 
+surpass the recommended ones (8-9). 8 to 9 contrasting colors are the most that 
+the human eye can distinguish in terms of color in a plot.
 
 ~~~
 $ data$phylum <- as.character(data$phylum)
 $ data$phylum[data$Abundance < 0.2] <- "Phyla < 0.2% abund."
 ~~~
 
-Whit this object, we can create a plot which let us compare this relative abundance
-against the absolute abundance that we have at the beggining
+Whit this object, we can create a plot to compare the obtained relative abundance
+against the absolute abundance.
 
 ~~~
 $ percentages <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
@@ -123,24 +125,22 @@ $ absolute_count | percentages
 Figure 2. Diversity at phylum level (i) with absolute abundances and (ii) relative abundance.
 
 
-At once, we can denote the difference between the two plots and how the 
-presentation of the data can be enhanced by conscient management of the 
-different objects.
+At once, we can denote the difference between the two plots and how  
+processing the data can enhance the display of important results.
 
 ## Going further, lets took an interest lineage and explore it thoroughly
 
 As we have already reviewed, phyloseq offers a lot of tools to manage  
 and explore data. Lets take a look deeply to a tool that we already
-use, but into a guided exploration. The "subset_taxa" command is used to
+use, but now with a guided exploration. The `subset_taxa` command is used to
 extract specific lineages from a stated taxonomic level, we have used it
-to get rid from the reads that does not belong to bacteria at superkindom
-level:
+in the past lesson to get rid from the reads that does not belong to bacteria:
 
 ~~~
 $ metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
 ~~~
 
-We are going to used this command to extract an specific phylum from our 
+We are going to it now to extract an specific phylum from our 
 data, and explore it at a more lower taxonomic lever: Genus
 
 ~~~
@@ -160,6 +160,9 @@ Figure 3. Diversity of Cyanobacteria at genus level inside our samples.
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the code learned to generate a plot where you can 
 > show us the abundance in each of the sample
+> Please, paste your result on the next document, there you can find 
+> the Breakout room where you need to be working with, good luck:
+> https://docs.google.com/document/d/1oFg3uUZUANf7S1Mh2KamzrcGhkKsXP5Mk1KxKv6k8wA/edit?usp=sharing 
 >> ## Solution
 >> Change "Cyanobacteria" wherever it is needed to get a result from
 >> other phylum, as an example, here is the solution for Proteobacteria:
@@ -176,9 +179,9 @@ Figure 3. Diversity of Cyanobacteria at genus level inside our samples.
 
 ## kraken-biom as an alternative to create a phyloseq object
 
-In the above lines we explored how to create a phyloseq object using basic R functions.
-Certainly, this is a method that helps to practize and masterize the manipulation of 
-different type of objects and information. But we can obtain the same result by using
+In the above lines, we explored how to create a phyloseq object using basic R functions.
+Certainly, this is a method that helps to practice and master the manipulation of 
+different types of objects and information. But we can obtain the same result by using
 programs that will extract the information from the kraken output files and will help
 us to save time. One program widely used for this purpose is kraken-biom.
 
@@ -197,18 +200,21 @@ $ kraken-biom -h
 {: .bash}
 
 By a close look at the first output lines, it is noticeable that we need a specific output
-from Kraken, those are the `kraken.report`. If you explore the different files inside 
+from Kraken: `kraken.report`s. If you explore the different files inside 
 the folder where we are located, you will see that the reports for each sample are 
 inside.
+
+With the next command, we are going to create a table in Biom format called `cuatroc.biom`:
+
 ~~~
 $ kraken-biom JC1A.report JP4D.report --fmt json -o cuatroc.biom
 ~~~
 {: .bash}
 
 If we inspect our folder, we will see that the object "cuatroc.biom" is now part of 
-our folder, this is a biom object which contains both, the abundances of each OTU and 
-the identificator of each OTU. With this object we will procced to create the phyloseq 
-object.
+our files, this is a biom object which contains both, the abundances of each OTU and 
+the identificator of each OTU. With this file we will procced to create the phyloseq 
+object by the `import_biom` command:
 
 ~~~
 $ merged_metagenomes <- import_biom("cuatroc.biom")
@@ -221,10 +227,11 @@ doing a close inspection of some of its content:
 $ class(merged_metagenomes)
 $ View(merged_metagenomes@tax_table@.Data)
 ~~~
-The "class" command indicate that we already have our phyloseq object and 
-inside the tax_table we see that it looks just like the one created before.
-Lets get rid of some of the innecesary characters in the OTUs identificator
-and put name to the taxonomic ranks:
+The "class" command indicate that we already have our phyloseq object. Also, 
+inside the tax_table we see that it looks just like the one created in the
+last episode of the lesson. Let's get rid of some of the innecesary characters 
+in the OTUs identificator and put name to the taxonomic ranks:
+
 ~~~
 $ merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
 $ colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
