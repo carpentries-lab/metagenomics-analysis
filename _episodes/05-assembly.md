@@ -208,7 +208,7 @@ MAGs are the original genomes that we are looking for with the binning process. 
 With Bowtie2 we can do the mapping (also called alignment) of the reads to the contigs of one bin to extract this reads. The reads we will be using are the reads corrected by MetaSPAdes. Let's see the command to do this with the bin named `JC1A_contigs_MaxBin.01.fasta`.
 
 <a href="{{ page.root }}/fig/mapping_bins.png">
-  <img src="{{ page.root }}/fig/mapping_bins.png" width="350" height="600" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/mapping_bins.png" width="600" height="300" alt="Cog Metagenome" />
 </a>
 
 ~~~
