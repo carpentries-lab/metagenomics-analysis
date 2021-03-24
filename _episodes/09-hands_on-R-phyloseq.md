@@ -325,7 +325,7 @@ and that these two will belong to the same OTU.
   
 > ## `.discussion`
 >
-> How much did the α diversity can changed by elimination singletons
+> How much did the α diversity can be changed by elimination of singletons
 > and doubletons?
 {: .discussion}
   
