@@ -25,8 +25,7 @@ An assembly is a data structure that maps the sequence data to a reconstruction 
 The assembly process groups reads into contigs and contigs into scaffolds. There are many programs devoted to
 [genome](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874646/) and metagenome assembly, some of the
 main strategies they use are: Greedy extension, OLC and De Bruijn charts. When metagenomics is
-shotgun instead of amplicon metagenomics an extra assembly step must be run
-[documentation](https://kramdown.gettalong.org/converter/html.html#auto-ids),
+shotgun instead of amplicon metagenomics an extra assembly step must be run.
 
 <a href="{{ page.root }}/fig/EnsambladoFinal.png">
   <img src="{{ page.root }}/fig/EnsambladoFinal.png" width="500" height="600" alt="Cog Metagenome" />
@@ -183,33 +182,29 @@ In this process, the assembled contigs from the metagenome will be assigned to d
 
 Although an obvious way to separate contigs that correspond to a different species is by their taxonomic assignation, there are more reliable methods that do the binning using characteristics of the contigs, such as their GC content, the use of tetranucleotides (composition) or their coverage (abundance).
 
-[Maxbin](https://sourceforge.net/projects/maxbin/files/) is a binning algorithm. The information it uses to distinguish contigs that correspond to different genomes, is the coverage levels of the contigs and the tetranucleotide frequencies they have.
+[Maxbin](https://sourceforge.net/projects/maxbin/files/) is a binning algorith that distinguishes contigs that belong to different bins according to their coverage levels and the tetranucleotide frequencies they have.
 
 
 <a href="{{ page.root }}/fig/Binning(47).png">
   <img src="{{ page.root }}/fig/Binning(47).png" width="350" height="600" alt="Cog Metagenome" />
 </a>
 
-We will not perform the binning process in this lesson because the data we are working with is not adequate for it, but let's look at the commands without running them.  
+We will not perform the binning process in this lesson because the data we are working with is not adequate for it, but let's look at the commands without running them. The command for running MaxBin is `run_MaxBin.pl`, and the arguments it needs are the FASTA file of the assmbly, the FASTQ with the reads and an output directory where you want your results stored.
 ~~~
-$ run_MaxBin.pl -thread 12 -contig JC1A_contigs.fasta -reads JC1A_R1.fastq -reads2 JC1A_R2.fastq -out MaxBin/
+$ mkdir MaxBin
+$ run_MaxBin.pl -contig JC1A_contigs.fasta -reads JC1A_R1.fastq -reads2 JC1A_R2.fastq -out MaxBin/
 ~~~
 {: .bash}  
 
 
-> ## Bining strategies `.callout`
->
-> Contigs can be assigned to bins according to two main strategies: composition and abundance.
-> Many binning algorithms uses a combination of both strategies.  
-{: .callout}
-
 ## MAGs (Metagenome-Assembled Genomes)  
 MAGs are the original genomes that we are looking for with the binning process. The binned contigs can be used as MAGs, but a more reliable way to obtain MAGs is by re-assembling the reads from the binned contigs. For this we need to map the reads to the binned contigs, to separate the reads that correspond to each bin, and then re-assemble them. 
-With Bowtie2 we can do the mapping (also called alignment) of the reads to the contigs of one bin to extract this reads. The reads we will be using are the reads corrected by MetaSPAdes. Let's see the command to do this with the bin named `JC1A_contigs_MaxBin.01.fasta`.
 
 <a href="{{ page.root }}/fig/mapping_bins.png">
   <img src="{{ page.root }}/fig/mapping_bins.png" width="600" height="300" alt="Cog Metagenome" />
 </a>
+
+With Bowtie2 we can do the mapping (also called alignment) of the reads to the contigs of one bin to extract these reads. The reads we will be using are the reads corrected by MetaSPAdes. Let's see the command to do this with the bin that would be named `JC1A_contigs_MaxBin.01.fasta`.
 
 ~~~
 #Build the index
