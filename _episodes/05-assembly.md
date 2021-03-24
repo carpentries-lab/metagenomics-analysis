@@ -207,6 +207,10 @@ $ run_MaxBin.pl -thread 12 -contig JC1A_contigs.fasta -reads JC1A_R1.fastq -read
 MAGs are the original genomes that we are looking for with the binning process. The binned contigs can be used as MAGs, but a more reliable way to obtain MAGs is by re-assembling the reads from the binned contigs. For this we need to map the reads to the binned contigs, to separate the reads that correspond to each bin, and then re-assemble them. 
 With Bowtie2 we can do the mapping (also called alignment) of the reads to the contigs of one bin to extract this reads. The reads we will be using are the reads corrected by MetaSPAdes. Let's see the command to do this with the bin named `JC1A_contigs_MaxBin.01.fasta`.
 
+<a href="{{ page.root }}/fig/mapping_bins.png">
+  <img src="{{ page.root }}/fig/mapping_bins.png" width="350" height="600" alt="Cog Metagenome" />
+</a>
+
 ~~~
 #Build the index
 $ bowtie2-build JC1A_contigs_MaxBin.01.fasta JC1A_contigs_MaxBin.01
