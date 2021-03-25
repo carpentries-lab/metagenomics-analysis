@@ -75,11 +75,11 @@ Despite we have our input files we also need a database to compare with before
 start working with kraken2. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
 compatibles to be used with kraken2 in the taxonomical assignation process. 
 Minikraken is a popular database that attempts to conserve its sensitivity 
-despite its small size (Needs 8GB of RAM for the assignation). Lets download minikraken database using the command
+despite its small size (Needs 8GB of RAM for the assignation). Let's download minikraken database using the command
 `curl`.   
 
 ~~~
-$ curl -O ftp://ftp.ccb.jhu.ed u/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
+$ curl -O ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
 $ tar -xvzf minikraken2_v2_8GB_201904.tgz 
 ~~~
 {: .bash}
@@ -99,7 +99,7 @@ As we have learned, taxonomic assignation can be attempted before the assembly p
 In this case we can use FASTQ files as inputs, in this case the inputs would be files 
 `JP4D_R1.trim.fastq.gz` and `JP4D_R2.trim.fastq.gz`
 which are the outputs of our trimming process. In this case, the outputs will be two files: the report
-JP4D_kraken.report and the file JP4D.kraken.  
+`JP4D_kraken.report` and the file `JP4D.kraken`.  
   
 ~~~
 $ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report JP4D_kraken.report  --gzip-compressed --paired JP4D_R1.trim.fastq.gz  JP4D_R2.trim.fastq.gz  > JP4D.kraken
@@ -118,15 +118,14 @@ classify: unable to allocate hash table memory
 As we can see in the output we need 8000000000bytes=8G in RAM to run kraken2, 
 and seems that we do not have them. In fact, if we consult our memory with `free -b` 
 we can see that we only have `135434240bytes`, and we wont be able to run kraken2 in 
-this machine. For that reason, we precomputed in a more powerful machine the taxonomy 
+this machine. 
+
+For that reason, we precomputed in a more powerful machine the taxonomy 
 assignation of this reads. The command that was run was in fact not with FASTQ files,
-kraken2 can also be run after the assembly process, in this case the input is a fasta file, 
-the one that we assembled with metaSPAdes. In a more powerful machine
-we would first copy our assembly into this directory and run kraken2. 
-Output files in this command are also `JP4DA.kraken` and `JP4DA_kraken.report`.  
+kraken2 can also be run after the assembly process, in this case the input is a FASTA file of assembled contigs (`JP4D.fasta`). In the powerful machine, after we assembled th metagenome for this sample, we copied our assembly into our working directory and run kraken2. Output files in this command are also `JP4D.kraken` and `JP4D_kraken.report`. (Do not run the next commands, the results are already in the taxonomy directory). 
 ~~~
-$ cp ../../data/assembly_JP4D/JP4D_contigs.fasta JP4D.fasta  
-$ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input  JP4D_contigs.fasta --threads 12 --output JP4D.kraken --report JP4D_kraken.report 
+$ cp ../../assembly/JP4D.fasta .
+$ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input JP4D.fasta --threads 12 --output JP4D.kraken --report JP4D_kraken.report 
 ~~~
 {: .bash}  
 
@@ -155,24 +154,22 @@ head ~/dc_workshop/report/JP4D_kraken.report
 ~~~
 {: .bash} 
 ~~~
- 62.10	1748	1748	U	0	unclassified
- 37.90	1067	8	R	1	root
- 37.48	1055	0	R1	131567	  cellular organisms
- 37.48	1055	33	D	2	    Bacteria
- 27.99	788	40	P	1224	      Proteobacteria
- 17.05	480	32	C	28211	        Alphaproteobacteria
-  6.32	178	16	O	356	          Rhizobiales
-  1.17	33	1	F	41294	            Bradyrhizobiaceae
-  0.75	21	4	G	374	              Bradyrhizobium
-  0.11	3	3	S	114615	                Bradyrhizobium sp. ORS 278
-  0.07	2	2	S	722472	                Bradyrhizobium lablabi
-  0.07	2	2	S	2057741	                Bradyrhizobium sp. SK17
-  0.07	2	2	S	1437360	                Bradyrhizobium erythrophlei
+75.95	77818	77818	U	0	unclassified
+ 24.05	24642	5	R	1	root
+ 24.01	24597	0	R1	131567	  cellular organisms
+ 24.01	24597	562	D	2	    Bacteria
+ 19.88	20365	581	P	1224	      Proteobacteria
+ 15.16	15530	494	C	28211	        Alphaproteobacteria
+  7.92	8116	7	O	204455	          Rhodobacterales
+  7.84	8033	945	F	31989	            Rhodobacteraceae
+  1.44	1476	51	G	1060	              Rhodobacter
+  0.92	943	711	S	1063	                Rhodobacter sphaeroides
+
 ~~~
 {: .output}  
 
 We have reached the tsv files, the final step in our metagenomic pipeline showed in [lesson-3](https://carpentries-incubator.github.io/metagenomics/03-assessing-read-quality/index.html).  
-After we have the taxnomy assignation what follows is some visualization of our results.  
+After we have the taxonomy assignation what follows is some visualization of our results.  
 
 
 ## Visualization of taxonomic assignation results  
@@ -237,39 +234,42 @@ but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavia
 to visualize our results.  
 
 First we need to download the files needed as inputs in Pavian:
-`JC1A_krakeb.report` and `JP4D_kraken.report`.  
+`JC1A_kraken.report` and `JP4D_kraken.report`.  
 This files corresponds to our Kraken reports. Again in our local machine lets use `scp` command.  
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*report . 
 ~~~
 {: .language-bash}
 
-The next figures depicted what you should get by looking at the downloaded file:
+We go to the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/), click on Browse and choose our reports.
 
 <a href="{{ page.root }}/fig/uploadPavian.PNG">
   <img src="{{ page.root }}/fig/uploadPavian.PNG" alt="upload Pavian" />
 </a>
 
+We click on the Results Overview tab.
+
 <a href="{{ page.root }}/fig/ResultsOverview.PNG">
   <img src="{{ page.root }}/fig/ResultsOverview.PNG" alt="Results Overview" />
 </a>
+
+We click on the Sample tab.
 
 <a href="{{ page.root }}/fig/sample.PNG">
   <img src="{{ page.root }}/fig/sample.PNG" alt="sample" />
 </a>
 
+We can look at the abundance of a specific taxon by clicking on it.
+
 <a href="{{ page.root }}/fig/SampleSelected.PNG">
   <img src="{{ page.root }}/fig/SampleSelected.PNG" alt="Sample Selected" />
 </a>
 
+We can look at a comparison of both our samples in the Comparison tab. 
+
 <a href="{{ page.root }}/fig/Comparison.PNG">
   <img src="{{ page.root }}/fig/Comparison.PNG" alt="Comparison" />
 </a>
-
-
-### Nanopore
-
-
 
 
 > ## `.discussion`
