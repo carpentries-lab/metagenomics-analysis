@@ -123,7 +123,7 @@ assignation of this reads. The command that was run was in fact not with FASTQ f
 kraken2 can also be run after the assembly process, in this case the input is a fasta file, 
 the one that we assembled with metaSPAdes. In a more powerful machine
 we would first copy our assembly into this directory and run kraken2. 
-Output files in this command are also JP4DA.kraken and JP4DA_kraken.report.  
+Output files in this command are also `JP4DA.kraken` and `JP4DA_kraken.report`.  
 ~~~
 $ cp ../../data/assembly_JP4D/JP4D_contigs.fasta JP4D.fasta  
 $ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input  JP4D_contigs.fasta --threads 12 --output JP4D.kraken --report JP4D_kraken.report 
@@ -237,7 +237,7 @@ but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavia
 to visualize our results.  
 
 First we need to download the files needed as inputs in Pavian:
-`JC1A.report` and `JP4D.report`.  
+`JC1A_krakeb.report` and `JP4D_kraken.report`.  
 This files corresponds to our Kraken reports. Again in our local machine lets use `scp` command.  
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*report . 
