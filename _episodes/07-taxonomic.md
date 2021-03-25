@@ -97,12 +97,12 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
                              
 As we have learned, taxonomic assignation can be attempted before the assembly process. 
 In this case we can use FASTQ files as inputs, in this case the inputs would be files 
-`JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz` and `JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz`
+`JP4D_R1.trim.fastq.gz` and `JP4D_R2.trim.fastq.gz`
 which are the outputs of our trimming process. In this case, the outputs will be two files: the report
 JP4D_kraken.report and the file JP4D.kraken.  
   
 ~~~
-$ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report JP4D_kraken.report  --gzip-compressed --paired JP4DASH2120627WATERAMPRESIZED_R1.trim.fastq.gz  JP4DASH2120627WATERAMPRESIZED_R2.trim.fastq.gz  > JP4D.kraken
+$ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report JP4D_kraken.report  --gzip-compressed --paired JP4D_R1.trim.fastq.gz  JP4D_R2.trim.fastq.gz  > JP4D.kraken
 ~~~
 {: .bash}
 ~~~
@@ -121,16 +121,16 @@ we can see that we only have `135434240bytes`, and we wont be able to run kraken
 this machine. For that reason, we precomputed in a more powerful machine the taxonomy 
 assignation of this reads. The command that was run was in fact not with FASTQ files,
 kraken2 can also be run after the assembly process, in this case the input is a fasta file, 
-the one that we assembled with MEGAHIT. In a more powerful machine
+the one that we assembled with metaSPAdes. In a more powerful machine
 we would first copy our assembly into this directory and run kraken2. 
 Output files in this command are also JP4DA.kraken and JP4DA_kraken.report.  
 ~~~
-$ cp ../../data/trimmed_fastq/megahit_result/final.contigs.fa  JP4D.fasta  
-$ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input  JP4D.fasta --threads 12 --output JP4D.kraken --report JP4D_kraken.report 
+$ cp ../../data/assembly_JP4D/JP4D_contigs.fasta JP4D.fasta  
+$ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input  JP4D_contigs.fasta --threads 12 --output JP4D.kraken --report JP4D_kraken.report 
 ~~~
 {: .bash}  
 
-Lets visualize the precomputed outputs of kraken2 in our assembled metagenome.  
+Let's visualize the precomputed outputs of kraken2 in our assembled metagenome.  
 ~~~
 head ~/dc_workshop/taxonomy/JP4D.kraken  
 ~~~
@@ -237,7 +237,7 @@ but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavia
 to visualize our results.  
 
 First we need to download the files needed as inputs in Pavian:
-`JC1ASEDIMENT120627_kraken.report` and `JP4DASH2120627WATERAMPRESIZED_kraken.report`.  
+`JC1A.report` and `JP4D.report`.  
 This files corresponds to our Kraken reports. Again in our local machine lets use `scp` command.  
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*report . 
