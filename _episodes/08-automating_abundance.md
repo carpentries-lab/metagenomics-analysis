@@ -180,7 +180,7 @@ cut  -f1,3 >JP4D.lineage_table
 ~~~
 {: .bash}
 
-Also, let'ss obtaine a lineage table for `JC1A` sample.  
+Also, let's obtaine a lineage table for `JC1A` sample.  
 ~~~
 $ cut -f1 JC1A.kraken_ranked |taxonkit lineage |\
 taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | cut  -f1,3 >JC1A.lineage_table
