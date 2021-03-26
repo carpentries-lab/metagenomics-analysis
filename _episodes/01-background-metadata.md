@@ -140,7 +140,7 @@ Here is how an entry of this BioProject looks like:
 
 
 > ## Other metagenomic databases
-> The NCBI SRA is not the only repository for metagenomic information. There are other public metagenomic databases sucha as 
+> The NCBI SRA is not the only repository for metagenomic information. There are other public metagenomic databases such as 
 > [MG-RAST](https://www.mg-rast.org/index.html?stay=1)  
 > [MGnify](https://www.ebi.ac.uk/metagenomics/), [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), 
 > [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/) and the [GM Repo](https://gmrepo.humangut.info/home).   
