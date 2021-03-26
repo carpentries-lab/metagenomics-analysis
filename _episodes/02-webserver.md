@@ -99,9 +99,8 @@ are dedicated to metabolism.
 ## AWS is a command line cloud server 
 The cloud computer we are going to use is provided by Amazon Web Services (AWS). It is already equiped with 
 all of the metagenomic analysis command line utilities needed fot this workshop. To use it, we have to open our command line
-(it should be easly accesible in any Linux distribution and OSX10; for Windows, you can install wsl2. Please ask one of the
-helpers if you cannot find your command line) and then type the commands to log into the service and move files between  
-your remote and your local computer.  
+(it should be accesible in any Linux distribution and OSX10; for Windows, you can install gitBash). Find your command line 
+and then type the commands to log into the service and move files between your remote and your local computer.  
 
 
 ~~~
@@ -130,45 +129,8 @@ $ /home/dcuser
 
 We are inside a directory called dcuser, which is, itself, insde the home directory.
 
-Now, let's check what files do we have in our current working directory (dcuser) with `ls`.
-
-~~~
-$ ls 
-~~~
-{: .bash}  
-~~~
-$ dc_workshop.tar.gz  
-~~~
-{: .output}
-
-This file is compressed, so we need to decompress it first.
-To do this we can use the `tar` command.  
-~~~
-$ tar -xzf ~/dc_workshop.tar.gz 
-~~~
-{: .bash}  
-
-> ## Exercise 2
-> 
-> Now that we have decompressed our file, how can we check which files were extracted?
-> 
-> 
->> ## Solution
->> We can use `ls dc_workshop/*` to list every file inside the decompressed directory  
->> 
-> {: .solution}
-{: .challenge}
-
-Let's go back to our local machine. To log out from the remote machine you can use `exit`.  
-~~~
-$ exit
-~~~
-{: .bash}
-
-If you now ask the terminal to print the working directory with `pwd` 
-it should show your local working directory. That's how we know we're back to it. 
-To copy files between your computer and the remote computer, we will use the `scp` command.  
-The general syntax to use it is this would be like this: 
+As we have learned, to copy files between your computer and the remote computer, we will use the `scp` command.  
+The general syntax to use `scp` would be like this: 
 ~~~
 $ scp <where is the file> <where do you want the file to be>  
 ~~~
@@ -212,8 +174,8 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 {: .challenge}
 
 Now we put everything that we've learned into use.
-There is fasta file in your AWS remote computer called `JP4D.fasta` in the `dc_workshop/assembly/` directory.
-Let's download it, and then analyze it with MG-RAST
+Let's download a fasta file in your AWS remote computer called `JP4D.fasta` in the `dc_workshop/assembly/` directory.
+You can sign up for an MG-RAST account and try to upload this file. 
 
 > ## Exercise 4  
 > How can you download the file?   
