@@ -138,9 +138,9 @@ phred score is below 20 (like in our example above). We will also
 discard any reads that do not have at least 25 bases remaining after
 this trimming step. This command will take a few minutes to run.
 
-We unzipped one of our files before to work with it, let's compress it again before we run Trimmomatic.
+We unzipped one of our files before to work with it, let's compress the pair of files corresponding to the sample `JP4D` again before we run Trimmomatic.
 ~~~
-gzip JP4D_R1.fastq 
+gzip JP4D_R* 
 ~~~
 {: .bash}
  
