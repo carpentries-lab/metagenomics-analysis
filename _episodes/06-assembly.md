@@ -204,7 +204,7 @@ MAGs are the original genomes that we are looking for with the binning process. 
   <img src="{{ page.root }}/fig/mapping_bins.png" width="600" height="300" alt="Cog Metagenome" />
 </a>
 
-With Bowtie2 we can do the mapping (also called alignment) of the reads to the contigs of one bin to extract these reads. The reads we will be using are the reads corrected by MetaSPAdes. Let's see the command to do this with the bin that would be named `JC1A_contigs_MaxBin.01.fasta`.
+With Bowtie2 we can do the mapping (also called alignment) of the reads to the contigs of one bin to extract these reads. The reads we will be using are the reads corrected by MetaSPAdes `corrected/JC1A_R1.00.0_0.cor.fastq` and `corrected/JC1A_R2.00.0_0.cor.fastq`. Let's see the command to do this with the bin that would be named `JC1A_contigs_MaxBin.01.fasta`. The output of the mapping is a file in a format called SAM.
 
 ~~~
 #Build the index
@@ -212,7 +212,12 @@ $ bowtie2-build JC1A_contigs_MaxBin.01.fasta JC1A_contigs_MaxBin.01
 
 #Perform the mapping using the corrected reads from the MetaSPAdes output
 $ bowtie2 --threads 12 --sensitive-local -x JC1A_contigs_MaxBin.01.fasta -1 corrected/JC1A_R1.00.0_0.cor.fastq -2 corrected/JC1A_R2.00.0_0.cor.fastq -S JC1A_01.sam
+~~~
+{: .bash}  
 
+We now have in the SAM file the information of which of the reads correspond to the contigs of our `JC1A_contigs_MaxBin.01.fasta` bin. But since what we want are the reads themselves, we neet to extract them from here. 
+The SAM file is a human readable file, so we need to convert it to a file that is computer readable, this is the BAM file; the Samtools program does this conversion with the `samtools view` command. And then the Bamtools program helps us to convert this BAM file into the FASTQ format that we know, with the `bamtools convert` command.
+~~~
 #Convert from sam format to bam format
 $ samtools view -F 4 -bS JC1A_01.sam > JC1A_01.bam
 
