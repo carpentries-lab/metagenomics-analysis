@@ -121,8 +121,18 @@ changed when the bacterial community underwent the treatment.
 {: .challenge}
 
 The results of this study, raw sequences and metadata, have been submitted to the NCBI Sequence Read Archive (SRA), 
-and are stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811).
-Here is how an entry of this BioProject looks like:
+and are stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811). There are other metagenomic
+databases where we can find metagenomic data. 
+
+> ## Other metagenomic databases
+> The NCBI SRA is not the only repository for metagenomic information. There are other public metagenomic databases such as 
+> [MG-RAST](https://www.mg-rast.org/index.html?stay=1)  
+> [MGnify](https://www.ebi.ac.uk/metagenomics/), [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), 
+> [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/) and the [GM Repo](https://gmrepo.humangut.info/home).   
+{: .callout}
+
+Each database requires certain metadata linked with the data. As an example when `JP4D.fasta` in uploaded to 
+mg-RAST the associated metadata looks like:
 
 | Column           | Description                                |
 |------------------|--------------------------------------------|
@@ -139,9 +149,4 @@ Here is how an entry of this BioProject looks like:
 | depth	| 0.165 | 
 
 
-> ## Other metagenomic databases
-> The NCBI SRA is not the only repository for metagenomic information. There are other public metagenomic databases such as 
-> [MG-RAST](https://www.mg-rast.org/index.html?stay=1)  
-> [MGnify](https://www.ebi.ac.uk/metagenomics/), [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), 
-> [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/) and the [GM Repo](https://gmrepo.humangut.info/home).   
-{: .callout}
+
