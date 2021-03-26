@@ -94,7 +94,7 @@ $ total
 ~~~
 
 What would happend if you tap `ctrl` + `l`. Without the lesson page, could you remember of which 
-su of numbers is `suma` made?. Reproducibility is in our minds when we program. For this purpose, 
+sum of numbers is `suma` made?. Reproducibility is in our minds when we program. For this purpose, 
 is convenient to type the commands we want in the script editor, and save the script periodically. 
 We can run our code lines in the script by the shortcut `ctrl` + `Enter` 
 (on Macs, `Cmd` + `Return` will work). Thus, the command on the current line, or the instructions
