@@ -86,10 +86,11 @@ of our experimental design to the metadata that we expect to collect, and record
   <img src="{{ page.root }}/fig/md-01-data-Stromatolites.jpeg" alt="Cuatro Cienegas" />
 </a>
 
-During this lesson we will work with actual metagenomic information, so we should we familiarized with it. 
-
-The metagenomes that we will use were collected in Cuatro Ciénegas, an oasis in the mexican desert whose 
-enviromental conditions are often linked to the ones present in   
+During this lesson we will work with actual metagenomic information, so we should be familiarized with it. 
+The metagenomes that we will use were collected in Cuatro Ciénegas, a region that has been
+extensively studied by [Valeria Souza](https://es.wikipedia.org/wiki/Valeria_Souza_Saldivar). 
+Cuatro Ciénegas is an oasis in the mexican desert whose 
+enviromental conditions are often linked to the ones present in
 [ancient seas](https://elifesciences.org/articles/38278), due to 
 a higher than average content of sulphur and magnesium but lower concentrations of phosphorus and 
 other nutrients. Because of these particular conditions, the Cuatro Ciénegas basin is a very interesting
@@ -98,7 +99,7 @@ survive and thrive in that environment.
 
 The particular metagenomic study that we are going to work with was collected in a
 [study about the response of the Cuatro Cienegas' bacterial community to nutrient enrichment.](https://elifesciences.org/articles/49816) 
-In this study, the authors compared the differences between the microbial community in its natural, 
+In this study, authors compared the differences between the microbial community in its natural, 
 oligotrophic, phosphorus-deficient environment, a pond from the Cuatro Ciénegas Basin (CCB), 
 and the same microbial community under a fertilization treatment. The comparision between bacterial 
 communites showed that many genomic traits, such as mean bacterial genome size, GC content, 
