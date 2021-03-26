@@ -220,6 +220,15 @@ one sample at a time and we have more than one sample. The good news
 is that we can use a `for` loop to iterate through our sample files
 quickly! 
 
+First, let's compress the rest of the files that correspond to the 
+sample `JC1A`
+
+~~~
+$ gzip JC1A_R*
+~~~
+{: .bash}
+
+Now, the for loop:
 
 ~~~
 $ for infile in *_R1.fastq.gz
