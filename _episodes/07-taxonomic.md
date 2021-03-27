@@ -71,9 +71,9 @@ $ cd /home/dcuser/dc_workshop/data/trimmed_fastq
 ~~~
 {: .bash}
 
-Despite we have our input files we also need a database to compare with before 
+In addition to our input files we also need a database with which to compare them, before we
 start working with kraken2. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
-compatibles to be used with kraken2 in the taxonomical assignation process. 
+compatible to be used with kraken2 in the taxonomical assignation process. 
 Minikraken is a popular database that attempts to conserve its sensitivity 
 despite its small size (Needs 8GB of RAM for the assignation). Let's download minikraken database using the command
 `curl`.   
@@ -96,9 +96,9 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 {: .challenge}                             
                              
 As we have learned, taxonomic assignation can be attempted before the assembly process. 
-In this case we can use FASTQ files as inputs, in this case the inputs would be files 
+In this case we can use FASTQ files as inputs, in this case the inputs would be the files 
 `JP4D_R1.trim.fastq.gz` and `JP4D_R2.trim.fastq.gz`
-which are the outputs of our trimming process. In this case, the outputs will be two files: the report
+which are the outputs of our trimming process. And the outputs will be two files: the report
 `JP4D_kraken.report` and the file `JP4D.kraken`.  
   
 ~~~
@@ -121,15 +121,14 @@ we can see that we only have `135434240bytes`, and we wont be able to run kraken
 this machine. 
 
 For that reason, we precomputed in a more powerful machine the taxonomy 
-assignation of this reads. The command that was run was in fact not with FASTQ files,
-kraken2 can also be run after the assembly process, in this case the input is a FASTA file of assembled contigs (`JP4D.fasta`). In the powerful machine, after we assembled th metagenome for this sample, we copied our assembly into our working directory and run kraken2. Output files in this command are also `JP4D.kraken` and `JP4D_kraken.report`. (Do not run the next commands, the results are already in the taxonomy directory). 
+assignation of this reads. but we did this not with the trimmed reads but with the assembles contigs, in this case the input is a FASTA file of assembled contigs (`JP4D.fasta`). In the powerful machine, after we assembled th metagenome for this sample, we copied our assembly into our working directory and run kraken2. Output files in this command are also `JP4D.kraken` and `JP4D_kraken.report`. (Do not run the next commands, the results are already in the taxonomy directory). 
 ~~~
 $ cp ../../assembly/JP4D.fasta .
 $ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input JP4D.fasta --threads 12 --output JP4D.kraken --report JP4D_kraken.report 
 ~~~
 {: .bash}  
 
-Let's visualize the precomputed outputs of kraken2 in our assembled metagenome.  
+Let's look at the precomputed outputs of kraken2 in our assembled metagenome.  
 ~~~
 head ~/dc_workshop/taxonomy/JP4D.kraken  
 ~~~
@@ -168,6 +167,16 @@ head ~/dc_workshop/report/JP4D_kraken.report
 ~~~
 {: .output}  
 
+> ## Reading a Kraken report `.callout`
+>
+> 1. Percentage of reads covered by the clade rooted at this taxon
+> 2. Number of reads covered by the clade rooted at this taxon
+> 3. Number of reads assigned directly to this taxon
+> 4. A rank code, indicating (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, or (S)pecies. All other ranks are simply '-'.
+> 5. NCBI taxonomy ID
+> 6. Indented scientific name
+{: .callout}
+
 We have reached the tsv files, the final step in our metagenomic pipeline showed in [lesson-3](https://carpentries-incubator.github.io/metagenomics/03-assessing-read-quality/index.html).  
 After we have the taxonomy assignation what follows is some visualization of our results.  
 
@@ -199,32 +208,38 @@ $ ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
 ~~~
 {: .language-bash}  
 
-And finally, open another terminal in your local computer, and download Krona output.
+Instead of the output we expected and error appeared. 
+~~~
+Loading taxonomy...
+Taxonomy not found in /home/dcuser/.miniconda3/envs/metagenomics/opt/krona/taxonomy. Was updateTaxonomy.sh run? at /home/dcuser/.miniconda3/envs/metagenomics/opt/krona/scripts/../lib/KronaTools.pm line 1540.
+~~~
+{: .error}  
+
+It seems that a necessary command for Krona to work was not executed, so let's do that. but we need to deactivate our environment first.
+
+~~~
+$ conda deactivate
+$ bash /home/dcuser/.miniconda3/envs/metagenomics/opt/krona/updateTaxonomy.sh 
+~~~
+{: .language-bash}  
+
+Once it's done we activate the environment and try again.
+~~~
+$ conda activate metagenomics
+$ ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
+~~~
+{: .language-bash}  
+
+And finally, open another terminal in your local computer,download the Krona output and open it on a browser.
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out.html . 
 ~~~
 {: .bash}  
+
 What do you see? 
 
 <a href="{{ page.root }}/fig/krona1.svg">
   <img src="{{ page.root }}/fig/krona1.svg" alt="Krona Visualization" />
-</a>
-
-Now lets only keep the reads were the taxonomic assignation was done.  
-~~~
-$ grep -v $'\t'0 JP4D.krona.input >JP4D.krona.input-filtered
-$ ktImportTaxonomy JP4D.krona.input-filtered -o JP4D.krona.out-filtered.html
-~~~
-{: .language-bash}
-
-And in our local computer let's copy the output from our remote instance.  
-~~~
-$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out-filtered.html . 
-~~~
-{: .language-bash}
-
-<a href="{{ page.root }}/fig/krona2.svg">
-  <img src="{{ page.root }}/fig/krona2.svg" alt="Krona Visualization" />
 </a>
 
 ### Pavian
