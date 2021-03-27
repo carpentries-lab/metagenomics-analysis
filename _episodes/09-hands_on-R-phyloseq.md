@@ -287,7 +287,7 @@ and doubletons observed in our samples. While Shannon is a entrophy index
 remarking the impossiblity of taking two reads out of the metagenome "bag" 
 and that these two will belong to the same OTU.
 
-> ## Exercise: build a Phyloseq object by yourself
+> ## Exercise 1: build a Phyloseq object by yourself
 > 
 > Import the `JP4D metagenome` and plot its α diversity with the mentioned metrics.
 > 
@@ -302,7 +302,7 @@ and that these two will belong to the same OTU.
 
 
 
-> ## Exercise
+> ## Exercise 2
 > 
 > Use the help from plot_richness to discover other ways to plot diversity estimates using Phyloseq
 > and use another index to show the α diversity in our samples.
