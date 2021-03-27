@@ -85,7 +85,7 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 {: .bash}
 
 > ## Very important to know your database! `.callout`
-> The database you use will determine the result you getfor your data.
+> The database you use will determine the result you get for your data.
 > Imagine you are searching for a lineage that was recently discovered and it is not part of the available databases. Would you find it?
 {: .callout}
 
@@ -207,7 +207,7 @@ $ cut -f2,3 JP4D.kraken >  JP4D.krona.input
 ~~~
 {: .language-bash}  
 
-Now we call Krona in our ` JP4D.krona.input` file and save results in `JP4D.krona.out.html`.  
+Now we call Krona in our `JP4D.krona.input` file and save results in `JP4D.krona.out.html`.  
 ~~~
 $ ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
 ~~~
