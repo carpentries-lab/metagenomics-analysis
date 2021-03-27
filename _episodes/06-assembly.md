@@ -180,14 +180,13 @@ $ mv contigs.fasta JC1A_contigs.fasta
 To be able to analyze each species individualy the original genomes in the sample can be separated with a process called binning. 
 In this process, the assembled contigs from the metagenome will be assigned to different bins (FASTA files that contain certain contigs). Ideally, each bin corresponds to only one original genome.
 
+<a href="{{ page.root }}/fig/Binning(47).png">
+  <img src="{{ page.root }}/fig/Binning(47).png" width="450" height="800" alt="Cog Metagenome" />
+</a>
+
 Although an obvious way to separate contigs that correspond to a different species is by their taxonomic assignation, there are more reliable methods that do the binning using characteristics of the contigs, such as their GC content, the use of tetranucleotides (composition) or their coverage (abundance).
 
 [Maxbin](https://sourceforge.net/projects/maxbin/files/) is a binning algorith that distinguishes contigs that belong to different bins according to their coverage levels and the tetranucleotide frequencies they have.
-
-
-<a href="{{ page.root }}/fig/Binning(47).png">
-  <img src="{{ page.root }}/fig/Binning(47).png" width="350" height="600" alt="Cog Metagenome" />
-</a>
 
 We will not perform the binning process in this lesson because the data we are working with is not adequate for it, but let's look at the commands without running them. The command for running MaxBin is `run_MaxBin.pl`, and the arguments it needs are the FASTA file of the assmbly, the FASTQ with the reads and an output directory where you want your results stored.
 ~~~
