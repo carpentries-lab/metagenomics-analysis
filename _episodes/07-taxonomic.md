@@ -241,6 +241,12 @@ $ ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
 ~~~
 {: .language-bash}  
 
+Once it's done we activate the environment and try again.
+~~~
+Warning
+~~~
+{: .output}  
+
 And finally, open another terminal in your local computer,download the Krona output and open it on a browser.
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out.html . 
