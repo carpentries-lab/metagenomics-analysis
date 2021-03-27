@@ -11,12 +11,20 @@ keypoints:
 - "Enjoy metagenomics."
 ---
 
-The lesson template comes with several utilities to simplify lesson development and maintenance.
-## How does our results compare with the original research
-## How can we improve the data analysis
-## Checking
-- [Data Carpentry in 16S Metagenomics](https://datacarpentry.org/blog/2017/11/16s-dc)  
-- [Phyloseq Análisis de diversidad](http://www.castrolab.org/isme/biodiversity/biodiversity.html)
+## Carpentries Philosophy
+A good lesson should be as complete and clear that becomes easy to teach by any instructor. 
+Carpentries lessons are developed for the community, and now you are part of us. 
+This lesson is being developed and we are sure that you can colaborate and help us improve it.  
+<!--## How does our results compare with the original research-->  
+<!-- ## How can we improve the data analysis!--->  
+
+## Other resources 
+
+More information about 4 Ciénegas is available in this [podcast about a Mexican Oasis]( https://youtu.be/xMMm_GKZsnU)
+and in this [Cuatro Ciénegas Video](https://www.youtube.com/embed/VzImXRI9wYE?autoplay=1&rel=0).  
+
+The ISME course is a wonderful resource in spanish for 16s metagenomcis [Phyloseq Análisis de diversidad](http://www.castrolab.org/isme/biodiversity/biodiversity.html)
+
 - [History of metagenomics](http://merenlab.org/2020/07/27/history-of-metagenomics/)  
 - [The power of metagenomic read recruitment](https://youtu.be/MqD4aN1p1qA)  
 - [Genome-resolved metagenomics: key concepts in reconstructing genomes from metagenomes](https://youtu.be/RjNdHGK4ruo)  
@@ -25,8 +33,7 @@ The lesson template comes with several utilities to simplify lesson development 
 - [Evomics](http://evomics.org/learning/genomics/)
 - [Cuatro Ciénegas](https://www.sciencemag.org/news/2020/06/pools-mexican-desert-are-window-earth-s-early-life)
 - [Mexican oasis in the desert](https://www.sciencemag.org/podcast/oasis-biodiversity-mexican-desert-and-making-sound-heat)
-- [Pod Cast Mexican Oasis]( https://youtu.be/xMMm_GKZsnU)
-- [Cuatro Ciénegas Video](https://www.youtube.com/embed/VzImXRI9wYE?autoplay=1&rel=0)
+- [Data Carpentry in 16S Metagenomics](https://datacarpentry.org/blog/2017/11/16s-dc)  
 
 > ## `.callout`
 >
