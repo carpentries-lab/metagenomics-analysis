@@ -84,7 +84,7 @@ are dedicated to metabolism.
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_source_hits_distribution.png" alt="Source Hits" />
 </a>
 
-> ## Exercise
+> ## Exercise 1  
 > 
 > We saw the piecharts for kingdom, phylum and genera, but what about family?. Which family is the most abundant?
 > 
@@ -151,7 +151,7 @@ MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00
 {: .output}  
 
 
-> ## Exercise 3 
+> ## Exercise 2 
 > 
 > We want to send the file `APJ4_MetaData_JP.xlsx` to your remote computer. How can we do it? 
 >
@@ -177,7 +177,7 @@ Now we put everything that we've learned into use.
 Let's download a fasta file in your AWS remote computer called `JP4D.fasta` in the `dc_workshop/assembly/` directory.
 You can sign up for an MG-RAST account and try to upload this file. 
 
-> ## Exercise 4  
+> ## Exercise 3   
 > How can you download the file?   
 >> ## Solution
 >> ~~~
