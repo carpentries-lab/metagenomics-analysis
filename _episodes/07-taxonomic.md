@@ -125,8 +125,14 @@ and seems that we do not have them. In fact, if we consult our memory with `free
 we can see that we only have `135434240bytes`, and we wont be able to run kraken2 in 
 this machine. 
 
-For that reason, we precomputed in a more powerful machine the taxonomy 
-assignation of this reads. but we did this not with the trimmed reads but with the assembles contigs, in this case the input is a FASTA file of assembled contigs (`JP4D.fasta`). In the powerful machine, after we assembled th metagenome for this sample, we copied our assembly into our working directory and run kraken2. Output files in this command are also `JP4D.kraken` and `JP4D_kraken.report`. (Do not run the next commands, the results are already in the taxonomy directory). 
+For that reason, we precomputed in a the taxonomy in a server i.e. a more powerful machine. 
+assignation of this reads. but we did this not with the trimmed reads but with the assembled 
+contigs, in this case the input is a FASTA file of assembled contigs (`JP4D.fasta`). 
+In the server, after we assembled the metagenome for this sample, we copied our 
+assembly into our working directory and run kraken2. Output files in this command are 
+also `JP4D.kraken` and `JP4D_kraken.report`. (Do not run the next commands, 
+the results are already in the taxonomy directory).
+
 ~~~
 $ cp ../../assembly/JP4D.fasta .
 $ kraken2 --db minikraken2_v2_8GB_201904_UPDATE --fasta-input JP4D.fasta --threads 12 --output JP4D.kraken --report JP4D_kraken.report 
