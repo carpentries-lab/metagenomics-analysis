@@ -106,7 +106,7 @@ communites showed that many genomic traits, such as mean bacterial genome size, 
 total number of tRNA genes, total number of rRNA genes, and codon usage bias were significantly 
 changed when the bacterial community underwent the treatment. 
 
-> ## Exercise 
+> ## Exercise 1 
 > 
 > Knowing the results of this CCB study, what type of sequencing what type of metagenomic sequencing was used?
 > What was the most important piece of metadata that the authors took?
