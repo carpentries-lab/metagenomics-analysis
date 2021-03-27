@@ -84,6 +84,11 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 ~~~
 {: .bash}
 
+> ## Very important to know your database! `.callout`
+> The database you use will determine the result you getfor your data.
+> Imagine you are searching for a lineage that was recently discovered and it is not part of the available databases. Would you find it?
+{: .callout}
+
 > ## Exercise
 > 
 > What is the command `tar` doing to the file `minikraken2_v2_8GB_201904.tgz`.  
@@ -215,7 +220,7 @@ Taxonomy not found in /home/dcuser/.miniconda3/envs/metagenomics/opt/krona/taxon
 ~~~
 {: .error}  
 
-It seems that a necessary command for Krona to work was not executed, so let's do that. but we need to deactivate our environment first.
+It seems that a necessary command for Krona to work was not executed, so let's do that. But we need to deactivate our environment first.
 
 ~~~
 $ conda deactivate
