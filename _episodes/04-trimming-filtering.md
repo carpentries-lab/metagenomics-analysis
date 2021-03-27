@@ -164,7 +164,7 @@ TrimmomaticPE: Completed successfully
 ~~~
 {: .output}
 
-> ## Exercise
+> ## Exercise 1
 >
 > Use the output from your Trimmomatic command to answer the
 > following questions.
@@ -263,7 +263,7 @@ TruSeq3-PE.fa
 ~~~
 {: .output}
 
-> ## Exercise
+> ## Exercise 2
 > We trimmed our FASTSQ files with Nextera adapters, 
 > but there are other adapters that are commonly used.
 > What other adapter files came with Trimmomatic?
