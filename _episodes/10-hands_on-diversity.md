@@ -155,7 +155,7 @@ $ cyanos <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+
 ![image](https://user-images.githubusercontent.com/67386612/112223345-67cf1000-8bef-11eb-9bdc-4fe239bca9b2.png)
 Figure 3. Diversity of Cyanobacteria at genus level inside our samples.
 
-> ## Exercise
+> ## Exercise 1  
 > 
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the code learned to generate a plot where you can 
