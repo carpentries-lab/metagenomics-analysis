@@ -95,17 +95,22 @@ We will use Phyloseq, in order to do so, we need to generate an abundance matrix
 
 ~~~
 $ cd ~/dc_workshop/taxonomy
-$ head JC1A.kraken   
+$ head JP4D.kraken   
 ~~~
 {: .bash}
 
 ~~~
- C k141_0  1365647 416     0:1 1365647:5 2:5 1:23 0:348    
- U       k141_1411       0       411     0:377                                       
- U       k141_1  0       425     0:391                                               
- C       k141_1412       1484116 478     0:439 1484116:3 0:2                          
- C       k141_2  72407   459     0:350 2:3 0:50 2:6 72407:5 0:3 72407:2 0:6           
- U       k141_1413       0       335     0:301     
+U       k141_55805      0       371     0:337
+U       k141_0  0       462     0:428
+U       k141_55806      0       353     0:319
+U       k141_55807      0       296     0:262
+C       k141_1  953     711     0:54 1224:2 0:152 28211:2 0:15 953:3 0:449
+U       k141_2  0       480     0:446
+C       k141_3  28384   428     0:6 1286:2 0:8 28384:14 0:11 1:3 0:350
+U       k141_4  0       302     0:268
+U       k141_5  0       714     0:680
+U       k141_6  0       662     0:628
+  
 ~~~
 {: .output}
 
@@ -122,7 +127,7 @@ $ head JC1A.kraken
 |------------------------------+------------------------------------------------------------------------------|  
 |    416                       |Read length                                                                   |           
 |------------------------------+------------------------------------------------------------------------------|  
-| 0:1 1365647:5 2:5 1:23 0:348 |kmers hit to a taxonomic id E.g. 0:1 root 1 hit, 1365647 has 5 hits, etc.     |           
+|  0:6 1286:2 0:8 28384:14 0:11|kmers hit to a taxonomic id E.g. 0:1 root 6 hit, 1286 has 2 hits, etc.        |           
 |-------------------+-----------------------------------------------------------------------------------------|  
 
 
@@ -173,9 +178,17 @@ $ rm ranked
 {: .bash}
 
 Now we will use `taxonkit` to obtain the taxonomy classification of each read.  
+In order to access to `taxonkit` and other packages prepared in an environment
+called metagenomics, we will call this environment from conda:
+
 ~~~
-$ cut -f1 JP4D.kraken_ranked |taxonkit lineage | \
-taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" | \
+conda activate metagenomics
+~~~
+{: .bash}
+
+~~~
+$ cut -f1 JP4D.kraken_ranked |taxonkit lineage |\
+taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" |\
 cut  -f1,3 >JP4D.lineage_table
 ~~~
 {: .bash}
@@ -231,32 +244,16 @@ $ head -n5 JP4D.merged
 ~~~
 {: .output} 
 
-And let's subsitute all the merged taxon by the corresponding new one. 
+And let's substitute all the merged taxon by the corresponding new one. 
 ~~~
 $ cat  JP4D.merged  | while read line;\
- do \
-    original=$(echo $line|cut -d' ' -f 1); \
-    new=$( echo $line|cut -d' '  -f2); \
+ do\
+    original=$(echo $line | cut -d' ' -f1);\
+    new=$(echo $line  |cut -d' '  -f2);\
     perl -p -i -e "s/$original/$new/" JP4D.kraken-wc;\
      done                      
-$ cut -f3 JP4D.kraken-wc    |sort -n |uniq -c > ranked 
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked-wc
-$ rm ranked
-~~~
-{: .bash} 
-
-~~~
-$ grep deleted JC1A.error 
-$ grep merged JC1A.error | cut -d' ' -f4,8 > JC1A.merged    
-$ cp JC1A.kraken JC1A.kraken-wc
-$ cat  JC1A.merged  | while read line;\
-  do\
-    original=$(echo $line|cut -d' ' -f 1); \
-    new=$( echo $line|cut -d' '  -f2); \
-    perl -p -i -e "s/$original/$new/" JC1A.kraken-wc;\
-  done    
-$ cut -f3 JC1A.kraken-wc |sort -n |uniq -c > ranked  
-$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked-wc
+$ cut -f3 JP4D.kraken-wc | sort -n | uniq -c > ranked 
+$ cat ranked | while read a b; do echo $b$'\t'$a; done > JP4D.kraken_ranked-wc
 $ rm ranked
 ~~~
 {: .bash} 
@@ -264,7 +261,7 @@ $ rm ranked
 With this new working copy of the proportion in taxonomy classification
 we can run again taxonkit to obtain the curated lineage table.  
 ~~~
-$ cut -f1 JP4D.kraken_ranked-wc |taxonkit lineage |\
+$ cut -f1 JP4D.kraken_ranked-wc | taxonkit lineage |\
   taxonkit reformat -f "{k};{p};{c};{o};{f};{g};{s};{S}" |\
   cut  -f1,3 > JP4D.lineage_table-wc                                        
 ~~~
@@ -274,6 +271,34 @@ $ cut -f1 JP4D.kraken_ranked-wc |taxonkit lineage |\
 $ 10:34:06.833 [WARN] taxid 0 not found          
 ~~~
 {: .output}  
+
+Next, we need to apply this process to our other sample: `JC1A`. We did not 
+oobtained any `deleted` taxid, remember?
+~~~
+04:31:28.340 [WARN] taxid 0 not found
+04:31:28.341 [WARN] taxid 335659 was merged into 1404864
+04:31:28.341 [WARN] taxid 644968 was merged into 694327
+04:31:28.342 [WARN] taxid 2109625 was merged into 2605946
+~~~
+{: .output}
+
+Result that can be verified, but let's obtained the merged ones:
+
+~~~
+$ grep deleted JC1A.error 
+$ grep merged JC1A.error | cut -d' ' -f4,8 > JC1A.merged    
+$ cp JC1A.kraken JC1A.kraken-wc
+$ cat  JC1A.merged  | while read line;\
+  do\
+    original=$(echo $line|cut -d' ' -f1);\
+    new=$( echo $line|cut -d' '  -f2);\
+    perl -p -i -e "s/$original/$new/" JC1A.kraken-wc;\
+  done    
+$ cut -f3 JC1A.kraken-wc | sort -n | uniq -c > ranked  
+$ cat ranked |while read a b; do echo $b$'\t'$a; done > JC1A.kraken_ranked-wc
+$ rm ranked
+~~~
+{: .bash} 
 
 ~~~
 $ cut -f1 JC1A.kraken_ranked-wc |taxonkit lineage |\
@@ -296,7 +321,7 @@ $ nano JC1A.kraken_ranked-wc
 
 ~~~
 $ nano JC1A.lineage_table-wc
-OTU	superkingdom	phylum	class	order	family	genus	species	subspecies	subspecies_2
+OTU superkingdom	phylum	class	order	family	genus	species	subspecies	subspecies_2
 ~~~
 {: .bash}  
 
@@ -313,7 +338,7 @@ $ rm *.kraken-wc
 $ mkdir ../results
 $ mv *wc ../results/.
 $ rm *lineage* *ranked* *merged  
-$ mv *kraken* ../results/.
+$ cp *kraken* ../results/.
 $ mv *report* ../results/.
 ~~~
 {: .bash}  
