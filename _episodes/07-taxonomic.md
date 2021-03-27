@@ -89,7 +89,7 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 > Imagine you are searching for a lineage that was recently discovered and it is not part of the available databases. Would you find it?
 {: .callout}
 
-> ## Exercise
+> ## Exercise 1  
 > 
 > What is the command `tar` doing to the file `minikraken2_v2_8GB_201904.tgz`.  
 > 
