@@ -1,7 +1,7 @@
 ---
 title: "Automating Abundance Tables"
 teaching: 30
-exercises: 15
+exercises: 25
 questions:
 - "How can I obtain the abundance of the reads?"
 objectives:
