@@ -123,7 +123,7 @@ A>>1AFC>DD111A0E0001BGEC0AEGCCGEGGFHGHHGHGHHGGHHHGGGGGGGGGGGGGHHGEGGGHHHHGHHGHHH
 We can now see that there is a range of quality scores, but that the end of the sequence is
 very poor (`#` = a quality score of 2). 
 
-> ## Exercise
+> ## Exercise 1  
 > 
 > What is the last read in the `JP4D_R1.fastq ` file? 
 > How confident are you in this read? 
@@ -327,7 +327,7 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 ~~~
 {: .bash}
 
-> ## Exercise
+> ## Exercise 2
 > 
 >  How big are the files?
 > (Hint: Look at the options for the `ls` command to see how to show
@@ -498,7 +498,7 @@ Depending on your system,
 you should be able to select and open them all at once via a right click menu
 in your file browser.
 
-> ## Exercise
+> ## Exercise 3
 > 
 > Discuss your results with a neighbor. Which sample(s) looks the best
 > in terms of per base sequence quality? Which sample(s) look the
@@ -708,7 +708,7 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 ~~~
 {: .bash}
 
-> ## Exercise
+> ## Exercise 4
 > 
 > Which samples failed at least one of FastQC's quality tests? What
 > test(s) did those samples fail?
@@ -761,18 +761,5 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 {: .callout}
 
 
-> ## Same Symbols, Different Meanings
->
-> Here we see `>` being used as a shell prompt, whereas `>` is also
-> used to redirect output.
-> Similarly, `$` is used as a shell prompt, but, as we saw earlier,
-> it is also used to ask the shell to get the value of a variable.
->
-> If the *shell* prints `>` or `$` then it expects you to type something,
-> and the symbol is a prompt.
->
-> If *you* type `>` or `$` yourself, it is an instruction from you that
-> the shell should redirect output or get the value of a variable.
-{: .callout}
 
 
