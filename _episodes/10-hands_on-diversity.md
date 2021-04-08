@@ -95,6 +95,7 @@ objects into a `data.frame` to manipulate them with packages like `ggplot` and `
 $ glom <- tax_glom(percentages, taxrank = 'phylum')
 $ data <- psmelt(glom)
 ~~~
+{: .language-r}
 
 With the new `data.frame`, we can change the identification of the OTUs whose 
 relative abundance is less than 0.2%, so as to have a number of OTUs that not 
@@ -105,6 +106,7 @@ the human eye can distinguish in terms of color in a plot.
 $ data$phylum <- as.character(data$phylum)
 $ data$phylum[data$Abundance < 0.2] <- "Phyla < 0.2% abund."
 ~~~
+{: .language-r}
 
 Whit this object, we can create a plot to compare the obtained relative abundance
 against the absolute abundance.
@@ -121,6 +123,8 @@ $ absolute_count <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+
   
 $ absolute_count | percentages
 ~~~
+{: .language-r}
+
 ![image](https://user-images.githubusercontent.com/67386612/112223252-4706ba80-8bef-11eb-8f09-08d95191dcc1.png)
 Figure 2. Diversity at phylum level (i) with absolute abundances and (ii) relative abundance.
 
@@ -139,6 +143,7 @@ in the past lesson to get rid from the reads that does not belong to bacteria:
 ~~~
 $ metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
 ~~~
+{: .language-r}
 
 We are going to it now to extract an specific phylum from our 
 data, and explore it at a more lower taxonomic lever: Genus
@@ -152,6 +157,8 @@ $ data <- psmelt(glom)
 $ cyanos <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+ 
     geom_bar(aes(), stat="identity", position="stack")
 ~~~
+{: .language-r} 
+
 ![image](https://user-images.githubusercontent.com/67386612/112223345-67cf1000-8bef-11eb-9bdc-4fe239bca9b2.png)
 Figure 3. Diversity of Cyanobacteria at genus level inside our samples.
 
