@@ -35,7 +35,7 @@ With the two Phyloseq objects created, one for each metagenome, its time to merg
 them into one single phyloseq object with the next command:
 
 ~~~
-$ merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
+merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
 ~~~
 {: .language-r}
 
@@ -43,9 +43,9 @@ $ merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
 Let´s look at the abundance of our metagenomes.  
 
 ~~~
-$ merged_metagenomes
-$ sample_sums(merged_metagenomes)
-$ summary(merged_metagenomes@otu_table@.Data)
+merged_metagenomes
+sample_sums(merged_metagenomes)
+summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
 
@@ -53,10 +53,11 @@ Moreover, we can made plots with the diversity indexes evaluated before, but wit
 entire database:
 
 ~~~
-$ p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon")) 
-$ p + geom_point(size=5, alpha=0.7)
+p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon")) 
+p + geom_point(size=5, alpha=0.7)
 ~~~
-
+{: .language-r}
+  
 ![image](https://user-images.githubusercontent.com/67386612/112223149-23dc0b00-8bef-11eb-8651-677a5713a5bb.png)
 Figure 1. Alpha diversity indexes for each of our samples
 
@@ -65,7 +66,7 @@ Before we further process our data, take a look if we have any no-identified rea
 on the different taxonomic levels:
 
 ~~~
-$ summary(merged_metagenomes@tax_table@.Data== "NA")
+summary(merged_metagenomes@tax_table@.Data== "NA")
 ~~~
 {: .language-r}
 
@@ -74,7 +75,7 @@ expected to see some NAs at the species, or even at the genus level, we will get
 the phylum level to proceed with the analysis:
 
 ~~~
-$ merged_metagenomes <- subset_taxa(merged_metagenomes, phylum != "NA")
+merged_metagenomes <- subset_taxa(merged_metagenomes, phylum != "NA")
 ~~~
 {: .language-r}
 
@@ -83,7 +84,7 @@ Next, since our metagenomes have different sizes, it is imperative to convert th
 of assigned read into percentages (i.e. relative abundances) so as to compare them. 
 
 ~~~
-$ percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
+percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
 ~~~
 {: .language-r}
 
@@ -92,8 +93,8 @@ we will use the function `tax_grom`. Also, the function `psmelt` melt phyloseq
 objects into a `data.frame` to manipulate them with packages like `ggplot` and `vegan`.
 
 ~~~
-$ glom <- tax_glom(percentages, taxrank = 'phylum')
-$ data <- psmelt(glom)
+glom <- tax_glom(percentages, taxrank = 'phylum')
+data <- psmelt(glom)
 ~~~
 {: .language-r}
 
@@ -103,8 +104,8 @@ surpass the recommended ones (8-9). 8 to 9 contrasting colors are the most that
 the human eye can distinguish in terms of color in a plot.
 
 ~~~
-$ data$phylum <- as.character(data$phylum)
-$ data$phylum[data$Abundance < 0.2] <- "Phyla < 0.2% abund."
+data$phylum <- as.character(data$phylum)
+data$phylum[data$Abundance < 0.2] <- "Phyla < 0.2% abund."
 ~~~
 {: .language-r}
 
@@ -112,16 +113,16 @@ Whit this object, we can create a plot to compare the obtained relative abundanc
 against the absolute abundance.
 
 ~~~
-$ percentages <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
+percentages <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
     geom_bar(aes(), stat="identity", position="stack")
   
-$ glom <- tax_glom(merged_metagenomes, taxrank = 'phylum')
-$ data <- psmelt(glom)
-$ data$phylum <- as.character(data$phylum)
-$ absolute_count <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
+glom <- tax_glom(merged_metagenomes, taxrank = 'phylum')
+data <- psmelt(glom)
+data$phylum <- as.character(data$phylum)
+absolute_count <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
     geom_bar(aes(), stat="identity", position="stack")
   
-$ absolute_count | percentages
+absolute_count | percentages
 ~~~
 {: .language-r}
 
@@ -141,7 +142,7 @@ extract specific lineages from a stated taxonomic level, we have used it
 in the past lesson to get rid from the reads that does not belong to bacteria:
 
 ~~~
-$ metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
+metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
 ~~~
 {: .language-r}
 
@@ -149,12 +150,12 @@ We are going to it now to extract an specific phylum from our
 data, and explore it at a more lower taxonomic lever: Genus
 
 ~~~
-$ cyanos <- subset_taxa(merged_metagenomes, phylum == "Cyanobacteria")
-$ cyanos <- subset_taxa(cyanos, genus != "NA")
-$ cyanos  = transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
-$ glom <- tax_glom(cyanos, taxrank = "genus")
-$ data <- psmelt(glom)
-$ cyanos <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+ 
+cyanos <- subset_taxa(merged_metagenomes, phylum == "Cyanobacteria")
+cyanos <- subset_taxa(cyanos, genus != "NA")
+cyanos  = transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
+glom <- tax_glom(cyanos, taxrank = "genus")
+data <- psmelt(glom)
+cyanos <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+ 
     geom_bar(aes(), stat="identity", position="stack")
 ~~~
 {: .language-r} 
@@ -224,25 +225,28 @@ the identificator of each OTU. With this file we will procced to create the phyl
 object by the `import_biom` command:
 
 ~~~
-$ merged_metagenomes <- import_biom("cuatroc.biom")
+merged_metagenomes <- import_biom("cuatroc.biom")
 ~~~
 {: .language-r}
 
 Now, we can inspect the result by asking what class is the object created, and 
 doing a close inspection of some of its content:
 ~~~
-$ class(merged_metagenomes)
-$ View(merged_metagenomes@tax_table@.Data)
+class(merged_metagenomes)
+View(merged_metagenomes@tax_table@.Data)
 ~~~
+{: .language-r}
+
 The "class" command indicate that we already have our phyloseq object. Also, 
 inside the tax_table we see that it looks just like the one created in the
 last episode of the lesson. Let's get rid of some of the innecesary characters 
 in the OTUs identificator and put name to the taxonomic ranks:
 
 ~~~
-$ merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
-$ colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
+colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
 ~~~
+{: .language-r}
 
 Finally, we can review our object and see that both datasets 
 (i.e. JC1A and JP4D) are in the our object.
