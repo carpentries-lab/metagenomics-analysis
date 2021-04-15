@@ -1,133 +1,107 @@
 ---
-title: "Automating Abundance Tables"
+title: "Hands on R"
 teaching: 30
 exercises: 25
 questions:
-- "How can I obtain the abundance of the reads?"
+- "What is R and why is important to be learned?"
+- "How do I use R tools to manage an R object?"
 objectives:
+- "Undestand why R is important"
+- "Use the help command to get more insight on R functions."
 - "Understand how taxonomy is used to obtain abundance tables."
 keypoints:
 - "Abundance can be obtain either before or after the assembly process."
 - "A bash script can automate this work."
 ---
 
-
-Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
-Here we will talk about the two most used diversity metrics, diversity α (within one metagenome) and β (between metagenomes).   
-
-- α Diversity: Represents the richness (e.g. number of different species) and species' abundance. It can be measured by calculating richness, 
- and eveness, or by using a diversity index, such as Shannon's, Simpson's, Chao's, etc.  
- 
-- β Diversity: It is the difference (measured as distance) between two or more metagenomes. 
-It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance or UniFrac, to name a few.  
-
-For this lesson we will use Phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
-[Rstudio cloud](https://rstudio.cloud/) and select "GET STARTED FOR FREE"
-
-## α diversity  
-
-|-------------------+-----------------------------------------------------------------------------------------------------------------|   
-| Diversity Indices |                             Description                                                                         |   
-|-------------------+-----------------------------------------------------------------------------------------------------------------|   
-|      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.                                   |   
-|-------------------+-----------------------------------------------------------------------------------------------------------------|   
-|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness.                                    |                           
-|-------------------+-----------------------------------------------------------------------------------------------------------------|   
-|      ACE          | Abundance based coverage estimator of species richness.                                                         |   
-|-------------------+-----------------------------------------------------------------------------------------------------------------|   
-|     Chao1         | Abundance based on species represented by a single individual (singletons) and two individuals (doubletons).    |            
-|-------------------+-----------------------------------------------------------------------------------------------------------------|   
- 
-
-- Shannon (H): 
-
-| Variable             |  Definition   |     
-:-------------------------:|:-------------------------:  
-<img src="https://render.githubusercontent.com/render/math?math=H=-\sum_{i=1}^{S}p_i\:ln{p_i}"> | Definition
-<img src="https://render.githubusercontent.com/render/math?math=S"> | Number of OTUs  
-<img src="https://render.githubusercontent.com/render/math?math=p_i">|  The proportion of the community represented by OTU i   
-
-- Simpson's (D) 
-
-| Variable             |  Definition |   
-:-------------------------:|:-------------------------:  
-<img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{\sum_{i=1}^{S}p_i^2}">| Definition   
-<img src="https://render.githubusercontent.com/render/math?math=S"> | Total number of the species in the community   
-<img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> | Proportion of community represented by OTU i    
+## First steps into R 
+*It takes courage to sail in uncharted waters*
+  -Snoopy
   
-- ACE  
+### What is R and for what can it be used for?
 
-| Variable             |  Definition |  
-:-------------------------:|:-------------------------:  
-<img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{S_{rare}}{C_{ACE}}+\frac{F_1}{C_{ACE}}+\gamma_{ACE}^2"> | Definition    
-<img float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}"> | Number of abundant OTUs   
-<img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  | Number of rare OTUs   
-<img src="https://render.githubusercontent.com/render/math?math=C_{ACE}">  | Sample abundance coverage estimator  
-<img src="https://render.githubusercontent.com/render/math?math=F_1">   | Frequency of singletons  
-<img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> | Estimated coefficient  of variation in rare OTUs 
+"R" is used to refer to the programming language and the software that reads and 
+interpets what is it on the scripst. RStudio is the most popular program to write
+scripts and interact with the R software.
 
-- Chao1  
-  
-| Variable             |  Desription |  
-:-------------------------:|:-------------------------:  
- <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}+\frac{F_1(F_1-1)}{2(F_2+1)}">  | Definition  
-<img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|Count of singletons and doubletons respectively    
-<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}">| The number of observed species    
+R use a series of written commands and that is great! When you rely in clicking 
+and pointing, and in remembering where and why to point here or click that, mistakes
+are prone to occur. Moreover, if you manage to get more data, it is easier to just
+re-run your script to obtain results. Also, working with scripts makes the steps 
+you follow for your analysis clear and shareable. Here are some of the advantages
+for working with R:
+- R code is reproducible
+- R produce high-quality graphics
+- R has a large community
+- R is interdisciplinary 
+- R works on data of all colors and sizes
+- R is free!
 
-The rarefaction curves allow us to know if the sampling was exhaustive or not. 
-In metagenomics this is equivalent to knowing if the sequencing depth was sufficient.
+### A nautical chart of RStudio
 
-## β diversity  
-Diversity β measures how different two or more metagenomes are, either in their composition (diversity)
-or in the abundance of the organisms that compose it (abundance). 
-- Bray-Curtis dissimilarity: Emphasis on abundance. Measures the differences 
-from 0 (equal communities) to 1 (different communities)
-- Jaccard distance: Based on presence / absence of species (diversity). 
-It goes from 0 (same species in the community) to 1 (no species in common)
-- UniFrac: Measures the phylogenetic distance; how alike the trees in each community are. 
-There are two types, without weights (diversity) and with weights (diversity and abundance)  
+RStudio is an Integrated Development Environment(IDE) which we will use to write code,
+navigate the files from our computer/cloud, try code, inspect the variables we are 
+going to create, and visualize our contribed plots.
 
-It is easy to visualize using PCA, PCoA or NMDS analysis.
+![image](https://user-images.githubusercontent.com/67386612/112203976-c046e300-8bd8-11eb-9ee6-72c95f9134f3.png)
+Figure 1. RStudio interface screenshot. Clockwise from top left: Source, Environment/History, 
+Files/Plots/Packages/Help/Viewer, Console.
 
-## Creating lineage and rank tables  
-Packages like Quiime2, MEGAN, Vegan or Phyloseq in R allows to obtain these diversity indexes.  
-We will use Phyloseq, in order to do so, we need to generate an abundance matrix from the Kraken output.  
+You can enter your online RStudio to see your own environment. Let's copy your instance address into your browser
+(Chrome or Firefox) and login into R studio.  
+The address should look like:  `http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
+Your credencials are **user**:dcuser **pass**:data4Carp.  
+
+Although data are already stored in your instance, in case you need it you can donwload it [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
+
+### Review of the set-up
+
+As we have revisited throughout the lesson, maintaining related data, analyses in a single folder
+is desireable. In R, this folder is called **Working directory**. Here is where R will be looking 
+for and saving the files. If you need to check where your working directory is located use `getwd()`.
+If your working directory is not what you expected, always can be changed by clicking on the blue 
+gear icon and pick the option "Set As Working Directory". Alternatively, you can use the `setwd()`
+command for changing it.
+
+Let's use this commands to set or working directiry where we have stored our files from the previos 
+lessons:
 
 ~~~
-$ cd ~/dc_workshop/taxonomy
-$ head JP4D.kraken   
+$ setwd("~/dc_workshop/results/")
 ~~~
-{: .bash}
+{: .language-r}
 
+### Having a dialogue with R
+
+There are two main paths to interact with R:(i) by using the console or (ii)by using script files.
+The console is where commands can be typed and executed immediately by the software and where the 
+results from executed commands will be shown. If R is ready to accept commands, the R console shows
+a > prompt. You can type instructions directly into the console and press "Enter", but they will 
+be forgotten when you close the session.
+
+For example, let's do some math and save it in R objects:
+~~~ 
+$ 4+3
+$ suma <- 4+3
+$ resta <- 2+1
+$ total <- suma -resta
+$ total
 ~~~
-U       k141_55805      0       371     0:337
-U       k141_0  0       462     0:428
-U       k141_55806      0       353     0:319
-U       k141_55807      0       296     0:262
-C       k141_1  953     711     0:54 1224:2 0:152 28211:2 0:15 953:3 0:449
-U       k141_2  0       480     0:446
-C       k141_3  28384   428     0:6 1286:2 0:8 28384:14 0:11 1:3 0:350
-U       k141_4  0       302     0:268
-U       k141_5  0       714     0:680
-U       k141_6  0       662     0:628
-  
-~~~
-{: .output}
 
+What would happend if you tap `ctrl` + `l`. Without the lesson page, could you remember of which 
+sum of numbers is `suma` made?. Reproducibility is in our minds when we program. For this purpose, 
+is convenient to type the commands we want in the script editor, and save the script periodically. 
+We can run our code lines in the script by the shortcut `ctrl` + `Enter` 
+(on Macs, `Cmd` + `Return` will work). Thus, the command on the current line, or the instructions
+in the currently selected text will be sent to the console and will be executed.
 
+### Seeking help
 
-|------------------------------+------------------------------------------------------------------------------|  
-| column                       |                              Description                                     |  
-|------------------------------+------------------------------------------------------------------------------|  
-|   C                          |  Classified or unclassified                                                  |  
-|------------------------------+------------------------------------------------------------------------------|  
-|    k141_0                    |FASTA header of the read(contig)                                              |                
-|------------------------------+------------------------------------------------------------------------------|  
-|  1365647                     | Tax id                                                                       |  
-|------------------------------+------------------------------------------------------------------------------|  
-|    416                       |Read length                                                                   |           
-|------------------------------+------------------------------------------------------------------------------|  
-|  0:6 1286:2 0:8 28384:14 0:11|kmers hit to a taxonomic id E.g. 0:1 root 6 hit, 1286 has 2 hits, etc.        |           
-|-------------------+-----------------------------------------------------------------------------------------|  
+If you face some trouble with some function, let's say `summary()`, you can always type `?summary()`
+and a help page will be displayed with useful information for the function use. Furthermore, if you
+already know what you want to do, but you do not know which function to use, you can type `??` 
+following your inquiry, for example `??barplot` will open a help files in the RStudio's help
+panel in the lower right corner.
+
 
 
