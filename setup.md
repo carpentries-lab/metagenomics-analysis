@@ -71,6 +71,7 @@ dependencies:
   - spades
   - kraken-biom
   - checkm-genome
+  - vamb 
 
 ~~~
 {: .output}
