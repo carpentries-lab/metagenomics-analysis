@@ -109,7 +109,7 @@ changed when the bacterial community underwent the treatment.
 > ## Exercise 1 
 > 
 > Knowing the results of this CCB study, what type of sequencing what type of metagenomic sequencing was used?
-> What was the most important piece of metadata that the authors took?
+> In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what was the most important piece of metadata that the authors took?
 > 
 >> ## Solution
 >> Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.
@@ -147,6 +147,7 @@ mg-RAST the associated metadata looks like:
 | longitude        | -102.14|  
 | env_package  |	water|  
 | depth	| 0.165 | 
+
 
 
 
