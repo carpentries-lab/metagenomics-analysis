@@ -195,47 +195,36 @@ $ run_MaxBin.pl -contig JC1A_contigs.fasta -reads JC1A_R1.fastq -reads2 JC1A_R2.
 ~~~
 {: .bash}  
 
-
-## MAGs (Metagenome-Assembled Genomes)  
-MAGs are the original genomes that we are looking for with the binning process. The binned contigs can be used as MAGs, but a more reliable way to obtain MAGs is by re-assembling the reads from the binned contigs. For this we need to map the reads to the binned contigs, to separate the reads that correspond to each bin, and then re-assemble them. 
-
-<a href="{{ page.root }}/fig/mapping_bins.png">
-  <img src="{{ page.root }}/fig/mapping_bins.png" width="600" height="300" alt="Cog Metagenome" />
-</a>
-
-With Bowtie2 we can do the mapping (also called alignment) of the reads to the contigs of one bin to extract these reads. The reads we will be using are the reads corrected by MetaSPAdes `corrected/JC1A_R1.00.0_0.cor.fastq` and `corrected/JC1A_R2.00.0_0.cor.fastq`. Let's see the command to do this with the bin that would be named `JC1A_contigs_MaxBin.01.fasta`. The output of the mapping is a file in a format called SAM.
-
-~~~
-#Build the index
-$ bowtie2-build JC1A_contigs_MaxBin.01.fasta JC1A_contigs_MaxBin.01
-
-#Perform the mapping using the corrected reads from the MetaSPAdes output
-$ bowtie2 --threads 12 --sensitive-local -x JC1A_contigs_MaxBin.01.fasta -1 corrected/JC1A_R1.00.0_0.cor.fastq -2 corrected/JC1A_R2.00.0_0.cor.fastq -S JC1A_01.sam
-~~~
-{: .bash}  
-
-We now have in the SAM file the information of which of the reads correspond to the contigs of our `JC1A_contigs_MaxBin.01.fasta` bin. But since what we want are the reads themselves, we neet to extract them from here. 
-The SAM file is a human readable file, so we need to convert it to a file that is computer readable, this is the BAM file; the Samtools program does this conversion with the `samtools view` command. And then the Bamtools program helps us to convert this BAM file into the FASTQ format that we know, with the `bamtools convert` command.
-~~~
-#Convert from sam format to bam format
-$ samtools view -F 4 -bS JC1A_01.sam > JC1A_01.bam
-
-#Obtain the reads from the bam file
-$ bamtools convert -in JC1A_01.bam -format fastq > JC1A_01.fastq
-
-~~~
-{: .bash}  
-
-Having the corrected reads that correspond to only one bin `JC1A_01.fastq`, we can re-assemble them to obtain the MAG using SPAdes.
-~~~
-$ spades.py -s JC1A_01.fastq -o JC1A_01
-~~~
-{: .bash}  
-
 The quality of a MAG is highly dependent on the size of the genome of the species, its abundance in the community, and the depth at which we sequenced it.
 Two important things that can be meassured to know its quality is the completeness (is the MAG a complete genome?) and the contamination (does the MAG contain only one genome?). 
 
-[CheckM](https://github.com/Ecogenomics/CheckM) is a good program to see the quality of our MAGs. It gives a meassure of the completeness and the contamination by counting marker genes in the MAGs.
+[CheckM](https://github.com/Ecogenomics/CheckM) is a good program to see the quality of our MAGs. It gives a meassure of the completeness and the contamination by counting marker genes in the MAGs. The lineage workflow that is a part of CheckM places your bins in a refrence tree to know to which lineage it corresponds and to use the appropriate marker genes to estimate the quality parameters. With this we have the quality estimates printed in the console.
+~~~
+$mkdir CHECKM
+$checkm lineage_wf -r VAMB/bins/ CHECKM/
+~~~
+{: .bash} 
+
+~~~
+
+~~~
+{: .output} 
+
+To have this values and more parameters about your assembly, like genome size, GC content and contig length, we now run the quality step of CheckM and make it print the output in a `TSV` table.
+~~~
+$checkm qa CHECKM/lineage.ms CHECKM/ --file CHECKM/quality_sample.tsv --tab_table -o 2
+~~~
+{: .bash} 
+~~~
+$ ls CHECKM/
+~~~
+{: .bash} 
+
+~~~
+quality_sample.tsv
+~~~
+{: .output} 
+
 
 
 {% include links.md %}
