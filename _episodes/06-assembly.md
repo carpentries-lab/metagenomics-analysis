@@ -26,7 +26,7 @@ main strategies they use are: Greedy extension, OLC and De Bruijn charts. When m
 shotgun instead of amplicon metagenomics an extra assembly step must be run.
 
 <a href="{{ page.root }}/fig/EnsambladoFinal.png">
-  <img src="{{ page.root }}/fig/EnsambladoFinal.png" width="500" height="600" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/EnsambladoFinal.png" width="868" height="777" alt="Cog Metagenome" />
 </a>
 
 
