@@ -17,7 +17,7 @@ To be able to analyze each species individualy the original genomes in the sampl
 In this process, the assembled contigs from the metagenome will be assigned to different bins (FASTA files that contain certain contigs). Ideally, each bin corresponds to only one original genome.
 
 <a href="{{ page.root }}/fig/Binning(47).png">
-  <img src="{{ page.root }}/fig/Binning(47).png" width="450" height="800" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/Binning(47).png" width="435" height="631" alt="Cog Metagenome" />
 </a>
 
 Although an obvious way to separate contigs that correspond to a different species is by their taxonomic assignation, there are more reliable methods that do the binning using characteristics of the contigs, such as their GC content, the use of tetranucleotides (composition) or their coverage (abundance).
