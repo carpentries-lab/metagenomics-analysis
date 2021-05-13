@@ -43,7 +43,7 @@ As you progress through this lesson, keep in mind that, even if you aren’t goi
 
 > ## Things You Need To Know
 >
-> 0.  Don't panic.
+> 0.  Stay calm, don't panic.
 > 1.  Everything is going to be fine.
 > 2.  We are learning together.
 {: .checklist}
