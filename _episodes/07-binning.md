@@ -26,6 +26,7 @@ Although an obvious way to separate contigs that correspond to a different speci
 
 We will perform the binning process with a different sample from the same study because the samples we have been working with are not adequate for binning. The command for running MaxBin is `run_MaxBin.pl`, and the arguments it needs are the FASTA file of the assmbly (it is already pre-computed `ERS1949771_contigs.fasta`), the FASTQ with the reads and the output directory and name. 
 ~~~
+$ cd ~/dc_workshop/mags/
 $ mkdir MAXBIN
 $ run_MaxBin.pl -thread 12 -contig ERS1949771_contigs.fasta -reads ERS1949771_1.fastq -reads2 ERS1949771_2.fastq -out MAXBIN/ERS1949771
 ~~~
@@ -71,13 +72,12 @@ ERS1949771.004.fasta	71.0%	2256981	64.0
 ~~~
 {: .output}  
 
-~~~
-Can we trust the quality of our bins only with the given information? 
-What else do we want to know about them to confidently use them for further analysis?
-~~~
-{: .discussion}  
+> ## `.discussion`
+>Can we trust the quality of our bins only with the given information? 
+>What else do we want to know about them to confidently use them for further analysis?
+>{: .discussion}
 
-#Quality check 
+# Quality check 
 
 The quality of a MAG is highly dependent on the size of the genome of the species, its abundance in the community, and the depth at which we sequenced it.
 Two important things that can be meassured to know its quality is the completeness (is the MAG a complete genome?) and the contamination (does the MAG contain only one genome?). 
