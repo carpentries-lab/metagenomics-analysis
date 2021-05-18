@@ -1,7 +1,7 @@
 ---
 title: "First steps on R"
-teaching: 30
-exercises: 25
+teaching: 50
+exercises: 10
 questions:
 - "What is R and why is important to be learned?"
 - "What types of data does R language have?"
@@ -84,7 +84,7 @@ $ setwd("~/dc_workshop/results/")
 ~~~
 {: .language-r}
 
-### Having a dialogue with R
+## Having a dialogue with R
 
 There are two main paths to interact with R in RStudio:
 * Using the console
@@ -121,6 +121,81 @@ in our scripts, we can leave comments(lines of no executable text) by beggining 
 356/15
 ~~~
 {: .language-r}
+
+### Types of data
+
+We already used numbers to generate a result. But this is not the only type of data that RStudio 
+can manage. We can use the command `typeof()` to corroborate the data type of our object `suma`:
+
+~~~
+$ typeof(suma)
+~~~
+{: .language-r}
+
+~~~
+$ [1] "double"
+~~~
+{: .output}
+
+There are five types of data in RStudio:
+* Double
+* [Integer](https://stackoverflow.com/questions/23660094/whats-the-difference-between-integer-class-and-numeric-class-in-r#:~:text=R%20handles%20the%20differences%20between,for%20you%20in%20the%20background.&text=(Putting%20capital%20'L'%20after,a%20subset%20of%20%22numeric%22.&text=Integers%20only%20go%20to%20a,numerics%20can%20be%20much%20bigger.))
+* Complex
+* Logical
+* Character
+
+~~~
+$ typeof(5L) #Integer type can contain only whole numbers and followed by an capital L
+~~~
+{: .language-r}
+~~~
+[1] "integer"
+~~~
+{: .output}
+
+~~~
+$ typeof(72+5i)
+~~~
+{: .language-r}
+~~~
+[1] "complex"
+~~~
+{: .output}
+
+~~~
+$ suma == resta
+~~~
+{: .language-r}
+~~~
+[1] FALSE
+~~~
+{: .output}
+
+~~~
+$ typeof(suma == resta)
+~~~
+{: .language-r}
+~~~
+[1] "logical"
+~~~
+{: .output}
+
+~~~
+$ resultado <- "4 and 3 are not the same in Earth. In Mars maybe... "
+$ typeof(result)
+~~~
+{: .language-r}
+~~~
+[1] "character"
+~~~
+{: .output}
+
+No matter how complicated our analysis can become, all data in R will be allocated as one of this
+five data types. In their own, data types are important because we want to know "who is who, and 
+what is what". But this concept will help us to learn one of the most powerful tools in R, that is 
+manipulate different types of data at the same time in a data-frame.
+
+### Data-frames: The power of interdisciplinarity
 
 ### Seeking help
 
