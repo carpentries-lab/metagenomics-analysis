@@ -54,7 +54,7 @@ Here is what you may look at the first time you open RStudio:
 Figure 1. RStudio interface screenshot.
 
 If we click in the option `File` :arrow_right: `New File` :arrow_right: `R Script`,
-we get what we can call _RStudio nautical cahrt_
+we get what we can call _RStudio nautical chart_
 
 ![image](https://user-images.githubusercontent.com/67386612/112203976-c046e300-8bd8-11eb-9ee6-72c95f9134f3.png)
 Figure 2. RStudio interface screenshot. Clockwise from top left: Source, Environment/History, 
@@ -69,14 +69,14 @@ Although data are already stored in your instance, in case you need it you can d
 
 ### Review of the set-up
 
-As we have revisited throughout the lesson, maintaining related data, analyses in a single folder
-is desireable. In R, this folder is called **Working directory**. Here is where R will be looking 
-for and saving the files. If you need to check where your working directory is located use `getwd()`.
-If your working directory is not what you expected, always can be changed by clicking on the blue 
-gear icon and pick the option "Set As Working Directory". Alternatively, you can use the `setwd()`
+As we have revisited throughout the lesson maintaining related data in a single folder
+is desireable. In RStudio, this folder is called **Working directory**. Here is where R will be looking 
+for and saving your files. If you need to check where your working directory is located use `getwd()`.
+If your working directory is not what you expected, it always can be changed by clicking on the blue 
+gear icon:![image](https://user-images.githubusercontent.com/67386612/118722611-f7f59400-b7f1-11eb-8ca9-a72561f9c529.png) on the `File` tab, and pick the option _Set As Working Directory_. Alternatively, you can use the `setwd()`
 command for changing it.
 
-Let's use this commands to set or working directiry where we have stored our files from the previos 
+Let's use this commands to set or working directiry where we have stored our files from the previous 
 lessons:
 
 ~~~
@@ -86,13 +86,16 @@ $ setwd("~/dc_workshop/results/")
 
 ### Having a dialogue with R
 
-There are two main paths to interact with R:(i) by using the console or (ii)by using script files.
-The console is where commands can be typed and executed immediately by the software and where the 
+There are two main paths to interact with R in RStudio:
+* Using the console
+* Creating and editing script files.
+The console is where commands can be typed and executed immediately and where the 
 results from executed commands will be shown. If R is ready to accept commands, the R console shows
-a > prompt. You can type instructions directly into the console and press "Enter", but they will 
+a `>` prompt. You can type instructions directly into the console and press "Enter", but they will 
 be forgotten when you close the session.
 
-For example, let's do some math and save it in R objects:
+For example, let's do some math and save it in R objects. We can store values in variables by
+ussing the assignment operator `<-`:
 ~~~ 
 $ 4+3
 $ suma <- 4+3
@@ -100,13 +103,24 @@ $ resta <- 2+1
 $ total <- suma -resta
 $ total
 ~~~
+{: .language-r}
 
 What would happend if you tap `ctrl` + `l`. Without the lesson page, could you remember of which 
-sum of numbers is `suma` made?. Reproducibility is in our minds when we program. For this purpose, 
+sum of numbers is `suma` made?. 
+**Reproducibility** is in our minds when we program(and when you do science). For this purpose, 
 is convenient to type the commands we want in the script editor, and save the script periodically. 
 We can run our code lines in the script by the shortcut `ctrl` + `Enter` 
 (on Macs, `Cmd` + `Return` will work). Thus, the command on the current line, or the instructions
 in the currently selected text will be sent to the console and will be executed.
+
+Time can be the enemy or ally of memory. We want to be sure to remember why we write the commands
+in our scripts, we can leave comments(lines of no executable text) by beggining a line with `#`:
+~~~
+# Let's do some math in RStudio. How many times a year do the supermarkets change the bread that they use for
+# demostration, if they change it every 15 days:
+356/15
+~~~
+{: .language-r}
 
 ### Seeking help
 
