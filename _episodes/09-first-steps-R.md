@@ -1,33 +1,38 @@
 ---
-title: "Hands on R"
+title: "First steps on R"
 teaching: 30
 exercises: 25
 questions:
 - "What is R and why is important to be learned?"
+- "What types of data does R language have?"
+- "Data-frames. What they are and how to manage them? "
 - "How do I use R tools to manage an R object?"
 objectives:
-- "Undestand why R is important"
+- "Undestand why R is important,"
+- "Learn the types of data that we can manage in R"
+- "Understand what is a data-frame and manipulate it."
 - "Use the help command to get more insight on R functions."
-- "Understand how taxonomy is used to obtain abundance tables."
 keypoints:
-- "Abundance can be obtain either before or after the assembly process."
-- "A bash script can automate this work."
+- "RStudio is just one of the myriad of tools to work with data."
+- "Every hability, as programming in R, need practice"
 ---
 
-## First steps into R 
+# RStudio: First steps of a wonderful journey 
 *It takes courage to sail in uncharted waters*
   -Snoopy
-  
+ 
+## RStudio setup 
+
 ### What is R and for what can it be used for?
 
 "R" is used to refer to the programming language and the software that reads and 
 interpets what is it on the scripst. RStudio is the most popular program to write
 scripts and interact with the R software.
 
-R use a series of written commands and that is great! When you rely in clicking 
-and pointing, and in remembering where and why to point here or click that, mistakes
+R use a series of written commands, that is great, believe us! When you rely in clicking, 
+pointing, and remembering where and why to point here or click that, mistakes
 are prone to occur. Moreover, if you manage to get more data, it is easier to just
-re-run your script to obtain results. Also, working with scripts makes the steps 
+*re-run* your script to obtain results. Also, working with scripts makes the steps 
 you follow for your analysis clear and shareable. Here are some of the advantages
 for working with R:
 - R code is reproducible
@@ -39,12 +44,19 @@ for working with R:
 
 ### A nautical chart of RStudio
 
-RStudio is an Integrated Development Environment(IDE) which we will use to write code,
+RStudio is an [Integrated Development Environment(IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment#:~:text=An%20integrated%20development%20environment%20(IDE,automation%20tools%20and%20a%20debugger.) which we will use to write code,
 navigate the files from our computer/cloud, try code, inspect the variables we are 
-going to create, and visualize our contribed plots.
+going to create, and visualize our contrived plots.
+
+Here is what you may look at the first time you open RStudio:
+![image](https://user-images.githubusercontent.com/67386612/118720027-ba433c00-b7ee-11eb-87e5-7496fde5763e.png)
+Figure 1. RStudio interface screenshot.
+
+If we click in the option `File` :arrow_right: `New File` :arrow_right: `R Script`,
+we get what we can call _RStudio nautical cahrt_
 
 ![image](https://user-images.githubusercontent.com/67386612/112203976-c046e300-8bd8-11eb-9ee6-72c95f9134f3.png)
-Figure 1. RStudio interface screenshot. Clockwise from top left: Source, Environment/History, 
+Figure 2. RStudio interface screenshot. Clockwise from top left: Source, Environment/History, 
 Files/Plots/Packages/Help/Viewer, Console.
 
 You can enter your online RStudio to see your own environment. Let's copy your instance address into your browser
