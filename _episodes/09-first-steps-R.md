@@ -195,7 +195,88 @@ five data types. In their own, data types are important because we want to know 
 what is what". But this concept will help us to learn one of the most powerful tools in R, that is 
 manipulate different types of data at the same time in a data-frame.
 
-### Data-frames: The power of interdisciplinarity
+### Data-frames: The power of interdisciplinarity 
+Let's beggin by creating a mock data set:
+~~~
+$ musician <- data.frame(people = c("Medtner", "Radwimps", "Shakira"),
+						 pieces = c(722,187,68),
+ 						 likes = c(0,1,1))
+$ musician
+~~~
+{: .language-r}
+The content of our new object:
+~~~
+    people pieces likes
+1  Medtner    722     0
+2 Radwimps    187     1
+3  Shakira     68     1
+~~~
+{: .output}
+
+We have just created our first data-frame. We can see if this is true by the `class()` command:
+~~~
+$ class(musician)
+~~~
+{: .language-r}
+~~~
+[1] "data.frame"
+~~~
+{: .language-r}
+A data-frame is a collection of vectors, a list, whose components must be of the same data type within
+each vetor. Whereas, a data-frame can save vectors of different data types:
+![image](https://user-images.githubusercontent.com/67386612/118735756-b4595500-b806-11eb-8bd6-d189b9463eca.png)
+Figure 3. Structure of the created data-frame.
+
+We can begin to explore our new object by pulling out columns by the `$` operator:
+~~~
+$ musician$people
+~~~
+{: .language-r}
+~~~
+[1] "Medtner"  "Radwimps" "Shakira" 
+~~~
+{: .output}
+
+We can do operations with our columns 
+~~~
+$ musician$pieces + 20
+~~~
+{: .language-r}
+~~~
+[1] 742 207  88
+~~~
+{: .output}
+
+Also, we can change the data type of one of the columns. By the next code we can see if the musicians are 
+popular or not:
+~~~
+$ typeof(musician$likes)
+~~~
+{: .language-r}
+~~~
+[1] "double"
+~~~
+{: .output}
+
+~~~
+$ musician$likes <- as.logical(musician$likes)
+$ paste("Is",musician$people, "popular? :", musician$likes, sep = " ")
+~~~
+{: .language-r}
+~~~
+[1] "Is Medtner popular? : FALSE" "Is Radwimps popular? : TRUE" "Is Shakira popular? : TRUE"
+~~~
+{: .output}
+
+Finally, we can extract from an specific place from our data:
+~~~
+$ musician[1,2]
+~~~
+{: .language-r}
+~~~
+[1] 722 # The number of pieces that Nikolai Medtner composed
+~~~
+{: .output}
 
 ### Seeking help
 
