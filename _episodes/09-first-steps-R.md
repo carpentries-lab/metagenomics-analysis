@@ -1,7 +1,7 @@
 ---
 title: "First steps on R"
-teaching: 50
-exercises: 10
+teaching: 60
+exercises: 0
 questions:
 - "What is R and why is important to be learned?"
 - "What types of data does R language have?"
@@ -286,5 +286,7 @@ already know what you want to do, but you do not know which function to use, you
 following your inquiry, for example `??barplot` will open a help files in the RStudio's help
 panel in the lower right corner.
 
+With this, we have the needed tools to begin our exploration of diversity with R. Let's see what this
+journey have to offer.
 
 
