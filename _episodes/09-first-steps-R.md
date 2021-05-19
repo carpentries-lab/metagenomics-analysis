@@ -3,18 +3,18 @@ title: "First steps on R"
 teaching: 60
 exercises: 0
 questions:
-- "What is R and why is important to be learned?"
+- "What is R and why is it important to learn it?"
 - "What types of data does R language have?"
 - "Data-frames. What they are and how to manage them? "
 - "How do I use R tools to manage an R object?"
 objectives:
-- "Undestand why R is important,"
-- "Learn the types of data that we can manage in R"
+- "Undestand why R is important."
+- "Learn the types of data that we can manage in R."
 - "Understand what is a data-frame and manipulate it."
 - "Use the help command to get more insight on R functions."
 keypoints:
 - "RStudio is just one of the myriad of tools to work with data."
-- "Every hability, as programming in R, need practice"
+- "Every hability, as programming in R, needs practice."
 ---
 
 # RStudio: First steps of a wonderful journey 
@@ -23,20 +23,20 @@ keypoints:
  
 ## RStudio setup 
 
-### What is R and for what can it be used for?
+### What is R and what can it be used for?
 
 "R" is used to refer to the programming language and the software that reads and 
-interpets what is it on the scripst. RStudio is the most popular program to write
+interpets what is it on the scripts. RStudio is the most popular program to write
 scripts and interact with the R software.
 
-R use a series of written commands, that is great, believe us! When you rely in clicking, 
+R uses a series of written commands, that is great, believe us! When you rely on clicking, 
 pointing, and remembering where and why to point here or click that, mistakes
 are prone to occur. Moreover, if you manage to get more data, it is easier to just
 *re-run* your script to obtain results. Also, working with scripts makes the steps 
 you follow for your analysis clear and shareable. Here are some of the advantages
 for working with R:
 - R code is reproducible
-- R produce high-quality graphics
+- R produces high-quality graphics
 - R has a large community
 - R is interdisciplinary 
 - R works on data of all colors and sizes
@@ -63,20 +63,19 @@ Files/Plots/Packages/Help/Viewer, Console.
 You can enter your online RStudio to see your own environment. Let's copy your instance address into your browser
 (Chrome or Firefox) and login into R studio.  
 The address should look like:  `http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
-Your credencials are **user**:dcuser **pass**:data4Carp.  
 
-Although data are already stored in your instance, in case you need it you can donwload it [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
+Although data are already stored in your instance, in case you need to you can donwload them [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
 
 ### Review of the set-up
 
 As we have revisited throughout the lesson maintaining related data in a single folder
-is desireable. In RStudio, this folder is called **Working directory**. Here is where R will be looking 
+is desirable. In RStudio, this folder is called **Working directory**. Here is where R will be looking 
 for and saving your files. If you need to check where your working directory is located use `getwd()`.
-If your working directory is not what you expected, it always can be changed by clicking on the blue 
-gear icon:![image](https://user-images.githubusercontent.com/67386612/118722611-f7f59400-b7f1-11eb-8ca9-a72561f9c529.png) on the `File` tab, and pick the option _Set As Working Directory_. Alternatively, you can use the `setwd()`
+If your working directory is not what you expected, it can always be changed by clicking on the blue 
+gear icon:![image](https://user-images.githubusercontent.com/67386612/118722611-f7f59400-b7f1-11eb-8ca9-a72561f9c529.png) on the `Files` tab, and pick the option _Set As Working Directory_. Alternatively, you can use the `setwd()`
 command for changing it.
 
-Let's use this commands to set or working directiry where we have stored our files from the previous 
+Let's use this commands to set our working directoiry where we have stored our files from the previous 
 lessons:
 
 ~~~
@@ -90,8 +89,8 @@ There are two main paths to interact with R in RStudio:
 * Using the console
 * Creating and editing script files.
 The console is where commands can be typed and executed immediately and where the 
-results from executed commands will be shown. If R is ready to accept commands, the R console shows
-a `>` prompt. You can type instructions directly into the console and press "Enter", but they will 
+results from executed commands will be shown (like in the Unix shell). If R is ready to accept commands, the R console shows
+the `>` prompt. You can type instructions directly into the console and press "Enter", but they will 
 be forgotten when you close the session.
 
 For example, let's do some math and save it in R objects. We can store values in variables by
@@ -105,19 +104,18 @@ $ total
 ~~~
 {: .language-r}
 
-What would happend if you tap `ctrl` + `l`. Without the lesson page, could you remember of which 
-sum of numbers is `suma` made?. 
-**Reproducibility** is in our minds when we program(and when you do science). For this purpose, 
+What would happend if you tap `ctrl` + `l`. Without the lesson page, can you remember what numbers the sum is made of in the variable `suma`?.
+**Reproducibility** is in our minds when we program (and when we do science). For this purpose, 
 is convenient to type the commands we want in the script editor, and save the script periodically. 
 We can run our code lines in the script by the shortcut `ctrl` + `Enter` 
 (on Macs, `Cmd` + `Return` will work). Thus, the command on the current line, or the instructions
 in the currently selected text will be sent to the console and will be executed.
 
 Time can be the enemy or ally of memory. We want to be sure to remember why we write the commands
-in our scripts, we can leave comments(lines of no executable text) by beggining a line with `#`:
+in our scripts, so we can leave comments(lines of no executable text) by beggining a line with `#`:
 ~~~
 # Let's do some math in RStudio. How many times a year do the supermarkets change the bread that they use for
-# demostration, if they change it every 15 days:
+# display, if they change it every 15 days:
 356/15
 ~~~
 {: .language-r}
@@ -145,7 +143,7 @@ There are five types of data in RStudio:
 * Character
 
 ~~~
-$ typeof(5L) #Integer type can contain only whole numbers and followed by an capital L
+$ typeof(5L) #Integer type can contain only whole numbers and followed by a capital L
 ~~~
 {: .language-r}
 ~~~
@@ -182,7 +180,7 @@ $ typeof(suma == resta)
 
 ~~~
 $ resultado <- "4 and 3 are not the same in Earth. In Mars maybe... "
-$ typeof(result)
+$ typeof(resultado)
 ~~~
 {: .language-r}
 ~~~
@@ -191,9 +189,9 @@ $ typeof(result)
 {: .output}
 
 No matter how complicated our analysis can become, all data in R will be allocated as one of this
-five data types. In their own, data types are important because we want to know "who is who, and 
-what is what". But this concept will help us to learn one of the most powerful tools in R, that is 
-manipulate different types of data at the same time in a data-frame.
+five data types. On their own, data types are important because we want to know "who is who, and 
+what is what". But this concept will help us learn one of the most powerful tools in R, which is 
+the manipulation of different types of data at the same time in a data-frame.
 
 ### Data-frames: The power of interdisciplinarity 
 Let's beggin by creating a mock data set:
@@ -223,7 +221,7 @@ $ class(musician)
 ~~~
 {: .language-r}
 A data-frame is a collection of vectors, a list, whose components must be of the same data type within
-each vetor. Whereas, a data-frame can save vectors of different data types:
+each vector. Whereas, a data-frame can save vectors of different data types:
 ![image](https://user-images.githubusercontent.com/67386612/118735756-b4595500-b806-11eb-8bd6-d189b9463eca.png)
 Figure 3. Structure of the created data-frame.
 
@@ -268,7 +266,7 @@ $ paste("Is",musician$people, "popular? :", musician$likes, sep = " ")
 ~~~
 {: .output}
 
-Finally, we can extract from an specific place from our data:
+Finally, we can extract from a specific place in our data:
 ~~~
 $ musician[1,2]
 ~~~
@@ -287,6 +285,6 @@ following your inquiry, for example `??barplot` will open a help files in the RS
 panel in the lower right corner.
 
 With this, we have the needed tools to begin our exploration of diversity with R. Let's see what this
-journey have to offer.
+journey has to offer.
 
 
