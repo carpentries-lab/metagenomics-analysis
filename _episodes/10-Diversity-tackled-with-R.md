@@ -346,7 +346,7 @@ and that these two will belong to the same OTU.
 >>One of the widely α diversity indexes used is Simpson diversity index, as an example
 >>of solution, here it is the plot with an extra metric, which is Simpson α index:  
 >> `p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon", "Simpson"))`
->> ![image](https://user-images.githubusercontent.com/67386612/112221137-b62edf80-8bec-11eb-85aa-dd5be3e8ca16.png)
+>> ![image](https://user-images.githubusercontent.com/67386612/119062049-66298a80-b99b-11eb-94f8-197f03dbe194.png)
 >>
 >> 
 > {: .solution}
