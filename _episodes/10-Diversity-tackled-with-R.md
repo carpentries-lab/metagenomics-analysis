@@ -299,33 +299,33 @@ We want to know how is the bacterial diversity, so, we will prune all of the
 non-bacterial organisms in our metagenome. To do this we will make a subset 
 of all bacterial groups and save them.
 ~~~
-$ metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
+$ merged_metagenomes <- subset_taxa(merged_metagenomes, superkingdom == "Bacteria")
 ~~~
 {: .language-r}
 
 Now let's look at some statistics of our metagenomes:
 
 ~~~
-$ metagenome_JC1A
-$ sample_sums(metagenome_JC1A)
-$ summary(metagenome_JC1A@otu_table@.Data)
+merged_metagenomes
+sample_sums(merged_metagenomes)
+summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
 
 By the output of the sample_sums command we can see how many reads they are
 in the library. Also, the Max, Min and Mean outout on summary can give us an
 idea of the eveness. Nevertheless, to have a more visual representation of the
-diversity inside the sample (i.e. α diversity) we can now look at a ggplot2
+diversity inside the samples (i.e. α diversity) we can now look at a ggplot2
 graph created using Phyloseq:
 
 ~~~
-$ p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon")) 
-$ p + geom_point(size=5, alpha=0.7)  
+p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon")) 
+p + geom_point(size=5, alpha=0.7)
 ~~~
 {: .language-r}
 
-![image](https://user-images.githubusercontent.com/67386612/112221050-95ff2080-8bec-11eb-9fd0-b602d6f153ae.png)
-###### Figure 4. Alpha diversity indexes for JC1A sample
+![image](https://user-images.githubusercontent.com/67386612/112223149-23dc0b00-8bef-11eb-8651-677a5713a5bb.png)
+###### Figure 4. Alpha diversity indexes for both samples
 
 Each of these metrics can give insight of the distribution of the OTUs inside 
 our samples. For example. Chao1 diversity index gives more weight to singletons
@@ -333,22 +333,8 @@ and doubletons observed in our samples. While Shannon is a entrophy index
 remarking the impossiblity of taking two reads out of the metagenome "bag" 
 and that these two will belong to the same OTU.
 
-> ## Exercise 1: build a Phyloseq object by yourself
-> 
-> Import the `JP4D metagenome` and plot its α diversity with the mentioned metrics.
-> 
->> ## Solution
->> 
->> Repeat the previous instructions replacing JC1A for JP4D whenever it's appropiate:
->>
->>  At the end, you should have the Phyloseq object 'metagenome_JP4D'. 
->> 
-> {: .solution}
-{: .challenge}  
 
-
-
-> ## Exercise 2
+> ## Exercise 1
 > 
 > Use the help from plot_richness to discover other ways to plot diversity estimates using Phyloseq
 > and use another index to show the α diversity in our samples.
@@ -359,7 +345,7 @@ and that these two will belong to the same OTU.
 >> 
 >>One of the widely α diversity indexes used is Simpson diversity index, as an example
 >>of solution, here it is the plot with an extra metric, which is Simpson α index:  
->> `p = plot_richness(metagenome_JC1A, measures = c("Observed", "Chao1", "Shannon", "Simpson"))`
+>> `p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon", "Simpson"))`
 >> ![image](https://user-images.githubusercontent.com/67386612/112221137-b62edf80-8bec-11eb-85aa-dd5be3e8ca16.png)
 >>
 >> 
