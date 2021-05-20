@@ -120,6 +120,19 @@ changed when the bacterial community underwent the treatment.
 > {: .solution}
 {: .challenge}
 
+> ## Exercise 2 
+> 
+> Depending on the database several Ids can be used for the same sample.
+> In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what SRA id corresponds to sample	JP4110514WATERRESIZE
+
+> 
+>> ## Solution
+>> ERS1949771	is the SRA id corresponding to JP4110514WATERRESIZE
+>> 
+> {: .solution}
+{: .challenge}
+
+
 The results of this study, raw sequences and metadata, have been submitted to the NCBI Sequence Read Archive (SRA), 
 and are stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811). There are other metagenomic
 databases where we can find metagenomic data. 
