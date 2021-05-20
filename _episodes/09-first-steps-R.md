@@ -115,10 +115,14 @@ Time can be the enemy or ally of memory. We want to be sure to remember why we w
 in our scripts, so we can leave comments(lines of no executable text) by beggining a line with `#`:
 ~~~
 # Let's do some math in RStudio. How many times a year do the supermarkets change the bread that they use for
-# display, if they change it every 15 days:
-356/15
+# demostration, if they change it every 15 days:
+ 356/15
 ~~~
 {: .language-r}
+~~~
+[1] 23.73333
+~~~
+{: .output}
 
 ### Types of data
 
