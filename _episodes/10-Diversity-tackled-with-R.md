@@ -17,6 +17,11 @@ keypoints:
 - "The library `ggplot2` allow publication-quality plotting in R."
 ---
 
+# First plunge into diversity
+*Look at your fingers, controlled by the mind can do great things. But imagine if each one have a little brain of its own, with 
+different ideas, desires, and fears ¡How wonderful things will be made out of an artist such as that!* 
+	-Ode for multidisciplinarity
+
 Species diversity, is the number of species that are represented in a certain 
 community. 
 Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
@@ -24,9 +29,13 @@ Here we will talk about the two most used diversity metrics, diversity α (withi
 
 - α Diversity: Represents the richness (e.g. number of different species) and species' abundance. It can be measured by calculating richness, 
  and eveness, or by using a diversity index, such as Shannon's, Simpson's, Chao's, etc.  
+  ![image](https://user-images.githubusercontent.com/67386612/118978296-c4735080-b93c-11eb-8421-3294b21c9c44.png)
+###### Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness
  
 - β Diversity: It is the difference (measured as distance) between two or more metagenomes. 
 It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance or UniFrac, to name a few.  
+![image](https://user-images.githubusercontent.com/67386612/119004501-3f943100-b954-11eb-82fe-cc91235072f2.png)
+###### Figure 2. Alpha and Beta diversity represented by fishes in a pond.
 
 For this lesson we will use Phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
 [Rstudio cloud](https://rstudio.cloud/) and select "GET STARTED FOR FREE"
@@ -62,30 +71,16 @@ For this lesson we will use Phyloseq, an R package specialized in metagenomic an
 <img src="https://render.githubusercontent.com/render/math?math=S"> | Total number of the species in the community   
 <img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> | Proportion of community represented by OTU i    
   
-- ACE  
-
-| Variable             |  Definition |  
-:-------------------------:|:-------------------------:  
-<img src="https://render.githubusercontent.com/render/math?math=S_{ACE}=S_{abund}+\frac{S_{rare}}{C_{ACE}}+\frac{F_1}{C_{ACE}}+\gamma_{ACE}^2"> | Definition    
-<img float="left" src="https://render.githubusercontent.com/render/math?math=S_{abund}"> | Number of abundant OTUs   
-<img src="https://render.githubusercontent.com/render/math?math=S_{rare}">  | Number of rare OTUs   
-<img src="https://render.githubusercontent.com/render/math?math=C_{ACE}">  | Sample abundance coverage estimator  
-<img src="https://render.githubusercontent.com/render/math?math=F_1">   | Frequency of singletons  
-<img src="https://render.githubusercontent.com/render/math?math=\gamma_{ACE}^2"> | Estimated coefficient  of variation in rare OTUs 
-
 - Chao1  
   
 | Variable             |  Desription |  
 :-------------------------:|:-------------------------:  
- <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}+\frac{F_1(F_1-1)}{2(F_2 + 1)}">  | Definition  
+<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}+\frac{F_1(F_1-1)}{2(F_2 + 1)}">  | Definition  
 <img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|Count of singletons and doubletons respectively    
 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}">| The number of observed species    
 
-The rarefaction curves allow us to know if the sampling was exhaustive or not. 
-In metagenomics this is equivalent to knowing if the sequencing depth was sufficient.
-
 ## β diversity  
-Diversity β measures how different two or more metagenomes are, either in their composition (diversity)
+Diversity β measures how different two or more communities are, either in their composition (diversity)
 or in the abundance of the organisms that compose it (abundance). 
 - Bray-Curtis dissimilarity: Emphasis on abundance. Measures the differences 
 from 0 (equal communities) to 1 (different communities)
@@ -96,16 +91,50 @@ There are two types, without weights (diversity) and with weights (diversity and
 
 It is easy to visualize using PCA, PCoA or NMDS analysis.
 
-## Creating lineage and rank tables  
-Packages like Quiime2, MEGAN, Vegan or Phyloseq in R allows to obtain these diversity indexes.  
-We will use Phyloseq, in order to do so, we need to generate an abundance matrix from the Kraken output.  
+# Creating lineage and rank tables  
 
+In this lesson we will use RStudio to analize two microbiome samples from CCB, you don't have to install anything, 
+you already have an instance on the cloud ready to be used.   
+
+For this purpose, we will use packages in R. A package is a family of code units (functions, classes, variables) that 
+implement a set of related tasks. Importing a package is like getting a piece of lab equipment out of a storage locker 
+and setting it up on the bench. Packages provide additional functionality to the basic R code, much like a new piece 
+of equipment adds functionality to a lab space.
+
+Packages like Quiime2, MEGAN, Vegan or Phyloseq in R allows us to obtain these diversity indexes by 
+manipulating taxonomic-assignation data.  In this lesson, we will use Phyloseq. In order to do so, we need to generate 
+an abundance matrix from the Kraken output files. One program widely used for this purpose is kraken-biom.
+
+But before we face our first storm in this code sea, let's learn one useful tool in RStudio.
+
+## The terminal in RStudio
+RStudio has an integrated terminal that use the same language as we learn in the UNIX lessons. As well, R's terminal 
+is an interface that executes programs, and is better to deal with long data sets than a visual interface.  
+
+You can also known in which directory you are standing in the reminal,by using `pwd`. 
+
+Let's explore the content of some of our data files. In order to do it, we have to move to 
+the  folder where our taxonomic-data files are: 
 ~~~
-$ cd ~/dc_workshop/taxonomy
-$ head JP4D.kraken   
-~~~
+$ cd /home/dcuser/dc_workshop/taxonomy
+~~~~
 {: .bash}
 
+First, we will visualize the content of our directory by the `ls` command.  
+~~~
+$ ls
+~~~~
+~~~
+JC1A.error  JC1A.kraken  JC1A.report  JP4D.error  JP4D.kraken  JP4D.report
+~~~
+{: .output}
+
+Files `.kraken` and `kraken.report`are the output of the Kraken program, we can see a few lines of the file `.kraken` 
+using the command `head`.   
+~~~
+$ head JP4D.kraken  
+~~~
+{: .bash}
 ~~~
 U       k141_55805      0       371     0:337
 U       k141_0  0       462     0:428
@@ -121,8 +150,7 @@ U       k141_6  0       662     0:628
 ~~~
 {: .output}
 
-
-
+This information may be confused, let's take out our cheatsheet to understand some of its components:
 |------------------------------+------------------------------------------------------------------------------|  
 | column                       |                              Description                                     |  
 |------------------------------+------------------------------------------------------------------------------|  
@@ -137,53 +165,64 @@ U       k141_6  0       662     0:628
 |  0:6 1286:2 0:8 28384:14 0:11|kmers hit to a taxonomic id E.g. 0:1 root 6 hit, 1286 has 2 hits, etc.        |           
 |-------------------+-----------------------------------------------------------------------------------------|  
 
-
-
-
-
-
-
-### Exploring metagenome data with the terminal  
-  
-In this lesson we will use R studio to analize two microbiome samples from CCB, you don't have to install anything, 
-you already have an instance on the cloud ready to be used.   
-
-The terminal is a program that executes programs, and is better to deal with long data sets than a visual interface.  
-First to visualize the content of our directory you can use the `ls` command.  
-
+There are other set of files with `.report` suffix. This is an output with the same information as the one found
+in the `.kraken` files, but in a more human-readable sintax:
 ~~~
-$ ls
-~~~~
-
-Now you can also known in which directory you are standing in the reminal,by using `pwd`. 
-
-Let's explore the content of some of our data files. So we have to move to the corresponding folder where our taxonomic-data files are: 
-
-~~~
-$ cd /home/dcuser/dc_workshop/results
-~~~~
-{: .bash}
-
-Files `.kraken` and `kraken.report`are the output of the Kraken program, we can see a few lines of the file `.kraken` using the command `head`.   
-
-~~~
-$ head JC1A.kraken 
+$ head JP4D.report  
 ~~~
 {: .bash}
+~~~
+ 75.95  77818   77818   U       0       unclassified
+ 24.05  24642   5       R       1       root
+ 24.01  24597   0       R1      131567    cellular organisms
+ 24.01  24597   562     D       2           Bacteria
+ 19.88  20365   581     P       1224          Proteobacteria
+ 15.16  15530   494     C       28211           Alphaproteobacteria
+  7.92  8116    7       O       204455            Rhodobacterales
+  7.84  8033    945     F       31989               Rhodobacteraceae
+  1.44  1476    51      G       1060                  Rhodobacter
+  0.92  943     711     S       1063                    Rhodobacter sphaeroides
+  ~~~
+{: .output}
 
-How would you see the last lines of the file report?  
+
+## kraken-biom 
+Kraken-biom is a program that creates BIOM tables from the Kraken output 
+[kraken-biom](https://github.com/smdabdoub/kraken-biom)
+
+Lets take a look at the different flags that kraken-biom have:
 
 ~~~
-$ tail JC1A.report 
+$ kraken-biom -h                  
 ~~~
 {: .bash}
-  
+~~~
+usage: kraken-biom [-h] [--max {D,P,C,O,F,G,S}] [--min {D,P,C,O,F,G,S}]
+                   [-o OUTPUT_FP] [--otu_fp OTU_FP] [--fmt {hdf5,json,tsv}]
+                   [--gzip] [--version] [-v]
+                   kraken_reports [kraken_reports ...]
 
+Create BIOM-format tables (http://biom-format.org) from Kraken output
+(http://ccb.jhu.edu/software/kraken/)...
+~~~
+{: .output}
+By a close look at the first output lines, it is noticeable that we need a specific output
+from Kraken: `kraken.report`s. 
 
-##  Manipulating lineage and rank tables in phyloseq  
+With the next command, we are going to create a table in [Biom](https://biom-format.org/) format called `cuatroc.biom`:
+~~~
+$ kraken-biom JC1A.report JP4D.report --fmt json -o cuatroc.biom
+~~~
+{: .bash}
 
-  
-### Load required packages  
+If we inspect our folder, we will see that the "cuatroc.biom" file has been created, this is 
+a biom object which contains both, the abundances of each OTU and the identificator of each OTU.
+With this result, we are ready to return to RStudio's console and beggin to mannipulate or 
+taxonomic-data.
+
+#  Manipulating lineage and rank tables with phyloseq  
+
+## Load required packages  
 
 Phyloseq is a library with tools to analyze and plot your metagenomics tables. Let's install [phyloseq](https://joey711.github.io/phyloseq/) (This instruction might not work on certain versions of R) and other libraries required for its execution:  
 
@@ -211,68 +250,41 @@ $ library("patchwork")
   
 ### Load data with the number of reads per OTU and taxonomic labels for each OTU.  
 
-Next, we have to load the taxonomic assignation data into objets in R:
-
+Let's procced to create the phyloseq object by the `import_biom` command:
 ~~~
-$ OTUS <- read_delim("JC1A.kraken_ranked-wc","\t", escape_double = FALSE, trim_ws = TRUE)
-$ TAXAS <- read_delim("JC1A.lineage_table-wc", "\t", escape_double = FALSE, 
-                    col_types = cols(subspecies = col_character(),  
-                    subspecies_2 = col_character()), trim_ws = TRUE)
-
+merged_metagenomes <- import_biom("cuatroc.biom")
 ~~~
 {: .language-r}
 
+Now, we can inspect the result by asking what class is the object created, and 
+doing a close inspection of some of its content:
+~~~
+$ class(merged_metagenomes)
+$ View(merged_metagenomes@tax_table@.Data)
+~~~
+{: .language-r}
+~~~
+[1] "phyloseq"
+attr(,"package")
+[1] "phyloseq"
+~~~
+{: .output}
+![image](https://user-images.githubusercontent.com/67386612/119017138-4e80e080-b960-11eb-8465-737d6197c775.png)
+###### Figure 3. Table of the OTU data from our `merged_metagenomes` object.
 
-### Build Phyloseq object  
-
-Phyloseq objects are a collection of information regarding a single or a group of metagenomes, 
-these objects can be manually constructed using the basic data structures available in R or can
-be created by importing the output of other programs, such as QUIIME and kraken-biom.
-
-Since we imported our data to basic R data types, we will build our Phyloseq object manually
-by extracting the OTU's names and abundances.
+The "class" command indicate that we already have our phyloseq object. Also, 
+inside the tax_table we see that it looks just like the one created in the
+last episode of the lesson. Let's get rid of some of the innecesary characters 
+in the OTUs identificator and put name to the taxonomic ranks:
 
 ~~~
-# Get OTU IDs from both lists
-$ names1 <- OTUS$OTU
-$ names2 <- TAXAS$OTU
-
-# Remove OTU IDs from both lists
-$ OTUS$OTU <- NULL
-$ TAXAS$OTU <- NULL
+$ merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
+$ colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
 ~~~
 {: .language-r}
 
-~~~
-# Convert both lists to matrix
-$ abundances <- as.matrix(OTUS)
-$ lineages <- as.matrix(TAXAS)
-
-# Assign the OTU IDs as the names of the rows of the matrixes you just built
-$ row.names(abundances) <- names1
-$ row.names(lineages) <- names2
-~~~
-{: .language-r}
-
-All that we've done so far is transforming the taxonomic lineage table 
-and the OTU abundance table into a format that can be read by phyloseq.
-Now we will make the phyloseq data types out of our matrices.
-
-~~~
-$ OTU <- otu_table(abundances, taxa_are_rows = TRUE)
-$ TAX <- tax_table(lineages)
-~~~
-{: .language-r}
-
-We will now construct a Phyloseq-object using Phyloseq data types we have created: 
-
-~~~
-$ metagenome_JC1A <- phyloseq(OTU, TAX)
-~~~
-{: .language-r}
-
-> ## `.callout`
->
+Finally, we can review our object and see that both datasets 
+(i.e. JC1A and JP4D) are in the our object.
 >If you look at our Phyloseq object, you will see that there are more data types 
 >that we can use to build our object(?phyloseq), as a phylogenetic tree and metadata 
 >concerning our samples. These are optional, so we will use our basic
@@ -313,7 +325,7 @@ $ p + geom_point(size=5, alpha=0.7)
 {: .language-r}
 
 ![image](https://user-images.githubusercontent.com/67386612/112221050-95ff2080-8bec-11eb-9fd0-b602d6f153ae.png)
-Figure 2. Alpha diversity indexes for JC1A sample
+###### Figure 4. Alpha diversity indexes for JC1A sample
 
 Each of these metrics can give insight of the distribution of the OTUs inside 
 our samples. For example. Chao1 diversity index gives more weight to singletons
@@ -366,4 +378,3 @@ and that these two will belong to the same OTU.
   
                              
 {% include links.md %}
-
