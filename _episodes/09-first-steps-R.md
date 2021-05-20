@@ -51,14 +51,13 @@ going to create, and visualize our contrived plots.
 
 Here is what you may look at the first time you open RStudio:
 ![image](https://user-images.githubusercontent.com/67386612/118720027-ba433c00-b7ee-11eb-87e5-7496fde5763e.png)
-Figure 1. RStudio interface screenshot.
-The three windows that appear on the screen provide us with a space in which we can observe our console where the orders we want to execute are written (left side window), observe the generated variables (upper right), and a series of subtabs where we have: **files** shows us files that we have used, **plots** we observe graphics that we are generating, **packages** the packages that we have downloaded are loaded, **help** works only with the internet but it gives us the information of packages or commands and/or functions that we do not know and **viewer** shows a preview results in rmarkdown files.
+###### Figure 1. RStudio interface screenshot. The three windows that appear on the screen provide us with a space in which we can observe our console where the orders we want to execute are written (left side window), observe the generated variables (upper right), and a series of subtabs where we have: **files** shows us files that we have used, **plots** we observe graphics that we are generating, **packages** the packages that we have downloaded are loaded, **help** works only with the internet but it gives us the information of packages or commands and/or functions that we do not know and **viewer** shows a preview results in rmarkdown files.
 
 If we click in the option `File` :arrow_right: `New File` :arrow_right: `R Script`,
 we get what we can call _RStudio nautical chart_
 
 ![image](https://user-images.githubusercontent.com/67386612/112203976-c046e300-8bd8-11eb-9ee6-72c95f9134f3.png)
-Figure 2. RStudio interface screenshot. Clockwise from top left: Source, Environment/History, 
+###### Figure 2. RStudio interface screenshot. Clockwise from top left: Source, Environment/History, 
 Files/Plots/Packages/Help/Viewer, Console.
 
 You can enter your online RStudio to see your own environment. Let's copy your instance address into your browser
