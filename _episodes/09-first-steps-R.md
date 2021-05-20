@@ -42,8 +42,8 @@ for working with R:
 - R works on data of all colors and sizes
 - R is free!
 
-### A nautical chart of RStudio
-
+### A nautical chart of RStudio 
+Abel: I would recommend explaining that R also allows us to create other types of documents.
 RStudio is an [Integrated Development Environment(IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment#:~:text=An%20integrated%20development%20environment%20(IDE,automation%20tools%20and%20a%20debugger.)) 
 which we will use to write code,
 navigate the files from our computer/cloud, try code, inspect the variables we are 
