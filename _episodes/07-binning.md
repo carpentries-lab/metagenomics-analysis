@@ -73,9 +73,10 @@ ERS1949771.004.fasta	71.0%	2256981	64.0
 {: .output}  
 
 > ## `.discussion`
+>
 >Can we trust the quality of our bins only with the given information? 
 >What else do we want to know about them to confidently use them for further analysis?
->{: .discussion}
+{: .discussion}
 
 # Quality check 
 
