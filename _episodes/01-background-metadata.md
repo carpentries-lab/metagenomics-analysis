@@ -3,15 +3,15 @@ title: "Background and Metadata"
 teaching: 10 minutes
 exercises: 0
 questions:
-- "How do you plan a metagenomic experiment"   
+- "How do you plan a metagenomic experiment?"   
 objectives:
-- "Learn the difference between shotgun and amplicon metagenomics"
-- "Undestand the importance of metadata"  
-- "Familiarize yourself with the Cuatro Cienegas experiment"
+- "Learn the difference between shotgun and amplicon metagenomics."
+- "Undestand the importance of metadata."  
+- "Familiarize yourself with the Cuatro Ciénegas experiment."
 keypoints:    
-- "Amplicon metagenomics can be used for taxonomic studies"
-- "Shotgun metagenomics can be used for taxonomic and functional studies"  
-- "Collecting metadata beforehand is important for downstream analysis"    
+- "Amplicon metagenomics can be used for taxonomic studies."
+- "Shotgun metagenomics can be used for taxonomic and functional studies."  
+- "Collecting metadata beforehand is important for downstream analysis."    
 ---
 
 # Metagenomics 
@@ -29,14 +29,14 @@ species do, we can look at the genes directly enconded in the metagenome, or the
 with the species that we found. To know which methodology we should use, it is important to know which 
 type of metagenomic sequence we have. 
 
-## Shotgun and Amplicons    
+## Shotgun and amplicons    
 There are two types of metagenomes, shotgun metagenomes and amplicon metagenomes. 
 Each is named after the sequencing methodology employed, and have particular use cases, 
 with inherent advantages and disadventages.
 
-In a *Shotgun Metagenome* we sequence random parts of the genomes present in a niche. We can seach 
+In a *Shotgun Metagenome* we sequence random parts of the genomes present in a niche. We can search 
 the origin of these pieces, _i.e._ their taxonomy, and also try to find to which gene they belong to. 
-Given enough pieces, it even possible to obtain full individual genomes from a shotgun metagenome, 
+Given enough pieces, it is even possible to obtain full individual genomes from a shotgun metagenome, 
 which could give us a bunch of information about the species in our study. This, however, requieres 
 that we have a lot of genomic sequences from one organism, and since the sequencing is donde at random, 
 we usually have to sequence our community a lot (have a high sequencing depth) to make sure that we obtain 
@@ -108,43 +108,40 @@ changed when the bacterial community underwent the treatment.
 
 > ## Exercise 1 
 > 
-> Knowing the results of this CCB study, what type of sequencing what type of metagenomic sequencing was used?
+> Knowing the results of this CCB study, what type of metagenomic sequencing was used?
 > In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what was the most important piece of metadata that the authors took?
 > 
 >> ## Solution
 >> Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.
->> The most important think to know about our data is which community was supplemented with fertilizers.
->> However, any differences in the more technical parts of the study, such as the DNA extraction protocol,
->> could have affected the results, so tracking those is also important
+>> The most important thing to know about our data is which community was supplemented with fertilizers.
+>> However, any differences in the technical parts of the study, such as the DNA extraction protocol,
+>> could have affected the results, so tracking those is also important.
 >> 
 > {: .solution}
 {: .challenge}
 
 > ## Exercise 2 
 > 
-> Depending on the database several Ids can be used for the same sample.
-> In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what SRA id corresponds to sample	JP4110514WATERRESIZE
-
+> Depending on the database several IDs can be used for the same sample.
+> In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what SRA ID corresponds to sample	JP4110514WATERRESIZE
 > 
 >> ## Solution
->> ERS1949771	is the SRA id corresponding to JP4110514WATERRESIZE
+>> ERS1949771	is the SRA ID corresponding to JP4110514WATERRESIZE
 >> 
 > {: .solution}
 {: .challenge}
 
+Note that throughout the lesson we will use the first four characters of the file names (alias) to identify the data files corresponding to a sample.
 
 The results of this study, raw sequences and metadata, have been submitted to the NCBI Sequence Read Archive (SRA), 
 and are stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811). There are other metagenomic
 databases where we can find metagenomic data. 
 
 > ## Other metagenomic databases
-> The NCBI SRA is not the only repository for metagenomic information. There are other public metagenomic databases such as 
-> [MG-RAST](https://www.mg-rast.org/index.html?stay=1)  
-> [MGnify](https://www.ebi.ac.uk/metagenomics/), [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), 
-> [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/) and the [GM Repo](https://gmrepo.humangut.info/home).   
+> The NCBI SRA is not the only repository for metagenomic information. There are other public metagenomic databases such as [MG-RAST](https://www.mg-rast.org/index.html?stay=1), [MGnify](https://www.ebi.ac.uk/metagenomics/), [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/) and the [GM Repo](https://gmrepo.humangut.info/home).   
 {: .callout}
 
-Each database requires certain metadata linked with the data. As an example when `JP4D.fasta` in uploaded to 
+Each database requires certain metadata linked with the data. As an example when `JP4D.fasta` is uploaded to 
 mg-RAST the associated metadata looks like:
 
 | Column           | Description                                |
