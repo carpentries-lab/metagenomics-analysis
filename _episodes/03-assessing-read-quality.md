@@ -61,11 +61,13 @@ Although it looks complicated (and it is), we can understand the [FASTQ](https:/
 |3|Always begins with a '+' and sometimes the same info in line 1|
 |4|Has a string of characters which represent the quality scores; must have same number of characters as line 2|
 
-We can view the first complete read in one of the files our dataset by using `head` to look at
-the first four lines. 
+We can view the first complete read in one of the files from our dataset by using `head` to look at
+the first four lines. But we have to decompress one of the files first.
 
 ~~~
 $ cd /dc_workshop/data/untrimmed_fastq/
+
+$ gunzip JP4D_R1.fastq.gz
 
 $ head -n 4 JP4D_R1.fastq
 ~~~
