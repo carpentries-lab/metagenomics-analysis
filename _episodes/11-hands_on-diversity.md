@@ -20,7 +20,7 @@ keypoints:
 
 # Assemble and manipulate a phyloseq object with a myriad of samples
 
-*Before your fingers touch the keys, it must be decided in your mind why you are doing this...explore 
+*Before your fingers touch the keys, it must be decided in your mind why you are doing it...explore 
 is welcome and praised, not moving at all or senseless movement will draw you somewhere far from your 
 goal*
 
