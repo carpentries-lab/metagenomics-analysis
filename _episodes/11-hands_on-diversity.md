@@ -4,7 +4,6 @@ title: "Diversity Analysis"
 teaching: 30
 exercises: 20
 questions:
-- "How can I merge sample-specific data into a phyloseq object?"
 - "How can we compare depth-contrasting samples?"
 - "Which alternatives do we have to import taxonomic-assignation data in R?"
 objectives:
@@ -18,48 +17,50 @@ keypoints:
 - "The library `ggplot2` creates plots that helps/remarks the data analysis"
 - "The kraken-biom program can automatize the creation of the phyloseq object"
 ---
-## Assemble and manipulate a phyloseq object with a myriad of samples
+
+# Assemble and manipulate a phyloseq object with a myriad of samples
+
 *Before your fingers touch the keys, it must be decided in your mind why you are doing this...explore 
 is welcome and praised, not moving at all or senseless movement will draw you somewhere far from your 
 goal*
 
   -Sergio Cuellar
 
-In the last lesson, we created two phyloseq objects, each containing the information 
-of one of our samples: "metagenome_JC1A" and "metagenome_JP4D". But useful as it can be, 
-we can not compare them until we put them together in a single phyloseq object.
-
-### Merge two metagenomes to compare them  
-
-With the two Phyloseq objects created, one for each metagenome, its time to merge
-them into one single phyloseq object with the next command:
-
-~~~
-merged_metagenomes = merge_phyloseq(metagenome_JC1A, metagenome_JP4D)
-~~~
-{: .language-r}
-
-
-Let´s look at the abundance of our metagenomes.  
+In the last lesson, we created our phyloseq object, which containing the information 
+of both of our samples: `JC1A` and `metagenome_JP4D`. Let´s look at the number of reads in our data.  
 
 ~~~
 merged_metagenomes
 sample_sums(merged_metagenomes)
+~~~
+{: .language-r}
+~~~
+ JC1A  JP4D 
+  920 22530 
+~~~
+{: .output}
+~~~
 summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
-
-Moreover, we can made plots with the diversity indexes evaluated before, but with our
-entire database:
-
 ~~~
-p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon")) 
-p + geom_point(size=5, alpha=0.7)
+      JC1A             JP4D        
+ Min.   : 0.000   Min.   :  0.000  
+ 1st Qu.: 0.000   1st Qu.:  1.000  
+ Median : 0.000   Median :  2.000  
+ Mean   : 0.336   Mean   :  8.229  
+ 3rd Qu.: 0.000   3rd Qu.:  5.000  
+ Max.   :24.000   Max.   :945.000
+~~~
+{: .output}
+
+Also, we can see how different they are among the samples by the diversity plot made in the past lesson:
+~~~
+plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon"))
 ~~~
 {: .language-r}
-  
 ![image](https://user-images.githubusercontent.com/67386612/112223149-23dc0b00-8bef-11eb-8651-677a5713a5bb.png)
-Figure 1. Alpha diversity indexes for each of our samples
+###### Figure 1. Alpha diversity indexes for each of our samples
 
 It is evident that there is a great difference in the total reads(i.e. information) of each sample.
 Before we further process our data, take a look if we have any no-identified read. Marked as "NA"
