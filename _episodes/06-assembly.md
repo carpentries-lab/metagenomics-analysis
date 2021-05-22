@@ -19,8 +19,7 @@ keypoints:
 
 
 ## Assembling reads
-An assembly is a data structure that maps the sequence data to a reconstruction of the target.
-The assembly process groups reads into contigs and contigs into scaffolds. There are many programs devoted to
+The assembly process groups reads into contigs and contigs into scaffolds, in order to obtain, ideally, the sequence of a whole chromosome. There are many programs devoted to
 [genome](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874646/) and metagenome assembly, some of the
 main strategies they use are: Greedy extension, OLC and De Bruijn charts. When metagenomics is
 shotgun instead of amplicon metagenomics an extra assembly step must be run.
@@ -44,9 +43,9 @@ $ metaspades.py: command not found
 {: .error}
 
 
-## Activating metagenomic environment  
+## Activating a metagenomic environment  
 Environments are part of a bioinformatic tendency to make repdoucible research, 
-they are a way to share our computational environments with our colleges and 
+they are a way to share our programs in their specific versions used for a pipeline with our colleagues and 
 with our future self. MetaSPAdes is not activated in the (base) environment but 
 this AWS instances came with an environment called metagenomics. We need to activate 
 it in order to start using MetaSPAdes. 
@@ -89,7 +88,7 @@ Input data:
 ~~~
 {: .output}
  
-> ## `.callout`
+> ## Conda is an environment management system `.callout`
 >
 > Enviroments help in science reproducibility, allowing to share the specific conditions in which a pipeline is run.
 > Conda is an open source package management system and environment management system that runs on Windows, macOS and 
@@ -105,7 +104,7 @@ $ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../assem
 ~~~
 {: .bash}
 
-> ## `.callout`
+> ## Running commands on the background `.callout`
 > The `&` sign that we are using at the end of the command is for telling the machine to run the command on the background, this will help us to avoid the cancelation of the opperation in case the connection with the AWS machine is unstable. 
 {: .callout}
 
@@ -157,16 +156,7 @@ tmp
 ~~~
 {: .output}
 
-As we can see MetaSPAdes gave us a lot of files. The ones with the assembly are the `contigs.fasta` and the `scaffolds.fasta`. The contigs are just made from assembled reads, but the scaffolds are the result from a subsequent process in which the contigs are ordered and oriented and connected with Ns.
-
-Other interesting output is the folder `corrected`, it contains the reads with the sequencing errors corrected. We will return to it latter. 
-
-Let's rename the file that contains our assembled contigs. 
-~~~
-$ mv contigs.fasta JC1A_contigs.fasta
-~~~
-{: .bash}
-
+As we can see, MetaSPAdes gave us a lot of files. The ones with the assembly are the `contigs.fasta` and the `scaffolds.fasta`. The contigs are just made from assembled reads, but the scaffolds are the result from a subsequent process in which the contigs are ordered and oriented and connected with Ns.
 
 > ## `.discussion`
 >
