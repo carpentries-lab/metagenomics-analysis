@@ -11,6 +11,7 @@ objectives:
 keypoints:
 - "Quality encodings vary across sequencing platforms."
 - "`for` loops let you perform the same set of operations on multiple files with a single command."
+- "It is important to know the quality of our data to be able to make decisions in the subsequent steps."
 ---
 
 # Bioinformatic workflows
@@ -19,7 +20,7 @@ When working with high-throughput sequencing data, the raw reads you get off of 
 through a number of  different tools in order to generate your final desired output. The execution of this set of
 tools in a specified order is commonly referred to as a *workflow* or a *pipeline*. 
 
-An example of the workflow we will be using for our variant calling analysis is provided below with a brief
+An example of the workflow we will be using for our analysis is provided below with a brief
 description of each step. 
 
 
@@ -28,11 +29,10 @@ description of each step.
 </a>
 
 
-1. Quality control - Assessing quality using FastQC
-2. Quality control - Trimming and/or filtering reads (if necessary)
-3. Align reads to reference genome 
-4. Perform post-alignment clean-up
-5. Variant calling
+1. Quality control - Assessing quality using FastQC and Trimming and/or filtering reads (if necessary)
+2. Assembly of metagenome
+3. Binning
+4. Taxonomic assignation
 
 These workflows in bioinformatics adopt a plug-and-play approach in that the output of one tool can be easily
 used as input to another tool without any extensive configuration. Having standards for data formats is what 
@@ -450,10 +450,9 @@ So the easiest way to look at these webpage summary reports will be
 to transfer them to our local computers (i.e. your laptop).
 
 To transfer a file from a remote server to our own machines, we will
-use `scp`, which we learned yesterday in the Shell Genomics lesson. 
+use `scp`, which we learned yesterday in the Introduction to the Command Line lesson. 
 
-First we
-will make a new directory on our computer to store the HTML files
+First we will make a new directory on our computer to store the HTML files
 we're transferring. Let's put it on our desktop for now. Open a new
 tab in your terminal program (you can use the pull down menu at the
 top of your screen or the Cmd+t keyboard shortcut) and type: 
@@ -481,14 +480,14 @@ forget the `:`. We used a wildcard (`*.html`) to indicate that we want all of
 the HTML files. 
 
 The third part of the command gives the absolute path of the location
-you want to put the files. This is on your local computer and is the 
+you want to put the files in. This is on your local computer and is the 
 directory we just created `~/Desktop/fastqc_html`. 
 
 You should see a status output like this:
 
 ~~~
-JC1A_R1_fastqc.html                100%  253KB 320.0KB/s   00:00     
-JC1A_R2_fastqc.html                100%  262KB 390.1KB/s   00:00     
+JC1A_R1_fastqc.html     100%  253KB 320.0KB/s   00:00     
+JC1A_R2_fastqc.html     100%  262KB 390.1KB/s   00:00     
 JP4D_R1_fastqc.html     100%  237KB 360.8KB/s   00:00     
 JP4D_R2_fastqc.html     100%  244KB 385.2KB/s   00:00
 ~~~
@@ -567,13 +566,13 @@ caution: filename not matched:  JP4D_R2_fastqc.zip
 ~~~
 {: .output}
 
-This didn't work. We unzipped the first file and then got a warning
+This didn't work. It identified the first file and then got a warning
 message for each of the other `.zip` files. This is because `unzip` 
 expects to get only one zip file as input. We could go through and 
 unzip each file one at a time, but this is very time consuming and 
 error-prone. Someday you may have 500 files to unzip!
 
-A more efficient way is to use a `for` loop like we learned in the Shell Genomics lesson to iterate through all of
+A more efficient way is to use a `for` loop like we learned in the Command Line lesson to iterate through all of
 our `.zip` files. Let's see what that looks like and then we'll 
 discuss what we're doing with each line of our loop.
 
@@ -585,7 +584,7 @@ $ for filename in *.zip
 ~~~
 {: .bash}
 
-In this example, the input is six filenames (one filename for each of our `.zip` files).
+In this example, the input is the four filenames (one filename for each of our `.zip` files).
 Each time the loop iterates, it will assign a file name to the variable `filename`
 and run the `unzip` command.
 The first time through the loop,
