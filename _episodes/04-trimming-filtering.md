@@ -20,7 +20,7 @@ of each of our samples using FastQC. We visualized per-base quality
 graphs showing the distribution of read quality at each base across
 all reads in a sample and extracted information about which samples
 fail which quality checks. Some of our samples failed quite a few quality metrics used by FastQC. This doesn't mean,
-though, that our samples should be thrown out! It's very common to have some quality metrics fail, and this may or may not be a problem for your downstream application. For our variant calling workflow, we will be removing some of the low quality sequences to reduce our false positive rate due to sequencing error.
+though, that our samples should be thrown out! It's very common to have some quality metrics fail, and this may or may not be a problem for your downstream application. For our workflow, we will be removing some of the low quality sequences to reduce our false positive rate due to sequencing error.
 
 We will use a program called
 [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to
@@ -138,13 +138,12 @@ phred score is below 20 (like in our example above). We will also
 discard any reads that do not have at least 25 bases remaining after
 this trimming step. This command will take a few minutes to run.
 
-We unzipped one of our files before to work with it, let's compress the pair of files corresponding to the sample `JP4D` again before we run Trimmomatic.
+Before, we unzipped one of our files to work with it, let's compress the file corresponding to the sample `JP4D` again before we run Trimmomatic.
 ~~~
-gzip JP4D_R* 
+gzip JP4D_R1.fastq
 ~~~
 {: .bash}
  
-
 ~~~
 $ trimmomatic PE JP4D_R1.fastq.gz JP4D_R2.fastq.gz \ 
       JP4D_R1.trim.fastq.gz  JP4D_R1un.trim.fastq.gz \ 
@@ -155,12 +154,14 @@ $ trimmomatic PE JP4D_R1.fastq.gz JP4D_R2.fastq.gz \
 
 
 ~~~
-TrimmomaticPE: Started with arguments:  
-JC1AJP4D_R1.fastq.gz JC1AJP4D_R2.fastq.gz JC1AJP4D_R1.trim.fastq.gz JC1AJP4D_R1un.trim.fastq.gz JC1AJP4D_R2.trim.fastq.gz JC1AJP4D_R2un.trim.fastq.gz SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15                            
-Multiple cores found: Using 2 threads                                                       
-Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'                                                        ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences                                    Quality encoding detected as phred33                                                        
-Input Read Pairs: 1123987 Both Surviving: 751427 (66.85%) Forward Only Surviving: 341434 (30.38%) Reverse Only Surviving: 11303 (1.01%) Dropped: 19823 (1.76%)                          
-TrimmomaticPE: Completed successfully    
+TrimmomaticPE: Started with arguments:
+ JP4D_R1.fastq.gz JP4D_R2.fastq.gz JP4D_R1.trim.fastq.gz JP4D_R1un.trim.fastq.gz JP4D_R2.trim.fastq.gz JP4D_R2un.trim.fastq.gz SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15
+Multiple cores found: Using 2 threads
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 1123987 Both Surviving: 751427 (66.85%) Forward Only Surviving: 341434 (30.38%) Reverse Only Surviving: 11303 (1.01%) Dropped: 19823 (1.76%)
+TrimmomaticPE: Completed successfully
 ~~~
 {: .output}
 
@@ -220,16 +221,6 @@ one sample at a time and we have more than one sample. The good news
 is that we can use a `for` loop to iterate through our sample files
 quickly! 
 
-First, let's compress the rest of the files that correspond to the 
-sample `JC1A`
-
-~~~
-$ gzip JC1A_R*
-~~~
-{: .bash}
-
-Now, the for loop:
-
 ~~~
 $ for infile in *_R1.fastq.gz
 > do
@@ -264,14 +255,14 @@ TruSeq3-PE.fa
 {: .output}
 
 > ## Exercise 2
-> We trimmed our FASTSQ files with Nextera adapters, 
+> We trimmed our FASTQ files with Nextera adapters, 
 > but there are other adapters that are commonly used.
 > What other adapter files came with Trimmomatic?
 >
 >
 >> ## Solution
 >> ~~~
->> $ ls ~/miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
+>> $ ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
 >> ~~~
 >> {: .bash}
 >>
