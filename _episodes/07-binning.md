@@ -22,7 +22,7 @@ In this process, the assembled contigs from the metagenome will be assigned to d
 
 Although an obvious way to separate contigs that correspond to a different species is by their taxonomic assignation, there are more reliable methods that do the binning using characteristics of the contigs, such as their GC content, the use of tetranucleotides (composition) or their coverage (abundance).
 
-[Maxbin](https://sourceforge.net/projects/maxbin/files/) is a binning algorith that distinguishes contigs that belong to different bins according to their coverage levels and the tetranucleotide frequencies they have.
+[Maxbin](https://sourceforge.net/projects/maxbin/files/) is a binning algorithm that distinguishes contigs that belong to different bins according to their coverage levels and the tetranucleotide frequencies they have.
 
 We will perform the binning process with a different sample from the same study because the samples we have been working with are not adequate for binning. The command for running MaxBin is `run_MaxBin.pl`, and the arguments it needs are the FASTA file of the assmbly (it is already pre-computed `ERS1949771_contigs.fasta`), the FASTQ with the reads and the output directory and name. 
 ~~~
