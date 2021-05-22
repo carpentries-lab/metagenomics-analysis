@@ -1,6 +1,6 @@
 ---
 title: "Metagenomic Cloud Services"
-teaching: 5 minutes
+teaching: 5
 exercises: 15
 questions:
 - "What are cloud services?"
@@ -16,7 +16,6 @@ keypoints:
 - "AWS and local computers allow a greater degree of personalization."
 
 ---
-
 
 ## Cloud pipelines can be web or command-line based
 The cloud is that place where we can send our data to be stored and analyzed. 
@@ -45,7 +44,7 @@ You can check it out [here](https://www.mg-rast.org/mgmain.html?mgpage=project&p
 ## Cuatro Ciénegas in MG-RAST  
 
 Let's check the taxonomical distribution of our sample first. If you look at the MG-RAST charts, 
-we can see that our Cuatro Cienegas sample is mostly bacteria.  
+we can see that our Cuatro Ciénegas sample is mostly bacteria.  
 
 <a href="{{ page.root }}/fig/md-02-mgm4913055.3_domain.png">
   <img src="{{ page.root }}/fig/md-02-mgm4913055.3_domain.png" alt="Domain" />
@@ -96,10 +95,10 @@ are dedicated to metabolism.
 {: .challenge}
 
 
-## AWS is a command line cloud server 
+## AWS is a command-line cloud server 
 The cloud computer we are going to use is provided by Amazon Web Services (AWS). It is already equiped with 
-all of the metagenomic analysis command line utilities needed fot this workshop. To use it, we have to open our command line
-(it should be accesible in any Linux distribution and OSX10; for Windows, you can install gitBash). Find your command line 
+all of the metagenomic analysis command-line utilities needed fot this workshop. To use it, we have to open our terminal
+(it should be accesible in any Linux distribution and OSX10; for Windows, you can install gitBash). Find your terminal 
 and then type the commands to log into the service and move files between your remote and your local computer.  
 
 
@@ -130,7 +129,7 @@ $ /home/dcuser
 We are inside a directory called dcuser, which is, itself, insde the home directory.
 
 As we have learned, to copy files between your computer and the remote computer, we will use the `scp` command.  
-The general syntax to use `scp` would be like this: 
+Remeber that this must be done in a terminal that has your local computer open, not the remote computer. The general syntax to use `scp` would be like this: 
 ~~~
 $ scp <where is the file> <where do you want the file to be>  
 ~~~
@@ -143,7 +142,7 @@ copy this file _from_ our remote machine _into_ our local machine wee have to do
 ~~~
 $ scp dcuser@ec2-3-238-253-45.compute-1.amazonaws.com:/home/dcuser/dc_workshop/metadata/MGRAST_MetaData_JP.xlsx .
 ~~~
-{: .data}  
+{: .bash}  
 
 ~~~
 MGRAST_MetaData_JP.xlsx                          100%   53KB 164.8KB/s   00:00  
