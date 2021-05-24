@@ -143,18 +143,14 @@ $  checkm qa CHECKM/Bacteria.ms CHECKM/ --file CHECKM/quality_JP41.tsv --tab_tab
 
 The table is to big to fit our screen but we can download it and open it in a spreadsheet. This will be very useful when you need to document your work or communicate it. 
 
-In a terminal that is standing on our local computer do:
-
-~~~
-$ cd ~/Desktop/
-$ scp dcuser@ec2-18-207-132-236.compute-1.amazonaws.com:/home/dcuser/dc_workshop/mags/CHECKM/quality_JP41.tsv .
-~~~
 > ## Exercise 1 Discuss the quality of the obtained MAGs
 >
 > Download the quality file to your local computer and open it in a spreadsheet.
 > Then discuss with your team which of the MAGs has the best quality and why.
 >
 >> ## Solution
+>>In a terminal that is standing on your local computer do:
+>>
 >>$ cd ~/Desktop/
 >>
 >>$ scp dcuser@ec2-18-207-132-236.compute-1.amazonaws.com:/home/dcuser/dc_workshop/mags/CHECKM/quality_JP41.tsv .
