@@ -100,7 +100,7 @@ Input data:
 The help that we just saw tells us how to run metaspades.py. We are going to use the most simple options, just specifying our forward paired end reads with `-1` and reverse paired end reads with `-2`, and the output directory where we want our results to be stored. 
  ~~~
 $ cd ~/dc_workshop/data/trimmed_fastq
-$ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../assembly_JC1A &
+$ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../results/assembly_JC1A &
 ~~~
 {: .bash}
 
@@ -113,7 +113,7 @@ When the run is finished it shows this message:
 ~~~
 ======= SPAdes pipeline finished.
 
-SPAdes log can be found here: /home/dcuser/dc_workshop/assembly_JC1A/spades.log
+SPAdes log can be found here: /home/dcuser/dc_workshop/results/assembly_JC1A/spades.log
 
 Thank you for using SPAdes!
 
@@ -122,13 +122,12 @@ Thank you for using SPAdes!
 
 If we now look at the contents of this directory...
 ~~~
-$ cd ../../assembly_JC1A
+$ cd ../../results/assembly_JC1A
 $ ls
 ~~~
 {: .bash}
 
 ~~~
-6126594.log
 assembly_graph_after_simplification.gfa
 assembly_graph.fastg
 assembly_graph_with_scaffolds.gfa
@@ -157,6 +156,20 @@ tmp
 {: .output}
 
 As we can see, MetaSPAdes gave us a lot of files. The ones with the assembly are the `contigs.fasta` and the `scaffolds.fasta`. The contigs are just made from assembled reads, but the scaffolds are the result from a subsequent process in which the contigs are ordered and oriented and connected with Ns.
+
+We can recognize which sample our assembly outputs corresponds to because the assembly results folder (assembly_JC1A) has its ID, however the files within it do not have the sample ID. It is very useful to rename these files, in case we need them out of its folder.
+
+> ## Exercise 1 Rename all files in a folder
+>
+> Add the sample ID (JC1A) to the names of all the contents of the assembly_JC1A directory.
+> Remember that many solutions are possible.
+>
+>
+>> ## Solution
+>>for name in *; do mv $name JC1A_$name; done
+>> 
+> {: .solution}
+{: .challenge}
 
 > ## `.discussion`
 >
