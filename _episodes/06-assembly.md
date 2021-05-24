@@ -10,8 +10,8 @@ objectives:
 - "Understand what is an assembly."  
 - "Use an enviroment in a bioinformatic pipeline."
 keypoints:
-- "Assemblies uses algorithms to group reads into contigs."
-- "Three famous algorithms are Greedy extension, OLC and De Bruijin graphs."
+- "Assembly uses algorithms to group reads into contigs."
+- "The most used algorithm nowadays is De Brujin Graphs"
 - "MetaSPAdes is a metagenome assembler."
 - "The FASTQ files from the quality control process are the inputs for the assembly software."
 - "A FASTA file with contigs is the output of the assembly process."
