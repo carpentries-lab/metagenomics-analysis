@@ -16,7 +16,7 @@ keypoints:
 </a>
 
 Taxonomic assignation is the process of assigning an Operational Taxonomic
-Unit (OTUs, that is, groups of related individuals) to sequences, that can be a reads or a contigs. To assign an OTU to a sequence it is compared against a database, but this comparison can be done in different ways.
+Unit (OTUs, that is, groups of related individuals) to sequences, that can be a reads or contigs. To assign an OTU to a sequence it is compared against a database, but this comparison can be done in different ways.
 The comparison database in this assignation process must be constructed using 
 complete genomes. There are many programs for doing taxonomic mapping, 
 almost all of them follows one of the next strategies:  
@@ -269,7 +269,7 @@ $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4
 What do you see? 
 
 <a href="{{ page.root }}/fig/krona1.svg">
-  <img src="{{ page.root }}/fig/krona1.svg" alt="Krona Visualization" />
+  <img src="{{ page.root }}/fig/krona1.png" alt="Krona Visualization" />
 </a>
 
 ### Pavian
