@@ -28,7 +28,7 @@ Let's bin the sample we just assembled. The command for running MaxBin is `run_M
 ~~~
 $ cd ~/dc_workshop/results/assembly_JC1A
 $ mkdir MAXBIN
-$ run_MaxBin.pl -thread 12 -contig JC1A_contigs.fasta -reads ../../data/trimmed_fastq/JC1A_R1.trim.fastq.gz -reads2 ../../data/trimmed_fastq/JC1A_R2.trim.fastq.gz -out MAXBIN/JC1A &
+$ run_MaxBin.pl -thread 8 -contig JC1A_contigs.fasta -reads ../../data/trimmed_fastq/JC1A_R1.trim.fastq.gz -reads2 ../../data/trimmed_fastq/JC1A_R2.trim.fastq.gz -out MAXBIN/JC1A &
 ~~~
 {: .bash} 
 ~~~
@@ -52,36 +52,35 @@ Marker gene search reveals that the dataset cannot be binned (the medium of mark
 
 It seems that it is impossible to bin our assembly because the amount of marker genes is less than 1. We could have expected this as we know it is a small sample.
 
-We will perform the binning process with a different sample from the same study. We have the assembly precomputed in the `~/dc-workshop/mags/` directory.
+We will perform the binning process with athe other sample from the same study that is a little larger. We have the assembly precomputed in the `~/dc-workshop/mags/` directory.
 ~~~
 $ cd ~/dc_workshop/mags/
 $ mkdir MAXBIN
-$ run_MaxBin.pl -thread 12 -contig JP41_contigs.fasta -reads JP41_1.fastq -reads2 JP41_2.fastq -out MAXBIN/JP41 &
+$ run_MaxBin.pl -thread 8 -contig JP4D_contigs.fasta -reads ../data/trimmed_fastq/JP4D_R1.trim.fastq.gz -reads2 ../data/trimmed_fastq/JP4D_R2.trim.fastq.gz -out MAXBIN/JP4D
 ~~~
 {: .bash}  
 It will take a few minutes to run. And it will finish with an output like this:
 
 ~~~
-
 ========== Job finished ==========
-Yielded 4 bins for contig (scaffold) file JP41_contigs.fasta
+Yielded 4 bins for contig (scaffold) file JP4D_contigs.fasta
 
 Here are the output files for this run.
 Please refer to the README file for further details.
 
-Summary file: MAXBIN/JP41.summary
-Genome abundance info file: MAXBIN/JP41.abundance
-Marker counts: MAXBIN/JP41.marker
-Marker genes for each bin: MAXBIN/JP41.marker_of_each_gene.tar.gz
-Bin files: MAXBIN/JP41.001.fasta - MAXBIN/JP41.004.fasta
-Unbinned sequences: MAXBIN/JP41.noclass
+Summary file: MAXBIN/JP4D.summary
+Genome abundance info file: MAXBIN/JP4D.abundance
+Marker counts: MAXBIN/JP4D.marker
+Marker genes for each bin: MAXBIN/JP4D.marker_of_each_gene.tar.gz
+Bin files: MAXBIN/JP4D.001.fasta - MAXBIN/JP4D.004.fasta
+Unbinned sequences: MAXBIN/JP4D.noclass
 
-Store abundance information of reads file [JP41_1.fastq] in [MAXBIN/JP41.abund1].
-Store abundance information of reads file [JP41_2.fastq] in [MAXBIN/JP41.abund2].
+Store abundance information of reads file [../data/trimmed_fastq/JP4D_R1.trim.fastq.gz] in [MAXBIN/JP4D.abund1].
+Store abundance information of reads file [../data/trimmed_fastq/JP4D_R2.trim.fastq.gz] in [MAXBIN/JP4D.abund2].
 
 
 ========== Elapsed Time ==========
-0 hours 7 minutes and 36 seconds.
+0 hours 6 minutes and 56 seconds.
 
 ~~~
 {: .output}  
@@ -89,16 +88,16 @@ Store abundance information of reads file [JP41_2.fastq] in [MAXBIN/JP41.abund2]
 With the summary file we can have a quick look at the bins that MaxBin produced. 
 
 ~~~
-$ more MAXBIN/JP41.summary
+$ more MAXBIN/JP4D.summary
 ~~~
 {: .bash}  
 
 ~~~
 Bin name	Completeness	Genome size	GC content
-JP41.001.fasta	98.1%	5220938	39.1
-JP41.002.fasta	94.4%	3462062	33.1
-JP41.003.fasta	57.0%	1341358	44.4
-JP41.004.fasta	71.0%	2256981	64.0
+JP4D.001.fasta	57.9%	3141556	55.5
+JP4D.002.fasta	87.9%	6186438	67.3
+JP4D.003.fasta	51.4%	3289972	48.1
+JP4D.004.fasta	77.6%	5692657	38.9
 ~~~
 {: .output}  
 
@@ -118,44 +117,45 @@ Two important things that can be meassured to know its quality are the completen
 We will run the taxonomy workflow specifying the use of markers at the domain level, specific for the rank Bacteria, we will specify that our bins are in FASTA format, that they are located in the `MAXBIN` directory and that we want our output in the `CHECKM/` directory. 
 ~~~
 $ mkdir CHECKM
-$ checkm taxonomy_wf domain Bacteria -x fasta MAXBIN/ CHECKM/ &
+$ checkm taxonomy_wf domain Bacteria -x fasta MAXBIN/ CHECKM/ 
 ~~~
 {: .bash} 
 
 The run will end with our results printed in the console.
 ~~~
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-  Bin Id     Marker lineage   # genomes   # markers   # marker sets   0     1    2    3   4   5+   Completeness   Contamination   Strain heterogeneity  
+  Bin Id     Marker lineage   # genomes   # markers   # marker sets   0    1    2    3    4   5+   Completeness   Contamination   Strain heterogeneity  
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-  JP41.002      Bacteria         5449        104            58        1     51   51   1   0   0       98.28           38.62               0.00          
-  JP41.001      Bacteria         5449        104            58        1    101   2    0   0   0       98.28            3.45              50.00          
-  JP41.004      Bacteria         5449        104            58        20    74   10   0   0   0       73.51           11.68              10.00          
-  JP41.003      Bacteria         5449        104            58        35    64   5    0   0   0       66.58            6.03               0.00          
+  JP4D.002      Bacteria         5449        104            58        3    34   40   21   5   1       94.83           76.99              11.19          
+  JP4D.004      Bacteria         5449        104            58        12   40   46   6    0   0       87.30           51.64               3.12          
+  JP4D.001      Bacteria         5449        104            58        24   65   11   3    1   0       70.48           13.09               0.00          
+  JP4D.003      Bacteria         5449        104            58        44   49   11   0    0   0       64.44           10.27               0.00          
 --------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ~~~
 {: .output} 
 
-To have this values and more parameters about your assembly, like contig number and length, in an output that is more usable and shearable we now run the quality step of CheckM `checkm qa` and make it print the output in a `TSV` table. We specify the file of the markers that it used in the previous step `Bacteria.ms`, the name of the output file we want `quality_JP41.tsv`, that we want a table `--tab_table`, and the option number 2 `-o 2` is to ask for more parameters printed on the table. 
+To have this values and more parameters about your assembly, like contig number and length, in an output that is more usable and shearable we can now run the quality step of CheckM `checkm qa` and make it print the output in a `TSV` table, instead of the console. We need to specify the file of the markers that it used in the previous step `Bacteria.ms`, the name of the output file we want `quality_JP4D.tsv`, that we want a table `--tab_table`, and the option number 2 `-o 2` is to ask for more parameters printed on the table. 
 ~~~
-$  checkm qa CHECKM/Bacteria.ms CHECKM/ --file CHECKM/quality_JP41.tsv --tab_table -o 2
+$  checkm qa CHECKM/Bacteria.ms CHECKM/ --file CHECKM/quality_JP4D.tsv --tab_table -o 2
 ~~~
 {: .bash} 
 
-The table is to big to fit our screen but we can download it and open it in a spreadsheet. This will be very useful when you need to document your work or communicate it. 
+The table is to big to fit our screen comfortably but we can download it and open it in a spreadsheet. This will be very useful when you need to document your work or communicate it. 
 
 > ## Exercise 1 Discuss the quality of the obtained MAGs
 >
 > Download the quality file to your local computer and open it in a spreadsheet.
-> Then discuss with your team which of the MAGs has the best quality and why.
+> Then discuss with your team which of the parameters in the table do you find useful.
 >
 >> ## Solution
 >>In a terminal that is standing on your local computer do:
 >>
 >>$ cd ~/Desktop/
 >>
->>$ scp dcuser@ec2-18-207-132-236.compute-1.amazonaws.com:/home/dcuser/dc_workshop/mags/CHECKM/quality_JP41.tsv .
+>>$ scp dcuser@ec2-18-207-132-236.compute-1.amazonaws.com:/home/dcuser/dc_workshop/mags/CHECKM/quality_JP4D.tsv .
 >>
->>The MAG with the ID JP41.001 is the more complete and less contaminated one. 
+>>
 > {: .solution}
 {: .challenge}
 
