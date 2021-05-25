@@ -94,6 +94,25 @@ ggplot(data = deept, mapping = aes(x = Samples,y = Reads)) +
 ![image](https://user-images.githubusercontent.com/67386612/119435571-fe977600-bcdf-11eb-8d88-ca8753e72825.png)
 ###### Figure 1. Sample read as bars in a plot
 
+Unraveling the above code. We first call the `ggplot` function. This will tell R that we want to create a new plot
+and  the parameters indicated inside this function will apply to all the layers of the plot. We gave two arguments
+to the `ggplot` code: (i) the data that we want to show in our figure, that is the data inside deept, and (ii) we
+defined the `aes` function, which will tell `ggplot` how the variables will be mapped in the figure, in this case
+**x** is the name of the sample and **y** the number of reads. It is noticiable that we did not need to express all
+the way to this columns to the `aes` function (*i.e.* x = deept[,"Samples"]), that is because the code is so well
+written to figure it out by itself. 
+What happend if we only call `ggplot` without the any **geom**(*i.e.* `geom_col`):
+
+![image](https://user-images.githubusercontent.com/67386612/119437234-4ff53480-bce3-11eb-8a0a-8c58e2079b23.png)
+###### Figure 2. ggplot function result without a specified geom
+
+We need to tell `ggplot` how we want to visually represent the data, which we do by adding a new geom layer. In this
+example, we used `geom_col`, which tells `ggplot` we want to visually represent the relationship between **x** and
+**y** as columns-bars:
+
+![image](https://user-images.githubusercontent.com/67386612/119435571-fe977600-bcdf-11eb-8d88-ca8753e72825.png)
+###### Figure 1. Sample read as bars in a plot
+
 It is evident that there is a great difference in the total reads(i.e. information) of each sample.
 Before we further process our data, take a look if we have any no-identified read. Marked as "NA"
 on the different taxonomic levels:
