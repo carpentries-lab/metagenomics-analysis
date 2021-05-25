@@ -99,26 +99,24 @@ compatible to be used with kraken2 in the taxonomical assignation process.
 
 Minikraken is a popular database that attempts to conserve its sensitivity 
 despite its small size (Needs 8GB of RAM for the assignation). Unfortunately although it is much smaller that most databases, it is not small enough to be run by the machines we are using, so we won't be able to run kraken2. We can check our available RAM with `free -h`.
-
 ~~~
 $ free -h
 ~~~
-{: bash}
+{: .bash}
 
 ~~~
               total        used        free      shared  buff/cache   available
 Mem:           3.9G        272M        3.3G         48M        251M        3.3G
 Swap:            0B          0B          0B
-
 ~~~
-{: output}
+{: .output}
 
 If we were to download the database we would use the following command:
 ~~~
 $ curl -O ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
 $ tar -xvzf minikraken2_v2_8GB_201904.tgz 
 ~~~
-{: do not run this}
+{: .do not run this}
 
 > ## Exercise 1  
 > 
@@ -134,7 +132,7 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 As we have learned, taxonomic assignation can be attempted before the assembly process. 
 In this case we would use FASTQ files as inputs, which would be 
 `JP4D_R1.trim.fastq.gz` and `JP4D_R2.trim.fastq.gz`. And the outputs would be two files: the report
-`JP4D_kraken.report` and the kraken file `JP4D.kraken`.  
+`JP4D.report` and the kraken file `JP4D.kraken`.  
   
 To run kraken2 we would use a command like this:  
 ~~~
@@ -142,7 +140,7 @@ $ mkdir TAXONOMY_READS
 $ kraken2 --db kraken-db --threads 8 --paired --fastq-input JP4D_R1.trim.fastq.gz JP4D_R2.trim.fastq.gz --o
 utput TAXONOMY_READS/JP4D.kraken --report TAXONOMY_READS/JP4D.report
 ~~~
-{: do not run this}
+{: .do not run this}
 
 Since we can't run kraken2 here, we precomputed its results in a server i.e. a more powerful machine. 
 In the server, after we assembled the metagenome for this sample, we copied our 
