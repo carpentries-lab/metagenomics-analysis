@@ -275,20 +275,20 @@ After we have the taxonomy assignation what follows is some visualization of our
 
 ### Krona  
 ~~~
-$ cd ~/dc_workshop/taxonomy  
+$ cd ~/dc_workshop/taxonomy/mags_taxonomy
 ~~~
 {: .bash}  
 
 Krona is called with the `ktImportTaxonomy` command that needs an input and an output file.  
-In our case we will create the input file with the columns three and four from `JP4D.kraken` file.     
+In our case we will create the input file with the columns three and four from `JP4D.001-kraken.kraken` file.     
 ~~~
-$ cut -f2,3 JP4D.kraken >  JP4D.krona.input
+$ cut -f2,3 JP4D.001-kraken.kraken > JP4D.001.krona.input
 ~~~
 {: .language-bash}  
 
-Now we call Krona in our `JP4D.krona.input` file and save results in `JP4D.krona.out.html`.  
+Now we call Krona in our `JP4D.001.krona.input` file and save results in `JP4D..001.krona.out.html`.  
 ~~~
-$ ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
+$ ktImportTaxonomy JP4D.001.krona.input -o JP4D.001.krona.out.html
 ~~~
 {: .language-bash}  
 
@@ -310,33 +310,26 @@ $ bash /home/dcuser/.miniconda3/envs/metagenomics/opt/krona/updateTaxonomy.sh
 Once it's done we activate the environment and try again.
 ~~~
 $ conda activate metagenomics
-$ ktImportTaxonomy JP4D.krona.input -o JP4D.krona.out.html
+$ ktImportTaxonomy JP4D.001.krona.input -o JP4D.001.krona.out.html
 ~~~
 {: .language-bash}  
 
-Once it's done we activate the environment and try again.
 ~~~
-Importing JP4D.krona.input...
+Loading taxonomy...
+Importing JP4D.001.krona.input...
    [ WARNING ]  The following taxonomy IDs were not found in the local database and were set to root
                 (if they were recently added to NCBI, use updateTaxonomy.sh to update the local
-                database): 2169539 2071623 2202142 1743172 1849491 656024 1109743 1804984 62928 1104325
-                119065 319236 861208 640511 1313292 2304686 354203 90270 1826873 1819728 2259134 330
-                2172536 81850 2183547 1759437 335659 644968 2109625 595500 2171980
-Writing JP4D.krona.out.html...
-   [ WARNING ]  Too many query IDs to store in chart; storing supplemental files in
-                'JP4D.krona.out.html.files'.
+                database): 1804984 2109625 2259134
 ~~~
 {: .output}  
 
-And finally, open another terminal in your local computer,download the Krona output and open it on a browser.
+And finally, open another terminal in your local computer,download the Krona output and open it on a browser and explore this visualization tool.
 ~~~
-$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.krona.out.html . 
+$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.001.krona.out.html . 
 ~~~
 {: .bash}  
 
-What do you see? 
-
-<a href="{{ page.root }}/fig/krona1.svg">
+<a href="{{ page.root }}/fig/krona1.png">
   <img src="{{ page.root }}/fig/krona1.png" alt="Krona Visualization" />
 </a>
 
@@ -346,7 +339,7 @@ Pavian should be locally installed and needs R and Shiny,
 but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) 
 to visualize our results.  
 
-First we need to download the files needed as inputs in Pavian:
+First we need to download the files needed as inputs in Pavian, this time we will visualize the assignation of the reads of both samples:
 `JC1A_kraken.report` and `JP4D_kraken.report`.  
 This files corresponds to our Kraken reports. Again in our local machine lets use `scp` command.  
 ~~~
