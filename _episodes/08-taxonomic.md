@@ -185,7 +185,7 @@ As we can see, the kraken file is not very readable. So let's look at the report
 {: .callout}
 
 ~~~
-head ~/dc_workshop/report/JP4D.report
+head ~/dc_workshop/taxonomy/JP4D-kraken.report
 ~~~
 {: .bash} 
 ~~~
@@ -204,7 +204,69 @@ head ~/dc_workshop/report/JP4D.report
 
 ## Taxonomic assignation of the contigs of a MAG
  
+We now have the taxonomic identity of the reads of the whole metagenome, but we do not know to which taxon our MAGs correspond to. For this we have to make the taxonomic assignation with their contigs instead of its reads, because we do not have the reads that correspond to a MAG separated from the reads of the entire sample. 
 
+For this the `kraken2` is a little bit different; here we can look at the command for the `JP4D.001.fasta` MAG:
+  
+~~~
+$ mkdir TAXONOMY_MAG
+$ kraken2 --db kraken-db --threads 12 -input JP4D.001.fasta --output TAXONOMY_MAG/JP4D.001.-kraken.kraken --report TAXONOMY_MAG/JP4D.001-kraken.report
+~~~
+{: .do not run this}
+
+The results of this are pre-computed in the `~/dc_workshop/taxonomy/mags_taxonomy/` directory
+~~~
+$ cd ~/dc_workshop/taxonomy/mags_taxonomy
+$ ls
+~~~
+{: .bash} 
+~~~
+JP4D.001-kraken.kraken
+JP4D.001-kraken.report
+~~~
+{: .output} 
+
+~~~
+more ~/dc_workshop/taxonomy/mags_taxonomy/JP4D.001-kraken.report
+~~~
+{: .bash} 
+~~~
+ 50.96	955	955	U	0	unclassified
+ 49.04	919	1	R	1	root
+ 48.83	915	0	R1	131567	  cellular organisms
+ 48.83	915	16	D	2	    Bacteria
+ 44.40	832	52	P	1224	      Proteobacteria
+ 19.37	363	16	C	28216	        Betaproteobacteria
+ 16.22	304	17	O	80840	          Burkholderiales
+  5.66	106	12	F	506	            Alcaligenaceae
+  2.72	51	3	G	517	              Bordetella
+  1.12	21	21	S	2163011	                Bordetella sp. HZ20
+  .
+  .
+  .
+~~~
+{: .output}  
+
+By looking at the report we can see that half of the contigs are unclassified, and that all of the OTUs found are assigned to a very little proportion of contigs. This is weird because we expected to have only one genome in the bin.
+
+Just to exemplify how a report of a complete and not contaminated MAG should look like, let's look at the report of this MAG from another study:
+~~~
+100.00	108	0	R	1	root
+100.00	108	0	R1	131567	  cellular organisms
+100.00	108	0	D	2	    Bacteria
+100.00	108	0	P	1224	      Proteobacteria
+100.00	108	0	C	28211	        Alphaproteobacteria
+100.00	108	0	O	356	          Rhizobiales
+100.00	108	0	F	41294	            Bradyrhizobiaceae
+100.00	108	0	G	374	              Bradyrhizobium
+100.00	108	108	S	2057741	                Bradyrhizobium sp. SK17
+~~~
+{: .output} 
+
+> ## `.discussion`
+>
+> Why do you think we find so many OTUs in this bin? 
+{: .discussion}
 
 ## Visualization of taxonomic assignation results  
 We have reached the tsv files, the final step in our metagenomic pipeline showed in [lesson-3](https://carpentries-incubator.github.io/metagenomics/03-assessing-read-quality/index.html).  
