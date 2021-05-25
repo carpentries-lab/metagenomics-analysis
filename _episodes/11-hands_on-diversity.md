@@ -90,6 +90,7 @@ ggplot(data = deept, mapping = aes(x = Samples,y = Reads)) +
   geom_col()
 ~~~
 {: .language-r}
+
 ![image](https://user-images.githubusercontent.com/67386612/119435571-fe977600-bcdf-11eb-8d88-ca8753e72825.png)
 ###### Figure 1. Sample read as bars in a plot
 
