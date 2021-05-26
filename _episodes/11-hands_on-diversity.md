@@ -1,21 +1,19 @@
 ---
 source: md
-title: "Diversity Analysis"
-teaching: 30
+title: "Taxonomic Analysis with R"
+teaching: 40
 exercises: 20
 questions:
 - "How can we compare depth-contrasting samples?"
-- "Which alternatives do we have to import taxonomic-assignation data in R?"
+- "How can we manipulate our data to deliver a messagge?"
 objectives:
-- "Comprehend which libraries are required for metagenomes diversity analysis."  
-- "Grasp how a phyloseq object is made"
-- "Understand how the help command can help to discover the capabilities of libraries."
-- "Apply the learned code to get diversity estimates."
-- "Use the diversity data to visualize different estimates of α diversity."
+- "Learn and create figures using `ggplot2`"
+- "Learn how to manipulate data-types inside your phyloseq object"
+- "Understand how to extract specific information from taxonomic-assignation data"
 keypoints:
 - "The library `phyloseq` lets you manipulate metagenomic data in a taxonomic specific perspective."  
 - "The library `ggplot2` creates plots that helps/remarks the data analysis"
-- "The kraken-biom program can automatize the creation of the phyloseq object"
+- "Creativity is welcome to explore and present your data"
 ---
 
 # Assemble and manipulate a phyloseq object with a myriad of samples
