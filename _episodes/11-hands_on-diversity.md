@@ -127,7 +127,7 @@ reads(i.e. information) of each sample. Before we further process our data, take
 no-identified read. Marked as "NA" on the different taxonomic levels:
 
 ~~~
-summary(merged_metagenomes@tax_table@.Data== "NA")
+summary(merged_metagenomes@tax_table@.Data== "")
 ~~~
 {: .language-r}
 ~~~
