@@ -1,4 +1,4 @@
--
+---
 source: md
 title: "Diversity Analysis"
 teaching: 30
@@ -114,6 +114,13 @@ example, we used `geom_col`, which tells `ggplot` we want to visually represent 
 
 ![image](https://user-images.githubusercontent.com/67386612/119435571-fe977600-bcdf-11eb-8d88-ca8753e72825.png)
 ###### Figure 1. Sample read as bars in a plot
+
+## Exercise 1  
+> 
+> Go into groups and explore another geoms that can be useful for presenting the data
+> of the number or reads in each sample. There are some cheat sheets of [ggplot2](https://blog.rstudio.com/2015/12/21/ggplot2-2-0-0/)
+> around the internet. You can give them a try.
+
 
 ## Transformation and manipulation of data
 
@@ -280,7 +287,7 @@ raw.plot | rel.plot
 ~~~
 ![image](https://user-images.githubusercontent.com/67386612/119717935-93a78580-be2c-11eb-823d-cf430fbf44e1.png)
 
-## Exercise 1  
+## Exercise 2  
 > 
 > Go into groups and agglomerate the taxa in the raw data, so as to have
 > a better visualization of the data. Remeber in checking the data-classes inside
@@ -291,7 +298,6 @@ raw.plot | rel.plot
 >> Certainly, this will be difficult since each of our samples have constrasting number of reads.
 >> raw.data$Phylum[raw.data$Abundance < 30] <- "Minoritary Phyla"
 >> ![image](https://user-images.githubusercontent.com/67386612/119720017-17fb0800-be2f-11eb-8053-546119c78a2f.png)
-
 
 ## Going further, lets took an interest lineage and explore it thoroughly
 
