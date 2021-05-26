@@ -331,7 +331,6 @@ tax_table()   Taxonomy Table:    [ 3785 taxa by 7 taxonomic ranks ]
 {: .output}
 ~~~
 sample_sums(merged_metagenomes)
-summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
 
