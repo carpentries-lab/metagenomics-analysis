@@ -242,7 +242,7 @@ in R and we are going to use them):
 ~~~
 $ library("phyloseq")
 $ library("ggplot2")
-$ library("readr")phyloseq
+$ library("readr")
 $ library("patchwork")
 ~~~
 {: .language-r}
@@ -303,7 +303,7 @@ We want to know how is the bacterial diversity, so we will prune all of the
 non-bacterial organisms in our metagenome. To do this we will make a subset 
 of all bacterial groups and save them.
 ~~~
-$ merged_metagenomes <- subset_taxa(merged_metagenomes, superkingdom == "Bacteria")
+$ merged_metagenomes <- subset_taxa(merged_metagenomes, Kingdom == "Bacteria")
 ~~~
 {: .language-r}
 
