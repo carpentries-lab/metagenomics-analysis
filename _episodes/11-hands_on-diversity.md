@@ -27,8 +27,8 @@ goal*
   -Sergio Cuellar
 
 ## Visualizing our data with ggplot2
-In the last lesson, we created our phyloseq object, which containing the information 
-of both of our samples: `JC1A` and `metagenome_JP4D`. Let´s take a look again at the
+In the last lesson, we created our phyloseq object, which contain the information 
+of both of our samples: `JC1A` and `JP4D`. Let´s take a look again at the
  number of reads in our data.  
 ~~~
 merged_metagenomes
@@ -62,11 +62,13 @@ summary(merged_metagenomes@otu_table@.Data)
 It is useful to see numbers, but there are other ways to deliver information and how there are 
 relationships between variables. 
 R has its own [base plotting system](https://www.statmethods.net/graphs/index.html), but we have already 
-loaded a package that will help us to create artistically-proclived figures: [ggplot](https://www.statmethods.net/advgraphs/ggplot2.html)
-ggplot2 has been created with the idea that any graphic can be expressed by three components:
+loaded a package that will help us to create artistically-proclived figures:[ggplot2](https://www.statmethods.net/advgraphs/ggplot2.html).
+
+ggplot2 has been created with the idea that any graphic can be expressed with three components:
 * Data set
 * Coordinates
 * Set of **geoms**, that is the visual representation of the data 
+
 This **geoms** can be thinked as layers that can be overlapped one over another, so special attention 
 need to be required to show useful information-layers to deliver a messagge. We are going to create an 
 example with some of the data that we already have. Let's create a data-frame with the next code:
@@ -94,61 +96,164 @@ ggplot(data = deept, mapping = aes(x = Samples,y = Reads)) +
 ![image](https://user-images.githubusercontent.com/67386612/119435571-fe977600-bcdf-11eb-8d88-ca8753e72825.png)
 ###### Figure 1. Sample read as bars in a plot
 
-Unraveling the above code. We first call the `ggplot` function. This will tell R that we want to create a new plot
-and  the parameters indicated inside this function will apply to all the layers of the plot. We gave two arguments
-to the `ggplot` code: (i) the data that we want to show in our figure, that is the data inside deept, and (ii) we
-defined the `aes` function, which will tell `ggplot` how the variables will be mapped in the figure, in this case
-**x** is the name of the sample and **y** the number of reads. It is noticiable that we did not need to express all
-the way to this columns to the `aes` function (*i.e.* x = deept[,"Samples"]), that is because the code is so well
-written to figure it out by itself. 
-What happend if we only call `ggplot` without the any **geom**(*i.e.* `geom_col`):
+Unraveling the above code. We first call the `ggplot` function(*i.e. ggplot()*). This will tell R that we want to 
+create a new plot and  the parameters indicated inside this function will apply to all the layers of the plot. We 
+gave two arguments to the `ggplot` code: (i) the data that we want to show in our figure (*i.e. data = deept*), 
+that is the data inside deept, and (ii) we defined the `aes` function(*i.e. mapping = aes(x = Samples,y = Reads)*),
+which will tell `ggplot` how the variables will be mapped in the figure. In in this case, **x** is the name of the 
+samples and **y** the number of reads. It is noticiable that we did not need to express the entire path to access
+to this columns to the `aes` function (*i.e.* x = deept[,"Samples"]), that is because the code is so well 
+written to figure it out by itself. What happend if we only call `ggplot` without the any **geom**(*i.e.* `geom_col`):
 
 ![image](https://user-images.githubusercontent.com/67386612/119437234-4ff53480-bce3-11eb-8a0a-8c58e2079b23.png)
 ###### Figure 2. ggplot function result without a specified geom
 
-We need to tell `ggplot` how we want to visually represent the data, which we do by adding a new geom layer. In this
+We need to tell `ggplot` how we want to visually represent the data, which we did by adding a new geom layer. In this
 example, we used `geom_col`, which tells `ggplot` we want to visually represent the relationship between **x** and
 **y** as columns-bars:
 
 ![image](https://user-images.githubusercontent.com/67386612/119435571-fe977600-bcdf-11eb-8d88-ca8753e72825.png)
 ###### Figure 1. Sample read as bars in a plot
 
-It is evident that there is a great difference in the total reads(i.e. information) of each sample.
-Before we further process our data, take a look if we have any no-identified read. Marked as "NA"
-on the different taxonomic levels:
+## Transformation and manipulation of data
+
+By inspection on the above figure, it is evident that there is a great difference in the number of total 
+reads(i.e. information) of each sample. Before we further process our data, take a look if we have any 
+no-identified read. Marked as "NA" on the different taxonomic levels:
 
 ~~~
 summary(merged_metagenomes@tax_table@.Data== "NA")
 ~~~
 {: .language-r}
+~~~
+  Kingdom          Phylum          Class           Order           Family       
+ Mode :logical   Mode :logical   Mode :logical   Mode :logical   Mode :logical  
+ FALSE:2738      FALSE:2736      FALSE:2647      FALSE:2696      FALSE:2636     
+                 TRUE :2         TRUE :91        TRUE :42        TRUE :102      
+   Genus          Species       
+ Mode :logical   Mode :logical  
+ FALSE:2601      FALSE:2428     
+ TRUE :137       TRUE :310  
+~~~
+{: .output}
 
 By the above command, we can see that there are NAs on different taxonomic leves. Although it is
 expected to see some NAs at the species, or even at the genus level, we will get rid of the ones at 
 the phylum level to proceed with the analysis:
 
 ~~~
-merged_metagenomes <- subset_taxa(merged_metagenomes, phylum != "NA")
+merged_metagenomes <- subset_taxa(merged_metagenomes, Phylum != "")
+summary(merged_metagenomes@tax_table@.Data== "")
 ~~~
 {: .language-r}
+~~~
+  Kingdom          Phylum          Class           Order           Family       
+ Mode :logical   Mode :logical   Mode :logical   Mode :logical   Mode :logical  
+ FALSE:2736      FALSE:2736      FALSE:2647      FALSE:2696      FALSE:2636     
+                                 TRUE :89        TRUE :40        TRUE :100      
+   Genus          Species       
+ Mode :logical   Mode :logical  
+ FALSE:2600      FALSE:2426     
+ TRUE :136       TRUE :310   
+~~~
+{: .output}
 
 
 Next, since our metagenomes have different sizes, it is imperative to convert the number 
 of assigned read into percentages (i.e. relative abundances) so as to compare them. 
-
 ~~~
-percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
+head(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
+~~~
+        JC1A JP4D
+356       16  170
+41294      1   23
+374        4   68
+114615     3    9
+722472     2    9
+2057741    2   16
+~~~
+{: .output}
+~~~
+percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
+head(percentages@otu_table@.Data)
+~~~
+{: .language-r}
+~~~
+             JC1A       JP4D
+356     1.7391304 0.75454949
+41294   0.1086957 0.10208611
+374     0.4347826 0.30181980
+114615  0.3260870 0.03994674
+722472  0.2173913 0.03994674
+2057741 0.2173913 0.07101642
+~~~
+{: .output}
 
 In order to group all the OTUs that have the same taxonomy at a certain taxonomic rank,
-we will use the function `tax_grom`. Also, the function `psmelt` melt phyloseq 
-objects into a `data.frame` to manipulate them with packages like `ggplot` and `vegan`.
+we will use the function `tax_grom`. 
 
 ~~~
 glom <- tax_glom(percentages, taxrank = 'phylum')
-data <- psmelt(glom)
+View(glom@tax_table@.Data
+~~~
+![image](https://user-images.githubusercontent.com/67386612/119710874-7ff82100-be24-11eb-84ec-974e483572f5.png)
+###### Figure 3. Taxonomic-data table after agrupation at phylum level.
+
+Another phyloseq function is `psmelt`, which melt phyloseq objects into a `data.frame` 
+to manipulate them with packages like `ggplot2` and `vegan`.
+~~~
+percentages <- psmelt(glom)
+str(percentages)
 ~~~
 {: .language-r}
+~~~
+'data.frame': 62 obs. of  5 variables:
+ $ OTU      : chr  "31989" "31989" "1883" "327575" ...
+ $ Sample   : chr  "JP4D" "JC1A" "JC1A" "JP4D" ...
+ $ Abundance: num  84.6 76.3 16.3 5.89 5.34 ...
+ $ Kingdom  : chr  "Bacteria" "Bacteria" "Bacteria" "Bacteria" ...
+ $ Phylum   : chr  "Proteobacteria" "Proteobacteria" "Actinobacteria" "Bacteroidetes" ...
+~~~
+{: .output}
+
+Now, let's create another `data-frame` with the original data. This will help us to compare
+both datasets.
+~~~
+raw <- psmelt(merged_metagenomes)
+str(raw)
+~~~
+{: .language-r}
+~~~
+'data.frame': 62 obs. of  5 variables:
+ $ OTU      : chr  "31989" "2350" "1883" "31989" ...
+ $ Sample   : chr  "JP4D" "JP4D" "JP4D" "JC1A" ...
+ $ Abundance: num  19060 1326 1204 702 500 ...
+ $ Kingdom  : chr  "Bacteria" "Bacteria" "Bacteria" "Bacteria" ...
+ $ Phylum   : chr  "Proteobacteria" "Bacteroidetes" "Actinobacteria" "Proteobacteria" ...
+~~~
+{: .output}
+
+With these objects and what we learned regarding `ggplot2`, we can proceed to compare them
+by a plot. First, let´s create the figure for the raw data (*i.e* `ram.data` object)
+~~~
+raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+  geom_bar(aes(), stat="identity", position="stack")
+~~~
+{: .language-r}
+
+Next, we will create the figure for the representation of the relative abundance data, and ask
+RStudio to show us both plots:
+~~~
+rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+  geom_bar(aes(), stat="identity", position="stack")
+raw.plot | rel.plot
+~~~
+{: .language-r}
+
+![image](https://user-images.githubusercontent.com/67386612/119714182-2db8ff00-be28-11eb-8508-4e3f356f71bb.png)
+###### Figure 4. Taxonomic diversity of absolute and relative abundance
 
 With the new `data.frame`, we can change the identification of the OTUs whose 
 relative abundance is less than 0.2%, so as to have a number of OTUs that not 
@@ -236,69 +341,3 @@ Figure 3. Diversity of Cyanobacteria at genus level inside our samples.
 > {: .solution}
 {: .challenge} 
                              
-
-## kraken-biom as an alternative to create a phyloseq object
-
-In the above lines, we explored how to create a phyloseq object using basic R functions.
-Certainly, this is a method that helps to practice and master the manipulation of 
-different types of objects and information. But we can obtain the same result by using
-programs that will extract the information from the kraken output files and will help
-us to save time. One program widely used for this purpose is kraken-biom.
-
-kraken-biom is a program that creates BIOM tables from the Kraken output 
-[kraken-biom](https://github.com/smdabdoub/kraken-biom)
-
-
-### Using the kraken.report files with kraken-biom
-
-For the next few steps, lets return to the terminal since kraken-biom is ment to be
-used there. Lets take a look at the different flags that kraken-biom have:
-
-~~~
-$ kraken-biom -h                  
-~~~
-{: .bash}
-
-By a close look at the first output lines, it is noticeable that we need a specific output
-from Kraken: `kraken.report`s. If you explore the different files inside 
-the folder where we are located, you will see that the reports for each sample are 
-inside.
-
-With the next command, we are going to create a table in Biom format called `cuatroc.biom`:
-
-~~~
-$ kraken-biom JC1A.report JP4D.report --fmt json -o cuatroc.biom
-~~~
-{: .bash}
-
-If we inspect our folder, we will see that the object "cuatroc.biom" is now part of 
-our files, this is a biom object which contains both, the abundances of each OTU and 
-the identificator of each OTU. With this file we will procced to create the phyloseq 
-object by the `import_biom` command:
-
-~~~
-merged_metagenomes <- import_biom("cuatroc.biom")
-~~~
-{: .language-r}
-
-Now, we can inspect the result by asking what class is the object created, and 
-doing a close inspection of some of its content:
-~~~
-class(merged_metagenomes)
-View(merged_metagenomes@tax_table@.Data)
-~~~
-{: .language-r}
-
-The "class" command indicate that we already have our phyloseq object. Also, 
-inside the tax_table we see that it looks just like the one created in the
-last episode of the lesson. Let's get rid of some of the innecesary characters 
-in the OTUs identificator and put name to the taxonomic ranks:
-
-~~~
-merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
-colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
-~~~
-{: .language-r}
-
-Finally, we can review our object and see that both datasets 
-(i.e. JC1A and JP4D) are in the our object.
