@@ -1,4 +1,4 @@
----
+-
 source: md
 title: "Diversity Analysis"
 teaching: 30
@@ -255,40 +255,43 @@ raw.plot | rel.plot
 ![image](https://user-images.githubusercontent.com/67386612/119714182-2db8ff00-be28-11eb-8508-4e3f356f71bb.png)
 ###### Figure 4. Taxonomic diversity of absolute and relative abundance
 
-With the new `data.frame`, we can change the identification of the OTUs whose 
-relative abundance is less than 0.2%, so as to have a number of OTUs that not 
-surpass the recommended ones (8-9). 8 to 9 contrasting colors are the most that 
-the human eye can distinguish in terms of color in a plot.
-
+At once, we can denote the difference between the two plots and how processing the data can 
+enhance the display of important results. However, it is noticeable that we have to much taxa
+to adequatly distinguish the color of each one of them, less of the ones that hold the greatest
+abundance. In order to change that, we will use the powe of data-frames and R. We will change
+the identification of the OTUs whose relative abundance is less than 0.2%:
 ~~~
-data$phylum <- as.character(data$phylum)
-data$phylum[data$Abundance < 0.2] <- "Phyla < 0.2% abund."
-~~~
-{: .language-r}
-
-Whit this object, we can create a plot to compare the obtained relative abundance
-against the absolute abundance.
-
-~~~
-percentages <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
-    geom_bar(aes(), stat="identity", position="stack")
-  
-glom <- tax_glom(merged_metagenomes, taxrank = 'phylum')
-data <- psmelt(glom)
-data$phylum <- as.character(data$phylum)
-absolute_count <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=phylum))+ 
-    geom_bar(aes(), stat="identity", position="stack")
-  
-absolute_count | percentages
+percentages$Phylum <- as.character(percentages$Phylum)
+percentages$Phylum[percentages$Abundance < 0.4] <- "Phyla < 0.4% abund."
+unique(percentages$Phylum)
 ~~~
 {: .language-r}
+~~~
+[1] "Proteobacteria"      "Actinobacteria"      "Bacteroidetes"       "Firmicutes"         
+[5] "Planctomycetes"      "Verrucomicrobia"     "Cyanobacteria"       "Phyla < 0.4% abund."
+~~~
+{: .output}
 
-![image](https://user-images.githubusercontent.com/67386612/112223252-4706ba80-8bef-11eb-8f09-08d95191dcc1.png)
-Figure 2. Diversity at phylum level (i) with absolute abundances and (ii) relative abundance.
+Let's ask R to display the figures again by rerunning our code:
+~~~
+rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+  geom_bar(aes(), stat="identity", position="stack")
+raw.plot | rel.plot
+~~~
+![image](https://user-images.githubusercontent.com/67386612/119717935-93a78580-be2c-11eb-823d-cf430fbf44e1.png)
 
+## Exercise 1  
+> 
+> Go into groups and agglomerate the taxa in the raw data, so as to have
+> a better visualization of the data. Remeber in checking the data-classes inside
+> your data-frame. According to [ColorBrewer](https://github.com/axismaps/colorbrewer/) package
+> it is recommended to do not have more than 9 different colors in a plot. がんばれ!(ganbate; *good luck*):
+## Solution
+>> By reducing agglomerating the samples that have less than 30 reads, we can get a more decent plot.
+>> Certainly, this will be difficult since each of our samples have constrasting number of reads.
+>> raw.data$Phylum[raw.data$Abundance < 30] <- "Minoritary Phyla"
+>> ![image](https://user-images.githubusercontent.com/67386612/119720017-17fb0800-be2f-11eb-8053-546119c78a2f.png)
 
-At once, we can denote the difference between the two plots and how  
-processing the data can enhance the display of important results.
 
 ## Going further, lets took an interest lineage and explore it thoroughly
 
@@ -320,7 +323,7 @@ cyanos <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+
 ![image](https://user-images.githubusercontent.com/67386612/112223345-67cf1000-8bef-11eb-9bdc-4fe239bca9b2.png)
 Figure 3. Diversity of Cyanobacteria at genus level inside our samples.
 
-> ## Exercise 1  
+> ## Exercise 2  
 > 
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the code learned to generate a plot where you can 
