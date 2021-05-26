@@ -139,22 +139,22 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 As we have learned, taxonomic assignation can be attempted before the assembly process. 
 In this case we would use FASTQ files as inputs, which would be 
 `JP4D_R1.trim.fastq.gz` and `JP4D_R2.trim.fastq.gz`. And the outputs would be two files: the report
-`JP4D-kraken.report` and the kraken file `JP4D-kraken.kraken`.  
+`JP4D.report` and the kraken file `JP4D.kraken`.  
   
 To run kraken2 we would use a command like this:  
 ~~~
 $ mkdir TAXONOMY_READS
 $ kraken2 --db kraken-db --threads 8 --paired --fastq-input JP4D_R1.trim.fastq.gz JP4D_R2.trim.fastq.gz --o
-utput TAXONOMY_READS/JP4D-kraken.kraken --report TAXONOMY_READS/JP4D-kraken.report
+utput TAXONOMY_READS/JP4D.kraken --report TAXONOMY_READS/JP4D.report
 ~~~
 {: .do not run this}
 
 Since we can't run `kraken2` here, we precomputed its results in a server, i.e. a more powerful machine. 
-In the server, after we assembled the metagenome for this sample, we ran `kraken2` and obtained`JP4D-krakne.kraken` and `JP4D-kraken.report`.
+In the server, after we assembled the metagenome for this sample, we ran `kraken2` and obtained`JP4D-krakne.kraken` and `JP4D.report`.
 
 Let's look at the precomputed outputs of `kraken2` in our assembled metagenome.  
 ~~~
-head ~/dc_workshop/taxonomy/JP4D-kraken.kraken  
+head ~/dc_workshop/taxonomy/JP4D.kraken  
 ~~~
 {: .bash}
 
@@ -185,7 +185,7 @@ As we can see, the kraken file is not very readable. So let's look at the report
 {: .callout}
 
 ~~~
-head ~/dc_workshop/taxonomy/JP4D-kraken.report
+head ~/dc_workshop/taxonomy/JP4D.report
 ~~~
 {: .bash} 
 ~~~
@@ -210,7 +210,7 @@ For this the `kraken2` is a little bit different; here we can look at the comman
   
 ~~~
 $ mkdir TAXONOMY_MAG
-$ kraken2 --db kraken-db --threads 12 -input JP4D.001.fasta --output TAXONOMY_MAG/JP4D.001.-kraken.kraken --report TAXONOMY_MAG/JP4D.001-kraken.report
+$ kraken2 --db kraken-db --threads 12 -input JP4D.001.fasta --output TAXONOMY_MAG/JP4D.001.kraken --report TAXONOMY_MAG/JP4D.001.report
 ~~~
 {: .do not run this}
 
@@ -221,13 +221,13 @@ $ ls
 ~~~
 {: .bash} 
 ~~~
-JP4D.001-kraken.kraken
-JP4D.001-kraken.report
+JP4D.001.kraken
+JP4D.001.report
 ~~~
 {: .output} 
 
 ~~~
-more ~/dc_workshop/taxonomy/mags_taxonomy/JP4D.001-kraken.report
+more ~/dc_workshop/taxonomy/mags_taxonomy/JP4D.001.report
 ~~~
 {: .bash} 
 ~~~
@@ -280,13 +280,13 @@ $ cd ~/dc_workshop/taxonomy/mags_taxonomy
 {: .bash}  
 
 Krona is called with the `ktImportTaxonomy` command that needs an input and an output file.  
-In our case we will create the input file with the columns three and four from `JP4D.001-kraken.kraken` file.     
+In our case we will create the input file with the columns three and four from `JP4D.001.kraken` file.     
 ~~~
-$ cut -f2,3 JP4D.001-kraken.kraken > JP4D.001.krona.input
+$ cut -f2,3 JP4D.001.kraken > JP4D.001.krona.input
 ~~~
 {: .language-bash}  
 
-Now we call Krona in our `JP4D.001.krona.input` file and save results in `JP4D..001.krona.out.html`.  
+Now we call Krona in our `JP4D.001.krona.input` file and save results in `JP4D.001.krona.out.html`.  
 ~~~
 $ ktImportTaxonomy JP4D.001.krona.input -o JP4D.001.krona.out.html
 ~~~
@@ -340,7 +340,7 @@ but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavia
 to visualize our results.  
 
 First we need to download the files needed as inputs in Pavian, this time we will visualize the assignation of the reads of both samples:
-`JC1A_kraken.report` and `JP4D_kraken.report`.  
+`JC1A.report` and `JP4D.report`.  
 This files corresponds to our Kraken reports. Again in our local machine lets use `scp` command.  
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*report . 
