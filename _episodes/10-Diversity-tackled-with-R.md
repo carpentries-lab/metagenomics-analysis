@@ -123,9 +123,9 @@ $ cd /home/dcuser/dc_workshop/taxonomy
 First, we will visualize the content of our directory by the `ls` command.  
 ~~~
 $ ls
-~~~~
 ~~~
-JC1A.error  JC1A.kraken  JC1A.report  JP4D.error  JP4D.kraken  JP4D.report
+~~~
+JC1A.kraken  JC1A.report	JP4D.kraken  JP4D.report  mags_taxonomy
 ~~~
 {: .output}
 
@@ -136,16 +136,16 @@ $ head JP4D.kraken
 ~~~
 {: .bash}
 ~~~
-U       k141_55805      0       371     0:337
-U       k141_0  0       462     0:428
-U       k141_55806      0       353     0:319
-U       k141_55807      0       296     0:262
-C       k141_1  953     711     0:54 1224:2 0:152 28211:2 0:15 953:3 0:449
-U       k141_2  0       480     0:446
-C       k141_3  28384   428     0:6 1286:2 0:8 28384:14 0:11 1:3 0:350
-U       k141_4  0       302     0:268
-U       k141_5  0       714     0:680
-U       k141_6  0       662     0:628
+U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19691:2037	0	250|251	0:216 |:| 0:217
+U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14127:2052	0	250|238	0:216 |:| 0:204
+U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14766:2063	0	251|251	0:217 |:| 0:217
+C	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:15697:2078	2219696	250|120	0:28 350054:5 1224:2 0:1 2:5 0:77 2219696:5 0:93 |:| 379:4 0:82
+U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:15529:2080	0	250|149	0:216 |:| 0:115
+U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14172:2086	0	251|250	0:217 |:| 0:216
+U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:17552:2088	0	251|249	0:217 |:| 0:215
+U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14217:2104	0	251|227	0:217 |:| 0:193
+C	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:15110:2108	2109625	136|169	0:51 31989:5 2109625:7 0:39 |:| 0:5 74033:2 31989:5 1077935:1 31989:7 0:7 60890:2 0:105 2109625:1
+C	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19558:2111	119045	251|133	0:18 1224:9 2:5 119045:4 0:181 |:| 0:99
   
 ~~~
 {: .output}
@@ -156,13 +156,13 @@ This information may be confused, let's take out our cheatsheet to understand so
 |------------------------------+------------------------------------------------------------------------------|  
 |   C                          |  Classified or unclassified                                                  |  
 |------------------------------+------------------------------------------------------------------------------|  
-|    k141_0                    |FASTA header of the sequence                                              |                
+|   MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19558:2111               |FASTA header of the sequence                                         |                
 |------------------------------+------------------------------------------------------------------------------|  
-|  1365647                     | Tax ID                                                                       |  
+|  119045                | Tax ID                                                                       |  
 |------------------------------+------------------------------------------------------------------------------|  
-|    416                       |Read length                                                                   |           
+|    251|133                      |Read length                                                                   |           
 |------------------------------+------------------------------------------------------------------------------|  
-|  0:6 1286:2 0:8 28384:14 0:11|kmers hit to a taxonomic id E.g. 0:1 root 6 hit, 1286 has 2 hits, etc.        |           
+|  0:18 1224:9 2:5 119045:4 0:181 |:| 0:99|kmers hit to a taxonomic ID E.g. tax ID 1224 has 9 hits, tax ID 119045 has 4 hits, etc.        |           
 |-------------------+-----------------------------------------------------------------------------------------|  
 
 There are other set of files with `.report` suffix. This is an output with the same information as the one found
@@ -172,16 +172,16 @@ $ head JP4D.report
 ~~~
 {: .bash}
 ~~~
- 75.95  77818   77818   U       0       unclassified
- 24.05  24642   5       R       1       root
- 24.01  24597   0       R1      131567    cellular organisms
- 24.01  24597   562     D       2           Bacteria
- 19.88  20365   581     P       1224          Proteobacteria
- 15.16  15530   494     C       28211           Alphaproteobacteria
-  7.92  8116    7       O       204455            Rhodobacterales
-  7.84  8033    945     F       31989               Rhodobacteraceae
-  1.44  1476    51      G       1060                  Rhodobacter
-  0.92  943     711     S       1063                    Rhodobacter sphaeroides
+78.13	587119	587119	U	0	unclassified
+ 21.87	164308	1166	R	1	root
+ 21.64	162584	0	R1	131567	  cellular organisms
+ 21.64	162584	3225	D	2	    Bacteria
+ 18.21	136871	3411	P	1224	      Proteobacteria
+ 14.21	106746	3663	C	28211	        Alphaproteobacteria
+  7.71	57950	21	O	204455	          Rhodobacterales
+  7.66	57527	6551	F	31989	            Rhodobacteraceae
+  1.23	9235	420	G	1060	              Rhodobacter
+  0.76	5733	4446	S	1063	                Rhodobacter sphaeroides
   ~~~
 {: .output}
 
@@ -203,11 +203,14 @@ usage: kraken-biom [-h] [--max {D,P,C,O,F,G,S}] [--min {D,P,C,O,F,G,S}]
                    kraken_reports [kraken_reports ...]
 
 Create BIOM-format tables (http://biom-format.org) from Kraken output
-(http://ccb.jhu.edu/software/kraken/)...
+(http://ccb.jhu.edu/software/kraken/).
+.
+.
+.
 ~~~
 {: .output}
 By a close look at the first output lines, it is noticeable that we need a specific output
-from Kraken: `kraken.report`s. 
+from Kraken: `.report`s. 
 
 With the next command, we are going to create a table in [Biom](https://biom-format.org/) format called `cuatroc.biom`:
 ~~~
@@ -216,7 +219,7 @@ $ kraken-biom JC1A.report JP4D.report --fmt json -o cuatroc.biom
 {: .bash}
 
 If we inspect our folder, we will see that the `cuatroc.biom` file has been created, this is 
-a biom object which contains both, the abundances of each OTU and the identificator of each OTU.
+a `biom` object which contains both, the abundances of each OTU and the identificator of each OTU.
 With this result, we are ready to return to RStudio's console and beggin to manipulate our 
 taxonomic-data.
 
@@ -249,6 +252,12 @@ $ library("patchwork")
 
   
 ### Load data with the number of reads per OTU and taxonomic labels for each OTU  
+
+First we tell R in which directory we are working.
+~~~
+setwd("~/dc_workshop/taxonomy/")
+~~~
+{: .language-r}
 
 Let's procced to create the phyloseq object with the `import_biom` command:
 ~~~
@@ -287,7 +296,7 @@ $ colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class",
 ~~~
 {: .language-r}
 
-> ## `.callout`
+> ## Phyloseq objects `.callout`
 > Finally, we can review our object and see that both datasets (i.e. JC1A and JP4D) are in the our object.
 > If you look at our Phyloseq object, you will see that there are more data types 
 > that we can use to build our object(?phyloseq), such as a phylogenetic tree and metadata 
@@ -311,10 +320,43 @@ Now let's look at some statistics of our metagenomes:
 
 ~~~
 merged_metagenomes
+~~~
+{: .language-r}
+
+~~~
+phyloseq-class experiment-level object
+otu_table()   OTU Table:         [ 3785 taxa and 2 samples ]
+tax_table()   Taxonomy Table:    [ 3785 taxa by 7 taxonomic ranks ]
+~~~ 
+{: .output}
+~~~
 sample_sums(merged_metagenomes)
 summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
+
+~~~
+JC1A   JP4D 
+ 18412 149590 
+~~~ 
+{: .output}
+
+~~~
+summary(merged_metagenomes@otu_table@.Data)
+~~~
+{: .language-r}
+
+
+~~~
+      JC1A              JP4D        
+ Min.   :  0.000   Min.   :   0.00  
+ 1st Qu.:  0.000   1st Qu.:   3.00  
+ Median :  0.000   Median :   8.00  
+ Mean   :  4.864   Mean   :  39.52  
+ 3rd Qu.:  3.000   3rd Qu.:  23.00  
+ Max.   :399.000   Max.   :6551.00 
+~~~ 
+{: .output}
 
 By the output of the `sample_sums` command we can see how many reads there are
 in the library. Also, the Max, Min and Mean output on `summary` can give us an
@@ -361,7 +403,7 @@ and that these two will belong to the same OTU.
   
 > ## `.discussion`
 >
-> How much did the α diversity can be changed by eliminating the singletons
+> How much can the α diversity can be changed by eliminating the singletons
 > and doubletons?
 {: .discussion}
   
