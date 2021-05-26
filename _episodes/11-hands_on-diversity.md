@@ -119,7 +119,7 @@ example, we used `geom_col`, which tells `ggplot` we want to visually represent 
 > 
 > Go into groups and explore another geoms that can be useful for presenting the data
 > of the number or reads in each sample. There are some cheat sheets of [ggplot2](https://blog.rstudio.com/2015/12/21/ggplot2-2-0-0/)
-> around the internet. You can give them a try.
+> around the internet. You can give them a try. 
 
 
 ## Transformation and manipulation of data
@@ -286,13 +286,16 @@ rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+
 raw.plot | rel.plot
 ~~~
 ![image](https://user-images.githubusercontent.com/67386612/119717935-93a78580-be2c-11eb-823d-cf430fbf44e1.png)
+###### Figure 5. Taxonomic diversity of absolute and relative abundance with corrections
 
 ## Exercise 2  
 > 
 > Go into groups and agglomerate the taxa in the raw data, so as to have
 > a better visualization of the data. Remeber in checking the data-classes inside
 > your data-frame. According to [ColorBrewer](https://github.com/axismaps/colorbrewer/) package
-> it is recommended to do not have more than 9 different colors in a plot. がんばれ!(ganbate; *good luck*):
+> it is recommended to do not have more than 9 different colors in a plot. 
+> Please, paste your result on the next [document](https://docs.google.com/document/d/1oFg3uUZUANf7S1Mh2KamzrcGhkKsXP5Mk1KxKv6k8wA/edit?usp=sharing), there you can find the Breakout room where you need to be 
+> working with. がんばれ!(ganbate; *good luck*):
 ## Solution
 >> By reducing agglomerating the samples that have less than 30 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples have constrasting number of reads.
@@ -301,52 +304,61 @@ raw.plot | rel.plot
 
 ## Going further, lets took an interest lineage and explore it thoroughly
 
-As we have already reviewed, phyloseq offers a lot of tools to manage  
-and explore data. Lets take a look deeply to a tool that we already
-use, but now with a guided exploration. The `subset_taxa` command is used to
-extract specific lineages from a stated taxonomic level, we have used it
-in the past lesson to get rid from the reads that does not belong to bacteria:
-
+As we have already reviewed, phyloseq offers a lot of tools to manage and explore data. Let's take a 
+look deeply to a function that we already use, but now with a guided exploration. The `subset_taxa` 
+command is used to extract specific lineages from a stated taxonomic level, we have used it to get 
+rid from the reads that does not belong to bacteria:
 ~~~
-metagenome_JC1A <- subset_taxa(metagenome_JC1A, superkingdom == "Bacteria")
+merged_metagenomes <- subset_taxa(merged_metagenomes, Kingdom == "Bacteria")
 ~~~
 {: .language-r}
 
-We are going to it now to extract an specific phylum from our 
-data, and explore it at a more lower taxonomic lever: Genus
-
+We are going to use it now to extract an specific phylum from our data, and explore it at a more lower 
+taxonomic level: Genus. We will take as an example the phylum cyanobacteria(Certainly, this is a biased
+and arbitrary decision, but who does not feel attracted these incredible microorganisms?):
 ~~~
 cyanos <- subset_taxa(merged_metagenomes, phylum == "Cyanobacteria")
-cyanos <- subset_taxa(cyanos, genus != "NA")
+unique(cyanos@tax_table@.Data[,2])
+~~~
+{: .language-r}
+~~~
+[1] "Cyanobacteria"
+~~~
+{: .output}
+
+Let's do a little review of all that we see today: **Transformation of the data; Manipulation of the 
+information; and plotting**:
+~~~
 cyanos  = transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
-glom <- tax_glom(cyanos, taxrank = "genus")
-data <- psmelt(glom)
-cyanos <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+ 
-    geom_bar(aes(), stat="identity", position="stack")
+glom <- tax_glom(cyanos, taxrank = "Genus")
+g.cyanos <- psmelt(glom)
+g.cyanos$Genus[g.cyanos$Abundance < 4] <- "Genera < 4.0% abund,"
+p.cyanos <- ggplot(data=g.cyanos, aes(x=Sample, y=Abundance, fill=Genus))+ 
+  geom_bar(aes(), stat="identity", position="stack")
+p.cyanos
 ~~~
 {: .language-r} 
 
-![image](https://user-images.githubusercontent.com/67386612/112223345-67cf1000-8bef-11eb-9bdc-4fe239bca9b2.png)
-Figure 3. Diversity of Cyanobacteria at genus level inside our samples.
+![image](https://user-images.githubusercontent.com/67386612/119739732-476a3e80-be48-11eb-8066-bb5000b6a39d.png)
+###### Figure 6. Diversity of Cyanobacteria at genus level inside our samples.
 
-> ## Exercise 2  
+> ## Exercise 3 
 > 
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the code learned to generate a plot where you can 
-> show us the abundance in each of the sample
-> Please, paste your result on the next document, there you can find 
-> the Breakout room where you need to be working with, good luck:
-> https://docs.google.com/document/d/1oFg3uUZUANf7S1Mh2KamzrcGhkKsXP5Mk1KxKv6k8wA/edit?usp=sharing 
+> show us the abundance in each of the sample.
+> Please, paste your result on the next [document](https://docs.google.com/document/d/1oFg3uUZUANf7S1Mh2KamzrcGhkKsXP5Mk1KxKv6k8wA/edit?usp=sharing), there you can find 
+> the Breakout room where you need to be working with. がんばれ!(ganbate; *good luck*):
 >> ## Solution
 >> Change "Cyanobacteria" wherever it is needed to get a result from
 >> other phylum, as an example, here is the solution for Proteobacteria:
->>proteo <- subset_taxa(merged_metagenomes, phylum == "Proteobacteria")
->>proteo <- subset_taxa(proteo, genus != "NA")
+>>proteo <- subset_taxa(merged_metagenomes, Phylum == "Proteobacteria")
 >>proteo  = transform_sample_counts(proteo, function(x) x*100 / sum(x) )
 >>glom <- tax_glom(proteo, taxrank = "genus")
->>data <- psmelt(glom)
->>proteo <- ggplot(data=data, aes(x=Sample, y=Abundance, fill=genus))+ 
+>>g.proteo <- psmelt(glom)
+>>proteo <- ggplot(data=g.proteo, aes(x=Sample, y=Abundance, fill=genus))+ 
 >>  geom_bar(aes(), stat="identity", position="stack")
 > {: .solution}
 {: .challenge} 
                              
+
