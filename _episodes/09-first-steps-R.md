@@ -1,5 +1,5 @@
 ---
-title: "First steps on R"
+title: "First Steps on R"
 teaching: 60
 exercises: 0
 questions:
@@ -25,12 +25,13 @@ keypoints:
 
 ### What is R and what can it be used for?
 
-"R" is used to refer to the programming language and the software that reads and 
-interpets what is it on the scripts. RStudio is the most popular program to write
+"R" is used to refer to a programming language and the software that reads and 
+interprets what is it on the scripts of this language. It is specialized on statistical computing and graphics. 
+RStudio is the most popular program to write
 scripts and interact with the R software.
 
 R uses a series of written commands, that is great, believe us! When you rely on clicking, 
-pointing, and remembering where and why to point here or click that, mistakes
+pointing, and remembering where and why to point here or click there, mistakes
 are prone to occur. Moreover, if you manage to get more data, it is easier to just
 *re-run* your script to obtain results. Also, working with scripts makes the steps 
 you follow for your analysis clear and shareable. Here are some of the advantages
@@ -47,33 +48,31 @@ Abel: I would recommend explaining that R also allows us to create other types o
 RStudio is an [Integrated Development Environment(IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment#:~:text=An%20integrated%20development%20environment%20(IDE,automation%20tools%20and%20a%20debugger.)) 
 which we will use to write code,
 navigate the files from our computer/cloud, try code, inspect the variables we are 
-going to create, and visualize our contrived plots.
+going to create, and visualize our plots.
 
 Here is what you may look at the first time you open RStudio:
 ![image](https://user-images.githubusercontent.com/67386612/118720027-ba433c00-b7ee-11eb-87e5-7496fde5763e.png)
-###### Figure 1. RStudio interface screenshot. The three windows that appear on the screen provide us with a space in which we can observe our console where the orders we want to execute are written (left side window), observe the generated variables (upper right), and a series of subtabs where we have: **files** shows us files that we have used, **plots** we observe graphics that we are generating, **packages** the packages that we have downloaded are loaded, **help** works only with the internet but it gives us the information of packages or commands and/or functions that we do not know and **viewer** shows a preview results in rmarkdown files.
+###### Figure 1. RStudio interface screenshot. The three windows that appear on the screen provide us with a space in which we can see our console (left side window) where the orders we want to execute are written, observe the generated variables (upper right), and a series of subtabs (lower right): **Files** shows us files that we have used, **Plots** shows us graphics that we are generating, **Packages** shows the packages that we have downloaded, **Help** it gives us the information of packages, commands and/or functions that we do not know, but works only with internet conection, and **Viewer** shows a results preview in R markdown files.
 
-If we click in the option `File` :arrow_right: `New File` :arrow_right: `R Script`,
-we get what we can call _RStudio nautical chart_
+If we click in the option `File` :arrow_right: `New File` :arrow_right: `R Script`, we open up a script and
+we get what we can call a _RStudio nautical chart_
 
 ![image](https://user-images.githubusercontent.com/67386612/112203976-c046e300-8bd8-11eb-9ee6-72c95f9134f3.png)
-###### Figure 2. RStudio interface screenshot. Clockwise from top left: Source, Environment/History, 
-Files/Plots/Packages/Help/Viewer, Console.
+###### Figure 2. RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.
 
 You can enter your online RStudio to see your own environment. Let's copy your instance address into your browser
-(Chrome or Firefox) and login into R studio.  
+(Chrome or Firefox) and login into Rstudio.  
 The address should look like:  `http://ec2-3-235-238-92.compute-1.amazonaws.com:8787/`  
 
 Although data are already stored in your instance, in case you need to you can donwload them [here](https://drive.google.com/file/d/15dW1sQCIhtmCUvS0IUOMPBH5m1gqNB0m/view?usp=sharing).
 
-### Review of the set-up
+### Review of the setup
 
-As we have revisited throughout the lesson maintaining related data in a single folder
-is desirable. In RStudio, this folder is called **Working directory**. Here is where R will be looking 
+As we have revisited throughout the lesson, maintaining related data in a single folder
+is desirable. In RStudio, this folder is called the **working directory**. It is where R will be looking 
 for and saving your files. If you need to check where your working directory is located use `getwd()`.
 If your working directory is not what you expected, it can always be changed by clicking on the blue 
-gear icon:![image](https://user-images.githubusercontent.com/67386612/118722611-f7f59400-b7f1-11eb-8ca9-a72561f9c529.png) on the `Files` tab, and pick the option _Set As Working Directory_. Alternatively, you can use the `setwd()`
-command for changing it.
+gear icon:![image](https://user-images.githubusercontent.com/67386612/118722611-f7f59400-b7f1-11eb-8ca9-a72561f9c529.png) on the `Files` tab, and pick the option _Set As Working Directory_. Alternatively, you can use the `setwd()` command for changing it.
 
 Let's use this commands to set our working directoiry where we have stored our files from the previous 
 lessons:
@@ -86,8 +85,9 @@ $ setwd("~/dc_workshop/results/")
 ## Having a dialogue with R
 
 There are two main paths to interact with R in RStudio:
-* Using the console
+* Using the console.
 * Creating and editing script files.
+
 The console is where commands can be typed and executed immediately and where the 
 results from executed commands will be shown (like in the Unix shell). If R is ready to accept commands, the R console shows
 the `>` prompt. You can type instructions directly into the console and press "Enter", but they will 
@@ -104,18 +104,18 @@ $ total
 ~~~
 {: .language-r}
 
-What would happend if you tap `ctrl` + `l`. Without the lesson page, can you remember what numbers the sum is made of in the variable `suma`?.
+What would happend if you tap `ctrl` + `l`? Without the lesson page, can you remember what numbers the sum is made of in the variable `suma`?.
 **Reproducibility** is in our minds when we program (and when we do science). For this purpose, 
-is convenient to type the commands we want in the script editor, and save the script periodically. 
+is convenient to type the commands we want to save, in the script editor, and save the script periodically. 
 We can run our code lines in the script by the shortcut `ctrl` + `Enter` 
-(on Macs, `Cmd` + `Return` will work). Thus, the command on the current line, or the instructions
+(on Mac, `Cmd` + `Return` will work). Thus, the command on the current line, or the instructions
 in the currently selected text will be sent to the console and will be executed.
 
-Time can be the enemy or ally of memory. We want to be sure to remember why we write the commands
+Time can be the enemy or ally of memory. We want to be sure to remember why we wrote the commands
 in our scripts, so we can leave comments(lines of no executable text) by beggining a line with `#`:
 ~~~
 # Let's do some math in RStudio. How many times a year do the supermarkets change the bread that they use for
-# demostration, if they change it every 15 days:
+# display?, if they change it every 15 days:
  356/15
 ~~~
 {: .language-r}
@@ -227,7 +227,7 @@ $ class(musician)
 A data-frame is a collection of vectors, a list, whose components must be of the same data type within
 each vector. Whereas, a data-frame can save vectors of different data types:
 ![image](https://user-images.githubusercontent.com/67386612/118735756-b4595500-b806-11eb-8bd6-d189b9463eca.png)
-Figure 3. Structure of the created data-frame.
+######Figure 3. Structure of the created data-frame.
 
 We can begin to explore our new object by pulling out columns by the `$` operator:
 ~~~
@@ -272,11 +272,11 @@ $ paste("Is",musician$people, "popular? :", musician$likes, sep = " ")
 
 Finally, we can extract from a specific place in our data:
 ~~~
-$ musician[1,2]
+$ musician[1,2]  # The number of pieces that Nikolai Medtner composed
 ~~~
 {: .language-r}
 ~~~
-[1] 722 # The number of pieces that Nikolai Medtner composed
+[1] 722
 ~~~
 {: .output}
 
