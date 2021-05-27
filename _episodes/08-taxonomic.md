@@ -26,7 +26,9 @@ search for unique pieces by taxonomic group, from lowest common ancestor (LCA),
 passing through phylum to species. Then, the algorithm 
 breakes the query sequence (reads, contigs) into pieces of length k,
 look for where these are placed within the tree and make the 
-classification with the most probable position.    
+classification with the most probable position.  
+![image](https://user-images.githubusercontent.com/67386612/119909687-20c90800-bf1b-11eb-8878-23b3773016ff.png)
+###### Figure 1. Lowest common ancestor assignation example.
 
 3. Markers: They look for markers of a database made a priori in the sequences 
 to be classified and assign the taxonomy depending on the hits obtained.    
