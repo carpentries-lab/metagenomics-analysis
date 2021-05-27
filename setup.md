@@ -61,17 +61,14 @@ $ cat metagenomics.yml
 {: .bash}
 ~~~
 name: metagenomics                                                                
-dependencies:                             
-  - megahit              
+dependencies:                                      
   - kraken2 
   - krona             
   - maxbin2
   - taxonkit
-  - quast
   - spades
   - kraken-biom
   - checkm-genome
-  - vamb 
 
 ~~~
 {: .output}
