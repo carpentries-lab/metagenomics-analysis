@@ -39,7 +39,6 @@ between the species of the community).
 ###### Figure 2. Alpha and Beta diversity represented by fishes in a pond.
 
 For this lesson we will use Phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
-[Rstudio cloud](https://rstudio.cloud/) and select "GET STARTED FOR FREE"
 
 ## α diversity  
 
@@ -48,9 +47,7 @@ For this lesson we will use Phyloseq, an R package specialized in metagenomic an
 |-------------------+-----------------------------------------------------------------------------------------------------------------|   
 |      Shannon (H)  | Estimation of species richness and species evenness. More weigth on richness.                                   |   
 |-------------------+-----------------------------------------------------------------------------------------------------------------|   
-|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness.                                    |                           
-|-------------------+-----------------------------------------------------------------------------------------------------------------|   
-|      ACE          | Abundance based coverage estimator of species richness.                                                         |   
+|    Simpson's (D)  |Estimation of species richness and species evenness. More weigth on evenness.                                    |                              
 |-------------------+-----------------------------------------------------------------------------------------------------------------|   
 |     Chao1         | Abundance based on species represented by a single individual (singletons) and two individuals (doubletons).    |            
 |-------------------+-----------------------------------------------------------------------------------------------------------------|   
@@ -81,16 +78,16 @@ For this lesson we will use Phyloseq, an R package specialized in metagenomic an
 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}">| The number of observed species    
 
 ## β diversity  
-Diversity β measures how different two or more communities are, either in their composition (diversity)
+Diversity β measures how different two or more communities are, either in their composition (richness)
 or in the abundance of the organisms that compose it (abundance). 
-- Bray-Curtis dissimilarity: Emphasis on abundance. Measures the differences 
+- Bray-Curtis dissimilarity: The difference on richness and abundance across environments(samples). Weight on abundance. Measures the differences 
 from 0 (equal communities) to 1 (different communities)
 - Jaccard distance: Based on presence / absence of species (diversity). 
 It goes from 0 (same species in the community) to 1 (no species in common)
 - UniFrac: Measures the phylogenetic distance; how alike the trees in each community are. 
 There are two types, without weights (diversity) and with weights (diversity and abundance)  
 
-It is easy to visualize using PCA, PCoA or NMDS analysis.
+There are different ways to plot and show the results of such analysis. Among others,  PCA, PCoA or NMDS analysis are widely used.
 
 # Creating lineage and rank tables  
 
@@ -157,13 +154,13 @@ This information may be confused, let's take out our cheatsheet to understand so
 |------------------------------+------------------------------------------------------------------------------|  
 |   C                          |  Classified or unclassified                                                  |  
 |------------------------------+------------------------------------------------------------------------------|  
-|   MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19558:2111               |FASTA header of the sequence                                         |                
+|   MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:15697:2078               |FASTA header of the sequence                                         |                
 |------------------------------+------------------------------------------------------------------------------|  
-|  119045                | Tax ID                                                                       |  
+|  2219696                | Tax ID                                                                       |  
 |------------------------------+------------------------------------------------------------------------------|  
-|    251|133                      |Read length                                                                   |           
+|    250|120                      |Read length                                                                   |           
 |------------------------------+------------------------------------------------------------------------------|  
-|  0:18 1224:9 2:5 119045:4 0:181 |:| 0:99|kmers hit to a taxonomic ID E.g. tax ID 1224 has 9 hits, tax ID 119045 has 4 hits, etc.        |           
+|  0:28 350054:5 1224:2 0:1 2:5 0:77 2219696:5 0:93 |:| 379:4 0:82|kmers hit to a taxonomic ID *e.g.* tax ID 350054 has 5 hits, tax ID 1224 has 2 hits, etc.        |           
 |-------------------+-----------------------------------------------------------------------------------------|  
 
 There are other set of files with `.report` suffix. This is an output with the same information as the one found
