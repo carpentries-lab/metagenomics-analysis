@@ -78,7 +78,7 @@ Let's use this commands to set our working directoiry where we have stored our f
 lessons:
 
 ~~~
-$ setwd("~/dc_workshop/results/")
+> setwd("~/dc_workshop/results/")
 ~~~
 {: .language-r}
 
@@ -96,11 +96,11 @@ be forgotten when you close the session.
 For example, let's do some math and save it in R objects. We can store values in variables by
 ussing the assignment operator `<-`:
 ~~~ 
-$ 4+3
-$ suma <- 4+3
-$ resta <- 2+1
-$ total <- suma -resta
-$ total
+> 4+3
+> suma <- 4+3
+> resta <- 2+1
+> total <- suma -resta
+> total
 ~~~
 {: .language-r}
 
@@ -116,7 +116,7 @@ in our scripts, so we can leave comments(lines of no executable text) by beggini
 ~~~
 # Let's do some math in RStudio. How many times a year do the supermarkets change the bread that they use for
 # display?, if they change it every 15 days:
- 356/15
+> 356/15
 ~~~
 {: .language-r}
 ~~~
@@ -130,12 +130,12 @@ We already used numbers to generate a result. But this is not the only type of d
 can manage. We can use the command `typeof()` to corroborate the data type of our object `suma`:
 
 ~~~
-$ typeof(suma)
+> typeof(suma)
 ~~~
 {: .language-r}
 
 ~~~
-$ [1] "double"
+> [1] "double"
 ~~~
 {: .output}
 
@@ -147,7 +147,7 @@ There are five types of data in RStudio:
 * Character
 
 ~~~
-$ typeof(5L) #Integer type can contain only whole numbers and followed by a capital L
+> typeof(5L) #Integer type can contain only whole numbers and followed by a capital L
 ~~~
 {: .language-r}
 ~~~
@@ -156,7 +156,7 @@ $ typeof(5L) #Integer type can contain only whole numbers and followed by a capi
 {: .output}
 
 ~~~
-$ typeof(72+5i)
+> typeof(72+5i)
 ~~~
 {: .language-r}
 ~~~
@@ -165,7 +165,7 @@ $ typeof(72+5i)
 {: .output}
 
 ~~~
-$ suma == resta
+> suma == resta
 ~~~
 {: .language-r}
 ~~~
@@ -174,7 +174,7 @@ $ suma == resta
 {: .output}
 
 ~~~
-$ typeof(suma == resta)
+> typeof(suma == resta)
 ~~~
 {: .language-r}
 ~~~
@@ -183,8 +183,8 @@ $ typeof(suma == resta)
 {: .output}
 
 ~~~
-$ resultado <- "4 and 3 are not the same in Earth. In Mars maybe... "
-$ typeof(resultado)
+> resultado <- "4 and 3 are not the same in Earth. In Mars maybe... "
+> typeof(resultado)
 ~~~
 {: .language-r}
 ~~~
@@ -200,10 +200,10 @@ the manipulation of different types of data at the same time in a data-frame.
 ### Data-frames: The power of interdisciplinarity 
 Let's beggin by creating a mock data set:
 ~~~
-$ musician <- data.frame(people = c("Medtner", "Radwimps", "Shakira"),
+> musician <- data.frame(people = c("Medtner", "Radwimps", "Shakira"),
 						 pieces = c(722,187,68),
  						 likes = c(0,1,1))
-$ musician
+> musician
 ~~~
 {: .language-r}
 The content of our new object:
@@ -217,7 +217,7 @@ The content of our new object:
 
 We have just created our first data-frame. We can see if this is true by the `class()` command:
 ~~~
-$ class(musician)
+> class(musician)
 ~~~
 {: .language-r}
 ~~~
@@ -231,7 +231,7 @@ each vector. Whereas, a data-frame can save vectors of different data types:
 
 We can begin to explore our new object by pulling out columns by the `$` operator:
 ~~~
-$ musician$people
+> musician$people
 ~~~
 {: .language-r}
 ~~~
@@ -241,7 +241,7 @@ $ musician$people
 
 We can do operations with our columns 
 ~~~
-$ musician$pieces + 20
+> musician$pieces + 20
 ~~~
 {: .language-r}
 ~~~
@@ -252,7 +252,7 @@ $ musician$pieces + 20
 Also, we can change the data type of one of the columns. By the next code we can see if the musicians are 
 popular or not:
 ~~~
-$ typeof(musician$likes)
+> typeof(musician$likes)
 ~~~
 {: .language-r}
 ~~~
@@ -261,8 +261,8 @@ $ typeof(musician$likes)
 {: .output}
 
 ~~~
-$ musician$likes <- as.logical(musician$likes)
-$ paste("Is",musician$people, "popular? :", musician$likes, sep = " ")
+> musician$likes <- as.logical(musician$likes)
+> paste("Is",musician$people, "popular? :", musician$likes, sep = " ")
 ~~~
 {: .language-r}
 ~~~
@@ -272,7 +272,7 @@ $ paste("Is",musician$people, "popular? :", musician$likes, sep = " ")
 
 Finally, we can extract from a specific place in our data:
 ~~~
-$ musician[1,2]  # The number of pieces that Nikolai Medtner composed
+> musician[1,2]  # The number of pieces that Nikolai Medtner composed
 ~~~
 {: .language-r}
 ~~~
