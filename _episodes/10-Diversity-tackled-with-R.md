@@ -19,22 +19,23 @@ keypoints:
 
 # First plunge into diversity
 *Look at your fingers, controlled by the mind can do great things. But imagine if each one have a little brain of its own, with 
-different ideas, desires, and fears ¡How wonderful things will be made out of an artist such as that!* 
+different ideas, desires, and fears ¡How wonderful things will be made out of an artist with such hands!* 
 	-Ode to multidisciplinarity
 
-Species diversity, is the number of species that are represented in a certain 
-community. 
+Species diversity, is the number of species that are represented in a certain community. 
 Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
-Here we will talk about the two most used diversity metrics, α diversity (within one metagenome) and β (between metagenomes).   
+Here we will talk about the two most used diversity metrics, α diversity (within one metagenome) and β (across metagenomes).   
 
-- α Diversity: Represents the richness (e.g. number of different species) and abundance of species. It can be measured by calculating richness, 
- and eveness, or by using a diversity index, such as Shannon's, Simpson's, Chao's, etc.  
+- α Diversity:Can be represented as the richness (*i.e.* number of different species in an environment) and abundance(*i.e.* the number of individuals of
+- each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc.  
   ![image](https://user-images.githubusercontent.com/67386612/118978296-c4735080-b93c-11eb-8421-3294b21c9c44.png)
 ###### Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness
  
-- β Diversity: It is the difference (measured as distance) between two or more metagenomes. 
-It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance or UniFrac, to name a few.  
-![image](https://user-images.githubusercontent.com/67386612/119004501-3f943100-b954-11eb-82fe-cc91235072f2.png)
+- β Diversity: It is the difference (measured as distance) between two or more environments. 
+It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance or UniFrac distance, to name a few. Each one 
+of this distance metrics are focused in a characteristic of the community(*e.g.* Unifrac distance measures the phylogenetic relationship
+between the species of the community).
+![image](https://user-images.githubusercontent.com/67386612/119906168-536f0280-bf13-11eb-9d47-d447fe4fabcc.png)
 ###### Figure 2. Alpha and Beta diversity represented by fishes in a pond.
 
 For this lesson we will use Phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
@@ -230,12 +231,12 @@ taxonomic-data.
 Phyloseq is a library with tools to analyze and plot your metagenomics tables. Let's install [phyloseq](https://joey711.github.io/phyloseq/) (This instruction might not work on certain versions of R) and other libraries required for its execution:  
 
 ~~~
-$ if (!requireNamespace("BiocManager", quietly = TRUE))
+> if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
-$ BiocManager::install("phyloseq") # Install phyloseq
+> BiocManager::install("phyloseq") # Install phyloseq
 
-$ install.packages(c("ggplot2", "readr", "patchwork")) #install ggplot2 and patchwork to chart publication-quality plots and readr to read rectangular datasets.
+> install.packages(c("ggplot2", "readr", "patchwork")) #install ggplot2 and patchwork to chart publication-quality plots and readr to read rectangular datasets.
 ~~~
 {: .language-r}  
 
@@ -243,10 +244,10 @@ Once the libraries are installed, we must make them available for this R session
 in R and we are going to use them):
 
 ~~~
-$ library("phyloseq")
-$ library("ggplot2")
-$ library("readr")
-$ library("patchwork")
+> library("phyloseq")
+> library("ggplot2")
+> library("readr")
+> library("patchwork")
 ~~~
 {: .language-r}
 
@@ -255,20 +256,20 @@ $ library("patchwork")
 
 First we tell R in which directory we are working.
 ~~~
-setwd("~/dc_workshop/taxonomy/")
+> setwd("~/dc_workshop/taxonomy/")
 ~~~
 {: .language-r}
 
 Let's procced to create the phyloseq object with the `import_biom` command:
 ~~~
-merged_metagenomes <- import_biom("cuatroc.biom")
+> merged_metagenomes <- import_biom("cuatroc.biom")
 ~~~
 {: .language-r}
 
 Now, we can inspect the result by asking what class is the object created, and 
 doing a close inspection of some of its content:
 ~~~
-$ class(merged_metagenomes)
+> class(merged_metagenomes)
 ~~~
 {: .language-r}
 ~~~
@@ -279,7 +280,7 @@ attr(,"package")
 {: .output}
 
 ~~~
-$ View(merged_metagenomes@tax_table@.Data)
+> View(merged_metagenomes@tax_table@.Data)
 ~~~
 {: .language-r}
 ![image](https://user-images.githubusercontent.com/67386612/119017138-4e80e080-b960-11eb-8465-737d6197c775.png)
@@ -291,8 +292,8 @@ last episode of the lesson. Let's get rid of some of the innecesary characters
 in the OTUs identificator and put name to the taxonomic ranks:
 
 ~~~
-$ merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
-$ colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+> merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
+> colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
 ~~~
 {: .language-r}
 
@@ -312,17 +313,16 @@ We want to know how is the bacterial diversity, so we will prune all of the
 non-bacterial organisms in our metagenome. To do this we will make a subset 
 of all bacterial groups and save them.
 ~~~
-$ merged_metagenomes <- subset_taxa(merged_metagenomes, Kingdom == "Bacteria")
+> merged_metagenomes <- subset_taxa(merged_metagenomes, Kingdom == "Bacteria")
 ~~~
 {: .language-r}
 
 Now let's look at some statistics of our metagenomes:
 
 ~~~
-merged_metagenomes
+> merged_metagenomes
 ~~~
 {: .language-r}
-
 ~~~
 phyloseq-class experiment-level object
 otu_table()   OTU Table:         [ 3785 taxa and 2 samples ]
@@ -330,10 +330,9 @@ tax_table()   Taxonomy Table:    [ 3785 taxa by 7 taxonomic ranks ]
 ~~~ 
 {: .output}
 ~~~
-sample_sums(merged_metagenomes)
+> sample_sums(merged_metagenomes)
 ~~~
 {: .language-r}
-
 ~~~
 JC1A   JP4D 
  18412 149590 
@@ -341,11 +340,9 @@ JC1A   JP4D
 {: .output}
 
 ~~~
-summary(merged_metagenomes@otu_table@.Data)
+> summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
-
-
 ~~~
       JC1A              JP4D        
  Min.   :  0.000   Min.   :   0.00  
@@ -364,8 +361,8 @@ diversity inside the samples (i.e. α diversity) we can now look at a ggplot2
 graph created using Phyloseq:
 
 ~~~
-p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon")) 
-p + geom_point(size=5, alpha=0.7)
+> p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon")) 
+> p + geom_point(size=5, alpha=0.7)
 ~~~
 {: .language-r}
 
