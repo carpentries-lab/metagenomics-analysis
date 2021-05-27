@@ -247,7 +247,7 @@ more ~/dc_workshop/taxonomy/mags_taxonomy/JP4D.001.report
 ~~~
 {: .output}  
 
-By looking at the report we can see that half of the contigs are unclassified, and that all of the OTUs found are assigned to a very little proportion of contigs. This is weird because we expected to have only one genome in the bin.
+By looking at the report, we can see that half of the contigs are unclassified, and that a very little proportion of contigs have been assigned an OTU. This is weird because we expected to have only one genome in the bin.
 
 Just to exemplify how a report of a complete and not contaminated MAG should look like, let's look at the report of this MAG from another study:
 ~~~
