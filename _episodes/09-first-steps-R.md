@@ -192,6 +192,19 @@ There are five types of data in RStudio:
 ~~~
 {: .output}
 
+Also, we can use `c()` command to enlist a certain number of objects that we want to use. This can
+be accomplished by enlisting them inside the parenthesis, and separe each element by a comma. Let's 
+create a vector and found out its class:
+~~~
+> v.examp <- c("his ", "scabbard", "of", "chalcedony")
+> typeof(v.examp)
+~~~
+{: .language-r}
+~~~
+[1] "character"
+~~~
+{: .output}
+
 No matter how complicated our analysis can become, all data in R will be allocated as one of this
 five data types. On their own, data types are important because we want to know "who is who, and 
 what is what". But this concept will help us learn one of the most powerful tools in R, which is 
@@ -227,9 +240,11 @@ We have just created our first data-frame. We can see if this is true by the `cl
 A data-frame is a collection of vectors, a list, whose components must be of the same data type within
 each vector. Whereas, a data-frame can save vectors of different data types:
 ![image](https://user-images.githubusercontent.com/67386612/118735756-b4595500-b806-11eb-8bd6-d189b9463eca.png)
-######Figure 3. Structure of the created data-frame.
+###### Figure 3. Structure of the created data-frame.
 
-We can begin to explore our new object by pulling out columns by the `$` operator:
+We can begin to explore our new object by pulling out columns by the `$` operator. In order to use it, 
+you need to write the name of ypur data-frame, followed by the `$` operator and the name of the column 
+you want to extract:
 ~~~
 > musician$people
 ~~~
@@ -249,7 +264,7 @@ We can do operations with our columns
 ~~~
 {: .output}
 
-Also, we can change the data type of one of the columns. By the next code we can see if the musicians are 
+Moreover, we can change the data type of one of the columns. By the next code we can see if the musicians are 
 popular or not:
 ~~~
 > typeof(musician$likes)
@@ -270,7 +285,10 @@ popular or not:
 ~~~
 {: .output}
 
-Finally, we can extract from a specific place in our data:
+Finally, we can extract information from a specific place in our data by using the "matrix" nomenclature `[-,-]`,
+where the first number inside the brackets specifies the number of row, and the second the number of the column:
+![image](https://user-images.githubusercontent.com/67386612/119908857-2a517080-bf19-11eb-8e0f-b3da6d1dcfc0.png)
+###### Figure 4. Extaction of specific data in a data-frame and a matrix.
 ~~~
 > musician[1,2]  # The number of pieces that Nikolai Medtner composed
 ~~~
