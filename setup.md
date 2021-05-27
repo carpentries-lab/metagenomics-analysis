@@ -65,7 +65,6 @@ dependencies:
   - kraken2 
   - krona             
   - maxbin2
-  - taxonkit
   - spades
   - kraken-biom
   - checkm-genome
