@@ -299,6 +299,52 @@ in the OTUs identificator and put names to the taxonomic ranks:
 ![image](https://user-images.githubusercontent.com/67386612/119911861-d6965580-bf1f-11eb-91d8-8cd68fb797e1.png)
 ###### Figure 4. Table of the OTU data from our `merged_metagenomes` object. With corrections
 
+To explore how many phyla we have, we are going to use a command name `unique()`. Let's try what result
+we obtain with the next code:
+~~~
+> unique(merged_metagenomes@tax_table@.Data[,"Phylum"])
+~~~
+{: .language-r}
+~~~
+ [1] "Proteobacteria"           "Actinobacteria"           "Firmicutes"              
+ [4] "Cyanobacteria"            "Deinococcus-Thermus"      "Chloroflexi"             
+ [7] "Armatimonadetes"          "Bacteroidetes"            "Gemmatimonadetes"        
+[10] "Verrucomicrobia"          "Planctomycetes"           "Lentisphaerae"           
+[13] "Chlamydiae"               "Acidobacteria"            "Synergistetes"           
+[16] "Spirochaetes"             "Tenericutes"              ""                        
+[19] "Coprothermobacterota"     "Chlorobi"                 "Ignavibacteriae"         
+[22] "Candidatus Cloacimonetes" "Kiritimatiellaeota"       "Nitrospirae"             
+[25] "Thermotogae"              "Fusobacteria"             "Aquificae"               
+[28] "Deferribacteres"          "Chrysiogenetes"           "Thermodesulfobacteria"   
+[31] "Dictyoglomi"              "Caldiserica"   
+~~~
+{: .output}
+
+This is useful, but what we need to do if we need to know how many of our read have been assigned to the 
+`Firmicutes` phylum? Let´s use the command `sum()` to ask R, how many of the reads fill this requiriment:
+~~~
+> sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Firmicutes")
+~~~
+{: .language-r}
+~~~
+[1] 292
+~~~
+{: .output}
+
+> ## Exercise 1 
+> 
+> Go into groups and choose one phylum that is interesting for your
+> group, and use the code learned to find out how many reads have been assigned to
+> your choosed phylum and what are the unique names of the genera inside it.
+> Please, paste your result on the next [document](https://docs.google.com/document/d/1oFg3uUZUANf7S1Mh2KamzrcGhkKsXP5Mk1KxKv6k8wA/edit?usp=sharing), there you can find 
+> the Breakout room where you need to be working with. がんばれ!(ganbate; *good luck*):
+>> ## Solution
+>> Change the name of a new phylum wherever it is needed to get the result.
+>> As an example, here is the solution for Proteobacteria:
+>>sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria")
+>>unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria", "Genus"])
+> {: .solution}
+{: .challenge} 
 
 
 > ## Phyloseq objects `.callout`
