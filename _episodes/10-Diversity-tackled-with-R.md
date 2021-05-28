@@ -20,7 +20,7 @@ keypoints:
 # First plunge into diversity
 *Look at your fingers, controlled by the mind can do great things. But imagine if each one have a little brain of its own, with 
 different ideas, desires, and fears ¡How wonderful things will be made out of an artist with such hands!* 
-	-Ode to multidisciplinarity
+  -Ode to multidisciplinarity
 
 Species diversity, is the number of species that are represented in a certain community. 
 Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
@@ -123,7 +123,7 @@ First, we will visualize the content of our directory by the `ls` command.
 $ ls
 ~~~
 ~~~
-JC1A.kraken  JC1A.report	JP4D.kraken  JP4D.report  mags_taxonomy
+JC1A.kraken  JC1A.report  JP4D.kraken  JP4D.report  mags_taxonomy
 ~~~
 {: .output}
 
@@ -134,16 +134,16 @@ $ head JP4D.kraken
 ~~~
 {: .bash}
 ~~~
-U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19691:2037	0	250|251	0:216 |:| 0:217
-U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14127:2052	0	250|238	0:216 |:| 0:204
-U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14766:2063	0	251|251	0:217 |:| 0:217
-C	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:15697:2078	2219696	250|120	0:28 350054:5 1224:2 0:1 2:5 0:77 2219696:5 0:93 |:| 379:4 0:82
-U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:15529:2080	0	250|149	0:216 |:| 0:115
-U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14172:2086	0	251|250	0:217 |:| 0:216
-U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:17552:2088	0	251|249	0:217 |:| 0:215
-U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14217:2104	0	251|227	0:217 |:| 0:193
-C	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:15110:2108	2109625	136|169	0:51 31989:5 2109625:7 0:39 |:| 0:5 74033:2 31989:5 1077935:1 31989:7 0:7 60890:2 0:105 2109625:1
-C	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19558:2111	119045	251|133	0:18 1224:9 2:5 119045:4 0:181 |:| 0:99
+U MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19691:2037 0 250|251 0:216 |:| 0:217
+U MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14127:2052 0 250|238 0:216 |:| 0:204
+U MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14766:2063 0 251|251 0:217 |:| 0:217
+C MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:15697:2078 2219696 250|120 0:28 350054:5 1224:2 0:1 2:5 0:77 2219696:5 0:93 |:| 379:4 0:82
+U MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:15529:2080 0 250|149 0:216 |:| 0:115
+U MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14172:2086 0 251|250 0:217 |:| 0:216
+U MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:17552:2088 0 251|249 0:217 |:| 0:215
+U MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:14217:2104 0 251|227 0:217 |:| 0:193
+C MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:15110:2108 2109625 136|169 0:51 31989:5 2109625:7 0:39 |:| 0:5 74033:2 31989:5 1077935:1 31989:7 0:7 60890:2 0:105 2109625:1
+C MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19558:2111 119045  251|133 0:18 1224:9 2:5 119045:4 0:181 |:| 0:99
   
 ~~~
 {: .output}
@@ -170,16 +170,16 @@ $ head JP4D.report
 ~~~
 {: .bash}
 ~~~
-78.13	587119	587119	U	0	unclassified
- 21.87	164308	1166	R	1	root
- 21.64	162584	0	R1	131567	  cellular organisms
- 21.64	162584	3225	D	2	    Bacteria
- 18.21	136871	3411	P	1224	      Proteobacteria
- 14.21	106746	3663	C	28211	        Alphaproteobacteria
-  7.71	57950	21	O	204455	          Rhodobacterales
-  7.66	57527	6551	F	31989	            Rhodobacteraceae
-  1.23	9235	420	G	1060	              Rhodobacter
-  0.76	5733	4446	S	1063	                Rhodobacter sphaeroides
+78.13 587119  587119  U 0 unclassified
+ 21.87  164308  1166  R 1 root
+ 21.64  162584  0 R1  131567    cellular organisms
+ 21.64  162584  3225  D 2     Bacteria
+ 18.21  136871  3411  P 1224        Proteobacteria
+ 14.21  106746  3663  C 28211         Alphaproteobacteria
+  7.71  57950 21  O 204455            Rhodobacterales
+  7.66  57527 6551  F 31989             Rhodobacteraceae
+  1.23  9235  420 G 1060                Rhodobacter
+  0.76  5733  4446  S 1063                  Rhodobacter sphaeroides
   ~~~
 {: .output}
 
@@ -275,7 +275,12 @@ attr(,"package")
 [1] "phyloseq"
 ~~~
 {: .output}
-
+The "class" command indicate that we already have our phyloseq object.
+Let's try to access the data that is stored inside our `merged_metagenomes` object. Since a phyloseq object
+is a special object in R, we need to use the operator `@` to explore the subsections of data inside `merged_metagenomes`.
+If we type `merged_metagenomes@` five options are displayed, from them `tax_table` and `otu_table` are the ones that
+we will use. After writting `merged_metagenomes@otu_table` or `merged_metagenomes@tax_table`, an option of `.Data` 
+will be the one choosed in both cases. Let's see what is inside of our `tax_table`:
 ~~~
 > View(merged_metagenomes@tax_table@.Data)
 ~~~
@@ -283,10 +288,8 @@ attr(,"package")
 ![image](https://user-images.githubusercontent.com/67386612/119017138-4e80e080-b960-11eb-8465-737d6197c775.png)
 ###### Figure 3. Table of the OTU data from our `merged_metagenomes` object.
 
-The "class" command indicate that we already have our phyloseq object. Also, 
-inside the `tax_table` we see that it looks just like the one created in the
-last episode of the lesson. Let's get rid of some of the innecesary characters 
-in the OTUs identificator and put name to the taxonomic ranks:
+Next, let's get rid of some of the innecesary characters 
+in the OTUs identificator and put names to the taxonomic ranks:
 
 ~~~
 > merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
@@ -295,6 +298,8 @@ in the OTUs identificator and put name to the taxonomic ranks:
 {: .language-r}
 ![image](https://user-images.githubusercontent.com/67386612/119911861-d6965580-bf1f-11eb-91d8-8cd68fb797e1.png)
 ###### Figure 4. Table of the OTU data from our `merged_metagenomes` object. With corrections
+
+
 
 > ## Phyloseq objects `.callout`
 > Finally, we can review our object and see that both datasets (i.e. JC1A and JP4D) are in the our object.
@@ -351,6 +356,7 @@ JC1A   JP4D
  3rd Qu.:  3.000   3rd Qu.:  23.00  
  Max.   :399.000   Max.   :6551.00 
 ~~~ 
+
 {: .output}
 
 By the output of the `sample_sums` command we can see how many reads there are
