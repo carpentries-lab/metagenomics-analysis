@@ -30,7 +30,7 @@ with the species that we found. To know which methodology we should use, it is i
 type of metagenomic sequence we have. 
 
 ## Shotgun and amplicons    
-There are two types of metagenomes, shotgun metagenomes and amplicon metagenomes. 
+There are two types of metagenomes, *shotgun metagenomes* and *amplicon metagenomes*. 
 Each is named after the sequencing methodology employed, and have particular use cases, 
 with inherent advantages and disadventages.
 
