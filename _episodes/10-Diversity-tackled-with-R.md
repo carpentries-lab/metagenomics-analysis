@@ -293,6 +293,8 @@ in the OTUs identificator and put name to the taxonomic ranks:
 > colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
 ~~~
 {: .language-r}
+![image](https://user-images.githubusercontent.com/67386612/119911861-d6965580-bf1f-11eb-91d8-8cd68fb797e1.png)
+###### Figure 4. Table of the OTU data from our `merged_metagenomes` object. With corrections
 
 > ## Phyloseq objects `.callout`
 > Finally, we can review our object and see that both datasets (i.e. JC1A and JP4D) are in the our object.
@@ -364,7 +366,7 @@ graph created using Phyloseq:
 {: .language-r}
 
 ![image](https://user-images.githubusercontent.com/67386612/112223149-23dc0b00-8bef-11eb-8651-677a5713a5bb.png)
-###### Figure 4. Alpha diversity indexes for both samples
+###### Figure 5. Alpha diversity indexes for both samples
 
 Each of these metrics can give insight of the distribution of the OTUs inside 
 our samples. For example Chao1 diversity index gives more weight to singletons
