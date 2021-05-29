@@ -125,7 +125,7 @@ A>>1AFC>DD111A0E0001BGEC0AEGCCGEGGFHGHHGHGHHGGHHHGGGGGGGGGGGGGHHGEGGGHHHHGHHGHHH
 We can now see that there is a range of quality scores, but that the end of the sequence is
 very poor (`#` = a quality score of 2). 
 
-> ## Exercise 1  
+> ## Exercise 1: Looking at reads  
 > 
 > What is the last read in the `JP4D_R1.fastq ` file? 
 > How confident are you in this read? 
@@ -329,7 +329,7 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 ~~~
 {: .bash}
 
-> ## Exercise 2
+> ## Exercise 2: Looking at the size of files
 > 
 >  How big are the files?
 > (Hint: Look at the options for the `ls` command to see how to show
@@ -499,7 +499,7 @@ Depending on your system,
 you should be able to select and open them all at once via a right click menu
 in your file browser.
 
-> ## Exercise 3
+> ## Exercise 3: Quality discussion
 > 
 > Discuss your results with a neighbor. Which sample(s) looks the best
 > in terms of per base sequence quality? Which sample(s) look the
@@ -709,7 +709,7 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 ~~~
 {: .bash}
 
-> ## Exercise 4
+> ## Exercise 4: Quality tests
 > 
 > Which samples failed at least one of FastQC's quality tests? What
 > test(s) did those samples fail?
@@ -744,8 +744,6 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 > {: .solution}
 {: .challenge}
 
-
-# Other notes  -- Optional 
 
 > ## Quality Encodings Vary
 >
