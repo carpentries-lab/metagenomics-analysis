@@ -60,7 +60,7 @@ altough educated guesses can be made by knowing which genes are commonly found i
 species. 
 
 <a href="{{ page.root }}/fig/metagenomic workflow.png">
-  <img src="{{ page.root }}/fig/metagenomic workflow.png" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/03-01-01.png" alt="Cog Metagenome" />
 </a>
 
 ## On metadata
