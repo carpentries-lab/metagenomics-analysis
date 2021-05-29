@@ -33,7 +33,7 @@ of bioinformatic tools with confidence and greatly enhance your research efficie
 > ## Prerequisites
 >
 > This lesson assumes a working understanding of the bash shell. If you haven’t already 
-> completed the [Shell Genomics lesson](https://nselem.github.io/shell-metagenomics/), and aren’t 
+> completed the [Shell Genomics lesson](https://nselem.github.io/shell-metagenomics/), and you aren’t 
 > familiar with the bash shell, please review those materials before starting this lesson.
 >
 > This lesson also assumes some familiarity with biological concepts, 
