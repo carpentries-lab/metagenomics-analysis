@@ -200,7 +200,8 @@ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 ~~~
 {: .output}
 
-Save your file and exit `nano`. We can now run our script:
+Save your file and exit `nano`. 
+If we were to run this script it would ask us for confirmation of redoing several steps because we already did all of this steps. If you want you can run it to check that it works, but it is not necessary if you did every step of the previous episodes.  
 
 ~~~
 $ bash read_qc.sh
