@@ -106,7 +106,7 @@ communites showed that many genomic traits, such as mean bacterial genome size, 
 total number of tRNA genes, total number of rRNA genes, and codon usage bias were significantly 
 changed when the bacterial community underwent the treatment. 
 
-> ## Exercise 1 
+> ## Exercise 1: Reviewing metadata 
 > 
 > Knowing the results of this CCB study, what type of metagenomic sequencing was used?
 > In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what was the most important piece of metadata that the authors took?
@@ -120,7 +120,7 @@ changed when the bacterial community underwent the treatment.
 > {: .solution}
 {: .challenge}
 
-> ## Exercise 2 
+> ## Exercise 2: IDs and sample names 
 > 
 > Depending on the database several IDs can be used for the same sample.
 > In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what SRA ID corresponds to sample	JP4110514WATERRESIZE
