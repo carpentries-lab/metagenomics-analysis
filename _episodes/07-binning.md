@@ -101,7 +101,7 @@ JP4D.004.fasta	77.6%	5692657	38.9
 ~~~
 {: .output}  
 
-> ## `.discussion` The quality of MAGs
+> ## Discussion: The quality of MAGs
 >
 >Can we trust the quality of our bins only with the given information? 
 >What else do we want to know about them to confidently use them for further analysis?
@@ -143,7 +143,7 @@ $  checkm qa CHECKM/Bacteria.ms CHECKM/ --file CHECKM/quality_JP4D.tsv --tab_tab
 
 The table is to big to fit our screen comfortably but we can download it and open it in a spreadsheet. This will be very useful when you need to document your work or communicate it. 
 
-> ## Exercise 1 Discuss the quality of the obtained MAGs
+> ## Exercise 1: Discuss the quality of the obtained MAGs
 >
 > Download the quality file to your local computer and open it in a spreadsheet.
 > Then discuss with your team which of the parameters in the table do you find useful.
