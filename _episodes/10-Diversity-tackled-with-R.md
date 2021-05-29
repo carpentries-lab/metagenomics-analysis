@@ -122,6 +122,7 @@ First, we will visualize the content of our directory by the `ls` command.
 ~~~
 $ ls
 ~~~
+{: .bash}
 ~~~
 JC1A.kraken  JC1A.report  JP4D.kraken  JP4D.report  mags_taxonomy
 ~~~
@@ -331,13 +332,12 @@ This is useful, but what we need to do if we need to know how many of our read h
 ~~~
 {: .output}
 
-> ## Exercise 1 
+> ## Exercise 1: 
 > 
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the code learned to find out how many reads have been assigned to
-> your choosed phylum and what are the unique names of the genera inside it.
-> Please, paste your result on the next [document](https://docs.google.com/document/d/1oFg3uUZUANf7S1Mh2KamzrcGhkKsXP5Mk1KxKv6k8wA/edit?usp=sharing), there you can find 
-> the Breakout room where you need to be working with. がんばれ!(ganbate; *good luck*):
+> your chosen phylum and what are the unique names of the genera inside it.
+> がんばれ!(ganbate; *good luck*):
 >> ## Solution
 >> Change the name of a new phylum wherever it is needed to get the result.
 >> As an example, here is the solution for Proteobacteria:
@@ -347,7 +347,7 @@ This is useful, but what we need to do if we need to know how many of our read h
 {: .challenge} 
 
 
-> ## Phyloseq objects `.callout`
+> ## Phyloseq objects
 > Finally, we can review our object and see that both datasets (i.e. JC1A and JP4D) are in the our object.
 > If you look at our Phyloseq object, you will see that there are more data types 
 > that we can use to build our object(?phyloseq), such as a phylogenetic tree and metadata 
@@ -402,7 +402,6 @@ JC1A   JP4D
  3rd Qu.:  3.000   3rd Qu.:  23.00  
  Max.   :399.000   Max.   :6551.00 
 ~~~ 
-
 {: .output}
 
 By the output of the `sample_sums` command we can see how many reads there are
@@ -427,9 +426,9 @@ remarking the impossiblity of taking two reads out of the metagenome "bag"
 and that these two will belong to the same OTU.
 
 
-> ## Exercise 1
+> ## Exercise 1: 
 > 
-> Use the help from `plot_richness` to discover other ways to plot diversity estimates using Phyloseq
+> Use the help from `plot_richness()` to discover other ways to plot diversity estimates using Phyloseq
 > and use another index to show the α diversity in our samples.
 > 
 >> ## Solution
@@ -446,9 +445,7 @@ and that these two will belong to the same OTU.
 {: .challenge}  
   
   
-
-  
-> ## `.discussion`
+> ## Discussion
 >
 > How much can the α diversity can be changed by eliminating the singletons
 > and doubletons?
