@@ -30,7 +30,8 @@ This lesson requires a working spreadsheet program. If you don't have a spreadsh
 >   + Type the following line into the command prompt window exactly as shown: `setx HOME "%USERPROFILE%"`
 >   + Press [Enter], you should see `SUCCESS: Specified value was saved.`
 >   + Quit command prompt by typing `exit` then pressing [Enter]
-> - An **alternative option** is to install PuTTY by going to the [the installation page](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). For most newer computers, click on putty-64bit-X.XX-installer.msi to download the 64-bit version. If you have an older laptop, you may need to get the 32-bit version putty-X.XX-installer.msi. If you aren't sure whether you need the 64 or 32 bit version, you can check your laptop version by following [the instructions here](https://support.microsoft.com/en-us/help/15056/windows-32-64-bit-faq). Once the installer is downloaded, double click on it, and PuTTY should install.
+> - An **alternative option** is to install PuTTY
+>  by going to the [the installation page](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). For most newer computers, click on putty-64bit-X.XX-installer.msi to download the 64-bit version. If you have an older laptop, you may need to get the 32-bit version putty-X.XX-installer.msi. If you aren't sure whether you need the 64 or 32 bit version, you can check your laptop version by following [the instructions here](https://support.microsoft.com/en-us/help/15056/windows-32-64-bit-faq). Once the installer is downloaded, double click on it, and PuTTY should install.
 > - **Another alternative option** is to use the Ubuntu Subsystem for Windows. This option is only available for Windows 10 - detailed [instructions are available here](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 {: .solution}
 
@@ -118,6 +119,12 @@ More information about these data will be presented in the [first lesson of the 
 | -------- | ------------ | ------ | ------------- | ----------- |
 | [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) | 0.11.7 | [Link](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)| Linux, MacOS, Windows | Quality control tool for high throughput sequence data. |
 | [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) | 0.38 | [Link](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf) | Linux, MacOS, Windows | A flexible read trimming tool for Illumina NGS data. |
+|[kraken2]()|version|help link|Available for|Description|
+|[krona]() |version|help link|Available for|Description|
+|[maxbin2]()|version|help link|Available for|Description|
+|[spades]()|version|help link|Available for|Description|
+|[kraken-biom]()|version|help link|Available for|Description|
+|[checkm-genome]()|version|help link|Available for|Description|
 
 ### QuickStart Software Installation Instructions
 
