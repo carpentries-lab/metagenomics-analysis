@@ -88,7 +88,7 @@ Input data:
 ~~~
 {: .output}
  
-> ## Conda is an environment management system `.callout`
+> ## Conda is an environment management system
 >
 > Enviroments help in science reproducibility, allowing to share the specific conditions in which a pipeline is run.
 > Conda is an open source package management system and environment management system that runs on Windows, macOS and 
@@ -104,7 +104,7 @@ $ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../resul
 ~~~
 {: .bash}
 
-> ## Running commands on the background `.callout`
+> ## Running commands on the background
 > The `&` sign that we are using at the end of the command is for telling the machine to run the command on the background, this will help us to avoid the cancelation of the opperation in case the connection with the AWS machine is unstable. 
 {: .callout}
 
@@ -159,7 +159,7 @@ As we can see, MetaSPAdes gave us a lot of files. The ones with the assembly are
 
 We can recognize which sample our assembly outputs corresponds to because the assembly results folder (assembly_JC1A) has its ID, however the files within it do not have the sample ID. It is very useful to rename these files, in case we need them out of its folder.
 
-> ## Exercise 1 Rename all files in a folder
+> ## Exercise 1: Rename all files in a folder
 >
 > Add the sample ID (JC1A) to the names of all the contents of the assembly_JC1A directory.
 > Remember that many solutions are possible.
@@ -171,7 +171,7 @@ We can recognize which sample our assembly outputs corresponds to because the as
 > {: .solution}
 {: .challenge}
 
-> ## `.discussion`
+> ## Discussion
 >
 > Does amplicon metagenomics needs an assembly step in its analysis workflow?  
 {: .discussion}
