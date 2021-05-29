@@ -38,6 +38,7 @@ A key result when you do taxonomic assignation of metagenomes is the abundance o
 <a href="{{ page.root }}/fig/sesgos.png">
   <img src="{{ page.root }}/fig/sesgos.png" alt="Cog Metagenome" />
 </a>
+###### Figure 2. Abundance biases during a metagenomics protocol
 
 ## Using Kraken 2
 
@@ -99,7 +100,7 @@ is a regular file, automatic format detection is attempted.
 In addition to our input files we also need a database with which to compare them. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
 compatible to be used with kraken2 in the taxonomical assignation process. 
 
-> ## Very important to know your database! `.callout`
+> ## Very important to know your database!
 > The database you use will determine the result you get for your data.
 > Imagine you are searching for a lineage that was recently discovered and it is not part of the available databases. Would you find it?
 {: .callout}
@@ -125,7 +126,7 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 ~~~
 {: .do not run this}
 
-> ## Exercise 1  
+> ## Exercise 1: Remembering commands
 > 
 > What is the command `tar` doing to the file `minikraken2_v2_8GB_201904.tgz`.  
 > 
@@ -176,7 +177,7 @@ C	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19558:2111	119045	251|133	0:18 1224
 
 As we can see, the kraken file is not very readable. So let's look at the report file:
 
-> ## Reading a Kraken report `.callout`
+> ## Reading a Kraken report
 >
 > 1. Percentage of reads covered by the clade rooted at this taxon
 > 2. Number of reads covered by the clade rooted at this taxon
@@ -265,9 +266,9 @@ Just to exemplify how a report of a complete and not contaminated MAG should loo
 ~~~
 {: .output} 
 
-> ## `.discussion`
+> ## Discussion: 
 >
-> Why do you think we find so many OTUs in this bin? 
+> Why do you think we found so many OTUs in this bin? 
 {: .discussion}
 
 ## Visualization of taxonomic assignation results  
@@ -380,7 +381,7 @@ We can look at a comparison of both our samples in the Comparison tab.
 </a>
 
 
-> ## `.discussion`
+> ## Discussion: Taxonomic level of assignation
 >
 > What do you think is harder to assign, a species (like _E. coli_) or a phylum (like Proteobacteria)?
 {: .discussion}
