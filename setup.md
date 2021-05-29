@@ -43,7 +43,7 @@ This lesson requires a working spreadsheet program. If you don't have a spreadsh
 {: .solution}
 
 
-## Using the lessons with Amazon Web Services (AWS)
+## Option A: Using the lessons with Amazon Web Services (AWS)
 
 If you are signed up to take a Metaggenomics Data Carpentry workshop, you do *not* need to worry about setting up an AMI instance. The Carpentries
 staff will create an instance for you and this will be provided to you at no cost. This is true for both self-organized and centrally-organized workshops. Your Instructor will provide instructions for connecting to the AMI instance at the workshop.
