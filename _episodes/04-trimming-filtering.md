@@ -165,7 +165,7 @@ TrimmomaticPE: Completed successfully
 ~~~
 {: .output}
 
-> ## Exercise 1
+> ## Exercise 1: What did Trimmomatic do?
 >
 > Use the output from your Trimmomatic command to answer the
 > following questions.
@@ -254,7 +254,7 @@ TruSeq3-PE.fa
 ~~~
 {: .output}
 
-> ## Exercise 2
+> ## Exercise 2: Adapter files
 > We trimmed our FASTQ files with Nextera adapters, 
 > but there are other adapters that are commonly used.
 > What other adapter files came with Trimmomatic?
@@ -296,7 +296,7 @@ JC1A_R2un.trim.fastq.gz  JP4D_R2un.trim.fastq.gz
 ~~~
 {: .output}
 
-> ## Bonus Exercise (Advanced)
+> ## Bonus Exercise (Advanced): Quality test after trimming
 >
 > Now that our samples have gone through quality control, they should perform
 > better on the quality tests run by FastQC. Go ahead and re-run
