@@ -119,12 +119,12 @@ More information about these data will be presented in the [first lesson of the 
 | -------- | ------------ | ------ | ------------- | ----------- |
 | [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) | 0.11.7 | [Link](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)| Linux, MacOS, Windows | Quality control tool for high throughput sequence data. |
 | [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) | 0.38 | [Link](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf) | Linux, MacOS, Windows | A flexible read trimming tool for Illumina NGS data. |
-|[kraken2]()|version|help link|Available for|Description|
-|[krona]() |version|help link|Available for|Description|
+|[kraken2](http://ccb.jhu.edu/software/kraken2/)|version|help link|Available for|Description|
+|[krona](https://github.com/marbl/Krona/wiki) |version|help link|Available for|Description|
 |[maxbin2]()|version|help link|Available for|Description|
-|[spades]()|version|help link|Available for|Description|
-|[kraken-biom]()|version|help link|Available for|Description|
-|[checkm-genome]()|version|help link|Available for|Description|
+|[spades](https://cab.spbu.ru/software/spades/)|version|help link|Available for|Description|
+|[kraken-biom](https://github.com/smdabdoub/kraken-biom)|version|help link|Available for|Description|
+|[checkm-genome](https://ecogenomics.github.io/CheckM/)|version|help link|Available for|Description|
 
 ### QuickStart Software Installation Instructions
 
