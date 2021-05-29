@@ -82,7 +82,7 @@ of our experimental design to the metadata that we expect to collect, and record
 
 
 ## Cuatro Ciénegas  
-<a href="{{ page.root }}/fig/03-01-02.jpeg">
+<a href="{{ page.root }}/fig/03-01-08.jpeg">
   <img src="{{ page.root }}/fig/03-01-02.jpeg" alt="Cuatro Cienegas" />
 </a>
 
