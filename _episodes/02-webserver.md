@@ -46,14 +46,14 @@ You can check it out [here](https://www.mg-rast.org/mgmain.html?mgpage=project&p
 Let's check the taxonomical distribution of our sample first. If you look at the MG-RAST charts, 
 we can see that our Cuatro Ciénegas sample is mostly bacteria.  
 
-<a href="{{ page.root }}/fig/md-02-mgm4913055.3_domain.png">
-  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_domain.png" alt="Domain" />
+<a href="{{ page.root }}/fig/03-01-03.png">
+  <img src="{{ page.root }}/fig/03-01-03.png" alt="Domain" />
 </a>
 
 
 The most abundant phylum is Proteobacteria.  
-<a href="{{ page.root }}/fig/md-02-mgm4913055.3_phylum.png">
-  <img src="{{ page.root }}/fig/md-02-mgm4913055.3_phylum.png" alt="Phylum" />
+<a href="{{ page.root }}/fig/03-01-04.png">
+  <img src="{{ page.root }}/fig/03-01-04.png" alt="Phylum" />
 </a>
 
  And going even further, we can see that the most abundant genera is *Erythrobacter*. 
