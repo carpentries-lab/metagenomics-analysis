@@ -26,7 +26,7 @@ ecology of defining characteristic of niches(*e.g* the human gut, or the ocean f
 Since metagenomes are mixtures of sequences that belong to different species, 
 a metagenomic workflow is designed to answer two questions: 
 1. What species are represented in the sample?
-2. What do they can do?
+2. What they are capable to do?
 
 To find which species are present in a niche, we have to do a taxonomic assignation of the obtained sequences. 
 To find out the capabilities that these species do, we can look at the genes directly enconded in the metagenome, or the genes associated
