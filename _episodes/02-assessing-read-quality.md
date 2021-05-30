@@ -24,8 +24,8 @@ An example of the workflow we will be using for our analysis is provided below w
 description of each step. 
 
 
- <a href="{{ page.root }}/fig/03-03-01.png">
-  <img src="{{ page.root }}/fig/03-03-01.png" alt="Cog Metagenome" />
+ <a href="{{ page.root }}/fig/03-02-01.png">
+  <img src="{{ page.root }}/fig/03-02-01.png" alt="Cog Metagenome" />
 </a>
 
 
@@ -45,8 +45,8 @@ built under the assumption that the data will be provided in a specific format.
 We will now assess the quality of the sequence reads contained in our FASTQ files. 
 
 
- <a href="{{ page.root }}/fig/03-03-02.png">
-  <img src="{{ page.root }}/fig/03-03-02.png" alt="Quality Control" />
+ <a href="{{ page.root }}/fig/03-02-02.png">
+  <img src="{{ page.root }}/fig/03-02-02.png" alt="Quality Control" />
 </a>
 
 
@@ -295,8 +295,8 @@ data may have, so you can take these issues into consideration before moving for
 analyses. Rather than looking at quality scores for each individual read, FastQC looks at
 quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
 
- <a href="{{ page.root }}/fig/03-03-03.png">
-  <img src="{{ page.root }}/fig/03-03-03.png" alt="Good Quality" />
+ <a href="{{ page.root }}/fig/03-02-03.png">
+  <img src="{{ page.root }}/fig/03-02-03.png" alt="Good Quality" />
 </a>
 
 The x-axis displays the base position in the read, and the y-axis shows quality scores. In this 
@@ -314,8 +314,8 @@ acceptable (yellow), and bad (red) quality scores.
 
 Now let's take a look at a quality plot on the other end of the spectrum. 
 
- <a href="{{ page.root }}/fig/03-03-04.png">
-  <img src="{{ page.root }}/fig/03-03-04.png" alt="BadQuality" />
+ <a href="{{ page.root }}/fig/03-02-04.png">
+  <img src="{{ page.root }}/fig/03-02-04.png" alt="BadQuality" />
 </a>
 
 Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the "bad" range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above. 
