@@ -4,8 +4,7 @@ title: Discussion
 
 Readers may be interested in:
 
-*   PeerJ's [paper-now], which uses [Jekyll][jekyll] as a framework for writing scientific papers.
-*   The [Morea Framework][morea],
-    a more elaborate template for [Jekyll][jekyll]-based lessons.
+*  [Challenges and Functional Applications. The New Science of Metagenomics: Revealing the Secrets of Our Microbial Planet](https://www.ncbi.nlm.nih.gov/books/NBK54011/). 
+National Research Council (US) Committee on Metagenomics. National Academies Press (US); 2007.
 
 {% include links.md %}
