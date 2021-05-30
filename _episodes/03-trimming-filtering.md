@@ -12,8 +12,6 @@ keypoints:
 - "The options you set for the command-line tools you use are important!"
 - "Data cleaning is an essential step in a genomics workflow."
 ---
-![image](https://user-images.githubusercontent.com/67386612/120118150-bdc3b500-c156-11eb-94dc-44b09c2eb414.png)
-
 
 # Cleaning reads
 
