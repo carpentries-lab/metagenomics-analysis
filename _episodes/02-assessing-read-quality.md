@@ -275,12 +275,17 @@ BUGS
 {: .bash}
 
 If FastQC is not installed then you would expect to see an error like
-
 ~~~
 $ fastqc -h 
+~~~
+{: .bash}
+
+~~~
+.error: error messages.
 The program 'fastqc' is currently not installed. You can install it by typing:
 sudo apt-get install fastqc
 ~~~
+{: .error}
 
 If this happens check with your instructor before trying to install it. 
 
