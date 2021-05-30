@@ -59,6 +59,8 @@ amplicon metagenomes cannot directly tell us a lot about the metabolic functions
 altough educated guesses can be made by knowing which genes are commonly found in every identified 
 species. 
 
+![image](https://user-images.githubusercontent.com/67386612/120090433-2152d180-c0c8-11eb-8a8e-37df9444b386.png)
+
 <a href="{{ page.root }}/fig/03-01-01.png">
   <img src="{{ page.root }}/fig/03-01-01.png" alt="Cog Metagenome" />
 </a>
