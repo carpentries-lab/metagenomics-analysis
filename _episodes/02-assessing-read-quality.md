@@ -281,7 +281,6 @@ $ fastqc -h
 {: .bash}
 
 ~~~
-.error: error messages.
 The program 'fastqc' is currently not installed. You can install it by typing:
 sudo apt-get install fastqc
 ~~~
