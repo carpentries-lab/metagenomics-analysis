@@ -25,6 +25,10 @@ the overall workshop.
 
 ## Technical tips and tricks
 
+In episode [Starting a metagenomics project](https://carpentries-incubator.github.io/metagenomics/01-background-metadata/index.html)
+of the block [Data processing and visualization for metagenomics](https://carpentries-incubator.github.io/metagenomics/) 
+we suggest to use a zoom of first image while explaining what is metagenomics. The image can be zoomed in by clicking on it. 
+
 Provide information on setting up your environment for learners to view your
 live coding (increasing text size, changing text color, etc), as well as
 general recommendations for working with coding tools to best suit the
