@@ -110,7 +110,8 @@ Each quality score represents the probability that the corresponding nucleotide 
 incorrect. This quality score is logarithmically based, so a quality score of 10 reflects a
 base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%. 
 These probability values are the results from the base calling algorithm and depend on how 
-much signal was captured for the base incorporation. 
+much signal was captured for the base incorporation. In this link you can find more 
+information about [quality scores](https://drive5.com/usearch/manual/quality_score.html).
 
 Looking back at our read: 
 
@@ -363,7 +364,7 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 > {: .solution}
 {: .challenge}
 
-FastQC can accept multiple file names as input, and on both zipped and unzipped files, so we can use the \*.fastq* wildcard to run FastQC on all of the FASTQ files in this directory.
+FastQC can accept multiple file names as input, and on both zipped and unzipped files, so we can use the `\*.fastq*`wildcard to run FastQC on all of the FASTQ files in this directory.
 
 ~~~
 $ fastqc *.fastq* 
@@ -720,7 +721,7 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 > ## Exercise 4: Quality tests
 > 
 > Which samples failed at least one of FastQC's quality tests? What
-> test(s) did those samples fail?
+> test(s) did those samples failed
 >
 >> ## Solution
 >> 
