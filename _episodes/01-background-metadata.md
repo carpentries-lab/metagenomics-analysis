@@ -29,23 +29,23 @@ species do, we can look at the genes directly enconded in the metagenome, or the
 with the species that we found. To know which methodology we should use, it is important to know which 
 type of metagenomic sequence we have. 
 
-## Shotgun and amplicons    
-There are two types of metagenomes, *shotgun metagenomes* and *amplicon metagenomes*. 
+## Shotgun and amplicons
+There are two types of metagenomes, **shotgun metagenomes** and **amplicon metagenomes**. 
 Each is named after the sequencing methodology employed, and have particular use cases, 
 with inherent advantages and disadventages.
 
-In a *Shotgun Metagenome* we sequence random parts of the genomes present in a niche. We can search 
-the origin of these pieces, _i.e._ their taxonomy, and also try to find to which gene they belong to. 
+In a **Shotgun Metagenome** we sequence random parts of the genomes present in a niche. We can search 
+the origin of these pieces (_i.e._ their taxonomy) and also try to find to which gene they belong to. 
 Given enough pieces, it is even possible to obtain full individual genomes from a shotgun metagenome, 
 which could give us a bunch of information about the species in our study. This, however, requieres 
-that we have a lot of genomic sequences from one organism, and since the sequencing is donde at random, 
+that we have a lot of genomic sequences from one organism, and since the sequencing is done at random, 
 we usually have to sequence our community a lot (have a high sequencing depth) to make sure that we obtain 
 enough pieces of a given genome. This gets exponencially harder when our species of interest is not 
 very abundant. It also requires that we have enough DNA to work with, which can be difficult to obtain 
 in certain cases. Finally, a lot of sequencing means a lot of expenses, and because of this, making 
 technical and biological replicates can be prohibitively costly.   
 
-*Amplicon metagenomes*, on the contrary, tend to be cheap, which makes it more easy to duplicate and 
+**Amplicon metagenomes**, on the contrary, tend to be cheap, which makes it more easy to duplicate and 
 even triplicate them without taking a big financial hit. This is because amplicon metagenomes are 
 the collection of small genomic fragments present in the community and amplified through PCR. If 
 the amplified region is present only once in every genome, ideally we wouldn't need to sequence the 
