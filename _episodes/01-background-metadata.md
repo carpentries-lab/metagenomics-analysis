@@ -10,9 +10,10 @@ objectives:
 - "Undestand the importance of metadata."  
 - "Familiarize yourself with the Cuatro Ciénegas experiment."
 keypoints:    
-- "Amplicon metagenomics can be used for taxonomic studies."
-- "Shotgun metagenomics can be used for taxonomic and functional studies."  
-- "Collecting metadata beforehand is important for downstream analysis."    
+- "Shotgun metagenomics can be used for taxonomic and functional studies." 
+- "Metabarcoding can be used for taxonomic studies."
+- "Collecting metadata beforehand is important for downstream analysis."  
+- "We will use data from a CuatroCienegas project to learn about shotgun metagenomics"
 ---
 
 # Metagenomics 
