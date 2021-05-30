@@ -13,7 +13,7 @@ keypoints:
 - "Shotgun metagenomics can be used for taxonomic and functional studies." 
 - "Metabarcoding can be used for taxonomic studies."
 - "Collecting metadata beforehand is important for downstream analysis."  
-- "We will use data from a CuatroCienegas project to learn about shotgun metagenomics"
+- "We will use data from a Cuatro Ciénegas project to learn about shotgun metagenomics"
 ---
 
 # Metagenomics 
