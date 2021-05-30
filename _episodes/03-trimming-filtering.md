@@ -10,7 +10,10 @@ objectives:
 - "Write `for` loops with two variables."
 keypoints:
 - "The options you set for the command-line tools you use are important!"
-- "Data cleaning is an essential step in a genomics workflow."
+- "Data cleaning is essential at the beginning of metagenomics workflows."
+- "Use Trimmomatic to get clean of reads without adapters or low quality bases."
+- "Carefully fill the parameters and options required to call a function in the bash shell."
+- "Automate repetitive workflows using for loops"
 ---
 
 # Cleaning reads
