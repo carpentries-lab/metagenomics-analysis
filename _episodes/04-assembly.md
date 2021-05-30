@@ -53,7 +53,7 @@ $ metaspades.py: command not found
 The reason is because we are not located in our environmnet where we can 
 call Spades, but before going any further, let's talk about environmnets.
 
-## Activating a metagenomic environment  
+## Activating a metagenomics environment  
 Environments are part of a bioinformatic tendency to make reproducible research, 
 they are a way to shareand maintain our programs in their needed versions used for a pipeline with our colleagues and 
 with our future self. MetaSPAdes is not activated in the (base) environment but 
