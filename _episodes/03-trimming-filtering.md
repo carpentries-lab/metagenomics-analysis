@@ -15,20 +15,27 @@ keypoints:
 
 # Cleaning reads
 
-In the previous episode, we took a high-level look at the quality
-of each of our samples using FastQC. We visualized per-base quality
-graphs showing the distribution of read quality at each base across
-all reads in a sample and extracted information about which samples
-fail which quality checks. Some of our samples failed quite a few quality metrics used by FastQC. This doesn't mean,
-though, that our samples should be thrown out! It's very common to have some quality metrics fail, and this may or may not be a problem for your downstream application. For our workflow, we will be removing some of the low quality sequences to reduce our false positive rate due to sequencing error.
+In the last episode, we took a high-level look at the quality
+of each of our samples using `FastQC`. We visualized per-base quality
+graphs showing the distribution of the quality at each base across
+all the reads from our sample. This information help us to determinate 
+the quality threshold we will accept and, thus we saw information about
+which samples fail which quality checks. Some of our samples failed 
+quite a few quality metrics used by FastQC. HOwever, this does not mean,
+that our samples should be thrown out! It's very common to have some 
+quality metrics fail, and this may or may not be a problem for your 
+downstream application. For our workflow, we will be removing some of 
+the low quality sequences to reduce our false-positive rate due to 
+sequencing error.
 
-We will use a program called
-[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to
-filter poor quality reads and trim poor quality bases from our samples.
+To accomplish this, we will use a program called
+[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic). This 
+useful tool filters poor quality reads and trims poor quality bases from the specified samples.
 
 ## Trimmomatic options
 
-Trimmomatic has a variety of options to trim your reads. If we run the following command, we can see some of our options.
+Trimmomatic has a variety of options to accomplish its task. 
+If we run the following command, we can see some of its options:
 
 ~~~
 $ trimmomatic
@@ -47,8 +54,10 @@ Usage:
 {: .output}
 
 This output shows us that we must first specify whether we have paired end (`PE`) or single end (`SE`) reads.
-Next, we specify what flag we would like to run. For example, you can specify `threads` to indicate the number of
-processors on your computer that you want Trimmomatic to use. In most cases using multiple threads (processors) can help to run the trimming faster. These flags are not necessary, but they can give you more control over the command. The flags are followed by positional arguments, meaning the order in which you specify them is important. 
+Next, we will specify which flags we would like to run Trimmomatic with.
+For example, you can specify `threads` to indicate the number of
+processors on your computer that you want Trimmomatic to use. In most
+cases using multiple threads(processors) can help to run the trimming faster. These flags are not necessary, but they can give you more control over the command. The flags are followed by **positional arguments**, meaning the order in which you specify them is important. 
 In paired end mode, Trimmomatic expects the two input files, and then the names of the output files. These files are described below. While, in single end mode, Trimmomatic will expect one file as input, after which you can enter the optional settings and lastly the name of the output file.
 
 | option    | meaning |
@@ -79,6 +88,8 @@ analysis. It is important to understand the steps you are using to
 clean your data. For more information about the Trimmomatic arguments
 and options, see [the Trimmomatic manual](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf).
 
+![image](https://user-images.githubusercontent.com/67386612/120115003-6bc76300-c147-11eb-8ec8-ab701acc4f73.png)
+
 However, a complete command for Trimmomatic will look something like the command below. This command is an example and will not work, as we do not have the files it refers to:
 
 ~~~
@@ -95,8 +106,8 @@ In this example, we've told Trimmomatic:
 | ------- | ---------- |
 | `PE` | that it will be taking a paired end file as input |
 | `-threads 4` | to use four computing threads to run (this will spead up our run) |
-| `SRR_1056_1.fastq` | the first input file name |
-| `SRR_1056_2.fastq` | the second input file name |
+| `SRR_1056_1.fastq` | the first input file name. Forward |
+| `SRR_1056_2.fastq` | the second input file name. Reverse |
 | `SRR_1056_1.trimmed.fastq` | the output file for surviving pairs from the `_1` file |
 | `SRR_1056_1un.trimmed.fastq` | the output file for orphaned reads from the `_1` file |
 | `SRR_1056_2.trimmed.fastq` | the output file for surviving pairs from the `_2` file |
@@ -111,7 +122,6 @@ In this example, we've told Trimmomatic:
 > command into your terminal, you can use the `\` character
 > to separate code chunks onto separate lines. This can make your code more readable.
 {: .callout}
-
 
 
 ## Running Trimmomatic
