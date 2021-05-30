@@ -3,7 +3,7 @@ title: "Trimming and Filtering"
 teaching: 30
 exercises: 25
 questions:
-- "How can I get rid of sequence data that doesn't meet my quality standards?"
+- "How can we get rid of sequence data that doesn't meet our quality standards?"
 objectives:
 - "Clean FASTQ reads using Trimmomatic."
 - "Select and set multiple options for command line bioinformatic tools."
@@ -60,10 +60,10 @@ processors on your computer that you want Trimmomatic to use. In most
 cases using multiple threads(processors) can help to run the trimming faster. These flags are not necessary, but they can give you more control over the command. The flags are followed by **positional arguments**, meaning the order in which you specify them is important. 
 In paired end mode, Trimmomatic expects the two input files, and then the names of the output files. These files are described below. While, in single end mode, Trimmomatic will expect one file as input, after which you can enter the optional settings and lastly the name of the output file.
 
-| option    | meaning |
+| Option    | Meaning |
 | ------- | ---------- |
-|  \<inputFile1>  | Input reads to be trimmed. Typically the file name will contain an `_1` or `_R1` in the name.|
-| \<inputFile2> | Input reads to be trimmed. Typically the file name will contain an `_2` or `_R2` in the name.|
+|  \<inputFile1>  | Input forward reads to be trimmed. Typically the file name will contain an `_1` or `_R1` in the name.|
+| \<inputFile2> | Input reverse reads to be trimmed. Typically the file name will contain an `_2` or `_R2` in the name.|
 |  \<outputFile1P> | Output file that contains surviving pairs from the `_1` file. |
 |  \<outputFile1U> | Output file that contains orphaned reads from the `_1` file. |
 |  \<outputFile2P> | Output file that contains surviving pairs from the `_2` file.|
@@ -95,9 +95,9 @@ and options, see [the Trimmomatic manual](http://www.usadellab.org/cms/uploads/s
 However, a complete command for Trimmomatic will look something like the command below. This command is an example and will not work, as we do not have the files it refers to:
 
 ~~~
-$ trimmomatic PE -threads 4 SRR_1056_1.fastq SRR_1056_2.fastq  \
-              SRR_1056_1.trimmed.fastq SRR_1056_1un.trimmed.fastq \
-              SRR_1056_2.trimmed.fastq SRR_1056_2un.trimmed.fastq \
+$ trimmomatic PE -threads 4 SRR_1056_1.fastq SRR_1056_2.fastq\
+              SRR_1056_1.trimmed.fastq SRR_1056_1un.trimmed.fastq\
+              SRR_1056_2.trimmed.fastq SRR_1056_2un.trimmed.fastq\
               ILLUMINACLIP:SRR_adapters.fa SLIDINGWINDOW:4:20
 ~~~
 {: .bash}
