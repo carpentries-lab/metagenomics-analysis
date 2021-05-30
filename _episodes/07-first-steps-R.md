@@ -71,14 +71,14 @@ Although data are already stored in your instance, in case you need to you can d
 As we have revisited throughout the lesson, maintaining related data in a single folder
 is desirable. In RStudio, this folder is called the **working directory**. It is where R will be looking 
 for and saving your files. If you need to check where your working directory is located use `getwd()`.
-If your working directory is not what you expected, it can always be changed by clicking on the blue 
+If your working directory is not what you expected(*i.e. ~/dc_workshop/taxonomy/*), it can always be changed by clicking on the blue 
 gear icon:![image](https://user-images.githubusercontent.com/67386612/118722611-f7f59400-b7f1-11eb-8ca9-a72561f9c529.png) on the `Files` tab, and pick the option _Set As Working Directory_. Alternatively, you can use the `setwd()` command for changing it.
 
 Let's use this commands to set our working directoiry where we have stored our files from the previous 
 lessons:
 
 ~~~
-> setwd("~/dc_workshop/results/")
+> setwd("~/dc_workshop/taxonomy/")
 ~~~
 {: .language-r}
 
