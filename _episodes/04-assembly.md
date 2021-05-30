@@ -8,6 +8,7 @@ questions:
 - "How can we assemble a metagenome?"
 objectives: 
 - "Understand what is an assembly."  
+- "Run a metagenomics assembly workflow."
 - "Use an enviroment in a bioinformatic pipeline."
 keypoints:
 - "Assembly uses algorithms to group reads into contigs."
