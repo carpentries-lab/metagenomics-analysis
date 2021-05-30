@@ -638,7 +638,7 @@ If you list the files in our directory now you will see:
 ~~~
 $ ls 
 ~~~
-{:. bash}
+{: .bash}
 
 ~~~
 JC1A_R1_fastqc                  JP4D_R1_fastqc                                                     
@@ -648,7 +648,7 @@ JC1A_R2_fastqc                  JP4D_R2_fastqc
 JC1A_R2_fastqc.html             JP4D_R2_fastqc.html                                             
 JC1A_R2_fastqc.zip              JP4D_R2_fastqc.zip                                         
 ~~~
-{:. output}
+{: .output}
 
 The `.html` files and the uncompressed `.zip` files are still present,
 but now we also have a new directory for each of our samples. We can 
