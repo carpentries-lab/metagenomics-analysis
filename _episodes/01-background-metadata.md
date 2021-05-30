@@ -27,6 +27,7 @@ Since metagenomes are mixtures of sequences that belong to different species,
 a metagenomic workflow is designed to answer two questions: 
 1. What species are represented in the sample?
 2. What do they can do?
+
 To find which species are present in a niche, we have to do a taxonomic assignation of the obtained sequences. 
 To find out the capabilities that these species do, we can look at the genes directly enconded in the metagenome, or the genes associated
 with the species that we found. To know which methodology we should use, it is important to know what questions 
@@ -36,6 +37,7 @@ do we want to answer.
 There are two paths to do obtain information from a complex sample: 
 1. **Shotgun Metagenomics**  
 2. **Metabarcoding**. 
+
 Each is named after the sequencing methodology employed, and have particular use cases, 
 with inherent advantages and disadventages.
 
