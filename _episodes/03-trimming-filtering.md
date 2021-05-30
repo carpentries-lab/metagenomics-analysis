@@ -388,7 +388,7 @@ JC1A_R2un.trim.fastq.gz  JP4D_R2un.trim.fastq.gz
 > > ~~~
 > > {: .bash}
 > > 
-> > If we were to run this script it would ask us for confirmation of redoing several steps because we already did all of this steps. If you want you can run it to check that it works, but it is not necessary if you did every step of the previous episod
+> > If we were to run this script it would ask us for confirmation of redoing several steps because we already did all of these steps. If you want you can run it to check that it works, but it is not necessary if you did every step of the previous episode.
 > {: .solution}
 >
 {: .challenge}
