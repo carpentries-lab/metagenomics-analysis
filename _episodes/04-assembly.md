@@ -105,7 +105,7 @@ Input data:
 > Linux.
 {: .callout}
 
-## MetaSPAdes options  
+## MetaSPAdes is a   metagenomics assembler
 
 The help that we just saw tells us how to run metaspades.py. We are going 
 to use the most simple options, just specifying our forward paired-end 
