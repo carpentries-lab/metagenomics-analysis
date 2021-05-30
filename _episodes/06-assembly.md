@@ -24,8 +24,8 @@ The assembly process groups reads into contigs and contigs into scaffolds, in or
 main strategies they use are: Greedy extension, OLC and De Bruijn charts. When metagenomics is
 shotgun instead of amplicon metagenomics an extra assembly step must be run.
 
-<a href="{{ page.root }}/fig/EnsambladoFinal.png">
-  <img src="{{ page.root }}/fig/EnsambladoFinal.png" width="868" height="777" alt="Cog Metagenome" />
+<a href="{{ page.root }}/fig/03-06-01.png">
+  <img src="{{ page.root }}/fig/03-06-01.png" width="868" height="777" alt="Cog Metagenome" />
 </a>
 
 
