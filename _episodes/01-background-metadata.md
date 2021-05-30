@@ -1,9 +1,10 @@
 ---
-title: "Starting a metagenomics project"
+title: "Starting a Metagenomics Project"
 teaching: 10 minutes
 exercises: 0
 questions:
-- "How do you plan a metagenomic experiment?"   
+- "How do you plan a metagenomic experiment?"
+- "How a metagenomis project can look like?"   
 objectives:
 - "Learn the difference between shotgun and amplicon metagenomics."
 - "Undestand the importance of metadata."  
@@ -15,27 +16,28 @@ keypoints:
 ---
 
 # Metagenomics 
-Metagenomes are collections of genomic sequences from various (micro)organisms that
+Metagenomes(Shotgun metagenomics) are collections of genomic sequences from various (micro)organisms that
 coexist in any given space. They are like snapshots that can give us information 
-about the taxonomic, and even metabolic, or functional, composition of the communities 
+about the taxonomic, and even metabolic or functional, composition of the communities 
 that we decide to study. Thus, metagenomes are usually employed to investigate the 
-ecology of defining characteristic of niches, like the human gut, or the ocean floor. 
+ecology of defining characteristic of niches(*e.g* the human gut, or the ocean floor). 
 
 Since metagenomes are mixtures of sequences that belong to different species, 
-a metagenomic workflow is designed to answer two questions: what species are represented 
-in the metagenome and what do they do. To find which species are present in a niche, we have
-to do a taxonomic assignment of the metagenomic sequences, and to find the functions that these
-species do, we can look at the genes directly enconded in the metagenome, or the genes associated
-with the species that we found. To know which methodology we should use, it is important to know which 
-type of metagenomic sequence we have. 
+a metagenomic workflow is designed to answer two questions: 
+1. What species are represented in the sample?
+2. What do they can do?
+To find which species are present in a niche, we have to do a taxonomic assignation of the obtained sequences. 
+To find out the capabilities that these species do, we can look at the genes directly enconded in the metagenome, or the genes associated
+with the species that we found. To know which methodology we should use, it is important to know what questions 
+do we want to answer. 
 
 ## Shotgun and amplicons
-There are two types of metagenomes, **shotgun metagenomes** and **amplicon metagenomes**. 
+There are two paths to do metagenomics, **Shotgun Metagenomics** and **Meta Barcoding**. 
 Each is named after the sequencing methodology employed, and have particular use cases, 
 with inherent advantages and disadventages.
 
-In a **Shotgun Metagenome** we sequence random parts of the genomes present in a niche. We can search 
-the origin of these pieces (_i.e._ their taxonomy) and also try to find to which gene they belong to. 
+In a **Shotgun Metagenomics** we sequence random parts of the genomes present in a space. We can search 
+the origin of these pieces (_i.e._ their taxonomy) and also try to find to which gene they are part of. 
 Given enough pieces, it is even possible to obtain full individual genomes from a shotgun metagenome, 
 which could give us a bunch of information about the species in our study. This, however, requieres 
 that we have a lot of genomic sequences from one organism, and since the sequencing is done at random, 
@@ -45,14 +47,14 @@ very abundant. It also requires that we have enough DNA to work with, which can 
 in certain cases. Finally, a lot of sequencing means a lot of expenses, and because of this, making 
 technical and biological replicates can be prohibitively costly.   
 
-**Amplicon Metagenomes**, on the contrary, tend to be cheap, which makes it more easy to duplicate and 
-even triplicate them without taking a big financial hit. This is because amplicon metagenomes are 
+On the contrary,**Meta Barcoding** tend to be cheaper, which makes it more easy to duplicate and 
+even triplicate them without taking a big financial hit. This is because Meta barcoding is 
 the collection of small genomic fragments present in the community and amplified through PCR. If 
 the amplified region is present only once in every genome, ideally we wouldn't need to sequence the 
 amplicon metagenome so throughly, because one sequence is all we need to get the information
 about that genome, and by extension, about that species. On the other hand, if a genome in community 
 lacks the region targeted by the PCR primers, then no amount of sequencing can give us information 
-about that genome. This is why the most popular amplicon used for these metagenomes are 16S amplicons, 
+about that genome. This is why the most popular amplicon used for this metodology are 16S amplicons for baceteria, 
 since every known bacteria have this particular region. Other regions can be choosen, but they are 
 used for very specific cases. However, even 16S amplicons are limited to, well, the 16S region, so 
 amplicon metagenomes cannot directly tell us a lot about the metabolic functions found in each genome, 
@@ -61,13 +63,9 @@ species.
 
 ![image](https://user-images.githubusercontent.com/67386612/120111343-2dc24300-c137-11eb-9561-f9e268146b95.png)
 
-<a href="{{ page.root }}/fig/03-01-01.png">
-  <img src="{{ page.root }}/fig/03-01-01.png" alt="Cog Metagenome" />
-</a>
-
 ## On metadata
 
-Once we have choosen the most adequate type of metagenome for our study, it is important to take 
+Once we have choosen the most adequate type of metodlogy for our study, it is important to take 
 extensive notes on the origin of our samples, and how we treated them. These notes are the metadata, 
 or data about our data, and it is crucial to undestand and interpret the results that we are going 
 to obtain later on our metagenomic analysis. Most of the times, the differences that we observe when 
@@ -110,7 +108,7 @@ changed when the bacterial community underwent the treatment.
 
 > ## Exercise 1: Reviewing metadata 
 > 
-> Knowing the results of this CCB study, what type of metagenomic sequencing was used?
+> Knowing the results of this CCB study, what type of metagenomic sequencing was used and why do you think so?
 > In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what was the most important piece of metadata that the authors took?
 > 
 >> ## Solution
@@ -124,8 +122,8 @@ changed when the bacterial community underwent the treatment.
 
 > ## Exercise 2: IDs and sample names 
 > 
-> Depending on the database several IDs can be used for the same sample.
-> In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what SRA ID corresponds to sample	JP4110514WATERRESIZE
+> Depending on the database, several IDs can be used for the same sample.
+> Please, open the document where the [metadata information is stored](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing). Here inspect the IDs and find out which of them correspond to sample	**JP4110514WATERRESIZE**
 > 
 >> ## Solution
 >> ERS1949771	is the SRA ID corresponding to JP4110514WATERRESIZE
