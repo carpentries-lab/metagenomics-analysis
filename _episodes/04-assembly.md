@@ -13,23 +13,30 @@ keypoints:
 - "Assembly uses algorithms to group reads into contigs."
 - "The most used algorithm nowadays is De Brujin Graphs"
 - "MetaSPAdes is a metagenome assembler."
-- "The FASTQ files from the quality control process are the inputs for the assembly software."
-- "A FASTA file with contigs is the output of the assembly process."
+- "The FASTQ (files from the quality control process) are the inputs. FASTA file with contigs is the output of the assembly process."
 ---
 
 
 ## Assembling reads
-The assembly process groups reads into contigs and contigs into scaffolds, in order to obtain, ideally, the sequence of a whole chromosome. There are many programs devoted to
-[genome](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874646/) and metagenome assembly, some of the
-main strategies they use are: Greedy extension, OLC and De Bruijn charts. When metagenomics is
-shotgun instead of amplicon metagenomics an extra assembly step must be run.
+The assembly process groups reads into contigs and contigs into 
+scaffolds, in order to obtain(ideally) the sequence of a whole 
+chromosome. There are many programs devoted to
+[genome](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874646/) and 
+metagenome assembly, some of the main strategies they use are: Greedy 
+extension, OLC and De Bruijn charts. When metagenomics is
+shotgun instead of Metabarcoding an extra assembly step must be done. 
+This does not mean that Metabarcoding never use an assembly step, but 
+sometimes is not needed.
 
 <a href="{{ page.root }}/fig/03-05-01.png">
   <img src="{{ page.root }}/fig/03-05-01.png" width="868" height="777" alt="Cog Metagenome" />
 </a>
 
 
-[MetaSPAdes](https://github.com/ablab/spades) is a NGS de novo assembler for assembling large and complex metagenomics data, and it is one of the most used and recommended. It is part of the SPAdes toolkit, that contains several assembly pipelines, being metaSPAdes the one dedicated to metagenomic assembly.
+[MetaSPAdes](https://github.com/ablab/spades) is a NGS de novo assembler 
+for assembling large and complex metagenomics data, and it is one of the 
+most used and recommended. It is part of the SPAdes toolkit, that 
+contains several assembly pipelines.
 Let's see what happens if we enter the metaspades.py command on our terminal.
 
 ~~~
@@ -42,15 +49,17 @@ $ metaspades.py: command not found
 ~~~
 {: .error}
 
+The reason is because we are not located in our environmnet where we can 
+call Spades, but before going any further, let's talk about environmnets.
 
 ## Activating a metagenomic environment  
-Environments are part of a bioinformatic tendency to make repdoucible research, 
-they are a way to share our programs in their specific versions used for a pipeline with our colleagues and 
+Environments are part of a bioinformatic tendency to make reproducible research, 
+they are a way to shareand maintain our programs in their needed versions used for a pipeline with our colleagues and 
 with our future self. MetaSPAdes is not activated in the (base) environment but 
 this AWS instances came with an environment called metagenomics. We need to activate 
 it in order to start using MetaSPAdes. 
 
-Conda environments are activated with `conda activate` direction:  
+We will use [Conda](https://docs.conda.io/en/latest/) as our environment manager. Conda environments are activated with `conda activate` direction:  
 ~~~
 $ conda activate metagenomics  
 ~~~
@@ -63,7 +72,7 @@ After the environment has been activated, a label is shown before the `$` sign.
 {: .output}
 
 Now if we call MetaSPAdes at the command line it wont be any error, 
-instead a long help will be displayed at our screen.
+instead a long help page will be displayed at our screen.
 ~~~
 $ metaspades.py
 ~~~
@@ -91,13 +100,16 @@ Input data:
 > ## Conda is an environment management system
 >
 > Enviroments help in science reproducibility, allowing to share the specific conditions in which a pipeline is run.
-> Conda is an open source package management system and environment management system that runs on Windows, macOS and 
+> [Conda](https://docs.conda.io/en/latest/) is an open source package management system and environment management system that runs on Windows, macOS and 
 > Linux.
 {: .callout}
 
 ## MetaSPAdes options  
 
-The help that we just saw tells us how to run metaspades.py. We are going to use the most simple options, just specifying our forward paired end reads with `-1` and reverse paired end reads with `-2`, and the output directory where we want our results to be stored. 
+The help that we just saw tells us how to run metaspades.py. We are going 
+to use the most simple options, just specifying our forward paired-end 
+reads with `-1` and reverse paired-end reads with `-2`, and the output 
+directory where we want our results to be stored. 
  ~~~
 $ cd ~/dc_workshop/data/trimmed_fastq
 $ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../results/assembly_JC1A &
@@ -105,7 +117,9 @@ $ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../resul
 {: .bash}
 
 > ## Running commands on the background
-> The `&` sign that we are using at the end of the command is for telling the machine to run the command on the background, this will help us to avoid the cancelation of the opperation in case the connection with the AWS machine is unstable. 
+> The `&` sign that we are using at the end of the command is for telling 
+the machine to run the command on the background, this will help us to avoid 
+the cancelation of the opperation in case the connection with the AWS machine is unstable. 
 {: .callout}
 
 When the run is finished it shows this message:
@@ -120,10 +134,15 @@ Thank you for using SPAdes!
 ~~~
 {: .bash}
 
-If we now look at the contents of this directory...
+If we want to at the contents of this directory, first we need to press enter, and a message like this will be displayed:
+~~~
+[1]+  Done                    metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../results/assembly_JC1A
+~~~
+{: .output}
+This is becacause of the use of the `&`. Now, let's go to the files: 
 ~~~
 $ cd ../../results/assembly_JC1A
-$ ls
+$ ls -F
 ~~~
 {: .bash}
 
@@ -155,9 +174,20 @@ tmp
 ~~~
 {: .output}
 
-As we can see, MetaSPAdes gave us a lot of files. The ones with the assembly are the `contigs.fasta` and the `scaffolds.fasta`. The contigs are just made from assembled reads, but the scaffolds are the result from a subsequent process in which the contigs are ordered and oriented and connected with Ns.
+As we can see, MetaSPAdes gave us a lot of files. The ones with the assembly are the `contigs.fasta` and the `scaffolds.fasta`. 
+Also, we found three `K` folders: _K21, K33, and K55_, this contains the individual result files for an assembly 
+with k-mers equal to those numbers: 21, 33, and 55. The best assembled results are 
+the ones that are displayed outside this k-folders. The folder `corrected` hold the corrected reads 
+with the SPAdes algorithm. Moreover, the file 
+`assembly_graph_with_scaffolds.gfa` have the information needed to visualize 
+our assembly by different means, like programs as [Bandage](https://rrwick.github.io/Bandage/).
 
-We can recognize which sample our assembly outputs corresponds to because the assembly results folder (assembly_JC1A) has its ID, however the files within it do not have the sample ID. It is very useful to rename these files, in case we need them out of its folder.
+The contigs are just made from assembled reads, but the scaffolds are the result 
+from a subsequent process in which the contigs are ordered, oriented, and connected with Ns.
+
+We can recognize which sample our assembly outputs corresponds to because they are inside 
+the assembly results folder: assembly_JC1A). However the files within it do not have the 
+sample ID. It is very useful to rename these files, in case we need them out of its folder.
 
 > ## Exercise 1: Rename all files in a folder
 >
@@ -173,7 +203,7 @@ We can recognize which sample our assembly outputs corresponds to because the as
 
 > ## Discussion
 >
-> Does amplicon metagenomics needs an assembly step in its analysis workflow?  
+> Does Metabarcoding needs an assembly step in its analysis workflow?  
 {: .discussion}
 
 {% include links.md %}
