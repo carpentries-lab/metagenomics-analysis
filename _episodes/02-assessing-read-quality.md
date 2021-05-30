@@ -711,7 +711,7 @@ it to `~/dc_workshop/docs`.
 
 ~~~
 $ mkdir ~/dc_workshop/docs
-$ cat ../results/fastqc_untrimmed_reads/*/summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt 
+$ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt 
 ~~~
 {: .bash}
 
