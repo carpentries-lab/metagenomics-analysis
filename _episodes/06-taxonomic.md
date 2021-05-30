@@ -8,13 +8,15 @@ objectives:
 - "Understand how taxonomic assignation works."
 keypoints:
 - "A database with previous gathered knowledge (genomes) is needed for taxonomic assignation."
-- "Kraken2 is a program for taxonomic assignation."
+- "Kraken is a program for taxonomic assignation."
 ---
 ## What is taxonomic assignation?
 
 Taxonomic assignation is the process of assigning an Operational Taxonomic
-Unit (OTUs, that is, groups of related individuals) to sequences, that can be a reads or contigs. To assign an OTU to a sequence it is compared against a database, but this comparison can be done in different ways.
-The comparison database in this assignation process must be constructed using 
+Unit (OTUs, that is, groups of related individuals) to sequences, that can be 
+reads or contigs. To assign an OTU to a sequence it is compared against a database, 
+but this comparison can be done in different ways. The comparison database in 
+this assignation process must be constructed using 
 complete genomes. There are many programs for doing taxonomic mapping, 
 almost all of them follows one of the next strategies:  
 
@@ -31,7 +33,7 @@ classification with the most probable position.
 <a href="{{ page.root }}/fig/03-07-01.png">
   <img src="{{ page.root }}/fig/03-07-01" alt="Cog Metagenome" />
 </a>
-<!= ![image](https://user-images.githubusercontent.com/67386612/119909687-20c90800-bf1b-11eb-8878-23b3773016ff.png)!=>
+<!-- ![image](https://user-images.githubusercontent.com/67386612/119909687-20c90800-bf1b-11eb-8878-23b3773016ff.png)!-->
 ###### Figure 1. Lowest common ancestor assignation example.
 
 3. Markers: They look for markers of a database made a priori in the sequences 
