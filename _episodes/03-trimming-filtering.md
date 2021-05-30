@@ -351,16 +351,17 @@ JC1A_R2un.trim.fastq.gz  JP4D_R2un.trim.fastq.gz
 > ## Exercise 3: Automating a quality control workflow
 >
 > Chepiche lost their trimmed reads and FastQC analyses results. How can they do it again but faster than the first time?
-As we have seen in a previous lesson, making scripts for repetitive tasks is a very efficient practice during bioinformatic pipelines.  
+> As we have seen in a previous lesson, making scripts for repetitive tasks is a very efficient practice during bioinformatic pipelines.  
 >
 > > ## Solution
 > > Make a new script with nano
-> > ~
-> >  nano quality_control.sh
-> > ~
+> > ~~~
+> > nano quality_control.sh
+> > ~~~
 > > {: .bash}
+> > 
 > > Paste inside the commands that we used along with `echo` commands that shows you how the script is running. 
-> > ~
+> > ~~~
 > > set -e # This will ensure that our script will exit if an error occurs
 > > cd ~/dc_workshop/data/untrimmed_fastq/
 > > 
@@ -384,8 +385,9 @@ As we have seen in a previous lesson, making scripts for repetitive tasks is a v
 > > echo "Saving summary..."
 > > mkdir -p ~/dc_workshop/docs
 > > cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
-> > ~
+> > ~~~
 > > {: .bash}
+> > 
 > > If we were to run this script it would ask us for confirmation of redoing several steps because we already did all of this steps. If you want you can run it to check that it works, but it is not necessary if you did every step of the previous episod
 > {: .solution}
 >
