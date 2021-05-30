@@ -710,7 +710,7 @@ us whether this sample passed, failed, or is borderline (`WARN`). Remember, to q
 
 We can make a record of the results we obtained for all our samples
 by concatenating all of our `summary.txt` files into a single file 
-using the `cat` command. We'll call this `fastqc_summaries.txt` and move
+using the `cat` command. We'll call this `fastqc_summaries.txt` and store
 it to `~/dc_workshop/docs`.
 
 ~~~
