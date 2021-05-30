@@ -1,5 +1,5 @@
 ---
-title: "Background and Metadata"
+title: "Starting a metagenomics project"
 teaching: 10 minutes
 exercises: 0
 questions:
