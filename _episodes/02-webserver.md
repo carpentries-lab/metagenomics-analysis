@@ -25,9 +25,11 @@ For the web bounded cloud services, we will use MG-RAST, an online metagenomic p
 
 On the other hand, we have other types of cloud services, like AWS. These, in contrast to web-bound services like MG-RAST, are much more flexible, since they are powerful computers to which we access remotely. The downside here is that we access these cloud services through the command line, so there is practically no graphical interface, which can be a little bit jarring if you’re not used to working through text commands alone.
 
-In short, command-line workflows are more flexible and adaptable to individual needs, but automated web servers can quickly give us an idea of the content of our data. In fact, our Cuatro Ciénegas data is already in MG-RAST! You can check it out [here](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
+In short, command-line workflows are more flexible and adaptable to individual needs, but automated web servers can quickly give us an idea of the content of our data. 
 
-## Cuatro Ciénegas in MG-RAST  
+## Web servers for quick overview of the data
+
+Cuatro Ciénegas data is already in MG-RAST! You can check it out [here](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
 
 Let's check the taxonomical distribution of our sample first. If you look at the MG-RAST charts, 
 we can see that our Cuatro Ciénegas sample is mostly bacteria.  
