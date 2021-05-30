@@ -6,26 +6,14 @@ layout: reference
 
 The glossary would go here, formatted as:
 
-~~~
-{:auto_ids}
-key word 1
-:   explanation 1
-
-key word 2
-:   explanation 2
-~~~
-{: .source}
-
-(`{:auto_ids}` is needed at the start
-so that Jekyll will automatically generate a unique ID for each item
-to allow other pages to hyperlink to specific glossary entries.)
-This renders as:
 
 {:auto_ids}
-key word 1
-:   explanation 1
+command shell
+:   See [shell](#shell)
 
-key word 2
-:   explanation 2
+shell
+:   A [command-line interface](#command-line interface) such as Bash (the Bourne-Again Shell)
+    or the Microsoft Windows DOS shell
+    that allows a user to interact with the [operating system](#operating-system).
 
 {% include links.md %}
