@@ -118,7 +118,7 @@ example, we used `geom_col`, which tells `ggplot` we want to visually represent 
 > Go into groups and explore other geoms that can be useful for presenting the data
 > of the number or reads in each sample. There are some cheat sheets of [ggplot2](https://blog.rstudio.com/2015/12/21/ggplot2-2-0-0/)
 > around the internet. You can give them a try. 
-
+{: .challenge} 
 
 ## Transformation and manipulation of data
 
@@ -438,6 +438,8 @@ raw.plot | rel.plot
 >> Certainly, this will be difficult since each of our samples has constrasting number of reads.
 >> raw.data$Phylum[raw.data$Abundance < 30] <- "Minoritary Phyla"
 >> ![image](https://user-images.githubusercontent.com/67386612/119720017-17fb0800-be2f-11eb-8053-546119c78a2f.png)
+> {: .solution}
+{: .challenge} 
 
 ## Going further, let's take an interesting lineage and explore it thoroughly
 
