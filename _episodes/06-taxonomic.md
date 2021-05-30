@@ -1,22 +1,22 @@
 ---
-title: "Taxonomic Assignation"
+title: "Taxonomic assignment"
 teaching: 30
 exercises: 15
 questions:
 - "How can I assign a taxonomy to my contigs?"
 objectives:
-- "Understand how taxonomic assignation works."
+- "Understand how taxonomic assignment works."
 keypoints:
-- "A database with previous gathered knowledge (genomes) is needed for taxonomic assignation."
-- "Kraken is a program for taxonomic assignation."
+- "A database with previous gathered knowledge (genomes) is needed for taxonomic assignment."
+- "Kraken is a program for taxonomic assignment."
 ---
-## What is taxonomic assignation?
+## What is taxonomic assignment?
 
-Taxonomic assignation is the process of assigning an Operational Taxonomic
+Taxonomic assignment is the process of assigning an Operational Taxonomic
 Unit (OTUs, that is, groups of related individuals) to sequences, that can be 
 reads or contigs. To assign an OTU to a sequence it is compared against a database, 
 but this comparison can be done in different ways. The comparison database in 
-this assignation process must be constructed using 
+this assignment process must be constructed using 
 complete genomes. There are many programs for doing taxonomic mapping, 
 almost all of them follows one of the next strategies:  
 
@@ -34,12 +34,12 @@ classification with the most probable position.
 </a>
 
 
-###### Figure 1. Lowest common ancestor assignation example.
+###### Figure 1. Lowest common ancestor assignment example.
 
 3. Markers: They look for markers of a database made a priori in the sequences 
 to be classified and assign the taxonomy depending on the hits obtained.    
 
-A key result when you do taxonomic assignation of metagenomes is the abundance of each taxa or OTU in your sample. The absolute abundance of a taxon is the number of sequences (reads or contigs, depending on what you did) assigned to it. And its relative abundance is the proportion of sequences assigned to it. It is important to be aware of the many biases that that can skew the abundances along the metagenomics workflow, shown in the figure, and that because of them we may not be obtaining the real abundance of the organisms in the sample.
+A key result when you do taxonomic assignment of metagenomes is the abundance of each taxa or OTU in your sample. The absolute abundance of a taxon is the number of sequences (reads or contigs, depending on what you did) assigned to it. And its relative abundance is the proportion of sequences assigned to it. It is important to be aware of the many biases that that can skew the abundances along the metagenomics workflow, shown in the figure, and that because of them we may not be obtaining the real abundance of the organisms in the sample.
 
 <a href="{{ page.root }}/fig/03-07-02.png">
   <img src="{{ page.root }}/fig/03-07-02.png" alt="Cog Metagenome" />
@@ -104,7 +104,7 @@ is a regular file, automatic format detection is attempted.
 {: .output}
 
 In addition to our input files we also need a database with which to compare them. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
-compatible to be used with kraken2 in the taxonomical assignation process. 
+compatible to be used with kraken2 in the taxonomical assignment process. 
 
 > ## Very important to know your database!
 > The database you use will determine the result you get for your data.
@@ -112,7 +112,7 @@ compatible to be used with kraken2 in the taxonomical assignation process.
 {: .callout}
 
 Minikraken is a popular database that attempts to conserve its sensitivity 
-despite its small size (Needs 8GB of RAM for the assignation). Unfortunately although it is much smaller that most databases, it is not small enough to be run by the machines we are using, so we won't be able to run `kraken2`. We can check our available RAM with `free -h`to be shure of this.
+despite its small size (Needs 8GB of RAM for the assignment). Unfortunately although it is much smaller that most databases, it is not small enough to be run by the machines we are using, so we won't be able to run `kraken2`. We can check our available RAM with `free -h`to be shure of this.
 ~~~
 $ free -h
 ~~~
@@ -143,9 +143,9 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 > {: .solution}
 {: .challenge}                             
                              
-## Taxonomic assignation of metagenomic reads
+## Taxonomic assignment of metagenomic reads
 
-As we have learned, taxonomic assignation can be attempted before the assembly process. 
+As we have learned, taxonomic assignment can be attempted before the assembly process. 
 In this case we would use FASTQ files as inputs, which would be 
 `JP4D_R1.trim.fastq.gz` and `JP4D_R2.trim.fastq.gz`. And the outputs would be two files: the report
 `JP4D.report` and the kraken file `JP4D.kraken`.  
@@ -211,9 +211,9 @@ head ~/dc_workshop/taxonomy/JP4D.report
 ~~~
 {: .output}  
 
-## Taxonomic assignation of the contigs of a MAG
+## Taxonomic assignment of the contigs of a MAG
  
-We now have the taxonomic identity of the reads of the whole metagenome, but we do not know to which taxon our MAGs correspond to. For this we have to make the taxonomic assignation with their contigs instead of its reads, because we do not have the reads that correspond to a MAG separated from the reads of the entire sample. 
+We now have the taxonomic identity of the reads of the whole metagenome, but we do not know to which taxon our MAGs correspond to. For this we have to make the taxonomic assignment with their contigs instead of its reads, because we do not have the reads that correspond to a MAG separated from the reads of the entire sample. 
 
 For this the `kraken2` is a little bit different; here we can look at the command for the `JP4D.001.fasta` MAG:
   
@@ -256,9 +256,14 @@ more ~/dc_workshop/taxonomy/mags_taxonomy/JP4D.001.report
 ~~~
 {: .output}  
 
-By looking at the report, we can see that half of the contigs are unclassified, and that a very little proportion of contigs have been assigned an OTU. This is weird because we expected to have only one genome in the bin.
+By looking at the report, we can see that half of the contigs 
+are unclassified, and that a very little proportion of contigs 
+have been assigned an OTU. This is weird because we expected 
+to have only one genome in the bin.
 
-Just to exemplify how a report of a complete and not contaminated MAG should look like, let's look at the report of this MAG from another study:
+Just to exemplify how a report of a complete and not contaminated 
+MAG should look like, let's look at the report of this MAG from 
+another study:
 ~~~
 100.00	108	0	R	1	root
 100.00	108	0	R1	131567	  cellular organisms
@@ -278,9 +283,15 @@ Just to exemplify how a report of a complete and not contaminated MAG should loo
 {: .discussion}
 
 ## Visualization of taxonomic assignation results  
-We have reached the tsv files, the final step in our metagenomic pipeline showed in [lesson-3](https://carpentries-incubator.github.io/metagenomics/03-assessing-read-quality/index.html).  
-After we have the taxonomy assignation what follows is some visualization of our results. 
-[Krona](https://github.com/marbl/Krona/wiki) is a hierarchical data visualization software. Krona allows data to be explored with zooming, multi-layered pie charts and includes support for several bioinformatics tools and raw data formats. To use Krona in our results, lets go first into our taxonomy directory, which contains the precalculated Kraken outputs.  
+We have reached the tsv files, the final step in our metagenomic 
+pipeline showed in [lesson-3](https://carpentries-incubator.github.io/metagenomics/03-assessing-read-quality/index.html).  
+After we have the taxonomy assignation what follows is some 
+visualization of our results. 
+[Krona](https://github.com/marbl/Krona/wiki) is a hierarchical 
+data visualization software. Krona allows data to be explored with zooming, 
+multi-layered pie charts and includes support for several bioinformatics 
+tools and raw data formats. To use Krona in our results, lets go first into 
+our taxonomy directory, which contains the precalculated Kraken outputs.  
 
 ### Krona  
 ~~~
@@ -308,7 +319,8 @@ Taxonomy not found in /home/dcuser/.miniconda3/envs/metagenomics/opt/krona/taxon
 ~~~
 {: .error}  
 
-It seems that a necessary command for Krona to work was not executed, so let's do that. But we need to deactivate our environment first.
+It seems that a necessary command for Krona to work was not executed, 
+so let's do that. But we need to deactivate our environment first.
 
 ~~~
 $ conda deactivate
@@ -343,20 +355,24 @@ $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4
 </a>
 
 ### Pavian
-Pavian is another visualization tool that allows comparison between multiple samples. 
-Pavian should be locally installed and needs R and Shiny, 
-but we can try the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) 
+Pavian is another visualization tool that allows comparison 
+between multiple samples. Pavian should be locally installed 
+and needs R and Shiny, but we can try the 
+[Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) 
 to visualize our results.  
 
-First we need to download the files needed as inputs in Pavian, this time we will visualize the assignation of the reads of both samples:
+First we need to download the files needed as inputs in Pavian, t
+his time we will visualize the assignation of the reads of both samples:
 `JC1A.report` and `JP4D.report`.  
-This files corresponds to our Kraken reports. Again in our local machine lets use `scp` command.  
+This files corresponds to our Kraken reports. Again in our local 
+machine lets use `scp` command.  
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*report . 
 ~~~
 {: .language-bash}
 
-We go to the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/), click on Browse and choose our reports.
+We go to the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/), 
+click on Browse and choose our reports.
 
 <a href="{{ page.root }}/fig/03-07-04.PNG">
   <img src="{{ page.root }}/fig/03-07-04.PNG" alt="upload Pavian" />
@@ -387,7 +403,7 @@ We can look at a comparison of both our samples in the Comparison tab.
 </a>
 
 
-> ## Discussion: Taxonomic level of assignation
+> ## Discussion: Taxonomic level of assignment
 >
 > What do you think is harder to assign, a species (like _E. coli_) or a phylum (like Proteobacteria)?
 {: .discussion}
