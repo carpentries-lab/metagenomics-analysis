@@ -126,9 +126,10 @@ In this example, we've told Trimmomatic:
 {: .callout}
 
 
+
 ## Running Trimmomatic
 
-Now we will run Trimmomatic on our data. To begin, navigate to your `untrimmed_fastq` data directory:
+Now, we will run Trimmomatic on our data. Navigate to your `untrimmed_fastq` data directory:
 
 ~~~
 $ cd ~/dc_workshop/data/untrimmed_fastq
@@ -136,7 +137,7 @@ $ cd ~/dc_workshop/data/untrimmed_fastq
 {: .bash}
 
 We are going to run Trimmomatic on one of our paired-end samples. 
-While using FastQC we saw that Universal adapters were present in our samples. 
+While using FastQC, we saw that Universal adapters were present in our samples. 
 The adapter sequences came with the installation of Trimmomatic, so we will first copy these sequences into our current directory.
 
 ~~~
@@ -150,7 +151,7 @@ phred score is below 20 (like in our example above). We will also
 discard any reads that do not have at least 25 bases remaining after
 this trimming step. This command will take a few minutes to run.
 
-Before, we unzipped one of our files to work with it, let's compress the file corresponding to the sample `JP4D` again before we run Trimmomatic.
+Before, we unzipped one of our files to work with it. Let's compress the file corresponding to the sample `JP4D` again before we run Trimmomatic.
 ~~~
 gzip JP4D_R1.fastq
 ~~~
@@ -209,7 +210,8 @@ JP4D_R1.trim.fastq.gz  JP4D_R2.fastq.gz		JP4D_R2un.trim.fastq.gz
 {: .output}
 
 The output files are also FASTQ files. It should be smaller than our
-input file, because we've removed reads. We can confirm this:
+input file, because we've removed reads. We can confirm this with this
+command:
 
 ~~~
 $ ls JP4D* -l -h
@@ -246,9 +248,9 @@ $ for infile in *_R1.fastq.gz
 {: .bash}
 
 
-Go ahead and run the for loop. It should take a few minutes for
-Trimmomatic to run for each of our four input files. Once it's done
-running, take a look at your directory contents. You'll notice that even though we ran Trimmomatic on file `JP4D` before running the for loop, there is only one set of files for it. Because we matched the ending `_R1.fastq.gz`, we re-ran Trimmomatic on this file, overwriting our first results. That's ok, but it's good to be aware that it happened.
+Go ahead and run the `for` loop. It should take a few minutes for
+Trimmomatic to run for each of our four input files. Once it's done, 
+take a look at your directory contents. You'll notice that even though we ran Trimmomatic on file `JP4D` before running the for loop, there is only one set of files for it. Because we matched the ending `_R1.fastq.gz`, we re-ran Trimmomatic on this file, overwriting our first results. That's ok, but it's good to be aware that it happened.
 
 ~~~
 $ ls
@@ -269,7 +271,7 @@ TruSeq3-PE.fa
 > ## Exercise 2: Adapter files
 > We trimmed our FASTQ files with Nextera adapters, 
 > but there are other adapters that are commonly used.
-> What other adapter files came with Trimmomatic?
+> What other adapter files came with Trimmomatic intallation?
 >
 >
 >> ## Solution
