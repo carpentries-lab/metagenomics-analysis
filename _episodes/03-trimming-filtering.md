@@ -88,7 +88,7 @@ analysis. It is important to understand the steps you are using to
 clean your data. For more information about the Trimmomatic arguments
 and options, see [the Trimmomatic manual](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf).
 
-![image](https://user-images.githubusercontent.com/67386612/120115003-6bc76300-c147-11eb-8ec8-ab701acc4f73.png)
+![image](https://user-images.githubusercontent.com/67386612/120115408-1ab86e80-c149-11eb-91d0-aa413a6b4c9b.png)
 
 However, a complete command for Trimmomatic will look something like the command below. This command is an example and will not work, as we do not have the files it refers to:
 
