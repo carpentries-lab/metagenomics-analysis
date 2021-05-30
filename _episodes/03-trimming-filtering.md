@@ -129,16 +129,26 @@ In this example, we've told Trimmomatic:
 
 ## Running Trimmomatic
 
-Now, we will run Trimmomatic on our data. Navigate to your `untrimmed_fastq` data directory:
+Now, we will run Trimmomatic on our data. Navigate to your 
+`untrimmed_fastq` data directory and verify that you are 
+located in the untrimmed_fastq directory:
 
 ~~~
 $ cd ~/dc_workshop/data/untrimmed_fastq
+$ pwd
 ~~~
 {: .bash}
 
+~~~
+$ /home/dcuser/dc_workshop/data/untrimmed_fastq
+~~~
+{: .output}
+
 We are going to run Trimmomatic on one of our paired-end samples. 
-While using FastQC, we saw that Universal adapters were present in our samples. 
-The adapter sequences came with the installation of Trimmomatic, so we will first copy these sequences into our current directory.
+While using FastQC, we saw that Universal adapters were present 
+in our samples. The adapter sequences came with the installation of 
+Trimmomatic, so we will first copy these sequences into our current 
+directory.
 
 ~~~
 $ cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/TruSeq3-PE.fa .
