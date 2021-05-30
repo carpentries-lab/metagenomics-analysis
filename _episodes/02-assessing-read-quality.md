@@ -635,6 +635,10 @@ are a lot of files here. The one we're going to focus on is the
 `summary.txt` file. 
 
 If you list the files in our directory now you will see: 
+~~~
+$ ls 
+~~~
+{:. bash}
 
 ~~~
 JC1A_R1_fastqc                  JP4D_R1_fastqc                                                     
