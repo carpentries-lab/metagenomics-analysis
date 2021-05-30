@@ -26,7 +26,7 @@ Species diversity, is the number of species that are represented in a certain co
 Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
 Here we will talk about the two most used diversity metrics, α diversity (within one metagenome) and β (across metagenomes).   
 
-- α Diversity:Can be represented as the richness (*i.e.* number of different species in an environment) and abundance(*i.e.* the number of individuals of
+- α Diversity: Can be represented as the richness (*i.e.* number of different species in an environment) and abundance(*i.e.* the number of individuals of
 each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc.  
   ![image](https://user-images.githubusercontent.com/67386612/118978296-c4735080-b93c-11eb-8421-3294b21c9c44.png)
 ###### Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness
@@ -80,7 +80,7 @@ For this lesson we will use Phyloseq, an R package specialized in metagenomic an
 ## β diversity  
 Diversity β measures how different two or more communities are, either in their composition (richness)
 or in the abundance of the organisms that compose it (abundance). 
-- Bray-Curtis dissimilarity: The difference on richness and abundance across environments(samples). Weight on abundance. Measures the differences 
+- Bray-Curtis dissimilarity: The difference on richness and abundance across environments (samples). Weight on abundance. Measures the differences 
 from 0 (equal communities) to 1 (different communities)
 - Jaccard distance: Based on presence / absence of species (diversity). 
 It goes from 0 (same species in the community) to 1 (no species in common)
@@ -94,7 +94,7 @@ There are different ways to plot and show the results of such analysis. Among ot
 In this lesson we will use RStudio to analize two microbiome samples from CCB, you don't have to install anything, 
 you already have an instance on the cloud ready to be used.   
 
-For this purpose, we will use packages in R. A package is a family of code units (functions, classes, variables) that 
+For this purpose, we will use packages in R. A *package* is a family of code units (functions, classes, variables) that 
 implement a set of related tasks. Importing a package is like getting a piece of lab equipment out of a storage locker 
 and setting it up on the bench. Packages provide additional functionality to the basic R code, much like a new piece 
 of equipment adds functionality to a lab space.
@@ -106,6 +106,7 @@ an abundance matrix from the Kraken output files. One program widely used for th
 But before we face our first storm in this code sea, let's learn one useful tool in RStudio.
 
 ## The terminal in RStudio
+
 RStudio has an integrated terminal that uses the same language as the one we learnd in the Command-line lessons. As well, R's terminal 
 is an interface that executes programs, and is better to deal with long data sets than in a visual interface.  
 
@@ -153,7 +154,7 @@ This information may be confused, let's take out our cheatsheet to understand so
 
 
 |------------------------------+------------------------------------------------------------------------------|  
-| column                       |                              Description                                     |  
+| Column                       |                              Description                                     |  
 |------------------------------+------------------------------------------------------------------------------|  
 |   C                          |  Classified or unclassified                                                  |  
 |------------------------------+------------------------------------------------------------------------------|  
@@ -187,7 +188,8 @@ $ head JP4D.report
 {: .output}
 
 
-## kraken-biom 
+## Kraken-biom 
+
 Kraken-biom is a program that creates BIOM tables from the Kraken output 
 [kraken-biom](https://github.com/smdabdoub/kraken-biom)
 
@@ -211,7 +213,7 @@ Create BIOM-format tables (http://biom-format.org) from Kraken output
 ~~~
 {: .output}
 By a close look at the first output lines, it is noticeable that we need a specific output
-from Kraken: `.report`s. 
+from Kraken: `.reports`. 
 
 With the next command, we are going to create a table in [Biom](https://biom-format.org/) format called `cuatroc.biom`:
 ~~~
@@ -274,7 +276,7 @@ doing a close inspection of some of its content:
 {: .language-r}
 ~~~
 [1] "phyloseq"
-attr(,"package")
+attr("package")
 [1] "phyloseq"
 ~~~
 {: .output}
@@ -305,7 +307,7 @@ in the OTUs identificator and put names to the taxonomic ranks:
 To explore how many phyla we have, we are going to use a command name `unique()`. Let's try what result
 we obtain with the next code:
 ~~~
-> unique(merged_metagenomes@tax_table@.Data[,"Phylum"])
+> unique(merged_metagenomes@tax_table@.Data["Phylum"])
 ~~~
 {: .language-r}
 ~~~
@@ -324,9 +326,9 @@ we obtain with the next code:
 {: .output}
 
 This is useful, but what we need to do if we need to know how many of our read have been assigned to the 
-`Firmicutes` phylum? Let´s use the command `sum()` to ask R, how many of the reads fill this requiriment:
+`Firmicutes` phylum?. Let´s use the command `sum()` to ask R, how many of the reads fill this requiriment:
 ~~~
-> sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Firmicutes")
+> sum(merged_metagenomes@tax_table@.Data["Phylum"] == "Firmicutes")
 ~~~
 {: .language-r}
 ~~~
@@ -339,7 +341,7 @@ This is useful, but what we need to do if we need to know how many of our read h
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the code learned to find out how many reads have been assigned to
 > your chosen phylum and what are the unique names of the genera inside it.
-> がんばれ!(ganbate; *good luck*):
+> がんばれ! (ganbate; *good luck*):
 >> ## Solution
 >> Change the name of a new phylum wherever it is needed to get the result.
 >> As an example, here is the solution for Proteobacteria:
