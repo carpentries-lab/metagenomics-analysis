@@ -348,7 +348,7 @@ JC1A_R2un.trim.fastq.gz  JP4D_R2un.trim.fastq.gz
 > {: .solution}
 {: .challenge}
 
-> ## Exercise 1: Automating a quality control workflow
+> ## Exercise 3: Automating a quality control workflow
 >
 > Chepiche lost their trimmed reads and FastQC analyses results. How can they do it again but faster than the first time?
 As we have seen in a previous lesson, making scripts for repetitive tasks is a very efficient practice during bioinformatic pipelines.  
