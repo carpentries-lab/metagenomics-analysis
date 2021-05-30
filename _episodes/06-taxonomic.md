@@ -159,7 +159,7 @@ utput TAXONOMY_READS/JP4D.kraken --report TAXONOMY_READS/JP4D.report
 {: .do not run this}
 
 Since we can't run `kraken2` here, we precomputed its results in a server, i.e. a more powerful machine. 
-In the server, after we assembled the metagenome for this sample, we ran `kraken2` and obtained`JP4D-krakne.kraken` and `JP4D.report`.
+In the server, after we assembled the metagenome for this sample, we ran `kraken2` and obtained`JP4D-kraken.kraken` and `JP4D.report`.
 
 Let's look at the precomputed outputs of `kraken2` in our assembled metagenome.  
 ~~~
@@ -344,7 +344,8 @@ Importing JP4D.001.krona.input...
 ~~~
 {: .output}  
 
-And finally, open another terminal in your local computer,download the Krona output and open it on a browser and explore this visualization tool.
+And finally, open another terminal in your local computer,download the 
+Krona output and open it on a browser and explore this visualization tool.
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.001.krona.out.html . 
 ~~~
