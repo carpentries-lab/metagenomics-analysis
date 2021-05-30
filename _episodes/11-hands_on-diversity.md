@@ -187,6 +187,143 @@ head(percentages@otu_table@.Data)
 ~~~
 {: .output}
 
+## Beta diversity
+
+As we mentioned before, the beta diversity is a measure of how alike or different are our samples(overlap between 
+discretely defined sets of species or operational taxonomic units).
+In order to measure this, we need to calculate an index that suits the objetives of pur research. By this code,
+we can display all the possible distance metrics that phyloseq can use:
+~~~
+> distanceMethodList
+~~~
+{: .language-r}
+~~~
+$UniFrac
+[1] "unifrac"  "wunifrac"
+
+$DPCoA
+[1] "dpcoa"
+
+$JSD
+[1] "jsd"
+
+$vegdist
+ [1] "manhattan"  "euclidean"  "canberra"   "bray"       "kulczynski" "jaccard"    "gower"     
+ [8] "altGower"   "morisita"   "horn"       "mountford"  "raup"       "binomial"   "chao"      
+[15] "cao"       
+
+$betadiver
+ [1] "w"   "-1"  "c"   "wb"  "r"   "I"   "e"   "t"   "me"  "j"   "sor" "m"   "-2"  "co"  "cc"  "g"  
+[17] "-3"  "l"   "19"  "hk"  "rlb" "sim" "gl"  "z"  
+
+$dist
+[1] "maximum"   "binary"    "minkowski"
+
+$designdist
+[1] "ANY"
+~~~
+{: .output}
+Describing all this possible distance-metrics is beyond the scope of this lesson, but we can tell those
+that need a phylogenetic relationship between the species-OTUs present in our samples:
+* Unifrac
+* Weight-Unifrac
+* DPCoA
+We do not have a phylogenetic tree or the phylogenetic relationships. So we can not use any of those three.
+We will use [Bray-curtis](http://www.pelagicos.net/MARS6300/readings/Bray_&_Curtis_1957.pdf), since is one of the most robust and 
+widely use distance metric to calculate beta diversity.
+
+But first, we will duplicate one of the samples because we need, at least, 3 samples to generate an analysis
+of beta-diversity. Let's duplibate the `JP4D` sample, so we will extract our information from the out table in
+the phyloseq object:
+~~~
+e.meta <- as.data.frame(percentages@otu_table@.Data)
+head(e.meta)
+~~~
+{: .language-r} 
+~~~
+             JC1A       JP4D
+356     1.7391304 0.75461648
+41294   0.1086957 0.10209517
+374     0.4347826 0.30184659
+114615  0.3260870 0.03995028
+722472  0.2173913 0.03995028
+2057741 0.2173913 0.07102273
+~~~
+{: .output}
+
+Now, we will add a new column to the data.frame `e.meta` which will have the `JP4D` information, but we will
+named it differently to avoid misunderstandings:
+~~~
+e.meta$JP4D.2 <- e.meta$JP4D
+head(e.meta)
+~~~
+{: .language-r} 
+~~~
+             JC1A       JP4D     JP4D.2
+356     1.7391304 0.75461648 0.75461648
+41294   0.1086957 0.10209517 0.10209517
+374     0.4347826 0.30184659 0.30184659
+114615  0.3260870 0.03995028 0.03995028
+722472  0.2173913 0.03995028 0.03995028
+2057741 0.2173913 0.07102273 0.07102273
+~~~
+{: .output}
+
+Next, we will define a new object called `e.tax` which will save this information, but by the command `otu_table()`,
+we will tell R that it will be part of a phyloseq object:
+~~~
+e.tax <- otu_table(e.meta, taxa_are_rows = TRUE)
+~~~
+{: .language-r}
+
+With the `taxa_are_rows = TRUE`, we are indicating to R that the first row of the data-frame, have the names of the
+OTUs.
+
+Also, we need a tax table, which will save the information of which names of the OTUs, correspond to which taxonomical
+assignation. We will use the same tax table that we have in our object `percentages`, since we only duplicated one
+of the samples with no more OTU information 
+~~~
+e.otu <- tax_table(percentages@tax_table@.Data)
+~~~
+{: .language-r}
+Finally, we will merge this two objects in a new phyloseq object called `e.metage`
+~~~
+e.metagen <- merge_phyloseq(e.tax, e.otu)
+e.metagen
+~~~
+{: .language-r}
+~~~
+phyloseq-class experiment-level object
+otu_table()   OTU Table:         [ 2736 taxa and 3 samples ]
+tax_table()   Taxonomy Table:    [ 2736 taxa by 7 taxonomic ranks ]
+~~~
+{: .output}
+
+**Let's keep this up!** We already have all that we need to begin the beta diversity analysis. We will use 
+the `phyloseq` command `ordinate` to generate a new object where the distances between our samples will be 
+allocated after they are calculated. For this command, we need to specify which method we will use to generate
+a matrix. In this example, we will use Non-Metric Multidimensional Scaling or [NMDS](https://academic.oup.com/bioinformatics/article/21/6/730/199398). NMDS attempts to represent 
+the pairwise dissimilarity between objects in a low-dimensional space, in this case a two dimensional plot.
+~~~
+> meta.ord <- ordinate(physeq = e.metagen, method = "NMDS", distance = "bray")
+~~~
+{: .language-r}
+If you get some warning messages after running this script, fear not. This is because we have two "samples"
+that are so alike and to little samples, that the algorithm displays a warning concerning the lack of difficulty 
+in generating the distance matrix. 
+
+By now, we just need the command `plot_ordination`, to see the results from our beta diversity analysis:
+~~~
+plot_ordination(e.metagen, meta.ord)
+~~~
+{: .language-r}  
+![image](https://user-images.githubusercontent.com/67386612/120087795-9c0ff280-c0b0-11eb-8df8-a10008d39417.png)
+###### Figure 2. Beta diversity with NMDS of "three" samples
+
+## Ploting our data
+
+### Difference of our samples at specific taxonomic levels
+ 
 In order to group all the OTUs that have the same taxonomy at a certain taxonomic rank,
 we will use the function `tax_glom`. 
 
@@ -206,7 +343,7 @@ str(percentages)
 ~~~
 {: .language-r}
 ~~~
-'data.frame':	66 obs. of  5 variables:
+'data.frame': 66 obs. of  5 variables:
  $ OTU      : chr  "1063" "1063" "1883" "1883" ...
  $ Sample   : chr  "JP4D" "JC1A" "JC1A" "JP4D" ...
  $ Abundance: num  85.08 73.44 19.05 6.74 4.02 ...
@@ -223,7 +360,7 @@ str(raw)
 ~~~
 {: .language-r}
 ~~~
-'data.frame':	7292 obs. of  10 variables:
+'data.frame': 7292 obs. of  10 variables:
  $ OTU      : chr  "1063" "2003315" "2023229" "1896196" ...
  $ Sample   : chr  "JP4D" "JP4D" "JP4D" "JP4D" ...
  $ Abundance: num  5733 3552 3070 2676 2249 ...
