@@ -158,7 +158,7 @@ very poor (`#` = a quality score of 2).
 At this point, lets validate that all the relevant tools are installed. If you are using the AWS AMI then these _should_ be preinstalled. 
 
 ~~~
-$ fastqc -h
+$ fastqc -h 
 ~~~
 {: .bash}
 
