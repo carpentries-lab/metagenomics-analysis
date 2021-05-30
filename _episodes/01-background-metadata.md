@@ -32,7 +32,9 @@ with the species that we found. To know which methodology we should use, it is i
 do we want to answer. 
 
 ## Shotgun and amplicons
-There are two paths to do metagenomics, **Shotgun Metagenomics** and **Meta Barcoding**. 
+There are two paths to do obtain information from a complex sample: 
+1. **Shotgun Metagenomics**  
+2. **Metabarcoding**. 
 Each is named after the sequencing methodology employed, and have particular use cases, 
 with inherent advantages and disadventages.
 
@@ -47,7 +49,7 @@ very abundant. It also requires that we have enough DNA to work with, which can 
 in certain cases. Finally, a lot of sequencing means a lot of expenses, and because of this, making 
 technical and biological replicates can be prohibitively costly.   
 
-On the contrary, **Meta Barcoding** tend to be cheaper, which makes it more easy to duplicate and 
+On the contrary, **Metabarcoding** tends to be cheaper, which makes it easier to duplicate and 
 even triplicate them without taking a big financial hit. This is because Meta barcoding is 
 the collection of small genomic fragments present in the community and amplified through PCR. If 
 the amplified region is present only once in every genome, ideally we wouldn't need to sequence the 
