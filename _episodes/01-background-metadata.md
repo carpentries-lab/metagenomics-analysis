@@ -45,7 +45,7 @@ very abundant. It also requires that we have enough DNA to work with, which can 
 in certain cases. Finally, a lot of sequencing means a lot of expenses, and because of this, making 
 technical and biological replicates can be prohibitively costly.   
 
-**Amplicon metagenomes**, on the contrary, tend to be cheap, which makes it more easy to duplicate and 
+**Amplicon Metagenomes**, on the contrary, tend to be cheap, which makes it more easy to duplicate and 
 even triplicate them without taking a big financial hit. This is because amplicon metagenomes are 
 the collection of small genomic fragments present in the community and amplified through PCR. If 
 the amplified region is present only once in every genome, ideally we wouldn't need to sequence the 
