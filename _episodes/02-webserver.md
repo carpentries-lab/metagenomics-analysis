@@ -18,28 +18,14 @@ keypoints:
 ---
 
 ## Cloud pipelines can be web or command-line based
-The cloud is that place where we can send our data to be stored and analyzed. 
-To access cloud services, we can use traditional web pages (think of Dropbox or Google Drive), or 
-use a more direct connection through the command line. In this lesson we explore both approaches
-to upload, store and analyze our metagenomic data.
+The cloud is that place where we can send our data to be stored and analyzed. To access cloud services, we can use traditional web pages (think of Dropbox or Google Drive), or use a more direct connection through the command line. In this lesson, we explore both approaches to upload, store and analyze our metagenomic data.
 
-For the web bounded cloud services we will use MG-RAST, an online metagenomic plataform where 
-you can upload your raw data with its corresponding metadata and get a full taxonomic analysis of
-it. MG-RAST is a great place to get started in this type of analyzes and it is also a big repository of 
-available data for future experiments. On the downside, it is not possible to greatly modifiy the steps 
-and parameters in the MG-RAST workflow, so there is not much leeway when it comes to implement our 
-prefered analysis tools when using MG-RAST.
+For the web bounded cloud services, we will use MG-RAST, an online metagenomic platform where you can upload your raw data with its corresponding metadata and get a full taxonomic analysis of it. MG-RAST is a great place to get started in this type of analyzes and it is also a big repository of available data for future experiments. On the downside, it is not possible to greatly modify the steps and parameters in the MG-RAST workflow, so there is not much room when it comes to implementing our preferred analysis tools when using MG-RAST.
 
-On the other hand, we have the other type of cloud services, like AWS. These, in contrast to 
-web-bound services like MG-RAST, are much more flexibe, since they are basically powerful computers 
-to which we access remotely. The downside here is that we access these cloud services 
-through the command line, so there is practically no graphical interface, which can be a little bit 
-jarring if you're not used to work through text commands alone. 
 
-In short, command line workflows are more flexible and adaptable to individual needs, 
-but automated web servers can quickly and easly give us a idea of the content of our data. 
-So easly and quickly that, in fact, our Cuatro Ciénegas data is already in MG-RAST! 
-You can check it out [here](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
+On the other hand, we have other types of cloud services, like AWS. These, in contrast to web-bound services like MG-RAST, are much more flexible, since they are powerful computers to which we access remotely. The downside here is that we access these cloud services through the command line, so there is practically no graphical interface, which can be a little bit jarring if you’re not used to working through text commands alone.
+
+In short, command-line workflows are more flexible and adaptable to individual needs, but automated web servers can quickly give us an idea of the content of our data. In fact, our Cuatro Ciénegas data is already in MG-RAST! You can check it out [here](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
 
 ## Cuatro Ciénegas in MG-RAST  
 
