@@ -122,7 +122,7 @@ More information about these data will be presented in the [first lesson of the 
 |[kraken2](http://ccb.jhu.edu/software/kraken2/)|2.1.1|[Link](https://github.com/DerrickWood/kraken2/wiki/Manual)|Available for|A tool for taxonomic assignation for reads from metagenomics|
 |[krona](https://github.com/marbl/Krona/wiki) |version|help link|A tool for taxonomic visualization in hierarchical pie graphs.|
 |[maxbin2]()|2.2.7|help link|Available for| Tool for MAGs reconstruction|
-|[spades](https://cab.spbu.ru/software/spades/)|v3.14.1 [metaSPAdes mode] |help link|Available for| Tool for assemblies|
+|[spades](https://cab.spbu.ru/software/spades/)|v3.14.1 |[Link](https://github.com/ablab/spades/blob/spades_3.15.2/README.md#meta)|Linux & MacOS| Tool for assemblies|
 |[kraken-biom](https://github.com/smdabdoub/kraken-biom)|1.0.1|help link|Available for|Tool to convert kraken reports in R readable files|
 |[checkm-genome](https://ecogenomics.github.io/CheckM/)|v1.1.3 |help link|Available for|Tool to check completeness and contamination in MAGs |
 
