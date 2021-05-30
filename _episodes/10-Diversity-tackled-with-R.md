@@ -27,15 +27,15 @@ Once we know the taxonomic composition of our metagenomes, we can do diversity a
 Here we will talk about the two most used diversity metrics, α diversity (within one metagenome) and β (across metagenomes).   
 
 - α Diversity:Can be represented as the richness (*i.e.* number of different species in an environment) and abundance(*i.e.* the number of individuals of
-- each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc.  
+each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc.  
   ![image](https://user-images.githubusercontent.com/67386612/118978296-c4735080-b93c-11eb-8421-3294b21c9c44.png)
 ###### Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness
  
 - β Diversity: It is the difference (measured as distance) between two or more environments. 
 It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance or UniFrac distance, to name a few. Each one 
-of this distance metrics are focused in a characteristic of the community(*e.g.* Unifrac distance measures the phylogenetic relationship
+of this distance metrics are focused in a characteristic of the community (*e.g.* Unifrac distance measures the phylogenetic relationship
 between the species of the community).
-![image](https://user-images.githubusercontent.com/67386612/119906168-536f0280-bf13-11eb-9d47-d447fe4fabcc.png)
+  ![image](https://user-images.githubusercontent.com/67386612/119906168-536f0280-bf13-11eb-9d47-d447fe4fabcc.png)
 ###### Figure 2. Alpha and Beta diversity represented by fishes in a pond.
 
 For this lesson we will use Phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
