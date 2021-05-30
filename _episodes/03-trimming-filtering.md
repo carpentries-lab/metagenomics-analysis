@@ -159,7 +159,7 @@ $ ls
 {: .bash}
 
 ~~~
-$ JC1A_R1.fastq.gz  JC1A_R2.fastq.gz  JP4D_R1.fastq.gz  JP4D_R2.fastq.gz  TruSeq3-PE.fa  
+$ JC1A_R1.fastq.gz  JC1A_R2.fastq.gz  JP4D_R1.fastq.gz  JP4D_R2.fastq.gz   
 ~~~
 {: .output}
 
