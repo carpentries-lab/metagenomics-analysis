@@ -1,6 +1,6 @@
 ---
 title: "First Steps on R"
-teaching: 60
+teaching: 50
 exercises: 0
 questions:
 - "What is R and why is it important to learn it?"
