@@ -23,8 +23,8 @@ The Cuatro Ciénegas data that we used in the workshop is already in MG-RAST! Yo
 We can check the taxonomical distribution of our sample. If you look at the MG-RAST charts, 
 we can see that our Cuatro Ciénegas sample is mostly bacteria.  
 
-<a href="../fig/03-11-01.png">
-  <img src="../fig/03-11-01.png" alt="Domain" />
+<a href="/fig/03-11-01.png">
+  <img src="/fig/03-11-01.png" alt="Domain" />
 </a>
 
 
