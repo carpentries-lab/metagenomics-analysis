@@ -346,7 +346,7 @@ This is useful, but what we need to do if we need to know how many of our read h
 >> Change the name of a new phylum wherever it is needed to get the result.
 >> As an example, here is the solution for Proteobacteria:
 >>sum(merged_metagenomes@tax_table@.Data["Phylum"] == "Proteobacteria")
->>unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria", "Genus"])
+>>unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data["Phylum"] == "Proteobacteria", "Genus"])
 > {: .solution}
 {: .challenge} 
 
