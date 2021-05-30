@@ -24,8 +24,8 @@ An example of the workflow we will be using for our analysis is provided below w
 description of each step. 
 
 
- <a href="{{ page.root }}/fig/03-02-01.PNG">
-  <img src="{{ page.root }}/fig/03-02-01.PNG" alt="Cog Metagenome" />
+ <a href="{{ page.root }}/fig/03-02-01.png">
+  <img src="{{ page.root }}/fig/03-02-01.png" alt="Cog Metagenome" />
 </a>
 
 
