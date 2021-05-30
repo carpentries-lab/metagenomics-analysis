@@ -121,10 +121,10 @@ More information about these data will be presented in the [first lesson of the 
 | [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) | 0.38 | [Link](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf) | Linux, MacOS, Windows | A flexible read trimming tool for Illumina NGS data. |
 |[kraken2](http://ccb.jhu.edu/software/kraken2/)|2.1.1|[Link](https://github.com/DerrickWood/kraken2/wiki/Manual)|Available for|A tool for taxonomic assignation for reads from metagenomics|
 |[krona](https://github.com/marbl/Krona/wiki) |version|help link|A tool for taxonomic visualization in hierarchical pie graphs.|
-|[maxbin2]()|version|help link|Available for| Tool for MAGs reconstruction|
-|[spades](https://cab.spbu.ru/software/spades/)|version|help link|Available for| Tool for assemblies|
-|[kraken-biom](https://github.com/smdabdoub/kraken-biom)|version|help link|Available for|Tool to convert kraken reports in R readable files|
-|[checkm-genome](https://ecogenomics.github.io/CheckM/)|version|help link|Available for|Tool to check completeness and contamination in MAGs |
+|[maxbin2]()|2.2.7|help link|Available for| Tool for MAGs reconstruction|
+|[spades](https://cab.spbu.ru/software/spades/)|v3.14.1 [metaSPAdes mode] |help link|Available for| Tool for assemblies|
+|[kraken-biom](https://github.com/smdabdoub/kraken-biom)|1.0.1|help link|Available for|Tool to convert kraken reports in R readable files|
+|[checkm-genome](https://ecogenomics.github.io/CheckM/)|v1.1.3 |help link|Available for|Tool to check completeness and contamination in MAGs |
 
 ### QuickStart Software Installation Instructions
 
