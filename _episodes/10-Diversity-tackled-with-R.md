@@ -425,7 +425,7 @@ remarking the impossiblity of taking two reads out of the metagenome "bag"
 and that these two will belong to the same OTU.
 
 
-> ## Exercise 1: 
+> ## Exercise 2: 
 > 
 > Use the help from `plot_richness()` to discover other ways to plot diversity estimates using Phyloseq
 > and use another index to show the α diversity in our samples.
