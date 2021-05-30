@@ -31,7 +31,7 @@ look for where these are placed within the tree and make the
 classification with the most probable position.  
 
 <a href="{{ page.root }}/fig/03-07-01.png">
-  <img src="{{ page.root }}/fig/03-07-01" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/03-07-01.png" alt="Cog1 Metagenome" />
 </a>
 
 Siguiente imagen 
