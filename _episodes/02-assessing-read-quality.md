@@ -159,6 +159,10 @@ At this point, lets validate that all the relevant tools are installed. If you a
 
 ~~~
 $ fastqc -h
+~~~
+{: .bash}
+
+~~~
             FastQC - A high throughput sequence QC analysis tool
 
 SYNOPSIS
@@ -272,7 +276,7 @@ BUGS
     Any bugs in fastqc should be reported either to simon.andrews@babraham.ac.uk
     or in www.bioinformatics.babraham.ac.uk/bugzilla/
 ~~~
-{: .bash}
+{: .output}
 
 If FastQC is not installed then you would expect to see an error like
 ~~~
