@@ -11,12 +11,11 @@ objectives:
 - "Run a metagenomics assembly workflow."
 - "Use an enviroment in a bioinformatic pipeline."
 keypoints:
-- "Assembly uses algorithms to group reads into contigs."
-- "The most used algorithm nowadays is De Brujin Graphs"
-- "MetaSPAdes is a metagenome assembler."
-- "The FASTQ (files from the quality control process) are the inputs. FASTA file with contigs is the output of the assembly process."
+- "Assembly groups reads into contigs."
+- "De Brujin Graphs use Kmers to assembly cleaned reads"
+- "MetaSPAdes is a metagenomeS assembler."
+- "Assemblers take FastQ files as input and produce a Fasta file as output."
 ---
-
 
 ## Assembling reads
 The assembly process groups reads into contigs and contigs into 
