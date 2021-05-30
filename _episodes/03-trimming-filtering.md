@@ -158,9 +158,9 @@ gzip JP4D_R1.fastq
 {: .bash}
  
 ~~~
-$ trimmomatic PE JP4D_R1.fastq.gz JP4D_R2.fastq.gz \ 
-      JP4D_R1.trim.fastq.gz  JP4D_R1un.trim.fastq.gz \ 
-      JP4D_R2.trim.fastq.gz  JP4D_R2un.trim.fastq.gz \ 
+$ trimmomatic PE JP4D_R1.fastq.gz JP4D_R2.fastq.gz \
+      JP4D_R1.trim.fastq.gz  JP4D_R1un.trim.fastq.gz \
+      JP4D_R2.trim.fastq.gz  JP4D_R2un.trim.fastq.gz \
       SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 
 ~~~
 {: .bash}
