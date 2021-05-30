@@ -30,7 +30,8 @@ sequencing error.
 
 To accomplish this, we will use a program called
 [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic). This 
-useful tool filters poor quality reads and trims poor quality bases from the specified samples.
+useful tool filters poor quality reads and trims poor quality bases 
+from the specified samples.
 
 ## Trimmomatic options
 
@@ -53,12 +54,18 @@ Usage:
 ~~~
 {: .output}
 
-This output shows us that we must first specify whether we have paired end (`PE`) or single end (`SE`) reads.
-Next, we will specify which flags we would like to run Trimmomatic with.
-For example, you can specify `threads` to indicate the number of
-processors on your computer that you want Trimmomatic to use. In most
-cases using multiple threads(processors) can help to run the trimming faster. These flags are not necessary, but they can give you more control over the command. The flags are followed by **positional arguments**, meaning the order in which you specify them is important. 
-In paired end mode, Trimmomatic expects the two input files, and then the names of the output files. These files are described below. While, in single end mode, Trimmomatic will expect one file as input, after which you can enter the optional settings and lastly the name of the output file.
+This output shows us that we must first specify whether we have paired 
+end (`PE`) or single end (`SE`) reads. Next, we will specify which flags we 
+would like to run Trimmomatic with. For example, you can specify `threads` 
+to indicate the number of processors on your computer that you want Trimmomatic 
+to use. In most cases using multiple threads(processors) can help to run the 
+trimming faster. These flags are not necessary, but they can give you more control
+over the command. The flags are followed by **positional arguments**, meaning 
+the order in which you specify them is important. In paired end mode, Trimmomatic 
+expects the two input files, and then the names of the output files. These files are 
+described below. While, in single end mode, Trimmomatic will expect one file 
+as input, after which you can enter the optional settings and lastly the 
+name of the output file.
 
 | Option    | Meaning |
 | ------- | ---------- |
@@ -141,6 +148,17 @@ $ pwd
 
 ~~~
 $ /home/dcuser/dc_workshop/data/untrimmed_fastq
+~~~
+{: .output}
+
+
+~~~
+$ ls
+~~~
+{: .bash}
+
+~~~
+$ JC1A_R1.fastq.gz  JC1A_R2.fastq.gz  JP4D_R1.fastq.gz  JP4D_R2.fastq.gz  TruSeq3-PE.fa  
 ~~~
 {: .output}
 
