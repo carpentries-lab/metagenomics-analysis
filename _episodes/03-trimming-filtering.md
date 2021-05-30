@@ -151,7 +151,8 @@ $ /home/dcuser/dc_workshop/data/untrimmed_fastq
 ~~~
 {: .output}
 
-
+You should have onlye four files in this directory. Those files corresponds
+to the files of forward and reverse reads from samples JC1A and JP4D.
 ~~~
 $ ls
 ~~~
@@ -179,7 +180,8 @@ phred score is below 20 (like in our example above). We will also
 discard any reads that do not have at least 25 bases remaining after
 this trimming step. This command will take a few minutes to run.
 
-Before, we unzipped one of our files to work with it. Let's compress the file corresponding to the sample `JP4D` again before we run Trimmomatic.
+Before, we unzipped one of our files to work with it. Let's compress the 
+file corresponding to the sample `JP4D` again before we run Trimmomatic.
 ~~~
 gzip JP4D_R1.fastq
 ~~~
