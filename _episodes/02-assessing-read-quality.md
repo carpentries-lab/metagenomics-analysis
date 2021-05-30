@@ -364,7 +364,8 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 > {: .solution}
 {: .challenge}
 
-FastQC can accept multiple file names as input, and on both zipped and unzipped files, so we can use the `\*.fastq*`wildcard to run FastQC on all of the FASTQ files in this directory.
+FastQC can accept multiple file names as input, and on both zipped and unzipped files, 
+so we can use the `\*.fastq*`wildcard to run FastQC on all of the FASTQ files in this directory.
 
 ~~~
 $ fastqc *.fastq* 
@@ -447,21 +448,17 @@ $ cd ~/dc_workshop/results/fastqc_untrimmed_reads/
 ## Viewing the FastQC results
 
 If we were working on our local computers, we'd be able to look at 
-each of these HTML files by opening them in a web browser.
+each of these HTML files by opening them in a web browser. However, these 
+files are currently sitting on our remote AWS instance, where our local 
+computer can't see them. Since we are only logging into the AWS instance
+via the command line our remote computer it doesn't have any web browser 
+setup to display these files either. So, the easiest way to look at these webpage 
+summary reports is to transfer them to our local computers (i.e. your laptop). 
+To copy a file from a remote server to our own machines, we will use `scp`, 
+which we learned yesterday in the Introduction to the Command Line lesson. 
 
-However, these files are currently sitting on our remote AWS 
-instance, where our local computer can't see them.
-And, since we are only logging into the AWS instance via the 
-command line - it doesn't have any web browser setup to display 
-these files either.
-
-So the easiest way to look at these webpage summary reports will be 
-to transfer them to our local computers (i.e. your laptop).
-
-To transfer a file from a remote server to our own machines, we will
-use `scp`, which we learned yesterday in the Introduction to the Command Line lesson. 
-
-First we will make a new directory on our computer to store the HTML files
+First, open a new terminal in you local computer, we will make a new directory 
+on our computer to store the HTML files
 we're transferring. Let's put it on our desktop for now. Open a new
 tab in your terminal program (you can use the pull down menu at the
 top of your screen or the Cmd+t keyboard shortcut) and type: 
@@ -714,7 +711,7 @@ it to `~/dc_workshop/docs`.
 
 ~~~
 $ mkdir ~/dc_workshop/docs
-$ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt 
+$ cat ../results/fastqc_untrimmed_reads/*/summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt 
 ~~~
 {: .bash}
 
