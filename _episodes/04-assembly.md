@@ -13,7 +13,7 @@ objectives:
 keypoints:
 - "Assembly groups reads into contigs."
 - "De Brujin Graphs use Kmers to assembly cleaned reads"
-- "MetaSPAdes is a metagenomeS assembler."
+- "MetaSPAdes is a metagenomes assembler."
 - "Assemblers take FastQ files as input and produce a Fasta file as output."
 ---
 
