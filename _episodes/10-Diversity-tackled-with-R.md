@@ -163,7 +163,7 @@ This information may be confused, let's take out our cheatsheet to understand so
 |------------------------------+------------------------------------------------------------------------------|  
 |    250|120                   |Read length                                                                   |   
 |------------------------------+------------------------------------------------------------------------------|  
-|  0:28 350054:5 1224:2 0:1 2:5 0:77 2219696:5 0:93 |:| 379:4 0:82|kmers hit to a taxonomic ID *e.g.* tax ID 350054 has 5 hits, tax ID 1224 has 2 hits, etc. |   
+|  0:28 350054:5 1224:2 0:1 2:5 0:77 2219696:5 0:93 379:4 0:82|kmers hit to a taxonomic ID *e.g.* tax ID 350054 has 5 hits, tax ID 1224 has 2 hits, etc. |   
 |-------------------+-----------------------------------------------------------------------------------------|  
 
 There are other set of files with `.report` suffix. This is an output with the same information as the one found
