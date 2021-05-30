@@ -29,13 +29,11 @@ passing through phylum to species. Then, the algorithm
 breakes the query sequence (reads, contigs) into pieces of length k,
 look for where these are placed within the tree and make the 
 classification with the most probable position.  
-
 <a href="{{ page.root }}/fig/03-07-01.png">
   <img src="{{ page.root }}/fig/03-07-01.png" alt="Cog1 Metagenome" />
 </a>
 
-Siguiente imagen 
-![image](https://user-images.githubusercontent.com/67386612/119909687-20c90800-bf1b-11eb-8878-23b3773016ff.png)
+
 ###### Figure 1. Lowest common ancestor assignation example.
 
 3. Markers: They look for markers of a database made a priori in the sequences 
