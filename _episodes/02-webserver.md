@@ -40,8 +40,8 @@ we can see that our Cuatro Ciénegas sample is mostly bacteria.
 
 
 The most abundant phylum is Proteobacteria.  
-<a href="/fig/03-02-02.png">
-  <img src="/fig/03-02-02.png" alt="Phylum" />
+<a href="../fig/03-02-02.png">
+  <img src="../fig/03-02-02.png" alt="Phylum" />
 </a>
 
  And going even further, we can see that the most abundant genera is *Erythrobacter*. 
