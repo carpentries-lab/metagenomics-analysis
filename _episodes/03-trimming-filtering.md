@@ -159,9 +159,9 @@ gzip JP4D_R1.fastq
  
 ~~~
 $ trimmomatic PE JP4D_R1.fastq.gz JP4D_R2.fastq.gz \
-      JP4D_R1.trim.fastq.gz  JP4D_R1un.trim.fastq.gz \
-      JP4D_R2.trim.fastq.gz  JP4D_R2un.trim.fastq.gz \
-      SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 
+JP4D_R1.trim.fastq.gz  JP4D_R1un.trim.fastq.gz \
+JP4D_R2.trim.fastq.gz  JP4D_R2un.trim.fastq.gz \
+SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 
 ~~~
 {: .bash}
 
@@ -240,9 +240,9 @@ $ for infile in *_R1.fastq.gz
 > do
 >   base=$(basename ${infile} _R1.fastq.gz)
 >   trimmomatic PE ${infile} ${base}_R2.fastq.gz \
->                ${base}_R1.trim.fastq.gz ${base}_R1un.trim.fastq.gz \
->                ${base}_R2.trim.fastq.gz ${base}_R2un.trim.fastq.gz \
->                SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15  
+>   ${base}_R1.trim.fastq.gz ${base}_R1un.trim.fastq.gz \
+>   ${base}_R2.trim.fastq.gz ${base}_R2un.trim.fastq.gz \
+>   SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15  
 > done
 ~~~
 {: .bash}
