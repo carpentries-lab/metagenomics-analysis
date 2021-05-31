@@ -452,7 +452,7 @@ raw.plot | rel.plot
 
 ###### Figure 5. Taxonomic diversity of absolute and relative abundance with corrections
 
->## Exercise 2  
+>## Exercise 2  : Taxa agglomeration
 > 
 > Go into groups and agglomerate the taxa in the raw data, so as to have
 > a better visualization of the data. Remeber checking the data-classes inside
