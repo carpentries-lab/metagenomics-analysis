@@ -249,7 +249,7 @@ A data-frame is a collection of vectors, a list, whose components must be of the
 each vector. Whereas, a data-frame can save vectors of different data types:
 
 <a href="https://user-images.githubusercontent.com/67386612/118735756-b4595500-b806-11eb-8bd6-d189b9463eca.png">
-  <img src="(https://user-images.githubusercontent.com/67386612/118735756-b4595500-b806-11eb-8bd6-d189b9463eca.png" />
+  <img src="https://user-images.githubusercontent.com/67386612/118735756-b4595500-b806-11eb-8bd6-d189b9463eca.png" />
 </a>
 
 ###### Figure 3. Structure of the created data-frame.
