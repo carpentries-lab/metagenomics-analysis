@@ -499,7 +499,7 @@ information; and plotting**:
 cyanos  = transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
 glom <- tax_glom(cyanos, taxrank = "Genus")
 g.cyanos <- psmelt(glom)
-g.cyanos$Genus[g.cyanos$Abundance < 4] <- "Genera < 4.0% abund,"
+g.cyanos$Genus[g.cyanos$Abundance < 4] <- "Genera < 4.0% abund."
 p.cyanos <- ggplot(data=g.cyanos, aes(x=Sample, y=Abundance, fill=Genus))+ 
   geom_bar(aes(), stat="identity", position="stack")
 p.cyanos
