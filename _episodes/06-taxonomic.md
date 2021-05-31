@@ -297,6 +297,7 @@ tools and raw data formats. To use Krona in our results, lets go first into
 our taxonomy directory, which contains the precalculated Kraken outputs.  
 
 ### Krona  
+With Krona we will explore the taxonomy of the JP4D.001 MAG.
 ~~~
 $ cd ~/dc_workshop/taxonomy/mags_taxonomy
 ~~~
@@ -348,15 +349,30 @@ Importing JP4D.001.krona.input...
 {: .output}  
 
 And finally, open another terminal in your local computer,download the 
-Krona output and open it on a browser and explore this visualization tool.
+Krona output and open it on a browser.
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.001.krona.out.html . 
 ~~~
 {: .bash}  
+You will see a page like this:
 
 <a href="{{ page.root }}/fig/03-07-03.png">
   <img src="{{ page.root }}/fig/03-07-03.png" alt="Krona Visualization" />
 </a>
+
+> ## Exercise 2: Exploring Krona visualization
+> Try double clicking on the segment of the pie chart that represents Bacteria and see what happens.
+> What percentage of bacteria is represented by the genus Paracoccus?
+> 
+> Hint: There is a search box in the top left corner of the window. 
+> 
+>> ## Solution
+>> 2% of Bacteria corresponds to the genus Paracoccus in this sample.
+>> In the top right of the window we see little pie charts that change whenever we change the visualization
+>> to expand certain taxa.   
+>> 
+> {: .solution}
+{: .challenge} 
 
 ### Pavian
 Pavian is another visualization tool that allows comparison 
@@ -376,7 +392,7 @@ $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*repo
 {: .language-bash}
 
 We go to the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/), 
-click on Browse and choose our reports.
+click on Browse and choose our reports. You need to select both reports at the same time.
 
 <a href="{{ page.root }}/fig/03-07-04.PNG">
   <img src="{{ page.root }}/fig/03-07-04.PNG" alt="upload Pavian" />
