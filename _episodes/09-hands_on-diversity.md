@@ -18,7 +18,7 @@ keypoints:
 
 # Assemble and manipulate a phyloseq object with a myriad of samples
 
-*Before your fingers touch the keys, it must be decided in your mind why you are doing it...explore 
+*Before your fingers touch the keys, it must be decided in your mind why you are doing it...exploration 
 is welcome and praised, not moving at all or senseless movement will draw you somewhere far from your 
 goal*
 
@@ -493,7 +493,7 @@ unique(cyanos@tax_table@.Data[,2])
 ~~~
 {: .output}
 
-Let's do a little review of all that we see today: **Transformation of the data; Manipulation of the 
+Let's do a little review of all that we saw today: **Transformation of the data; Manipulation of the 
 information; and plotting**:
 ~~~
 cyanos  = transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
