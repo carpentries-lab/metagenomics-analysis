@@ -237,8 +237,8 @@ phylogenetic relationship between the species-OTUs present in our samples:
 
 * Unifrac
 * Weight-Unifrac
-* DPCoA
-
+* DPCoA  
+  
 We do not have a phylogenetic tree or the phylogenetic relationships. 
 So we can not use any of those three. We will use [Bray-curtis](http://www.pelagicos.net/MARS6300/readings/Bray_&_Curtis_1957.pdf), 
 since is one of the most robust and widely use distance metric to 
