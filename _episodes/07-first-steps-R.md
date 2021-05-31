@@ -77,7 +77,10 @@ As we have revisited throughout the lesson, maintaining related data in a single
 is desirable. In RStudio, this folder is called the **working directory**. It is where R will be looking 
 for and saving your files. If you need to check where your working directory is located use `getwd()`.
 If your working directory is not what you expected(*i.e. ~/dc_workshop/taxonomy/*), it can always be changed by clicking on the blue 
-gear icon:![image](https://user-images.githubusercontent.com/67386612/118722611-f7f59400-b7f1-11eb-8ca9-a72561f9c529.png) on the `Files` tab, and pick the option _Set As Working Directory_. Alternatively, you can use the `setwd()` command for changing it.
+gear icon:
+<a href="https://user-images.githubusercontent.com/67386612/118722611-f7f59400-b7f1-11eb-8ca9-a72561f9c529.png">
+  <img src="https://user-images.githubusercontent.com/67386612/118722611-f7f59400-b7f1-11eb-8ca9-a72561f9c529.png" />
+</a> on the `Files` tab, and pick the option _Set As Working Directory_. Alternatively, you can use the `setwd()` command for changing it.
 
 Let's use this commands to set our working directoiry where we have stored our files from the previous 
 lessons:
@@ -244,7 +247,11 @@ We have just created our first data-frame. We can see if this is true by the `cl
 {: .language-r}
 A data-frame is a collection of vectors, a list, whose components must be of the same data type within
 each vector. Whereas, a data-frame can save vectors of different data types:
-![image](https://user-images.githubusercontent.com/67386612/118735756-b4595500-b806-11eb-8bd6-d189b9463eca.png)
+
+<a href="https://user-images.githubusercontent.com/67386612/118735756-b4595500-b806-11eb-8bd6-d189b9463eca.png">
+  <img src="(https://user-images.githubusercontent.com/67386612/118735756-b4595500-b806-11eb-8bd6-d189b9463eca.png" />
+</a>
+
 ###### Figure 3. Structure of the created data-frame.
 
 We can begin to explore our new object by pulling out columns by the `$` operator. In order to use it, 
@@ -292,7 +299,11 @@ popular or not:
 
 Finally, we can extract information from a specific place in our data by using the "matrix" nomenclature `[-,-]`,
 where the first number inside the brackets specifies the number of row, and the second the number of the column:
-![image](https://user-images.githubusercontent.com/67386612/119908857-2a517080-bf19-11eb-8e0f-b3da6d1dcfc0.png)
+
+<a href="https://user-images.githubusercontent.com/67386612/119908857-2a517080-bf19-11eb-8e0f-b3da6d1dcfc0.png">
+  <img src="https://user-images.githubusercontent.com/67386612/119908857-2a517080-bf19-11eb-8e0f-b3da6d1dcfc0.png" />
+</a>
+
 ###### Figure 4. Extaction of specific data in a data-frame and a matrix.
 ~~~
 > musician[1,2]  # The number of pieces that Nikolai Medtner composed
