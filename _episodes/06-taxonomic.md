@@ -11,8 +11,8 @@ objectives:
 
 keypoints:
 - "A database with previous gathered knowledge (genomes) is needed for taxonomic assignment."
-- "Kraken is a program for taxonomic assignment."
-- "Krona and Pavian are web based tools for taxonomic assignment vizualization."
+- "Taxonomic assignment can be ran using Kraken."
+- "Krona and Pavian are web based tools to visualize the assigned taxa."
 ---
 ## What is taxonomic assignment?
 
