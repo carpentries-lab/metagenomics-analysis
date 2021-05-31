@@ -121,7 +121,7 @@ example, we used `geom_col`, which tells `ggplot` we want to visually represent 
 
 ###### Figure 1. Sample read as bars in a plot
 
->## Exercise 1  
+>## Exercise 1  : Exploring geoms
 > 
 > Go into groups and explore other geoms that can be useful for presenting the data
 > of the number or reads in each sample. There are some cheat sheets of [ggplot2](https://blog.rstudio.com/2015/12/21/ggplot2-2-0-0/)
