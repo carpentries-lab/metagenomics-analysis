@@ -391,7 +391,7 @@ str(raw)
 {: .output}
 
 With these objects and what we have learned regarding `ggplot2`, we can proceed to compare them
-with a plot. First, let´s create the figure for the raw data (*i.e* `ram.data` object)
+with a plot. First, let´s create the figure for the raw data (*i.e* `raw.plot` object)
 ~~~
 raw.plot <- ggplot(data=raw, aes(x=Sample, y=Abundance, fill=Phylum))+ 
   geom_bar(aes(), stat="identity", position="stack")
