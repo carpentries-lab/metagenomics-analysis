@@ -63,12 +63,12 @@ $ cat metagenomics.yml
 ~~~
 name: metagenomics                                                                
 dependencies:                                      
-  - kraken2 
-  - krona             
-  - maxbin2
-  - spades
-  - kraken-biom
-  - checkm-genome
+  - kraken2=2.1.1 
+  - krona=2.7.1             
+  - maxbin2=2.2.7
+  - spades=v3.14.1
+  - kraken-biom=1.0.1
+  - checkm-genome=v1.1.3
 
 ~~~
 {: .output}
