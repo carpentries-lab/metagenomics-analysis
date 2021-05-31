@@ -191,7 +191,7 @@ head(percentages@otu_table@.Data)
 
 As we mentioned before, the beta diversity is a measure of how alike or different are our samples(overlap between 
 discretely defined sets of species or operational taxonomic units).
-In order to measure this, we need to calculate an index that suits the objetives of pur research. By this code,
+In order to measure this, we need to calculate an index that suits the objetives of our research. By this code,
 we can display all the possible distance metrics that phyloseq can use:
 ~~~
 > distanceMethodList
