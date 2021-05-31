@@ -332,17 +332,24 @@ we obtain with the next code:
 ~~~
 {: .language-r}
 ~~~
- [1] "Proteobacteria"           "Actinobacteria"           "Firmicutes"              
- [4] "Cyanobacteria"            "Deinococcus-Thermus"      "Chloroflexi"             
- [7] "Armatimonadetes"          "Bacteroidetes"            "Gemmatimonadetes"        
-[10] "Verrucomicrobia"          "Planctomycetes"           "Lentisphaerae"           
-[13] "Chlamydiae"               "Acidobacteria"            "Synergistetes"           
-[16] "Spirochaetes"             "Tenericutes"              ""                        
-[19] "Coprothermobacterota"     "Chlorobi"                 "Ignavibacteriae"         
-[22] "Candidatus Cloacimonetes" "Kiritimatiellaeota"       "Nitrospirae"             
-[25] "Thermotogae"              "Fusobacteria"             "Aquificae"               
-[28] "Deferribacteres"          "Chrysiogenetes"           "Thermodesulfobacteria"   
-[31] "Dictyoglomi"              "Caldiserica"   
+[1] "Proteobacteria"              "Actinobacteria"             
+[3] "Firmicutes"                  "Cyanobacteria"              
+[5] "Deinococcus-Thermus"         "Chloroflexi"                
+[7] "Armatimonadetes"             "Bacteroidetes"              
+[9] "Chlorobi"                    "Gemmatimonadetes"           
+[11] "Planctomycetes"              "Verrucomicrobia"            
+[13] "Lentisphaerae"               "Kiritimatiellaeota"         
+[15] "Chlamydiae"                  "Acidobacteria"              
+[17] "Spirochaetes"                "Synergistetes"              
+[19] "Nitrospirae"                 "Tenericutes"                
+[21] "Coprothermobacterota"        "Ignavibacteriae"            
+[23] "Candidatus Cloacimonetes"    "Fibrobacteres"              
+[25] "Fusobacteria"                "Thermotogae"                
+[27] "Aquificae"                   "Thermodesulfobacteria"      
+[29] "Deferribacteres"             "Chrysiogenetes"             
+[31] "Calditrichaeota"             "Elusimicrobia"              
+[33] "Caldiserica"                 "Candidatus Saccharibacteria"
+[35] "Dictyoglomi"
 ~~~
 {: .output}
 
@@ -353,7 +360,7 @@ This is useful, but what we need to do if we need to know how many of our read h
 ~~~
 {: .language-r}
 ~~~
-[1] 292
+[1] 502
 ~~~
 {: .output}
 
