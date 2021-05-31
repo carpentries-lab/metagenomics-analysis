@@ -353,7 +353,7 @@ we obtain with the next code:
 ~~~
 {: .output}
 
-This is useful, but what we need to do if we need to know how many of our read have been assigned to the 
+This is useful, but what we need to do if we need to know how many of our reads have been assigned to the 
 `Firmicutes` phylum?. Let´s use the command `sum()` to ask R, how many of the reads fill this requiriment:
 ~~~
 > sum(merged_metagenomes@tax_table@.Data["Phylum"] == "Firmicutes")
@@ -362,7 +362,8 @@ This is useful, but what we need to do if we need to know how many of our read h
 ~~~
 [1] 502
 ~~~
-{: .output}
+{: .out
+}
 
 > ## Exercise 1: 
 > 
