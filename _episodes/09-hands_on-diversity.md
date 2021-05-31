@@ -337,7 +337,7 @@ plot_ordination(e.metagen, meta.ord)
 ### Difference of our samples at specific taxonomic levels
  
 In order to group all the OTUs that have the same taxonomy at a certain taxonomic rank,
-we will use the function `tax_glom`. 
+we will use the function `tax_glom()`. 
 
 ~~~
 glom <- tax_glom(percentages, taxrank = 'Phylum')
