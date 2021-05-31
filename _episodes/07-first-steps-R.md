@@ -13,8 +13,10 @@ objectives:
 - "Understand what is a data-frame and manipulate it."
 - "Use the help command to get more insight on R functions."
 keypoints:
-- "RStudio is just one of the myriad of tools to work with data."
-- "Every hability, as programming in R, needs practice."
+- "RStudio is useful tool for data-management."
+- "R uses different types of data to store information."
+- "Data-frames contain multiple columns with different types of data."
+- "Help `?` shows useful information about the functions you inquire."
 ---
 
 # RStudio: First steps of a wonderful journey 
