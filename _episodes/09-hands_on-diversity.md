@@ -343,6 +343,7 @@ we will use the function `tax_glom()`.
 glom <- tax_glom(percentages, taxrank = 'Phylum')
 View(glom@tax_table@.Data)
 ~~~
+{: .language-r}  
 
 <a href="https://user-images.githubusercontent.com/75807915/119749409-acc82a80-be5c-11eb-81d5-d89d61dca68f.png">
   <img src="https://user-images.githubusercontent.com/75807915/119749409-acc82a80-be5c-11eb-81d5-d89d61dca68f.png" />
