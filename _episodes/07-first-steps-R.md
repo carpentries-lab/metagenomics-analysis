@@ -255,7 +255,7 @@ each vector. Whereas, a data-frame can save vectors of different data types:
 ###### Figure 3. Structure of the created data-frame.
 
 We can begin to explore our new object by pulling out columns by the `$` operator. In order to use it, 
-you need to write the name of ypur data-frame, followed by the `$` operator and the name of the column 
+you need to write the name of your data-frame, followed by the `$` operator and the name of the column 
 you want to extract:
 ~~~
 > musician$people
