@@ -1,17 +1,17 @@
 ---
-title: "Taxonomic assignment"
+title: "Taxonomic Assignment"
 teaching: 30
 exercises: 15
 questions:
 - "How can I assign a taxonomy to my contigs?"
 objectives:
 - "Understand how taxonomic assignment works."
-- "Use kraken to assign taxonomies to contigs."
+- "Use kraken to assign taxonomies to reads and contigs."
 - "Visualize taxonomic assignations in graphics."
 
 keypoints:
 - "A database with previous gathered knowledge (genomes) is needed for taxonomic assignment."
-- "Taxonomic assignment can be ran using Kraken."
+- "Taxonomic assignment can be done using Kraken."
 - "Krona and Pavian are web based tools to visualize the assigned taxa."
 ---
 ## What is taxonomic assignment?
