@@ -70,9 +70,9 @@ This **geoms** can be thought as layers that can be overlapped one over another,
 needs to be required to show useful information-layers to deliver a messagge. We are going to create an 
 example with some of the data that we already have. Let's create a data-frame with the next code:
 ~~~
-deept <- data.frame(Samples = sample_names(merged_metagenomes),
+deep <- data.frame(Samples = sample_names(merged_metagenomes),
                     Reads = sample_sums(merged_metagenomes))
-deept
+deep
 ~~~
 {: .language-r}
 
@@ -85,7 +85,7 @@ JP4D    JP4D 149590
 
 Now, we can do a figure with the three components mentioned(data, coordinates, and geom):
 ~~~
-ggplot(data = deept, mapping = aes(x = Samples,y = Reads)) +
+ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) +
   geom_col()
 ~~~
 {: .language-r}
@@ -98,11 +98,11 @@ ggplot(data = deept, mapping = aes(x = Samples,y = Reads)) +
 
 Unraveling the above code. We first called the `ggplot` function (*i.e. ggplot()*). This will tell R that we want to 
 create a new plot and the parameters indicated inside this function will apply to all the layers of the plot. We 
-gave two arguments to the `ggplot` code: (i) the data that we want to show in our figure (*i.e. data = deept*), 
-that is the data inside `deept`, and (ii) we defined the `aes` function(*i.e. mapping = aes(x = Samples,y = Reads)*),
+gave two arguments to the `ggplot` code: (i) the data that we want to show in our figure (*i.e. data = deep*), 
+that is the data inside `deep`, and (ii) we defined the `aes` function(*i.e. mapping = aes(x = Samples,y = Reads)*),
 which will tell `ggplot` how the variables will be mapped in the figure. In in this case, **x** is the name of the 
 samples and **y** the number of reads. It is noticiable that we did not need to express the entire path to access
-to this columns to the `aes` function (*i.e.* x = deept[,"Samples"]), that is because the code is so well 
+to this columns to the `aes` function (*i.e.* x = deep[,"Samples"]), that is because the code is so well 
 written taht it figures it out by itself. What would happend if we only call `ggplot` without the any **geom**(*i.e.* `geom_col`) is:
 
 <a href="https://user-images.githubusercontent.com/67386612/119437234-4ff53480-bce3-11eb-8a0a-8c58e2079b23.png">
