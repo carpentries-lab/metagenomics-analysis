@@ -320,7 +320,7 @@ If you get some warning messages after running this script, fear not. This is be
 that are so alike and to little samples, that the algorithm displays a warning concerning the lack of difficulty 
 in generating the distance matrix. 
 
-By now, we just need the command `plot_ordination`, to see the results from our beta diversity analysis:
+By now, we just need the command `plot_ordination()`, to see the results from our beta diversity analysis:
 ~~~
 plot_ordination(e.metagen, meta.ord)
 ~~~
