@@ -368,7 +368,7 @@ This is useful, but what we need to do if we need to know how many of our reads 
 > ## Exercise 1: 
 > 
 > Go into groups and choose one phylum that is interesting for your
-> group, and use the code learned to find out how many reads have been assigned to
+> group, and use the learned code to find out how many reads have been assigned to
 > your chosen phylum and what are the unique names of the genera inside it.
 > がんばれ! (ganbate; *good luck*):
 >> ## Solution
@@ -437,8 +437,8 @@ JC1A   JP4D
 ~~~ 
 {: .output}
 
-By the output of the `sample_sums` command we can see how many reads there are
-in the library. Also, the Max, Min and Mean output on `summary` can give us an
+By the output of the `sample_sums()` command we can see how many reads there are
+in the library. Also, the Max, Min and Mean output on `summary()` can give us an
 idea of the evenness. Nevertheless, to have a more visual representation of the
 diversity inside the samples (i.e. α diversity) we can now look at a ggplot2
 graph created using Phyloseq:
