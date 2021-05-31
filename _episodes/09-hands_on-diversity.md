@@ -89,7 +89,10 @@ ggplot(data = deept, mapping = aes(x = Samples,y = Reads)) +
   geom_col()
 ~~~
 {: .language-r}
-![image](https://user-images.githubusercontent.com/75807915/119749217-43e0b280-be5c-11eb-9eaa-7e7904b72361.png)
+
+<a href="https://user-images.githubusercontent.com/75807915/119749217-43e0b280-be5c-11eb-9eaa-7e7904b72361.png">
+  <img src="https://user-images.githubusercontent.com/75807915/119749217-43e0b280-be5c-11eb-9eaa-7e7904b72361.png" />
+</a>
 
 ###### Figure 1. Sample read counts as bars in a plot
 
@@ -102,14 +105,19 @@ samples and **y** the number of reads. It is noticiable that we did not need to 
 to this columns to the `aes` function (*i.e.* x = deept[,"Samples"]), that is because the code is so well 
 written taht it figures it out by itself. What would happend if we only call `ggplot` without the any **geom**(*i.e.* `geom_col`) is:
 
-![image](https://user-images.githubusercontent.com/67386612/119437234-4ff53480-bce3-11eb-8a0a-8c58e2079b23.png)
+<a href="https://user-images.githubusercontent.com/67386612/119437234-4ff53480-bce3-11eb-8a0a-8c58e2079b23.png">
+  <img src="https://user-images.githubusercontent.com/67386612/119437234-4ff53480-bce3-11eb-8a0a-8c58e2079b23.png" />
+</a>
+
 ###### Figure 2. ggplot function result without a specified geom
 
 We need to tell `ggplot` how we want to visually represent the data, which we did by adding a new geom layer. In this
 example, we used `geom_col`, which tells `ggplot` we want to visually represent the relationship between **x** and
 **y** as columns-bars:
 
-![image](https://user-images.githubusercontent.com/75807915/119749330-81ddd680-be5c-11eb-87a0-23d5551c41f9.png)
+<a href="https://user-images.githubusercontent.com/75807915/119749330-81ddd680-be5c-11eb-87a0-23d5551c41f9.png">
+  <img src="https://user-images.githubusercontent.com/75807915/119749330-81ddd680-be5c-11eb-87a0-23d5551c41f9.png" />
+</a>
 
 ###### Figure 1. Sample read as bars in a plot
 
@@ -317,7 +325,11 @@ By now, we just need the command `plot_ordination`, to see the results from our 
 plot_ordination(e.metagen, meta.ord)
 ~~~
 {: .language-r}  
-![image](https://user-images.githubusercontent.com/67386612/120087795-9c0ff280-c0b0-11eb-8df8-a10008d39417.png)
+
+<a href="https://user-images.githubusercontent.com/67386612/120087795-9c0ff280-c0b0-11eb-8df8-a10008d39417.png">
+  <img src="https://user-images.githubusercontent.com/67386612/120087795-9c0ff280-c0b0-11eb-8df8-a10008d39417.png" />
+</a>
+
 ###### Figure 2. Beta diversity with NMDS of "three" samples
 
 ## Ploting our data
@@ -331,7 +343,10 @@ we will use the function `tax_glom`.
 glom <- tax_glom(percentages, taxrank = 'Phylum')
 View(glom@tax_table@.Data)
 ~~~
-![image](https://user-images.githubusercontent.com/75807915/119749409-acc82a80-be5c-11eb-81d5-d89d61dca68f.png)
+
+<a href="https://user-images.githubusercontent.com/75807915/119749409-acc82a80-be5c-11eb-81d5-d89d61dca68f.png">
+  <img src="https://user-images.githubusercontent.com/75807915/119749409-acc82a80-be5c-11eb-81d5-d89d61dca68f.png" />
+</a>
 
 ###### Figure 3. Taxonomic-data table after agrupation at phylum level.
 
@@ -391,7 +406,9 @@ raw.plot | rel.plot
 ~~~
 {: .language-r}
 
-![image](https://user-images.githubusercontent.com/75807915/119749676-3546cb00-be5d-11eb-8655-54240abb040f.png)
+<a href="https://user-images.githubusercontent.com/75807915/119749676-3546cb00-be5d-11eb-8655-54240abb040f.png">
+  <img src="https://user-images.githubusercontent.com/75807915/119749676-3546cb00-be5d-11eb-8655-54240abb040f.png" />
+</a>
 
 ###### Figure 4. Taxonomic diversity of absolute and relative abundance
 
@@ -420,7 +437,11 @@ rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+
   geom_bar(aes(), stat="identity", position="stack")
 raw.plot | rel.plot
 ~~~
-![image](https://user-images.githubusercontent.com/75807915/119749731-5d362e80-be5d-11eb-8f5a-57351ddff7f3.png)
+
+<a href="https://user-images.githubusercontent.com/75807915/119749731-5d362e80-be5d-11eb-8f5a-57351ddff7f3.png">
+  <img src="https://user-images.githubusercontent.com/75807915/119749731-5d362e80-be5d-11eb-8f5a-57351ddff7f3.png" />
+</a>
+
 
 ###### Figure 5. Taxonomic diversity of absolute and relative abundance with corrections
 
@@ -478,7 +499,11 @@ p.cyanos
 ~~~
 {: .language-r} 
 
-![image](https://user-images.githubusercontent.com/75807915/119749807-7fc84780-be5d-11eb-9e34-dcb0bd24f2fd.png)
+<a href="https://user-images.githubusercontent.com/75807915/119749807-7fc84780-be5d-11eb-9e34-dcb0bd24f2fd.png">
+  <img src="https://user-images.githubusercontent.com/75807915/119749807-7fc84780-be5d-11eb-9e34-dcb0bd24f2fd.png" />
+</a>
+
+
 
 ###### Figure 6. Diversity of Cyanobacteria at genus level inside our samples.
 
