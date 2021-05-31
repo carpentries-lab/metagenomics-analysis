@@ -317,7 +317,7 @@ the pairwise dissimilarity between objects in a low-dimensional space, in this c
 ~~~
 {: .language-r}
 If you get some warning messages after running this script, fear not. This is because we have two "samples"
-that are so alike and to little samples, that the algorithm displays a warning concerning the lack of difficulty 
+that are so alike and too little samples, that the algorithm displays a warning concerning the lack of difficulty 
 in generating the distance matrix. 
 
 By now, we just need the command `plot_ordination()`, to see the results from our beta diversity analysis:
