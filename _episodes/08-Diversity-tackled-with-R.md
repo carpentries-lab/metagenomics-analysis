@@ -28,14 +28,20 @@ Here we will talk about the two most used diversity metrics, α diversity (withi
 
 - α Diversity: Can be represented as the richness (*i.e.* number of different species in an environment) and abundance(*i.e.* the number of individuals of
 each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc.  
-  ![image](https://user-images.githubusercontent.com/67386612/118978296-c4735080-b93c-11eb-8421-3294b21c9c44.png)
+<a href="https://user-images.githubusercontent.com/67386612/118978296-c4735080-b93c-11eb-8421-3294b21c9c44.png">
+  <img src="https://user-images.githubusercontent.com/67386612/118978296-c4735080-b93c-11eb-8421-3294b21c9c44.png" />
+</a>
 ###### Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness
  
 - β Diversity: It is the difference (measured as distance) between two or more environments. 
 It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance or UniFrac distance, to name a few. Each one 
 of this distance metrics are focused in a characteristic of the community (*e.g.* Unifrac distance measures the phylogenetic relationship
 between the species of the community).
-  ![image](https://user-images.githubusercontent.com/67386612/119906168-536f0280-bf13-11eb-9d47-d447fe4fabcc.png)
+
+<a href="https://user-images.githubusercontent.com/67386612/119906168-536f0280-bf13-11eb-9d47-d447fe4fabcc.png">
+  <img src="https://user-images.githubusercontent.com/67386612/119906168-536f0280-bf13-11eb-9d47-d447fe4fabcc.png" />
+</a>
+
 ###### Figure 2. Alpha and Beta diversity represented by fishes in a pond.
 
 For this lesson we will use Phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
@@ -290,7 +296,12 @@ will be the one choosed in both cases. Let's see what is inside of our `tax_tabl
 > View(merged_metagenomes@tax_table@.Data)
 ~~~
 {: .language-r}
-![image](https://user-images.githubusercontent.com/67386612/119017138-4e80e080-b960-11eb-8465-737d6197c775.png)
+
+<a href="https://user-images.githubusercontent.com/67386612/119017138-4e80e080-b960-11eb-8465-737d6197c775.png">
+  <img src="https://user-images.githubusercontent.com/67386612/119017138-4e80e080-b960-11eb-8465-737d6197c775.png" />
+</a>
+
+
 ###### Figure 3. Table of the OTU data from our `merged_metagenomes` object.
 
 Next, let's get rid of some of the innecesary characters 
@@ -301,7 +312,11 @@ in the OTUs identificator and put names to the taxonomic ranks:
 > colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
 ~~~
 {: .language-r}
-![image](https://user-images.githubusercontent.com/67386612/119911861-d6965580-bf1f-11eb-91d8-8cd68fb797e1.png)
+
+<a href="https://user-images.githubusercontent.com/67386612/119911861-d6965580-bf1f-11eb-91d8-8cd68fb797e1.png">
+  <img src="https://user-images.githubusercontent.com/67386612/119911861-d6965580-bf1f-11eb-91d8-8cd68fb797e1.png" />
+</a>
+
 ###### Figure 4. Table of the OTU data from our `merged_metagenomes` object. With corrections
 
 To explore how many phyla we have, we are going to use a command name `unique()`. Let's try what result
