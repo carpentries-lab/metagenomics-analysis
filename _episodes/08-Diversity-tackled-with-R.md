@@ -328,7 +328,7 @@ in the OTUs identificator and put names to the taxonomic ranks:
 To explore how many phyla we have, we are going to use a command name `unique()`. Let's try what result
 we obtain with the next code:
 ~~~
-> unique(merged_metagenomes@tax_table@.Data["Phylum"])
+> unique(merged_metagenomes@tax_table@.Data[,"Phylum"])
 ~~~
 {: .language-r}
 ~~~
