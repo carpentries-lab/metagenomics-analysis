@@ -231,18 +231,23 @@ $designdist
 [1] "ANY"
 ~~~
 {: .output}
-Describing all this possible distance-metrics is beyond the scope of this lesson, but we can tell those
-that need a phylogenetic relationship between the species-OTUs present in our samples:
+Describing all this possible distance-metrics is beyond the scope 
+of this lesson, but here we show which are the ones that need a 
+phylogenetic relationship between the species-OTUs present in our samples:
+
 * Unifrac
 * Weight-Unifrac
 * DPCoA
-We do not have a phylogenetic tree or the phylogenetic relationships. So we can not use any of those three.
-We will use [Bray-curtis](http://www.pelagicos.net/MARS6300/readings/Bray_&_Curtis_1957.pdf), since is one of the most robust and 
-widely use distance metric to calculate beta diversity.
 
-But first, we will duplicate one of the samples because we need, at least, 3 samples to generate an analysis
-of beta-diversity. Let's duplibate the `JP4D` sample, so we will extract our information from the OTU table in
-the phyloseq object:
+We do not have a phylogenetic tree or the phylogenetic relationships. 
+So we can not use any of those three. We will use [Bray-curtis](http://www.pelagicos.net/MARS6300/readings/Bray_&_Curtis_1957.pdf), 
+since is one of the most robust and widely use distance metric to 
+calculate beta diversity.
+
+But first, we will duplicate one of the samples because we need, 
+at least, 3 samples to generate an analysis of beta-diversity. Let's 
+duplibate the `JP4D` sample, so we will extract our information from 
+the OTU table inthe phyloseq object:
 ~~~
 e.meta <- as.data.frame(percentages@otu_table@.Data)
 head(e.meta)
