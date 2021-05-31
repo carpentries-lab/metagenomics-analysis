@@ -202,9 +202,15 @@ Kraken-biom is a program that creates BIOM tables from the Kraken output
 Let's take a look at the different flags that `kraken-biom` has:
 
 ~~~
+$ conda activate metagenomics 
+~~~
+{: .bash}
+
+~~~
 $ kraken-biom -h                  
 ~~~
 {: .bash}
+
 ~~~
 usage: kraken-biom [-h] [--max {D,P,C,O,F,G,S}] [--min {D,P,C,O,F,G,S}]
                    [-o OUTPUT_FP] [--otu_fp OTU_FP] [--fmt {hdf5,json,tsv}]
