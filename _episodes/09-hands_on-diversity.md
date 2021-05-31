@@ -438,6 +438,7 @@ rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+
   geom_bar(aes(), stat="identity", position="stack")
 raw.plot | rel.plot
 ~~~
+{: .language-r}
 
 <a href="https://user-images.githubusercontent.com/75807915/119749731-5d362e80-be5d-11eb-8f5a-57351ddff7f3.png">
   <img src="https://user-images.githubusercontent.com/75807915/119749731-5d362e80-be5d-11eb-8f5a-57351ddff7f3.png" />
