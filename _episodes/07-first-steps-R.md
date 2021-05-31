@@ -4,11 +4,11 @@ teaching: 50
 exercises: 0
 questions:
 - "What is R and why is it important to learn it?"
-- "What types of data does R language have?"
+- "What types of data does the R language has?"
 - "Data-frames. What they are and how to manage them? "
 - "How do I use R tools to manage an R object?"
 objectives:
-- "Undestand why R is important."
+- "Understand why R is important."
 - "Learn the types of data that we can manage in R."
 - "Understand what is a data-frame and manipulate it."
 - "Use the help command to get more insight on R functions."
@@ -114,7 +114,7 @@ ussing the assignment operator `<-`:
 
 What would happend if you tap `ctrl` + `l`? Without the lesson page, can you remember what numbers the sum is made of in the variable `suma`?.
 **Reproducibility** is in our minds when we program (and when we do science). For this purpose, 
-is convenient to type the commands we want to save, in the script editor, and save the script periodically. 
+is convenient to type the commands we want to save in the script editor, and save the script periodically. 
 We can run our code lines in the script by the shortcut `ctrl` + `Enter` 
 (on Mac, `Cmd` + `Return` will work). Thus, the command on the current line, or the instructions
 in the currently selected text will be sent to the console and will be executed.
@@ -124,11 +124,11 @@ in our scripts, so we can leave comments(lines of no executable text) by beggini
 ~~~
 # Let's do some math in RStudio. How many times a year do the supermarkets change the bread that they use for
 # display?, if they change it every 15 days:
-> 356/15
+> 365/15
 ~~~
 {: .language-r}
 ~~~
-[1] 23.73333
+[1] 24.3333
 ~~~
 {: .output}
 
@@ -155,7 +155,7 @@ There are five types of data in RStudio:
 * Character
 
 ~~~
-> typeof(5L) #Integer type can contain only whole numbers and followed by a capital L
+> typeof(5L) #Integer type can contain only whole numbers followed by a capital L
 ~~~
 {: .language-r}
 ~~~
