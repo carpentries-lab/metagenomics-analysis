@@ -351,7 +351,7 @@ View(glom@tax_table@.Data)
 
 ###### Figure 3. Taxonomic-data table after agrupation at phylum level.
 
-Another phyloseq function is `psmelt`, which melts phyloseq objects into a `data.frame` 
+Another phyloseq function is `psmelt()`, which melts phyloseq objects into a `data.frame` 
 to manipulate them with packages like `ggplot2` and `vegan`.
 ~~~
 percentages <- psmelt(glom)
@@ -368,7 +368,7 @@ str(percentages)
 ~~~
 {: .output}
 
-Now, let's create another `data-frame` with the original data. This will help us to compare
+Now, let's create another data-frame with the original data. This will help us to compare
 both datasets.
 ~~~
 raw <- psmelt(merged_metagenomes)
