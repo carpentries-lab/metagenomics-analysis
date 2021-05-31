@@ -241,7 +241,7 @@ We will use [Bray-curtis](http://www.pelagicos.net/MARS6300/readings/Bray_&_Curt
 widely use distance metric to calculate beta diversity.
 
 But first, we will duplicate one of the samples because we need, at least, 3 samples to generate an analysis
-of beta-diversity. Let's duplibate the `JP4D` sample, so we will extract our information from the out table in
+of beta-diversity. Let's duplibate the `JP4D` sample, so we will extract our information from the OTU table in
 the phyloseq object:
 ~~~
 e.meta <- as.data.frame(percentages@otu_table@.Data)
