@@ -79,7 +79,7 @@ For this lesson we will use Phyloseq, an R package specialized in metagenomic an
   
 | Variable             |  Desription |  
 :-------------------------:|:-------------------------:  
-<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}+\frac{F_1(F_1-1)}{2(F_2 + 1)}">  | Definition  
+<img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs} + \frac{F_1(F_1-1)}{2(F_2 + 1)}">  | Definition  
 <img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|Count of singletons and doubletons respectively    
 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}">| The number of observed species    
 
