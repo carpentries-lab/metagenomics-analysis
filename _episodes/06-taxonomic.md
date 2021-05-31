@@ -6,9 +6,13 @@ questions:
 - "How can I assign a taxonomy to my contigs?"
 objectives:
 - "Understand how taxonomic assignment works."
+- "Use kraken to assign taxonomies to contigs."
+- "Visualize taxonomic assignations in graphics."
+
 keypoints:
 - "A database with previous gathered knowledge (genomes) is needed for taxonomic assignment."
 - "Kraken is a program for taxonomic assignment."
+- "Krona and Pavian are web based tools for taxonomic assignment vizualization."
 ---
 ## What is taxonomic assignment?
 
@@ -283,8 +287,7 @@ another study:
 {: .discussion}
 
 ## Visualization of taxonomic assignation results  
-We have reached the tsv files, the final step in our metagenomic 
-pipeline showed in [lesson-3](https://carpentries-incubator.github.io/metagenomics/03-assessing-read-quality/index.html).  
+  
 After we have the taxonomy assignation what follows is some 
 visualization of our results. 
 [Krona](https://github.com/marbl/Krona/wiki) is a hierarchical 
