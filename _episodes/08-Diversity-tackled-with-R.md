@@ -382,7 +382,7 @@ This is useful, but what we need to do if we need to know how many of our read h
 {: .callout}
 
 
-### Plot diversity estimates at desired taxonomic resolution
+### Plot alpha diversity 
 
 We want to know how is the bacterial diversity, so we will prune all of the 
 non-bacterial organisms in our metagenome. To do this we will make a subset 
