@@ -126,6 +126,7 @@ More information about these data will be presented in the [first lesson of the 
 |[Kraken-biom](https://github.com/smdabdoub/kraken-biom)|1.0.1|help link|Available for|Tool to convert kraken reports in R readable files|
 |[CheckM-genome](https://ecogenomics.github.io/CheckM/)|v1.1.3 |help link|Available for|Tool to check completeness and contamination in MAGs |
 
+[conda manage environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 ### QuickStart Software Installation Instructions
 
 These are the QuickStart installation instructions. They assume familiarity with the command line and with installation in general. As there are different operating systems and many different versions of operating systems and environments, these may not work on your computer. If an installation doesn't work for you, please refer to the user guide for the tool, listed in the table above.
