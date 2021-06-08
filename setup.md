@@ -63,12 +63,12 @@ $ cat metagenomics.yml
 ~~~
 name: metagenomics                                                                
 dependencies:                                      
-  - kraken2=2.1.1 
-  - krona=2.7.1             
-  - maxbin2=2.2.7
-  - spades=v3.14.1
-  - kraken-biom=1.0.1
-  - checkm-genome=v1.1.3
+  - kraken2 
+  - krona             
+  - maxbin2
+  - spades
+  - kraken-biom
+  - checkm-genome
 
 ~~~
 {: .output}
@@ -90,6 +90,7 @@ rm *dmp readme.txt taxdump.tar.gz gc.prt
 ~~~
 {: .bash}  
 
+File [Environment]()
 ### Data
 
 The data used in this workshop are available on Zenodo. Because this workshop works with real data, be aware that file sizes for the data are large. Please read the Zenodo page linked below for information about the data and access to the data files. 
