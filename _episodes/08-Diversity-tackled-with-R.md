@@ -28,9 +28,10 @@ Here we will talk about the two most used diversity metrics, α diversity (withi
 
 - α Diversity: Can be represented as the richness (*i.e.* number of different species in an environment) and abundance(*i.e.* the number of individuals of
 each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc.  
-<a href="https://user-images.githubusercontent.com/67386612/118978296-c4735080-b93c-11eb-8421-3294b21c9c44.png">
-  <img src="https://user-images.githubusercontent.com/67386612/118978296-c4735080-b93c-11eb-8421-3294b21c9c44.png" />
+<a href="{{ page.root }}/fig/03-08-01.png">
+  <img src="{{ page.root }}/fig/03-08-01.png" alt="Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness" />
 </a>
+
 ###### Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness
  
 - β Diversity: It is the difference (measured as distance) between two or more environments. 
@@ -38,8 +39,8 @@ It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance
 of this distance metrics are focused in a characteristic of the community (*e.g.* Unifrac distance measures the phylogenetic relationship
 between the species of the community).
 
-<a href="https://user-images.githubusercontent.com/67386612/119906168-536f0280-bf13-11eb-9d47-d447fe4fabcc.png">
-  <img src="https://user-images.githubusercontent.com/67386612/119906168-536f0280-bf13-11eb-9d47-d447fe4fabcc.png" />
+<a href="{{ page.root }}/fig/03-08-02.png">
+  <img src="{{ page.root }}/fig/03-08-02.png" alt="Alpha and Beta diversity represented by fishes in a pond" />
 </a>
 
 ###### Figure 2. Alpha and Beta diversity represented by fishes in a pond.
@@ -229,7 +230,7 @@ from Kraken: `.reports`.
 
 With the next command, we are going to create a table in [Biom](https://biom-format.org/) format called `cuatroc.biom`:
 ~~~
-$ kraken-biom JC1A.report JP4D.report --fmt json -o cuatroc.biom
+$ kraken-biom JC1A.report JP4D.report JP41.report --fmt json -o cuatroc.biom
 ~~~
 {: .bash}
 
@@ -303,8 +304,8 @@ will be the one choosed in both cases. Let's see what is inside of our `tax_tabl
 ~~~
 {: .language-r}
 
-<a href="https://user-images.githubusercontent.com/67386612/119017138-4e80e080-b960-11eb-8465-737d6197c775.png">
-  <img src="https://user-images.githubusercontent.com/67386612/119017138-4e80e080-b960-11eb-8465-737d6197c775.png" />
+<a href="{{ page.root }}/fig/03-08-03.png">
+  <img src="{{ page.root }}/fig/03-08-03.png" alt="Table of the OTU data from our `merged_metagenomes` object" />
 </a>
 
 
@@ -319,8 +320,8 @@ in the OTUs identificator and put names to the taxonomic ranks:
 ~~~
 {: .language-r}
 
-<a href="https://user-images.githubusercontent.com/67386612/119911861-d6965580-bf1f-11eb-91d8-8cd68fb797e1.png">
-  <img src="https://user-images.githubusercontent.com/67386612/119911861-d6965580-bf1f-11eb-91d8-8cd68fb797e1.png" />
+<a href="{{ page.root }}/fig/03-08-04.png">
+  <img src="{{ page.root }}/fig/03-08-04.png" alt="Table of the OTU data from our `merged_metagenomes` object. With corrections" />
 </a>
 
 ###### Figure 4. Table of the OTU data from our `merged_metagenomes` object. With corrections
@@ -332,24 +333,18 @@ we obtain with the next code:
 ~~~
 {: .language-r}
 ~~~
-[1] "Proteobacteria"              "Actinobacteria"             
-[3] "Firmicutes"                  "Cyanobacteria"              
-[5] "Deinococcus-Thermus"         "Chloroflexi"                
-[7] "Armatimonadetes"             "Bacteroidetes"              
-[9] "Chlorobi"                    "Gemmatimonadetes"           
-[11] "Planctomycetes"              "Verrucomicrobia"            
-[13] "Lentisphaerae"               "Kiritimatiellaeota"         
-[15] "Chlamydiae"                  "Acidobacteria"              
-[17] "Spirochaetes"                "Synergistetes"              
-[19] "Nitrospirae"                 "Tenericutes"                
-[21] "Coprothermobacterota"        "Ignavibacteriae"            
-[23] "Candidatus Cloacimonetes"    "Fibrobacteres"              
-[25] "Fusobacteria"                "Thermotogae"                
-[27] "Aquificae"                   "Thermodesulfobacteria"      
-[29] "Deferribacteres"             "Chrysiogenetes"             
-[31] "Calditrichaeota"             "Elusimicrobia"              
-[33] "Caldiserica"                 "Candidatus Saccharibacteria"
-[35] "Dictyoglomi"
+ [1] "Proteobacteria"              "Actinobacteria"              "Firmicutes"                 
+ [4] "Cyanobacteria"               "Deinococcus-Thermus"         "Chloroflexi"                
+ [7] "Armatimonadetes"             "Bacteroidetes"               "Chlorobi"                   
+[10] "Gemmatimonadetes"            "Planctomycetes"              "Verrucomicrobia"            
+[13] "Lentisphaerae"               "Kiritimatiellaeota"          "Chlamydiae"                 
+[16] "Acidobacteria"               "Spirochaetes"                "Synergistetes"              
+[19] "Nitrospirae"                 "Tenericutes"                 "Coprothermobacterota"       
+[22] "Ignavibacteriae"             "Candidatus Cloacimonetes"    "Fibrobacteres"              
+[25] "Fusobacteria"                "Thermotogae"                 "Aquificae"                  
+[28] "Thermodesulfobacteria"       "Deferribacteres"             "Chrysiogenetes"             
+[31] "Calditrichaeota"             "Elusimicrobia"               "Caldiserica"                
+[34] "Candidatus Saccharibacteria" "Dictyoglomi" 
 ~~~
 {: .output}
 
@@ -360,10 +355,9 @@ This is useful, but what we need to do if we need to know how many of our reads 
 ~~~
 {: .language-r}
 ~~~
-[1] 502
+[1] 580
 ~~~
-{: .out
-}
+{: .output}
 
 > ## Exercise 1: 
 > 
@@ -381,7 +375,7 @@ This is useful, but what we need to do if we need to know how many of our reads 
 
 
 > ## Phyloseq objects
-> Finally, we can review our object and see that both datasets (i.e. JC1A and JP4D) are in the our object.
+> Finally, we can review our object and see that all datasets (i.e. JC1A, JP4D, and JP41) are in the our object.
 > If you look at our Phyloseq object, you will see that there are more data types 
 > that we can use to build our object(?phyloseq), such as a phylogenetic tree and metadata 
 > concerning our samples. These are optional, so we will use our basic
@@ -408,8 +402,8 @@ Now let's look at some statistics of our metagenomes:
 {: .language-r}
 ~~~
 phyloseq-class experiment-level object
-otu_table()   OTU Table:         [ 3785 taxa and 2 samples ]
-tax_table()   Taxonomy Table:    [ 3785 taxa by 7 taxonomic ranks ]
+otu_table()   OTU Table:         [ 4024 taxa and 3 samples ]
+tax_table()   Taxonomy Table:    [ 4024 taxa by 7 taxonomic ranks ]
 ~~~ 
 {: .output}
 ~~~
@@ -417,8 +411,8 @@ tax_table()   Taxonomy Table:    [ 3785 taxa by 7 taxonomic ranks ]
 ~~~
 {: .language-r}
 ~~~
-JC1A   JP4D 
- 18412 149590 
+  JC1A   JP4D   JP41 
+ 18412 149590  76589 
 ~~~ 
 {: .output}
 
@@ -427,13 +421,13 @@ JC1A   JP4D
 ~~~
 {: .language-r}
 ~~~
-      JC1A              JP4D        
- Min.   :  0.000   Min.   :   0.00  
- 1st Qu.:  0.000   1st Qu.:   3.00  
- Median :  0.000   Median :   8.00  
- Mean   :  4.864   Mean   :  39.52  
- 3rd Qu.:  3.000   3rd Qu.:  23.00  
- Max.   :399.000   Max.   :6551.00 
+      JC1A              JP4D              JP41        
+ Min.   :  0.000   Min.   :   0.00   Min.   :   0.00  
+ 1st Qu.:  0.000   1st Qu.:   3.00   1st Qu.:   1.00  
+ Median :  0.000   Median :   7.00   Median :   5.00  
+ Mean   :  4.575   Mean   :  37.17   Mean   :  19.03  
+ 3rd Qu.:  2.000   3rd Qu.:  21.00   3rd Qu.:  14.00  
+ Max.   :399.000   Max.   :6551.00   Max.   :1994.00  
 ~~~ 
 {: .output}
 
@@ -444,12 +438,15 @@ diversity inside the samples (i.e. α diversity) we can now look at a ggplot2
 graph created using Phyloseq:
 
 ~~~
-> p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon")) 
-> p + geom_point(size=5, alpha=0.7)
+> plot_richness(physeq = merged_metagenomes, 
+              measures = c("Observed","Chao1","Shannon")) 
 ~~~
 {: .language-r}
 
-![image](https://user-images.githubusercontent.com/67386612/112223149-23dc0b00-8bef-11eb-8651-677a5713a5bb.png)
+<a href="{{ page.root }}/fig/03-08-05.png">
+  <img src="{{ page.root }}/fig/03-08-05.png" alt=" Alpha diversity indexes for both samples" />
+</a>
+
 ###### Figure 5. Alpha diversity indexes for both samples
 
 Each of these metrics can give insight of the distribution of the OTUs inside 
@@ -470,8 +467,10 @@ and that these two will belong to the same OTU.
 >> 
 >>One of the widely α diversity indexes used is Simpson diversity index, as an example
 >>of solution, here it is the plot with an extra metric, which is Simpson α index:  
->> `p = plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon", "Simpson"))`
->> ![image](https://user-images.githubusercontent.com/67386612/119062049-66298a80-b99b-11eb-94f8-197f03dbe194.png)
+>> `plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon", "Simpson"))`
+>> <a href="{{ page.root }}/fig/03-08-05.png">
+>>  <img src="{{ page.root }}/fig/03-08-05.png" alt=" Alpha diversity indexes for both samples" />
+>> </a>
 >>
 >> 
 > {: .solution}
