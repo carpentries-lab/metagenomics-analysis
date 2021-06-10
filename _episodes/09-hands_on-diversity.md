@@ -398,7 +398,6 @@ raw.plot | rel.plot
 >> <a href="{{ page.root }}/fig/03-09-01e.png">
 >>   <img src="{{ page.root }}/fig/03-09-01e.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
 >> </a>
-
 > {: .solution}
 {: .challenge} 
 
