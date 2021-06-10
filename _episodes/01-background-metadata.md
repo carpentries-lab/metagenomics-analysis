@@ -148,11 +148,6 @@ changed when the bacterial community underwent the treatment.
 > {: .solution}
 {: .challenge}
 
->## Metadata Summary
->Metadata (data about data) is important because it helps name your samples in a way that makes sense for you now and in the future for other people. Also when you start to analyze your results that data gives you relevant information.
-{: .callout}
-
-
 Note that throughout the lesson we will use the first four characters of the file names (alias) to identify the data files corresponding to a sample.
 
 The results of this study, raw sequences and metadata, have been submitted to the NCBI Sequence Read Archive (SRA), 
@@ -180,6 +175,8 @@ mg-RAST the associated metadata looks like:
 | env_package  |	water|  
 | depth	| 0.165 | 
 
-
+>## Metadata Summary
+>Metadata (data about data) is important because it helps name your samples in a way that makes sense for you now and in the future for other people. Also when you start to analyze your results that data gives you relevant information.
+{: .callout}
 
 
