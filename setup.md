@@ -131,6 +131,7 @@ More information about these data will be presented in the [first lesson of the 
 
 [conda manage environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 
+
 #### Software(packages) for R:
 
 | Software | Version | Manual | Description |
