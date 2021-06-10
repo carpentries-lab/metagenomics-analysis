@@ -87,6 +87,8 @@ of our experimental design to the metadata that we expect to collect, and record
 > Which type of metadata would be useful to record?  
 {: .discussion}
 
+Before we continue we want to introduce you **Chepiche** they going to be with us during this lesson because are also interested to learn about metagenomics in fact they already has Cuatro Ciénegas data to work on it! Let's see!
+
 
 ## Cuatro Ciénegas  
 <a href="{{ page.root }}/fig/03-01-02.jpeg">
