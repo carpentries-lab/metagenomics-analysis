@@ -130,10 +130,21 @@ changed when the bacterial community underwent the treatment.
 > ## Exercise 2: IDs and sample names 
 > 
 > Depending on the database, several IDs can be used for the same sample.
-> Please, open the document where the [metadata information is stored](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing). Here inspect the IDs and find out which of them correspond to sample	**JP4110514WATERRESIZE**
+> Please, open Chepiche's document where the [metadata information is stored](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing). Here inspect the IDs and find out which of them correspond to sample	**JP4110514WATERRESIZE**
 > 
 >> ## Solution
 >> ERS1949771	is the SRA ID corresponding to JP4110514WATERRESIZE
+>> 
+> {: .solution}
+{: .challenge}
+
+> ## Exercise 3: Importance of Metadata 
+> 
+>  Which other data could you recommend Chepiche to add in their data and what did you think is the relevance of this information?
+> 
+>> ## Solution
+>> Metadata will depend on the type of the experiment but some examples are: temperature, sampling methodology, date, place (country, state, region, city, etc.).
+>> 
 >> 
 > {: .solution}
 {: .challenge}
