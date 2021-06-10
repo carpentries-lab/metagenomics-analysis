@@ -87,8 +87,7 @@ of our experimental design to the metadata that we expect to collect, and record
 > Which type of metadata would be useful to record?  
 {: .discussion}
 
-Before we continue we want to introduce you **Chepiche** they going to be with us during this lesson because are also interested to learn about metagenomics in fact they already has Cuatro Ciénegas data to work on it! Let's see!
-
+Before we continue we want to introduce you **Chepiche** they are going to be with us during this lesson because they are also interested to learn about metagenomics in fact they already have Cuatro Ciénegas data to work on it! Let's see! #maybe later we can add an image here because it looks very simple text 
 
 ## Cuatro Ciénegas  
 <a href="{{ page.root }}/fig/03-01-02.jpeg">
@@ -117,7 +116,7 @@ changed when the bacterial community underwent the treatment.
 
 > ## Exercise 1: Reviewing metadata 
 > 
-> Knowing the results of this CCB study, what type of metagenomic sequencing was used and why do you think so?
+> Review the data Chepiche has in the results of this CCB study, what kind of metagenomic sequencing w has Chepiche done for this experiment and why do you think so?
 > In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what was the most important piece of metadata that the authors took?
 > 
 >> ## Solution
