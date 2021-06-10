@@ -378,8 +378,8 @@ raw.plot | rel.plot
   <img src="{{ page.root }}/fig/03-09-06.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
 </a>
 
-
 ###### Figure 6. Taxonomic diversity of absolute and relative abundance with corrections
+
 
 >## Exercise 2  : Taxa agglomeration
 > 
