@@ -20,12 +20,16 @@ among samples taken from two metagenomes within a location. We will be starting 
 of sequenced reads (.fastq files), performing some quality control steps, assembly those 
 reads into contigs, and ending by identifying and visualizing the OTUs among these samples.
 
-As you progress through this lesson, keep in mind that, even if you aren’t going to be doing this same workflow in your research, you will be learning some very important lessons about using command-line bioinformatics tools. What you learn here will enable you to use a variety of bioinformatics tools with confidence and greatly enhance your research efficiency and productivity.
+As you progress through this lesson, keep in mind that, even if you aren’t going to be 
+doing this same workflow in your research, you will be learning some very important 
+lessons about using command-line bioinformatics tools. What you learn here will enable 
+you to use a variety of bioinformatics tools with confidence and greatly enhance your 
+research efficiency and productivity.
 
 > ## Prerequisites
 >
 > This lesson assumes a working understanding of the bash shell. If you haven’t already 
-> completed the [Shell Genomics lesson](https://nselem.github.io/shell-metagenomics/), and you aren’t 
+> completed the [Shell metagenomics lesson](https://nselem.github.io/shell-metagenomics/), and you aren’t 
 > familiar with the bash shell, please review those materials before starting this lesson.
 >
 > This lesson also assumes some familiarity with biological concepts, 
