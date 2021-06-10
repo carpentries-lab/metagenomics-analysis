@@ -144,13 +144,13 @@ changed when the bacterial community underwent the treatment.
 > 
 >> ## Solution
 >> Metadata will depend on the type of the experiment but some examples are: temperature, sampling methodology, date, place (country, state, region, city, etc.). 
->> > {: .solution}
+>> 
+> {: .solution}
 {: .challenge}
 
 >> ## Metadata Summary
 >> Metadata (data about data) is important because it helps name your samples in a way that makes sense for you now and in the future for other people. Also when you start to analyze your results that data gives you relevant information.
-> {: .solution}
-{: .challenge}
+{: .callout}
 
 
 Note that throughout the lesson we will use the first four characters of the file names (alias) to identify the data files corresponding to a sample.
