@@ -115,7 +115,7 @@ changed when the bacterial community underwent the treatment.
 
 > ## Exercise 1: Reviewing metadata 
 > 
-> Review the data Chepiche has in the results of this CCB study, what kind of metagenomic sequencing w has Chepiche done for this experiment and why do you think so?
+> Review the data Chepiche has in the results of this CCB study, what kind of metagenomic sequencing has Chepiche done for this experiment and why do you think so?
 > In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what was the most important piece of metadata that the authors took?
 > 
 >> ## Solution
