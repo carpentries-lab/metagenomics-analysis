@@ -92,8 +92,8 @@ ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) +
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-09-01.png">
-  <img src="{{ page.root }}/fig/03-09-01.png" alt="Sample read counts as bars in a plot" />
+<a href="{{ page.root }}/fig/03-08-01.png">
+  <img src="{{ page.root }}/fig/03-08-01.png" alt="Sample read counts as bars in a plot" />
 </a>
 
 ###### Figure 1. Sample read counts as bars in a plot
@@ -107,8 +107,8 @@ samples and **y** the number of reads. It is noticiable that we did not need to 
 to this columns to the `aes` function (*i.e.* x = deep[,"Samples"]), that is because the code is so well 
 written taht it figures it out by itself. What would happend if we only call `ggplot` without the any **geom**(*i.e.* `geom_col`) is:
 
-<a href="{{ page.root }}/fig/03-09-02.png">
-  <img src="{{ page.root }}/fig/03-09-02.png" alt="ggplot function result without a specified geom" />
+<a href="{{ page.root }}/fig/03-08-02.png">
+  <img src="{{ page.root }}/fig/03-08-02.png" alt="ggplot function result without a specified geom" />
 </a>
 
 ###### Figure 2. ggplot function result without a specified geom
@@ -117,8 +117,8 @@ We need to tell `ggplot` how we want to visually represent the data, which we di
 example, we used `geom_col`, which tells `ggplot` we want to visually represent the relationship between **x** and
 **y** as columns-bars:
 
-<a href="{{ page.root }}/fig/03-09-01.png">
-  <img src="{{ page.root }}/fig/03-09-01.png" alt="Sample read as bars in a plot" />
+<a href="{{ page.root }}/fig/03-08-01.png">
+  <img src="{{ page.root }}/fig/03-08-01.png" alt="Sample read as bars in a plot" />
 </a>
 
 ###### Figure 1. Sample read as bars in a plot
@@ -266,8 +266,8 @@ plot_ordination(physeq = percentages, ordination = meta.ord)
 ~~~
 {: .language-r}  
 
-<a href="{{ page.root }}/fig/03-09-03.png">
-  <img src="{{ page.root }}/fig/03-09-03.png" alt="Beta diversity with NMDS of three samples" />
+<a href="{{ page.root }}/fig/03-08-03.png">
+  <img src="{{ page.root }}/fig/03-08-03.png" alt="Beta diversity with NMDS of three samples" />
 </a>
 
 ###### Figure 3. Beta diversity with NMDS of "three" samples
@@ -285,8 +285,8 @@ View(glom@tax_table@.Data)
 ~~~
 {: .language-r}  
 
-<a href="{{ page.root }}/fig/03-09-04.png">
-  <img src="{{ page.root }}/fig/03-09-04.png" alt="Taxonomic-data table after agrupation at phylum level" />
+<a href="{{ page.root }}/fig/03-08-04.png">
+  <img src="{{ page.root }}/fig/03-08-04.png" alt="Taxonomic-data table after agrupation at phylum level" />
 </a>
 
 ###### Figure 4. Taxonomic-data table after agrupation at phylum level.
@@ -343,8 +343,8 @@ raw.plot | rel.plot
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-09-05.png">
-  <img src="{{ page.root }}/fig/03-09-05.png" alt="Taxonomic diversity of absolute and relative abundance" />
+<a href="{{ page.root }}/fig/03-08-05.png">
+  <img src="{{ page.root }}/fig/03-08-05.png" alt="Taxonomic diversity of absolute and relative abundance" />
 </a>
 
 ###### Figure 5. Taxonomic diversity of absolute and relative abundance
@@ -374,12 +374,12 @@ raw.plot | rel.plot
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-09-06.png">
-  <img src="{{ page.root }}/fig/03-09-06.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
+<a href="{{ page.root }}/fig/03-08-06.png">
+  <img src="{{ page.root }}/fig/03-08-06.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
 </a>
 
-###### Figure 6. Taxonomic diversity of absolute and relative abundance with corrections
 
+###### Figure 6. Taxonomic diversity of absolute and relative abundance with corrections
 
 >## Exercise 2  : Taxa agglomeration
 > 
@@ -395,9 +395,10 @@ raw.plot | rel.plot
 >> Certainly, this will be difficult since each of our samples has constrasting number of reads.
 >> raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
 >> unique(raw.data$Phylum)
->> <a href="{{ page.root }}/fig/03-09-01e.png">
->>   <img src="{{ page.root }}/fig/03-09-01e.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
+>> <a href="{{ page.root }}/fig/03-08-01e.png">
+>>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
 >> </a>
+
 > {: .solution}
 {: .challenge} 
 
@@ -438,8 +439,8 @@ p.cyanos
 ~~~
 {: .language-r} 
 
-<a href="{{ page.root }}/fig/03-09-07.png">
-  <img src="{{ page.root }}/fig/03-09-07.png" alt="Diversity of Cyanobacteria at genus level inside our samples" />
+<a href="{{ page.root }}/fig/03-08-07.png">
+  <img src="{{ page.root }}/fig/03-08-07.png" alt="Diversity of Cyanobacteria at genus level inside our samples" />
 </a>
 
 ###### Figure 7. Diversity of Cyanobacteria at genus level inside our samples.
@@ -463,8 +464,8 @@ p.cyanos
 >>proteo <- ggplot(data=g.proteo, aes(x=Sample, y=Abundance, fill=Genus))+ 
 >>  geom_bar(aes(), stat="identity", position="stack")
 >>proteo
->><a href="{{ page.root }}/fig/03-09-02e.png">
->>  <img src="{{ page.root }}/fig/03-09-02e.png" alt="Diversity of Proteobacteria at genus level inside our samples" />
+>><a href="{{ page.root }}/fig/03-08-02e.png">
+>>  <img src="{{ page.root }}/fig/03-08-02e.png" alt="Diversity of Proteobacteria at genus level inside our samples" />
 >></a>
 > {: .solution}
 {: .challenge} 
