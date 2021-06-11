@@ -28,8 +28,8 @@ Here we will talk about the two most used diversity metrics, α diversity (withi
 
 - α Diversity: Can be represented as the richness (*i.e.* number of different species in an environment) and abundance(*i.e.* the number of individuals of
 each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc.  
-<a href="{{ page.root }}/fig/03-08-01.png">
-  <img src="{{ page.root }}/fig/03-08-01.png" alt="Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness" />
+<a href="{{ page.root }}/fig/03-07-01.png">
+  <img src="{{ page.root }}/fig/03-07-01.png" alt="Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness" />
 </a>
 
 ###### Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness
@@ -39,8 +39,8 @@ It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance
 of this distance metrics are focused in a characteristic of the community (*e.g.* Unifrac distance measures the phylogenetic relationship
 between the species of the community).
 
-<a href="{{ page.root }}/fig/03-08-02.png">
-  <img src="{{ page.root }}/fig/03-08-02.png" alt="Alpha and Beta diversity represented by fishes in a pond" />
+<a href="{{ page.root }}/fig/03-07-02.png">
+  <img src="{{ page.root }}/fig/03-07-02.png" alt="Alpha and Beta diversity represented by fishes in a pond" />
 </a>
 
 ###### Figure 2. Alpha and Beta diversity represented by fishes in a pond.
@@ -304,8 +304,8 @@ will be the one choosed in both cases. Let's see what is inside of our `tax_tabl
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-08-03.png">
-  <img src="{{ page.root }}/fig/03-08-03.png" alt="Table of the OTU data from our `merged_metagenomes` object" />
+<a href="{{ page.root }}/fig/03-07-03.png">
+  <img src="{{ page.root }}/fig/03-07-03.png" alt="Table of the OTU data from our `merged_metagenomes` object" />
 </a>
 
 
@@ -320,8 +320,8 @@ in the OTUs identificator and put names to the taxonomic ranks:
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-08-04.png">
-  <img src="{{ page.root }}/fig/03-08-04.png" alt="Table of the OTU data from our `merged_metagenomes` object. With corrections" />
+<a href="{{ page.root }}/fig/03-07-04.png">
+  <img src="{{ page.root }}/fig/03-07-04.png" alt="Table of the OTU data from our `merged_metagenomes` object. With corrections" />
 </a>
 
 ###### Figure 4. Table of the OTU data from our `merged_metagenomes` object. With corrections
@@ -443,8 +443,8 @@ graph created using Phyloseq:
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-08-05.png">
-  <img src="{{ page.root }}/fig/03-08-05.png" alt=" Alpha diversity indexes for both samples" />
+<a href="{{ page.root }}/fig/03-07-05.png">
+  <img src="{{ page.root }}/fig/03-07-05.png" alt=" Alpha diversity indexes for both samples" />
 </a>
 
 ###### Figure 5. Alpha diversity indexes for both samples
