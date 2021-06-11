@@ -28,8 +28,8 @@ shotgun instead of Metabarcoding an extra assembly step must be done.
 This does not mean that Metabarcoding never use an assembly step, but 
 sometimes is not needed.
 
-<a href="{{ page.root }}/fig/03-05-01.png">
-  <img src="{{ page.root }}/fig/03-05-01.png" width="868" height="777" alt="Cog Metagenome" />
+<a href="{{ page.root }}/fig/03-04-01.png">
+  <img src="{{ page.root }}/fig/03-04-01.png" width="868" height="777" alt="Cog Metagenome" />
 </a>
 
 
