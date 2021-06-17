@@ -134,7 +134,7 @@ Thank you for using SPAdes!
 ~~~
 {: .bash}
 
-If we want to at the contents of this directory, first we need to press enter, and a message like this will be displayed:
+No we need to press enter to exit from the background, and a message like this will be displayed:
 ~~~
 [1]+  Done                    metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../results/assembly_JC1A
 ~~~
