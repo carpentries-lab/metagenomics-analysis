@@ -116,7 +116,7 @@ changed when the bacterial community underwent the treatment.
 > ## Exercise 1: Reviewing metadata 
 > 
 > Review the data Chepiche has in the results of this CCB study, what kind of metagenomic sequencing has Chepiche done for this experiment and why do you think so?
-> In the document [samples treatment information](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing), what was the most important piece of metadata that the authors took?
+> In the table [samples treatment information](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv), what was the most important piece of metadata that the authors took?
 > 
 >> ## Solution
 >> Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.
@@ -130,7 +130,7 @@ changed when the bacterial community underwent the treatment.
 > ## Exercise 2: IDs and sample names 
 > 
 > Depending on the database, several IDs can be used for the same sample.
-> Please, open Chepiche's document where the [metadata information is stored](https://docs.google.com/spreadsheets/d/1enkjhxMuc-iWmub57zHGXEhZ-jAeT2xy5eMfFwTLWP0/edit?usp=sharing). Here inspect the IDs and find out which of them correspond to sample	**JP4110514WATERRESIZE**
+> Please, open Chepiche's document where the [metadata information is stored](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv). Here inspect the IDs and find out which of them correspond to sample	**JP4110514WATERRESIZE**
 > 
 >> ## Solution
 >> ERS1949771	is the SRA ID corresponding to JP4110514WATERRESIZE
