@@ -165,11 +165,10 @@ $  checkm qa CHECKM/Bacteria.ms CHECKM/ --file CHECKM/quality_JP4D.tsv --tab_tab
 ~~~
 {: .bash} 
 
-The table is to big to fit our screen comfortably but we can download it and open it in a spreadsheet. 
+The table we just made looks like [this]("{{ page.root }}/files/quality_JP4D.tsv")
 This will be very useful when you need to document your work or communicate it. 
 
-The question of, how much contamination do we can tolerate and how many completness we need to. 
-Certainly, this depends in the question being tacked, but in the [CheckM](https://genome.cshlp.org/content/25/7/1043) paper, there are some parameters that we can follow.
+The question of, how much contamination do we can tolerate and how much completeness do we need certainly depends on the scientific question being tackled, but in the [CheckM](https://genome.cshlp.org/content/25/7/1043) paper, there are some parameters that we can follow.
 
 > ## Exercise 1: Discuss the quality of the obtained MAGs
 >
