@@ -165,7 +165,7 @@ $  checkm qa CHECKM/Bacteria.ms CHECKM/ --file CHECKM/quality_JP4D.tsv --tab_tab
 ~~~
 {: .bash} 
 https://github.com/carpentries-incubator/metagenomics
-The table we just made looks like [this](https://github.com/carpentries-incubator/metagenomics/files/quality_JP4D.md)
+The table we just made looks like [this](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/quality_JP4D.tsv).
 This will be very useful when you need to document your work or communicate it. 
 
 The question of, how much contamination do we can tolerate and how much completeness do we need certainly depends on the scientific question being tackled, but in the [CheckM](https://genome.cshlp.org/content/25/7/1043) paper, there are some parameters that we can follow.
