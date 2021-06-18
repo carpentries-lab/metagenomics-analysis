@@ -132,7 +132,7 @@ $ ls
 ~~~
 {: .bash}
 ~~~
-JC1A.kraken  JC1A.report  JP4D.kraken  JP4D.report  mags_taxonomy
+JC1A.kraken  JC1A.report  JP41.report  JP4D.kraken  JP4D.report  mags_taxonomy
 ~~~
 {: .output}
 
