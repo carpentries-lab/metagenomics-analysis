@@ -77,12 +77,13 @@ For this lesson we will use Phyloseq, an R package specialized in metagenomic an
 <img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> | Proportion of community represented by OTU i    
   
 - Chao1  
-  <!-- coment we use https://viereck.ch/latex-to-svg/ to convert from latex to svg because Chao equation didnot render correctly with github math!-->
-| Variable             |  Desription |  
-:-------------------------:|:-------------------------:  
+
+| Variable             |  Definition |   
+:-------------------------:|:-------------------------: 
 <img src="../fig/equation.svg">  | Definition  
 <img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|Count of singletons and doubletons respectively    
 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}">| The number of observed species    
+ <!-- coment we use https://viereck.ch/latex-to-svg/ to convert from latex to svg because Chao equation didnot render correctly with github math!-->
 
 ## β diversity  
 Diversity β measures how different two or more communities are, either in their composition (richness)
