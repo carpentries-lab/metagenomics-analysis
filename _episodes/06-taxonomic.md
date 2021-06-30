@@ -286,7 +286,7 @@ another study:
 > Why do you think we found so many OTUs in this bin? 
 {: .discussion}
 
-## Visualization of taxonomic assignation results  
+## Visualization of taxonomic assignment results  
   
 After we have the taxonomy assignation what follows is some 
 visualization of our results. 
@@ -394,32 +394,32 @@ $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*repo
 We go to the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/), 
 click on Browse and choose our reports. You need to select both reports at the same time.
 
-<a href="{{ page.root }}/fig/03-06-04.PNG">
-  <img src="{{ page.root }}/fig/03-06-04.PNG" alt="upload Pavian" />
+<a href="{{ page.root }}/fig/03-06-04.png">
+  <img src="{{ page.root }}/fig/03-06-04.png" alt="upload Pavian" />
 </a>
 
 We click on the Results Overview tab.
 
-<a href="{{ page.root }}/fig/03-06-05.PNG">
-  <img src="{{ page.root }}/fig/03-06-05.PNG" alt="Results Overview" />
+<a href="{{ page.root }}/fig/03-06-05.png">
+  <img src="{{ page.root }}/fig/03-06-05.png" alt="Results Overview" />
 </a>
 
 We click on the Sample tab.
 
-<a href="{{ page.root }}/fig/03-06-06.PNG">
-  <img src="{{ page.root }}/fig/03-06-06.PNG" alt="sample" />
+<a href="{{ page.root }}/fig/03-06-06.png">
+  <img src="{{ page.root }}/fig/03-06-06.png" alt="sample" />
 </a>
 
 We can look at the abundance of a specific taxon by clicking on it.
 
-<a href="{{ page.root }}/fig/03-06-07.PNG">
-  <img src="{{ page.root }}/fig/03-06-07.PNG" alt="Sample Selected" />
+<a href="{{ page.root }}/fig/03-06-07.png">
+  <img src="{{ page.root }}/fig/03-06-07.png" alt="Sample Selected" />
 </a>
 
 We can look at a comparison of both our samples in the Comparison tab. 
 
-<a href="{{ page.root }}/fig/03-06-08.PNG">
-  <img src="{{ page.root }}/fig/03-06-08.PNG" alt="Comparison" />
+<a href="{{ page.root }}/fig/03-06-08.png">
+  <img src="{{ page.root }}/fig/03-06-08.png" alt="Comparison" />
 </a>
 
 
