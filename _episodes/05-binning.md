@@ -166,7 +166,6 @@ To get the table with these extra parameters we need to specify the file of the 
 $  checkm qa CHECKM/Bacteria.ms CHECKM/ --file CHECKM/quality_JP4D.tsv --tab_table -o 2
 ~~~
 {: .bash} 
-https://github.com/carpentries-incubator/metagenomics
 The table we just made looks like [this](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/quality_JP4D.tsv).
 This will be very useful when you need to document your work or communicate it. 
 
