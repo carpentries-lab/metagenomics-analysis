@@ -316,29 +316,6 @@ $ ktImportTaxonomy JP4D.001.krona.input -o JP4D.001.krona.out.html
 ~~~
 {: .language-bash}  
 
-Instead of the output we expected and error appeared. 
-~~~
-Loading taxonomy...
-Taxonomy not found in /home/dcuser/.miniconda3/envs/metagenomics/opt/krona/taxonomy. Was updateTaxonomy.sh run? at /home/dcuser/.miniconda3/envs/metagenomics/opt/krona/scripts/../lib/KronaTools.pm line 1540.
-~~~
-{: .error}  
-
-It seems that a necessary command for Krona to work was not executed, 
-so let's do that. But we need to deactivate our environment first.
-
-~~~
-$ conda deactivate
-$ bash /home/dcuser/.miniconda3/envs/metagenomics/opt/krona/updateTaxonomy.sh 
-~~~
-{: .language-bash}  
-
-Once it's done we activate the environment and try again.
-~~~
-$ conda activate metagenomics
-$ ktImportTaxonomy JP4D.001.krona.input -o JP4D.001.krona.out.html
-~~~
-{: .language-bash}  
-
 ~~~
 Loading taxonomy...
 Importing JP4D.001.krona.input...
