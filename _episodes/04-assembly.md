@@ -196,14 +196,11 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >
 >
 >> ## Solution
+>>~~~
 >>for name in *; do mv $name JC1A_$name; done
->> 
+>>~~~
+>>{: .bash}
 > {: .solution}
 {: .challenge}
-
-> ## Discussion
->
-> Does Metabarcoding needs an assembly step in its analysis workflow?  
-{: .discussion}
 
 {% include links.md %}
