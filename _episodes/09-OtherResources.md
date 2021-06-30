@@ -20,22 +20,11 @@ A useful and easy to use resource is [MG-RAST](https://www.mg-rast.org/), an onl
 
 The Cuatro Ciénegas data that we used in the workshop is already in MG-RAST! You can check it out [here](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
 
-We can check the taxonomical distribution of our sample. If you look at the MG-RAST charts, 
-we can see that our Cuatro Ciénegas sample is mostly bacteria.  
-
-<a href="/fig/03-11-01.png">
-  <img src="/fig/03-11-01.png" alt="Domain" />
-</a>
-
+We can check the taxonomical distribution of our sample at different taxonomical level.
 
 The most abundant phylum is Proteobacteria.  
 <a href="../fig/03-11-02.png">
   <img src="../fig/03-11-02.png" alt="Phylum" />
-</a>
-
- And going even further, we can see that the most abundant genera is *Erythrobacter*. 
- <a href="../fig/03-11-03.png">
-  <img src="../fig/03-11-03.png" alt="Genus" />
 </a>
 
 Since we have a shotgun metagenome, we can also investigate the metabolic functions 
@@ -50,14 +39,6 @@ are dedicated to metabolism.
 
 <a href="../fig/03-11-05.png">
   <img src="../fig/03-11-05.png" alt="Subsystems" />
-</a>
-
- <a href="../fig/03-11-06.png">
-  <img src="../fig/03-11-06.png" alt="Predicted features" />
-</a>
- 
-<a href="../fig/03-11-07.png">
-  <img src="../fig/03-11-07.png" alt="Source Hits" />
 </a>
 
 MG-RAST has it's own specific pipeline, so it is a very useful tool to have a quick look of your data, and also to store it and share it!, but it does not keep you from making your own personalized analysis like we just learn!
