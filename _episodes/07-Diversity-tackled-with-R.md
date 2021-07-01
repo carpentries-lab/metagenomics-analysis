@@ -353,7 +353,7 @@ we obtain with the next code:
 This is useful, but what we need to do if we need to know how many of our reads have been assigned to the 
 `Firmicutes` phylum?. Let´s use the command `sum()` to ask R, how many of the reads fill this requiriment:
 ~~~
-> sum(merged_metagenomes@tax_table@.Data["Phylum"] == "Firmicutes")
+> sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Firmicutes")
 ~~~
 {: .language-r}
 ~~~
@@ -370,8 +370,8 @@ This is useful, but what we need to do if we need to know how many of our reads 
 >> ## Solution
 >> Change the name of a new phylum wherever it is needed to get the result.
 >> As an example, here is the solution for Proteobacteria:
->>sum(merged_metagenomes@tax_table@.Data["Phylum"] == "Proteobacteria")
->>unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data["Phylum"] == "Proteobacteria", "Genus"])
+>>sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria")
+>>unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria", "Genus"])
 > {: .solution}
 {: .challenge} 
 
@@ -470,8 +470,8 @@ and that these two will belong to the same OTU.
 >>One of the widely α diversity indexes used is Simpson diversity index, as an example
 >>of solution, here it is the plot with an extra metric, which is Simpson α index:  
 >> `plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon", "Simpson"))`
->> <a href="{{ page.root }}/fig/03-08-05.png">
->>  <img src="{{ page.root }}/fig/03-08-05.png" alt=" Alpha diversity indexes for both samples" />
+>> <a href="{{ page.root }}/fig/03-07-05.png">
+>>  <img src="{{ page.root }}/fig/03-07-05.png" alt=" Alpha diversity indexes for both samples" />
 >> </a>
 >>
 >> 
