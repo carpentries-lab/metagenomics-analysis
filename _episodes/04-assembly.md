@@ -23,20 +23,20 @@ scaffolds, in order to obtain(ideally) the sequence of a whole
 chromosome. There are many programs devoted to
 [genome](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874646/) and 
 metagenome assembly, some of the main strategies they use are: Greedy 
-extension, OLC and De Bruijn charts. When metagenomics is
-shotgun instead of Metabarcoding an extra assembly step must be done. 
-This does not mean that Metabarcoding never use an assembly step, but 
+extension, OLC and De Bruijn charts. Contrary to metabarcoding, shotgun metagenomics needs an assembly step. This does not mean that metabarcoding never uses an assembly step, but 
 sometimes is not needed.
 
 <a href="{{ page.root }}/fig/03-04-01.png">
   <img src="{{ page.root }}/fig/03-04-01.png" width="868" height="777" alt="Cog Metagenome" />
 </a>
 
-
 [MetaSPAdes](https://github.com/ablab/spades) is a NGS de novo assembler 
 for assembling large and complex metagenomics data, and it is one of the 
 most used and recommended. It is part of the SPAdes toolkit, that 
 contains several assembly pipelines.
+
+Some of the problems faced by metagenomics assembly are i) the differences in coverage between the genomes, due to the differences in abundance in the sample, ii) the fact that different species often share conserved regions, iii) and the presence of several strains of a single species in the community. SPAdes already deals with the non-uniform coverage problem in its algorithm, so it is useful for the assembly of simple communities, but the [metaSPAdes](https://pubmed.ncbi.nlm.nih.gov/28298430/) algorithm deals with the other problems as well, allowing it to assemble metagenomes from complex communities. 
+
 Let's see what happens if we enter the metaspades.py command on our terminal.
 
 ~~~
@@ -52,9 +52,9 @@ $ metaspades.py: command not found
 The reason is because we are not located in our environmnet where we can 
 call Spades, but before going any further, let's talk about environmnets.
 
-## Activating a metagenomics environment  
+## Activating an environment  
 Environments are part of a bioinformatic tendency to make reproducible research, 
-they are a way to shareand maintain our programs in their needed versions used for a pipeline with our colleagues and 
+they are a way to share and maintain our programs in their needed versions used for a pipeline with our colleagues and 
 with our future self. MetaSPAdes is not activated in the (base) environment but 
 this AWS instances came with an environment called metagenomics. We need to activate 
 it in order to start using MetaSPAdes. 
