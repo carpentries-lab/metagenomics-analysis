@@ -389,8 +389,7 @@ raw.plot | rel.plot
 > it is recommended not to have more than 9 different colors in a plot. 
 > Please, paste your result on the next [document](https://docs.google.com/document/d/1oFg3uUZUANf7S1Mh2KamzrcGhkKsXP5Mk1KxKv6k8wA/edit?usp=sharing), there you can find the Breakout room where you need to be 
 > working with. がんばて!(ganbate; *good luck*):
->
->>## Solution
+>> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has constrasting number of reads.
 >> raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
@@ -398,7 +397,6 @@ raw.plot | rel.plot
 >> <a href="{{ page.root }}/fig/03-08-01e.png">
 >>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
 >> </a>
-
 > {: .solution}
 {: .challenge} 
 
