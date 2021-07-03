@@ -391,7 +391,9 @@ raw.plot | rel.plot
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has contrasting number of reads.
+>> 
 >> raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
+>> 
 >> unique(raw.data$Phylum)
 >> <a href="{{ page.root }}/fig/03-08-01e.png">
 >>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
@@ -452,14 +454,22 @@ p.cyanos
 >> ## Solution
 >> Change "Cyanobacteria" wherever it is needed to get a result for
 >> other phylum, as an example, here is the solution for Proteobacteria:
+>>
 >>proteo <- subset_taxa(merged_metagenomes, Phylum == "Proteobacteria")
+>>
 >>proteo  = transform_sample_counts(proteo, function(x) x*100 / sum(x) )
+>>
 >>glom <- tax_glom(proteo, taxrank = "Genus")
+>>
 >>g.proteo <- psmelt(glom)
+>>
 >>g.proteo$Genus[g.proteo$Abundance < 3] <- "Genera < 3.0 abund"
+>>
 >>unique(g.proteo$Genus)
+>>
 >>proteo <- ggplot(data=g.proteo, aes(x=Sample, y=Abundance, fill=Genus))+ 
 >>  geom_bar(aes(), stat="identity", position="stack")
+>>
 >>proteo
 >><a href="{{ page.root }}/fig/03-08-02e.png">
 >>  <img src="{{ page.root }}/fig/03-08-02e.png" alt="Diversity of Proteobacteria at genus level inside our samples" />
