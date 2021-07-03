@@ -1,7 +1,7 @@
 ---
 title: "Metagenome Assembly"
-teaching: 15
-exercises: 5
+teaching: 30
+exercises: 10
 questions:
 - "Why genomic data should be assembled?"
 - "What is the difference between reads and contigs?"
