@@ -102,7 +102,7 @@ Unraveling the above code. We first called the `ggplot` function (*i.e. ggplot()
 create a new plot and the parameters indicated inside this function will apply to all the layers of the plot. We 
 gave two arguments to the `ggplot` code: (i) the data that we want to show in our figure (*i.e. data = deep*), 
 that is the data inside `deep`, and (ii) we defined the `aes` function(*i.e. mapping = aes(x = Samples,y = Reads)*),
-which will tell `ggplot` how the variables will be mapped in the figure. In in this case, **x** is the name of the 
+which will tell `ggplot` how the variables will be mapped in the figure. In this case, **x** is the name of the 
 samples and **y** the number of reads. It is noticiable that we did not need to express the entire path to access
 to this columns to the `aes` function (*i.e.* x = deep[,"Samples"]), that is because the code is so well 
 written taht it figures it out by itself. What would happend if we only call `ggplot` without the any **geom**(*i.e.* `geom_col`) is:
