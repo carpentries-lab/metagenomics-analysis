@@ -163,9 +163,9 @@ utput TAXONOMY_READS/JP4D.kraken --report TAXONOMY_READS/JP4D.report
 {: .do not run this}
 
 Since we can't run `kraken2` here, we precomputed its results in a server, i.e. a more powerful machine. 
-In the server, after we assembled the metagenome for this sample, we ran `kraken2` and obtained`JP4D-kraken.kraken` and `JP4D.report`.
+In the server we ran `kraken2` and obtained`JP4D-kraken.kraken` and `JP4D.report`.
 
-Let's look at the precomputed outputs of `kraken2` in our assembled metagenome.  
+Let's look at the precomputed outputs of `kraken2` for our JP4D reads.  
 ~~~
 head ~/dc_workshop/taxonomy/JP4D.kraken  
 ~~~
@@ -293,8 +293,8 @@ visualization of our results.
 [Krona](https://github.com/marbl/Krona/wiki) is a hierarchical 
 data visualization software. Krona allows data to be explored with zooming, 
 multi-layered pie charts and includes support for several bioinformatics 
-tools and raw data formats. To use Krona in our results, lets go first into 
-our taxonomy directory, which contains the precalculated Kraken outputs.  
+tools and raw data formats. To use Krona in our results, let's go first into 
+our taxonomy directory, which contains the pre-calculated Kraken outputs.  
 
 ### Krona  
 With Krona we will explore the taxonomy of the JP4D.001 MAG.
