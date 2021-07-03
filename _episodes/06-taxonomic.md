@@ -116,7 +116,7 @@ compatible to be used with kraken2 in the taxonomical assignment process.
 {: .callout}
 
 Minikraken is a popular database that attempts to conserve its sensitivity 
-despite its small size (Needs 8GB of RAM for the assignment). Unfortunately although it is much smaller that most databases, it is not small enough to be run by the machines we are using, so we won't be able to run `kraken2`. We can check our available RAM with `free -h`to be shure of this.
+despite its small size (Needs 8GB of RAM for the assignment). Unfortunately although it is much smaller that most databases, it is not small enough to be run by the machines we are using, so we won't be able to run `kraken2`. We can check our available RAM with `free -h`to be sure of this.
 ~~~
 $ free -h
 ~~~
