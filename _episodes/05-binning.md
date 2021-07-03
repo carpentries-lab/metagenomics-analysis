@@ -16,7 +16,7 @@ keypoints:
 ## Metagenomic binning
 To analyze each of the species inside our sample individually, the 
 original genomes in the sample can be separated with a process called binning. 
-We call these genomes reconstructed from a metagenomic assembly MAGs(Metagenome-Assembled Genomes).
+We call these genomes reconstructed from a metagenomic assembly MAGs (Metagenome-Assembled Genomes).
 In this process, the assembled contigs from the metagenome will be assigned to 
 different bins (FASTA files that contain certain contigs). Ideally, each bin corresponds to only one original genome (a MAG).
 
@@ -98,7 +98,7 @@ Store abundance information of reads file [../data/trimmed_fastq/JP4D_R2.trim.fa
 With the `.summary` file we can have a quick look at the bins that MaxBin produced. 
 
 ~~~
-$ more MAXBIN/JP4D.summary
+$ cat MAXBIN/JP4D.summary
 ~~~
 {: .bash}  
 
