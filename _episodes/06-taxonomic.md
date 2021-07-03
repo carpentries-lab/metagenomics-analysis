@@ -364,7 +364,7 @@ his time we will visualize the assignation of the reads of both samples:
 This files corresponds to our Kraken reports. Again in our local 
 machine lets use `scp` command.  
 ~~~
-$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/report/*report . 
+$ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/*report . 
 ~~~
 {: .language-bash}
 
