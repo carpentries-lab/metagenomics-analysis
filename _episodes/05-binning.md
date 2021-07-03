@@ -173,7 +173,7 @@ The question of, how much contamination we can tolerate and how much completenes
 
 > ## Exercise 1: Discuss the quality of the obtained MAGs
 >
-> Download the quality file to your local computer and open it in a spreadsheet.
+> Download the quality file ´quality_JP4D.tsv´ to your local computer and open it in a spreadsheet.
 > Then discuss with your team which of the parameters in the table do you find useful.
 >
 >> ## Solution
