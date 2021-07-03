@@ -395,6 +395,11 @@ raw.plot | rel.plot
 >> raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
 >> 
 >> unique(raw.data$Phylum)
+>> 
+>> raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+>>  geom_bar(aes(), stat="identity", position="stack")
+>> 
+>> raw.plot | rel.plot
 >> <a href="{{ page.root }}/fig/03-08-01e.png">
 >>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
 >> </a>
