@@ -448,9 +448,8 @@ p.cyanos
 > 
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the code learned to generate a plot where you can 
-> show us the abundance in each of the sample.
-> Please, paste your result on the next [document](https://docs.google.com/document/d/1oFg3uUZUANf7S1Mh2KamzrcGhkKsXP5Mk1KxKv6k8wA/edit?usp=sharing), there you can find 
-> the Breakout room where you need to be working with. がんばて!(ganbate; *good luck*):
+> show us the abundance at genus level in each of the samples.
+> Please, paste your result on the collaborative document provided by instructors. がんばて!(ganbate; *good luck*):
 >> ## Solution
 >> Change "Cyanobacteria" wherever it is needed to get a result for
 >> other phylum, as an example, here is the solution for Proteobacteria:
