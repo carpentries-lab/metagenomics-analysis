@@ -191,7 +191,7 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 
 > ## Exercise 1: Rename all files in a folder
 >
-> Add the sample ID (JC1A) to the names of all the contents of the assembly_JC1A directory.
+> Add JC1A (the sample ID) separated by "_"  at the beggining of the names of all the contents in the assembly_JC1A directory.
 > Remember that many solutions are possible.
 >
 >
