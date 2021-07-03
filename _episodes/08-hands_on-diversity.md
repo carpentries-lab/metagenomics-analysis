@@ -387,8 +387,7 @@ raw.plot | rel.plot
 > a better visualization of the data. Remeber checking the data-classes inside
 > your data-frame. According to the [ColorBrewer](https://github.com/axismaps/colorbrewer/) package
 > it is recommended not to have more than 9 different colors in a plot. 
-> Please, paste your result on the next [document](https://docs.google.com/document/d/1oFg3uUZUANf7S1Mh2KamzrcGhkKsXP5Mk1KxKv6k8wA/edit?usp=sharing), there you can find the Breakout room where you need to be 
-> working with. がんばて!(ganbate; *good luck*):
+> Please, paste your result on the collaborative document provided by instructors. Hic Sunt Leones! (Here be Lions!):
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has constrasting number of reads.
