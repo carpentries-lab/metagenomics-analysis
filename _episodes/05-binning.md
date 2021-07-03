@@ -1,7 +1,7 @@
 ---
 title: "Metagenome Binning"
-teaching: 15
-exercises: 5
+teaching: 40
+exercises: 10
 questions:
 - "How can we obtain the original genomes from a metagenome?"
 objectives: 
