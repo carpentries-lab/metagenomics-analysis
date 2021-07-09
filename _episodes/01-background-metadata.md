@@ -1,7 +1,7 @@
 ---
 title: "Starting a Metagenomics Project"
-teaching: 20 minutes
-exercises: 0
+teaching: 15 minutes
+exercises: 15
 questions:
 - "How do you plan a metagenomic experiment?"
 - "How a metagenomis project can look like?"   
