@@ -115,11 +115,19 @@ changed when the bacterial community underwent the treatment.
 
 > ## Exercise 1: Reviewing metadata 
 > 
-> Review the data Chepiche has in the results of this CCB study, what kind of metagenomic sequencing has Chepiche done for this experiment and why do you think so?
-> In the table [samples treatment information](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv), what was the most important piece of metadata that the authors took?
+> Review the data Chepiche has obtained in the results of this CCB study.
+> 1. What kind of metagenomic sequencing has Chepiche done for this experiment and why do you think so?
+>  A) Metabarcoding metagenomics
+>  B) Shotgun metagenomics
+>  C) Genomics of axenic cultures
+>
+>  2. In the table [samples treatment information](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv), what was the most important piece of metadata that the authors took?
 > 
 >> ## Solution
->> Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.
+>> A) Metabarcoding Metagenomics. False, with this technique usually only one region of the genome is amplified.
+>> B) Shotgun Metagenomics. True. Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.
+>> C) Genomics of axenic cultures. False. Information of the microbioal community cannot be fully obtained with axenic cultures.
+>>  
 >> The most important thing to know about our data is which community was supplemented with fertilizers.
 >> However, any differences in the technical parts of the study, such as the DNA extraction protocol,
 >> could have affected the results, so tracking those is also important.
