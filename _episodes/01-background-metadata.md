@@ -3,11 +3,11 @@ title: "Starting a Metagenomics Project"
 teaching: 15 
 exercises: 15
 questions:
-- "How do you plan a metagenomic experiment?"
-- "How a metagenomis project can look like?"   
+- "How do you plan a metagenomics experiment?"
+- "How a metagenomics project looks like?"   
 objectives:
-- "Learn the difference between shotgun and amplicon metagenomics."
-- "Undestand the importance of metadata."  
+- "Learn the differences between shotgun and metabarcoding (amplicon metagenomics) techniques."
+- "Understand the importance of metadata."  
 - "Familiarize yourself with the Cuatro Ciénegas experiment."
 keypoints:    
 - "Shotgun metagenomics can be used for taxonomic and functional studies." 
