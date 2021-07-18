@@ -459,23 +459,17 @@ and that these two will belong to the same OTU.
 
 
 > ## Exercise 2: 
+> While using the help provided in `plot_richness()`, divide these three flags between the members of your breakout-room:
+> 1. `nrow`
+> 2. `sortby`
+> 3. `title`
+>
+> Use these flags to generate new figures that show you and your breakroom-coterie 
+> other ways to present the data.
 > 
-> Use the help from `plot_richness()` to discover other ways to plot diversity estimates using Phyloseq
-> and use another index to show the α diversity in our samples.
-> 
->> ## Solution
->> 
->> `?plot_richness` or `help("plot_richness")`
->> 
->>One of the widely α diversity indexes used is Simpson diversity index, as an example
->>of solution, here it is the plot with an extra metric, which is Simpson α index:  
->> `plot_richness(merged_metagenomes, measures = c("Observed", "Chao1", "Shannon", "Simpson"))`
->> <a href="{{ page.root }}/fig/03-07-06.png">
->>  <img src="{{ page.root }}/fig/03-07-06.png" alt=" Alpha diversity indexes for both samples" />
->> </a>
->>
->> 
-> {: .solution}
+> Please, paste your result on the collaborative document provided by instructors. 
+> Hic Sunt Leones! (Here be Lions!)  
+>
 {: .challenge}  
   
   
