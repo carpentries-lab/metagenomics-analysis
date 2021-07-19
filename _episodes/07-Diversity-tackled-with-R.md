@@ -460,9 +460,9 @@ and that these two will belong to the same OTU.
 
 > ## Exercise 2: 
 > While using the help provided in `plot_richness()`, divide these three flags between the members of your breakout-room:
-> 1. `nrow`
-> 2. `sortby`
-> 3. `title`
+> 1. `nrow()`
+> 2. `sortby()`
+> 3. `title()`
 >
 > Use these flags to generate new figures that show you and your breakroom-coterie 
 > other ways to present the data.
