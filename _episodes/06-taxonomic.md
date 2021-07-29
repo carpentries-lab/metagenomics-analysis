@@ -139,12 +139,18 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz
 > ## Exercise 1: Remembering commands
 > 
 > Fill in the blanks to decompress the following file `minikraken2_v2_8GB_201904.tgz`.  
-> ___ -xvzf  ____.tgz
->> ## Solution
->>  tar -xvzf  minikraken2_v2_8GB_201904.tgz
->> `tar` command is used in linux to decompress files, so in this case it would
->> extract the content of the compressed file  `minikraken2_v2_8GB_201904.tgz`  
->> 
+> 
+> ~~~
+> $ ____ -xvzf  ____.tgz
+> ~~~
+> {: .language-bash}
+> > ## Solution 
+> > ```
+> > $ tar -xvzf  minikraken2_v2_8GB_201904.tgz
+> > ```
+> > {: .language-bash}
+> > `tar` command is used in linux to decompress files, so in this case it would
+> > extract the content of the compressed file  `minikraken2_v2_8GB_201904.tgz` 
 > {: .solution}
 {: .challenge}                             
                              
