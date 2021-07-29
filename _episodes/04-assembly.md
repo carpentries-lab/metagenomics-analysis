@@ -193,14 +193,20 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >
 > Add JC1A (the sample ID) separated by "_"  at the beggining of the names of all the contents in the assembly_JC1A directory. Remember that many solutions are possible.
 > 
-> A) 
-> B)
-> C)  for name in *; do mv $name JC1A_$name; done
-> D)
+> A)  mv * JC1A_
+> B) mv *gz JC1A_.gz
+> C)  for name in *; do mv $name JC1A_; done
+> D)  for name in *; do mv $name JC1A_$name; done
 > 
 >> ## Solution
 >>~~~
->>for name in *; do mv $name JC1A_$name; done
+>>
+>> A)  No, this option moves every file in directory to the same file JC1A_ and then some files are over writing.
+>> B)  No, Again every file is send to the same file.
+>> C)  No, every file is sent to the same file JC1A_
+>> D)  Yes, this is one of the possible solutions.
+>> 
+>> ¿Do you have another solution?
 >>~~~
 >>{: .bash}
 > {: .solution}
