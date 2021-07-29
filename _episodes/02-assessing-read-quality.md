@@ -135,7 +135,7 @@ very poor (`#` = a quality score of 2).
 > d) `tail -n4 JP4D_R1.fastq`  
 > e) `tail -n4 JP4D_R1.fastq | head -n2`  
 >   
->   How confident are you in this read? 
+>   Do you trust the sequence in this read? 
 > 
 >> ## Solution
 >> ~~~
