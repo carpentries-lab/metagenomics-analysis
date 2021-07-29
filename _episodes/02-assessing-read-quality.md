@@ -353,7 +353,7 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 > ## Exercise 2: Looking at files metadata
 > 
 > How would you see the size of the files in the `untrimmed_fastq\` directory?  
-> (Hint: Look at the options for the `ls` command to see how to show file sizes.)
+> (Hint: Look at the options for the `ls` command to see how to show file sizes.)  
 > a) `ls -a`  
 > b) `ls -S`  
 > c) `ls -l`  
@@ -363,6 +363,7 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >> ## Solution
 >>  
 >> ~~~
+>>   
 >> a) No. The flag `-a` shows all of the contents, including hidden files and directories.  
 >> b) No. The flag `-S` shows the content Sorted by size starting with the largest file.  
 >> c) Yes. The flag `-l` shows the contents with metadata including file size.    
