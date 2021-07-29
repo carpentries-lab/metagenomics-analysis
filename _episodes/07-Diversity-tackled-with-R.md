@@ -104,15 +104,15 @@ There are different ways to plot and show the results of such analysis. Among ot
 >   <img src="{{ page.root }}/fig/03-07-01e.png" alt="Diversity question in two lakes" />
 > </a>
 > Which of the options below is true for the alpha diversity in lake A, lake B, and beta diversity between A and N
-> 1. 3, 3, 1
-> 2. 3, 3, 4
+> 1. 4, 3, 1
+> 2. 4, 3, 5
 > 3. 9, 7, 16
 >
 > Please, paste your result on the collaborative document provided by instructors. 
 > *Hic Sunt Leones!* (*Here be Lions!*)  
 >
 >> ## Solution
->> Answer: 3, 3, 4
+>> Answer: 4, 3, 5
 > {: .solution}
 {: .challenge}
 
@@ -477,7 +477,7 @@ remarking the impossiblity of taking two reads out of the metagenome "bag"
 and that these two will belong to the same OTU.
 
 
-> ## Exercise 2: 
+> ## Exercise 3: 
 > While using the help provided in `plot_richness()`, divide these three flags between the members of your breakout-room:
 > 1. `nrow()`
 > 2. `sortby()`
@@ -489,6 +489,11 @@ and that these two will belong to the same OTU.
 > Please, paste your result on the collaborative document provided by instructors. 
 > Hic Sunt Leones! (Here be Lions!)  
 >
+>> ## Solution
+>> The code and the plot using the three flags will look as follows:
+>> 
+>> 
+> {: .solution}
 {: .challenge}  
   
   
