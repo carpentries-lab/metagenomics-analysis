@@ -103,7 +103,7 @@ There are different ways to plot and show the results of such analysis. Among ot
 > <a href="{{ page.root }}/fig/03-07-01e.png">
 >   <img src="{{ page.root }}/fig/03-07-01e.png" alt="Diversity question in two lakes" />
 > </a>
-> Which of the options below is true for the alpha diversity in lake A, lake B, and beta diversity between A and N
+> Which of the options below is true for the alpha diversity in lake A, lake B, and beta diversity between lakes A and B, respectively.
 > 1. 4, 3, 1
 > 2. 4, 3, 5
 > 3. 9, 7, 16
