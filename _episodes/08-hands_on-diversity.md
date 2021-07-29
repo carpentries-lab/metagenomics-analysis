@@ -312,7 +312,7 @@ Now, let's create another data-frame with the original data. This will help us t
 both datasets.
 ~~~
 raw <- tax_glom(physeq = merged_metagenomes, taxrank = "Phylum")
-raw.data <- psmelt(merged_metagenomes)
+raw.data <- psmelt(raw)
 str(raw.data)
 ~~~
 {: .language-r}
