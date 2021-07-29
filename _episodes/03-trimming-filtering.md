@@ -377,7 +377,7 @@ JC1A_R2un.trim.fastq.gz  JP4D_R2un.trim.fastq.gz
 >> ~~~
 >> {: .bash}
 >>
->> In a new tab in your terminal do:
+>> In a terminal standing on your local computer do:
 >>
 >> ~~~
 >> $ mkdir ~/Desktop/fastqc_html/trimmed
