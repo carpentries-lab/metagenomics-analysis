@@ -98,6 +98,23 @@ There are two types, without weights (diversity) and with weights (diversity and
 
 There are different ways to plot and show the results of such analysis. Among others,  PCA, PCoA or NMDS analysis are widely used.
 
+> ## Exercise 1: 
+> In the next picture there are two lakes with different fish species:
+
+><a href="{{ page.root }}/fig/03-07-01e.png">
+>  <img src="{{ page.root }}/fig/03-07-01e.png" alt="Diversity question in two lakes" />
+></a>
+> Which of the options below is true for the alpha diversity in lake A, lake B, and beta diversity between A and N
+> 1. 3, 3, 1
+> 2. 3, 3, 4
+> 3. 9, 7, 16
+>
+> Please, paste your result on the collaborative document provided by instructors. 
+> Hic Sunt Leones! (Here be Lions!)  
+>
+{: .challenge}
+
+
 # Creating lineage and rank tables  
 
 In this lesson we will use RStudio to analize two microbiome samples from CCB, you don't have to install anything, 
