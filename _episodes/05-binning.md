@@ -179,7 +179,7 @@ The question of, how much contamination we can tolerate and how much completenes
 >>{: .bash} 
 >>
 > {: .solution}
-> Then discuss with your team which of the parameters in the table do you find useful.
+> Then open the table in a spreadsheet and discuss with your team which of the parameters in the table do you find useful.
 {: .challenge}
 
 {: .bash} 
