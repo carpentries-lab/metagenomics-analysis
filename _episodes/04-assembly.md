@@ -193,10 +193,10 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >
 > Add JC1A (the sample ID) separated by "_"  at the beggining of the names of all the contents in the assembly_JC1A directory. Remember that many solutions are possible.
 > 
-> A)  mv * JC1A_
-> B) mv *gz JC1A_.gz
-> C)  for name in *; do mv $name JC1A_; done
-> D)  for name in *; do mv $name JC1A_$name; done
+> A)  mv * JC1A_  
+> B) mv *gz JC1A_.gz  
+> C)  for name in *; do mv $name JC1A_; done  
+> D)  for name in *; do mv $name JC1A_$name; done  
 > 
 >> ## Solution
 >>~~~
