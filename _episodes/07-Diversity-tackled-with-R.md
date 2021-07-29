@@ -109,7 +109,7 @@ There are different ways to plot and show the results of such analysis. Among ot
 > 3. 9, 7, 16
 >
 > Please, paste your result on the collaborative document provided by instructors. 
-> Hic Sunt Leones! (Here be Lions!)  
+> *Hic Sunt Leones!* (*Here be Lions!*)  
 >
 >> ## Solution
 >> 2. 3, 3, 4
