@@ -128,12 +128,24 @@ very poor (`#` = a quality score of 2).
 
 > ## Exercise 1: Looking at reads  
 > 
-> What is the last read in the `JP4D_R1.fastq ` file? 
-> How confident are you in this read? 
+> How would you show in the terminal the ID and quality of last read in the `JP4D_R1.fastq `?  
+> a) `tail JP4D_R1.fastq`  
+> b) `head -n 4 JP4D_R1.fastq`  
+> c) `more JP4D_R1.fastq`  
+> d) `tail -n4 JP4D_R1.fastq`  
+> e) `tail -n4 JP4D_R1.fastq | head -n2`  
+>   
+>   How confident are you in this read? 
 > 
 >> ## Solution
 >> ~~~
->> $ tail -n 4 JP4D_R1.fastq
+>>   
+>> a) It does show the ID and quality of the last read but also show unnecesary lines from previous reads.  
+>> b) No. It shows the first read's info.  
+>> c) It shows the text of the entire file.  
+>> d) This option is the best answer as it only shows info for the last read.  
+>> e) It does show the ID of the last read but not the quality.  
+>> 
 >> ~~~
 >> {: .bash}
 >> 
