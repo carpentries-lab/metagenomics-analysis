@@ -191,10 +191,13 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 
 > ## Exercise 1: Rename all files in a folder
 >
-> Add JC1A (the sample ID) separated by "_"  at the beggining of the names of all the contents in the assembly_JC1A directory.
-> Remember that many solutions are possible.
->
->
+> Add JC1A (the sample ID) separated by "_"  at the beggining of the names of all the contents in the assembly_JC1A directory. Remember that many solutions are possible.
+> 
+> A) 
+> B)
+> C)  for name in *; do mv $name JC1A_$name; done
+> D)
+> 
 >> ## Solution
 >>~~~
 >>for name in *; do mv $name JC1A_$name; done
