@@ -169,8 +169,9 @@ The question of, how much contamination we can tolerate and how much completenes
 >
 > Fill in the blanks to complete the code you need to download the `quality_JP4D.tsv` to your local computer:
 > ~~~
-> ____ dcuser____ec2-18-207-132-236.compute-1.amazonaws.com____home/dcuser/dc_workshop/mags/CHECKM/quality_JP4D.tsv ____
+> ____ dcuser____ec2-18-207-132-236.compute-1.amazonaws.com____/home/dcuser/dc_workshop/mags/CHECKM/quality_JP4D.tsv ____
 > ~~~
+> {: .bash} 
 > 
 >> ## Solution
 >>In a terminal that is standing on your local computer do:
