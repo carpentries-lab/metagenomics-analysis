@@ -126,9 +126,9 @@ A>>1AFC>DD111A0E0001BGEC0AEGCCGEGGFHGHHGHGHHGGHHHGGGGGGGGGGGGGHHGEGGGHHHHGHHGHHH
 We can now see that there is a range of quality scores, but that the end of the sequence is
 very poor (`#` = a quality score of 2). 
 
-> ## Exercise 1: Looking at reads  
+> ## Exercise 1: Looking at specific reads  
 > 
-> How would you show in the terminal the ID and quality of last read in the `JP4D_R1.fastq `?  
+> How would you show in the terminal the ID and quality of last read in `JP4D_R1.fastq `?  
 > a) `tail JP4D_R1.fastq`  
 > b) `head -n 4 JP4D_R1.fastq`  
 > c) `more JP4D_R1.fastq`  
@@ -350,16 +350,25 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 ~~~
 {: .bash}
 
-> ## Exercise 2: Looking at the size of files
+> ## Exercise 2: Looking at files metadata
 > 
->  How big are the files?
-> (Hint: Look at the options for the `ls` command to see how to show
-> file sizes.)
->
+> How would you see the size of the files in the `untrimmed_fastq\` directory?  
+> (Hint: Look at the options for the `ls` command to see how to show file sizes.)
+> a) `ls -a`  
+> b) `ls -S`  
+> c) `ls -l`  
+> d) `ls -lh`  
+> e) `ls -ahls`  
+>   
 >> ## Solution
 >>  
 >> ~~~
->> $ ls -l -h
+>> a) No. The flag `-a` shows all of the contents, including hidden files and directories.  
+>> b) No. The flag `-S` shows the content Sorted by size starting with the largest file.  
+>> c) Yes. The flag `-l` shows the contents with metadata including file size.    
+>> d) Yes. The flag `-lh` shows the content  with metadata in a human readable manner.  
+>> e) Yes. The combination of all of the flags shows all of the contents with metadata including hidden files, sorted by size.  
+>> 
 >> ~~~
 >> {: .bash}
 >> 
@@ -517,7 +526,7 @@ Depending on your system,
 you should be able to select and open them all at once via a right click menu
 in your file browser.
 
-> ## Exercise 3: Quality discussion
+> ## Exercise 3: Discuss the quality of sequencing files
 > 
 > Discuss your results with a neighbor. Which sample(s) looks the best
 > in terms of per base sequence quality? Which sample(s) look the
