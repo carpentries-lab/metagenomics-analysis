@@ -167,19 +167,19 @@ The question of, how much contamination we can tolerate and how much completenes
 
 > ## Exercise 1: Discuss the quality of the obtained MAGs
 >
-> Download the quality file ´quality_JP4D.tsv´ to your local computer and open it in a spreadsheet.
-> Then discuss with your team which of the parameters in the table do you find useful.
->
+> Fill in the blanks to complete the code you need to download the `quality_JP4D.tsv` to your local computer:
+> 
+> ___ dcuser___ec2-18-207-132-236.compute-1.amazonaws.com___home/dcuser/dc_workshop/mags/CHECKM/quality_JP4D.tsv ___
 >> ## Solution
 >>In a terminal that is standing on your local computer do:
 >>~~~
->>$ cd ~/Desktop/
 >>
->>$ scp dcuser@ec2-18-207-132-236.compute-1.amazonaws.com:/home/dcuser/dc_workshop/mags/CHECKM/quality_JP4D.tsv .
+>>$ scp dcuser@ec2-18-207-132-236.compute-1.amazonaws.com:/home/dcuser/dc_workshop/mags/CHECKM/quality_JP4D.tsv <the destination directory of your choice>
 >> ~~~
 >>{: .bash} 
 >>
 > {: .solution}
+> Then discuss with your team which of the parameters in the table do you find useful.
 {: .challenge}
 
 {: .bash} 
