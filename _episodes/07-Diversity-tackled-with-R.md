@@ -112,7 +112,7 @@ There are different ways to plot and show the results of such analysis. Among ot
 > *Hic Sunt Leones!* (*Here be Lions!*)  
 >
 >> ## Solution
->> 2. 3, 3, 4
+>> Answer: 3, 3, 4
 > {: .solution}
 {: .challenge}
 
