@@ -346,11 +346,28 @@ JC1A_R2un.trim.fastq.gz  JP4D_R2un.trim.fastq.gz
 > ## Bonus Exercise (Advanced): Quality test after trimming
 >
 > Now that our samples have gone through quality control, they should perform
-> better on the quality tests run by FastQC. Go ahead and re-run
+> better on the quality tests run by FastQC. 
+> 
+> Sort the following chunks of code and decide in which terminal
+> (AWS or local) you should run them to be able to re-run
 > FastQC on your trimmed FASTQ files and visualize the HTML files
 > to see whether your per base sequence quality is higher after
-> trimming.
->
+> trimming. 
+> ~~~
+> $ scp dcuser@ec2-34-203-203-131.compute-1.amazonaws.com:~/dc_workshop/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
+> ~~~
+> {: .bash}
+> 
+> ~~~
+> $ fastqc ~/dc_workshop/data/trimmed_fastq/*.fastq*
+> ~~~
+> {: .bash}
+> 
+> ~~~
+> $ mkdir ~/Desktop/fastqc_html/trimmed
+> ~~~
+> {: .bash}
+> 
 >> ## Solution
 >>
 >> In your AWS terminal window do:
