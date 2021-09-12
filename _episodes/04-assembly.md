@@ -199,7 +199,7 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 > D)  for name in *; do mv $name JC1A_$name; done      
 >    
 >> ## Solution
->>~~~
+>> ~~~
 >>
 >> A)  No, this option is going to give you as error mv: target 'JC1A_' is not a directory 
 >>  This is because mv has two options
@@ -213,8 +213,8 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >> D)  Yes, this is one of the possible solutions.
 >> 
 >> ¿Do you have another solution?
->>~~~
->>{: .bash}
+>> ~~~
+>> {: .bash}
 > {: .solution}
 {: .challenge}
 
