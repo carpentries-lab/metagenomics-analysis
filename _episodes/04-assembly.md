@@ -226,8 +226,8 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >> ## Solution
 >> 
 >> ~~~
->> $ `grep “>” contigs.fasta | wc -l`
->> $ `grep “>” scaffolds.fasta | wc -l`
+>> $ grep “>” contigs.fasta | wc -l
+>> $ grep “>” scaffolds.fasta | wc -l
 >> ~~~
 >> {: .bash}
 >>
