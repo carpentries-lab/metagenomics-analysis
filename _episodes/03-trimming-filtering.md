@@ -304,14 +304,19 @@ TruSeq3-PE.fa
 > ## Exercise 2: Adapter files
 > We trimmed our FASTQ files with Nextera adapters, 
 > but there are other adapters that are commonly used.
-> What other adapter files came with Trimmomatic installation?
->
+> How can you check the full list of adapters that came with Trimmomatic installation?
+> 
+> a) `ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
+> b) `cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
+> c) `head ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
 >
 >> ## Solution
 >> ~~~
->> $ ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
+>> a) Yes, the `ls` command will display the content of the adapters folder (came with Trimmomatic installation).
+>> b) No, this command is incomplete and it is used to copy adapters to your working directory but will not show you the adapters list.
+>> c) No, this command is usually used to read files content.
 >> ~~~
->> {: .bash}
+>> {: .solution}
 >>
 >> ~~~
 >> NexteraPE-PE.fa  TruSeq2-SE.fa    TruSeq3-PE.fa
