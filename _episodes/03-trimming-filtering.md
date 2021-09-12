@@ -216,7 +216,7 @@ TrimmomaticPE: Completed successfully
 > Use the output from your Trimmomatic command to answer the
 > following questions.
 >
-> 1) What percent of reads did we discard from our sample?
+> 1) What percent of reads did we discard from our sample? 
 > 2) What percent of reads did we keep both pairs?
 >
 >> ## Solution
@@ -304,7 +304,7 @@ TruSeq3-PE.fa
 > ## Exercise 2: Adapter files
 > We trimmed our FASTQ files with Nextera adapters, 
 > but there are other adapters that are commonly used.
-> What other adapter files came with Trimmomatic intallation?
+> What other adapter files came with Trimmomatic installation?
 >
 >
 >> ## Solution
