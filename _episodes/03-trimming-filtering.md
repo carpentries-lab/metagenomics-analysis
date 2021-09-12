@@ -322,8 +322,10 @@ TruSeq3-PE.fa
 >>
 >> ~~~
 >> ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
+>> ~~~
 >> {: .bash}
 >> 
+>> ~~~
 >> NexteraPE-PE.fa  TruSeq2-SE.fa    TruSeq3-PE.fa
 >> TruSeq2-PE.fa    TruSeq3-PE-2.fa  TruSeq3-SE.fa
 >> ~~~
