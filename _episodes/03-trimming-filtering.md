@@ -321,7 +321,7 @@ TruSeq3-PE.fa
 >> {: .solution}
 >>
 >> ~~~
->> ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
+>> $ ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
 >> ~~~
 >> {: .bash}
 >> 
