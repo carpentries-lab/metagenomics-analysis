@@ -307,7 +307,9 @@ TruSeq3-PE.fa
 > How can you check the full list of adapters that came with Trimmomatic installation?
 > 
 > a) `ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
+> 
 > b) `cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
+> 
 > c) `head ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
 >
 >> ## Solution
@@ -319,6 +321,9 @@ TruSeq3-PE.fa
 >> {: .solution}
 >>
 >> ~~~
+>> ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
+>> {: .bash}
+>> 
 >> NexteraPE-PE.fa  TruSeq2-SE.fa    TruSeq3-PE.fa
 >> TruSeq2-PE.fa    TruSeq3-PE-2.fa  TruSeq3-SE.fa
 >> ~~~
