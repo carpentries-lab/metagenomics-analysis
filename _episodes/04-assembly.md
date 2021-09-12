@@ -220,7 +220,9 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 
 > ## Exercise 2: Compare the information between the different fasta files from the assembly output
 > Chepiche wants to know how many contigs and how many scaffolds results for the assembly. Use >`contigs.fasta ` and `scaffolds.fasta ` files and sort the commands to create correct code lines. 
+> 
 > Do they have the same number of lines? Why?
+> 
 > Hint: You can use the following commands: grep, | (pipe), -l, “>”, wc, filename.fasta
 > 
 >> ## Solution
