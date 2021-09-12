@@ -306,17 +306,16 @@ TruSeq3-PE.fa
 > but there are other adapters that are commonly used.
 > How can you check the full list of adapters that came with Trimmomatic installation?
 > 
-> a) `ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
-> 
-> b) `cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
-> 
-> c) `head ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
+> 1. `ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
+> 2. `cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
+> 3. `head ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/`
 >
 >> ## Solution
+>> 
 >> ~~~
->> a) Yes, the `ls` command will display the content of the adapters folder (came with Trimmomatic installation).
->> b) No, this command is incomplete and it is used to copy adapters to your working directory but will not show you the adapters list.
->> c) No, this command is usually used to read files content.
+>> 1. Yes, the `ls` command will display the content of the adapters folder (came with Trimmomatic installation).
+>> 2. No, this command is incomplete and it is used to copy adapters to your working directory but will not show you the adapters list.
+>> 3. No, this command is usually used to read files content.
 >> ~~~
 >> {: .solution}
 >>
