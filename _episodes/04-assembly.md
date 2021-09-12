@@ -201,7 +201,7 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >> ## Solution
 >> ~~~
 >>
->> A)  No, this option is going to give you as error mv: target 'JC1A_' is not a directory 
+>>  A)  No, this option is going to give you as error mv: target 'JC1A_' is not a directory 
 >>  This is because mv has two options
 >>  mv file_1 file_2
 >>  mv file_1, file_2, ..... file_n, directory 
@@ -210,7 +210,7 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >>  The last parameter is JC1A_ (which mv expects to be a directory)  
 >>  B)  No, Again every file is send to the same file.
 >>  C)  No, every file is sent to the same file JC1A_
->> D)  Yes, this is one of the possible solutions.
+>>  D)  Yes, this is one of the possible solutions.
 >> 
 >> ¿Do you have another solution?
 >> ~~~
