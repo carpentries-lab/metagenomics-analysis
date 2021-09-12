@@ -312,11 +312,12 @@ TruSeq3-PE.fa
 >
 >> ## Solution
 >> 
->> ~~~
->> 1. Yes, the `ls` command will display the content of the adapters folder (came with Trimmomatic installation).
->> 2. No, this command is incomplete and it is used to copy adapters to your working directory but will not show you the adapters list.
+>> 
+>> 1. Yes, the `ls` command will display the content of the adapters folder (came with 
+>> Trimmomatic installation).
+>> 2. No, this command is incomplete and it is used to copy adapters to your working 
+>> directory but will not show you the adapters list.
 >> 3. No, this command is usually used to read files content.
->> ~~~
 >> {: .solution}
 >>
 >> ~~~
