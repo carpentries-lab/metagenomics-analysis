@@ -19,7 +19,7 @@ keypoints:
 
 ## Assembling reads
 The assembly process groups reads into contigs and contigs into 
-scaffolds, in order to obtain(ideally) the sequence of a whole 
+scaffolds, in order to obtain (ideally) the sequence of a whole 
 chromosome. There are many programs devoted to
 [genome](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874646/) and 
 metagenome assembly, some of the main strategies they use are: Greedy 
@@ -35,7 +35,7 @@ for assembling large and complex metagenomics data, and it is one of the
 most used and recommended. It is part of the SPAdes toolkit, that 
 contains several assembly pipelines.
 
-Some of the problems faced by metagenomics assembly are i) the differences in coverage between the genomes, due to the differences in abundance in the sample, ii) the fact that different species often share conserved regions, iii) and the presence of several strains of a single species in the community. SPAdes already deals with the non-uniform coverage problem in its algorithm, so it is useful for the assembly of simple communities, but the [metaSPAdes](https://pubmed.ncbi.nlm.nih.gov/28298430/) algorithm deals with the other problems as well, allowing it to assemble metagenomes from complex communities. 
+Some of the problems faced by metagenomics assembly are: i) the differences in coverage between the genomes, due to the differences in abundance in the sample, ii) the fact that different species often share conserved regions, iii) and the presence of several strains of a single species in the community. SPAdes already deals with the non-uniform coverage problem in its algorithm, so it is useful for the assembly of simple communities, but the [metaSPAdes](https://pubmed.ncbi.nlm.nih.gov/28298430/) algorithm deals with the other problems as well, allowing it to assemble metagenomes from complex communities. 
 
 Let's see what happens if we enter the metaspades.py command on our terminal.
 
@@ -119,7 +119,7 @@ $ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../resul
 > ## Running commands on the background
 > The `&` sign that we are using at the end of the command is for telling 
 the machine to run the command on the background, this will help us to avoid 
-the cancelation of the opperation in case the connection with the AWS machine is unstable. 
+the cancelation of the operation in case the connection with the AWS machine is unstable. 
 {: .callout}
 
 When the run is finished it shows this message:
