@@ -388,9 +388,9 @@ raw.plot | rel.plot
 > your data-frame. According to the [ColorBrewer](https://github.com/axismaps/colorbrewer/) package
 > it is recommended not to have more than 9 different colors in a plot. 
 > Please, paste your result on the collaborative document provided by instructors. Hic Sunt Leones! (Here be Lions!):
-filter(island == "Dream" & year > 2007) %>%
-penguins %>%
-select(species, body_mass_g)
+# Ignore these two lines
+from IPython.display import IFrame
+IFrame('http://parsons.problemsolving.io/puzzle/5f25ce927e9449c8af6a5edc295236ab', 1000, 400)
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has contrasting number of reads.
