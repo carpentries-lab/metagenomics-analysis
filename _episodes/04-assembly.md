@@ -226,7 +226,6 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >
 > Commands: grep, | (pipe), -l, “>”, wc, filename.fasta
 > 
-> {: .bash} 
 > 
 >> ## Solution
 >>~~~
