@@ -316,7 +316,7 @@ TruSeq3-PE.fa
 >> 2. No, this command is incomplete and it is used to copy adapters to your working 
 >> directory but will not show you the adapters list.
 >> 3. No, this command is usually used to read files content.
->>
+> {: .solution}
 >> ~~~
 >> $ ls ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
 >> ~~~
