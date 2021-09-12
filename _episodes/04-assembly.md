@@ -224,12 +224,16 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 Hint: You can use the following commands: grep, | (pipe), -l, “>”, wc, filename.fasta
 > 
 >> ## Solution
+>> 
+>> ~~~
 >> grep “>” contigs.fasta | wc -l
 >> grep “>” scaffolds.fasta | wc -l
+>> ~~~
 >> {: .bash}
 >>
 >> ~~~
 >> A contig is created from reads and then a scaffold from group of cotings so we expect less lines in the `scaffolds.fasta ` .
+>> ~~~
 > {: .solution}
-> ~~~
-> {: .challenge}
+> 
+{: .challenge}
