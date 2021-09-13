@@ -386,9 +386,15 @@ raw.plot | rel.plot
 > Go into groups and agglomerate the taxa in the raw data, so as to have
 > a better visualization of the data. Remeber checking the data-classes inside
 > your data-frame. According to the [ColorBrewer](https://github.com/axismaps/colorbrewer/) package
-> it is recommended not to have more than 9 different colors in a plot. 
-> Please, paste your result on the collaborative document provided by instructors. Hic Sunt Leones! (Here be Lions!):
-> What is the best way to run the next?
+> it is recommended not to have more than 9 different colors in a plot.
+> What is the best way to run the next script? 
+> Hic Sunt Leones! (Here be Lions!):
+> A) raw.plot | rel.plot
+> B) unique(raw.data$Phylum)
+> C) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+>  geom_bar(aes(), stat="identity", position="stack")
+> D) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
+
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has contrasting number of reads.
