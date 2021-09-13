@@ -387,12 +387,18 @@ raw.plot | rel.plot
 > a better visualization of the data. Remeber checking the data-classes inside
 > your data-frame. According to the [ColorBrewer](https://github.com/axismaps/colorbrewer/) package
 > it is recommended not to have more than 9 different colors in a plot.
+> 
 > What is the best way to run the next script? 
+> 
 > Hic Sunt Leones! (Here be Lions!):
+> 
 > A) raw.plot | rel.plot
+> 
 > B) unique(raw.data$Phylum)
+> 
 > C) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
 >  geom_bar(aes(), stat="identity", position="stack")
+>  
 > D) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
 
 >> ## Solution
