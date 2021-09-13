@@ -392,9 +392,9 @@ raw.plot | rel.plot
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
-> A) raw.plot | rel.plot
-> 
 > B) unique(raw.data$Phylum)
+> 
+> A) raw.plot | rel.plot
 > 
 > C) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
 >  geom_bar(aes(), stat="identity", position="stack")
