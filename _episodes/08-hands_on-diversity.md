@@ -392,7 +392,7 @@ raw.plot | rel.plot
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
-> A) raw.plot | rel.plot
+> A) raw.plot|rel.plot
 > 
 > B) unique(raw.data$Phylum)
 > 
