@@ -388,31 +388,32 @@ raw.plot | rel.plot
 > your data-frame. According to the [ColorBrewer](https://github.com/axismaps/colorbrewer/) package
 > it is recommended not to have more than 9 different colors in a plot.
 > 
-> What is the best way to run the next script? 
+> What is the best way to run the next script? Compare your graphs with your partners
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
 > B) unique(raw.data$Phylum)
 > 
-> A) raw.plot | rel.plot
-> 
-> C) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+> A) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
 >  geom_bar(aes(), stat="identity", position="stack")
 >  
-> D) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
+> C) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
 
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has contrasting number of reads.
 >> 
->> D) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
+>> C) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
 >> 
 >> B) unique(raw.data$Phylum)
 >> 
->> C) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+>> A) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
 >>  geom_bar(aes(), stat="identity", position="stack")
+>>  
+>>  Show your plots:
+>>  
+>>  raw.plot | rel.plot
 >> 
->> A) raw.plot | rel.plot
 >> <a href="{{ page.root }}/fig/03-08-01e.png">
 >>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
 >> </a>
