@@ -398,7 +398,6 @@ raw.plot | rel.plot
 >  geom_bar(aes(), stat="identity", position="stack")
 >  
 > C) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
-
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has contrasting number of reads.
