@@ -247,7 +247,7 @@ $ java -jar ~/src/Trimmomatic-0.38/trimmomatic-0.38.jar
 
 
 After the basic software of the genomic instace is setup you need to addition the metagenomics environment. 
-Here is a link to [specifications file](${root}/files/spec-file.txt) with the exact versions of each tool in this environment. You can use the spec file as follows:  
+Here is a link to [specifications file](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/spec-file.txt) with the exact versions of each tool in this environment. You can use the spec file as follows:  
 > ~~~
 > $ conda create --name myenv --file spec-file.txt
 > ~~~
