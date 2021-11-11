@@ -153,7 +153,7 @@ To have these values in an output that is more usable and shearable we can now r
 and make it print the output in a `TSV` table, instead of the console. In this step, we can ask CheckM to give us more parameters, like contig number and length.
 
 Ideally, we would like to get only one contig per bin, with a length similar the genome size of the corresponding taxa. Since this scenario is very difficult to obtain we can use parameters that show us how good is our assembly. Here are some of the most common metrics:
-If we arrange our contigs by size, from larger to smaller, and divide the whole sequence in half, N50 is the size of the smallest contig in the half that has the larger contigs; and L50 is the number of contigs in this half of the sequence. So we want big N50 and small L50 values for our genomes.
+If we arrange our contigs by size, from larger to smaller, and divide the whole sequence in half, N50 is the size of the smallest contig in the half that has the larger contigs; and L50 is the number of contigs in this half of the sequence. So we want big N50 and small L50 values for our genomes. Read https://www.molecularecologist.com/2017/03/29/whats-n50/
 
 To get the table with these extra parameters we need to specify the file of the markers that CheckM used in the previous step `Bacteria.ms`, the name of the output file we want `quality_JP4D.tsv`, that we want a table `--tab_table`, and the option number 2 `-o 2` is to ask for the extra parameters printed on the table. 
 ~~~
