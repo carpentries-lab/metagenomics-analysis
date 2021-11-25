@@ -26,7 +26,7 @@ goal*
 
 ## Visualizing our data with ggplot2
 In the last lesson, we created our phyloseq object, which contains the information 
-of both of our samples: `JC1A` and `JP4D`. Let´s take a look again at the
+of our samples: `JC1A`, `JP41` and `JP4D`. Let´s take a look again at the
  number of reads in our data.  
 ~~~
 merged_metagenomes
@@ -43,6 +43,10 @@ tax_table()   Taxonomy Table:    [ 4024 taxa by 7 taxonomic ranks ]
 ~~~
 {: .output}
 ~~~
+
+Now with `summary` lets get a sense about the distribution of the reads 
+in the different OTUs. This function answers how many reads are in average
+in an OTU, and what are the maximum numbers of reads in certain category. 
 summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
@@ -57,8 +61,8 @@ summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .output}
 
-It is useful to see numbers, but there are other ways to deliver information and how there are 
-relationships between variables. 
+It is useful to see numbers, but there are other ways to deliver information and to
+unerstabd the relationships between variables. Lets try some graphics. 
 R has its own [base plotting system](https://www.statmethods.net/graphs/index.html), but we have already 
 loaded a package that will help us to create artistically-proclived figures:[ggplot2](https://www.statmethods.net/advgraphs/ggplot2.html).
 
