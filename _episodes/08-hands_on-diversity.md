@@ -62,7 +62,7 @@ summary(merged_metagenomes@otu_table@.Data)
 {: .output}
 
 It is useful to see numbers, but there are other ways to deliver information and to
-unerstabd the relationships between variables. Lets try some graphics. 
+unerstand the relationships between variables. Lets try some graphics. 
 R has its own [base plotting system](https://www.statmethods.net/graphs/index.html), but we have already 
 loaded a package that will help us to create artistically-proclived figures:[ggplot2](https://www.statmethods.net/advgraphs/ggplot2.html).
 
@@ -71,8 +71,8 @@ ggplot2 has been created with the idea that any graphic can be expressed with th
 * Coordinates
 * Set of **geoms**, that is the visual representation of the data 
 
-This **geoms** can be thought as layers that can be overlapped one over another, so special attention 
-needs to be required to show useful information-layers to deliver a messagge. We are going to create an 
+This **geoms** can be thought as layers that can be overlapped one over another, so special care 
+is required to show useful information-layers to deliver a messagge. We are going to create an 
 example with some of the data that we already have. Let's create a data-frame with the next code:
 ~~~
 deep <- data.frame(Samples = sample_names(merged_metagenomes),
@@ -88,6 +88,7 @@ JP4D    JP4D 149590
 JP41    JP41  76589
 ~~~
 {: .output}
+`deep` is a new dataframe where we store the name of the sample and its corresponding number of reads.
 
 Now, we can do a figure with the three components mentioned(data, coordinates, and geom):
 ~~~
