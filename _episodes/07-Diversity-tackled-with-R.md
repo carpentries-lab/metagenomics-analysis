@@ -485,13 +485,46 @@ and that these two will belong to the same OTU.
 >
 > Use these flags to generate new figures that show you and your breakroom-coterie 
 > other ways to present the data.
-> 
-> Please, paste your result on the collaborative document provided by instructors. 
-> Hic Sunt Leones! (Here be Lions!)  
 >
 >> ## Solution
 >> The code and the plot using the three flags will look as follows:
+>> The "title()" flag adds a title to the figure.
+>> ~~~
+>> >plot_richness(physeq = merged_metagenomes, 
+>>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
+>>              measures = c("Observed","Chao1","Shannon"))
+>> ~~~
+>> {: .language-r}
 >> 
+>> <a href="{{ page.root }}/TitleFlag.png">
+>> <img src="{{ page.root }}/TitleFlag.png" alt="Alpha diversity indexes for both samples with title" />
+>> </a>
+>> 
+>> The "nrow()" flag arranges the graphics horizontally.
+>> ~~~
+>> >plot_richness(physeq = merged_metagenomes, 
+>>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
+>>              measures = c("Observed","Chao1","Shannon"),
+>>              nrow=3)
+>> ~~~
+>> {: .language-r}
+>>  
+>> <a href="{{ page.root }}/NrowFlag.png">
+>> <img src="{{ page.root }}/NrowFlag.png" alt="Alpha diversity indexes for both samples horizontal with title" />
+>> </a>
+>> 
+>> The "sortby()" flag orders the samples from least to greatest diversity depending on the parameter. In this case, it is ordered by "Shannon" and tells us that the JP4D sample has the lowest diversity and the JP41 sample the highest.
+>> ~~~
+>> >plot_richness(physeq = merged_metagenomes, 
+>>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
+>>              measures = c("Observed","Chao1","Shannon"),
+>>              sortby = "Shannon") 
+>> ~~~
+>> {: .language-r}
+>> 
+>> <a href="{{ page.root }}/SortbyFlag.png">
+>> <img src="{{ page.root }}/SortbyFlag.png" alt="Alpha diversity indexes for both samples with title sort by Shannon" />
+>> </a>
 >> 
 > {: .solution}
 {: .challenge}  
