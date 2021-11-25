@@ -496,8 +496,8 @@ and that these two will belong to the same OTU.
 >> ~~~
 >> {: .language-r}
 >> 
->> <a href="{{ page.root }}/TitleFlag.png">
->> <img src="{{ page.root }}/TitleFlag.png" alt="Alpha diversity indexes for both samples with title" />
+>> <a href="{{ page.root }}/fig//TitleFlag.png">
+>> <img src="{{ page.root }}/fig//TitleFlag.png" alt="Alpha diversity indexes for both samples with title" />
 >> </a>
 >> 
 >> The "nrow()" flag arranges the graphics horizontally.
@@ -509,8 +509,8 @@ and that these two will belong to the same OTU.
 >> ~~~
 >> {: .language-r}
 >>  
->> <a href="{{ page.root }}/NrowFlag.png">
->> <img src="{{ page.root }}/NrowFlag.png" alt="Alpha diversity indexes for both samples horizontal with title" />
+>> <a href="{{ page.root }}/fig//NrowFlag.png">
+>> <img src="{{ page.root }}/fig//NrowFlag.png" alt="Alpha diversity indexes for both samples horizontal with title" />
 >> </a>
 >> 
 >> The "sortby()" flag orders the samples from least to greatest diversity depending on the parameter. In this case, it is ordered by "Shannon" and tells us that the JP4D sample has the lowest diversity and the JP41 sample the highest.
@@ -522,8 +522,8 @@ and that these two will belong to the same OTU.
 >> ~~~
 >> {: .language-r}
 >> 
->> <a href="{{ page.root }}/SortbyFlag.png">
->> <img src="{{ page.root }}/SortbyFlag.png" alt="Alpha diversity indexes for both samples with title sort by Shannon" />
+>> <a href="{{ page.root }}/fig//SortbyFlag.png">
+>> <img src="{{ page.root }}/fig//SortbyFlag.png" alt="Alpha diversity indexes for both samples with title sort by Shannon" />
 >> </a>
 >>
 >>
