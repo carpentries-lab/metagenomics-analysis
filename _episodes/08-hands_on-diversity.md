@@ -33,6 +33,7 @@ merged_metagenomes
 sample_sums(x = merged_metagenomes)
 ~~~
 {: .language-r}
+
 ~~~
 phyloseq-class experiment-level object
 otu_table()   OTU Table:         [ 4024 taxa and 3 samples ]
@@ -42,11 +43,15 @@ tax_table()   Taxonomy Table:    [ 4024 taxa by 7 taxonomic ranks ]
  18412 149590  76589
 ~~~
 {: .output}
-~~~
+
 
 Now with `summary` lets get a sense about the distribution of the reads 
 in the different OTUs. This function answers how many reads are in average
 in an OTU, and what are the maximum numbers of reads in certain category. 
+
+
+
+~~~
 summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
