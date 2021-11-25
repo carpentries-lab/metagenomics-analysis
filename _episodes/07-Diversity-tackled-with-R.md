@@ -527,7 +527,7 @@ and that these two will belong to the same OTU.
 >> </a>
 >>
 >>
->>  Considering the above mentioned, together with the 3 graphs, we can say that the samples JP41 and JP4D present a high diversity with respect to the JC1A, but that the sample JP41, its diversity is mainly given by singletons or doubletons, instead, the diversity of JP4D is given by species in much greater abundance. Although because the values of H (Shannon) above 4 are considered to have a lot of diversity.
+>>  Considering the above mentioned, together with the 3 graphs, we can say that the samples JP41 and JP4D present a high diversity with respect to the JC1A, but that the sample JP41, its diversity is mainly given by singletons or doubletons, instead, the diversity of JP4D is given by species in much greater abundance. Although because the values of H (Shannon) above 3 are considered to have a lot of diversity.
 >> 
 >  {: .solution}
 {: .challenge}  
