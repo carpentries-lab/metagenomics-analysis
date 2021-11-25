@@ -490,7 +490,7 @@ and that these two will belong to the same OTU.
 >> The code and the plot using the three flags will look as follows:
 >> The "title()" flag adds a title to the figure.
 >> ~~~
->> >plot_richness(physeq = merged_metagenomes, 
+>> > plot_richness(physeq = merged_metagenomes, 
 >>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
 >>              measures = c("Observed","Chao1","Shannon"))
 >> ~~~
@@ -502,7 +502,7 @@ and that these two will belong to the same OTU.
 >> 
 >> The "nrow()" flag arranges the graphics horizontally.
 >> ~~~
->> >plot_richness(physeq = merged_metagenomes, 
+>> > plot_richness(physeq = merged_metagenomes, 
 >>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
 >>              measures = c("Observed","Chao1","Shannon"),
 >>              nrow=3)
@@ -515,7 +515,7 @@ and that these two will belong to the same OTU.
 >> 
 >> The "sortby()" flag orders the samples from least to greatest diversity depending on the parameter. In this case, it is ordered by "Shannon" and tells us that the JP4D sample has the lowest diversity and the JP41 sample the highest.
 >> ~~~
->> >plot_richness(physeq = merged_metagenomes, 
+>> > plot_richness(physeq = merged_metagenomes, 
 >>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
 >>              measures = c("Observed","Chao1","Shannon"),
 >>              sortby = "Shannon") 
