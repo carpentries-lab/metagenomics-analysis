@@ -380,7 +380,7 @@ This is useful, but what we need to do if we need to know how many of our reads 
 ~~~
 {: .output}
 
-> ## Exercise 1: 
+> ## Exercise 2: 
 > 
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the learned code to find out how many reads have been assigned to
@@ -388,9 +388,29 @@ This is useful, but what we need to do if we need to know how many of our reads 
 > がんばれ! (ganbate; *good luck*):
 >> ## Solution
 >> Change the name of a new phylum wherever it is needed to get the result.
->> As an example, here is the solution for Proteobacteria:
->>sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria")
->>unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria", "Genus"])
+>> As an example, here is the solution for Cyanobacteria:
+>>sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Cyanobacteria")
+>>Output
+>>[1] 138
+>>With unique you get each genus of the Cyanobacteria Phylum.
+>>unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Cyanobacteria", "Genus"])
+>>Output 
+>>[1] "Cyanobium"                      "Synechococcus"                  "Leptolyngbya"                  
+>>[4] "Geitlerinema"                   "Geminocystis"                   "Stanieria"                     
+>>[7] "Gloeobacter"                    "Calothrix"                      "Nostoc"                        
+>>[10] "Sphaerospermopsis"              ""                               "Anabaena"                      
+>>[13] "Trichormus"                     "Cylindrospermum"                "Rivularia"                     
+>>[16] "Microchaete"                    "Nodularia"                      "Anabaenopsis"                  
+>>[19] "Raphidiopsis"                   "Dolichospermum"                 "Fischerella"                   
+>>[22] "Scytonema"                      "Chondrocystis"                  "Gloeocapsa"                    
+>>[25] "Cyanobacterium"                 "Microcystis"                    "Candidatus Atelocyanobacterium"
+>>[28] "Halothece"                      "Cyanothece"                     "Moorea"                        
+>>[31] "Oscillatoria"                   "Trichodesmium"                  "Microcoleus"                   
+>>[34] "Planktothrix"                   "Arthrospira"                    "Crinalium"                     
+>>[37] "Dactylococcopsis"               "Thermosynechococcus"            "Prochlorococcus"               
+>>[40] "Halomicronema"                  "Acaryochloris"                  "Synechocystis"                 
+>>[43] "Pseudanabaena"                  "Chamaesiphon"                   "Pleurocapsa"                   
+>>[46] "Chroococcidiopsis"              "Gloeomargarita"                
 > {: .solution}
 {: .challenge} 
 
