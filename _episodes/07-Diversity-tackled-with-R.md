@@ -335,6 +335,8 @@ will be the one choosed in both cases. Let's see what is inside of our `tax_tabl
 Next, let's get rid of some of the innecesary characters 
 in the OTUs identificator and put names to the taxonomic ranks:
 
+To remove unnecessary characters in .Data (matrix), we are going to use command 'substring'. This command is useful to extract or replace characters in a vector. To use the command, we have to indicate the vector (x) followed by the first element to replace or extract (first) and the last element to be replaced (last). For instance: substring (x, first, last). substring is "flexible" command, especially to select characters of different lengths as in our case. Therefore it is not necessary to indicate "last", so it will take the last position of the character by default. Considering that a matrix is a arrangement of vectors, we can use this command. Each character in .Data is preceded by 3 spaces occupied by a letter and two underscores, for example: o__Rhodobacterales. In this case "Rodobacterales" starts at position 4 with an R. So to remove the unnecessary characteres we will use the following code:
+
 ~~~
 > merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
 > colnames(merged_metagenomes@tax_table@.Data)<- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
