@@ -343,6 +343,11 @@ raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+
   geom_bar(aes(), stat="identity", position="stack")
 ~~~
 {: .language-r}
+Position_fill() and position_stack() automatically stack values in reverse order of the group aesthetic, 
+which for bar charts is usually defined by the fill aesthetic (the default group aesthetic is formed by the 
+combination of all discrete aesthetics except for x and y). This default ensures that bar colours align with the default legend.
+When stacking across multiple layers it's a good idea to always set the `group` aesthetic in the ggplot() call. 
+This ensures that all layers are stacked in the same way. For more info [position_stack](https://ggplot2.tidyverse.org/reference/position_stack.html) 
 
 Next, we will create the figure for the representation of the relative abundance data, and ask
 RStudio to show us both plots:
