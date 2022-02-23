@@ -3,8 +3,7 @@ layout: page
 title: Setup
 ---
 
-# Overvie![image](https://user-images.githubusercontent.com/22306672/155425907-8c3d7189-179f-4bde-a082-e7da0cf0044a.png)
-w
+# Overview
 
 This workshop is designed to be run on pre-imaged Amazon Web Services (AWS)
 instances. With the exception of a spreadsheet program, all of the command line software and data used in the workshop are hosted on an Amazon 
