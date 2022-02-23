@@ -3,7 +3,8 @@ layout: page
 title: Setup
 ---
 
-# Overview
+# Overvie![image](https://user-images.githubusercontent.com/22306672/155425907-8c3d7189-179f-4bde-a082-e7da0cf0044a.png)
+w
 
 This workshop is designed to be run on pre-imaged Amazon Web Services (AWS)
 instances. With the exception of a spreadsheet program, all of the command line software and data used in the workshop are hosted on an Amazon 
@@ -46,7 +47,7 @@ This lesson requires a working spreadsheet program. If you don't have a spreadsh
 
 ## Option A: Using the lessons with Amazon Web Services (AWS)
 
-If you are signed up to take a Metaggenomics Data Carpentry workshop, you do *not* need to worry about setting up an AMI instance. The Carpentries
+If you are signed up to take a Metagenomics Data Carpentry workshop, you do *not* need to worry about setting up an AMI instance. The Carpentries
 staff will create an instance for you and this will be provided to you at no cost. This is true for both self-organized and centrally-organized workshops. Your Instructor will provide instructions for connecting to the AMI instance at the workshop.
 
 If you would like to work through these lessons independently, outside of a workshop, you will need to start your own AMI instance. 
