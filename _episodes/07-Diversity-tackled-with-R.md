@@ -17,7 +17,7 @@ keypoints:
 - "The library `ggplot2` allows publication-quality plotting in R."
 ---
 
-# First plunge into diversity
+## First plunge into diversity
 *Look at your fingers, controlled by the mind can do great things. But imagine if each one have a little brain of its own, with 
 different ideas, desires, and fears ¡How wonderful things will be made out of an artist with such hands!* 
   -Ode to multidisciplinarity
@@ -84,7 +84,7 @@ For this lesson we will use Phyloseq, an R package specialized in metagenomic an
 
  <!-- coment we use https://viereck.ch/latex-to-svg/ to convert from latex to svg because Chao equation didnot render correctly with github math!-->
 
-## β diversity  
+### β diversity  
 Diversity β measures how different two or more communities are, either in their composition (richness)
 or in the abundance of the organisms that compose it (abundance). 
 - Bray-Curtis dissimilarity: The difference on richness and abundance across environments (samples). Weight on abundance. Measures the differences 
@@ -115,7 +115,7 @@ There are different ways to plot and show the results of such analysis. Among ot
 {: .challenge}
 
 
-# Creating lineage and rank tables  
+## Creating lineage and rank tables  
 
 In this lesson we will use RStudio to analize two microbiome samples from CCB, you don't have to install anything, 
 you already have an instance on the cloud ready to be used.   
@@ -131,7 +131,7 @@ an abundance matrix from the Kraken output files. One program widely used for th
 
 But before we face our first storm in this code sea, let's learn one useful tool in RStudio.
 
-## The terminal in RStudio
+### The terminal in RStudio
 
 RStudio has an integrated terminal that uses the same language as the one we learnd in the Command-line lessons. As well, R's terminal 
 is an interface that executes programs, and is better to deal with long data sets than in a visual interface.  
@@ -214,7 +214,7 @@ $ head JP4D.report
 {: .output}
 
 
-## Kraken-biom 
+### Kraken-biom 
 
 Kraken-biom is a program that creates BIOM tables from the Kraken output 
 [kraken-biom](https://github.com/smdabdoub/kraken-biom)
@@ -258,9 +258,9 @@ a `biom` object which contains both, the abundances of each OTU and the identifi
 With this result, we are ready to return to RStudio's console and beggin to manipulate our 
 taxonomic-data.
 
-#  Manipulating lineage and rank tables with phyloseq  
+##  Manipulating lineage and rank tables with phyloseq  
 
-## Load required packages  
+### Load required packages  
 
 Phyloseq is a library with tools to analyze and plot your metagenomics tables. Let's install [phyloseq](https://joey711.github.io/phyloseq/) (This instruction might not work on certain versions of R) and other libraries required for its execution:  
 
