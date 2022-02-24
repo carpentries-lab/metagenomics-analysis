@@ -31,8 +31,7 @@ each species inside the environment). It can be measured by calculating a divers
 <a href="{{ page.root }}/fig/03-07-01.png">
   <img src="{{ page.root }}/fig/03-07-01.png" alt="Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness" />
 </a>
-
-###### Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness
+<em> Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness. <em/>
  
 - β Diversity: It is the difference (measured as distance) between two or more environments. 
 It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance or UniFrac distance, to name a few. Each one 
@@ -42,8 +41,7 @@ between the species of the community).
 <a href="{{ page.root }}/fig/03-07-02.png">
   <img src="{{ page.root }}/fig/03-07-02.png" alt="Alpha and Beta diversity represented by fishes in a pond" />
 </a>
-
-###### Figure 2. Alpha and Beta diversity represented by fishes in a pond.
+<em> Figure 2. Alpha and Beta diversity represented by fishes in a pond.<em/>
 
 For this lesson we will use Phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
 
@@ -328,9 +326,7 @@ will be the one choosed in both cases. Let's see what is inside of our `tax_tabl
 <a href="{{ page.root }}/fig/03-07-03.png">
   <img src="{{ page.root }}/fig/03-07-03.png" alt="Table of the OTU data from our `merged_metagenomes` object" />
 </a>
-
-
-###### Figure 3. Table of the OTU data from our `merged_metagenomes` object.
+<em> Figure 3. Table of the OTU data from our `merged_metagenomes` object. <em/>
 
 Next, let's get rid of some of the innecesary characters 
 in the OTUs identificator and put names to the taxonomic ranks:
@@ -346,8 +342,7 @@ To remove unnecessary characters in .Data (matrix), we are going to use command 
 <a href="{{ page.root }}/fig/03-07-04.png">
   <img src="{{ page.root }}/fig/03-07-04.png" alt="Table of the OTU data from our `merged_metagenomes` object. With corrections" />
 </a>
-
-###### Figure 4. Table of the OTU data from our `merged_metagenomes` object. With corrections
+<em> Figure 4. Table of the OTU data from our `merged_metagenomes` object. With corrections. <em/>
 
 To explore how many phyla we have, we are going to use a command name `unique()`. Let's try what result
 we obtain with the next code:
@@ -727,8 +722,7 @@ graph created using Phyloseq:
 <a href="{{ page.root }}/fig/03-07-05.png">
   <img src="{{ page.root }}/fig/03-07-05.png" alt=" Alpha diversity indexes for both samples" />
 </a>
-
-###### Figure 5. Alpha diversity indexes for both samples
+<em> Figure 5. Alpha diversity indexes for both samples. <em/>
 
 Each of these metrics can give insight of the distribution of the OTUs inside 
 our samples. For example Chao1 diversity index gives more weight to singletons
