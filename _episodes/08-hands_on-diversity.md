@@ -105,8 +105,7 @@ ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) +
 <a href="{{ page.root }}/fig/03-08-01.png">
   <img src="{{ page.root }}/fig/03-08-01.png" alt="Sample read counts as bars in a plot" />
 </a>
-
-###### Figure 1. Sample read counts as bars in a plot
+<em> Figure 1. Sample read counts as bars in a plot. <em/>
 
 Unraveling the above code. We first called the `ggplot` function (*i.e. ggplot()*). This will tell R that we want to 
 create a new plot and the parameters indicated inside this function will apply to all the layers of the plot. We 
@@ -120,8 +119,7 @@ written taht it figures it out by itself. What would happend if we only call `gg
 <a href="{{ page.root }}/fig/03-08-02.png">
   <img src="{{ page.root }}/fig/03-08-02.png" alt="ggplot function result without a specified geom" />
 </a>
-
-###### Figure 2. ggplot function result without a specified geom
+<em> Figure 2. ggplot function result without a specified geom. <em/>
 
 We need to tell `ggplot` how we want to visually represent the data, which we did by adding a new geom layer. In this
 example, we used `geom_col`, which tells `ggplot` we want to visually represent the relationship between **x** and
@@ -131,7 +129,7 @@ example, we used `geom_col`, which tells `ggplot` we want to visually represent 
   <img src="{{ page.root }}/fig/03-08-01.png" alt="Sample read as bars in a plot" />
 </a>
 
-###### Figure 1. Sample read as bars in a plot
+<em> Figure 3. Sample read as bars in a plot. <em/>
 
 >## Exercise 1  : Exploring geoms
 > 
@@ -279,8 +277,7 @@ plot_ordination(physeq = percentages, ordination = meta.ord)
 <a href="{{ page.root }}/fig/03-08-03.png">
   <img src="{{ page.root }}/fig/03-08-03.png" alt="Beta diversity with NMDS of three samples" />
 </a>
-
-###### Figure 3. Beta diversity with NMDS of "three" samples
+<em> Figure 4. Beta diversity with NMDS of "three" samples. <em/>
 
 ## Ploting our data
 
@@ -298,8 +295,7 @@ View(glom@tax_table@.Data)
 <a href="{{ page.root }}/fig/03-08-04.png">
   <img src="{{ page.root }}/fig/03-08-04.png" alt="Taxonomic-data table after agrupation at phylum level" />
 </a>
-
-###### Figure 4. Taxonomic-data table after agrupation at phylum level.
+<em> Figure 5. Taxonomic-data table after agrupation at phylum level. <em/>
 
 Another phyloseq function is `psmelt()`, which melts phyloseq objects into a `data.frame` 
 to manipulate them with packages like `ggplot2` and `vegan`.
@@ -361,8 +357,7 @@ raw.plot | rel.plot
 <a href="{{ page.root }}/fig/03-08-05.png">
   <img src="{{ page.root }}/fig/03-08-05.png" alt="Taxonomic diversity of absolute and relative abundance" />
 </a>
-
-###### Figure 5. Taxonomic diversity of absolute and relative abundance
+<em> Figure 6. Taxonomic diversity of absolute and relative abundance. <em/>
 
 At once, we can denote the difference between the two plots and how processing the data can 
 enhance the display of important results. However, it is noticeable that we have too much taxa
@@ -392,9 +387,7 @@ raw.plot | rel.plot
 <a href="{{ page.root }}/fig/03-08-06.png">
   <img src="{{ page.root }}/fig/03-08-06.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
 </a>
-
-
-###### Figure 6. Taxonomic diversity of absolute and relative abundance with corrections
+<em> Figure 7. Taxonomic diversity of absolute and relative abundance with corrections. <em/>
 
 >## Exercise 2  : Taxa agglomeration
 > 
@@ -474,8 +467,7 @@ p.cyanos
 <a href="{{ page.root }}/fig/03-08-07.png">
   <img src="{{ page.root }}/fig/03-08-07.png" alt="Diversity of Cyanobacteria at genus level inside our samples" />
 </a>
-
-###### Figure 7. Diversity of Cyanobacteria at genus level inside our samples.
+<em> Figure 8. Diversity of Cyanobacteria at genus level inside our samples.<em/>
 
 > ## Exercise 3 
 > 
