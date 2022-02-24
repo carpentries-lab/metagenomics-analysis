@@ -14,7 +14,7 @@ keypoints:
 - "It is important to know the quality of our data to be able to make decisions in the subsequent steps."
 ---
 
-# Bioinformatic workflows
+## Bioinformatic workflows
 
 When working with high-throughput sequencing data, the raw reads you get off of the sequencer will need to pass
 through a number of  different tools in order to generate your final desired output. The execution of this set of
@@ -40,7 +40,7 @@ makes this feasible. Standards ensure that data is stored in a way that is gener
 within the community. The tools that are used to analyze data at different stages of the workflow are therefore 
 built under the assumption that the data will be provided in a specific format.  
 
-# Quality control
+## Quality control
 
 We will now assess the quality of the sequence reads contained in our FASTQ files. 
 
@@ -50,7 +50,7 @@ We will now assess the quality of the sequence reads contained in our FASTQ file
 </a>
 
 
-## Details on the FASTQ format
+### Details on the FASTQ format
 
 Although it looks complicated (and it is), we can understand the [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format include...
 
