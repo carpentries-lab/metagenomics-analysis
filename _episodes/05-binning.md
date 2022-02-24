@@ -114,7 +114,7 @@ JP4D.004.fasta	77.6%	5692657	38.9
 >What else do we want to know about our MAGs to confidently use them for further analysis?
 {: .discussion}
 
-# Quality check 
+## Quality check 
 
 The quality of a MAG is highly dependent on the size of the genome of the species, its abundance 
 in the community, and the depth at which we sequenced it.
