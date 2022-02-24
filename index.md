@@ -39,7 +39,7 @@ research efficiency and productivity.
 > will be given information on how to log-in to the AMI during the workshop. Learners using 
 > these materials for self-directed study will need to set up their own AMI. Information 
 > on setting up an AMI and accessing the required data is provided on the 
-> [Metagenomics Workshop setup page](http://carpentries-incubator.github.io/metagenomics/setup.html).
+> [Metagenomics Workshop setup page](https://carpentries-incubator.github.io/metagenomics-workshop/setup.html).
 >
 {: .prereq}
 
