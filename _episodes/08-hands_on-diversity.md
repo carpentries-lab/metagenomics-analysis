@@ -16,7 +16,7 @@ keypoints:
 - "Creativity is welcome to explore and present your data"
 ---
 
-# Assemble and manipulate a phyloseq object with a myriad of samples
+## Assemble and manipulate a phyloseq object with a myriad of samples
 
 *Before your fingers touch the keys, it must be decided in your mind why you are doing it...exploration 
 is welcome and praised, not moving at all or senseless movement will draw you somewhere far from your 
