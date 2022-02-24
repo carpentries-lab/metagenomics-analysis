@@ -16,7 +16,7 @@ keypoints:
 - "We will use data from a Cuatro Ciénegas project to learn about shotgun metagenomics."
 ---
 
-# Metagenomics 
+## Metagenomics 
 Metagenomes(Shotgun metagenomics) are collections of genomic 
 sequences from various (micro)organisms that coexist in any 
 given space. They are like snapshots that can give us information 
