@@ -36,9 +36,7 @@ classification with the most probable position.
 <a href="{{ page.root }}/fig/03-06-01.png">
   <img src="{{ page.root }}/fig/03-06-01.png" alt="Cog1 Metagenome" />
 </a>
-
-
-###### Figure 1. Lowest common ancestor assignment example.
+<em> Figure 1. Lowest common ancestor assignment example.<em/>
 
 3. Markers: They look for markers of a database made a priori in the sequences 
 to be classified and assign the taxonomy depending on the hits obtained.    
@@ -48,7 +46,7 @@ A key result when you do taxonomic assignment of metagenomes is the abundance of
 <a href="{{ page.root }}/fig/03-06-02.png">
   <img src="{{ page.root }}/fig/03-06-02.png" alt="Cog Metagenome" />
 </a>
-###### Figure 2. Abundance biases during a metagenomics protocol
+<em>Figure 2. Abundance biases during a metagenomics protocol. <em/>
 
 ## Using Kraken 2
 
