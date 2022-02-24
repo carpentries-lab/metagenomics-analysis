@@ -105,6 +105,43 @@ More information about these data will be presented in the [first lesson of the 
 
 [conda manage environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 
+#### R and RStudio
+R and RStudio are two separate pieces of software:
+
+R is a programming language that is especially powerful for data exploration, visualization, and statistical analysis
+RStudio is an integrated development environment (IDE) that makes using R easier. In this course we use RStudio to interact with R.
+
+> ## Mac OS X
+> -  Download R from the [CRAN website](https://cran.r-project.org/bin/macosx/).
+> + Select the .pkg file for the latest R version
+> + Double click on the downloaded file to install R
+> + It is also a good idea to install [XQuartz](https://www.xquartz.org/) (needed by some packages)
+> + Go to the [RStudio download](https://www.rstudio.com/products/rstudio/download/#download) page
+> + Under Installers select RStudio x.yy.zzz - Mac OS X 10.6+ (64-bit) (where x, y, and z represent version numbers)
+> + Double click the file to install RStudio
+> + Once it’s installed, open RStudio to make sure it works and you don’t get any error messages.
+{: .solution}
+
+> ## Windows
+> -  Download R from the [CRAN website](https://cran.r-project.org/bin/windows/base/release.htm).
+> + Run the .exe file that was just downloaded
+> + Go to the [RStudio download page](https://www.rstudio.com/products/rstudio/download/#download)
+> + Under Installers select RStudio x.yy.zzz - Windows Vista/7/8/10 (where x, y, and z represent version numbers)
+> + Double click the file to install it
+> + Once it’s installed, open RStudio to make sure it works and you don’t get any error messages.
+{: .solution}
+
+> ## Linux
+> - Follow the instructions for your distribution from [CRAN](https://cloud.r-project.org/bin/linux), they provide information to get the most recent version of R for common distributions. For most distributions, you could use your package manager (e.g., for Debian/Ubuntu run sudo apt-get install r-base, and for Fedora sudo yum install R), but we don’t recommend this approach as the versions provided by this are usually out of date. In any case, make sure you have at least R 3.3.1.
+> + Go to the [RStudio](https://www.rstudio.com/products/rstudio/download/#download) download page
+> + Under Installers select the version that matches your distribution, and install it with your preferred method (e.g., with Debian/Ubuntu ´sudo dpkg -i rstudio-x.yy.zzz-amd64.deb´ at the terminal).
+> + Once it’s installed, open RStudio to make sure it works and you don’t get any error messages.
+{: .solution}
+
+
+
+
+
 
 #### Software(packages) for R:
 
