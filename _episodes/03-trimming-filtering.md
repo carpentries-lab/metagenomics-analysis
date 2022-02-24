@@ -16,7 +16,7 @@ keypoints:
 - "Automate repetitive workflows using for loops"
 ---
 
-# Cleaning reads
+## Cleaning reads
 
 In the last episode, we took a high-level look at the quality
 of each of our samples using `FastQC`. We visualized per-base quality
