@@ -51,3 +51,6 @@ research efficiency and productivity.
 {: .checklist}
 
 {% include links.md %}
+
+## Reference
+Episodes 2. Assesing Read Quality and 3. Trimming and Filtering are adapted from the corresponding episodes in the [Data Wrangling and Processing for Genomics](https://datacarpentry.org/wrangling-genomics/) lesson.
