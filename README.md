@@ -111,5 +111,5 @@ Current maintainers of this lesson are
 * [Aaron Espinosa Jaime](https://github.com/aaronejaime)
 * [Jose Abel Lovaco Flores](https://github.com/fabel134)
 * [Diego Garfias Gallegos](https://github.com/Bedxxe)
-* [Jesus Abraham Averlar Rivas](https://github.com/AbrahamAvelar)
+* [Jesus Abraham Avelar Rivas](https://github.com/AbrahamAvelar)
 * [Tania Vanessa Arellano Fernandez](https://github.com/Vanessaarfer)
