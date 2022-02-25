@@ -2,7 +2,7 @@
 title: "Instructor Notes"
 ---
 
-#### Installation
+## Installation
 
 This workshop is designed to be run on pre-imaged Amazon Web Services (AWS) instances. See the 
 [Setup page](https://carpentries-incubator.github.io/metagenomics-workshop/setup.html) for complete setup instructions. If you are
