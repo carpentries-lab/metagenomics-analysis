@@ -52,5 +52,7 @@ research efficiency and productivity.
 
 {% include links.md %}
 
+This is the fourth lesson of the [Metagenomics Workshop](https://carpentries-incubator.github.io/metagenomics-workshop/) comprised of four lessons in total. 
+
 ## Lesson Reference
 Episodes 2. Assesing Read Quality and 3. Trimming and Filtering are adapted from the corresponding episodes in the [Data Wrangling and Processing for Genomics](https://datacarpentry.org/wrangling-genomics/) lesson.
