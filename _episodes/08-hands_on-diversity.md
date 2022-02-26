@@ -149,9 +149,12 @@ example, we used `geom_col`, which tells `ggplot` we want to visually represent 
 >
 >> ## Solution
 >> The correct answer is option A)
+>>
 >> Option B) lacks the `geom_jitter()` part of code that instruct `ggplot2` how to
 >> graphic the data
+>>
 >> On option C) what is going to be represented in the x axes is missing.
+>>
 >> Option D) does not have the data to produce the plot.
 > {: .solution}
 {: .challenge} 
