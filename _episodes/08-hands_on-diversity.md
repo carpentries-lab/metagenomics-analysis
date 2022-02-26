@@ -133,9 +133,27 @@ example, we used `geom_col`, which tells `ggplot` we want to visually represent 
 
 >## Exercise 1  : Exploring geoms
 > 
-> Go into groups and explore other geoms that can be useful for presenting the data
-> of the number or reads in each sample. There are some cheat sheets of [ggplot2](https://blog.rstudio.com/2015/12/21/ggplot2-2-0-0/)
-> around the internet. You can give them a try. 
+> There are other types of geoms that we can use to visualize our data. 
+> One of them is `geom_jitter()`. 
+> If you would like to try how to see your data in jitters, which of the next lines 
+> of codes you will use to generate that figure. You can always request help to 
+> explore this type of geom with `?geom_jitter`.
+> 
+> A) ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) + geom_jitter()
+> 
+> B) ggplot(data = deep, mapping = aes(x = Samples,y = Reads))
+>
+> C) ggplot(data = deep, mapping = aes(x = Samples)) + geom_jitter()
+>
+> D) ggplot(mapping = aes(x = Samples,y = Reads)) + geom_jitter()
+>
+>> ## Solution
+>> The correct answer is option A)
+>> Option B) lacks the `geom_jitter()` part of code that instruct `ggplot2` how to
+>> graphic the data
+>> On option C) what is going to be represented in the x axes is missing.
+>> Option D) does not have the data to produce the plot.
+> {: .solution}
 {: .challenge} 
 
 ## Transformation and manipulation of data
@@ -400,11 +418,11 @@ raw.plot | rel.plot
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
-> B) unique(raw.data$Phylum)
-> 
 > A) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
 >  geom_bar(aes(), stat="identity", position="stack")
 >  
+> B) unique(raw.data$Phylum)
+> 
 > C) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
