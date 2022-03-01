@@ -29,7 +29,7 @@ Here we will talk about the two most used diversity metrics, α diversity (withi
 - α Diversity: Can be represented as the richness (*i.e.* number of different species in an environment) and abundance(*i.e.* the number of individuals of
 each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc.  
 <a href="{{ page.root }}/fig/03-07-01.png">
-  <img src="{{ page.root }}/fig/03-07-01.png" alt="Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness" />
+  <img src="{{ page.root }}/fig/03-07-01.png" alt="Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness". In lake A, we have three fishes each one of a different species. On lake B, we have only two different species fishes and in lake C, we got four fishes of different species. />
 </a>
 <em> Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness. <em/>
  
@@ -39,7 +39,7 @@ of this distance metrics are focused in a characteristic of the community (*e.g.
 between the species of the community).
 
 <a href="{{ page.root }}/fig/03-07-02.png">
-  <img src="{{ page.root }}/fig/03-07-02.png" alt="Alpha and Beta diversity represented by fishes in a pond" />
+  <img src="{{ page.root }}/fig/03-07-02.png" alt="" />
 </a>
 <em> Figure 2. Alpha and Beta diversity represented by fishes in a pond.<em/>
 
@@ -99,7 +99,7 @@ There are different ways to plot and show the results of such analysis. Among ot
 > ## Exercise 1: 
 > In the next picture there are two lakes with different fish species:
 > <a href="{{ page.root }}/fig/03-07-01e.png">
->   <img src="{{ page.root }}/fig/03-07-01e.png" alt="Diversity question in two lakes" />
+>   <img src="{{ page.root }}/fig/03-07-01e.png" alt="In lake A, we have four different species, two of these species have 3 specimens each one. This lake also have two specimens of another species and only one specimen of the other specie. We got nine fishes total. On the other hand, lake B has only three different species, the most populated specie has five specimens and we have only one specimen of the other two species. We got seven species total in lake B " />
 > </a>
 > Which of the options below is true for the alpha diversity in lake A, lake B, and beta diversity between lakes A and B, respectively.
 > 1. 4, 3, 1
@@ -720,7 +720,7 @@ graph created using Phyloseq:
 {: .language-r}
 
 <a href="{{ page.root }}/fig/03-07-05.png">
-  <img src="{{ page.root }}/fig/03-07-05.png" alt=" Alpha diversity indexes for both samples" />
+  <img src="{{ page.root }}/fig/03-07-05.png" alt="" />
 </a>
 <em> Figure 5. Alpha diversity indexes for both samples. <em/>
 
