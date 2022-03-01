@@ -83,7 +83,7 @@ although educated guesses can be made by knowing which genes are
 commonly found in every identified species. 
 
 <a href="{{ page.root }}/fig/03-01-01.png">
-  <img src="{{ page.root }}/fig/03-01-01.png" alt="Cuatro Cienegas " />
+  <img src="{{ page.root }}/fig/03-01-01.png" alt="Experimental design pipeline " />
 </a>
 
 ## On Metadata
@@ -111,7 +111,7 @@ about metagenomics in fact they already have Cuatro Ciénegas data to work on it
 Let's see! 
 ## Cuatro Ciénegas  
 <a href="{{ page.root }}/fig/03-01-02.jpeg">
-  <img src="{{ page.root }}/fig/03-01-02.jpeg" alt="Cuatro Cienegas" />
+  <img src="{{ page.root }}/fig/03-01-02.jpeg" alt=" " />
 </a>
 
 During this lesson, we will work with actual metagenomic information, 
