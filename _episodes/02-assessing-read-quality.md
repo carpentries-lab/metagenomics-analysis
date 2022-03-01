@@ -25,7 +25,9 @@ description of each step.
 
 
  <a href="{{ page.root }}/fig/03-02-01.png">
-  <img src="{{ page.root }}/fig/03-02-01.png" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/03-02-01.png" alt="Analysing sequence reads' quality being the first step of the 
+bioinformatic pipeline, following with the assembly of the reads into contigs, then constructing the bins and 
+finally assigning the taxonomy " />
 </a>
 
 
@@ -317,7 +319,7 @@ analyses. Rather than looking at quality scores for each individual read, FastQC
 quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
 
  <a href="{{ page.root }}/fig/03-02-03.png">
-  <img src="{{ page.root }}/fig/03-02-03.png" alt="Good Quality" />
+  <img src="{{ page.root }}/fig/03-02-03.png" alt="Good quality reads will be all those which overcome 28 points, in this case, in Phred score " />
 </a>
 
 The x-axis displays the base position in the read, and the y-axis shows quality scores. In this 
@@ -336,7 +338,7 @@ acceptable (yellow), and bad (red) quality scores.
 Now let's take a look at a quality plot on the other end of the spectrum. 
 
  <a href="{{ page.root }}/fig/03-02-04.png">
-  <img src="{{ page.root }}/fig/03-02-04.png" alt="BadQuality" />
+  <img src="{{ page.root }}/fig/03-02-04.png" alt="Bad quality reads will be all those with, in this case, a Phred score below 20 points" />
 </a>
 
 Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the "bad" range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above. 
