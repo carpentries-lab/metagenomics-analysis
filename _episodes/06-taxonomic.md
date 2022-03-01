@@ -34,7 +34,7 @@ breakes the query sequence (reads, contigs) into pieces of length k,
 look for where these are placed within the tree and make the 
 classification with the most probable position.  
 <a href="{{ page.root }}/fig/03-06-01.png">
-  <img src="{{ page.root }}/fig/03-06-01.png" alt="Cog1 Metagenome" />
+  <img src="{{ page.root }}/fig/03-06-01.png" alt="" />
 </a>
 <em> Figure 1. Lowest common ancestor assignment example.<em/>
 
@@ -44,7 +44,7 @@ to be classified and assign the taxonomy depending on the hits obtained.
 A key result when you do taxonomic assignment of metagenomes is the abundance of each taxa or OTU in your sample. The absolute abundance of a taxon is the number of sequences (reads or contigs, depending on what you did) assigned to it. And its relative abundance is the proportion of sequences assigned to it. It is important to be aware of the many biases that that can skew the abundances along the metagenomics workflow, shown in the figure, and that because of them we may not be obtaining the real abundance of the organisms in the sample.
 
 <a href="{{ page.root }}/fig/03-06-02.png">
-  <img src="{{ page.root }}/fig/03-06-02.png" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/03-06-02.png" alt="" />
 </a>
 <em>Figure 2. Abundance biases during a metagenomics protocol. <em/>
 
@@ -339,7 +339,7 @@ $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4
 You will see a page like this:
 
 <a href="{{ page.root }}/fig/03-06-03.png">
-  <img src="{{ page.root }}/fig/03-06-03.png" alt="Krona Visualization" />
+  <img src="{{ page.root }}/fig/03-06-03.png" alt="Krona displays a bacterial taxonomy circled-shape plot with abundance percentages of each taxa " />
 </a>
 
 > ## Exercise 2: Exploring Krona visualization
@@ -377,31 +377,31 @@ We go to the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/),
 click on Browse and choose our reports. You need to select both reports at the same time.
 
 <a href="{{ page.root }}/fig/03-06-04.png">
-  <img src="{{ page.root }}/fig/03-06-04.png" alt="upload Pavian" />
+  <img src="{{ page.root }}/fig/03-06-04.png" alt="" />
 </a>
 
 We click on the Results Overview tab.
 
 <a href="{{ page.root }}/fig/03-06-05.png">
-  <img src="{{ page.root }}/fig/03-06-05.png" alt="Results Overview" />
+  <img src="{{ page.root }}/fig/03-06-05.png" alt="" />
 </a>
 
 We click on the Sample tab.
 
 <a href="{{ page.root }}/fig/03-06-06.png">
-  <img src="{{ page.root }}/fig/03-06-06.png" alt="sample" />
+  <img src="{{ page.root }}/fig/03-06-06.png" alt="" />
 </a>
 
 We can look at the abundance of a specific taxon by clicking on it.
 
 <a href="{{ page.root }}/fig/03-06-07.png">
-  <img src="{{ page.root }}/fig/03-06-07.png" alt="Sample Selected" />
+  <img src="{{ page.root }}/fig/03-06-07.png" alt="" />
 </a>
 
 We can look at a comparison of both our samples in the Comparison tab. 
 
 <a href="{{ page.root }}/fig/03-06-08.png">
-  <img src="{{ page.root }}/fig/03-06-08.png" alt="Comparison" />
+  <img src="{{ page.root }}/fig/03-06-08.png" alt="" />
 </a>
 
 
