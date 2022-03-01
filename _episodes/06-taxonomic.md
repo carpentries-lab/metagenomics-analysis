@@ -339,7 +339,7 @@ $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4
 You will see a page like this:
 
 <a href="{{ page.root }}/fig/03-06-03.png">
-  <img src="{{ page.root }}/fig/03-06-03.png" alt="Krona displays a bacterial taxonomy circled-shape plot with abundance percentages of each taxa " />
+  <img src="{{ page.root }}/fig/03-06-03.png" alt="Krona displays a circled-shape bacterial taxonomy plot with abundance percentages of each taxa " />
 </a>
 
 > ## Exercise 2: Exploring Krona visualization
