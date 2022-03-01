@@ -99,7 +99,7 @@ clean your data. For more information about the Trimmomatic arguments
 and options, see [the Trimmomatic manual](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf).
 
 <a href="{{ page.root }}/fig/03-03-01.png">
-  <img src="{{ page.root }}/fig/03-03-01.png" alt="Cog Metagenome" />
+  <img src="{{ page.root }}/fig/03-03-01.png" alt="" />
 </a>
 
 However, a complete command for Trimmomatic will look something like the command below. This command is an example and will not work, as we do not have the files it refers to:
