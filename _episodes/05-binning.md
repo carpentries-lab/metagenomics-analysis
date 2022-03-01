@@ -19,7 +19,7 @@ We call these genomes reconstructed from metagenomic assembly MAGs (Metagenome-A
 In this process, the assembled contigs from the metagenome will be assigned to different bins (FASTA files that contain certain contigs). Ideally, each bin corresponds to only one original genome (a MAG).
 
 <a href="{{ page.root }}/fig/03-05-01.png">
-  <img src="{{ page.root }}/fig/03-05-01.png" width="435" height="631" alt="After DNA extraction, every genome in the sample is split into small fragments to facilitate sequencing. Then, an algorithm assembles these small fragments into contigs to subsequently form the bins" />
+  <img src="{{ page.root }}/fig/03-05-01.png" width="435" height="631" alt="After DNA extraction, every genome in the sample is split into small fragments to facilitate sequencing. Then, an algorithm assembles these small fragments into contigs to subsequently form the bins"/>
 </a>
 
 Although an obvious way to separate contigs that correspond to a different species is by their taxonomic assignation, 
