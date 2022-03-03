@@ -3,17 +3,18 @@
 [![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/) 
 [![Slack Status](https://img.shields.io/badge/Slack_Channel-dc--genomics-E01563.svg)](https://swcarpentry.slack.com/messages/C9N1K7DCY) 
 
-# Metagenomics 
+# Data processing and visualization for metagenomics
+A lesson to learn how to carry out a metagenomics bioinformatic pipeline. This lesson is part of the [Metagenomics Workshop](https://carpentries-incubator.github.io/metagenomics-workshop/)
 
-An introduction to the Unix shell for people working with metagenomics data. This lesson is part of the [Data Carpentry Genomics Workshop](http://www.datacarpentry.org/genomics-workshop/). Please see http://www.datacarpentry.org/shell-genomics/ for a rendered version of this material.
 
 ## Contribution
 
-Make a suggestion or correct an error by [raising an Issue](https://github.com/datacarpentry/shell-genomics/issues).
+Make a suggestion or correct an error by [raising an Issue](https://github.com/carpentries-incubator/metagenomics/issues).
 
 ## Code of Conduct
 
 All participants should agree to abide by the [Data Carpentry Code of Conduct](http://www.datacarpentry.org/code-of-conduct/).
+
 ## Maintainer(s)
  
 Current maintainers of this lesson are
