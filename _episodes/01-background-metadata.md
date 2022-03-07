@@ -12,7 +12,7 @@ objectives:
 keypoints:    
 - "Shotgun metagenomics can be used for taxonomic and functional studies." 
 - "Metabarcoding can be used for taxonomic studies."
-- "Collecting metadata beforehand is important for downstream analysis."  
+- "Collecting metadata beforehand is fundamental for downstream analysis."  
 - "We will use data from a Cuatro Ciénegas project to learn about shotgun metagenomics."
 ---
 
@@ -138,8 +138,8 @@ changed when the bacterial community underwent the treatment.
 
 > ## Exercise 1: Reviewing metadata 
 > 
-> Review the data Chepiche has obtained in the results of this CCB study.
-> 1. What kind of metagenomic sequencing has Chepiche done for this experiment, and why do you think so?  
+> According to the results described for this CCB study.
+> 1. What kind of sequencing method do you think they used, and why do you think so?  
 >  A) Metabarcoding
 >  B) Shotgun metagenomics  
 >  C) Genomics of axenic cultures  
@@ -147,11 +147,11 @@ changed when the bacterial community underwent the treatment.
 >  2. In the table [samples treatment information](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv), what was the most important piece of metadata that the authors took?  
 > 
 >> ## Solution
->> A) Metabarcoding. False; with this technique, usually only one region of the genome is amplified.   
+>> A) Metabarcoding. False. With this technique, usually only one region of the genome is amplified.   
 >> B) Shotgun Metagenomics. True. Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.  
 >> C) Genomics of axenic cultures. False. Information on the microbial community cannot be fully obtained with axenic cultures.  
 >>  
->> The most important thing to know about our data is which community was supplemented with fertilizers.  
+>> The most important thing to know about our data is which community was and was not supplemented with fertilizers.  
 >> However, any differences in the technical parts of the study, such as the DNA extraction protocol,
 >> could have affected the results, so tracking those is also important.
 >> 
@@ -185,7 +185,7 @@ corresponding to a sample.
 The results of this study, raw sequences, and metadata have 
 been submitted to the NCBI Sequence Read Archive (SRA), 
 and are stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811). There are other metagenomic
-databases where we can find metagenomic data. 
+databases where we can find metagenomics data. 
 
 > ## Other metagenomic databases
 > The NCBI SRA is not the only repository for metagenomic information. There are other public metagenomic databases such as [MG-RAST](https://www.mg-rast.org/index.html?stay=1), [MGnify](https://www.ebi.ac.uk/metagenomics/), [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/) and the [GM Repo](https://gmrepo.humangut.info/home).   
@@ -207,9 +207,3 @@ mg-RAST the associated Metadata looks like:
 | longitude        | -102.14|  
 | env_package  |	water|  
 | depth	| 0.165 | 
-
->## Metadata Summary
->Metadata (data about data) is important because it helps name your samples in a way that makes sense for you now and in the future for other people. Also, when you start to analyze your results, that data gives you relevant information.
-{: .callout}
-
-
