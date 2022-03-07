@@ -17,7 +17,7 @@ keypoints:
 ---
 
 ## Metagenomics 
-Metagenomes(Shotgun metagenomics) are collections of genomic 
+Metagenomes are collections of genomic 
 sequences from various (micro)organisms that coexist in any 
 given space. They are like snapshots that can give us information 
 about the taxonomic and even metabolic or functional composition 
@@ -32,13 +32,13 @@ a metagenomic workflow is designed to answer two questions:
 
 To find which species are present in a niche, we have 
 to do a taxonomic assignation of the obtained sequences. 
-To find out the capabilities that these species do, we can 
+To find out their capabilities, we can 
 look at the genes directly encoded in the metagenome or the 
 genes associated with the species that we found. In order to 
 know which methodology we should use, it is important to 
 know what questions do we want to answer. 
 
-## Shotgun and amplicons
+## Shotgun and amplicon
 There are two paths to obtain information from a complex sample: 
 1. **Shotgun Metagenomics**  
 2. **Metabarcoding**. 
@@ -46,10 +46,10 @@ There are two paths to obtain information from a complex sample:
 Each is named after the sequencing methodology employed 
 and have particular use cases, with inherent advantages and disadvantages.
 
-In a **Shotgun Metagenomics**, we sequence random parts of the 
-genomes present in a space. We can search the origin of these 
-pieces (_i.e.,_ their taxonomy) and also try to find to which 
-gene they are part of. Given enough pieces, it is even possible 
+With **Shotgun Metagenomics**, we sequence random parts (ideally all of them) of the 
+genomes present in a sample. We can search the origin of these 
+pieces (_i.e.,_ their taxonomy) and also try to find to what 
+part of the genome they correspond. Given enough pieces, it is even possible 
 to obtain full individual genomes from a shotgun metagenome, 
 which could give us a bunch of information about the species 
 in our study. This, however, requires that we have a lot of genomic 
@@ -90,12 +90,12 @@ commonly found in every identified species.
 
 Once we have chosen an adequate type of methodology for our study, 
 it is important to take extensive notes on the origin of our samples 
-and how we treated them. These notes are the Metadata, or data about our data, 
+and how we treated them. These notes are the **metadata**, or data about our data, 
 and it is crucial to understand and interpret the results that we are going 
 to obtain later on our metagenomic analysis. Most of the time, 
 the differences that we observe when comparing metagenomes can be 
-correlated to the Metadata, which is why we must include a whole section 
-of our experimental design to the Metadata that we expect to collect and record carefully. 
+correlated to the metadata, which is why we must include a whole section 
+of our experimental design to the metadata that we expect to collect and record carefully. 
 
 > ## Amplicon or Shotgun? 
 >
@@ -107,7 +107,7 @@ of our experimental design to the Metadata that we expect to collect and record 
 
 Before we continue we want to introduce you **Chepiche** they are going 
 to be with us during this lesson because they are also interested to learn 
-about metagenomics in fact they already have Cuatro Ciénegas data to work on it! 
+about metagenomics, in fact they already have Cuatro Ciénegas data to work on! 
 Let's see! 
 ## Cuatro Ciénegas  
 <a href="{{ page.root }}/fig/03-01-02.jpeg">
@@ -140,14 +140,14 @@ changed when the bacterial community underwent the treatment.
 > 
 > Review the data Chepiche has obtained in the results of this CCB study.
 > 1. What kind of metagenomic sequencing has Chepiche done for this experiment, and why do you think so?  
->  A) Metabarcoding metagenomics  
+>  A) Metabarcoding
 >  B) Shotgun metagenomics  
 >  C) Genomics of axenic cultures  
 >
 >  2. In the table [samples treatment information](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv), what was the most important piece of metadata that the authors took?  
 > 
 >> ## Solution
->> A) Metabarcoding Metagenomics. False; with this technique, usually only one region of the genome is amplified.   
+>> A) Metabarcoding. False; with this technique, usually only one region of the genome is amplified.   
 >> B) Shotgun Metagenomics. True. Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.  
 >> C) Genomics of axenic cultures. False. Information on the microbial community cannot be fully obtained with axenic cultures.  
 >>  
