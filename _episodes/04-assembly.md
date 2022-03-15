@@ -186,8 +186,8 @@ The contigs are just made from assembled reads, but the scaffolds are the result
 from a subsequent process in which the contigs are ordered, oriented, and connected with Ns.
 
 We can recognize which sample our assembly outputs corresponds to because they are inside 
-the assembly results folder: assembly_JC1A). However the files within it do not have the 
-sample ID. It is very useful to rename these files, in case we need them out of its folder.
+the assembly results folder: `assembly_JC1A/`. However, the files within it do not have the 
+sample ID. It is very useful to rename these files, in case we need them out of their folder.
 
 > ## Exercise 1: Rename all files in a folder
 >
