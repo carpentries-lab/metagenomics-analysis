@@ -27,7 +27,7 @@ extension, OLC and De Bruijn charts. Contrary to metabarcoding, shotgun metageno
 sometimes is not needed.
 
 <a href="{{ page.root }}/fig/03-04-01.png">
-  <img src="{{ page.root }}/fig/03-04-01.png" width="868" height="777" alt="" />
+  <img src="{{ page.root }}/fig/03-04-01.png" width="868" height="777" alt="Three diagrams depicting the three assembly algorithms" />
 </a>
 
 [MetaSPAdes](https://github.com/ablab/spades) is a NGS de novo assembler 
