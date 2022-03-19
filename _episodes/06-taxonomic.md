@@ -30,11 +30,11 @@ for each sequence within a database of genomes (i.e. mapping). This strategy is 
 2. K-mers: A genome database is broken into pieces of length k, so as to be able to 
 search for unique pieces by taxonomic group, from lowest common ancestor (LCA), 
 passing through phylum to species. Then, the algorithm 
-breakes the query sequence (reads, contigs) into pieces of length k,
+breaks the query sequence (reads, contigs) into pieces of length k,
 look for where these are placed within the tree and make the 
 classification with the most probable position.  
 <a href="{{ page.root }}/fig/03-06-01.png">
-  <img src="{{ page.root }}/fig/03-06-01.png" alt="" />
+  <img src="{{ page.root }}/fig/03-06-01.png" alt="Diagram of taxonomic tree" />
 </a>
 <em> Figure 1. Lowest common ancestor assignment example.<em/>
 
@@ -44,7 +44,7 @@ to be classified and assign the taxonomy depending on the hits obtained.
 A key result when you do taxonomic assignment of metagenomes is the abundance of each taxa or OTU in your sample. The absolute abundance of a taxon is the number of sequences (reads or contigs, depending on what you did) assigned to it. And its relative abundance is the proportion of sequences assigned to it. It is important to be aware of the many biases that that can skew the abundances along the metagenomics workflow, shown in the figure, and that because of them we may not be obtaining the real abundance of the organisms in the sample.
 
 <a href="{{ page.root }}/fig/03-06-02.png">
-  <img src="{{ page.root }}/fig/03-06-02.png" alt="" />
+  <img src="{{ page.root }}/fig/03-06-02.png" alt="Flow diagram that shows how the initial composition of 33% for each of the three taxa in the sample ends up being 4%, 72% and 24% after the biases imposed by the extraction, PCR, sequencing and bioinformatics steps." />
 </a>
 <em>Figure 2. Abundance biases during a metagenomics protocol. <em/>
 
@@ -377,31 +377,31 @@ We go to the [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/),
 click on Browse and choose our reports. You need to select both reports at the same time.
 
 <a href="{{ page.root }}/fig/03-06-04.png">
-  <img src="{{ page.root }}/fig/03-06-04.png" alt="" />
+  <img src="{{ page.root }}/fig/03-06-04.png" alt="Pavian website showing the opload of two reports" />
 </a>
 
 We click on the Results Overview tab.
 
 <a href="{{ page.root }}/fig/03-06-05.png">
-  <img src="{{ page.root }}/fig/03-06-05.png" alt="" />
+  <img src="{{ page.root }}/fig/03-06-05.png" alt="Results Overview tab of the Pavian website where it shows the number of reads classified to several categories for the two samples" />
 </a>
 
 We click on the Sample tab.
 
 <a href="{{ page.root }}/fig/03-06-06.png">
-  <img src="{{ page.root }}/fig/03-06-06.png" alt="" />
+  <img src="{{ page.root }}/fig/03-06-06.png" alt="Sankey type visualization that shows the abundance of each taxonomic label in a tree-like manner" />
 </a>
 
 We can look at the abundance of a specific taxon by clicking on it.
 
 <a href="{{ page.root }}/fig/03-06-07.png">
-  <img src="{{ page.root }}/fig/03-06-07.png" alt="" />
+  <img src="{{ page.root }}/fig/03-06-07.png" alt="A bar chart of the abundance of reads of the two samples, showing a segment for the read identified at the specific taxon and another segment for the number of reads identifies at children of the specified taxon" />
 </a>
 
 We can look at a comparison of both our samples in the Comparison tab. 
 
 <a href="{{ page.root }}/fig/03-06-08.png">
-  <img src="{{ page.root }}/fig/03-06-08.png" alt="" />
+  <img src="{{ page.root }}/fig/03-06-08.png" alt="A table of the same format as the Kraken report but for both samples at once." />
 </a>
 
 
