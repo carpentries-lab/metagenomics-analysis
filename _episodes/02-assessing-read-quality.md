@@ -25,9 +25,7 @@ description of each step.
 
 
  <a href="{{ page.root }}/fig/03-02-01.png">
-  <img src="{{ page.root }}/fig/03-02-01.png" alt="Analysing sequence reads' quality being the first step of the 
-bioinformatic pipeline, following with the assembly of the reads into contigs, then constructing the bins and 
-finally assigning the taxonomy " />
+  <img src="{{ page.root }}/fig/03-02-01.png" alt="Flow diagram that shows the steps: Sequence reads, Quality control, Assembly, Binning and Taxonomy" />
 </a>
 
 
@@ -48,7 +46,7 @@ We will now assess the quality of the sequence reads contained in our FASTQ file
 
 
  <a href="{{ page.root }}/fig/03-02-02.png">
-  <img src="{{ page.root }}/fig/03-02-02.png" alt="Quality Control" />
+  <img src="{{ page.root }}/fig/03-02-02.png" alt="Flow diagram that shows the steps: Sequence reads and Quality control." />
 </a>
 
 
@@ -319,7 +317,7 @@ analyses. Rather than looking at quality scores for each individual read, FastQC
 quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
 
  <a href="{{ page.root }}/fig/03-02-03.png">
-  <img src="{{ page.root }}/fig/03-02-03.png" alt="Good quality reads will be all those which overcome 28 points, in this case, in Phred score " />
+  <img src="{{ page.root }}/fig/03-02-03.png" alt="Graphic of boxplots, where are all of them are at the top of the y axis in the good range of scores." />
 </a>
 
 The x-axis displays the base position in the read, and the y-axis shows quality scores. In this 
@@ -338,7 +336,7 @@ acceptable (yellow), and bad (red) quality scores.
 Now let's take a look at a quality plot on the other end of the spectrum. 
 
  <a href="{{ page.root }}/fig/03-02-04.png">
-  <img src="{{ page.root }}/fig/03-02-04.png" alt="Bad quality reads will be all those with, in this case, a Phred score below 20 points" />
+  <img src="{{ page.root }}/fig/03-02-04.png" alt="Graphic of boxplots, where the first ones are in the good range of scores of the y axis and extend to the acceptable and bad ranges of scores toward the right of the x axis" />
 </a>
 
 Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the "bad" range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above. 
