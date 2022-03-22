@@ -27,9 +27,10 @@ Once we know the taxonomic composition of our metagenomes, we can do diversity a
 Here we will talk about the two most used diversity metrics, α diversity (within one metagenome) and β (across metagenomes).   
 
 - α Diversity: Can be represented as the richness (*i.e.* number of different species in an environment) and abundance(*i.e.* the number of individuals of
-each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc.  
+each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc. 
+
 <a href="{{ page.root }}/fig/03-07-01.png">
-  <img src="{{ page.root }}/fig/03-07-01.png" alt="Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness". In lake A, we have three fishes each one of a different species. On lake B, we have only two different species fishes and in lake C, we got four fishes of different species. />
+  <img src="{{ page.root }}/fig/03-07-01.png" alt="Diversity diagram: In lake A, we have three fishes each one of a different species. On lake B, we have only two different species fishes and in lake C, we got four fishes of different species." />
 </a>
 <em> Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness. <em/>
  
@@ -39,7 +40,7 @@ of this distance metrics are focused in a characteristic of the community (*e.g.
 between the species of the community).
 
 <a href="{{ page.root }}/fig/03-07-02.png">
-  <img src="{{ page.root }}/fig/03-07-02.png" alt="" />
+  <img src="{{ page.root }}/fig/03-07-02.png" alt="Diversity diagram: " />
 </a>
 <em> Figure 2. Alpha and Beta diversity represented by fishes in a pond.<em/>
 
