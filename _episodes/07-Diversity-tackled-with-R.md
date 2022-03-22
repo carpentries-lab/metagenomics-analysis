@@ -30,7 +30,7 @@ Here we will talk about the two most used diversity metrics, α diversity (withi
 each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc. 
 
 <a href="{{ page.root }}/fig/03-07-01.png">
-  <img src="{{ page.root }}/fig/03-07-01.png" alt="Diversity diagram: In lake A, we have three fishes each one of a different species. On lake B, we have only two different species fishes and in lake C, we got four fishes of different species." />
+  <img src="{{ page.root }}/fig/03-07-01.png" alt="Alpha diversity diagram: In lake A, we have three fishes, each one of a different species. On lake B, we have two fishes each one of a different species.And in lake C we have four fishes, each one of different species." />
 </a>
 <em> Figure 1. Alpha diversity represented by fishes in a pond. Here, alpha diversity is represented at its simplest way: Richness. <em/>
  
@@ -40,7 +40,7 @@ of this distance metrics are focused in a characteristic of the community (*e.g.
 between the species of the community).
 
 <a href="{{ page.root }}/fig/03-07-02.png">
-  <img src="{{ page.root }}/fig/03-07-02.png" alt="Diversity diagram: " />
+  <img src="{{ page.root }}/fig/03-07-02.png" alt="Alpha and Beta diversity diagram: Each lake has a different number of species and each species has a different number of fish individuals. Both metrics are taken into account to measure alfa and beta diversity." />
 </a>
 <em> Figure 2. Alpha and Beta diversity represented by fishes in a pond.<em/>
 
