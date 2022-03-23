@@ -22,11 +22,11 @@ keypoints:
 different ideas, desires, and fears ¡How wonderful things will be made out of an artist with such hands!* 
   -Ode to multidisciplinarity
 
-Species diversity, is the number of species that are represented in a certain community. 
+Species diversity, in it's must simple definition is the number of species in a particular area and their relative abundance (eveness).
 Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
 Here we will talk about the two most used diversity metrics, α diversity (within one metagenome) and β (across metagenomes).   
 
-- α Diversity: Can be represented as the richness (*i.e.* number of different species in an environment) and abundance(*i.e.* the number of individuals of
+- α Diversity: Can be represented as the richness (*i.e.* number of different species in an environment) and abundance of hte species in the area(*i.e.* the number of individuals of
 each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc. 
 
 <a href="{{ page.root }}/fig/03-07-01.png">
@@ -39,10 +39,24 @@ It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance
 of this distance metrics are focused in a characteristic of the community (*e.g.* Unifrac distance measures the phylogenetic relationship
 between the species of the community).
 
+In the next example, we will look at the α and the β components of diversity of a 
+dataset of fishes in three lakes. The most simple way to calculate the β-diversity 
+is to calculate the species that are distinc between two lakes (sites). Let's take 
+Lake A and Lake B to do an example. The number of species en Lake A is 3, to this 
+quantity we will supress the number of these species that are shared with the Lake 
+B: 2. So the number of unique species in Lake A compared to Lake B is (3-2):1. To 
+this number we will sum the result of the same operations but now taken Lake B as 
+our site of reference. In the end, the β diversity between Lake A and Lake B is 
+(3-2) + (3-2) = 2. This process can be repeated taking each pair of lakes as the 
+focused sites.
+
 <a href="{{ page.root }}/fig/03-07-02.png">
   <img src="{{ page.root }}/fig/03-07-02.png" alt="Alpha and Beta diversity diagram: Each lake has a different number of species and each species has a different number of fish individuals. Both metrics are taken into account to measure alfa and beta diversity." />
 </a>
 <em> Figure 2. Alpha and Beta diversity represented by fishes in a pond.<em/>
+
+If you want to read more about diversity, we recommend to you this [paper](https://link.springer.com/article/10.1007/s00442-010-1812-0) on 
+the concept of diversity.
 
 For this lesson we will use Phyloseq, an R package specialized in metagenomic analysis. We will use it along with Rstudio to analyze our data. 
 
