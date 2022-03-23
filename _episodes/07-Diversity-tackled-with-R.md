@@ -156,7 +156,7 @@ JC1A.kraken  JC1A.report  JP41.report  JP4D.kraken  JP4D.report  mags_taxonomy
 ~~~
 {: .output}
 
-Files `.kraken` and `kraken.report`are the output of the Kraken program, we can see a few lines of the file `.kraken` 
+Files `.kraken` and `.report`are the output of the Kraken program, we can see a few lines of the file `.kraken` 
 using the command `head`.   
 ~~~
 $ head JP4D.kraken  
@@ -248,7 +248,7 @@ Create BIOM-format tables (http://biom-format.org) from Kraken output
 By a close look at the first output lines, it is noticeable that we need a specific output
 from Kraken: `.reports`. 
 
-With the next command, we are going to create a table in [Biom](https://biom-format.org/) format called `cuatroc.biom`:
+With the next command, we are going to create a table in [Biom](https://biom-format.org/) format called `cuatroc.biom`. We will include the two samples we have been working with (`JC1A` and `JP4D`) and a thrid one `JP41`, to be able to perform certain analyses later on.
 ~~~
 $ kraken-biom JC1A.report JP4D.report JP41.report --fmt json -o cuatroc.biom
 ~~~
@@ -313,10 +313,10 @@ attr("package")
 [1] "phyloseq"
 ~~~
 {: .output}
-The "class" command indicate that we already have our phyloseq object.
+The "class" command indicates that we already have our phyloseq object.
 Let's try to access the data that is stored inside our `merged_metagenomes` object. Since a phyloseq object
 is a special object in R, we need to use the operator `@` to explore the subsections of data inside `merged_metagenomes`.
-If we type `merged_metagenomes@` five options are displayed, from them `tax_table` and `otu_table` are the ones that
+If we type `merged_metagenomes@` five options are displayed; `tax_table` and `otu_table` are the ones that
 we will use. After writting `merged_metagenomes@otu_table` or `merged_metagenomes@tax_table`, an option of `.Data` 
 will be the one choosed in both cases. Let's see what is inside of our `tax_table`:
 ~~~
@@ -332,7 +332,7 @@ will be the one choosed in both cases. Let's see what is inside of our `tax_tabl
 Next, let's get rid of some of the innecesary characters 
 in the OTUs identificator and put names to the taxonomic ranks:
 
-To remove unnecessary characters in .Data (matrix), we are going to use command 'substring'. This command is useful to extract or replace characters in a vector. To use the command, we have to indicate the vector (x) followed by the first element to replace or extract (first) and the last element to be replaced (last). For instance: substring (x, first, last). substring is "flexible" command, especially to select characters of different lengths as in our case. Therefore it is not necessary to indicate "last", so it will take the last position of the character by default. Considering that a matrix is a arrangement of vectors, we can use this command. Each character in .Data is preceded by 3 spaces occupied by a letter and two underscores, for example: o__Rhodobacterales. In this case "Rodobacterales" starts at position 4 with an R. So to remove the unnecessary characteres we will use the following code:
+To remove unnecessary characters in `.Data` (matrix), we are going to use command `substring()`. This command is useful to extract or replace characters in a vector. To use the command, we have to indicate the vector (x) followed by the first element to replace or extract (first) and the last element to be replaced (last). For instance: `substring (x, first, last)`. `substring()` is a "flexible" command, especially to select characters of different lengths as in our case. Therefore, it is not necessary to indicate "last", so it will take the last position of the character by default. Considering that a matrix is a arrangement of vectors, we can use this command. Each character in `.Data` is preceded by 3 spaces occupied by a letter and two underscores, for example: `o__Rhodobacterales`. In this case "Rodobacterales" starts at position 4 with an R. So to remove the unnecessary characteres we will use the following code:
 
 ~~~
 > merged_metagenomes@tax_table@.Data <- substring(merged_metagenomes@tax_table@.Data, 4)
@@ -367,8 +367,8 @@ we obtain with the next code:
 ~~~
 {: .output}
 
-This is useful, but what we need to do if we need to know how many of our reads have been assigned to the 
-`Firmicutes` phylum?. Let´s use the command `sum()` to ask R, how many of the reads fill this requiriment:
+This is useful, but what we need to do if we need to know how many of our reads have been assigned to the phylum
+Firmicutes?. Let´s use the command `sum()` to ask R, how many of the reads fill this requiriment:
 ~~~
 > sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Firmicutes")
 ~~~
@@ -378,7 +378,7 @@ This is useful, but what we need to do if we need to know how many of our reads 
 ~~~
 {: .output}
 
-> ## Exercise 2: 
+> ## Exercise 2: Explore a phylum
 > 
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the learned code to find out how many reads have been assigned to
@@ -387,15 +387,15 @@ This is useful, but what we need to do if we need to know how many of our reads 
 >> ## Solution
 >> Change the name of a new phylum wherever it is needed to get the result.
 >> As an example, here is the solution for Proteobacteria:
->>sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria")
-{: .language-r}
-~~~
-[1] 1949
-~~~
-{: .output}
->>unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria", "Genus"])
-{: .language-r}
-~~~
+>> sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria")
+>> {: .language-r}
+>> ~~~
+>> [1] 1949
+>> ~~~
+>> {: .output}
+>> unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria", "Genus"])
+>> {: .language-r}
+>> ~~~
 [1] ""                                 "Rhodobacter"                     
   [3] "Paracoccus"                       "Rhodovulum"                      
   [5] "Celeribacter"                     "Pelagibaca"                      
@@ -646,7 +646,7 @@ This is useful, but what we need to do if we need to know how many of our reads 
 [495] "Candidatus Midichloria"           "Candidatus Carsonella"           
 [497] "Candidatus Nitrosoglobus" 
 ~~~
-{: .output}
+>> {: .output}
 > {: .solution}
 {: .challenge} 
 
