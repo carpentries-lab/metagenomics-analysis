@@ -339,7 +339,10 @@ will be the one choosed in both cases. Let's see what is inside of our `tax_tabl
 {: .language-r}
 
 <a href="{{ page.root }}/fig/03-07-03.png">
-  <img src="{{ page.root }}/fig/03-07-03.png" alt="Table of the OTU data from our `merged_metagenomes` object" />
+  <img src="{{ page.root }}/fig/03-07-03.png" alt="A table where the taxonomic 
+  identification information of all OTUs is displayed. Each row represent one 
+  OTU and the columns its identification at different levels in the taxonomic taxonomic classification ranks, begging with Kingdom until we reach Species 
+  in the seventh column " />
 </a>
 <em> Figure 3. Table of the OTU data from our `merged_metagenomes` object. <em/>
 
@@ -355,7 +358,9 @@ To remove unnecessary characters in `.Data` (matrix), we are going to use comman
 {: .language-r}
 
 <a href="{{ page.root }}/fig/03-07-04.png">
-  <img src="{{ page.root }}/fig/03-07-04.png" alt="Table of the OTU data from our `merged_metagenomes` object. With corrections" />
+  <img src="{{ page.root }}/fig/03-07-04.png" alt="The same table we saw in Figure 
+  3 but with informative names in each of the columns. Now, we can see which of 
+  the columns are associated with which taxonomic classification rank" />
 </a>
 <em> Figure 4. Table of the OTU data from our `merged_metagenomes` object. With corrections. <em/>
 
@@ -381,8 +386,8 @@ we obtain with the next code:
 ~~~
 {: .output}
 
-This is useful, but what we need to do if we need to know how many of our reads have been assigned to the phylum
-Firmicutes?. Let´s use the command `sum()` to ask R, how many of the reads fill this requiriment:
+This is useful, but what we need to do if we need to know how many of our OTUs have been assigned to the phylum
+Firmicutes?. Let´s use the command `sum()` to ask R:
 ~~~
 > sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Firmicutes")
 ~~~
@@ -395,7 +400,7 @@ Firmicutes?. Let´s use the command `sum()` to ask R, how many of the reads fill
 > ## Exercise 2: Explore a phylum
 > 
 > Go into groups and choose one phylum that is interesting for your
-> group, and use the learned code to find out how many reads have been assigned to
+> group, and use the learned code to find out how many OTUs have been assigned to
 > your chosen phylum and what are the unique names of the genera inside it.
 > がんばれ! (ganbate; *good luck*):
 >> ## Solution
@@ -488,7 +493,11 @@ graph created using Phyloseq:
 {: .language-r}
 
 <a href="{{ page.root }}/fig/03-07-05.png">
-  <img src="{{ page.root }}/fig/03-07-05.png" alt="" />
+  <img src="{{ page.root }}/fig/03-07-05.png" alt="A figure divided in three 
+  sections. Each of these sections represent a diferent alpha diversity index. 
+  Inside this sections, each point represent the value assigned on this index to 
+  the three different samples. We can see how the different indexes gives 
+  different values to the same sample." />
 </a>
 <em> Figure 5. Alpha diversity indexes for both samples. <em/>
 
