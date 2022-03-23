@@ -405,16 +405,16 @@ Firmicutes?. Let´s use the command `sum()` to ask R, how many of the reads fill
 
 
 > ## Phyloseq objects
-> Finally, we can review our object and see that all datasets (i.e. JC1A, JP4D, and JP41) are in the our object.
+> Finally, we can review our object and see that all datasets (i.e. JC1A, JP4D, and JP41) are in the object.
 > If you look at our Phyloseq object, you will see that there are more data types 
-> that we can use to build our object(?phyloseq), such as a phylogenetic tree and metadata 
+> that we can use to build our object(`?phyloseq()`), such as a phylogenetic tree and metadata 
 > concerning our samples. These are optional, so we will use our basic
 > phyloseq object for now, composed of the abundances of specific OTUs and the 
 > names of those OTUs.  
 {: .callout}
 
 
-### Plot alpha diversity 
+## Plot alpha diversity 
 
 We want to know how is the bacterial diversity, so we will prune all of the 
 non-bacterial organisms in our metagenome. To do this we will make a subset 
