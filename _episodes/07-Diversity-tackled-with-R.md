@@ -387,266 +387,19 @@ Firmicutes?. Let´s use the command `sum()` to ask R, how many of the reads fill
 >> ## Solution
 >> Change the name of a new phylum wherever it is needed to get the result.
 >> As an example, here is the solution for Proteobacteria:
+>> ~~~ 
 >> sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria")
+>> ~~~ 
 >> {: .language-r}
 >> ~~~
 >> [1] 1949
 >> ~~~
 >> {: .output}
->> unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria", "Genus"])
->> {: .language-r}
 >> ~~~
-[1] ""                                 "Rhodobacter"                     
-  [3] "Paracoccus"                       "Rhodovulum"                      
-  [5] "Celeribacter"                     "Pelagibaca"                      
-  [7] "Yangia"                           "Defluviimonas"                   
-  [9] "Thalassococcus"                   "Gemmobacter"                     
- [11] "Phaeobacter"                      "Salipiger"                       
- [13] "Sulfitobacter"                    "Roseibacterium"                  
- [15] "Confluentimicrobium"              "Sagittula"                       
- [17] "Leisingera"                       "Dinoroseobacter"                 
- [19] "Ketogulonicigenium"               "Thioclava"                       
- [21] "Roseovarius"                      "Antarctobacter"                  
- [23] "Epibacterium"                     "Brevirhabdus"                    
- [25] "Ruegeria"                         "Stappia"                         
- [27] "Roseobacter"                      "Jannaschia"                      
- [29] "Marinovum"                        "Yoonia"                          
- [31] "Tateyamaria"                      "Octadecabacter"                  
- [33] "Rhodobaca"                        "Labrenzia"                       
- [35] "Pannonibacter"                    "Halocynthiibacter"               
- [37] "Marivivens"                       "Hyphomonas"                      
- [39] "Maricaulis"                       "Methylobacterium"                
- [41] "Methylorubrum"                    "Microvirga"                      
- [43] "Bradyrhizobium"                   "Rhodopseudomonas"                
- [45] "Bosea"                            "Afipia"                          
- [47] "Nitrobacter"                      "Variibacter"                     
- [49] "Oligotropha"                      "Rhizobium"                       
- [51] "Agrobacterium"                    "Neorhizobium"                    
- [53] "Sinorhizobium"                    "Ensifer"                         
- [55] "Shinella"                         "Mesorhizobium"                   
- [57] "Aminobacter"                      "Hoeflea"                         
- [59] "Phyllobacterium"                  "Nitratireductor"                 
- [61] "Starkeya"                         "Pseudolabrys"                    
- [63] "Xanthobacter"                     "Azorhizobium"                    
- [65] "Rhodoplanes"                      "Devosia"                         
- [67] "Hyphomicrobium"                   "Blastochloris"                   
- [69] "Filomicrobium"                    "Pelagibacterium"                 
- [71] "Rhodomicrobium"                   "Martelella"                      
- [73] "Aureimonas"                       "Ochrobactrum"                    
- [75] "Brucella"                         "Hartmannibacter"                 
- [77] "Methyloceanibacter"               "Pseudorhodoplanes"               
- [79] "Chelatococcus"                    "Breoghania"                      
- [81] "Methylocystis"                    "Methylosinus"                    
- [83] "Methylocella"                     "Beijerinckia"                    
- [85] "Parvibaculum"                     "Anderseniella"                   
- [87] "Sphingomonas"                     "Sphingopyxis"                    
- [89] "Sphingobium"                      "Novosphingobium"                 
- [91] "Rhizorhabdus"                     "Citromicrobium"                  
- [93] "Sphingorhabdus"                   "Blastomonas"                     
- [95] "Zymomonas"                        "Porphyrobacter"                  
- [97] "Altererythrobacter"               "Erythrobacter"                   
- [99] "Croceicoccus"                     "Azospirillum"                    
-[101] "Magnetospirillum"                 "Rhodospirillum"                  
-[103] "Tistrella"                        "Nitrospirillum"                  
-[105] "Indioceanicola"                   "Thalassospira"                   
-[107] "Magnetospira"                     "Candidatus Endolissoclinum"      
-[109] "Pararhodospirillum"               "Niveispirillum"                  
-[111] "Roseomonas"                       "Gluconacetobacter"               
-[113] "Komagataeibacter"                 "Acidiphilium"                    
-[115] "Acidisphaera"                     "Acetobacter"                     
-[117] "Neoasaia"                         "Gluconobacter"                   
-[119] "Kozakia"                          "Brevundimonas"                   
-[121] "Caulobacter"                      "Phenylobacterium"                
-[123] "Polymorphum"                      "Phreatobacter"                   
-[125] "Parvularcula"                     "Anaplasma"                       
-[127] "Pseudomonas"                      "Azotobacter"                     
-[129] "Acinetobacter"                    "Moraxella"                       
-[131] "Psychrobacter"                    "Klebsiella"                      
-[133] "Enterobacter"                     "Escherichia"                     
-[135] "Candidatus Purcelliella"          "Salmonella"                      
-[137] "Cronobacter"                      "Lelliottia"                      
-[139] "Citrobacter"                      "Cedecea"                         
-[141] "Pluralibacter"                    "Serratia"                        
-[143] "Yersinia"                         "Rahnella"                        
-[145] "Pantoea"                          "Erwinia"                         
-[147] "Brenneria"                        "Dickeya"                         
-[149] "Sodalis"                          "Pectobacterium"                  
-[151] "Edwardsiella"                     "Xenorhabdus"                     
-[153] "Stenotrophomonas"                 "Lysobacter"                      
-[155] "Xanthomonas"                      "Pseudoxanthomonas"               
-[157] "Luteimonas"                       "Rhodanobacter"                   
-[159] "Luteibacter"                      "Dyella"                          
-[161] "Ahniella"                         "Dokdonella"                      
-[163] "Thioalkalivibrio"                 "Acidihalobacter"                 
-[165] "Ectothiorhodospira"               "Alkalilimnicola"                 
-[167] "Spiribacter"                      "Halorhodospira"                  
-[169] "Thioflavicoccus"                  "Thiodictyon"                     
-[171] "Marichromatium"                   "Allochromatium"                  
-[173] "Thiocystis"                       "Pasteurella"                     
-[175] "Histophilus"                      "Haemophilus"                     
-[177] "Halomonas"                        "Chromohalobacter"                
-[179] "Salinicola"                       "Kushneria"                       
-[181] "Saccharospirillum"                "Gynuella"                        
-[183] "Hahella"                          "Alcanivorax"                     
-[185] "Aeromonas"                        "Zobellella"                      
-[187] "Solimonas"                        "Steroidobacter"                  
-[189] "Sulfuricaulis"                    "Sulfurifustis"                   
-[191] "Thiolapillus"                     "Tolumonas"                       
-[193] "Thiohalobacter"                   "Methylocaldum"                   
-[195] "Methylovulum"                     "Methylococcus"                   
-[197] "Methylomicrobium"                 "Simiduia"                        
-[199] "Cellvibrio"                       "Colwellia"                       
-[201] "Shewanella"                       "Ferrimonas"                      
-[203] "Alteromonas"                      "Vibrio"                          
-[205] "Immundisolibacter"                "Salinisphaera"                   
-[207] "Cycloclasticus"                   "Delftia"                         
-[209] "Variovorax"                       "Acidovorax"                      
-[211] "Melaminivora"                     "Ramlibacter"                     
-[213] "Rhodoferax"                       "Alicycliphilus"                  
-[215] "Comamonas"                        "Limnohabitans"                   
-[217] "Hydrogenophaga"                   "Verminephrobacter"               
-[219] "Ottowia"                          "Simplicispira"                   
-[221] "Curvibacter"                      "Polaromonas"                     
-[223] "Diaphorobacter"                   "Burkholderia"                    
-[225] "Cupriavidus"                      "Paraburkholderia"                
-[227] "Ralstonia"                        "Pandoraea"                       
-[229] "Polynucleobacter"                 "Bordetella"                      
-[231] "Achromobacter"                    "Castellaniella"                  
-[233] "Orrella"                          "Massilia"                        
-[235] "Herbaspirillum"                   "Janthinobacterium"               
-[237] "Collimonas"                       "Herminiimonas"                   
-[239] "Rhizobacter"                      "Leptothrix"                      
-[241] "Rubrivivax"                       "Mitsuaria"                       
-[243] "Roseateles"                       "Paucibacter"                     
-[245] "Aquabacterium"                    "Methylibium"                     
-[247] "Azoarcus"                         "Thauera"                         
-[249] "Aromatoleum"                      "Chromobacterium"                 
-[251] "Microvirgula"                     "Pseudogulbenkiania"              
-[253] "Vogesella"                        "Aquaspirillum"                   
-[255] "Laribacter"                       "Neisseria"                       
-[257] "Sulfuricella"                     "Sideroxydans"                    
-[259] "Methyloversatilis"                "Candidatus Accumulibacter"       
-[261] "Myxococcus"                       "Corallococcus"                   
-[263] "Anaeromyxobacter"                 "Archangium"                      
-[265] "Stigmatella"                      "Cystobacter"                     
-[267] "Melittangium"                     "Vulgatibacter"                   
-[269] "Sorangium"                        "Chondromyces"                    
-[271] "Sandaracinus"                     "Haliangium"                      
-[273] "Geobacter"                        "Pelobacter"                      
-[275] "Desulfovibrio"                    "Pseudodesulfovibrio"             
-[277] "Desulfomicrobium"                 "Desulfarculus"                   
-[279] "Desulfococcus"                    "Desulfatibacillum"               
-[281] "Desulfurivibrio"                  "Desulfobacca"                    
-[283] "Syntrophobacter"                  "Helicobacter"                    
-[285] "Acidithiobacillus"                "Pseudovibrio"                    
-[287] "Hirschia"                         "Liberibacter"                    
-[289] "Chelativorans"                    "Maritalea"                       
-[291] "Cohaesibacter"                    "Candidatus Phaeomarinobacter"    
-[293] "Bartonella"                       "Haematospirillum"                
-[295] "Granulibacter"                    "Asaia"                           
-[297] "Parasaccharibacter"               "Asticcacaulis"                   
-[299] "Micavibrio"                       "Candidatus Puniceispirillum"     
-[301] "Rickettsia"                       "Orientia"                        
-[303] "Candidatus Phycorickettsia"       "Wolbachia"                       
-[305] "Ehrlichia"                        "Neorickettsia"                   
-[307] "Candidatus Pelagibacter"          "Candidatus Fonsibacter"          
-[309] "Candidatus Paracaedibacter"       "Candidatus Nucleicultrix"        
-[311] "Magnetococcus"                    "Hydromonas"                      
-[313] "Paucimonas"                       "Alcaligenes"                     
-[315] "Advenella"                        "Pusillimonas"                    
-[317] "Paenalcaligenes"                  "Basilea"                         
-[319] "Taylorella"                       "Oligella"                        
-[321] "Candidatus Symbiobacter"          "Oxalobacter"                     
-[323] "Thiomonas"                        "Sutterella"                      
-[325] "Azospira"                         "Dechloromonas"                   
-[327] "Jeongeupia"                       "Aquitalea"                       
-[329] "Vitreoscilla"                     "Crenobacter"                     
-[331] "Simonsiella"                      "Kingella"                        
-[333] "Eikenella"                        "Snodgrassella"                   
-[335] "Nitrosomonas"                     "Nitrosospira"                    
-[337] "Methylotenera"                    "Methylovorus"                    
-[339] "Methylophilus"                    "Methylobacillus"                 
-[341] "Candidatus Methylopumilus"        "Sulfuritalea"                    
-[343] "Sulfuriferula"                    "Ferriphaselus"                   
-[345] "Gallionella"                      "Thiobacillus"                    
-[347] "Candidatus Kinetoplastibacterium" "Candidatus Profftella"           
-[349] "Candidatus Tremblaya"             "Oblitimonas"                     
-[351] "Candidatus Hamiltonella"          "Candidatus Blochmannia"          
-[353] "Candidatus Tachikawaea"           "Candidatus Doolittlea"           
-[355] "Candidatus Hoaglandella"          "Candidatus Gullanella"           
-[357] "Raoultella"                       "Kosakonia"                       
-[359] "Buttiauxella"                     "Shimwellia"                      
-[361] "Candidatus Ishikawaella"          "Leclercia"                       
-[363] "Limnobaculum"                     "Gibbsiella"                      
-[365] "Candidatus Riesia"                "Candidatus Fukatsuia"            
-[367] "Chania"                           "Buchnera"                        
-[369] "Tatumella"                        "Mixta"                           
-[371] "Wigglesworthia"                   "Lonsdalea"                       
-[373] "Providencia"                      "Morganella"                      
-[375] "Proteus"                          "Photorhabdus"                    
-[377] "Arsenophonus"                     "Hafnia"                          
-[379] "Obesumbacterium"                  "Leminorella"                     
-[381] "Pragia"                           "Phytobacter"                     
-[383] "Plesiomonas"                      "Xylella"                         
-[385] "Frateuria"                        "Halotalea"                       
-[387] "Zymobacter"                       "Cobetia"                         
-[389] "Ketobacter"                       "Marinobacterium"                 
-[391] "Marinomonas"                      "Bacterioplanes"                  
-[393] "Oleispira"                        "Thalassolituus"                  
-[395] "Kangiella"                        "Reinekea"                        
-[397] "Oleiphilus"                       "Endozoicomonas"                  
-[399] "Marinobacter"                     "Glaciecola"                      
-[401] "Salinimonas"                      "Paraglaciecola"                  
-[403] "Lacimicrobium"                    "Catenovulum"                     
-[405] "Agarivorans"                      "Pseudoalteromonas"               
-[407] "Thalassotalea"                    "Idiomarina"                      
-[409] "Psychromonas"                     "Moritella"                       
-[411] "Nitrosococcus"                    "Wenzhouxiangella"                
-[413] "Granulosicoccus"                  "Halothiobacillus"                
-[415] "Woeseia"                          "Photobacterium"                  
-[417] "Aliivibrio"                       "Grimontia"                       
-[419] "Paraphotobacterium"               "Enterovibrio"                    
-[421] "Oceanimonas"                      "Oceanisphaera"                   
-[423] "Sedimenticola"                    "Candidatus Thioglobus"           
-[425] "Pseudohongiella"                  "Candidatus Ruthia"               
-[427] "Gallaecimonas"                    "Thiomicrospira"                  
-[429] "Piscirickettsia"                  "Methylophaga"                    
-[431] "Hydrogenovibrio"                  "Francisella"                     
-[433] "Allofrancisella"                  "Thioploca"                       
-[435] "Beggiatoa"                        "Teredinibacter"                  
-[437] "Saccharophagus"                   "Agarilytica"                     
-[439] "Microbulbifer"                    "Halioglobus"                     
-[441] "Congregibacter"                   "Spongiibacter"                   
-[443] "Zhongshania"                      "Oceanicoccus"                    
-[445] "Methylomonas"                     "Aggregatibacter"                 
-[447] "Glaesserella"                     "Actinobacillus"                  
-[449] "Mannheimia"                       "Basfia"                          
-[451] "Bibersteinia"                     "Gallibacterium"                  
-[453] "Legionella"                       "Fluoribacter"                    
-[455] "Tatlockia"                        "Coxiella"                        
-[457] "Acidiferrobacter"                 "Frischella"                      
-[459] "Gilliamella"                      "Dichelobacter"                   
-[461] "Pajaroellobacter"                 "Lawsonia"                        
-[463] "Desulfohalobium"                  "Geoalkalibacter"                 
-[465] "Desulfuromonas"                   "Desulfobacterium"                
-[467] "Desulfobacula"                    "Desulfobacter"                   
-[469] "Desulfobulbus"                    "Desulfocapsa"                    
-[471] "Desulfotalea"                     "Desulfomonile"                   
-[473] "Syntrophus"                       "Bradymonas"                      
-[475] "Hippea"                           "Desulfurella"                    
-[477] "Candidatus Desulfofervidus"       "Candidatus Babela"               
-[479] "Campylobacter"                    "Arcobacter"                      
-[481] "Sulfurospirillum"                 "Sulfurimonas"                    
-[483] "Wolinella"                        "Sulfuricurvum"                   
-[485] "Nitratifractor"                   "Sulfurovum"                      
-[487] "Nitratiruptor"                    "Nautilia"                        
-[489] "Bdellovibrio"                     "Halobacteriovorax"               
-[491] "Bacteriovorax"                    "Mariprofundus"                   
-[493] "Hydrogenophilus"                  "Candidatus Fokinia"              
-[495] "Candidatus Midichloria"           "Candidatus Carsonella"           
-[497] "Candidatus Nitrosoglobus" 
-~~~
->> {: .output}
+>> unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria", "Genus"])
+>> ~~~
+>> {: .language-r}
+>> 
 > {: .solution}
 {: .challenge} 
 
@@ -733,17 +486,17 @@ and that these two will belong to the same OTU.
 
 
 > ## Exercise 3: 
-> While using the help provided in `plot_richness()`, divide these three flags between the members of your breakout-room:
-> 1. `nrow()`
-> 2. `sortby()`
-> 3. `title()`
+> While using the help provided explore these options available for the function in `plot_richness()`:
+> 1. `nrow`
+> 2. `sortby`
+> 3. `title`
 >
-> Use these flags to generate new figures that show you and your breakroom-coterie 
+> Use these options to generate new figures that show you 
 > other ways to present the data.
 >
 >> ## Solution
->> The code and the plot using the three flags will look as follows:
->> The "title()" flag adds a title to the figure.
+>> The code and the plot using the three options will look as follows:
+>> The "title" option adds a title to the figure.
 >> ~~~
 >> > plot_richness(physeq = merged_metagenomes, 
 >>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
@@ -755,7 +508,7 @@ and that these two will belong to the same OTU.
 >> <img src="{{ page.root }}/fig//TitleFlag.png" alt="Alpha diversity indexes for both samples with title" />
 >> </a>
 >> 
->> The "nrow()" flag arranges the graphics horizontally.
+>> The "nrow" option arranges the graphics horizontally.
 >> ~~~
 >> > plot_richness(physeq = merged_metagenomes, 
 >>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
@@ -768,7 +521,7 @@ and that these two will belong to the same OTU.
 >> <img src="{{ page.root }}/fig//NrowFlag.png" alt="Alpha diversity indexes for both samples horizontal with title" />
 >> </a>
 >> 
->> The "sortby()" flag orders the samples from least to greatest diversity depending on the parameter. In this case, it is ordered by "Shannon" and tells us that the JP4D sample has the lowest diversity and the JP41 sample the highest.
+>> The "sortby" option orders the samples from least to greatest diversity depending on the parameter. In this case, it is ordered by "Shannon" and tells us that the JP4D sample has the lowest diversity and the JP41 sample the highest.
 >> ~~~
 >> > plot_richness(physeq = merged_metagenomes, 
 >>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
@@ -782,7 +535,7 @@ and that these two will belong to the same OTU.
 >> </a>
 >>
 >>
->>  Considering the above mentioned, together with the 3 graphs, we can say that the samples JP41 and JP4D present a high diversity with respect to the JC1A, but that the sample JP41, its diversity is mainly given by singletons or doubletons, instead, the diversity of JP4D is given by species in much greater abundance. Although because the values of H (Shannon) above 3 are considered to have a lot of diversity.
+>>  Considering the above mentioned, together with the 3 graphs, we can say that the samples JP41 and JP4D present a high diversity with respect to the JC1A, but that the diversity of the sample JP41 is mainly given by singletons or doubletons, instead, the diversity of JP4D is given by species in much greater abundance. Although because the values of H (Shannon) above 3 are considered to have a lot of diversity.
 >> 
 >  {: .solution}
 {: .challenge}  
