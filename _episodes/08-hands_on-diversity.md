@@ -397,7 +397,7 @@ unique(percentages$Phylum)
 ~~~
 {: .output}
 
-Lets ask R to display the figures again by re-running our code:
+Let's ask R to display the figures again by re-running our code:
 ~~~
 rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+ 
   geom_bar(aes(), stat="identity", position="stack")
@@ -421,8 +421,8 @@ raw.plot | rel.plot
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
-> A) 'raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
->  geom_bar(aes(), stat="identity", position="stack")'
+> A) 'raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+'
+>                        'geom_bar(aes(), stat="identity", position="stack")'
 >  
 > B) 'unique(raw.data$Phylum)'
 > 
