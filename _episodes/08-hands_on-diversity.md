@@ -114,7 +114,7 @@ that is the data inside `deep`, and (ii) we defined the `aes` function(*i.e. map
 which will tell `ggplot` how the variables will be mapped in the figure. In this case, **x** is the name of the 
 samples and **y** the number of reads. It is noticiable that we did not need to express the entire path to access
 to this columns to the `aes` function (*i.e.* x = deep[,"Samples"]), that is because the code is so well 
-written taht it figures it out by itself. What would happend if we only call `ggplot` without the any **geom**(*i.e.* `geom_col`) is:
+written that it figures it out by itself. What would happend if we only call `ggplot` without the any **geom**(*i.e.* `geom_col`) is:
 
 <a href="{{ page.root }}/fig/03-08-02.png">
   <img src="{{ page.root }}/fig/03-08-02.png" alt="ggplot function result without a specified geom" />
@@ -139,13 +139,13 @@ example, we used `geom_col`, which tells `ggplot` we want to visually represent 
 > of codes you will use to generate that figure. You can always request help to 
 > explore this type of geom with `?geom_jitter`.
 > 
-> A) ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) + geom_jitter()
+> A) `ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) + geom_jitter()`
 > 
-> B) ggplot(data = deep, mapping = aes(x = Samples,y = Reads))
+> B) `ggplot(data = deep, mapping = aes(x = Samples,y = Reads))`
 >
-> C) ggplot(data = deep, mapping = aes(x = Samples)) + geom_jitter()
+> C) `ggplot(data = deep, mapping = aes(x = Samples)) + geom_jitter()`
 >
-> D) ggplot(mapping = aes(x = Samples,y = Reads)) + geom_jitter()
+> D) `ggplot(mapping = aes(x = Samples,y = Reads)) + geom_jitter()`
 >
 >> ## Solution
 >> The correct answer is option A)
