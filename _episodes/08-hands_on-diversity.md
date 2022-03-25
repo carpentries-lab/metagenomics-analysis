@@ -29,8 +29,8 @@ In the last lesson, we created our phyloseq object, which contains the informati
 of our samples: `JC1A`, `JP41` and `JP4D`. Let´s take a look again at the
  number of reads in our data.  
 ~~~
-merged_metagenomes
-sample_sums(x = merged_metagenomes)
+> merged_metagenomes
+> sample_sums(x = merged_metagenomes)
 ~~~
 {: .language-r}
 
@@ -52,7 +52,7 @@ in an OTU, and what are the maximum numbers of reads in certain category.
 
 
 ~~~
-summary(merged_metagenomes@otu_table@.Data)
+> summary(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
 ~~~
@@ -80,9 +80,9 @@ This **geoms** can be thought as layers that can be overlapped one over another,
 is required to show useful information-layers to deliver a messagge. We are going to create an 
 example with some of the data that we already have. Let's create a data-frame with the next code:
 ~~~
-deep <- data.frame(Samples = sample_names(merged_metagenomes),
+> deep <- data.frame(Samples = sample_names(merged_metagenomes),
                     Reads = sample_sums(merged_metagenomes))
-deep
+> deep
 ~~~
 {: .language-r}
 
@@ -97,8 +97,8 @@ JP41    JP41  76589
 
 Now, we can do a figure with the three components mentioned(data, coordinates, and geom):
 ~~~
-ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) +
-  geom_col()
+> ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) +
+    geom_col()
 ~~~
 {: .language-r}
 
@@ -166,7 +166,7 @@ reads(i.e. information) of each sample. Before we further process our data, take
 non-identified read. Marked as blank (i.e "") on the different taxonomic levels:
 
 ~~~
-summary(merged_metagenomes@tax_table@.Data== "")
+> summary(merged_metagenomes@tax_table@.Data== "")
 ~~~
 {: .language-r}
 ~~~
@@ -181,8 +181,8 @@ expected to see some blanks at the species, or even at the genus level, we will 
 the genus level to proceed with the analysis:
 
 ~~~
-merged_metagenomes <- subset_taxa(merged_metagenomes, Genus != "")
-summary(merged_metagenomes@tax_table@.Data== "")
+> merged_metagenomes <- subset_taxa(merged_metagenomes, Genus != "")
+> summary(merged_metagenomes@tax_table@.Data== "")
 ~~~
 {: .language-r}
 ~~~
@@ -197,7 +197,7 @@ summary(merged_metagenomes@tax_table@.Data== "")
 Next, since our metagenomes have different sizes, it is imperative to convert the number 
 of assigned read into percentages (i.e. relative abundances) so as to compare them. 
 ~~~
-head(merged_metagenomes@otu_table@.Data)
+> head(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .language-r}
 ~~~
@@ -211,8 +211,8 @@ head(merged_metagenomes@otu_table@.Data)
 ~~~
 {: .output}
 ~~~
-percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
-head(percentages@otu_table@.Data)
+> percentages  = transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
+> head(percentages@otu_table@.Data)
 ~~~
 {: .language-r}
 ~~~
@@ -291,7 +291,7 @@ matrix.
 
 By now, we just need the command `plot_ordination()`, to see the results from our beta diversity analysis:
 ~~~
-plot_ordination(physeq = percentages, ordination = meta.ord)
+> plot_ordination(physeq = percentages, ordination = meta.ord)
 ~~~
 {: .language-r}  
 
@@ -308,8 +308,8 @@ In order to group all the OTUs that have the same taxonomy at a certain taxonomi
 we will use the function `tax_glom()`. 
 
 ~~~
-glom <- tax_glom(percentages, taxrank = 'Phylum')
-View(glom@tax_table@.Data)
+> glom <- tax_glom(percentages, taxrank = 'Phylum')
+> View(glom@tax_table@.Data)
 ~~~
 {: .language-r}  
 
@@ -321,8 +321,8 @@ View(glom@tax_table@.Data)
 Another phyloseq function is `psmelt()`, which melts phyloseq objects into a `data.frame` 
 to manipulate them with packages like `ggplot2` and `vegan`.
 ~~~
-percentages <- psmelt(glom)
-str(percentages)
+> percentages <- psmelt(glom)
+> str(percentages)
 ~~~
 {: .language-r}
 ~~~
@@ -338,9 +338,9 @@ str(percentages)
 Now, let's create another data-frame with the original data. This will help us to compare
 both datasets.
 ~~~
-raw <- tax_glom(physeq = merged_metagenomes, taxrank = "Phylum")
-raw.data <- psmelt(raw)
-str(raw.data)
+> raw <- tax_glom(physeq = merged_metagenomes, taxrank = "Phylum")
+> raw.data <- psmelt(raw)
+> str(raw.data)
 ~~~
 {: .language-r}
 ~~~
@@ -356,22 +356,20 @@ str(raw.data)
 With these objects and what we have learned regarding `ggplot2`, we can proceed to compare them
 with a plot. First, let´s create the figure for the raw data (*i.e* `raw.plot` object)
 ~~~
-raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
-  geom_bar(aes(), stat="identity", position="stack")
+> raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+    geom_bar(aes(), stat="identity", position="stack")
 ~~~
 {: .language-r}
-Position_fill() and position_stack() automatically stack values in reverse order of the group aesthetic, 
-which for bar charts is usually defined by the fill aesthetic (the default group aesthetic is formed by the 
-combination of all discrete aesthetics except for x and y). This default ensures that bar colours align with the default legend.
-When stacking across multiple layers it's a good idea to always set the `group` aesthetic in the ggplot() call. 
-This ensures that all layers are stacked in the same way. For more info [position_stack](https://ggplot2.tidyverse.org/reference/position_stack.html) 
+With the `position="stack"` command, we are telling the `ggplot` function that the values must stack each other for each of the samples. In this way, we will 
+have all of our different categories (OTUs) stacked in one bar and not each in a separate one. 
+For more info [position_stack](https://ggplot2.tidyverse.org/reference/position_stack.html) 
 
 Next, we will create the figure for the representation of the relative abundance data, and ask
 RStudio to show us both plots:
 ~~~
-rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+> rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+ 
   geom_bar(aes(), stat="identity", position="stack")
-raw.plot | rel.plot
+> raw.plot | rel.plot
 ~~~
 {: .language-r}
 
@@ -384,11 +382,11 @@ At once, we can denote the difference between the two plots and how processing t
 enhance the display of important results. However, it is noticeable that we have too much taxa
 to adequatly distinguish the color of each one of them, less of the ones that hold the greatest
 abundance. In order to change that, we will use the power of data-frames and R. We will change
-the identification of the OTUs whose relative abundance is less than 0.5%:
+the identification of the OTUs whose relative abundance is less than 0.2%:
 ~~~
-percentages$Phylum <- as.character(percentages$Phylum)
-percentages$Phylum[percentages$Abundance < 0.5] <- "Phyla < 0.5% abund."
-unique(percentages$Phylum)
+> percentages$Phylum <- as.character(percentages$Phylum)
+> percentages$Phylum[percentages$Abundance < 0.5] <- "Phyla < 0.5% abund."
+> unique(percentages$Phylum)
 ~~~
 {: .language-r}
 ~~~
@@ -399,9 +397,9 @@ unique(percentages$Phylum)
 
 Let's ask R to display the figures again by re-running our code:
 ~~~
-rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+ 
-  geom_bar(aes(), stat="identity", position="stack")
-raw.plot | rel.plot
+> rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+    geom_bar(aes(), stat="identity", position="stack")
+> raw.plot | rel.plot
 ~~~
 {: .language-r}
 
@@ -421,29 +419,27 @@ raw.plot | rel.plot
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
-> A) 'raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+'
->                        'geom_bar(aes(), stat="identity", position="stack")'
+> A) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+>  geom_bar(aes(), stat="identity", position="stack")
 >  
-> B) 'unique(raw.data$Phylum)'
+> B) unique(raw.data$Phylum)
 > 
-> C) 'raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"'
+> C) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has contrasting number of reads.
 >> 
->> C) 'raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"'
+>> C) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
 >> 
->> B) 'unique(raw.data$Phylum)'
+>> B) unique(raw.data$Phylum)
 >> 
->> A) 'raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
->>  geom_bar(aes(), stat="identity", position="stack")'
+>> A) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+>>  geom_bar(aes(), stat="identity", position="stack")
 >>  
 >>  Show your plots:
->>  ~~~
+>>  
 >>  raw.plot | rel.plot
->>  ~~~
->>  {: .language-r} 
->>
+>> 
 >> <a href="{{ page.root }}/fig/03-08-01e.png">
 >>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
 >> </a>
@@ -457,7 +453,7 @@ look deeply to a function that we already use, but now with a guided exploration
 command is used to extract specific lineages from a stated taxonomic level, we have used it to get 
 rid from the reads that does not belong to bacteria:
 ~~~
-merged_metagenomes <- subset_taxa(merged_metagenomes, Kingdom == "Bacteria")
+> merged_metagenomes <- subset_taxa(merged_metagenomes, Kingdom == "Bacteria")
 ~~~
 {: .language-r}
 
@@ -465,8 +461,8 @@ We are going to use it now to extract an specific phylum from our data, and expl
 taxonomic level: Genus. We will take as an example the phylum cyanobacteria (certainly, this is a biased
 and arbitrary decision, but who does not feel attracted these incredible microorganisms?):
 ~~~
-cyanos <- subset_taxa(merged_metagenomes, Phylum == "Cyanobacteria")
-unique(cyanos@tax_table@.Data[,2])
+> cyanos <- subset_taxa(merged_metagenomes, Phylum == "Cyanobacteria")
+> unique(cyanos@tax_table@.Data[,2])
 ~~~
 {: .language-r}
 ~~~
@@ -477,13 +473,13 @@ unique(cyanos@tax_table@.Data[,2])
 Let's do a little review of all that we saw today: **Transformation of the data; Manipulation of the 
 information; and plotting**:
 ~~~
-cyanos  = transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
-glom <- tax_glom(cyanos, taxrank = "Genus")
-g.cyanos <- psmelt(glom)
-g.cyanos$Genus[g.cyanos$Abundance < 10] <- "Genera < 10.0 abund"
-p.cyanos <- ggplot(data=g.cyanos, aes(x=Sample, y=Abundance, fill=Genus))+ 
-  geom_bar(aes(), stat="identity", position="stack")
-p.cyanos
+> cyanos  = transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
+> glom <- tax_glom(cyanos, taxrank = "Genus")
+> g.cyanos <- psmelt(glom)
+> g.cyanos$Genus[g.cyanos$Abundance < 10] <- "Genera < 10.0 abund"
+> p.cyanos <- ggplot(data=g.cyanos, aes(x=Sample, y=Abundance, fill=Genus))+ 
+    geom_bar(aes(), stat="identity", position="stack")
+> p.cyanos
 ~~~
 {: .language-r} 
 
@@ -502,25 +498,22 @@ p.cyanos
 >> Change "Cyanobacteria" wherever it is needed to get a result for
 >> other phylum, as an example, here is the solution for Proteobacteria:
 >>
->> ~~~
->> proteo <- subset_taxa(merged_metagenomes, Phylum == "Proteobacteria")
+>>proteo <- subset_taxa(merged_metagenomes, Phylum == "Proteobacteria")
 >>
->> proteo  = transform_sample_counts(proteo, function(x) x*100 / sum(x) )
+>>proteo  = transform_sample_counts(proteo, function(x) x*100 / sum(x) )
 >>
->> glom <- tax_glom(proteo, taxrank = "Genus")
+>>glom <- tax_glom(proteo, taxrank = "Genus")
 >>
->> g.proteo <- psmelt(glom)
+>>g.proteo <- psmelt(glom)
 >>
->> g.proteo$Genus[g.proteo$Abundance < 3] <- "Genera < 3.0 abund"
+>>g.proteo$Genus[g.proteo$Abundance < 3] <- "Genera < 3.0 abund"
 >>
->> unique(g.proteo$Genus)
+>>unique(g.proteo$Genus)
 >>
->> proteo <- ggplot(data=g.proteo, aes(x=Sample, y=Abundance, fill=Genus))+ 
->>   geom_bar(aes(), stat="identity", position="stack")
+>>proteo <- ggplot(data=g.proteo, aes(x=Sample, y=Abundance, fill=Genus))+ 
+>>  geom_bar(aes(), stat="identity", position="stack")
 >>
->> proteo
->> ~~~  
->> {: .language-r} 
+>>proteo
 >><a href="{{ page.root }}/fig/03-08-02e.png">
 >>  <img src="{{ page.root }}/fig/03-08-02e.png" alt="Diversity of Proteobacteria at genus level inside our samples" />
 >></a>
