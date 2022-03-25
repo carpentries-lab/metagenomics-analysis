@@ -384,7 +384,7 @@ At once, we can denote the difference between the two plots and how processing t
 enhance the display of important results. However, it is noticeable that we have too much taxa
 to adequatly distinguish the color of each one of them, less of the ones that hold the greatest
 abundance. In order to change that, we will use the power of data-frames and R. We will change
-the identification of the OTUs whose relative abundance is less than 0.2%:
+the identification of the OTUs whose relative abundance is less than 0.5%:
 ~~~
 percentages$Phylum <- as.character(percentages$Phylum)
 percentages$Phylum[percentages$Abundance < 0.5] <- "Phyla < 0.5% abund."
