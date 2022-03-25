@@ -397,7 +397,7 @@ unique(percentages$Phylum)
 ~~~
 {: .output}
 
-Let's ask R to display the figures again by re-running our code:
+Lets ask R to display the figures again by re-running our code:
 ~~~
 rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+ 
   geom_bar(aes(), stat="identity", position="stack")
@@ -421,27 +421,29 @@ raw.plot | rel.plot
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
-> A) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
->  geom_bar(aes(), stat="identity", position="stack")
+> A) 'raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+>  geom_bar(aes(), stat="identity", position="stack")'
 >  
-> B) unique(raw.data$Phylum)
+> B) 'unique(raw.data$Phylum)'
 > 
-> C) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
+> C) 'raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"'
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has contrasting number of reads.
 >> 
->> C) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
+>> C) 'raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"'
 >> 
->> B) unique(raw.data$Phylum)
+>> B) 'unique(raw.data$Phylum)'
 >> 
->> A) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
->>  geom_bar(aes(), stat="identity", position="stack")
+>> A) 'raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+>>  geom_bar(aes(), stat="identity", position="stack")'
 >>  
 >>  Show your plots:
->>  
+>>  ~~~
 >>  raw.plot | rel.plot
->> 
+>>  ~~~
+>>  {: .language-r} 
+>>
 >> <a href="{{ page.root }}/fig/03-08-01e.png">
 >>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
 >> </a>
@@ -500,22 +502,25 @@ p.cyanos
 >> Change "Cyanobacteria" wherever it is needed to get a result for
 >> other phylum, as an example, here is the solution for Proteobacteria:
 >>
->>proteo <- subset_taxa(merged_metagenomes, Phylum == "Proteobacteria")
+>> ~~~
+>> proteo <- subset_taxa(merged_metagenomes, Phylum == "Proteobacteria")
 >>
->>proteo  = transform_sample_counts(proteo, function(x) x*100 / sum(x) )
+>> proteo  = transform_sample_counts(proteo, function(x) x*100 / sum(x) )
 >>
->>glom <- tax_glom(proteo, taxrank = "Genus")
+>> glom <- tax_glom(proteo, taxrank = "Genus")
 >>
->>g.proteo <- psmelt(glom)
+>> g.proteo <- psmelt(glom)
 >>
->>g.proteo$Genus[g.proteo$Abundance < 3] <- "Genera < 3.0 abund"
+>> g.proteo$Genus[g.proteo$Abundance < 3] <- "Genera < 3.0 abund"
 >>
->>unique(g.proteo$Genus)
+>> unique(g.proteo$Genus)
 >>
->>proteo <- ggplot(data=g.proteo, aes(x=Sample, y=Abundance, fill=Genus))+ 
->>  geom_bar(aes(), stat="identity", position="stack")
+>> proteo <- ggplot(data=g.proteo, aes(x=Sample, y=Abundance, fill=Genus))+ 
+>>   geom_bar(aes(), stat="identity", position="stack")
 >>
->>proteo
+>> proteo
+>> ~~~  
+>> {: .language-r} 
 >><a href="{{ page.root }}/fig/03-08-02e.png">
 >>  <img src="{{ page.root }}/fig/03-08-02e.png" alt="Diversity of Proteobacteria at genus level inside our samples" />
 >></a>
