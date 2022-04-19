@@ -445,7 +445,8 @@ Let's ask R to display the figures again by re-running our code:
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
-> A) `raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ geom_bar(aes(), stat="identity", position="stack")`
+> A) `raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+` 
+>    `geom_bar(aes(), stat="identity", position="stack")`
 >  
 > B) `unique(raw.data$Phylum)`
 > 
@@ -454,16 +455,16 @@ Let's ask R to display the figures again by re-running our code:
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has contrasting number of reads.
 >> 
->> C) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
+>> C) `raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"`
 >> 
->> B) unique(raw.data$Phylum)
+>> B) `unique(raw.data$Phylum)`
 >> 
->> A) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
->>  geom_bar(aes(), stat="identity", position="stack")
+>> A) `raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+` 
+>>  `geom_bar(aes(), stat="identity", position="stack")`
 >>  
 >>  Show your plots:
 >>  
->>  raw.plot | rel.plot
+>>  `raw.plot | rel.plot`
 >> 
 >> <a href="{{ page.root }}/fig/03-08-01e.png">
 >>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="New reassignation to the low abundant taxa on the left part of the plot. A new class has been created that contains the taxa with less than 300 reads" />
