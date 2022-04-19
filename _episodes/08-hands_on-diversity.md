@@ -103,7 +103,8 @@ Now, we can do a figure with the three components mentioned(data, coordinates, a
 {: .language-r}
 
 <a href="{{ page.root }}/fig/03-08-01.png">
-  <img src="{{ page.root }}/fig/03-08-01.png" alt="Sample read counts as bars in a plot" />
+  <img src="{{ page.root }}/fig/03-08-01.png" alt="Three-bar plot where the height 
+  of each bar represents the number of reads of each sample. The samples are represented from the one with lower reads to the larger one: JC1A, JP41, and JP4D. " />
 </a>
 <em> Figure 1. Sample read counts as bars in a plot. <em/>
 
@@ -114,10 +115,17 @@ that is the data inside `deep`, and (ii) we defined the `aes` function(*i.e. map
 which will tell `ggplot` how the variables will be mapped in the figure. In this case, **x** is the name of the 
 samples and **y** the number of reads. It is noticiable that we did not need to express the entire path to access
 to this columns to the `aes` function (*i.e.* x = deep[,"Samples"]), that is because the code is so well 
-written that it figures it out by itself. What would happend if we only call `ggplot` without the any **geom**(*i.e.* `geom_col`) is:
+written that it figures it out by itself. What would happend if we only call `ggplot` without any **geom**(*i.e.* `geom_col`) is:
+
+~~~
+> ggplot(data = deep, mapping = aes(x = Samples,y = Reads))
+~~~
+{: .language-r}
 
 <a href="{{ page.root }}/fig/03-08-02.png">
-  <img src="{{ page.root }}/fig/03-08-02.png" alt="ggplot function result without a specified geom" />
+  <img src="{{ page.root }}/fig/03-08-02.png" alt="A blank plot. The names of the 
+  samples is on the x-axis and the read quantity on the y-axis, but the bars are 
+  missing because we did not specify which geom to use." />
 </a>
 <em> Figure 2. ggplot function result without a specified geom. <em/>
 
@@ -126,7 +134,9 @@ example, we used `geom_col`, which tells `ggplot` we want to visually represent 
 **y** as columns-bars:
 
 <a href="{{ page.root }}/fig/03-08-01.png">
-  <img src="{{ page.root }}/fig/03-08-01.png" alt="Sample read as bars in a plot" />
+  <img src="{{ page.root }}/fig/03-08-01.png" alt="The same plot as Figure 1. Here 
+  we see again the complete plot, with the corresponding bars to each of the 
+  samples." />
 </a>
 
 <em> Figure 3. Sample read as bars in a plot. <em/>
@@ -296,7 +306,11 @@ By now, we just need the command `plot_ordination()`, to see the results from ou
 {: .language-r}  
 
 <a href="{{ page.root }}/fig/03-08-03.png">
-  <img src="{{ page.root }}/fig/03-08-03.png" alt="Beta diversity with NMDS of three samples" />
+  <img src="{{ page.root }}/fig/03-08-03.png" alt="NMDS plot where each of the 
+  points represents the combined abundance of all its OTUs. As is depicted,  
+  each of the samples ocuppy its own space in the plot without forming any 
+  clusters. This is because each sample is different enough to be considered 
+  its own point in the NMDS space." />
 </a>
 <em> Figure 4. Beta diversity with NMDS of "three" samples. <em/>
 
@@ -314,7 +328,10 @@ we will use the function `tax_glom()`.
 {: .language-r}  
 
 <a href="{{ page.root }}/fig/03-08-04.png">
-  <img src="{{ page.root }}/fig/03-08-04.png" alt="Taxonomic-data table after agrupation at phylum level" />
+  <img src="{{ page.root }}/fig/03-08-04.png" alt="Table containing the 
+  taxonomic information of each of the OTUs inside the three samples. Here, 
+  we can see how only the Phylum column has information, leaving the other 
+  taxonomic levels in blank." />
 </a>
 <em> Figure 5. Taxonomic-data table after agrupation at phylum level. <em/>
 
@@ -374,7 +391,12 @@ RStudio to show us both plots:
 {: .language-r}
 
 <a href="{{ page.root }}/fig/03-08-05.png">
-  <img src="{{ page.root }}/fig/03-08-05.png" alt="Taxonomic diversity of absolute and relative abundance" />
+  <img src="{{ page.root }}/fig/03-08-05.png" alt="A two-part plot contrasting 
+  the absolute versus the relative abundance of the three samples. On the right 
+  side we can see how each of the bars have its own height, making difficult 
+  to compare the information between samples. Whereas, the right side shows 
+  three bars with the same height after the abundance was transformed to 
+  percentage inside of each sample." />
 </a>
 <em> Figure 6. Taxonomic diversity of absolute and relative abundance. <em/>
 
@@ -404,7 +426,11 @@ Let's ask R to display the figures again by re-running our code:
 {: .language-r}
 
 <a href="{{ page.root }}/fig/03-08-06.png">
-  <img src="{{ page.root }}/fig/03-08-06.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
+  <img src="{{ page.root }}/fig/03-08-06.png" alt="A new two-part plot with 
+  a reassignment of the low-abundant taxa on the right side. Compared to the 
+  left legend, the one in the right has fewer groups because the process of 
+  reassigning the taxa with an abundance lower than 0.5 % to just one 
+  group/color." />
 </a>
 <em> Figure 7. Taxonomic diversity of absolute and relative abundance with corrections. <em/>
 
@@ -419,12 +445,11 @@ Let's ask R to display the figures again by re-running our code:
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
-> A) raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ 
->  geom_bar(aes(), stat="identity", position="stack")
+> A) `raw.plot <- ggplot(data=raw.data, aes(x=Sample, y=Abundance, fill=Phylum))+ geom_bar(aes(), stat="identity", position="stack")`
 >  
-> B) unique(raw.data$Phylum)
+> B) `unique(raw.data$Phylum)`
 > 
-> C) raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"
+> C) `raw.data$Phylum[raw.data$Abundance < 300] <- "Minoritary Phyla"`
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has contrasting number of reads.
@@ -441,7 +466,7 @@ Let's ask R to display the figures again by re-running our code:
 >>  raw.plot | rel.plot
 >> 
 >> <a href="{{ page.root }}/fig/03-08-01e.png">
->>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="Taxonomic diversity of absolute and relative abundance with corrections" />
+>>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="New reassignation to the low abundant taxa on the left part of the plot. A new class has been created that contains the taxa with less than 300 reads" />
 >> </a>
 > {: .solution}
 {: .challenge} 
@@ -484,7 +509,10 @@ information; and plotting**:
 {: .language-r} 
 
 <a href="{{ page.root }}/fig/03-08-07.png">
-  <img src="{{ page.root }}/fig/03-08-07.png" alt="Diversity of Cyanobacteria at genus level inside our samples" />
+  <img src="{{ page.root }}/fig/03-08-07.png" alt="A new plot with three bars 
+  representing the absolute abundance of Cyanobacteria in each of the samples. 
+  Each of the colors represent a Genus. Because we are seeing relative 
+  abundances, all the bars are of the same hight." />
 </a>
 <em> Figure 8. Diversity of Cyanobacteria at genus level inside our samples.<em/>
 
@@ -498,24 +526,27 @@ information; and plotting**:
 >> Change "Cyanobacteria" wherever it is needed to get a result for
 >> other phylum, as an example, here is the solution for Proteobacteria:
 >>
->>proteo <- subset_taxa(merged_metagenomes, Phylum == "Proteobacteria")
+>>`proteo <- subset_taxa(merged_metagenomes, Phylum == "Proteobacteria")`
 >>
->>proteo  = transform_sample_counts(proteo, function(x) x*100 / sum(x) )
+>>`proteo  = transform_sample_counts(proteo, function(x) x*100 / sum(x) )`
 >>
->>glom <- tax_glom(proteo, taxrank = "Genus")
+>>`glom <- tax_glom(proteo, taxrank = "Genus")`
 >>
->>g.proteo <- psmelt(glom)
+>>`g.proteo <- psmelt(glom)`
 >>
->>g.proteo$Genus[g.proteo$Abundance < 3] <- "Genera < 3.0 abund"
+>>`g.proteo$Genus[g.proteo$Abundance < 3] <- "Genera < 3.0 abund"`
 >>
->>unique(g.proteo$Genus)
+>>`unique(g.proteo$Genus)`
 >>
->>proteo <- ggplot(data=g.proteo, aes(x=Sample, y=Abundance, fill=Genus))+ 
->>  geom_bar(aes(), stat="identity", position="stack")
+>>`proteo <- ggplot(data=g.proteo, aes(x=Sample, y=Abundance, fill=Genus))+`
+>>  `geom_bar(aes(), stat="identity", position="stack")`
 >>
->>proteo
+>>`proteo`
 >><a href="{{ page.root }}/fig/03-08-02e.png">
->>  <img src="{{ page.root }}/fig/03-08-02e.png" alt="Diversity of Proteobacteria at genus level inside our samples" />
+>>  <img src="{{ page.root }}/fig/03-08-02e.png" alt="A new plot with three bars 
+  representing the absolute abundance of Proteobacteria in each of the samples. 
+  Each of the colors represent a Genus. Because we are seeing relative 
+  abundances, all the bars are of the same hight." />
 >></a>
 > {: .solution}
 {: .challenge} 
