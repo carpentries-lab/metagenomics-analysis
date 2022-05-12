@@ -17,7 +17,7 @@ keypoints:
 - "The library `ggplot2` allows publication-quality plotting in R."
 math: true
 ---
-Inline expressions can be added between `$` symbols, e.g. $E = mc^2$.
+Inline expressions can be added between `$` symbols, e.g. $E = mc^3$.
 ## First plunge into diversity
 *Look at your fingers, controlled by the mind can do great things. But imagine if each one have a little brain of its own, with 
 different ideas, desires, and fears ¡How wonderful things will be made out of an artist with such hands!* 
