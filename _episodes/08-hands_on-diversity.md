@@ -1,5 +1,4 @@
 ---
-source: md
 title: "Taxonomic Analysis with R"
 teaching: 40
 exercises: 20
