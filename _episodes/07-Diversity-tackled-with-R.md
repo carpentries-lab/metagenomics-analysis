@@ -1,5 +1,4 @@
 ---
-source: md
 title: "Diversity Tackled With R "
 teaching: 40
 exercises: 10
