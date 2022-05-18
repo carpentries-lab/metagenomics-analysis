@@ -93,6 +93,8 @@ $ p_{i} $ | The proportion of the community represented by OTU i
 $ D = \frac{1}{\sum_{i=1}^{S} p_{i}^{2}} $ | Definition
 $ S $ | Total number of the species in the community
 $ p_{i} $ | Proportion of community represented by OTU i
+  
+  
 <!-- <img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{\sum_{i=1}^{S}p_i^2}">| Definition   
 <img src="https://render.githubusercontent.com/render/math?math=S"> | Total number of the species in the community   
 <img src="https://render.githubusercontent.com/render/math?math=p_i" align="middle"> | Proportion of community represented by OTU i     -->
@@ -104,6 +106,8 @@ $ p_{i} $ | Proportion of community represented by OTU i
 $ S_{chao1} = S_{Obs} + \frac{F_{1} \times (F_{1} - 1)}{2 \times (F_{2} + 1)} $ | Count of singletons and doubletons respectively
 $ F_{1}, F_{2} $ | Count of singletons and doubletons respectively
 $ S_{chao1}=S_{Obs} $ | The number of observed species
+  
+  
 <!-- <img src="../fig/equation.svg">| Definition  
 <img src="https://render.githubusercontent.com/render/math?math=F_1,F_2">|Count of singletons and doubletons respectively    
 <img src="https://render.githubusercontent.com/render/math?math=S_{chao1}=S_{Obs}">| The number of observed species   -->
