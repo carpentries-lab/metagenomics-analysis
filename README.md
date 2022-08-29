@@ -27,8 +27,6 @@ Current maintainers of this lesson are
 * [Jose Abel Lovaco Flores](https://github.com/fabel134)
 * [Diego Garfias Gallegos](https://github.com/Bedxxe)
 * [Jesus Abraham Avelar Rivas](https://github.com/AbrahamAvelar)
-* [Tania Vanessa Arellano Fernandez](https://github.com/Vanessaarfer)
-* [Edder D. Bustos-Díaz](https://github.com/EdderDaniel)
 
 ## Authors
 
