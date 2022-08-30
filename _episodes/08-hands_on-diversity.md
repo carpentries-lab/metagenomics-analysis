@@ -6,13 +6,10 @@ questions:
 - "How can we compare depth-contrasting samples?"
 - "How can we manipulate our data to deliver a messagge?"
 objectives:
-- "Learn and create figures using `ggplot2`"
-- "Learn how to manipulate data-types inside your phyloseq object"
-- "Understand how to extract specific information from taxonomic-assignation data"
+- "Manipulate data-types inside your phyloseq object"
+- "Extract specific information from taxonomic-assignation data"
 keypoints:
 - "The library `phyloseq` lets you manipulate metagenomic data in a taxonomic specific perspective."  
-- "The library `ggplot2` creates plots that helps/remarks the data analysis"
-- "Creativity is welcome to explore and present your data"
 ---
 
 ## Assemble and manipulate a phyloseq object with a myriad of samples
