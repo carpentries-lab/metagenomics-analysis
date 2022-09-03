@@ -93,8 +93,9 @@ JP41    JP41  76589
 
 Now, we can do a figure with the three components mentioned(data, coordinates, and geom):
 ~~~
-> ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) +
-    geom_col()
+> gcol<-ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) + geom_col()
+> dev.off() 
+
 ~~~
 {: .language-r}
 
