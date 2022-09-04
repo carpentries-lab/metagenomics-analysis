@@ -540,7 +540,7 @@ and that these two will belong to the same OTU.
 >> The code and the plot using the three options will look as follows:
 >> The "title" option adds a title to the figure.
 >> ~~~
->> > #pdf("richness_plot_title.pdf") 
+>> > pdf("richness_plot_title.pdf") 
 >> > plot_richness(physeq = merged_metagenomes, 
 >>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
 >>              measures = c("Observed","Chao1","Shannon"))
@@ -554,7 +554,7 @@ and that these two will belong to the same OTU.
 >> 
 >> The "nrow" option arranges the graphics horizontally.
 >> ~~~
->> > #pdf("richness_plot_horizontal.pdf") 
+>> > pdf("richness_plot_horizontal.pdf") 
 >> > plot_richness(physeq = merged_metagenomes, 
 >>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
 >>              measures = c("Observed","Chao1","Shannon"),
@@ -569,7 +569,7 @@ and that these two will belong to the same OTU.
 >> 
 >> The "sortby" option orders the samples from least to greatest diversity depending on the parameter. In this case, it is ordered by "Shannon" and tells us that the JP4D sample has the lowest diversity and the JP41 sample the highest.
 >> ~~~
->> > #pdf("richness_plot_sorted.pdf") 
+>> > pdf("richness_plot_sorted.pdf") 
 >> > plot_richness(physeq = merged_metagenomes, 
 >>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
 >>              measures = c("Observed","Chao1","Shannon"),
