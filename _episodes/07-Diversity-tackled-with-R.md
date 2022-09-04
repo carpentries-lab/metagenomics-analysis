@@ -170,7 +170,7 @@ You can also known in which directory you are standing in the terminal, by using
 Let's explore the content of some of our data files. In order to do it, we have to move to 
 the  folder where our taxonomic-data files are: 
 ~~~
-$ cd /home/dcuser/dc_workshop/taxonomy
+$ cd ~/dc_workshop/taxonomy
 ~~~~
 {: .bash}
 
