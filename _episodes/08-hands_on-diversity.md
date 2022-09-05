@@ -94,8 +94,8 @@ JP41    JP41  76589
 Now, we can do a figure with the three components mentioned(data, coordinates, and geom):
 ~~~
 > gcol<-ggplot(data = deep, mapping = aes(x = Samples,y = Reads)) + geom_col()
-> dev.off() 
-
+# Save plot using ggsave from ggplot library
+> ggsave(gcol,file="plot_reads.pdf", width = 4, height = 4)
 ~~~
 {: .language-r}
 
@@ -115,7 +115,8 @@ to this columns to the `aes` function (*i.e.* x = deep[,"Samples"]), that is bec
 written that it figures it out by itself. What would happend if we only call `ggplot` without any **geom**(*i.e.* `geom_col`) is:
 
 ~~~
-> ggplot(data = deep, mapping = aes(x = Samples,y = Reads))
+> gbackground<-ggplot(data = deep, mapping = aes(x = Samples,y = Reads))
+> ggsave(gbackground,file="plot_background.pdf", width = 4, height = 4)
 ~~~
 {: .language-r}
 
@@ -298,7 +299,9 @@ matrix.
 
 By now, we just need the command `plot_ordination()`, to see the results from our beta diversity analysis:
 ~~~
+> pdf("plot_ordination.pdf") 
 > plot_ordination(physeq = percentages, ordination = meta.ord)
+> dev.off()
 ~~~
 {: .language-r}  
 
@@ -383,7 +386,11 @@ RStudio to show us both plots:
 ~~~
 > rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+ 
   geom_bar(aes(), stat="identity", position="stack")
+#
+# Lets save our plots on the file plot_abundances
+> pdf("plot_abundances.pdf",width = 15, height = 5) 
 > raw.plot | rel.plot
+> dev.off()
 ~~~
 {: .language-r}
 
@@ -418,7 +425,11 @@ Let's ask R to display the figures again by re-running our code:
 ~~~
 > rel.plot <- ggplot(data=percentages, aes(x=Sample, y=Abundance, fill=Phylum))+ 
     geom_bar(aes(), stat="identity", position="stack")
+#              
+# Lets save our plot with the more abundant phyla 
+> pdf("plot_more_abundant.pdf",width = 15, height = 5) 
 > raw.plot | rel.plot
+> dev.off()
 ~~~
 {: .language-r}
 
@@ -502,7 +513,9 @@ information; and plotting**:
 > g.cyanos$Genus[g.cyanos$Abundance < 10] <- "Genera < 10.0 abund"
 > p.cyanos <- ggplot(data=g.cyanos, aes(x=Sample, y=Abundance, fill=Genus))+ 
     geom_bar(aes(), stat="identity", position="stack")
+> pdf("plot_cyanos.pdf",width = 10, height = 5) 
 > p.cyanos
+> dev.off()
 ~~~
 {: .language-r} 
 
