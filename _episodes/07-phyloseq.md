@@ -23,7 +23,7 @@ manipulating taxonomic-assignment data.  In this lesson, we will use Phyloseq. I
 an abundance matrix from the Kraken output files. One program widely used for this purpose is `kraken-biom`.
 
 To do this we could go to our now familiar Bash terminal, but RStudio has an integrated terminal that uses the same language
- as the one we learned in the Command-line lessons, so let's take advantage of it. so let's open RStudio and go to the Terminal tab in the bottom left panel.
+ as the one we learned in the Command-line lessons, so let's take advantage of it. Let's open RStudio and go to the Terminal tab in the bottom left panel.
 
 ### Kraken-biom
 
@@ -74,14 +74,14 @@ Create BIOM-format tables (http://biom-format.org) from Kraken output
 By a close look at the first output lines, it is noticeable that we need a specific output
 from Kraken: the `.reports`. 
 
-With the next command, we are going to create a table in [Biom](https://biom-format.org/) format called `cuatroc.biom`. We will include the two samples we have been working with (`JC1A` and `JP4D`) and a third one `JP41`, to be able to perform certain analyses later on.
+With the next command, we are going to create a table in [Biom](https://biom-format.org/) format called `cuatroc.biom`. We will include the two samples we have been working with (`JC1A` and `JP4D`) and a third one (`JP41`), to be able to perform certain analyses later on.
 ~~~
 $ kraken-biom JC1A.report JP4D.report JP41.report --fmt json -o cuatroc.biom
 ~~~
 {: .bash}
 
 If we inspect our folder, we will see that the `cuatroc.biom` file has been created, this is 
-a `biom` object which contains both, the abundance and the id of each OTU.
+a `biom` object which contains both, the abundance and the ID (a number) of each OTU.  
 With this result, we are ready to return to RStudio's console and begin to manipulate our 
 taxonomic-data.
 
