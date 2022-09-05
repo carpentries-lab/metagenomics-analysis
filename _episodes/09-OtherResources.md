@@ -13,25 +13,58 @@ keypoints:
 
 ## Other resources 
 ### Cuatro Ciénegas
-More information about 4 Ciénegas is available in these podcasts [Mexican oasis in the desert](https://www.sciencemag.org/podcast/oasis-biodiversity-mexican-desert-and-making-sound-heat) and [Mexican Oasis]( https://youtu.be/xMMm_GKZsnU), in this [Cuatro Ciénegas Video](https://www.youtube.com/embed/VzImXRI9wYE?autoplay=1&rel=0) , and finally in the paper [Cuatro Ciénegas](https://www.sciencemag.org/news/2020/06/pools-mexican-desert-are-window-earth-s-early-life).
+More information about 4 Ciénegas is available in these podcasts 
+[Mexican oasis in the desert](https://www.sciencemag.org/podcast/oasis-biodiversity-mexican-desert-and-making-sound-heat) 
+and [Mexican Oasis]( https://youtu.be/xMMm_GKZsnU), in this 
+[Cuatro Ciénegas Video](https://www.youtube.com/embed/VzImXRI9wYE?autoplay=1&rel=0), 
+and finally in the manuscript 
+[Cuatro Ciénegas](https://www.sciencemag.org/news/2020/06/pools-mexican-desert-are-window-earth-s-early-life).
 
 ### Other tutorials and books  
-Now that you finished this metagenomic lesson, you are ready to explore on your own the universe of available tutorials. [Phyloseq tutorial](https://joey711.github.io/phyloseq/) contains much more examples of metagenomic data manipulation.  Thee [Computational Genomics tutorial](https://genomics.sschmeier.com/) by Schmeir contains explanation about what is happening. A'nvio developer Meren has a blog entry about [History of metagenomics](http://merenlab.org/2020/07/27/history-of-metagenomics/) and several videos explaining [Metapangenomics: A nexus between pangenomes and metagenomes](https://youtu.be/C3fHlccFxJw), [The power of metagenomic read recruitment](https://youtu.be/MqD4aN1p1qA),[Genome-resolved metagenomics: key concepts in reconstructing genomes from metagenomes](https://youtu.be/RjNdHGK4ruo). Finally, the ISME course (in spanish) is a detailed tutorial for 16s metabarcoding [Phyloseq Análisis de diversidad](http://www.castrolab.org/isme/biodiversity/biodiversity.html).   
+Now that you finished this metagenomic lesson, you are ready 
+to explore on your own the universe of available tutorials. 
+[Phyloseq tutorial](https://joey711.github.io/phyloseq/) 
+contains much more examples of metagenomic data manipulation.  
+The [Computational Genomics tutorial](https://genomics.sschmeier.com/) 
+by Schmeir explains carefully each step of the process. To know more 
+about metagenomics history in the Meren Lab blog there is a wonderful
+entry called [History of metagenomics](http://merenlab.org/2020/07/27/history-of-metagenomics/) 
+as well as several videos explaining 
+[Metapangenomics: A nexus between pangenomes and metagenomes](https://youtu.be/C3fHlccFxJw), 
+[The power of metagenomic read recruitment](https://youtu.be/MqD4aN1p1qA),
+[Genome-resolved metagenomics: key concepts in reconstructing genomes from metagenomes](https://youtu.be/RjNdHGK4ruo). 
+Finally, for spansih speakers the ISME course is a detailed tutorial 
+for 16s metabarcoding 
+[ISME Análisis de diversidad](http://www.castrolab.org/isme/biodiversity/biodiversity.html).   
 
-jgi o https://img.jgi.doe.gov/
-earthmicrobiome project
-SRA NCBI
-metSUB 
-atlas of soil microbiome
-statisti microbiome
-microbiome with r
-otro libro 
+The book [Microbiomes](https://link.springer.com/book/10.1007/978-3-030-65317-0) 
+shares a contemporary concept of the microbiomes. Books 
+[Statistical analysis of microbiome data](https://link.springer.com/book/10.1007/978-3-030-73351-3) 
+and [statistical analysis of microbiome data with r](https://link.springer.com/book/10.1007/978-981-13-1534-3) 
+contain a state of the art compendium of the statistical and computational 
+microbiome analysis techniques beyond diversity analysis.    
+
+### Other studies and databases    
+Some databases are: [jgi](https://img.jgi.doe.gov/), 
+[The Earth microbiome project](https://earthmicrobiome.org/), 
+[metaSUB](http://metasub.org/), 
+[The atlas of soil microbiome](https://www.science.org/doi/10.1126/science.aap9516), 
+and [The Human microbiome project](https://hmpdacc.org/).  
 
 ### MG-RAST
 
-A useful and easy to use resource is [MG-RAST](https://www.mg-rast.org/), an online metagenomic platform where you can upload your raw data with its corresponding metadata and get a full taxonomic analysis of it. MG-RAST is a great place to get started in this type of analyzes and it is also a big repository of available data for future experiments. On the downside, it is not possible to greatly modify the steps and parameters in the MG-RAST workflow, so there is not much room when it comes to implementing our preferred analysis tools when using MG-RAST.
+A useful and easy to use resource is [MG-RAST](https://www.mg-rast.org/), is 
+at the same time a database and an online analysis tool. MG-RAST is
+an online metagenomic platform where you can upload your raw data with its 
+corresponding metadata and get a full taxonomic analysis of it. MG-RAST is 
+a great place to get started in this type of analyzes and it is also a big 
+repository of available data for future experiments. On the downside, it 
+is not possible to greatly modify the steps and parameters in the MG-RAST 
+workflow, so there is not much room when it comes to implementing our preferred 
+analysis tools when using MG-RAST.
 
-The Cuatro Ciénegas data that we used in the workshop is already in MG-RAST! You can check it out [here](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
+The Cuatro Ciénegas data that we used in the workshop is already in MG-RAST! 
+You can check it out [here](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp96823). 
 
 We can check the taxonomical distribution of our sample at different taxonomical level.
 
