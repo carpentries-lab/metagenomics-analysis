@@ -56,9 +56,9 @@ Although it looks complicated (and it is), we can understand the [FASTQ](https:/
 
 |Line|Description|
 |----|-----------|
-|1|Always begins with '@' and then information about the read|
+|1|Always begins with '@' followed by the information about the read|
 |2|The actual DNA sequence|
-|3|Always begins with a '+' and sometimes the same info in line 1|
+|3|Always begins with a '+' and sometimes contains the same info as in line 1|
 |4|Has a string of characters which represent the quality scores; must have same number of characters as line 2|
 
 We can view the first complete read in one of the files from our dataset by using `head` to look at
@@ -110,8 +110,9 @@ Each quality score represents the probability that the corresponding nucleotide 
 incorrect. This quality score is logarithmically based, so a quality score of 10 reflects a
 base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%. 
 These probability values are the results from the base calling algorithm and depend on how 
-much signal was captured for the base incorporation. In this link you can find more 
-information about [quality scores](https://drive5.com/usearch/manual/quality_score.html).
+much signal was captured for the base incorporation. In this 
+[link](https://drive5.com/usearch/manual/quality_score.html) you can find more information 
+about quality scores.
 
 Looking back at our read: 
 
@@ -128,7 +129,7 @@ very poor (`#` = a quality score of 2).
 
 > ## Exercise 1: Looking at specific reads  
 > 
-> How would you show in the terminal the ID and quality of last read in `JP4D_R1.fastq `?  
+> How would you show in the terminal the ID and quality of the last read in `JP4D_R1.fastq `?  
 > a) `tail JP4D_R1.fastq`  
 > b) `head -n 4 JP4D_R1.fastq`  
 > c) `more JP4D_R1.fastq`  
@@ -358,7 +359,7 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 > b) `ls -S`  
 > c) `ls -l`  
 > d) `ls -lh`  
-> e) `ls -ahls`  
+> e) `ls -ahlS`  
 >   
 >> ## Solution
 >>  
@@ -810,7 +811,7 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 > > cd ~/dc_workshop/data/untrimmed_fastq/
 > > 
 > > echo "Running FastQC ..."
-> > fastqc .fastq
+> > fastqc *.fastq*
 > > 
 > > mkdir -p ~/dc_workshop/results/fastqc_untrimmed_reads
 > > 
@@ -832,7 +833,7 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 > > ~~~
 > > {: .bash}
 > > 
-> > If we were to run this script it would ask us for confirmation of redoing several steps because we already did all of these steps. If you want you can run it to check that it works, but it is not necessary if you did every step of the previous episode.
+> > If we were to run this script it would ask us for confirmation to redo several steps because we already did all of them. If you want to, you can run it to check that it works, but it is not necessary if you already completed every step of the previous episode.
 > {: .solution}
 >
 {: .challenge}
