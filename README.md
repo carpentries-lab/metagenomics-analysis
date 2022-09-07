@@ -5,7 +5,7 @@
 
 [![The Carpentries Lab Review Status](http://badges.carpentries-lab.org/11_status.svg)](https://github.com/carpentries-lab/reviews/issues/11)
 
-# Data processing and visualization for metagenomics
+# Data Processing and Visualization for Metagenomics
 A lesson to learn how to carry out a metagenomics bioinformatic pipeline. This lesson is part of the [Metagenomics Workshop](https://carpentries-incubator.github.io/metagenomics-workshop/)
 
 
