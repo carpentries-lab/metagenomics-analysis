@@ -4,7 +4,7 @@ teaching: 15
 exercises: 15
 questions:
 - "How do you plan a metagenomics experiment?"
-- "How a metagenomics project looks like?"   
+- "How does a metagenomics project look like?"   
 objectives:
 - "Learn the differences between shotgun and metabarcoding (amplicon metagenomics) techniques."
 - "Understand the importance of metadata."  
@@ -23,7 +23,7 @@ given space. They are like snapshots that can give us information
 about the taxonomic and even metabolic or functional composition 
 of the communities that we decide to study. Thus, metagenomes 
 are usually employed to investigate the ecology of defining 
-characteristics of niches(*e.g.*, the human gut, or the ocean floor). 
+characteristics of niches (*e.g.*, the human gut, or the ocean floor). 
 
 Since metagenomes are mixtures of sequences that belong to different species, 
 a metagenomic workflow is designed to answer two questions: 
@@ -75,7 +75,7 @@ hand, if a genome in the community lacks the region targeted by the
 PCR primers, then no amount of sequencing can give us information 
 about that genome. This is why the most popular amplicon used for 
 this methodology are 16S amplicons for Bacteria since every known 
-bacteria have this particular region. Other regions can be chosen, 
+bacterium has this particular region. Other regions can be chosen, 
 but they are used for very specific cases. However, even 16S amplicons 
 are limited to, well, the 16S region, so amplicon metagenomes cannot 
 directly tell us a lot about the metabolic functions found in each genome, 
@@ -83,16 +83,16 @@ although educated guesses can be made by knowing which genes are
 commonly found in every identified species. 
 
 <a href="{{ page.root }}/fig/03-01-01.png">
-  <img src="{{ page.root }}/fig/03-01-01.png" alt="Flow chart that show the steps: Experimental design, Sampling, DNA extraction, Sequencing, Read quality, Assembly, Binning, Bin quality and Data analysis " />
+  <img src="{{ page.root }}/fig/03-01-01.png" alt="Flow chart that shows the steps of a metagenomics project: Experimental design, Sampling, DNA extraction, Sequencing, Read quality, Assembly, Binning, Bin quality and Data analysis " />
 </a>
 
 ## On Metadata
 
 Once we have chosen an adequate type of methodology for our study, 
 it is important to take extensive notes on the origin of our samples 
-and how we treated them. These notes are the **metadata**, or data about our data, 
+and how we treated them. These notes constitute the **metadata**, or data about our data, 
 and it is crucial to understand and interpret the results that we are going 
-to obtain later on our metagenomic analysis. Most of the time, 
+to obtain later on in our metagenomic analysis. Most of the time, 
 the differences that we observe when comparing metagenomes can be 
 correlated to the metadata, which is why we must include a whole section 
 of our experimental design to the metadata that we expect to collect and record carefully. 
@@ -105,8 +105,8 @@ of our experimental design to the metadata that we expect to collect and record 
 > Which type of metadata would be useful to record?  
 {: .discussion}
 
-Before we continue we want to introduce you **Chepiche** they are going 
-to be with us during this lesson because they are also interested to learn 
+Before we continue we want to introduce you **Chepiche**; they are going 
+to be with us during this lesson because they are also interested in learning 
 about metagenomics, in fact they already have Cuatro Ciénegas data to work on! 
 Let's see! 
 ## Cuatro Ciénegas  
