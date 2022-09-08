@@ -34,7 +34,8 @@ research efficiency and productivity.
 >
 > This lesson also assumes some familiarity with biological concepts, 
 > including the structure of DNA, nucleotide abbreviations, and the 
-> concept microbiome.
+> concepts microbiome and taxonomy.  
+> 
 > This lesson uses data hosted on an Amazon Machine Instance (AMI). Workshop participants
 > will be given information on how to log-in to the AMI during the workshop. Learners using 
 > these materials for self-directed study will need to set up their own AMI. Information 
