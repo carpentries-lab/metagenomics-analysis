@@ -200,9 +200,9 @@ graph created using Phyloseq:
 
 <a href="{{ page.root }}/fig/03-08-04.png">
   <img src="{{ page.root }}/fig/03-08-04.png" alt="A figure divided in three 
-  sections. Each of these sections represents a different alpha diversity index. 
+  panels. Each of these panels represents a different alpha diversity index. 
   Inside this section, each point represents the value assigned on this index to 
-  the three different samples. We can see how the different indexes give 
+  the three different samples.The different indexes give 
   different values to the same sample." />
 </a>
 <em> Figure 4. Alpha diversity indexes for both samples. <em/>
@@ -214,7 +214,7 @@ remarking the impossibility of taking two reads out of the metagenome "bag"
 and that these two will belong to the same OTU.
 
 
-> ## Exercise 2: 
+> ## Exercise 2: Exploring function flags.
 > While using the help provided explore these options available for the function in `plot_richness()`:
 > 1. `nrow`
 > 2. `sortby`
@@ -228,7 +228,7 @@ and that these two will belong to the same OTU.
 >> The "title" option adds a title to the figure.
 >> ~~~
 >> > plot_richness(physeq = merged_metagenomes, 
->>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
+>>              title = "Alpha diversity indexes for three samples from Cuatro Cienegas",
 >>              measures = c("Observed","Chao1","Shannon"))
 >> ~~~
 >> {: .language-r}
@@ -236,12 +236,11 @@ and that these two will belong to the same OTU.
 >> <a href="{{ page.root }}/fig/03-08-05.png">
 >>  <img src="{{ page.root }}/fig/03-08-05.png" alt="" />
 >> </a>
->> <em> Figure 5. . <em/>
+>> <em> Figure 5. Alpha diversity plot with title. <em/>
 >> 
 >> The "nrow" option arranges the graphics horizontally.
 >> ~~~
->> > plot_richness(physeq = merged_metagenomes, 
->>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
+>> > plot_richness(physeq = merged_metagenomes,
 >>              measures = c("Observed","Chao1","Shannon"),
 >>              nrow=3)
 >> ~~~
@@ -250,21 +249,20 @@ and that these two will belong to the same OTU.
 >> <a href="{{ page.root }}/fig/03-08-06.png">
 >>  <img src="{{ page.root }}/fig/03-08-06.png" alt="" />
 >> </a>
->> <em> Figure 6. . <em/>
+>> <em> Figure 6. Alpha diversity plot with the three panels arranged in rows. <em/>
 >> 
 >> The "sortby" option orders the samples from least to greatest diversity depending on the parameter. In this case, it is ordered by "Shannon" and tells us that the JP4D sample has the lowest diversity and the JP41 sample the highest.
 >> ~~~
 >> > plot_richness(physeq = merged_metagenomes, 
->>              title = "Alpha diversity indexes for both samples in Cuatro Cienegas",
 >>              measures = c("Observed","Chao1","Shannon"),
 >>              sortby = "Shannon") 
 >> ~~~
 >> {: .language-r}
 >> 
 >> <a href="{{ page.root }}/fig/03-08-07.png">
->>  <img src="{{ page.root }}/fig/03-08-07.png" alt="" />
+>>  <img src="{{ page.root }}/fig/03-08-07.png" alt="The same panels as before but now the samples are arranged horizontaly according to the values in the Shannon index panel." />
 >> </a>
->> <em> Figure 7. . <em/>
+>> <em> Figure 7. Samples sorted by Shannon in alpha diversity index plots. <em/>
 >>
 >>
 >>  Considering the above mentioned, together with the 3 graphs, we can say that the samples JP41 and JP4D present a high diversity with respect to the JC1A, but that the diversity of the sample JP41 is mainly given by singletons or doubletons, instead, the diversity of JP4D is given by species in much greater abundance. Although because the values of H (Shannon) above 3 are considered to have a lot of diversity.
