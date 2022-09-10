@@ -204,12 +204,11 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >>  This is because `mv` has two options:
 >>  `mv file_1 file_2`
 >>  `mv file_1, file_2, ..... file_n directory` 
->>  When a list of files is passed to `mv`, the `mv` expects the last parameters to be a directory
->>  Here, `*` gives you a list of all the files in the directory
->>  The last parameter is `JC1A_` (which `mv` expects to be a directory). 
->>  B)  No, again every file is send to the same file.
->>  C)  No, every file is sent to the same file JC1A_
->>  D)  Yes, this is one of the possible solutions.
+>>  When a list of files is passed to `mv`, the `mv` expects the last parameters to be a directory.  
+>>  Here, `*` gives you a list of all the files in the directory. The last parameter is `JC1A_` (which `mv` expects to be a directory).   
+>>  B)  No, again every file is send to the same file.  
+>>  C)  No, every file is sent to the same file JC1A_  
+>>  D)  Yes, this is one of the possible solutions.  
 >> 
 >> ¿Do you have another solution?
 >> {: .bash}
@@ -230,9 +229,8 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >> ~~~
 >> {: .bash}
 >>
->> ~~~
 >> A contig is created from reads and then a scaffold from group of cotings so we expect less lines in the `scaffolds.fasta ` .
->> ~~~
+>> 
 > {: .solution}
 > 
 {: .challenge}
