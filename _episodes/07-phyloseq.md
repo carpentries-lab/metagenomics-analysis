@@ -238,10 +238,6 @@ Firmicutes?. Let´s use the command `sum()` to ask R:
 >> ~~~ 
 >> {: .language-r}
 >> ~~~
->> [1] 1949
->> ~~~
->> {: .output}
->> ~~~
 >> unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria", "Genus"])
 >> ~~~
 >> {: .language-r}
