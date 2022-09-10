@@ -39,8 +39,8 @@ In the next example, we will look at the α and the β components of the diversi
 dataset of fishes in three lakes. The most simple way to calculate the β-diversity 
 is to calculate the species that are distinct between two lakes (sites). Let's take 
 Lake A and Lake B to do an example. The number of species in Lake A is 3, to this 
-quantity we will suppress the number of these species that are shared with the Lake 
-B: 2. So the number of unique species in Lake A compared to Lake B is (3-2):1. To 
+quantity we will substract the number of these species that are shared with the Lake 
+B: 2. So the number of unique species in Lake A compared to Lake B is (3-2) = 1. To 
 this number we will sum the result of the same operations but now take Lake B as 
 our site of reference. In the end, the β diversity between Lake A and Lake B is 
 (3-2) + (3-2) = 2. This process can be repeated taking each pair of lakes as the 
@@ -119,12 +119,13 @@ There are two types, without weights (diversity) and with weights (diversity and
 
 There are different ways to plot and show the results of such analysis. Among others, PCA, PCoA, or NMDS analysis are widely used.
 
-> ## Exercise 1: 
+> ## Exercise 1: Simple measure of  alpha and beta diveristies.
 > In the next picture there are two lakes with different fish species:
 > <a href="{{ page.root }}/fig/03-08-03.png">
->   <img src="{{ page.root }}/fig/03-08-03.png" alt="In lake A, we have four different species, two of these species have 3 specimens each one. This lake also has two specimens of another species and only one specimen of the other specie. We got nine fish in total. On the other hand, lake B has only three different species, the most populated specie has five specimens and we have only one specimen of the other two species. We got seven species total in lake B " />
->  <em> Figure 3. .<em/>
-> </a>
+>   <img src="{{ page.root }}/fig/03-08-03.png" alt="In lake A, we have four different species, two of these species have 3 specimens each one. This lake also has two specimens of a third species and only one specimen of a fourth specie. We got nine fish in total. On the other hand, lake B has only three different species, the most populated specie has five specimens and we have only one specimen of the other two species. We got seven species total in lake B " />
+>  <em> Figure 3. <em/>
+> </a>  
+>  
 > Which of the options below is true for the alpha diversity in lake A, lake B, and beta diversity between lakes A and B, respectively?
 > 1. 4, 3, 1
 > 2. 4, 3, 5
