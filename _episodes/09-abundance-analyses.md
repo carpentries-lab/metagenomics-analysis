@@ -69,11 +69,17 @@ Now, let's create another data frame with the original data. This will help us t
 ~~~
 {: .output}
 
-With these objects and what we have learned regarding `ggplot2`, we can proceed to compare them
-with a plot. First, let´s create the figure for the data with absolute abundances (*i.e* `absolute_plot` object)
+With these objects and what we have learned regarding R data structures and `ggplot2`, we can proceed to compare them
+with a plot. First, let's take some steps that will allow us to personalize our plot making it accesible for color-blindness.
+We will create a color palette. With `colorRampPalette` we will chose 8 colors from the Dark2 palette and make a "ramp" with it, that is, covert those 8 colors to the number of colors needed to have one for each phylum in our data frame. For this we need to have our Phylum column in the factor structure.
 ~~~
-> absolute_df$Phylum <- as.factor(absolute_df$Phylum) # Convert the Phylum column to the factor structure
-> phylum_colors_abs<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(absolute_df$Phylum))) # Make a color palette that has as much colors are there are phylum levels
+> absolute_df$Phylum <- as.factor(absolute_df$Phylum)
+> phylum_colors_abs<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(absolute_df$Phylum)))
+~~~
+{: .language-r}
+                      
+Now, let´s create the figure for the data with absolute abundances (*i.e* `absolute_plot` object)
+~~~
 > absolute_plot <- ggplot(data= absolute_df, aes(x=Sample, y=Abundance, fill=Phylum))+ 
     geom_bar(aes(), stat="identity", position="stack")+
     scale_fill_manual(values = phylum_colors_abs)
