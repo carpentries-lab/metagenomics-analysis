@@ -23,8 +23,8 @@ Here we will talk about the two most used diversity metrics, α diversity (withi
 
 - α Diversity: Can be represented as the richness (*i.e.* number of different species in an environment) and abundance of the species in the area(*i.e.* the number of individuals of each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc. 
 
-<a href="{{ page.root }}/fig/03-07-01.png">
-  <img src="{{ page.root }}/fig/03-07-01.png" alt="Alpha diversity diagram: In lake A, we have three fishes, each one of a different species. On lake B, we have two fishes each one of a different species. And in lake C we have four fishes, each one of different species." />
+<a href="{{ page.root }}/fig/03-08-01.png">
+  <img src="{{ page.root }}/fig/03-08-01.png" alt="Alpha diversity diagram: In lake A, we have three fishes, each one of a different species. On lake B, we have two fishes each one of a different species. And in lake C we have four fishes, each one of different species." />
 </a>
 <em> Figure 1. Alpha diversity is represented by fishes in a pond. Here, alpha diversity is represented in its simplest way: Richness. <em/>
  
@@ -44,8 +44,8 @@ our site of reference. In the end, the β diversity between Lake A and Lake B is
 (3-2) + (3-2) = 2. This process can be repeated taking each pair of lakes as the 
 focused sites.
 
-<a href="{{ page.root }}/fig/03-07-02.png">
-  <img src="{{ page.root }}/fig/03-07-02.png" alt=" Alpha and Beta diversity diagram: Each lake has a different number of species and each species has a different number of fish individuals. Both metrics are taken into account to measure alfa and beta diversity." />
+<a href="{{ page.root }}/fig/03-08-02.png">
+  <img src="{{ page.root }}/fig/03-08-02.png" alt=" Alpha and Beta diversity diagram: Each lake has a different number of species and each species has a different number of fish individuals. Both metrics are taken into account to measure alfa and beta diversity." />
 </a>
 <em> Figure 2. Alpha and Beta diversity represented by fishes in a pond.<em/>
 
@@ -119,8 +119,9 @@ There are different ways to plot and show the results of such analysis. Among ot
 
 > ## Exercise 1: 
 > In the next picture there are two lakes with different fish species:
-> <a href="{{ page.root }}/fig/03-07-01e.png">
->   <img src="{{ page.root }}/fig/03-07-01e.png" alt="In lake A, we have four different species, two of these species have 3 specimens each one. This lake also has two specimens of another species and only one specimen of the other specie. We got nine fish in total. On the other hand, lake B has only three different species, the most populated specie has five specimens and we have only one specimen of the other two species. We got seven species total in lake B " />
+> <a href="{{ page.root }}/fig/03-08-03.png">
+>   <img src="{{ page.root }}/fig/03-08-03.png" alt="In lake A, we have four different species, two of these species have 3 specimens each one. This lake also has two specimens of another species and only one specimen of the other specie. We got nine fish in total. On the other hand, lake B has only three different species, the most populated specie has five specimens and we have only one specimen of the other two species. We got seven species total in lake B " />
+>  <em> Figure 3. .<em/>
 > </a>
 > Which of the options below is true for the alpha diversity in lake A, lake B, and beta diversity between lakes A and B, respectively?
 > 1. 4, 3, 1
@@ -194,14 +195,14 @@ graph created using Phyloseq:
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-07-05.png">
-  <img src="{{ page.root }}/fig/03-07-05.png" alt="A figure divided in three 
+<a href="{{ page.root }}/fig/03-08-04.png">
+  <img src="{{ page.root }}/fig/03-08-04.png" alt="A figure divided in three 
   sections. Each of these sections represents a different alpha diversity index. 
   Inside this section, each point represents the value assigned on this index to 
   the three different samples. We can see how the different indexes give 
   different values to the same sample." />
 </a>
-<em> Figure 3. Alpha diversity indexes for both samples. <em/>
+<em> Figure 4. Alpha diversity indexes for both samples. <em/>
 
 Each of these metrics can give an insight into the distribution of the OTUs inside 
 our samples. For example, the Chao1 diversity index gives more weight to singletons
@@ -229,9 +230,10 @@ and that these two will belong to the same OTU.
 >> ~~~
 >> {: .language-r}
 >> 
->> <a href="{{ page.root }}/fig//TitleFlag.png">
->> <img src="{{ page.root }}/fig//TitleFlag.png" alt="Alpha diversity indexes for both samples with title" />
+>> <a href="{{ page.root }}/fig/03-08-05.png">
+>>  <img src="{{ page.root }}/fig/03-08-05.png" alt="" />
 >> </a>
+>> <em> Figure 5. . <em/>
 >> 
 >> The "nrow" option arranges the graphics horizontally.
 >> ~~~
@@ -242,9 +244,10 @@ and that these two will belong to the same OTU.
 >> ~~~
 >> {: .language-r}
 >>  
->> <a href="{{ page.root }}/fig//NrowFlag.png">
->> <img src="{{ page.root }}/fig//NrowFlag.png" alt="Alpha diversity indexes for both samples horizontal with title" />
+>> <a href="{{ page.root }}/fig/03-08-06.png">
+>>  <img src="{{ page.root }}/fig/03-08-06.png" alt="" />
 >> </a>
+>> <em> Figure 6. . <em/>
 >> 
 >> The "sortby" option orders the samples from least to greatest diversity depending on the parameter. In this case, it is ordered by "Shannon" and tells us that the JP4D sample has the lowest diversity and the JP41 sample the highest.
 >> ~~~
@@ -255,9 +258,10 @@ and that these two will belong to the same OTU.
 >> ~~~
 >> {: .language-r}
 >> 
->> <a href="{{ page.root }}/fig//SortbyFlag.png">
->> <img src="{{ page.root }}/fig//SortbyFlag.png" alt="Alpha diversity indexes for both samples with title sort by Shannon" />
+>> <a href="{{ page.root }}/fig/03-08-07.png">
+>>  <img src="{{ page.root }}/fig/03-08-07.png" alt="" />
 >> </a>
+>> <em> Figure 7. . <em/>
 >>
 >>
 >>  Considering the above mentioned, together with the 3 graphs, we can say that the samples JP41 and JP4D present a high diversity with respect to the JC1A, but that the diversity of the sample JP41 is mainly given by singletons or doubletons, instead, the diversity of JP4D is given by species in much greater abundance. Although because the values of H (Shannon) above 3 are considered to have a lot of diversity.
@@ -416,14 +420,14 @@ By now, we just need the command `plot_ordination()`, to see the results from ou
 ~~~
 {: .language-r}  
 
-<a href="{{ page.root }}/fig/03-08-03.png">
-  <img src="{{ page.root }}/fig/03-08-03.png" alt="NMDS plot where each of the 
+<a href="{{ page.root }}/fig/03-08-08.png">
+  <img src="{{ page.root }}/fig/03-08-08.png" alt="NMDS plot where each of the 
   points represents the combined abundance of all its OTUs. As is depicted,  
   each of the samples occupy its own space in the plot without forming any 
   clusters. This is because each sample is different enough to be considered 
   its own point in the NMDS space." />
 </a>
-<em> Figure 4. Beta diversity with NMDS of "three" samples. <em/>
+<em> Figure 8. Beta diversity with NMDS of "three" samples. <em/>
   
                              
 {% include links.md %}
