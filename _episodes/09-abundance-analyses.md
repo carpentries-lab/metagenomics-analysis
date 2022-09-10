@@ -156,9 +156,9 @@ Let's ask R to display the figures again by re-running our code:
 > 
 > A) `absolute_df$Phylum <- as.factor(absolute_df$Phylum)`
 > 
-> B) `absolute_plot <- ggplot(data= absolute_df, aes(x=Sample, y=Abundance, fill=Phylum))+ 
->  geom_bar(aes(), stat="identity", position="stack")+
->  scale_fill_manual(values = phylum_colors_abs)`
+> B) `absolute_plot <- ggplot(data= absolute_df, aes(x=Sample, y=Abundance, fill=Phylum))+` 
+>       `geom_bar(aes(), stat="identity", position="stack")+`
+>       `scale_fill_manual(values = phylum_colors_abs)`
 > 
 > C) `absolute_$Phylum[absolute_$Abundance < 300] <- "Minoritary Phyla"`
 > 
@@ -177,9 +177,9 @@ Let's ask R to display the figures again by re-running our code:
 >>
 >> D) `phylum_colors_abs<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(absolute_df$Phylum)))`
 >>
->> B) `absolute_plot <- ggplot(data= absolute_df, aes(x=Sample, y=Abundance, fill=Phylum))+ 
->>  geom_bar(aes(), stat="identity", position="stack")+
->>  scale_fill_manual(values = phylum_colors_abs)`
+>> B) `absolute_plot <- ggplot(data= absolute_df, aes(x=Sample, y=Abundance, fill=Phylum))+` 
+>>       `geom_bar(aes(), stat="identity", position="stack")+`
+>>       `scale_fill_manual(values = phylum_colors_abs)`
 >>  
 >>  Show your plots:
 >>  
