@@ -284,8 +284,8 @@ information; and plotting**:
 >>   scale_fill_manual(values = genus_colors_proteo)
 >> # Show the plot
 >> plot_proteo  
-~~~
-{: .language-r} 
+>> ~~~
+>> {: .language-r} 
 >><a href="{{ page.root }}/fig/03-09-06.png">
 >>  <img src="{{ page.root }}/fig/03-09-06.png" alt="A new plot with three bars 
   representing the absolute abundance of Proteobacteria in each of the samples. 
