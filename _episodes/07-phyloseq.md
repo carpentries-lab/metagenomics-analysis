@@ -265,8 +265,8 @@ We will take advantage of this information later on in our analyses.
   > ## Exercise 2: Searching for the read counts
 > 
 > Using the information from both the `tax_table` and the `otu_table`, find how many reads there are for
-> any species of your interest (one that can be found in the `tax_table`).
-> *Hint*: Remember that you can access the contents of a data frame with the `["row_name","column_name"] syntax.  
+> any species of your interest (one that can be found in the `tax_table`).  
+> **Hint**: Remember that you can access the contents of a data frame with the `["row_name","column_name"] syntax.  
 > がんばれ! (ganbate; *good luck*):
 >> ## Solution
 >> Go to the `tax_table`: 
@@ -279,7 +279,7 @@ We will take advantage of this information later on in our analyses.
 >>  <a href="{{ page.root }}/fig/03-07-04.png">
 >>  <img src="{{ page.root }}/fig/03-07-04.png" alt="The OTU number is in the leftmost space of the table as a row name for the searched species." />
 >> </a>
->> <em> Figure 4. The row of the `tax_table` corresponding to the species **Paracoccus zhejiangensis**. <em/>
+>> <em> Figure 4. The row of the `tax_table` corresponding to the species *Paracoccus zhejiangensis*. <em/>
 >>  
 >> Search for the row of the `otu_table` that has thw row name that you chose.  
 >> ~~~
