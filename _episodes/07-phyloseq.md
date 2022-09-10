@@ -266,7 +266,7 @@ We will take advantage of this information later on in our analyses.
 > 
 > Using the information from both the `tax_table` and the `otu_table`, find how many reads there are for
 > any species of your interest (one that can be found in the `tax_table`).  
-> **Hint**: Remember that you can access the contents of a data frame with the `["row_name","column_name"] syntax.  
+> **Hint**: Remember that you can access the contents of a data frame with the `["row_name","column_name"]` syntax.  
 > がんばれ! (ganbate; *good luck*):
 >> ## Solution
 >> Go to the `tax_table`: 
@@ -281,7 +281,7 @@ We will take advantage of this information later on in our analyses.
 >> </a>
 >> <em> Figure 4. The row of the `tax_table` corresponding to the species *Paracoccus zhejiangensis*. <em/>
 >>  
->> Search for the row of the `otu_table` that has thw row name that you chose.  
+>> Search for the row of the `otu_table` that has the row name that you chose.  
 >> ~~~
 >> > merged_metagenomes@otu_table@.Data["1077935",]
 >> ~~~
