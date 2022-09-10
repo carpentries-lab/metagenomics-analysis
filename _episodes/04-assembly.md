@@ -201,7 +201,7 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 >> ## Solution
 >>
 >>  A)  No, this option is going to give you as error `mv: target 'JC1A_' is not a directory` 
->>  This is because `mv` has two options:
+>>  This is because `mv` has two options:  
 >>  `mv file_1 file_2`  
 >>  `mv file_1, file_2, ..... file_n directory`   
 >>  When a list of files is passed to `mv`, the `mv` expects the last parameters to be a directory.  
