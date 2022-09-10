@@ -223,21 +223,24 @@ information; and plotting**:
 > cyanos_glom <- tax_glom(cyanos_percentages, taxrank = "Genus")
 > cyanos_df <- psmelt(cyanos_glom)
 > cyanos_df$Genus[cyanos_df$Abundance < 10] <- "Genera < 10.0 abund"
+> cyanos_df$Genus <- as.factor(cyanos_df$Genus)
+> genus_colors_cyanos<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(cyanos_df$Genus)))  
 > plot_cyanos <- ggplot(data=cyanos_df, aes(x=Sample, y=Abundance, fill=Genus))+ 
-    geom_bar(aes(), stat="identity", position="stack")
+    geom_bar(aes(), stat="identity", position="stack")+
+    scale_fill_manual(values = genus_colors_cyanos)
 > plot_cyanos
 ~~~
 {: .language-r} 
 
-<a href="{{ page.root }}/fig/03-08-07.png">
-  <img src="{{ page.root }}/fig/03-08-07.png" alt="A new plot with three bars 
+<a href="{{ page.root }}/fig/03-09-05.png">
+  <img src="{{ page.root }}/fig/03-09-05.png" alt="A new plot with three bars 
   representing the absolute abundance of Cyanobacteria in each of the samples. 
   Each of the colors represents a Genus. Because we are seeing relative 
   abundances, all the bars are of the same height." />
 </a>
-<em> Figure 4. Diversity of Cyanobacteria at genus level inside our samples.<em/>
+<em> Figure 5. Diversity of Cyanobacteria at genus level inside our samples.<em/>
 
-> ## Exercise 3 
+> ## Exercise 3: Ploting abundance of a particular phylum 
 > 
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the code learned to generate a plot where you can 
