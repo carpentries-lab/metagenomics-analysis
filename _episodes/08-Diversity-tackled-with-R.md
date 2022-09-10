@@ -425,7 +425,7 @@ By now, we just need the command `plot_ordination()`, to see the results from ou
 <a href="{{ page.root }}/fig/03-08-08.png">
   <img src="{{ page.root }}/fig/03-08-08.png" alt="Plot with NMDS1 as label in x-axis that goes from -0.4 to 0.2 and NMDS2 in y-axis that goes from -0.2 to 0.1. There are three dots in the plot that are not clustered in any way." />
 </a>
-<em> Figure 8. Beta diversity with NMDS of "three" samples. <em/>
+<em> Figure 8. Beta diversity with NMDS of our three samples. <em/>
   
 In this NMDS plot each of the points represents the combined abundance of all its OTUs. As is depicted, 
   each of the samples occupy its own space in the plot without forming any 
