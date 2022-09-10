@@ -795,7 +795,7 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 
 > ## Bonus Exercise: Automating a quality control workflow
 >
-> Chepiche lost their FastQC analyses results. How can they do it again but faster than the first time?
+> If you loose your FastQC analyses results. How would you do it again but faster than the first time?
 > As we have seen in a previous lesson, making scripts for repetitive tasks is a very efficient practice during bioinformatic pipelines.  
 >
 > > ## Solution
