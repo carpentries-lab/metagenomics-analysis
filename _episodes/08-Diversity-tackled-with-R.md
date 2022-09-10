@@ -21,7 +21,9 @@ Species diversity, in its most simple definition, is the number of species in a 
 Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
 Here we will talk about the two most used diversity metrics, α diversity (within one metagenome) and β (across metagenomes).   
 
-- α Diversity: Can be represented as the richness (*i.e.* number of different species in an environment) and abundance of the species in the area(*i.e.* the number of individuals of each species inside the environment). It can be measured by calculating a diversity index such as Shannon's, Simpson's, Chao1, etc. 
+- α Diversity: Can be represented only as the richness (*i.e.* number of different species in an environment) or, it can be measured considering the
+ abundance of the species in the environment as well (*i.e.* the number of individuals of each species inside the environment). To measure α diversity 
+ different indexes can be used, such as Shannon's, Simpson's, Chao1, etc. 
 
 <a href="{{ page.root }}/fig/03-08-01.png">
   <img src="{{ page.root }}/fig/03-08-01.png" alt="Alpha diversity diagram: In lake A, we have three fishes, each one of a different species. On lake B, we have two fishes each one of a different species. And in lake C we have four fishes, each one of different species." />
