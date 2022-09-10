@@ -3,10 +3,10 @@ title: "Taxonomic Assignment"
 teaching: 30
 exercises: 15
 questions:
-- "How can I assign a taxonomy to my contigs?"
+- "How can I know to which taxa my sequences belong?"
 objectives:
 - "Understand how taxonomic assignment works."
-- "Use kraken to assign taxonomies to reads and contigs."
+- "Use Kraken to assign taxonomies to reads and contigs."
 - "Visualize taxonomic assignations in graphics."
 
 keypoints:
