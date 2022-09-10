@@ -353,9 +353,9 @@ To make this transformation to percentages we will take advantage of a function 
 
 ## Beta diversity
 
-As we mentioned before, the beta diversity is a measure of how alike or different are our samples(overlap between 
+As we mentioned before, the beta diversity is a measure of how alike or different are our samples (overlap between 
 discretely defined sets of species or operational taxonomic units).
-In order to measure this, we need to calculate an index that suits the objectives of our research. By this code,
+In order to measure this, we need to calculate an index that suits the objectives of our research. By the next code,
 we can display all the possible distance metrics that Phyloseq can use:
 ~~~
 > distanceMethodList
@@ -403,7 +403,8 @@ calculate beta diversity.
 **Let's keep this up!** We already have all that we need to begin the beta diversity analysis. We will use 
 the Phyloseq command `ordinate` to generate a new object where the distances between our samples will be 
 allocated after they are calculated. For this command, we need to specify which method we will use to generate
-a matrix. In this example, we will use Non-Metric Multidimensional Scaling or [NMDS](https://academic.oup.com/bioinformatics/article/21/6/730/199398). NMDS attempts to represent 
+a matrix. In this example, we will use Non-Metric Multidimensional Scaling or 
+[NMDS](https://academic.oup.com/bioinformatics/article/21/6/730/199398). NMDS attempts to represent 
 the pairwise dissimilarity between objects in a low-dimensional space, in this case, a two-dimensional plot.
 ~~~
 > meta_ord <- ordinate(physeq = percentages, method = "NMDS", 
@@ -422,13 +423,13 @@ By now, we just need the command `plot_ordination()`, to see the results from ou
 {: .language-r}  
 
 <a href="{{ page.root }}/fig/03-08-08.png">
-  <img src="{{ page.root }}/fig/03-08-08.png" alt="NMDS plot where each of the 
-  points represents the combined abundance of all its OTUs. As is depicted,  
-  each of the samples occupy its own space in the plot without forming any 
-  clusters. This is because each sample is different enough to be considered 
-  its own point in the NMDS space." />
+  <img src="{{ page.root }}/fig/03-08-08.png" alt="Plot with NMDS1 as label in x-axis that goes from -0.4 to 0.2 and NMDS2 in y-axis that goes from -0.2 to 0.1. There are three dots in the plot that are not clustered in any way." />
 </a>
 <em> Figure 8. Beta diversity with NMDS of "three" samples. <em/>
   
+In this NMDS plot each of the points represents the combined abundance of all its OTUs. As is depicted, 
+  each of the samples occupy its own space in the plot without forming any 
+  clusters. This is because each sample is different enough to be considered 
+  its own point in the NMDS space.
                              
 {% include links.md %}
