@@ -191,37 +191,36 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 
 > ## Exercise 1: Rename all files in a folder
 >
-> Add JC1A (the sample ID) separated by "_"  at the beggining of the names of all the contents in the assembly_JC1A directory. Remember that many solutions are possible.
+> Add JC1A (the sample ID) separated by a `_` at the beggining of the names of all the contents in the assembly_JC1A directory. Remember that many solutions are possible.
 > 
-> A)  mv * JC1A_    
-> B)  mv * JC1A_*    
-> C)  for name in *; do mv $name JC1A_; done     
-> D)  for name in *; do mv $name JC1A_$name; done      
+> A) `$ mv * JC1A_`    
+> B) `$ mv * JC1A_*`    
+> C) `$ for name in *; do mv $name JC1A_; done`      
+> D) `$ for name in *; do mv $name JC1A_$name; done`      
 >    
 >> ## Solution
->> ~~~
 >>
->>  A)  No, this option is going to give you as error mv: target 'JC1A_' is not a directory 
->>  This is because mv has two options
->>  mv file_1 file_2
->>  mv file_1, file_2, ..... file_n, directory 
->>  When a list of files is passed to mv, the mv expects the last parameters to be a directory
->>  Here, * gives you a list of all the files in the directory
->>  The last parameter is JC1A_ (which mv expects to be a directory)  
->>  B)  No, Again every file is send to the same file.
+>>  A)  No, this option is going to give you as error `mv: target 'JC1A_' is not a directory` 
+>>  This is because `mv` has two options:
+>>  `mv file_1 file_2`
+>>  `mv file_1, file_2, ..... file_n directory` 
+>>  When a list of files is passed to `mv`, the `mv` expects the last parameters to be a directory
+>>  Here, `*` gives you a list of all the files in the directory
+>>  The last parameter is `JC1A_` (which `mv` expects to be a directory). 
+>>  B)  No, again every file is send to the same file.
 >>  C)  No, every file is sent to the same file JC1A_
 >>  D)  Yes, this is one of the possible solutions.
 >> 
 >> ¿Do you have another solution?
->> ~~~
 >> {: .bash}
 > {: .solution}
 {: .challenge}
 
 > ## Exercise 2: Compare two fasta files from the assembly output
-> You want to know how many contigs and how many scaffolds results for the assembly. Use `contigs.fasta`  and `scaffolds.fasta ` files and sort the commands to create correct code lines. 
->  Do they have the same number of lines? Why?
-> Hint: You can use the following commands: grep, | (pipe), -l, “>”, wc, filename.fasta
+> You want to know how many contigs and how many scaffolds results for the assembly. 
+> Use `contigs.fasta`  and `scaffolds.fasta ` files and sort the commands to create correct code lines.   
+> Do they have the same number of lines? Why?  
+> **Hint**: You can use the following commands: `grep`, `|` (pipe), `-l`, `">"`, `wc`, `filename.fasta`
 > 
 >> ## Solution
 >> 
