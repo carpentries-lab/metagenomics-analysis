@@ -103,7 +103,7 @@ Phyloseq is a library with tools to analyze and plot the taxonomic assignment an
 
 > BiocManager::install("phyloseq") # Install phyloseq
 
-> install.packages(c("readr", "patchwork")) #install patchwork to chart publication-quality plots and readr to read rectangular datasets.
+> install.packages(c("RColorBrewer", "patchwork")) #install patchwork to chart publication-quality plots and readr to read rectangular datasets.
 ~~~
 {: .language-r}  
 
@@ -112,7 +112,7 @@ Once the libraries are installed, we must make them available for this R session
 ~~~
 > library("phyloseq")
 > library("ggplot2")
-> library("readr")
+> library("RColorBrewer")
 > library("patchwork")
 ~~~
 {: .language-r}
