@@ -27,8 +27,8 @@ we will use the function `tax_glom()`.
 ~~~
 {: .language-r}  
 
-<a href="{{ page.root }}/fig/03-08-04.png">
-  <img src="{{ page.root }}/fig/03-08-04.png" alt="Table containing the 
+<a href="{{ page.root }}/fig/03-09-01.png">
+  <img src="{{ page.root }}/fig/03-09-01.png" alt="Table containing the 
   taxonomic information of each of the OTUs inside the three samples. Here, 
   we can see how only the Phylum column has information, leaving the other 
   taxonomic levels blank." />
@@ -72,8 +72,11 @@ Now, let's create another data frame with the original data. This will help us t
 With these objects and what we have learned regarding `ggplot2`, we can proceed to compare them
 with a plot. First, let´s create the figure for the data with absolute abundances (*i.e* `absolute_plot` object)
 ~~~
+> absolute_df$Phylum <- as.factor(absolute_df$Phylum) # Convert the Phylum column to the factor structure
+> phylum_colors_abs<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(absolute_df$Phylum))) # Make a color palette that has as much colors are there are phylum levels
 > absolute_plot <- ggplot(data= absolute_df, aes(x=Sample, y=Abundance, fill=Phylum))+ 
-    geom_bar(aes(), stat="identity", position="stack")
+    geom_bar(aes(), stat="identity", position="stack")+
+    scale_fill_manual(values = phylum_colors_abs)
 ~~~
 {: .language-r}
 With the `position="stack"` command, we are telling the `ggplot` function that the values must stack each other for each of the samples. In this way, we will 
@@ -83,14 +86,17 @@ For more info [position_stack](https://ggplot2.tidyverse.org/reference/position_
 Next, we will create the figure for the representation of the relative abundance data, and ask
 RStudio to show us both plots thanks to the `|` function from the library `patchwork`:
 ~~~
+> percentages_df$Phylum <- as.factor(percentages_df$Phylum)
+> phylum_colors_rel<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(percentages_df$Phylum)))
 > relative_plot <- ggplot(data=percentages_df, aes(x=Sample, y=Abundance, fill=Phylum))+ 
-  geom_bar(aes(), stat="identity", position="stack")
+    geom_bar(aes(), stat="identity", position="stack")+
+    scale_fill_manual(values = phylum_colors_rel)
 > absolute_plot | relative_plot
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-08-05.png">
-  <img src="{{ page.root }}/fig/03-08-05.png" alt="A two-part plot contrasting 
+<a href="{{ page.root }}/fig/03-09-02.png">
+  <img src="{{ page.root }}/fig/03-09-02.png" alt="A two-part plot contrasting 
   the absolute versus the relative abundance of the three samples. On the right 
   side, we can see how each of the bars has its own height, making it difficult 
   to compare the information between samples. Whereas, the right side shows 
@@ -105,7 +111,7 @@ to adequately distinguish the color of each one of them, less of the ones that h
 abundance. In order to change that, we will use the power of data-frames and R. We will change
 the identification of the OTUs whose relative abundance is less than 0.2%:
 ~~~
-> percentages_df$Phylum <- as.character(percentages_df$Phylum)
+> percentages_df$Phylum <- as.character(percentages_df$Phylum) # Return the Phylum column to be of type character
 > percentages_df$Phylum[percentages_df$Abundance < 0.5] <- "Phyla < 0.5% abund."
 > unique(percentages_df$Phylum)
 ~~~
@@ -118,14 +124,18 @@ the identification of the OTUs whose relative abundance is less than 0.2%:
 
 Let's ask R to display the figures again by re-running our code:
 ~~~
+> percentages_df$Phylum <- as.factor(percentages_df$Phylum)
+> phylum_colors_rel<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(percentages_df$Phylum)))
 > relative_plot <- ggplot(data=percentages_df, aes(x=Sample, y=Abundance, fill=Phylum))+ 
-    geom_bar(aes(), stat="identity", position="stack")
+  geom_bar(aes(), stat="identity", position="stack")+
+  scale_fill_manual(values = phylum_colors_rel)
 > absolute_plot | relative_plot
+
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-08-06.png">
-  <img src="{{ page.root }}/fig/03-08-06.png" alt="A new two-part plot with 
+<a href="{{ page.root }}/fig/03-09-03.png">
+  <img src="{{ page.root }}/fig/03-09-03.png" alt="A new two-part plot with 
   a reassignment of the low-abundant taxa on the right side. Compared to the 
   left legend, the one in the right has fewer groups because of the process of 
   reassigning the taxa with an abundance lower than 0.5 % to just one 
@@ -140,33 +150,43 @@ Let's ask R to display the figures again by re-running our code:
 > your data frame. According to the [ColorBrewer](https://github.com/axismaps/colorbrewer/) package
 > it is recommended not to have more than 9 different colors in a plot.
 > 
-> What is the best way to run the next script? Compare your graphs with your partners
+> What is the correct order to run the next chunks of code? Compare your graphs with your partners'.
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
-> A) `absolute_plot <- ggplot(data=absolute_df, aes(x=Sample, y=Abundance, fill=Phylum))+` 
->    `geom_bar(aes(), stat="identity", position="stack")`
->  
-> B) `unique(absolute_df$Phylum)`
+> A) `absolute_df$Phylum <- as.factor(absolute_df$Phylum)`
+> 
+> B) `absolute_plot <- ggplot(data= absolute_df, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+>  geom_bar(aes(), stat="identity", position="stack")+
+>  scale_fill_manual(values = phylum_colors_abs)`
 > 
 > C) `absolute_$Phylum[absolute_$Abundance < 300] <- "Minoritary Phyla"`
+> 
+> D) `phylum_colors_abs<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(absolute_df$Phylum)))`
+> 
+> E) `absolute_df$Phylum <- as.character(absolute_df$Phylum)`
 >> ## Solution
 >> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
 >> Certainly, this will be difficult since each of our samples has a contrasting number of reads.
 >> 
->> C) `absolute_df$Phylum[absolute_df$Abundance < 300] <- "Minoritary Phyla"`
+>> E) `absolute_df$Phylum <- as.character(absolute_df$Phylum)`
 >> 
->> B) `unique(absolute_df$Phylum)`
+>> C) `absolute_df$Phylum[absolute_$Abundance < 300] <- "Minoritary Phyla"`
 >> 
->> A) `absolute_plot <- ggplot(data=absolute_df, aes(x=Sample, y=Abundance, fill=Phylum))+` 
->>  `geom_bar(aes(), stat="identity", position="stack")`
+>> A) `absolute_df$Phylum <- as.factor(absolute_df$Phylum)`
+>>
+>> D) `phylum_colors_abs<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(absolute_df$Phylum)))`
+>>
+>> B) `absolute_plot <- ggplot(data= absolute_df, aes(x=Sample, y=Abundance, fill=Phylum))+ 
+>>  geom_bar(aes(), stat="identity", position="stack")+
+>>  scale_fill_manual(values = phylum_colors_abs)`
 >>  
 >>  Show your plots:
 >>  
 >>  `absolute_plot | relative_plot`
 >> 
->> <a href="{{ page.root }}/fig/03-08-01e.png">
->>   <img src="{{ page.root }}/fig/03-08-01e.png" alt="New reassignment to the low abundant taxa on the left part of the plot. A new class has been created that contains the taxa with less than 300 reads" />
+>> <a href="{{ page.root }}/fig/03-09-04.png">
+>>   <img src="{{ page.root }}/fig/03-09-04.png" alt="New reassignment to the low abundant taxa on the left part of the plot. A new class has been created that contains the taxa with less than 300 reads" />
 >> </a>
 > {: .solution}
 {: .challenge} 
