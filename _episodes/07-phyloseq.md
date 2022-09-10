@@ -158,8 +158,8 @@ will be the one chosen in both cases. Let's see what is inside of our `tax_table
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-07-03.png">
-  <img src="{{ page.root }}/fig/03-07-03.png" alt="A table where the taxonomic 
+<a href="{{ page.root }}/fig/03-07-01.png">
+  <img src="{{ page.root }}/fig/03-07-01.png" alt="A table where the taxonomic 
   identification information of all OTUs is displayed. Each row represents one 
   OTU and the columns represent its identification at different levels in the taxonomic classification ranks, begging with Kingdom until we reach Species 
   in the seventh column." />
@@ -184,8 +184,8 @@ To remove unnecessary characters in `.Data` (matrix), we are going to use the co
 ~~~
 {: .language-r}
 
-<a href="{{ page.root }}/fig/03-07-04.png">
-  <img src="{{ page.root }}/fig/03-07-04.png" alt="The same table we saw in Figure 
+<a href="{{ page.root }}/fig/03-07-02.png">
+  <img src="{{ page.root }}/fig/03-07-02.png" alt="The same table we saw in Figure 
   3 but with informative names in each of the columns. Now, we can see which of 
   the columns are associated with which taxonomic classification rank" />
 </a>
@@ -262,6 +262,38 @@ Until now we have looked at the part of the phyloseq object that stores the info
 
 We will take advantage of this information later on in our analyses. 
 
+  > ## Exercise 2: Searching for the read counts
+> 
+> Using the information from both the `tax_table` and the `otu_table`, find how many reads there are for
+> any species of your interest (one that can be found in the `tax_table`).
+> *Hint*: Remember that you can access the contents of a data frame with the `["row_name","column_name"] syntax.  
+> がんばれ! (ganbate; *good luck*):
+>> ## Solution
+>> Go to the `tax_table`: 
+>>   
+>> ~~~ 
+>> > View(merged_metagenomes@tax_table@.Data)
+>> ~~~ 
+>> {: .language-r}
+>> Take note of the OTU number for some species:
+>>  <a href="{{ page.root }}/fig/03-07-04.png">
+>>  <img src="{{ page.root }}/fig/03-07-04.png" alt="The OTU number is in the leftmost space of the table as a row name for the searched species." />
+>> </a>
+>> <em> Figure 4. The row of the `tax_table` corresponding to the species **Paracoccus zhejiangensis**. <em/>
+>>  
+>> Search for the row of the `otu_table` that has thw row name that you chose.  
+>> ~~~
+>> > merged_metagenomes@otu_table@.Data["1077935",]
+>> ~~~
+>> {: .language-r}
+>> ~~~
+>> JC1A JP4D JP41 
+>>   42  782  257 
+>> ~~~
+>> {: .language-r}
+>> 
+> {: .solution}
+{: .challenge} 
 
 > ## Phyloseq objects
 > Finally, we can review our object and see that all datasets (i.e. JC1A, JP4D, and JP41) are in the object.
