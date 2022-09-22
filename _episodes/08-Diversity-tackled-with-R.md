@@ -3,10 +3,13 @@ title: "Diversity Tackled With R "
 teaching: 40
 exercises: 10
 questions:
+- "How can we measure diversity?
 - "How can I use R to analyze diversity?"
 objectives:
 - "Plot alpha and beta diversity."
 keypoints:
+- "Alpha diversity measures the intra-sample diversity"
+- "Beta diversity measures the inter-sample diversity"
 - "Phyloseq includes diversity analyses such as alpha and beta diversity calculation."
 math: true
 ---
