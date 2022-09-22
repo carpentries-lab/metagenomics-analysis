@@ -10,6 +10,7 @@ objectives:
 - "Manipulate data types inside your phyloseq object"
 - "Extract specific information from taxonomic-assignation data"
 keypoints:
+- "Depths and abundances can be visualized using phyloseq"
 - "The library `phyloseq` lets you manipulate metagenomic data in a taxonomic specific perspective."  
 ---
 
