@@ -224,6 +224,16 @@ Firmicutes?. Let´s use the command `sum()` to ask R:
 ~~~
 {: .output}
 
+Now, to know for that phylum in particular which taxa there are in a certain rank we can ask it to phyloseq as well.
+~~~
+> unique(merged_metagenomes@tax_table@.Data[merged_metagenomes@tax_table@.Data[,"Phylum"] == "Firmicutes", "Class"])
+~~~
+{: .language-r}
+~~~
+[1] "Bacilli"          "Clostridia"       "Negativicutes"    "Limnochordia"     "Erysipelotrichia" "Tissierellia" 
+~~~
+{: .output}
+  
 > ## Exercise 1: Explore a phylum
 > 
 > Go into groups and choose one phylum that is interesting for your
@@ -231,7 +241,7 @@ Firmicutes?. Let´s use the command `sum()` to ask R:
 > your chosen phylum and what are the unique names of the genera inside it.
 > がんばれ! (ganbate; *good luck*):
 >> ## Solution
->> Change the name of a new phylum wherever it is needed to get the result.
+>> Change the name of a new phylum wherever it is needed and the name of the rank that we are asking for, to get the result.
 >> As an example, here is the solution for Proteobacteria:
 >> ~~~ 
 >> sum(merged_metagenomes@tax_table@.Data[,"Phylum"] == "Proteobacteria")
