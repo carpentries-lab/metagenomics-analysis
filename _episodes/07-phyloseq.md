@@ -8,7 +8,8 @@ objectives:
 - "Comprehend which libraries are required for analysis of the taxonomy of metagenomes."  
 - "Create and manage a Phyloseq object."
 keypoints:
-- "The library `phyloseq` manages metagenomics objects and computes analyses."  
+- kraken-biom format kraken output-files of several samples into the single `.biom` file that is phylose input. 
+- "The library `phyloseq` manages metagenomics objects and computes analyses."
 - "A phyloseq object stores a table with the taxonomic information of each OTU and a table with the abundance of each OTU."
 math: true
 ---
