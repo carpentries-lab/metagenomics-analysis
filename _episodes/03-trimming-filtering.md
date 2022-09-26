@@ -105,9 +105,9 @@ and options, see [the Trimmomatic manual](http://www.usadellab.org/cms/uploads/s
 However, a complete command for Trimmomatic will look something like the command below. This command is an example and will not work, as we do not have the files it refers to:
 
 ~~~
-$ trimmomatic PE -threads 4 SRR_1056_1.fastq SRR_1056_2.fastq\
-              SRR_1056_1.trimmed.fastq SRR_1056_1un.trimmed.fastq\
-              SRR_1056_2.trimmed.fastq SRR_1056_2un.trimmed.fastq\
+$ trimmomatic PE -threads 4 SRR_1056_1.fastq SRR_1056_2.fastq \
+              SRR_1056_1.trimmed.fastq SRR_1056_1un.trimmed.fastq \
+              SRR_1056_2.trimmed.fastq SRR_1056_2un.trimmed.fastq \
               ILLUMINACLIP:SRR_adapters.fa SLIDINGWINDOW:4:20
 ~~~
 {: .bash}
