@@ -35,7 +35,12 @@ for assembling large and complex metagenomics data, and it is one of the
 most used and recommended. It is part of the SPAdes toolkit, that 
 contains several assembly pipelines.
 
-Some of the problems faced by metagenomics assembly are: i) the differences in coverage between the genomes, due to the differences in abundance in the sample, ii) the fact that different species often share conserved regions, iii) and the presence of several strains of a single species in the community. SPAdes already deals with the non-uniform coverage problem in its algorithm, so it is useful for the assembly of simple communities, but the [metaSPAdes](https://pubmed.ncbi.nlm.nih.gov/28298430/) algorithm deals with the other problems as well, allowing it to assemble metagenomes from complex communities. 
+Some of the problems faced by metagenomics assembly are:  
+* The differences in coverage between the genomes, due to the differences in abundance in the sample.  
+* The fact that different species often share conserved regions.  
+* The presence of several strains of a single species in the community.   
+
+SPAdes already deals with the non-uniform coverage problem in its algorithm, so it is useful for the assembly of simple communities, but the [metaSPAdes](https://pubmed.ncbi.nlm.nih.gov/28298430/) algorithm deals with the other problems as well, allowing it to assemble metagenomes from complex communities. 
 
 Let's see what happens if we enter the metaspades.py command on our terminal.
 
