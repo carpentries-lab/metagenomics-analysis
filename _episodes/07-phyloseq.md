@@ -19,8 +19,8 @@ math: true
 In this episode we will use RStudio to analyze our microbial samples, you don't have to install anything, 
 you already have an instance on the cloud ready to be used.   
 
-Packages like Quiime2, MEGAN, Vegan, or Phyloseq in R allow us to analyze diversity and abundance by 
-manipulating taxonomic-assignment data.  In this lesson, we will use Phyloseq. In order to do so, we need to generate 
+Packages like Qiime2, MEGAN, Vegan, or Phyloseq in R allow us to analyze diversity and abundance by 
+manipulating taxonomic assignment data.  In this lesson, we will use Phyloseq. In order to do so, we need to generate 
 an abundance matrix from the Kraken output files. One program widely used for this purpose is `kraken-biom`.
 
 To do this we could go to our now familiar Bash terminal, but RStudio has an integrated terminal that uses the same language
@@ -278,7 +278,7 @@ We will take advantage of this information later on in our analyses.
 > Using the information from both the `tax_table` and the `otu_table`, find how many reads there are for
 > any species of your interest (one that can be found in the `tax_table`).  
 > **Hint**: Remember that you can access the contents of a data frame with the `["row_name","column_name"]` syntax.  
-> がんばれ! (ganbate; *good luck*):
+> がんばれ! (ganbare; *good luck/keep it up!*):
 >> ## Solution
 >> Go to the `tax_table`: 
 >>   
