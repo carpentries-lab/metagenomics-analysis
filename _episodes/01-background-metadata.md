@@ -105,10 +105,6 @@ of our experimental design to the metadata that we expect to collect and record 
 > Which type of metadata would be useful to record?  
 {: .discussion}
 
-Before we continue we want to introduce you **Chepiche**; they are going 
-to be with us during this lesson because they are also interested in learning 
-about metagenomics, in fact they already have Cuatro Ciénegas data to work on! 
-Let's see! 
 ## Cuatro Ciénegas  
 <a href="{{ page.root }}/fig/03-01-02.jpeg">
   <img src="{{ page.root }}/fig/03-01-02.jpeg" alt="Photography of a pond in Cuatro Ciénegas" />
@@ -161,7 +157,7 @@ changed when the bacterial community underwent the treatment.
 > ## Exercise 2: Differentiate between IDs and sample names 
 > 
 > Depending on the database, several IDs can be used for the same sample.
-> Please, open Chepiche's document where the [metadata information is stored](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv). Here inspect the IDs and find out which of them correspond to sample	**JP4110514WATERRESIZE**
+> Please open the document where the [metadata information is stored](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv). Here inspect the IDs and find out which of them correspond to sample	**JP4110514WATERRESIZE**
 >> ## Solution
 >> ERS1949771	is the SRA ID corresponding to JP4110514WATERRESIZE
 >> 
@@ -170,7 +166,7 @@ changed when the bacterial community underwent the treatment.
 
 > ## Exercise 3: Discuss the importance of Metadata 
 > 
-> Which other data could you recommend Chepiche to add in their data, and what did you think is the relevance of this information?
+> Which other data could you recommend to add in the data, and what do you think is the relevance of this information?
 > 
 >> ## Solution
 >> Metadata will depend on the type of the experiment, but some examples are temperature, sampling methodology, date, place (country, state, region, city, etc.). 
