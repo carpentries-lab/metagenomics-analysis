@@ -224,7 +224,7 @@ analyses. Rather than looking at quality scores for each individual read, FastQC
 quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
 
  <a href="{{ page.root }}/fig/03-02-03.png">
-  <img src="{{ page.root }}/fig/03-02-03.png" alt="Graphic of boxplots, where are all of them are at the top of the y axis in the good range of scores." />
+  <img src="{{ page.root }}/fig/03-02-03.png" alt="Quality graph showing a boxplot for each sequence position in the x axis, and the phred score in the y axis. The background is colored red for the phred scores 0 to 20, yellow for the scores 20 to 28 and green for the scores 28 to 38. All of the boxes for each position are in the green area." />
 </a>
 
 The x-axis displays the base position in the read, and the y-axis shows quality scores. In this 
