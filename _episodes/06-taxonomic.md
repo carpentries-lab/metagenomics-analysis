@@ -34,7 +34,7 @@ breaks the query sequence (reads, contigs) into pieces of length k,
 look for where these are placed within the tree and make the 
 classification with the most probable position.  
 <a href="{{ page.root }}/fig/03-06-01.png">
-  <img src="{{ page.root }}/fig/03-06-01.png" alt="Diagram of taxonomic tree" />
+  <img src="{{ page.root }}/fig/03-06-01.png" alt="Diagram of a taxonomic tree with four levels of nodes, some nodes have a number from 1 to 3 and some do not. From the most recent nodes one has a 3 and its parent nodes do not have numbers. This node with a 3 is selected." />
 </a>
 <em> Figure 1. Lowest common ancestor assignment example.<em/>
 
