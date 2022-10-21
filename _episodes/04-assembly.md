@@ -27,7 +27,7 @@ extension, OLC and De Bruijn charts. Contrary to metabarcoding, shotgun metageno
 sometimes is not needed.
 
 <a href="{{ page.root }}/fig/03-04-01.png">
-  <img src="{{ page.root }}/fig/03-04-01.png" width="868" height="777" alt="Three diagrams depicting the three assembly algorithms" />
+  <img src="{{ page.root }}/fig/03-04-01.png" width="868" height="777" alt="Three diagrams depicting the three assembly algorithms: The Greedy extension starts with any read, extends it whit the reads that make a match to make a contig, it continues with a different read when the previous contig can not be extended any more. The Overlap Layout consensus finds every pairwise overlap, makes a layout graph with all the overlaps, and chooses consensus sequences to make the contigs. The De Brujin Graphs divies the reads in k-mers, makes a k-mer graph that shows all the overlaping k-mers, and chooses paths from the graph to make the contigs. " />
 </a>
 
 [MetaSPAdes](https://github.com/ablab/spades) is a NGS de novo assembler 
