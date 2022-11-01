@@ -266,7 +266,7 @@ We will take advantage of this information later on in our analyses.
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the learned code to find out how many OTUs have been assigned to
 > your chosen phylum and what are the unique names of the genera inside it.
-> がんばれ! (ganbate; *good luck*):
+> がんばれ! (ganbare; *good luck/keep it up!*):
 >> ## Solution
 >> Change the name of a new phylum wherever it is needed and the name of the rank that we are asking for, to get the result.
 >> As an example, here is the solution for Proteobacteria:
