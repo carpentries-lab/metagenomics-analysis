@@ -235,6 +235,32 @@ Now, to know for that phylum in particular which taxa there are in a certain ran
 ~~~
 {: .output}
   
+### Exploring the abundance table
+
+Until now we have looked at the part of the phyloseq object that stores the information about the taxonomy (at all the possible levels) of each OTU found in our samples. But there is also a part of the phyloseq object that stores the information about how many sequenced reads corresponding to a certain OTU are there in each sample. This table is the `otu_table`. 
+
+~~~
+> View(merged_metagenomes@otu_table@.Data)
+~~~
+{: .language-r}
+
+<a href="{{ page.root }}/fig/03-07-03.png">
+  <img src="{{ page.root }}/fig/03-07-03.png" alt="A table where the abundance of each OTU is each sample is shown. Each row represents one 
+  OTU and the columns represent the samples, in the intersection there is a number that indicates how many sequenced reads of that OTU are present in that sample." />
+</a>
+<em> Figure 3. Table of the abundance of reads in the `merged_metagenomes` object. <em/>
+
+We will take advantage of this information later on in our analyses. 
+
+  > ## Phyloseq objects
+> Finally, we can review our object and see that all datasets (i.e. JC1A, JP4D, and JP41) are in the object.
+> If you look at our Phyloseq object, you will see that there are more data types 
+> that we can use to build our object(`?phyloseq()`), such as a phylogenetic tree and metadata 
+> concerning our samples. These are optional, so we will use our basic
+> phyloseq object, for now, composed of the abundances of specific OTUs and the 
+> names of those OTUs.  
+{: .callout}
+  
 > ## Exercise 1: Explore a phylum
 > 
 > Go into groups and choose one phylum that is interesting for your
@@ -254,26 +280,9 @@ Now, to know for that phylum in particular which taxa there are in a certain ran
 >> {: .language-r}
 >> 
 > {: .solution}
-{: .challenge} 
-
-### Exploring the abundance table
-
-Until now we have looked at the part of the phyloseq object that stores the information about the taxonomy (at all the possible levels) of each OTU found in our samples. But there is also a part of the phyloseq object that stores the information about how many sequenced reads corresponding to a certain OTU are there in each sample. This table is the `otu_table`. 
-
-~~~
-> View(merged_metagenomes@otu_table@.Data)
-~~~
-{: .language-r}
-
-<a href="{{ page.root }}/fig/03-07-03.png">
-  <img src="{{ page.root }}/fig/03-07-03.png" alt="A table where the abundance of each OTU is each sample is shown. Each row represents one 
-  OTU and the columns represent the samples, in the intersection there is a number that indicates how many sequenced reads of that OTU are present in that sample." />
-</a>
-<em> Figure 3. Table of the abundance of reads in the `merged_metagenomes` object. <em/>
-
-We will take advantage of this information later on in our analyses. 
-
-  > ## Exercise 2: Searching for the read counts
+{: .challenge}   
+  
+> ## Exercise 2: Searching for the read counts
 > 
 > Using the information from both the `tax_table` and the `otu_table`, find how many reads there are for
 > any species of your interest (one that can be found in the `tax_table`).  
@@ -305,14 +314,5 @@ We will take advantage of this information later on in our analyses.
 >> 
 > {: .solution}
 {: .challenge} 
-
-> ## Phyloseq objects
-> Finally, we can review our object and see that all datasets (i.e. JC1A, JP4D, and JP41) are in the object.
-> If you look at our Phyloseq object, you will see that there are more data types 
-> that we can use to build our object(`?phyloseq()`), such as a phylogenetic tree and metadata 
-> concerning our samples. These are optional, so we will use our basic
-> phyloseq object, for now, composed of the abundances of specific OTUs and the 
-> names of those OTUs.  
-{: .callout}
 
 {% include links.md %}
