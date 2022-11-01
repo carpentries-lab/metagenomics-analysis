@@ -195,12 +195,15 @@ information; and plotting**:
 
 >## Exercise 1: Taxa agglomeration
 > 
-> Go into groups and agglomerate the taxa in the data with absolute abundance, so as to have
+> With the following code, in the dataset with absolute abundances,  
+> group together the phyla that have small amount of reads, in order to have 
 > a better visualization of the data. Remember to check the data classes inside
-> your data frame. According to the [ColorBrewer](https://github.com/axismaps/colorbrewer/) package
+> your data frame.   
+> According to the [ColorBrewer](https://github.com/axismaps/colorbrewer/) package
 > it is recommended not to have more than 9 different colors in a plot.
 > 
-> What is the correct order to run the next chunks of code? Compare your graphs with your partners'.
+> What is the correct order to run the next chunks of code? 
+> Compare your graphs with your partners'.
 > 
 > Hic Sunt Leones! (Here be Lions!):
 > 
@@ -216,8 +219,8 @@ information; and plotting**:
 > 
 > E) `absolute_df$Phylum <- as.character(absolute_df$Phylum)`
 >> ## Solution
->> By reducing agglomerating the samples that have less than 300 reads, we can get a more decent plot.
->> Certainly, this will be difficult since each of our samples has a contrasting number of reads.
+>> By grouping the samples that have less than 300 reads, we can get a more decent plot.
+>> Certainly, this will be difficult, since each of our samples has a contrasting number of reads.
 >> 
 >> E) `absolute_df$Phylum <- as.character(absolute_df$Phylum)`
 >> 
