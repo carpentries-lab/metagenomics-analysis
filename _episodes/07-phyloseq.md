@@ -245,7 +245,7 @@ Until now we have looked at the part of the phyloseq object that stores the info
 {: .language-r}
 
 <a href="{{ page.root }}/fig/03-07-03.png">
-  <img src="{{ page.root }}/fig/03-07-03.png" alt="A table where the abundance of each OTU is each sample is shown. Each row represents one 
+  <img src="{{ page.root }}/fig/03-07-03.png" alt="A table where the abundance of each OTU in each sample is shown. Each row represents one 
   OTU and the columns represent the samples, in the intersection there is a number that indicates how many sequenced reads of that OTU are present in that sample." />
 </a>
 <em> Figure 3. Table of the abundance of reads in the `merged_metagenomes` object. <em/>
