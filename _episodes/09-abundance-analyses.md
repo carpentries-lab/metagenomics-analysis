@@ -72,7 +72,7 @@ Now, let's create another data frame with the original data. This will help us t
 
 With these objects and what we have learned regarding R data structures and `ggplot2`, we can proceed to compare them
 with a plot. First, let's take some steps that will allow us to personalize our plot making it accesible for color-blindness.
-We will create a color palette. With `colorRampPalette` we will chose 8 colors from the Dark2 palette and make a "ramp" with it, that is, covert those 8 colors to the number of colors needed to have one for each phylum in our data frame. For this we need to have our Phylum column in the factor structure.
+We will create a color palette. With `colorRampPalette` we will choose 8 colors from the Dark2 palette and make a "ramp" with it, that is, convert those 8 colors to the number of colors needed to have one for each phylum in our data frame. For this we need to have our Phylum column in the factor structure.
 ~~~
 > absolute_df$Phylum <- as.factor(absolute_df$Phylum)
 > phylum_colors_abs<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(absolute_df$Phylum)))
