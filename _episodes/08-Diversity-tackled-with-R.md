@@ -273,14 +273,6 @@ and that these two will belong to the same OTU.
 >  {: .solution}
 {: .challenge}  
   
-  
-> ## Discussion
->
-> How much can the α diversity be changed by eliminating the singletons
-> and doubletons?
-{: .discussion}
-  
-
 ## Absolute and relative abundances
 
 From the read counts that we just saw it is evident that there is a great difference in the number of total 
