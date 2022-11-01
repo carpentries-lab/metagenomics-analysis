@@ -150,6 +150,49 @@ Let's ask R to display the figures again by re-running our code:
 </a>
 <em> Figure 3. Taxonomic diversity of absolute and relative abundance with corrections. <em/>
 
+## Going further, let's take an interesting lineage and explore it thoroughly
+
+As we have already reviewed, Phyloseq offers a lot of tools to manage and explore data. Let's take a 
+look deeply at a function that we already use, but now with guided exploration. The `subset_taxa` command is used to extract specific lineages from a stated taxonomic level, we have used it to get 
+rid of the reads that do not belong to bacteria with `merged_metagenomes <- subset_taxa(merged_metagenomes, Kingdom == "Bacteria")`.
+
+We are going to use it now to extract a specific phylum from our data, and explore it at a lower 
+taxonomic level: Genus. We will take as an example the phylum Cyanobacteria (certainly, this is a biased
+and arbitrary decision, but who does not feel attracted to these incredible microorganisms?):
+~~~
+> cyanos <- subset_taxa(merged_metagenomes, Phylum == "Cyanobacteria")
+> unique(cyanos@tax_table@.Data[,2])
+~~~
+{: .language-r}
+~~~
+[1] "Cyanobacteria"
+~~~
+{: .output}
+
+Let's do a little review of all that we saw today: **Transformation of the data; Manipulation of the 
+information; and plotting**:
+~~~
+> cyanos_percentages <- transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
+> cyanos_glom <- tax_glom(cyanos_percentages, taxrank = "Genus")
+> cyanos_df <- psmelt(cyanos_glom)
+> cyanos_df$Genus[cyanos_df$Abundance < 10] <- "Genera < 10.0 abund"
+> cyanos_df$Genus <- as.factor(cyanos_df$Genus)
+> genus_colors_cyanos<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(cyanos_df$Genus)))  
+> plot_cyanos <- ggplot(data=cyanos_df, aes(x=Sample, y=Abundance, fill=Genus))+ 
+    geom_bar(aes(), stat="identity", position="stack")+
+    scale_fill_manual(values = genus_colors_cyanos)
+> plot_cyanos
+~~~
+{: .language-r} 
+
+<a href="{{ page.root }}/fig/03-09-05.png">
+  <img src="{{ page.root }}/fig/03-09-05.png" alt="A new plot with three bars 
+  representing the absolute abundance of Cyanobacteria in each of the samples. 
+  Each of the colors represents a Genus. Because we are seeing relative 
+  abundances, all the bars are of the same height." />
+</a>
+<em> Figure 5. Diversity of Cyanobacteria at genus level inside our samples.<em/>
+
 >## Exercise 1: Taxa agglomeration
 > 
 > Go into groups and agglomerate the taxa in the data with absolute abundance, so as to have
@@ -198,50 +241,8 @@ Let's ask R to display the figures again by re-running our code:
 > {: .solution}
 {: .challenge} 
 
-## Going further, let's take an interesting lineage and explore it thoroughly
-
-As we have already reviewed, Phyloseq offers a lot of tools to manage and explore data. Let's take a 
-look deeply at a function that we already use, but now with guided exploration. The `subset_taxa` command is used to extract specific lineages from a stated taxonomic level, we have used it to get 
-rid of the reads that do not belong to bacteria with `merged_metagenomes <- subset_taxa(merged_metagenomes, Kingdom == "Bacteria")`.
-
-We are going to use it now to extract a specific phylum from our data, and explore it at a lower 
-taxonomic level: Genus. We will take as an example the phylum Cyanobacteria (certainly, this is a biased
-and arbitrary decision, but who does not feel attracted to these incredible microorganisms?):
-~~~
-> cyanos <- subset_taxa(merged_metagenomes, Phylum == "Cyanobacteria")
-> unique(cyanos@tax_table@.Data[,2])
-~~~
-{: .language-r}
-~~~
-[1] "Cyanobacteria"
-~~~
-{: .output}
-
-Let's do a little review of all that we saw today: **Transformation of the data; Manipulation of the 
-information; and plotting**:
-~~~
-> cyanos_percentages <- transform_sample_counts(cyanos, function(x) x*100 / sum(x) )
-> cyanos_glom <- tax_glom(cyanos_percentages, taxrank = "Genus")
-> cyanos_df <- psmelt(cyanos_glom)
-> cyanos_df$Genus[cyanos_df$Abundance < 10] <- "Genera < 10.0 abund"
-> cyanos_df$Genus <- as.factor(cyanos_df$Genus)
-> genus_colors_cyanos<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(cyanos_df$Genus)))  
-> plot_cyanos <- ggplot(data=cyanos_df, aes(x=Sample, y=Abundance, fill=Genus))+ 
-    geom_bar(aes(), stat="identity", position="stack")+
-    scale_fill_manual(values = genus_colors_cyanos)
-> plot_cyanos
-~~~
-{: .language-r} 
-
-<a href="{{ page.root }}/fig/03-09-05.png">
-  <img src="{{ page.root }}/fig/03-09-05.png" alt="A new plot with three bars 
-  representing the absolute abundance of Cyanobacteria in each of the samples. 
-  Each of the colors represents a Genus. Because we are seeing relative 
-  abundances, all the bars are of the same height." />
-</a>
-<em> Figure 5. Diversity of Cyanobacteria at genus level inside our samples.<em/>
-
-> ## Exercise 3: Recap of abundance plotting
+  
+> ## Exercise 2: Recap of abundance plotting
 > 
 > Match the chunk of code with its description and put them in the correct order to 
 >  create a relative abundace plot at the genus level of a particular phylum. がんばって! (ganbatte; *good luck*):
