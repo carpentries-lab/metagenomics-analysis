@@ -17,31 +17,40 @@ keypoints:
 ## What is taxonomic assignment?
 
 Taxonomic assignment is the process of assigning an Operational Taxonomic
-Unit (OTUs, that is, groups of related individuals) to sequences, that can be 
-reads or contigs. To assign an OTU to a sequence it is compared against a database, 
-but this comparison can be done in different ways. The comparison database in 
-this assignment process must be constructed using 
-complete genomes. There are many programs for doing taxonomic mapping, 
+Unit (OTU, that is, groups of related individuals) to sequences, that can be 
+reads or contigs. To assign an OTU to a sequence, the sequence is compared against a database, 
+which must be constructed using complete genomes. The comparison can be done in different ways.  
+
+### Strategies for taxonomic assignment  
+
+There are many programs for doing taxonomic mapping, 
 almost all of them follows one of the next strategies:  
 
 1. BLAST: Using BLAST or DIAMOND, these mappers search for the most likely hit 
 for each sequence within a database of genomes (i.e. mapping). This strategy is slow.    
   
-2. K-mers: A genome database is broken into pieces of length k, so as to be able to 
+2. Markers: They look for markers of a database made a priori in the sequences 
+to be classified and assign the taxonomy depending on the hits obtained.  
+
+3. K-mers: A genome database is broken into pieces of length k, so as to be able to 
 search for unique pieces by taxonomic group, from lowest common ancestor (LCA), 
-passing through phylum to species. Then, the algorithm 
-breaks the query sequence (reads, contigs) into pieces of length k,
-look for where these are placed within the tree and make the 
+passing trough phylum to species. Then, the algorithm 
+breaks the query sequence (reads/contigs) into pieces of length k,
+looks for where these are placed within the tree and make the 
 classification with the most probable position.  
+
 <a href="{{ page.root }}/fig/03-06-01.png">
   <img src="{{ page.root }}/fig/03-06-01.png" alt="Diagram of a taxonomic tree with four levels of nodes, some nodes have a number from 1 to 3 and some do not. From the most recent nodes one has a 3 and its parent nodes do not have numbers. This node with a 3 is selected." />
 </a>
 <em> Figure 1. Lowest common ancestor assignment example.<em/>
-
-3. Markers: They look for markers of a database made a priori in the sequences 
-to be classified and assign the taxonomy depending on the hits obtained.    
-
-A key result when you do taxonomic assignment of metagenomes is the abundance of each taxa or OTU in your sample. The absolute abundance of a taxon is the number of sequences (reads or contigs, depending on what you did) assigned to it. And its relative abundance is the proportion of sequences assigned to it. It is important to be aware of the many biases that that can skew the abundances along the metagenomics workflow, shown in the figure, and that because of them we may not be obtaining the real abundance of the organisms in the sample.
+  
+### Abundance bias  
+  
+A key result when you do taxonomic assignment of metagenomes is the abundance of each taxa or OTU in your sample. 
+The absolute abundance of a taxon is the number of sequences (reads or contigs, depending on what you did) assigned to it. 
+And its relative abundance is the proportion of sequences assigned to it. It is important to be aware of the many biases that can skew the 
+abundances along the metagenomics workflow, shown in the figure, and that because of them we may not be obtaining the real abundance of 
+the organisms in the sample.
 
 <a href="{{ page.root }}/fig/03-06-02.png">
   <img src="{{ page.root }}/fig/03-06-02.png" alt="Flow diagram that shows how the initial composition of 33% for each of the three taxa in the sample ends up being 4%, 72% and 24% after the biases imposed by the extraction, PCR, sequencing and bioinformatics steps." />
