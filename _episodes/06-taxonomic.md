@@ -220,15 +220,15 @@ head ~/dc_workshop/taxonomy/JP4D.report
 {: .output}  
 
 |------------------------------+------------------------------------------------------------------------------|  
-| Column example                       |                              Description                                     |  
+| Column example  |                              Description                                     |  
 |------------------------------+------------------------------------------------------------------------------|  
-| 78.13                         |  Percentage of reads covered by the clade rooted at this taxon                                                  |  
+| 78.13 |  Percentage of reads covered by the clade rooted at this taxon                                                  |  
 |------------------------------+------------------------------------------------------------------------------|  
-| 587119                |         |   Number of reads covered by the clade rooted at this taxon
+| 587119 |   Number of reads covered by the clade rooted at this taxon
 |------------------------------+------------------------------------------------------------------------------|  
-| 587119                      |   Number of reads assigned directly to this taxon                                                                    |  
+| 587119  |   Number of reads assigned directly to this taxon                                                                    |  
 |------------------------------+------------------------------------------------------------------------------|  
-| U                      | A rank code, indicating (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, or (S)pecies. All other ranks are simply '-'.                                                                  |   
+| U | A rank code, indicating (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, or (S)pecies. All other ranks are simply '-'.                                                                  |   
 |------------------------------+------------------------------------------------------------------------------|  
 | 0 |NCBI taxonomy ID |   
 |-------------------+-----------------------------------------------------------------------------------------| 
