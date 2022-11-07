@@ -47,8 +47,8 @@ classification with the most probable position.
 ### Abundance bias  
   
 A key result when you do taxonomic assignment of metagenomes is the abundance of each taxa or OTU in your sample. 
-The absolute abundance of a taxon is the number of sequences (reads or contigs, depending on what you did) assigned to it. 
-And its relative abundance is the proportion of sequences assigned to it. It is important to be aware of the many biases that can skew the 
+ The absolute abundance of a taxon is the number of sequences (reads or contigs, depending on what you did) assigned to it. 
+ And its relative abundance is the proportion of sequences assigned to it. It is important to be aware of the many biases that can skew the 
 abundances along the metagenomics workflow, shown in the figure, and that because of them we may not be obtaining the real abundance of 
 the organisms in the sample.
 
@@ -61,11 +61,11 @@ the organisms in the sample.
 
 [Kraken 2](https://ccb.jhu.edu/software/kraken2/) is the newest version of Kraken, 
 a taxonomic classification system using exact k-mer matches to achieve 
-high accuracy and fast classification speeds. `kraken2` is already installed in the metagenome
-environment, lets have a look at `kraken2` help.  
+high accuracy and fast classification speeds. `kraken2` is already installed in the **metagenomics
+environment**, lets have a look at `kraken2` help.  
  
 ~~~  
-$ kraken2  
+$ kraken2  --help
 ~~~ 
 {: .bash}
 
@@ -114,7 +114,7 @@ is a regular file, automatic format detection is attempted.
 ~~~  
 {: .output}
 
-In addition to our input files we also need a database with which to compare them. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
+In the help we can see that in addition to our input files we also need a database with which to compare them. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
 compatible to be used with kraken2 in the taxonomical assignment process. 
 
 > ## Very important to know your database!
@@ -136,31 +136,14 @@ Swap:            0B          0B          0B
 ~~~
 {: .output}
 
-If we were to download the database we would use the following command:
+If we were to download the database we would use the following command:  
+**No need to run this**
 ~~~
-$ curl -O ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz         
-$ tar -xvzf minikraken2_v2_8GB_201904.tgz 
+$ curl -O ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz`     
+$ tar -xvzf minikraken2_v2_8GB_201904.tgz `                      
 ~~~
-{: .do not run this}
-
-> ## Exercise 1: Remembering commands
-> 
-> Fill in the blanks to decompress the following file `minikraken2_v2_8GB_201904.tgz`.  
-> 
-> ~~~
-> $ ____ -xvzf  ____.tgz
-> ~~~
-> {: .language-bash}
-> > ## Solution 
-> > ```
-> > $ tar -xvzf  minikraken2_v2_8GB_201904.tgz
-> > ```
-> > {: .language-bash}
-> > `tar` command is used in linux to decompress files, so in this case it would
-> > extract the content of the compressed file  `minikraken2_v2_8GB_201904.tgz` 
-> {: .solution}
-{: .challenge}                             
-                             
+{: .language-bash}
+  
 ## Taxonomic assignment of metagenomic reads
 
 As we have learned, taxonomic assignment can be attempted before the assembly process. 
@@ -169,12 +152,13 @@ In this case we would use FASTQ files as inputs, which would be
 `JP4D.report` and the kraken file `JP4D.kraken`.  
   
 To run kraken2 we would use a command like this:  
+**No need to run this**
 ~~~
 $ mkdir TAXONOMY_READS
 $ kraken2 --db kraken-db --threads 8 --paired --fastq-input JP4D_R1.trim.fastq.gz JP4D_R2.trim.fastq.gz --o
 utput TAXONOMY_READS/JP4D.kraken --report TAXONOMY_READS/JP4D.report
 ~~~
-{: .do not run this}
+{: .language-bash}
 
 Since we can't run `kraken2` here, we precomputed its results in a server, i.e. a more powerful machine. 
 In the server we ran `kraken2` and obtained`JP4D-kraken.kraken` and `JP4D.report`.
