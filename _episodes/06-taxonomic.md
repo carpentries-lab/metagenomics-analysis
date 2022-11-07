@@ -57,6 +57,12 @@ the organisms in the sample.
 </a>
 <em>Figure 2. Abundance biases during a metagenomics protocol. <em/>
 
+  
+> ## Discussion: Taxonomic level of assignment
+>
+> What do you think is harder to assign, a species (like _E. coli_) or a phylum (like Proteobacteria)?
+{: .discussion}
+  
 ## Using Kraken 2
 
 [Kraken 2](https://ccb.jhu.edu/software/kraken2/) is the newest version of Kraken, 
@@ -379,8 +385,8 @@ and needs R and Shiny, but we can try the
 [Pavian demo WebSite](https://fbreitwieser.shinyapps.io/pavian/) 
 to visualize our results.  
 
-First we need to download the files needed as inputs in Pavian, t
-his time we will visualize the assignation of the reads of both samples:
+First we need to download the files needed as inputs in Pavian, this time we will visualize the 
+  assignment of the reads of both samples:
 `JC1A.report` and `JP4D.report`.  
 This files corresponds to our Kraken reports. Again in our local 
 machine lets use `scp` command.  
@@ -419,12 +425,6 @@ We can look at a comparison of both our samples in the Comparison tab.
 <a href="{{ page.root }}/fig/03-06-08.png">
   <img src="{{ page.root }}/fig/03-06-08.png" alt="A table of the same format as the Kraken report but for both samples at once." />
 </a>
-
-
-> ## Discussion: Taxonomic level of assignment
->
-> What do you think is harder to assign, a species (like _E. coli_) or a phylum (like Proteobacteria)?
-{: .discussion}
 
                              
 {% include links.md %}
