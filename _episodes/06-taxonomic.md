@@ -144,7 +144,7 @@ $ tar -xvzf minikraken2_v2_8GB_201904.tgz `
 ~~~
 {: .language-bash}
   
-## Taxonomic assignment of metagenomic reads
+### Taxonomic assignment of metagenomic reads
 
 As we have learned, taxonomic assignment can be attempted before the assembly process. 
 In this case we would use FASTQ files as inputs, which would be 
@@ -186,7 +186,7 @@ C	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19558:2111	119045	251|133	0:18 1224
 
 
 |------------------------------+------------------------------------------------------------------------------|  
-| Column                       |                              Description                                     |  
+| Column example                      |                              Description                                     |  
 |------------------------------+------------------------------------------------------------------------------|  
 |   C                          |  Classified or unclassified                                                  |  
 |------------------------------+------------------------------------------------------------------------------|  
@@ -200,17 +200,7 @@ C	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19558:2111	119045	251|133	0:18 1224
 |-------------------+-----------------------------------------------------------------------------------------|  
 
 As we can see, the kraken file is not very readable. So let's look at the report file:
-
-> ## Reading a Kraken report
->
-> 1. Percentage of reads covered by the clade rooted at this taxon
-> 2. Number of reads covered by the clade rooted at this taxon
-> 3. Number of reads assigned directly to this taxon
-> 4. A rank code, indicating (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, or (S)pecies. All other ranks are simply '-'.
-> 5. NCBI taxonomy ID
-> 6. Indented scientific name
-{: .callout}
-
+  
 ~~~
 head ~/dc_workshop/taxonomy/JP4D.report
 ~~~
@@ -229,12 +219,29 @@ head ~/dc_workshop/taxonomy/JP4D.report
 ~~~
 {: .output}  
 
-## Taxonomic assignment of the contigs of a MAG
+|------------------------------+------------------------------------------------------------------------------|  
+| Column example                       |                              Description                                     |  
+|------------------------------+------------------------------------------------------------------------------|  
+| 78.13                         |  Percentage of reads covered by the clade rooted at this taxon                                                  |  
+|------------------------------+------------------------------------------------------------------------------|  
+| 587119                |         |   Number of reads covered by the clade rooted at this taxon
+|------------------------------+------------------------------------------------------------------------------|  
+| 587119                      |   Number of reads assigned directly to this taxon                                                                    |  
+|------------------------------+------------------------------------------------------------------------------|  
+| U                      | A rank code, indicating (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, or (S)pecies. All other ranks are simply '-'.                                                                  |   
+|------------------------------+------------------------------------------------------------------------------|  
+| 0 |NCBI taxonomy ID |   
+|-------------------+-----------------------------------------------------------------------------------------| 
+| unclassified | Indented scientific name |  
+|-------------------+-----------------------------------------------------------------------------------------|    
+  
+### Taxonomic assignment of the contigs of a MAG
  
 We now have the taxonomic identity of the reads of the whole metagenome, but we do not know to which taxon our MAGs correspond to. For this we have to make the taxonomic assignment with their contigs instead of its reads, because we do not have the reads that correspond to a MAG separated from the reads of the entire sample. 
 
 For this the `kraken2` is a little bit different; here we can look at the command for the `JP4D.001.fasta` MAG:
-  
+
+**No need to run this**
 ~~~
 $ mkdir TAXONOMY_MAG
 $ kraken2 --db kraken-db --threads 12 -input JP4D.001.fasta --output TAXONOMY_MAG/JP4D.001.kraken --report TAXONOMY_MAG/JP4D.001.report
