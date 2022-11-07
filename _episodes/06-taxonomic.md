@@ -67,7 +67,7 @@ environment**, lets have a look at `kraken2` help.
 ~~~  
 $ kraken2  --help
 ~~~ 
-{: .bash}
+{: .language-bash}
 
 ~~~
 Need to specify input filenames!
@@ -127,7 +127,7 @@ despite its small size (Needs 8GB of RAM for the assignment). Unfortunately alth
 ~~~
 $ free -h
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
               total        used        free      shared  buff/cache   available
@@ -167,7 +167,7 @@ Let's look at the precomputed outputs of `kraken2` for our JP4D reads.
 ~~~
 head ~/dc_workshop/taxonomy/JP4D.kraken  
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 U	MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:19691:2037	0	250|251	0:216 |:| 0:217
@@ -215,7 +215,7 @@ As we can see, the kraken file is not very readable. So let's look at the report
 ~~~
 head ~/dc_workshop/taxonomy/JP4D.report
 ~~~
-{: .bash} 
+{: .language-bash} 
 ~~~
  78.13	587119	587119	U	0	unclassified
  21.87	164308	1166	R	1	root
@@ -240,7 +240,7 @@ For this the `kraken2` is a little bit different; here we can look at the comman
 $ mkdir TAXONOMY_MAG
 $ kraken2 --db kraken-db --threads 12 -input JP4D.001.fasta --output TAXONOMY_MAG/JP4D.001.kraken --report TAXONOMY_MAG/JP4D.001.report
 ~~~
-{: .do not run this}
+{: .language-bash}
 
 The results of this are pre-computed in the `~/dc_workshop/taxonomy/mags_taxonomy/` directory
 ~~~
@@ -316,7 +316,7 @@ With Krona we will explore the taxonomy of the JP4D.001 MAG.
 ~~~
 $ cd ~/dc_workshop/taxonomy/mags_taxonomy
 ~~~
-{: .bash}  
+{: .language-bash}  
 
 Krona is called with the `ktImportTaxonomy` command that needs an input and an output file.  
 In our case we will create the input file with the columns three and four from `JP4D.001.kraken` file.     
@@ -345,7 +345,7 @@ Krona output and open it on a browser.
 ~~~
 $ scp dcuser@ec2-3-235-238-92.compute-1.amazonaws.com:~/dc_workshop/taxonomy/JP4D.001.krona.out.html . 
 ~~~
-{: .bash}  
+{: .language-bash}  
 You will see a page like this:
 
 <a href="{{ page.root }}/fig/03-06-03.png">
