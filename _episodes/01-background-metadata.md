@@ -97,7 +97,7 @@ the differences that we observe when comparing metagenomes can be
 correlated to the metadata, which is why we must include a whole section 
 of our experimental design to the metadata that we expect to collect and record carefully. 
 
-> ## Amplicon or Shotgun? 
+> ## Discussion #1: Choosing amplicon or shotgun sequencing? 
 >
 > Suppose you would like to compare the gut microbiome of people affected by a rather nasty bacterial 
 > disease against the gut microbiome of healthy people. Which type of metagenomics would you choose?  
