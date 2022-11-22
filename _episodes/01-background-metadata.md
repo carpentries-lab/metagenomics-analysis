@@ -100,9 +100,16 @@ of our experimental design to the metadata that we expect to collect and record 
 > ## Amplicon or Shotgun? 
 >
 > Suppose you would like to compare the gut microbiome of people affected by a rather nasty bacterial 
-> disease against the gut microbiome of healthy people.  
-> Which type of metagenomics would you choose?  
-> Which type of metadata would be useful to record?  
+> disease against the gut microbiome of healthy people. Which type of metagenomics would you choose?  
+> Which type of metadata would be useful to record?
+> > 
+>> ## Solution
+>> For a first exploration probably 16S would be a better idea since you are not interested in the gene content.
+>> Nevertheless new pathogenes, can be discovered with shotgun metagenomics, that was the case SARS CoV 2
+>> Metadata will depend on the type of the experiment, but some examples are temperature, sampling methodology, 
+>> date, place (country, state, region, city, etc.), gender. 
+>> 
+> {: .solution}  
 {: .discussion}
 
 ## Cuatro Ciénegas  
@@ -136,16 +143,16 @@ changed when the bacterial community underwent the treatment.
 > 
 > According to the results described for this CCB study.
 > 1. What kind of sequencing method do you think they used, and why do you think so?  
->  A) Metabarcoding
->  B) Shotgun metagenomics  
+>  A) Metabarcoding   
+>  B) Shotgun metagenomics   
 >  C) Genomics of axenic cultures  
 >
 >  2. In the table [samples treatment information](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv), what was the most important piece of metadata that the authors took?  
 > 
 >> ## Solution
 >> A) Metabarcoding. False. With this technique, usually only one region of the genome is amplified.   
->> B) Shotgun Metagenomics. True. Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.  
->> C) Genomics of axenic cultures. False. Information on the microbial community cannot be fully obtained with axenic cultures.  
+>> B) Shotgun Metagenomics. True. Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.    
+>> C) Genomics of axenic cultures. False. Information on the microbial community cannot be fully obtained with axenic cultures.    
 >>  
 >> The most important thing to know about our data is which community was and was not supplemented with fertilizers.  
 >> However, any differences in the technical parts of the study, such as the DNA extraction protocol,
