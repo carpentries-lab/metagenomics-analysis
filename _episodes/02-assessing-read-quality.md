@@ -65,7 +65,7 @@ We can view the first complete read in one of the files from our dataset by usin
 the first four lines. But we have to decompress one of the files first.
 
 ~~~
-$ cd /dc_workshop/data/untrimmed_fastq/
+$ cd ~/dc_workshop/data/untrimmed_fastq/
 
 $ gunzip JP4D_R1.fastq.gz
 
