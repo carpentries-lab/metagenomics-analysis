@@ -175,10 +175,12 @@ changed when the bacterial community underwent the treatment.
 
 > ## Exercise 3: Discuss the importance of Metadata 
 > 
-> Which other data could you recommend to add in the data, and what do you think is the relevance of this information?
+> Which other information could you recommend to add in the metadata?
 > 
 >> ## Solution
->> Metadata will depend on the type of the experiment, but some examples are temperature, sampling methodology, date, place (country, state, region, city, etc.). 
+>> Metadata will depend on the type of the experiment, but some examples are the properties of the water before 
+>> and after fertilization, sampling and processing methodology, 
+>> date and time, place (country, state, region, city, etc.). 
 >> 
 > {: .solution}
 {: .challenge}
