@@ -291,7 +291,7 @@ By looking at the report, we can see that half of the contigs
 are unclassified, and that a very little proportion of contigs 
 have been assigned an OTU. This is weird because we expected 
 to have only one genome in the bin.
-
+  
 Just to exemplify how a report of a complete and not contaminated 
 MAG should look like, let's look at the report of this MAG from 
 another study:
@@ -307,11 +307,6 @@ another study:
 100.00	108	108	S	2057741	                Bradyrhizobium sp. SK17
 ~~~
 {: .output} 
-
-> ## Discussion: 
->
-> Why do you think we found so many OTUs in this bin? 
-{: .discussion}
 
 ## Visualization of taxonomic assignment results  
   
@@ -364,7 +359,7 @@ You will see a page like this:
   <img src="{{ page.root }}/fig/03-06-03.png" alt="Krona displays a circled-shape bacterial taxonomy plot with abundance percentages of each taxa " />
 </a>
 
-> ## Exercise 2: Exploring Krona visualization
+> ## Exercise 1: Exploring Krona visualization
 > Try double clicking on the segment of the pie chart that represents Bacteria and see what happens.
 > What percentage of bacteria is represented by the genus Paracoccus?
 > 
