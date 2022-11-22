@@ -102,12 +102,14 @@ of our experimental design to the metadata that we expect to collect and record 
 > Suppose you would like to compare the gut microbiome of people affected by a rather nasty bacterial 
 > disease against the gut microbiome of healthy people. Which type of metagenomics would you choose?  
 > Which type of metadata would be useful to record?
-> > 
+> 
 >> ## Solution
->> For a first exploration probably 16S would be a better idea since you are not interested in the gene content.
->> Nevertheless new pathogenes, can be discovered with shotgun metagenomics, that was the case SARS CoV 2
->> Metadata will depend on the type of the experiment, but some examples are temperature, sampling methodology, 
->> date, place (country, state, region, city, etc.), gender. 
+>> For a first exploration probably 16S would be a better idea since you could detect pathogens only by knowing the taxons in the community.
+>> Nevertheless, new pathogenes can be discovered with shotgun metagenomics (that was the case SARS CoV 2), and the genetic basis of the 
+>> pathogenic phenotypes could be found with metagenomics.
+>> 
+>> Metadata will depend on the type of the experiment, for this case some useful metadate could be sampling methodology, 
+>> date, place (country, state, region, city, etc.), patient's sex and age, symptoms and medical history. 
 >> 
 > {: .solution}  
 {: .discussion}
