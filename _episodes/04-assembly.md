@@ -194,7 +194,7 @@ We can recognize which sample our assembly outputs corresponds to because they a
 the assembly results folder: `assembly_JC1A/`. However, the files within it do not have the 
 sample ID. It is very useful to rename these files, in case we need them out of their folder.
 
-> ## Exercise 1: Rename all files in a folder
+> ## Exercise 1: Rename all files in a folder (needed in the next chapter)
 >
 > Add JC1A (the sample ID) separated by a `_` at the beggining of the names of all the contents in the assembly_JC1A directory. Remember that many solutions are possible.
 > 
@@ -220,7 +220,7 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 > {: .solution}
 {: .challenge}
 
-> ## Exercise 2: Compare two fasta files from the assembly output (needed next chapter)
+> ## Exercise 2: Compare two fasta files from the assembly output 
 > You want to know how many contigs and how many scaffolds results for the assembly. 
 > Use `contigs.fasta`  and `scaffolds.fasta ` files and sort the commands to create correct code lines.   
 > Do they have the same number of lines? Why?  
