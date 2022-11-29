@@ -361,7 +361,7 @@ You will see a page like this:
 
 > ## Exercise 1: Exploring Krona visualization
 > Try double clicking on the segment of the pie chart that represents Bacteria and see what happens.
-> What percentage of bacteria is represented by the genus Paracoccus?
+> What percentage of bacteria is represented by the genus _Paracoccus_?
 > 
 > Hint: There is a search box in the top left corner of the window. 
 > 
