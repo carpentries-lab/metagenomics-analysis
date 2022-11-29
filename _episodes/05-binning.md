@@ -112,6 +112,7 @@ JP4D.004.fasta	77.6%	5692657	38.9
 >
 > Can we trust the quality of our bins only with the given information? 
 > What else do we want to know about our MAGs to confidently use them for further analysis?
+> 
 >> ## Solution
 >> **Completeness** is fundamental to knowing what you are working with. If the MAG is incomplete, 
 >> you can hypothesize that if you did not found something, it's be because you don't have a complete genome.
