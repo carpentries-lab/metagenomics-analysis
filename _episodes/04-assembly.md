@@ -194,7 +194,7 @@ We can recognize which sample our assembly outputs corresponds to because they a
 the assembly results folder: `assembly_JC1A/`. However, the files within it do not have the 
 sample ID. It is very useful to rename these files, in case we need them out of their folder.
 
-> ## Exercise 1: Rename all files in a folder (needed in the next chapter)
+> ## Exercise 1: Rename all files in a folder (needed in the next episode)
 >
 > Add JC1A (the sample ID) separated by a `_` at the beggining of the names of all the contents in the assembly_JC1A directory. Remember that many solutions are possible.
 > 
