@@ -220,7 +220,7 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 > {: .solution}
 {: .challenge}
 
-> ## Exercise 2: Compare two fasta files from the assembly output
+> ## Exercise 2: Compare two fasta files from the assembly output (needed next chapter)
 > You want to know how many contigs and how many scaffolds results for the assembly. 
 > Use `contigs.fasta`  and `scaffolds.fasta ` files and sort the commands to create correct code lines.   
 > Do they have the same number of lines? Why?  
