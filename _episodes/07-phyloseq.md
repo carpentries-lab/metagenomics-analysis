@@ -33,7 +33,7 @@ To do this we could go to our now familiar Bash terminal, but RStudio has an int
 In order to run Kraken-biom, we have to move to 
 the folder where our taxonomic-data files are located: 
 ~~~
-$ cd /home/dcuser/dc_workshop/taxonomy
+$ cd ~/dc_workshop/taxonomy
 ~~~~
 {: .bash}
 
