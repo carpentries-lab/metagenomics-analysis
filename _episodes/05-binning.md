@@ -114,12 +114,14 @@ JP4D.004.fasta	77.6%	5692657	38.9
 > What else do we want to know about our MAGs to confidently use them for further analysis?
 > 
 >> ## Solution
+>> 
 >> **Completeness** is fundamental to knowing what you are working with. If the MAG is incomplete, 
 >> you can hypothesize that if you did not found something, it's be because you don't have a complete genome.
 >> **Genome size** and **GC content** are like genomic fingerprints of taxa, so you can know if you have the taxa you are looking.
 >> Since we are working with the mixed genomes of a comunity, when we try to separate them wih the binning, 
 >> we want to know if we were able to separate them correctly. So we need to measure **contamination** to 
 >> know if we have only one genome in our bin.
+> {: .solution}
 {: .discussion}
 
 ## Quality check 
