@@ -10,7 +10,7 @@ objectives:
 keypoints:
 - "Metagenome-Assembled Genomes (MAGs) sometimes are obtained from curated contigs grouped into bins."
 - "Use MAXBIN to assign the contigs to bins of different taxa."
-- "Use ChekM to evaluate the quality of each Metagenomics-Assembled Genome."
+- "Use CheckM to evaluate the quality of each Metagenomics-Assembled Genome."
 ---
 
 ## Metagenomic binning
