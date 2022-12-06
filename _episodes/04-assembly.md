@@ -42,6 +42,55 @@ Some of the problems faced by metagenomics assembly are:
 
 SPAdes already deals with the non-uniform coverage problem in its algorithm, so it is useful for the assembly of simple communities, but the [metaSPAdes](https://pubmed.ncbi.nlm.nih.gov/28298430/) algorithm deals with the other problems as well, allowing it to assemble metagenomes from complex communities. 
 
+The process of (metagenomics) assembly can take a long time, and if the connection to the server drops, the process is killed and the process needs to restart. To avoid this, we can create a screen session.
+
+## Screen sessions
+
+### Starting a new session
+
+A ‘session’ can be thought of as a new window or screen: you might open an terminal to do one thing on the a computer and then open a new terminal to work on another task at the command line. You can start a session and give it a descriptive name:
+
+~~~
+$ screen -S assembly
+~~~
+{: .bash}
+
+This creates a session with the name ‘assembly’
+
+As you work, this session will stay active until you close it. Even if you log out or work on something else, the jobs you start in this session will run until completion.
+
+### Detach session (process keeps running in background)
+
+You can detach from a session by pressing `control + a` followed by `d` (for detach) on your keyboard. If you reconnect to your machine, you will also have to reconnect to your session to see how it went.
+
+> ## Additional session commands
+> **Seeing active sessions**
+> If you disconnect from your session, or from your ssh into a machine, you will need to reconnect to an existing 
+> `screen` session. You can see a list of existing sessions:
+> ~~~
+> $ screen -ls
+> ~~~
+> {: .bash}
+> **Reconnecting to a session**
+> To reconnect to an existing session:
+> 
+> ~~~
+> $ screen -r session_name
+> ~~~
+> {: .bash}
+> 
+> The `-r` option = 'resume  a detached screen session'
+>
+> **Kill a session**
+> To end a session, type `exit` after reconnecting to the session:
+> 
+> ~~~
+> $ screen -r session_name
+> $ exit
+> ~~~
+> {: .bash}
+{: .callout}
+
 Let's see what happens if we enter the metaspades.py command on our terminal.
 
 ~~~
@@ -54,8 +103,8 @@ $ metaspades.py: command not found
 ~~~
 {: .error}
 
-The reason is because we are not located in our environmnet where we can 
-call Spades, but before going any further, let's talk about environmnets.
+The reason is because we are not located in our environment where we can 
+call Spades, but before going any further, let's talk about environments.
 
 ## Activating an environment  
 Environments are part of a bioinformatic tendency to make reproducible research, 
@@ -109,7 +158,7 @@ Input data:
 > Linux.
 {: .callout}
 
-## MetaSPAdes is a   metagenomics assembler
+## MetaSPAdes is a metagenomics assembler
 
 The help that we just saw tells us how to run metaspades.py. We are going 
 to use the most simple options, just specifying our forward paired-end 
@@ -117,15 +166,9 @@ reads with `-1` and reverse paired-end reads with `-2`, and the output
 directory where we want our results to be stored. 
  ~~~
 $ cd ~/dc_workshop/data/trimmed_fastq
-$ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../results/assembly_JC1A &
+$ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../results/assembly_JC1A
 ~~~
 {: .bash}
-
-> ## Running commands on the background
-> The `&` sign that we are using at the end of the command is for telling 
-the machine to run the command on the background, this will help us to avoid 
-the cancelation of the operation in case the connection with the AWS machine is unstable. 
-{: .callout}
 
 When the run is finished it shows this message:
 
@@ -139,12 +182,7 @@ Thank you for using SPAdes!
 ~~~
 {: .bash}
 
-Now we need to press enter to exit from the background, and a message like this will be displayed:
-~~~
-[1]+  Done                    metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../results/assembly_JC1A
-~~~
-{: .output}
-This is becacause of the use of the `&`. Now, let's go to the files: 
+Now, let's go to the output files: 
 ~~~
 $ cd ../../results/assembly_JC1A
 $ ls -F
