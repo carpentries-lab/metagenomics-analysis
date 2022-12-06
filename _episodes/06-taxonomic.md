@@ -145,8 +145,8 @@ Swap:            0B          0B          0B
 If we were to download the database we would use the following command:  
 **No need to run this**
 ~~~
-$ curl -O ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz`     
-$ tar -xvzf minikraken2_v2_8GB_201904.tgz `                      
+$ curl -O ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz
+$ tar -xvzf minikraken2_v2_8GB_201904.tgz
 ~~~
 {: .language-bash}
   
