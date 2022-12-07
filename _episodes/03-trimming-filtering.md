@@ -11,7 +11,7 @@ objectives:
 keypoints:
 - "The options you set for the command-line tools you use are important!"
 - "Data cleaning is essential at the beginning of metagenomics workflows."
-- "Use Trimmomatic to get clean of reads without adapters or low quality bases."
+- "Use Trimmomatic to get rid of adapters and low quality bases or reads."
 - "Carefully fill the parameters and options required to call a function in the bash shell."
 - "Automate repetitive workflows using for loops"
 ---
@@ -357,8 +357,7 @@ JC1A_R2un.trim.fastq.gz  JP4D_R2un.trim.fastq.gz
 > Now that our samples have gone through quality control, they should perform
 > better on the quality tests run by FastQC. 
 > 
-> Sort the following chunks of code and decide in which terminal
-> (AWS or local) you should run them to be able to re-run
+> Sort the following chunks of code to re-run
 > FastQC on your trimmed FASTQ files and visualize the HTML files
 > to see whether your per base sequence quality is higher after
 > trimming. 
