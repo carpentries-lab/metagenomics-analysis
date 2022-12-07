@@ -91,7 +91,7 @@ commonly found in every identified species.
 Once we have chosen an adequate type of methodology for our study, 
 it is important to take extensive notes on the origin of our samples 
 and how we treated them. These notes constitute the **metadata**, or data about our data, 
-and it is crucial to understand and interpret the results that we are going 
+and they are crucial to understand and interpret the results that we are going 
 to obtain later on in our metagenomic analysis. Most of the time, 
 the differences that we observe when comparing metagenomes can be 
 correlated to the metadata, which is why we must include a whole section 
