@@ -9,9 +9,10 @@ objectives:
 - "Interpret a FastQC plot summarizing per-base quality across all reads."
 - "Use `for` loops to automate operations on multiple files."
 keypoints:
-- "Quality encodings vary across sequencing platforms."
-- "`for` loops let you perform the same set of operations on multiple files with a single command."
 - "It is important to know the quality of our data to be able to make decisions in the subsequent steps."
+- "FastQC is a program that allows us to know the quality of FASTQ files."
+- "`for` loops let you perform the same set of operations on multiple files with a single command."
+
 ---
 
 ## Bioinformatic workflows
@@ -680,6 +681,10 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 > {: .solution}
 {: .challenge}
 
+> ## Quality of large datasets
+>
+> Explore [MultiQC](https://multiqc.info/) if you want a tool that can show the quality of many samples at once.
+{: .callout}
 
 > ## Quality Encodings Vary
 >
