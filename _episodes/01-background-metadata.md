@@ -99,8 +99,7 @@ of our experimental design to the metadata that we expect to collect and record 
 
 > ## Discussion #1: Choosing amplicon or shotgun sequencing? 
 >
-> Suppose you would like to compare the gut microbiome of people affected by a rather nasty bacterial 
-> disease against the gut microbiome of healthy people. Which type of metagenomics would you choose?  
+> Suppose you want to find the source of a nasty gut infection in people. Which type of sequencing methodology would you choose?  
 > Which type of metadata would be useful to record?
 > 
 >> ## Solution
@@ -108,8 +107,8 @@ of our experimental design to the metadata that we expect to collect and record 
 >> Nevertheless, new pathogenes can be discovered with shotgun metagenomics (that was the case SARS CoV 2), and the genetic basis of the 
 >> pathogenic phenotypes could be found with metagenomics.
 >> 
->> Metadata will depend on the type of the experiment, for this case some useful metadate could be sampling methodology, 
->> date, place (country, state, region, city, etc.), patient's sex and age, symptoms and medical history. 
+>> Metadata will depend on the type of the experiment, for this case some useful metadata could be sampling methodology, 
+>> date, place (country, state, region, city, etc.), patient's sex and age, anatomical origin of the sample, symptoms, medical history, diet, type of lifestyle and environment. 
 >> 
 > {: .solution}  
 {: .discussion}
