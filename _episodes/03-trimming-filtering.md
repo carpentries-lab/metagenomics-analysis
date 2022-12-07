@@ -24,7 +24,7 @@ graphs showing the distribution of the quality at each base across
 all the reads from our sample. This information help us to determinate 
 the quality threshold we will accept and, thus we saw information about
 which samples fail which quality checks. Some of our samples failed 
-quite a few quality metrics used by FastQC. HOwever, this does not mean,
+quite a few quality metrics used by FastQC. However, this does not mean,
 that our samples should be thrown out! It's very common to have some 
 quality metrics fail, and this may or may not be a problem for your 
 downstream application. For our workflow, we will be removing some of 
@@ -141,7 +141,7 @@ In this example, we've told Trimmomatic:
 
 Now, we will run Trimmomatic on our data. Navigate to your 
 `untrimmed_fastq` data directory and verify that you are 
-located in the untrimmed_fastq directory:
+located in the `untrimmed_fastq/` directory:
 
 ~~~
 $ cd ~/dc_workshop/data/untrimmed_fastq
@@ -154,7 +154,7 @@ $ /home/dcuser/dc_workshop/data/untrimmed_fastq
 ~~~
 {: .output}
 
-You should have onlye four files in this directory. Those files corresponds
+You should have only four files in this directory. Those files corresponds
 to the files of forward and reverse reads from samples JC1A and JP4D.
 ~~~
 $ ls
