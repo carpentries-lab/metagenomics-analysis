@@ -302,7 +302,7 @@ TruSeq3-PE.fa
 {: .output}
 
 > ## Exercise 2: Adapter files
-> We trimmed our FASTQ files with Nextera adapters, 
+> We trimmed our FASTQ files with TruSeq3 adapters, 
 > but there are other adapters that are commonly used.
 > How can you check the full list of adapters that came with Trimmomatic installation?
 > 
