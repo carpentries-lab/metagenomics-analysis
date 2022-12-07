@@ -169,7 +169,14 @@ very poor (`#` = a quality score of 2).
 > {: .solution}
 {: .challenge}
 
-At this point, lets validate that all the relevant tools are installed. If you are using the AWS AMI then these _should_ be preinstalled. 
+## Assessing quality using FastQC
+
+In real life, you won't be assessing the quality of your reads by visually inspecting your 
+FASTQ files. Rather, you'll be using a software program to assess read quality and 
+filter out poor quality reads. We'll first use a program called [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to visualize the quality of our reads. 
+Later in our workflow, we'll use another program to filter out poor quality reads. 
+
+Let's validate that the program is installed. If you are using the AWS AMI then it _should_ be preinstalled. 
 
 ~~~
 $ fastqc -h 
@@ -199,10 +206,6 @@ DESCRIPTION
 {: .output}
 
 If FastQC is not installed then you would expect to see an error like
-~~~
-$ fastqc -h 
-~~~
-{: .bash}
 
 ~~~
 The program 'fastqc' is currently not installed. You can install it by typing:
@@ -211,12 +214,6 @@ sudo apt-get install fastqc
 {: .error}
 
 If this happens check with your instructor before trying to install it. 
-
-## Assessing quality using FastQC
-In real life, you won't be assessing the quality of your reads by visually inspecting your 
-FASTQ files. Rather, you'll be using a software program to assess read quality and 
-filter out poor quality reads. We'll first use a program called [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to visualize the quality of our reads. 
-Later in our workflow, we'll use another program to filter out poor quality reads. 
 
 FastQC has a number of features which can give you a quick impression of any problems your
 data may have, so you can take these issues into consideration before moving forward with your
