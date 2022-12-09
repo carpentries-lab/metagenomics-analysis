@@ -34,7 +34,7 @@ Let's bin the sample we just assembled. The command for running MaxBin is `run_M
 ~~~
 $ cd ~/dc_workshop/results/assembly_JC1A
 $ mkdir MAXBIN
-$ run_MaxBin.pl -thread 8 -contig JC1A_contigs.fasta -reads ../../data/trimmed_fastq/JC1A_R1.trim.fastq.gz -reads2 ../../data/trimmed_fastq/JC1A_R2.trim.fastq.gz -out MAXBIN/JC1A &
+$ run_MaxBin.pl -thread 8 -contig JC1A_contigs.fasta -reads ../../data/trimmed_fastq/JC1A_R1.trim.fastq.gz -reads2 ../../data/trimmed_fastq/JC1A_R2.trim.fastq.gz -out MAXBIN/JC1A
 ~~~
 {: .bash} 
 ~~~
@@ -63,7 +63,7 @@ We will perform the binning process with the other sample from the same study th
 ~~~
 $ cd ~/dc_workshop/mags/
 $ mkdir MAXBIN
-$ run_MaxBin.pl -thread 8 -contig JP4D_contigs.fasta -reads ../data/trimmed_fastq/JP4D_R1.trim.fastq.gz -reads2 ../data/trimmed_fastq/JP4D_R2.trim.fastq.gz -out MAXBIN/JP4D &
+$ run_MaxBin.pl -thread 8 -contig JP4D_contigs.fasta -reads ../data/trimmed_fastq/JP4D_R1.trim.fastq.gz -reads2 ../data/trimmed_fastq/JP4D_R2.trim.fastq.gz -out MAXBIN/JP4D
 ~~~
 {: .bash}  
 It will take a few minutes to run. And it will finish with an output like this:
