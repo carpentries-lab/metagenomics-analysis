@@ -280,4 +280,6 @@ sample ID. It is very useful to rename these files, in case we need them out of 
 
 > ## Quality of assemblies
 > There are several metrics that you can use to know the quality of your assemblies. [MetaQuast](https://quast.sourceforge.net/metaquast.html) is a program
->  that gives you this metrics for metagenome assemblies in an interactive report and in text files.
+>  that gives you this metrics for metagenome assemblies in an interactive report and in text files and plots.
+{: .callout}
+
