@@ -197,8 +197,7 @@ After the environment has been activated, a label is shown before the `$` sign.
 ~~~
 {: .output}
 
-Now, if we call FastQC at the command-line it won't be any error, 
-instead, a long help page will be displayed on our screen.
+Now, if we call FastQC a long help page will be displayed on our screen.
 
 ~~~
 $ fastqc -h 
