@@ -91,42 +91,7 @@ You can detach from a session by pressing `control + a` followed by `d` (for det
 > {: .bash}
 {: .callout}
 
-Let's see what happens if we enter the metaspades.py command on our terminal.
-
-~~~
-$ metaspades.py
-~~~
-{: .source}
-
-~~~
-$ metaspades.py: command not found   
-~~~
-{: .error}
-
-The reason is because we are not located in our environment where we can 
-call Spades, but before going any further, let's talk about environments.
-
-## Activating an environment  
-Environments are part of a bioinformatic tendency to make reproducible research, 
-they are a way to share and maintain our programs in their needed versions used for a pipeline with our colleagues and 
-with our future self. MetaSPAdes is not activated in the (base) environment but 
-this AWS instances came with an environment called metagenomics. We need to activate 
-it in order to start using MetaSPAdes. 
-
-We will use [Conda](https://docs.conda.io/en/latest/) as our environment manager. Conda environments are activated with `conda activate` direction:  
-~~~
-$ conda activate metagenomics  
-~~~
-{: .bash}
-
-After the environment has been activated, a label is shown before the `$` sign.
-~~~
-(metagenomics) $
-~~~
-{: .output}
-
-Now if we call MetaSPAdes at the command line it wont be any error, 
-instead a long help page will be displayed at our screen.
+Let's see of our program is installed correctly:
 ~~~
 $ metaspades.py
 ~~~
@@ -150,17 +115,19 @@ Input data:
   -2 <filename>               file with reverse paired-end reads    
 ~~~
 {: .output}
- 
-> ## Conda is an environment management system
->
-> Enviroments help in science reproducibility, allowing to share the specific conditions in which a pipeline is run.
-> [Conda](https://docs.conda.io/en/latest/) is an open source package management system and environment management system that runs on Windows, macOS and 
-> Linux.
-{: .callout}
 
+> ## Activate your environment
+> If you do not have the metagenomics environment activated the previous command should have given you an error. 
+> Before you proceed activate the environmen:
+> ~~~
+> conda activate metagenomics
+> ~~~
+> {: .language-bash}
+{: .callout}
+ 
 ## MetaSPAdes is a metagenomics assembler
 
-The help that we just saw tells us how to run metaspades.py. We are going 
+The help that we just saw tells us how to run `metaspades.py`. We are going 
 to use the most simple options, just specifying our forward paired-end 
 reads with `-1` and reverse paired-end reads with `-2`, and the output 
 directory where we want our results to be stored. 
