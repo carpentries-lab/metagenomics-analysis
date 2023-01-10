@@ -170,14 +170,35 @@ very poor (`#` = a quality score of 2).
 > {: .solution}
 {: .challenge}
 
-## Assessing quality using FastQC
-
 In real life, you won't be assessing the quality of your reads by visually inspecting your 
 FASTQ files. Rather, you'll be using a software program to assess read quality and 
 filter out poor quality reads. We'll first use a program called [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to visualize the quality of our reads. 
 Later in our workflow, we'll use another program to filter out poor quality reads. 
 
-Let's validate that the program is installed. If you are using the AWS AMI then it _should_ be preinstalled. 
+First, let's make available our metagenomics software:
+
+## Activating an environment  
+Environments are part of a bioinformatic tendency to make reproducible research, 
+they are a way to share and maintain our programs in their needed versions used for a pipeline with 
+our colleagues and with our future self. FastQC is not activated in the (base) environment but 
+this AWS instances came with an environment called metagenomics. We need to activate 
+it in order to start using FastQC. 
+
+We will use [Conda](https://docs.conda.io/en/latest/) as our environment manager. Conda is an open source package management system 
+and environment management system that runs on Windows, macOS and Linux. Conda environments are activated with the `conda activate` direction:  
+~~~
+$ conda activate metagenomics  
+~~~
+{: .bash}
+
+After the environment has been activated, a label is shown before the `$` sign.
+~~~
+(metagenomics) $
+~~~
+{: .output}
+
+Now, if we call FastQC at the command-line it won't be any error, 
+instead, a long help page will be displayed on our screen.
 
 ~~~
 $ fastqc -h 
@@ -215,6 +236,8 @@ sudo apt-get install fastqc
 {: .error}
 
 If this happens check with your instructor before trying to install it. 
+
+## Assessing quality using FastQC
 
 FastQC has a number of features which can give you a quick impression of any problems your
 data may have, so you can take these issues into consideration before moving forward with your
