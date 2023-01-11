@@ -184,8 +184,9 @@ our colleagues and with our future self. FastQC is not activated in the (base) e
 this AWS instances came with an environment called metagenomics. We need to activate 
 it in order to start using FastQC. 
 
-We will use [Conda](https://docs.conda.io/en/latest/) as our environment manager. Conda is an open source package management system 
-and environment management system that runs on Windows, macOS and Linux. Conda environments are activated with the `conda activate` direction:  
+We will use [Conda](https://docs.conda.io/en/latest/) as our environment manager. 
+Conda is an open source package and environment management system that runs on Windows, 
+macOS and Linux. Conda environments are activated with the `conda activate` direction:  
 ~~~
 $ conda activate metagenomics  
 ~~~
