@@ -132,7 +132,17 @@ In this example, we've told Trimmomatic:
 > ## Multi-line commands 
 > Some of the commands we ran in this lesson are long! When typing a long 
 > command into your terminal, you can use the `\` character
-> to separate code chunks onto separate lines. This can make your code more readable.
+> to separate code chunks onto separate lines. This can make your code more readable. For example lets use multilines with the echo command, using "\" it is possible to use several lines to print "hello world" on your terminal.
+> >~~~
+> >$ echo he\
+> >$ llo\
+> >$ world
+> >~~~
+> >{: .bash}
+> >~~~
+> >$ hello world
+> >~~~
+> >{: .output}
 {: .callout}
 
 
