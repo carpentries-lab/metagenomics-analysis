@@ -144,7 +144,7 @@ In this example, we have told Trimmomatic:
 > >$ hello world
 > >~~~
 > >{: .output}
-> Some terminals only wait a few seconds for you to keep typing. In that case, you may write 
+> Note: Some terminals only wait a few seconds for you to keep typing. In that case, you may write 
 > down the full command in a text file and then copy it to your terminal.
 {: .callout}
 
