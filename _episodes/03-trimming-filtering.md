@@ -68,29 +68,28 @@ described below. While in single-end mode, Trimmomatic will expect one file
 as input, after which you can enter the optional settings and, lastly, the 
 name of the output file.
 
-| Option    | Meaning |
-| ------- | ---------- |
-|  \<inputFile1>  | input forward reads to be trimmed. Typically the file name will contain an `_1` or `_R1` in the name.|
-| \<inputFile2> | Input reverse reads to be trimmed. Typically the file name will contain an `_2` or `_R2` in the name.|
-|  \<outputFile1P> | Output file that contains surviving pairs from the `_1` file. |
-|  \<outputFile1U> | Output file that contains orphaned reads from the `_1` file. |
-|  \<outputFile2P> | Output file that contains surviving pairs from the `_2` file.|
-|  \<outputFile2U> | Output file that contains orphaned reads from the `_2` file.|
-
+| Option    | Meaning |  
+| ------- | ---------- |  
+|  \<inputFile1>  | input forward reads to be trimmed. Typically the file name will contain an `_1` or `_R1` in the name.|  
+| \<inputFile2> | Input reverse reads to be trimmed. Typically the file name will contain an `_2` or `_R2` in the name.|  
+|  \<outputFile1P> | Output file that contains surviving pairs from the `_1` file. |  
+|  \<outputFile1U> | Output file that contains orphaned reads from the `_1` file. |  
+|  \<outputFile2P> | Output file that contains surviving pairs from the `_2` file.|  
+|  \<outputFile2U> | Output file that contains orphaned reads from the `_2` file.|  
+  
 The last thing Trimmomatic expects to see is the trimming parameters:
 
-| step   | meaning |
-| ------- | ---------- |
-| `ILLUMINACLIP` | Perform adapter removal. |
-| `SLIDINGWINDOW` | Perform sliding window trimming, cutting once the average quality within the window falls below a threshold. |
-| `LEADING`  | Cut bases off the start of a read if below a threshold quality.  |
-|  `TRAILING` |  Cut bases off the end of a read if below a threshold quality. |
-| `CROP`  |  Cut the read to a specified length. |
-|  `HEADCROP` |  Cut the specified number of bases from the start of the read. |
-| `
-MINLEN`  |  Drop an entire read if it is below a specified length. |
-|  `TOPHRED33` | Convert quality scores to Phred-33.  |
-|  `TOPHRED64` |  Convert quality scores to Phred-64. |
+| step   | meaning |  
+| ------- | ---------- |  
+| `ILLUMINACLIP` | Perform adapter removal. |  
+| `SLIDINGWINDOW` | Perform sliding window trimming, cutting once the average quality within the window falls below a threshold. |  
+| `LEADING`  | Cut bases off the start of a read if below a threshold quality.  |  
+|  `TRAILING` |  Cut bases off the end of a read if below a threshold quality. |  
+| `CROP`  |  Cut the read to a specified length. |  
+|  `HEADCROP` |  Cut the specified number of bases from the start of the read. |  
+| `MINLEN`  |  Drop an entire read if it is below a specified length. |  
+|  `TOPHRED33` | Convert quality scores to Phred-33.  |  
+|  `TOPHRED64` |  Convert quality scores to Phred-64. |  
 
 Understanding the steps you are using to
 clean your data is essential. We will use only a few options and trimming steps in our
