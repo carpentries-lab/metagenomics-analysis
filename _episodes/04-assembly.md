@@ -13,6 +13,7 @@ objectives:
 keypoints:
 - "Assembly groups reads into contigs."
 - "De Bruijn Graphs use Kmers to assembly cleaned reads."
+- "Program screen allows you to keep open remote sessions."
 - "MetaSPAdes is a metagenomes assembler."
 - "Assemblers take FastQ files as input and produce a Fasta file as output."
 ---
@@ -248,3 +249,12 @@ sample ID. If we need the files out of their folder, it is beneficial to rename 
 >  that gives you these metrics for metagenome assemblies in an interactive report and text files and plots.
 {: .callout}
 
+
+> ## Discussion 1: Relation between MAGs and depth 
+> The sequencing center has returned you a file with 18,412 reads. Given that the bacterial genome size range between 4Mb and 13Mb (Mb=10^6 bp) and that the size of the reads in this run is 150bp. With these data, how many complete bacterial genomes can you reconstruct?
+>> ## Solution
+>>
+>> None, because 18,412 reads of 150bp each give a total count of 2,761,800~2Mb even if no read maps to the same region, the amount of basepair is inferior to the size of a bacterial genome
+>> {: .bash}
+> {: .solution}
+{: .challenge}
