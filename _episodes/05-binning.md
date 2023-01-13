@@ -13,13 +13,12 @@ keypoints:
 - "Use CheckM to evaluate the quality of each Metagenomics-Assembled Genome."
 ---
 
-## Metagenomic binning
-To analyze each of the species inside our sample individually, the original genomes in the sample can be separated with a process called binning. 
-We call these genomes reconstructed from metagenomic assembly MAGs (Metagenome-Assembled Genomes).
+## Metagenomic binning  
+Original genomes in the sample can be separated with a process called binning. This process allows separate analysis of each species contained in the metagenome with enough reads to reconstruct a genome. Genomes reconstructed from metagenomic assemblies are called MAGs (Metagenome-Assembled Genomes).
 In this process, the assembled contigs from the metagenome will be assigned to different bins (FASTA files that contain certain contigs). Ideally, each bin corresponds to only one original genome (a MAG).
 
 <a href="{{ page.root }}/fig/03-05-01.png">
-  <img src="{{ page.root }}/fig/03-05-01.png" width="435" height="631" alt="Diagram depicting the DNA sequences in the original sample as circular chromosomes of three different taxa, after sequencing then the DNA sequences of the three different taxa are mixed as linear small reads, after the assembly we have contigs, each corresponding to a single taxa, except for the ones with bad assembly that have sequences of difeerent taxa in the same contig, after the binning the contigs are separated by taxa."/>
+  <img src="{{ page.root }}/fig/03-05-01.png" width="435" height="631" alt="Diagram depicts the DNA sequences in the original sample as circular chromosomes of three different taxa. After sequencing, the DNA sequences of the three different taxa are mixed as small linear reads; after the assembly, we have contigs, each corresponding to a single taxon, except for the ones with a bad assembly that has sequences of different taxa in the same contig, after the binning taxa separate the contigs."/>
 </a>
 
 Although an obvious way to separate contigs that correspond to a different species is by their taxonomic assignation, 
@@ -30,7 +29,7 @@ characteristics of the contigs, such as their GC content, the use of tetranucleo
 that distinguishes between contigs that belong to different bins according to their 
 coverage levels and the tetranucleotide frequencies they have.
 
-Let's bin the sample we just assembled. The command for running MaxBin is `run_MaxBin.pl`, and the arguments it needs are the FASTA file of the assembly, the FASTQ with the forward and reverse reads, the output directory, and name. 
+Let us bin the sample we just assembled. The command for running MaxBin is `run_MaxBin.pl`, and the arguments it needs are the FASTA file of the assembly, the FASTQ with the forward and reverse reads, the output directory, and the name. 
 ~~~
 $ cd ~/dc_workshop/results/assembly_JC1A
 $ mkdir MAXBIN
@@ -56,17 +55,17 @@ Marker gene search reveals that the dataset cannot be binned (the medium of mark
 ~~~
 {: .output} 
 
-It seems that it is impossible to bin our assembly because the amount of marker genes is less than 1. 
+It seems impossible to bin our assembly because the number of marker genes is less than 1. 
 We could have expected this as we know it is a small sample.
 
-We will perform the binning process with the other sample from the same study that is a little larger. We have the assembly precomputed in the `~/dc-workshop/mags/` directory.
+We will perform the binning process with the other sample from the same study that is larger. We have the assembly precomputed in the `~/dc-workshop/mags/` directory.
 ~~~
 $ cd ~/dc_workshop/mags/
 $ mkdir MAXBIN
 $ run_MaxBin.pl -thread 8 -contig JP4D_contigs.fasta -reads ../data/trimmed_fastq/JP4D_R1.trim.fastq.gz -reads2 ../data/trimmed_fastq/JP4D_R2.trim.fastq.gz -out MAXBIN/JP4D
 ~~~
 {: .bash}  
-It will take a few minutes to run. And it will finish with an output like this:
+It will take a few minutes to run. Moreover, it will finish with an output like this:
 
 ~~~
 ========== Job finished ==========
@@ -92,7 +91,7 @@ Store abundance information of reads file [../data/trimmed_fastq/JP4D_R2.trim.fa
 ~~~
 {: .output}  
 
-With the `.summary` file we can have a quick look at the bins that MaxBin produced. 
+With the `.summary` file, we can quickly look at the bins that MaxBin produced. 
 
 ~~~
 $ cat MAXBIN/JP4D.summary
@@ -111,14 +110,14 @@ JP4D.004.fasta	77.6%	5692657	38.9
 > ## Discussion: The quality of MAGs
 >
 > Can we trust the quality of our bins only with the given information? 
-> What else do we want to know about our MAGs to confidently use them for further analysis?
+> What else do we want to know about our MAGs to use for further analysis confidently?
 > 
 >> ## Solution
 >> 
->> **Completeness** is fundamental to knowing what you are working with. If the MAG is incomplete, 
->> you can hypothesize that if you did not found something, it's be because you don't have a complete genome.
->> **Genome size** and **GC content** are like genomic fingerprints of taxa, so you can know if you have the taxa you are looking.
->> Since we are working with the mixed genomes of a comunity, when we try to separate them wih the binning, 
+>> **completeness** is fundamental to know which data you are working with. If the MAG is incomplete, 
+>> you can hypothesize that if you did not find something, it is because you do not have a complete genome.
+>> **Genome size** and **GC content** are like genomic fingerprints of taxa, so you can know if you have the taxa you are looking for.
+>> Since we are working with the mixed genomes of a community when we try to separate them with binning, 
 >> we want to know if we were able to separate them correctly. So we need to measure **contamination** to 
 >> know if we have only one genome in our bin.
 > {: .solution}
@@ -127,14 +126,14 @@ JP4D.004.fasta	77.6%	5692657	38.9
 ## Quality check 
 
 The quality of a MAG is highly dependent on the size of the genome of the species, its abundance 
-in the community, and the depth at which we sequenced it.
+in the community and the depth at which we sequenced it.
 Two important things that can be measured to know its quality are completeness (is the MAG a complete genome?) 
 and if it is contaminated (does the MAG contain only one genome?). 
 
-[CheckM](https://github.com/Ecogenomics/CheckM) is a good program to see the quality of our MAGs. 
-It gives a measure of the completeness and the contamination by counting marker genes in the MAGs. 
-The lineage workflow that is a part of CheckM places your bins in a reference tree to know to which lineage it corresponds to and to use the appropriate marker genes to estimate the quality parameters. Unfortunately, the lineage workflow uses a lot of memory so it can't run in our machines, but we can tell CheckM to use marker genes from Bacteria only, to spend less memory. 
-This is a less accurate approach but it can also be very useful if you want all of your bins analyzed with the same markers. 
+[CheckM](https://github.com/Ecogenomics/CheckM) is an excellent program to see the quality of our MAGs. 
+It measures completeness and contamination by counting marker genes in the MAGs. 
+The lineage workflow that is a part of CheckM places your bins in a reference tree to know to which lineage it corresponds and to use the appropriate marker genes to estimate the quality parameters. Unfortunately, the lineage workflow uses much memory, so it cannot run on our machines, but we can tell CheckM to use marker genes from Bacteria only to spend less memory. 
+This is a less accurate approach, but it can also be advantageous if you want all of your bins analyzed with the same markers. 
 
 We will run the taxonomy workflow specifying the use of markers at the domain level, specific for the rank Bacteria, 
 we will specify that our bins are in FASTA format, that they are located in the `MAXBIN` directory 
@@ -159,21 +158,21 @@ The run will end with our results printed in the console.
 ~~~
 {: .output} 
 
-To have these values in an output that is more usable and shearable we can now run the quality step of CheckM `checkm qa` 
-and make it print the output in a `TSV` table, instead of the console. In this step, we can ask CheckM to give us more parameters, like contig number and length.
+To have these values in an output that is more usable and shearable, we can now run the quality step of CheckM `checkm qa` 
+and make it print the output in a `TSV` table instead of the console. In this step, we can ask CheckM to give us more parameters, like contig number and length.
 
-Ideally, we would like to get only one contig per bin, with a length similar the genome size of the corresponding taxa. Since this scenario is very difficult to obtain we can use parameters that show us how good is our assembly. Here are some of the most common metrics:
-If we arrange our contigs by size, from larger to smaller, and divide the whole sequence in half, N50 is the size of the smallest contig in the half that has the larger contigs; and L50 is the number of contigs in this half of the sequence. So we want big N50 and small L50 values for our genomes. Read [What’s N50?](https://www.molecularecologist.com/2017/03/29/whats-n50/).
+Ideally, we would like to get only one contig per bin, with a length similar to the genome size of the corresponding taxa. Since this scenario is complicated to obtain, we can use parameters showing how good our assembly is. Here are some of the most common metrics:
+If we arrange our contigs by size, from larger to smaller, and divide the whole sequence in half, N50 is the size of the smallest contig in the half that has the larger contigs; and L50 is the number of contigs in this half of the sequence. So we want big N50 and small L50 values for our genomes. Read [What is N50?](https://www.molecularecologist.com/2017/03/29/whats-n50/).
 
-To get the table with these extra parameters we need to specify the file of the markers that CheckM used in the previous step `Bacteria.ms`, the name of the output file we want `quality_JP4D.tsv`, that we want a table `--tab_table`, and the option number 2 `-o 2` is to ask for the extra parameters printed on the table. 
+To get the table with these extra parameters, we need to specify the file of the markers that CheckM used in the previous step, `Bacteria.ms`, the name of the output file we want, `quality_JP4D.tsv`, that we want a table `--tab_table`, and the option number 2 `-o 2` is to ask for the extra parameters printed on the table. 
 ~~~
 $  checkm qa CHECKM/Bacteria.ms CHECKM/ --file CHECKM/quality_JP4D.tsv --tab_table -o 2
 ~~~
 {: .bash} 
 The table we just made looks like [this](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/quality_JP4D.tsv).
-This will be very useful when you need to document your work or communicate it. 
+This will be very useful when you need to document or communicate your work. 
 
-The question of, how much contamination we can tolerate and how much completeness do we need, certainly depends on the scientific question being tackled, but in the [CheckM](https://genome.cshlp.org/content/25/7/1043) paper, there are some parameters that we can follow.
+The question of how much contamination we can tolerate and how much completeness we need certainly depends on the scientific question being tackled, but in the [CheckM](https://genome.cshlp.org/content/25/7/1043) paper, there are some parameters that we can follow.
 
 > ## Exercise 1: Discuss the quality of the obtained MAGs
 >
@@ -184,14 +183,14 @@ The question of, how much contamination we can tolerate and how much completenes
 > {: .bash} 
 > 
 >> ## Solution
->>In a terminal that is standing on your local computer do:
+>>In a terminal that is standing on your local computer, do:
 >> ```
 >>$ scp dcuser@ec2-18-207-132-236.compute-1.amazonaws.com:/home/dcuser/dc_workshop/mags/CHECKM/quality_JP4D.tsv <the destination directory of your choice>
 >> ```
 >>{: .bash} 
 >>
 > {: .solution}
-> Then open the table in a spreadsheet and discuss with your team which of the parameters in the table do you find useful.
+> Then open the table in a spreadsheet and discuss with your team which of the parameters in the table you find useful.
 {: .challenge}
 
 {: .bash} 
