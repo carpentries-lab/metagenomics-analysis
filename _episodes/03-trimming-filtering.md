@@ -133,16 +133,16 @@ In this example, we have told Trimmomatic:
 >   use the `\` character to make your code more readable. For example, let us use multi lines 
 >   with the echo command. With `\` it is possible to use several lines to print "hello world" 
 >   on your terminal.
-> >~~~
-> >$ echo he\
-> >$ llo\
-> >$ world
-> >~~~
-> >{: .bash}
-> >~~~
-> >$ hello world
-> >~~~
-> >{: .output}
+> ~~~
+> $ echo he\
+> $ llo\
+> $ world
+> ~~~
+> {: .bash}
+> ~~~
+> $ hello world
+> ~~~
+> {: .output}
 > Note: Some terminals only wait a few seconds for you to keep typing. In that case, you may write 
 > down the full command in a text file and then copy it to your terminal.
 {: .callout}
