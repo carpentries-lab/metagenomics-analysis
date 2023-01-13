@@ -358,12 +358,9 @@ $ ls
 {: .bash}
 
 ~~~
-JC1A_R1_fastqc.html             JP4D_R1.fastq                   
-JC1A_R1_fastqc.zip              JP4D_R1_fastqc.html 
-JC1A_R1.fastq.gz                JP4D_R1_fastqc.zip                   
-JC1A_R2_fastqc.html             JP4D_R2_fastqc.html           
-JC1A_R2_fastqc.zip              JP4D_R2_fastqc.zip 
-JC1A_R2.fastq.gz                JP4D_R2.fastq.gz       
+JC1A_R1_fastqc.html  JC1A_R2_fastqc.html  JP4D_R1.fastq        JP4D_R2_fastqc.html  TruSeq3-PE.fa
+JC1A_R1_fastqc.zip   JC1A_R2_fastqc.zip   JP4D_R1_fastqc.html  JP4D_R2_fastqc.zip
+JC1A_R1.fastq.gz     JC1A_R2.fastq.gz     JP4D_R1_fastqc.zip   JP4D_R2.fastq.gz    
 ~~~
 {: .output}
 
