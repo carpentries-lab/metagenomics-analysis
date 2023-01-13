@@ -174,21 +174,14 @@ $ ls
 {: .bash}
 
 ~~~
-$ JC1A_R1.fastq.gz  JC1A_R2.fastq.gz  JP4D_R1.fastq  JP4D_R2.fastq.gz   
+$ JC1A_R1.fastq.gz  JC1A_R2.fastq.gz  JP4D_R1.fastq  JP4D_R2.fastq.gz  TruSeq3-PE.fa   
 ~~~
 {: .output}
 
 We are going to run Trimmomatic on one of our paired-end samples. 
 While using FastQC, we saw that Universal adapters were present 
 in our samples. The adapter sequences came with the installation of 
-Trimmomatic, so we will first copy these sequences into our current 
-directory.
-
-~~~
-$ cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/TruSeq3-PE.fa .
-~~~
-{: .bash}
-
+Trimmomatic and it is located in our current directory in the file `TruSeq3-PE.fa`.
 
 We will also use a sliding window of size 4 that will remove bases if their
 Phred score is below 20 (like in our example above). We will also
