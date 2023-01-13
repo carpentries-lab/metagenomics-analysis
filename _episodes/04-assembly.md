@@ -186,7 +186,7 @@ sample ID. If we need the files out of their folder, it is beneficial to rename 
 
 > ## Exercise 1: Rename all files in a folder (needed in the next episode)
 >
-> Add JC1A (the sample ID) separated by a `_` at the beginning of the names of all the contents in the assembly_JC1A directory. Remember that many solutions are possible.
+> Add the prefix `JC1A` (the sample ID) separated by a `_` to the beginning of the names of all the contents in the `assembly_JC1A/` directory. Remember that many solutions are possible.
 > 
 > A) `$ mv * JC1A_`    
 > B) `$ mv * JC1A_*`    
