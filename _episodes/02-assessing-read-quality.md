@@ -55,7 +55,7 @@ We will now assess the quality of the sequence reads contained in our FASTQ file
 
 Although it looks complicated (and it is), we can understand the [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format include the following:  
 
-|Line|Description|    
+|Line|Description|   
 |----|-----------|     
 |1|Always begins with '@' followed by the information about the read|  
 |2|The actual DNA sequence|  
