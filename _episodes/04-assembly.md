@@ -160,30 +160,12 @@ $ ls -F
 {: .bash}
 
 ~~~
-assembly_graph_after_simplification.gfa
-assembly_graph.fastg
-assembly_graph_with_scaffolds.gfa
-before_rr.fasta
-contigs.paths
-corrected
-dataset.info
-first_pe_contigs.fasta
-input_dataset.yaml
-contigs.fasta
-scaffolds.fasta
-K21
-K33
-K55
-misc
-params.txt
-pipeline_state
-run_spades.sh
-run_spades.yaml
-scaffolds.paths
-spades.log
-strain_graph.gfa
-tmp
-            
+assembly_graph_after_simplification.gfa  corrected/              K55/             scaffolds.fasta
+assembly_graph.fastg                     dataset.info            misc/            scaffolds.paths
+assembly_graph_with_scaffolds.gfa        first_pe_contigs.fasta  params.txt       spades.log
+before_rr.fasta                          input_dataset.yaml      pipeline_state/  strain_graph.gfa
+contigs.fasta                            K21/                    run_spades.sh    tmp/
+contigs.paths                            K33/                    run_spades.yaml   
 ~~~
 {: .output}
 
