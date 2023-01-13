@@ -35,7 +35,7 @@ Here we will talk about the two most used diversity metrics, α diversity (withi
  
 - β Diversity: It is the difference (measured as distance) between two or more environments. 
 It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance, or UniFrac distance, to name a few. Each one 
-of this distance, metrics are focused on a characteristic of the community (*e.g.* Unifrac distance measures the phylogenetic relationship
+of this distance metrics are focused on a characteristic of the community (*e.g.* Unifrac distance measures the phylogenetic relationship
 between the species of the community).
 
 In the next example, we will look at the α and the β components of the diversity of a 
@@ -122,7 +122,7 @@ There are two types, without weights (diversity) and with weights (diversity and
 
 There are different ways to plot and show the results of such analysis. Among others, PCA, PCoA, or NMDS analysis are widely used.
 
-> ## Exercise 1: Simple measure of  alpha and beta diveristies.
+> ## Exercise 1: Simple measure of alpha and beta diversities.
 > In the next picture there are two lakes with different fish species:
 > <a href="{{ page.root }}/fig/03-08-03.png">
 >   <img src="{{ page.root }}/fig/03-08-03.png" alt="In lake A, we have four different species, two of these species have 3 specimens each one. This lake also has two specimens of a third species and only one specimen of a fourth specie. We got nine fish in total. Lake B has only three different species, the most populated species is also present in lake A and has five specimens, and we have only one specimen of each of the other two species. We got seven species total in lake B " />
@@ -426,5 +426,20 @@ In this NMDS plot each of the points represents the combined abundance of all it
   each of the samples occupy its own space in the plot without forming any 
   clusters. This is because each sample is different enough to be considered 
   its own point in the NMDS space.
+
+> ## Discussion: Indeces of diversity  
+> Why do you think we need different indeces to asses diversity? What index you will use if you want to asses the impact of rare, low abundances taxa?
+> 
+>> ## Solution
+>> 
+>> It will be difficult (if not impossible) to take two communities and observe the same distribution of all of the members. This is because 
+>> there are a lot of **factors** affecting all these lineages. Some of the **environmnetal factors** are temperature, pH, nutrient concentration, to name 
+>> some. But, also the interactions of these populations between each other is an important driver of variation (**biotic factor**). In order to have 
+>> ways to assess hypothesis regarding which of these processes can be affecting the community, we use all these different indexes.
+>> A combination the **above mentioned factors**, can interact to mantain some populations with low abundance (**rare taxa**). This can be 
+>> competence, inhibition of other populations, growth speed, suboptimal pH or temperature. One index of alpha diversity widely used 
+>> to assess the impact of low abundance lineages is the Chao1 index.
+> {: .solution}
+{: .discussion}
                              
 {% include links.md %}
