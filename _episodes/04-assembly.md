@@ -136,6 +136,9 @@ $ metaspades.py -1 JC1A_R1.trim.fastq.gz -2 JC1A_R2.trim.fastq.gz -o ../../resul
 ~~~
 {: .bash}
 
+Now that it is running we should detach our screen with `control + a` `d` and wait for a few minutes while it running. And then attach the screen with 
+`screen -r assembly` to see how it went.  
+
 When the run is finished, it shows this message:
 
 ~~~
@@ -147,6 +150,7 @@ Thank you for using SPAdes!
 
 ~~~
 {: .bash}
+Now we can kill the screen with `exit` and look at our results in the main screen.
 
 Now, let's go to the output files: 
 ~~~
