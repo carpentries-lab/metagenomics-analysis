@@ -255,6 +255,5 @@ sample ID. If we need the files out of their folder, it is beneficial to rename 
 >> ## Solution
 >>
 >> None, because 18,412 reads of 150bp each give a total count of 2,761,800~2Mb even if no read maps to the same region, the amount of basepair is inferior to the size of a bacterial genome
->> {: .bash}
 > {: .solution}
-{: .challenge}
+{: .discussion}
