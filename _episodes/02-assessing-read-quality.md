@@ -9,19 +9,19 @@ objectives:
 - "Interpret a FastQC plot summarizing per-base quality across all reads."
 - "Use `for` loops to automate operations on multiple files."
 keypoints:
-- "It is important to know the quality of our data to be able to make decisions in the subsequent steps."
+- "It is important to know the quality of our data to make decisions in the subsequent steps."
 - "FastQC is a program that allows us to know the quality of FASTQ files."
-- "`for` loops let you perform the same set of operations on multiple files with a single command."
+- "`for` loops let you perform the same operations on multiple files with a single command."
 
 ---
 
 ## Bioinformatic workflows
 
-When working with high-throughput sequencing data, the raw reads you get off of the sequencer will need to pass
-through a number of  different tools in order to generate your final desired output. The execution of this set of
+When working with high-throughput sequencing data, the raw reads you get off the sequencer must pass
+through several different tools to generate your final desired output. The execution of this set of
 tools in a specified order is commonly referred to as a *workflow* or a *pipeline*. 
 
-An example of the workflow we will be using for our analysis is provided below with a brief
+An example of the workflow we will be using for our analysis is provided below, with a brief
 description of each step. 
 
 
@@ -38,8 +38,8 @@ description of each step.
 These workflows in bioinformatics adopt a plug-and-play approach in that the output of one tool can be easily
 used as input to another tool without any extensive configuration. Having standards for data formats is what 
 makes this feasible. Standards ensure that data is stored in a way that is generally accepted and agreed upon 
-within the community. The tools that are used to analyze data at different stages of the workflow are therefore 
-built under the assumption that the data will be provided in a specific format.  
+within the community. Therefore, the tools used to analyze data at different workflow stages are  
+built, assuming that the data will be provided in a specific format.  
 
 ## Quality control
 
@@ -53,16 +53,16 @@ We will now assess the quality of the sequence reads contained in our FASTQ file
 
 ### Details on the FASTQ format
 
-Although it looks complicated (and it is), we can understand the [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format include...
+Although it looks complicated (and it is), we can understand the [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format include the following:  
 
-|Line|Description|
-|----|-----------|
-|1|Always begins with '@' followed by the information about the read|
-|2|The actual DNA sequence|
-|3|Always begins with a '+' and sometimes contains the same info as in line 1|
-|4|Has a string of characters which represent the quality scores; must have same number of characters as line 2|
+|Line|Description|    
+|----|-----------|     
+|1|Always begins with '@' followed by the information about the read|  
+|2|The actual DNA sequence|  
+|3|Always begins with a '+' and sometimes contains the same info as in line 1|  
+|4|Has a string of characters which represent the quality scores; must have same number of characters as line 2|  
 
-We can view the first complete read in one of the files from our dataset by using `head` to look at
+We can view the first complete read in one of the files from our dataset using `head` to look at
 the first four lines. But we have to decompress one of the files first.
 
 ~~~
@@ -82,11 +82,11 @@ A>>1AFC>DD111A0E0001BGEC0AEGCCGEGGFHGHHGHGHHGGHHHGGGGGGGGGGGGGHHGEGGGHHHHGHHGHHH
 ~~~
 {: .output}
 
-Line 4 shows the quality for each nucleotide in the read. Quality is interpreted as the 
-probability of an incorrect base call (e.g. 1 in 10) or, equivalently, the base call 
-accuracy (e.g. 90%). To make it possible to line up each individual nucleotide with its quality
-score, the numerical score is converted into a code where each individual character 
-represents the numerical quality score for an individual nucleotide. For example, in the line
+Line 4 shows the quality of each nucleotide in the read. Quality is interpreted as the 
+probability of an incorrect base call (e.g., 1 in 10) or, equivalently, the base call 
+accuracy (e.g., 90%). Each nucleotide's numerical score's value is converted into a character code where every single character 
+represents a quality score for an individual nucleotide. This conversion allows the alignment of each individual nucleotide with its quality
+score. For example, in the line
 above, the quality score line is: 
 
 ~~~
@@ -94,10 +94,10 @@ A>>1AFC>DD111A0E0001BGEC0AEGCCGEGGFHGHHGHGHHGGHHHGGGGGGGGGGGGGHHGEGGGHHHHGHHGHHH
 ~~~
 {: .output}
 
-The numerical value assigned to each of these characters depends on the 
+The numerical value assigned to each character depends on the 
 sequencing platform that generated the reads. The sequencing machine used to generate our data 
 uses the standard Sanger quality PHRED score encoding, using Illumina version 1.8 onwards.
-Each character is assigned a quality score between 0 and 41 as shown in 
+Each character is assigned a quality score between 0 and 41, as shown in 
 the chart below.
 
 ~~~
@@ -108,10 +108,10 @@ Quality score:    01........11........21........31........41
 {: .output}
 
 Each quality score represents the probability that the corresponding nucleotide call is
-incorrect. This quality score is logarithmically based, so a quality score of 10 reflects a
+incorrect. These probability values are the results of the base calling algorithm and depend on how 
+much signal was captured for the base incorporation. This quality score is logarithmically based, so a quality score of 10 reflects a
 base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%. 
-These probability values are the results from the base calling algorithm and depend on how 
-much signal was captured for the base incorporation. In this 
+In this 
 [link](https://drive5.com/usearch/manual/quality_score.html) you can find more information 
 about quality scores.
 
@@ -125,12 +125,12 @@ A>>1AFC>DD111A0E0001BGEC0AEGCCGEGGFHGHHGHGHHGGHHHGGGGGGGGGGGGGHHGEGGGHHHHGHHGHHH
 ~~~
 {: .output}
 
-We can now see that there is a range of quality scores, but that the end of the sequence is
+We can now see that there is a range of quality scores but that the end of the sequence is
 very poor (`#` = a quality score of 2). 
 
 > ## Exercise 1: Looking at specific reads  
 > 
-> How would you show in the terminal the ID and quality of the last read in `JP4D_R1.fastq `?  
+> In the terminal, how would you show the ID and quality of the last read `JP4D_R1.fastq`?  
 > a) `tail JP4D_R1.fastq`  
 > b) `head -n 4 JP4D_R1.fastq`  
 > c) `more JP4D_R1.fastq`  
@@ -142,10 +142,10 @@ very poor (`#` = a quality score of 2).
 >> ## Solution
 >> ~~~
 >>   
->> a) It does show the ID and quality of the last read but also show unnecesary lines from previous reads.  
+>> a) It shows the ID and quality of the last read but also unnecessary lines from previous reads.  
 >> b) No. It shows the first read's info.  
 >> c) It shows the text of the entire file.  
->> d) This option is the best answer as it only shows info for the last read.  
+>> d) This option is the best answer as it only shows the last read's information.  
 >> e) It does show the ID of the last read but not the quality.  
 >> 
 >> ~~~
@@ -164,28 +164,27 @@ very poor (`#` = a quality score of 2).
 >> 
 >> This read has more consistent quality at its first than at the end
 >> but still has a range of quality scores, 
->> most of them low. We will look at variations in position-based quality
+>> most of them are low. We will look at variations in position-based quality
 >> in just a moment.
 >> 
 > {: .solution}
 {: .challenge}
 
 In real life, you won't be assessing the quality of your reads by visually inspecting your 
-FASTQ files. Rather, you'll be using a software program to assess read quality and 
-filter out poor quality reads. We'll first use a program called [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to visualize the quality of our reads. 
-Later in our workflow, we'll use another program to filter out poor quality reads. 
+FASTQ files. Instead, you'll use a software program to assess read quality and 
+filter out poor reads. We'll first use a program called [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to visualize the quality of our reads. 
+Later in our workflow, we'll use another program to filter out poor-quality reads. 
 
 First, let's make available our metagenomics software:
 
 ## Activating an environment  
-Environments are part of a bioinformatic tendency to make reproducible research, 
-they are a way to share and maintain our programs in their needed versions used for a pipeline with 
-our colleagues and with our future self. FastQC is not activated in the (base) environment but 
-this AWS instances came with an environment called metagenomics. We need to activate 
+Environments are part of a bioinformatic tendency to do reproducible research; they are a way to share and maintain our programs in their needed versions used for a pipeline with 
+our colleagues and our future self. FastQC has not been activated in the (base) environment, but 
+this AWS instance came with an environment called metagenomics. We need to activate 
 it in order to start using FastQC. 
 
 We will use [Conda](https://docs.conda.io/en/latest/) as our environment manager. 
-Conda is an open source package and environment management system that runs on Windows, 
+Conda is an open-source package and environment management system that runs on Windows, 
 macOS and Linux. Conda environments are activated with the `conda activate` direction:  
 ~~~
 $ conda activate metagenomics  
@@ -198,7 +197,7 @@ After the environment has been activated, a label is shown before the `$` sign.
 ~~~
 {: .output}
 
-Now, if we call FastQC a long help page will be displayed on our screen.
+Now, if we call FastQC, a long help page will be displayed on our screen.
 
 ~~~
 $ fastqc -h 
@@ -218,7 +217,7 @@ SYNOPSIS
 DESCRIPTION
 
     FastQC reads a set of sequence files and produces from each one a quality
-    control report consisting of a number of different modules, each one of
+    control report consisting of many different modules, each one of
     which will help to identify a different potential type of problem in your
     data.
 .
@@ -227,7 +226,7 @@ DESCRIPTION
 ~~~
 {: .output}
 
-If FastQC is not installed then you would expect to see an error like
+If FastQC is not installed, then you would expect to see an error like
 
 ~~~
 The program 'fastqc' is currently not installed. You can install it by typing:
@@ -235,43 +234,42 @@ sudo apt-get install fastqc
 ~~~
 {: .error}
 
-If this happens check with your instructor before trying to install it. 
+If this happens, check with your instructor before trying to install it. 
 
 ## Assessing quality using FastQC
 
-FastQC has a number of features which can give you a quick impression of any problems your
-data may have, so you can take these issues into consideration before moving forward with your
-analyses. Rather than looking at quality scores for each individual read, FastQC looks at
-quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
+FastQC has several features that can give you a quick impression of any problems your
+data may have, so you can consider these issues before moving forward with your
+analyses. Rather than looking at quality scores for each read, FastQC looks at
+quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high-quality sample:
 
  <a href="{{ page.root }}/fig/03-02-03.png">
-  <img src="{{ page.root }}/fig/03-02-03.png" alt="Quality graph showing a boxplot for each sequence position in the x axis, and the phred score in the y axis. The background is colored red for the phred scores 0 to 20, yellow for the scores 20 to 28 and green for the scores 28 to 38. All of the boxes for each position are in the green area." />
+  <img src="{{ page.root }}/fig/03-02-03.png" alt="Quality graph showing a boxplot for each sequence position in the x-axis, and the Phred score in the y-axis. The background is colored red for the Phred scores 0 to 20, yellow for the scores 20 to 28, and green for the scores 28 to 38. All of the boxes for each position are in the green area." />
 </a>
 
 The x-axis displays the base position in the read, and the y-axis shows quality scores. In this 
-example, the sample contains reads that are 40 bp long. This is much shorter than the reads we 
-are working with in our workflow. For each position, there is a box-and-whisker plot showing 
+example, the sample contains reads that are 40 bp long. This length is much shorter than the reads we 
+are working on within our workflow. For each position, there is a box-and-whisker plot showing 
 the distribution of quality scores for all reads at that position. The horizontal red line 
-indicates the median quality score and the yellow box shows the 1st to 
-3rd quartile range. This means that 50% of reads have a quality score that falls within the 
-range of the yellow box at that position. The whiskers show the absolute range, which covers 
+indicates the median quality score, and the yellow box shows the 1st to 
+3rd quartile range. This range means that 50% of reads have a quality score that falls within the 
+range of the yellow box at that position. The whiskers show the whole range covering 
 the lowest (0th quartile) to highest (4th quartile) values.
 
-For each position in this sample, the quality values do not drop much lower than 32. This 
-is a high quality score. The plot background is also color-coded to identify good (green),
-acceptable (yellow), and bad (red) quality scores.
+The quality values for each position in this sample do not drop much lower than 32, which is a high-quality score. The plot background is also color-coded to identify good (green),
+acceptable (yellow) and bad (red) quality scores.
 
-Now let's take a look at a quality plot on the other end of the spectrum. 
+Now let's look at a quality plot on the other end of the spectrum. 
 
  <a href="{{ page.root }}/fig/03-02-04.png">
-  <img src="{{ page.root }}/fig/03-02-04.png" alt="Graphic of boxplots, where the first ones are in the good range of scores of the y axis and extend to the acceptable and bad ranges of scores toward the right of the x axis" />
+  <img src="{{ page.root }}/fig/03-02-04.png" alt="Graphic of boxplots, where the first ones are in the good range of scores of the y-axis and extend to the acceptable and bad ranges of scores toward the right of the x-axis" />
 </a>
 
-Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the "bad" range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above. 
+The FastQC tool produces several other diagnostic plots to assess sample quality and the one plotted above. Here, we see positions within the read in which the boxes span a much more comprehensive range. Also, quality scores drop pretty low into the "bad" range, particularly on the tail end of the reads. 
 
 ## Running FastQC  
 
-We will now assess the quality of the reads that we downloaded. First, make sure you're still in the `untrimmed_fastq` directory
+We will now assess the quality of the reads that we downloaded. First, make sure you're still in the `untrimmed_fastq` directory.
 
 ~~~
 $ cd ~/dc_workshop/data/untrimmed_fastq/ 
@@ -292,11 +290,11 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >>  
 >> ~~~
 >>   
->> a) No. The flag `-a` shows all of the contents, including hidden files and directories.  
+>> a) No. The flag `-a` shows all the contents, including hidden files and directories.  
 >> b) No. The flag `-S` shows the content Sorted by size starting with the largest file.  
->> c) Yes. The flag `-l` shows the contents with metadata including file size.    
->> d) Yes. The flag `-lh` shows the content  with metadata in a human readable manner.  
->> e) Yes. The combination of all of the flags shows all of the contents with metadata including hidden files, sorted by size.  
+>> c) Yes. The flag `-l` shows the contents with metadata, including file size.    
+>> d) Yes. The flag `-lh` shows the content with metadata in a human-readable manner.  
+>> e) Yes. The combination of all the flags shows all the contents with metadata, including hidden files, sorted by size.  
 >> 
 >> ~~~
 >> {: .bash}
@@ -309,13 +307,13 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >> ~~~
 >> {: .output}
 >> 
->> There are four FASTQ files ranging from 24M (24MB) to 616M. 
+>> Four FASTQ files oscillate between 24M (24MB) to 616M. 
 >> 
 > {: .solution}
 {: .challenge}
 
 FastQC can accept multiple file names as input, and on both zipped and unzipped files, 
-so we can use the `\*.fastq*`wildcard to run FastQC on all of the FASTQ files in this directory.
+so we can use the `\*.fastq*`wildcard to run FastQC on all FASTQ files in this directory.
 
 ~~~
 $ fastqc *.fastq* 
@@ -337,7 +335,7 @@ Approx 35% complete for JC1A_R1.fastq.gz
 ~~~
 {: .output}
 
-In total, it should take about five minutes for FastQC to run on all
+It should take around five minutes for FastQC to run on all
 four of our FASTQ files. When the analysis completes, your prompt
 will return. So your screen will look something like this:
 
@@ -372,7 +370,7 @@ JC1A_R2.fastq.gz                JP4D_R2.fastq.gz
 
 For each input FASTQ file, FastQC has created a `.zip` file and a
 `.html` file. The `.zip` file extension indicates that this is 
-actually a compressed set of multiple output files. We'll be working
+a compressed set of multiple output files. We'll be working
 with these output files soon. The `.html` file is a stable webpage
 displaying the summary report for each of our samples.
 
@@ -401,16 +399,16 @@ If we were working on our local computers, we'd be able to look at
 each of these HTML files by opening them in a web browser. However, these 
 files are currently sitting on our remote AWS instance, where our local 
 computer can't see them. Since we are only logging into the AWS instance
-via the command line our remote computer it doesn't have any web browser 
+via the command line on our remote computer, it doesn't have any web browser 
 setup to display these files either. So, the easiest way to look at these webpage 
-summary reports is to transfer them to our local computers (i.e. your laptop). 
-To copy a file from a remote server to our own machines, we will use `scp`, 
+summary reports is to transfer them to our local computers (i.e., your laptop). 
+To copy a file from a remote server to our machines, we will use `scp`, 
 which we learned yesterday in the Introduction to the Command Line lesson. 
 
-First, open a new terminal in you local computer, we will make a new directory 
+First, open a new terminal on your local computer. We will make a new directory 
 on our computer to store the HTML files
 we're transferring. Let's put it on our desktop for now. Open a new
-tab in your terminal program (you can use the pull down menu at the
+tab in your terminal program (you can use the pull-down menu at the
 top of your screen or the Cmd+t keyboard shortcut) and type: 
 
 ~~~
@@ -432,11 +430,11 @@ after `dcuser@` with your instance number (the one you used to log in).
 
 The second part starts with a `:` and then gives the absolute path
 of the files you want to transfer from your remote computer. Don't
-forget the `:`. We used a wildcard (`*.html`) to indicate that we want all of
+forget the `:`. We used a wildcard (`*.html`) to indicate that we want all 
 the HTML files. 
 
 The third part of the command gives the absolute path of the location
-you want to put the files in. This is on your local computer and is the 
+you want to put the files. This location is on your local computer and is the 
 directory we just created `~/Desktop/fastqc_html`. 
 
 You should see a status output like this:
@@ -452,13 +450,13 @@ JP4D_R2_fastqc.html     100%  244KB 385.2KB/s   00:00
 Now we can go to our new directory and open the 4 HTML files. 
 
 Depending on your system, 
-you should be able to select and open them all at once via a right click menu
+you should be able to select and open them all at once via a right-click menu
 in your file browser.
 
 > ## Exercise 3: Discuss the quality of sequencing files
 > 
 > Discuss your results with a neighbor. Which sample(s) looks the best
-> in terms of per base sequence quality? Which sample(s) look the
+> per base sequence quality? Which sample(s) look the
 > worst?
 > 
 >> ## Solution
@@ -468,22 +466,22 @@ in your file browser.
 {: .challenge}
 
 ## Decoding the other FastQC outputs
-We've now looked at quite a few "Per base sequence quality" FastQC graphs, but there are nine other graphs that we haven't talked about! Below we have provided a brief overview of interpretations for each of these plots. For more information, please see the FastQC documentation [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/) 
+We've now looked at quite a few "Per base sequence quality" FastQC graphs, but there are nine other graphs that we haven't talked about! Below we have provided a brief overview of interpretations for each plot. For more information, please see the FastQC documentation [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/) 
 
-+ [**Per tile sequence quality**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/12%20Per%20Tile%20Sequence%20Quality.html): the machines that perform sequencing are divided into tiles. This plot displays patterns in base quality along these tiles. Consistently low scores are often found around the edges, but hot spots can also occur in the middle if an air bubble was introduced at some point during the run. 
++ [**Per tile sequence quality**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/12%20Per%20Tile%20Sequence%20Quality.html): the machines that perform sequencing are divided into tiles. This plot displays patterns in base quality along these tiles. Consistently low scores are often found around the edges, but hot spots could also occur in the middle if an air bubble was introduced during the run. 
 + [**Per sequence quality scores**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/3%20Per%20Sequence%20Quality%20Scores.html): a density plot of quality for all reads at all positions. This plot shows what quality scores are most common. 
 + [**Per base sequence content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/4%20Per%20Base%20Sequence%20Content.html): plots the proportion of each base position over all of the reads. Typically, we expect to see each base roughly 25% of the time at each position, but this often fails at the beginning or end of the read due to quality or adapter content.
 + [**Per sequence GC content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html): a density plot of average GC content in each of the reads.  
 + [**Per base N content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/6%20Per%20Base%20N%20Content.html): the percent of times that 'N' occurs at a position in all reads. If there is an increase at a particular position, this might indicate that something went wrong during sequencing.  
-+ [**Sequence Length Distribution**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/7%20Sequence%20Length%20Distribution.html): the distribution of sequence lengths of all reads in the file. If the data is raw, there is often on sharp peak, however if the reads have been trimmed, there may be a distribution of shorter lengths. 
-+ [**Sequence Duplication Levels**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/8%20Duplicate%20Sequences.html): a distribution of duplicated sequences. In sequencing, we expect most reads to only occur once. If some sequences are occurring more than once, it might indicate enrichment bias (e.g. from PCR). If the samples are high coverage (or RNA-seq or amplicon), this might not be true.  
++ [**Sequence Length Distribution**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/7%20Sequence%20Length%20Distribution.html): the distribution of sequence lengths of all reads in the file. If the data is raw, there is often a sharp peak; however, if the reads have been trimmed, there may be a distribution of shorter lengths. 
++ [**Sequence Duplication Levels**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/8%20Duplicate%20Sequences.html): a distribution of duplicated sequences. In sequencing, we expect most reads to only occur once. If some sequences are occurring more than once, it might indicate enrichment bias (e.g. from PCR). This might not be true if the samples are high coverage (or RNA-seq or amplicon).  
 + [**Overrepresented sequences**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/9%20Overrepresented%20Sequences.html): a list of sequences that occur more frequently than would be expected by chance. 
 + [**Adapter Content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html): a graph indicating where adapater sequences occur in the reads.
 + [**K-mer Content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/11%20Kmer%20Content.html): a graph showing any sequences which may show a positional bias within the reads.
 
 ## Working with the FastQC text output
 
-Now that we've looked at our HTML reports to get a feel for the data,
+Now that we've looked at our HTML reports getting a feel for the data,
 let's look more closely at the other output files. Go back to the tab
 in your terminal program that is connected to your AWS instance
 (the tab label will start with `dcuser@ip`) and make sure you're in
@@ -503,7 +501,7 @@ JC1A_R2_fastqc.zip            JP4D_R2_fastqc.zip
 ~~~
 {: .output}
 
-Our `.zip` files are compressed files. They each contain multiple 
+Our `.zip` files are compressed files. Each contains multiple 
 different types of output files for a single input FASTQ file. To
 view the contents of a `.zip` file, we can use the program `unzip` 
 to decompress these files. Let's try doing them all at once using a
@@ -522,14 +520,14 @@ caution: filename not matched:  JP4D_R2_fastqc.zip
 ~~~
 {: .output}
 
-This didn't work. It identified the first file and then got a warning
-message for each of the other `.zip` files. This is because `unzip` 
+This decompresion didn't work. It identified the first file and got a warning
+message for the other `.zip` files. This is because `unzip` 
 expects to get only one zip file as input. We could go through and 
-unzip each file one at a time, but this is very time consuming and 
+unzip each file one at a time, but this is very time-consuming and 
 error-prone. Someday you may have 500 files to unzip!
 
 A more efficient way is to use a `for` loop like we learned in the Command Line lesson to iterate through all of
-our `.zip` files. Let's see what that looks like and then we'll 
+our `.zip` files. Let's see what that looks like, and then we'll 
 discuss what we're doing with each line of our loop.
 
 ~~~
@@ -551,7 +549,7 @@ For the second iteration, `$filename` becomes
 It then repeats this process for the other `.zip` files in our directory.
 
 
-When we run our `for` loop, you will see output that starts like this:
+When we run the `for` loop, you will see an output that starts like this:
 
 ~~~
 Archive:  JC1A_R1_fastqc.zip                                            
@@ -578,13 +576,13 @@ inflating: JC1A_R1_fastqc/fastqc.fo
 ~~~
 {: .output}
 
-The `unzip` program is decompressing the `.zip` files and creating
+The `unzip` program is decompressing the `.zip` files and creates
 a new directory (with subdirectories) for each of our samples, to 
 store all of the different output that is produced by FastQC. There
-are a lot of files here. The one we're going to focus on is the 
+are a lot of files here. We're going to focus on the 
 `summary.txt` file. 
 
-If you list the files in our directory now you will see: 
+If you list the files in our directory, now you will see the following: 
 ~~~
 $ ls 
 ~~~
@@ -601,8 +599,8 @@ JC1A_R2_fastqc.zip              JP4D_R2_fastqc.zip
 {: .output}
 
 The `.html` files and the uncompressed `.zip` files are still present,
-but now we also have a new directory for each of our samples. We can 
-see for sure that it's a directory if we use the `-F` flag for `ls`. 
+but now we also have a new directory for each sample. We can 
+see that it's a directory if we use the `-F` flag for `ls`. 
 
 ~~~
 $ ls -F 
@@ -653,8 +651,8 @@ FAIL    Adapter Content JC1A_R1.fastq.gz
 ~~~
 {: .output}
 
-The summary file gives us a list of tests that FastQC ran, and tells
-us whether this sample passed, failed, or is borderline (`WARN`). Remember, to quit from `less` you must type `q`.
+The summary file gives us a list of tests that FastQC ran and tells
+us whether this sample passed, failed, or is borderline (`WARN`). Remember, to quit from `less`, you must type `q`.
 
 ## Documenting our work
 
@@ -711,14 +709,14 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 
 > ## Quality Encodings Vary
 >
-> Although we've used a particular quality encoding system to demonstrate interpretation of 
-> read quality, different sequencing machines use different encoding systems. This means that, 
-> depending on which sequencer you use to generate your data, a `#` may not be an indicator of 
+> Although we've used a particular quality encoding system to demonstrate the interpretation of 
+> read quality, different sequencing machines use different encoding systems. This means that 
+> depending on which sequencer you use to generate your data, a `#` may not indicate 
 > a poor quality base call.
 >
-> This mainly relates to older Solexa/Illumina data,
-> but it's essential that you know which sequencing platform was
-> used to generate your data, so that you can tell your quality control program which encoding
+> This mainly relates to older Solexa/Illumina data.
+> However, it's essential that you know which sequencing platform was
+> used to generate your data to tell your quality control program which encoding
 > to use. If you choose the wrong encoding, you run the risk of throwing away good reads or 
 > (even worse) not throwing away bad reads!
 {: .callout}
@@ -726,7 +724,7 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 
 > ## Bonus Exercise: Automating a quality control workflow
 >
-> If you loose your FastQC analyses results. How would you do it again but faster than the first time?
+> If you lose your FastQC analysis results. How would you do it again but faster than the first time?
 > As we have seen in a previous lesson, making scripts for repetitive tasks is a very efficient practice during bioinformatic pipelines.  
 >
 > > ## Solution
@@ -764,7 +762,7 @@ $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt
 > > ~~~
 > > {: .bash}
 > > 
-> > If we were to run this script it would ask us for confirmation to redo several steps because we already did all of them. If you want to, you can run it to check that it works, but it is not necessary if you already completed every step of the previous episode.
+> > If we were to run this script, it would ask us for confirmation to redo several steps because we already did all of them. If you want to, you can run it to check that it works, but it is not necessary if you already completed every step of the previous episode.
 > {: .solution}
 >
 {: .challenge}
