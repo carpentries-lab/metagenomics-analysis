@@ -8,51 +8,49 @@ questions:
 objectives:
 - "Plot alpha and beta diversity."
 keypoints:
-- "Alpha diversity measures the intra-sample diversity"
-- "Beta diversity measures the inter-sample diversity"
+- "Alpha diversity measures the intra-sample diversity."
+- "Beta diversity measures the inter-sample diversity."
 - "Phyloseq includes diversity analyses such as alpha and beta diversity calculation."
 math: true
 ---
 
-*Look at your fingers, controlled by the mind can do great things. But imagine if each one has a little brain of its own, with 
+*Look at your fingers; controlled by the mind can do great things. However, imagine if each one has a little brain of its own, with 
 different ideas, desires, and fears ¡How wonderful things will be made out of an artist with such hands!* 
   -Ode to multidisciplinarity
 
 ## First plunge into diversity
 
-Species diversity, in its most simple definition, is the number of species in a particular area and their relative abundance (evenness).
+Species diversity, in its simplest definition, is the number of species in a particular area and their relative abundance (evenness).
 Once we know the taxonomic composition of our metagenomes, we can do diversity analyses. 
-Here we will talk about the two most used diversity metrics, α diversity (within one metagenome) and β (across metagenomes).   
+Here we will discuss the two most used diversity metrics, α diversity (within one metagenome) and β (across metagenomes).   
 
-- α Diversity: Can be represented only as the richness (*i.e.* number of different species in an environment) or, it can be measured considering the
- abundance of the species in the environment as well (*i.e.* the number of individuals of each species inside the environment). To measure α diversity 
- different indexes can be used, such as Shannon's, Simpson's, Chao1, etc. 
+- α Diversity: Can be represented only as richness (*, i.e.,* the number of different species in an environment), or it can be measured considering the
+ abundance of the species in the environment as well (*i.e.,* the number of individuals of each species inside the environment). To measure α-diversity, we use indexes such as Shannon's, Simpson's, Chao1, etc. 
 
 <a href="{{ page.root }}/fig/03-08-01.png">
-  <img src="{{ page.root }}/fig/03-08-01.png" alt="Alpha diversity diagram: In lake A, we have three fishes, each one of a different species. On lake B, we have two fishes each one of a different species. And in lake C we have four fishes, each one of different species." />
+  <img src="{{ page.root }}/fig/03-08-01.png" alt="Alpha diversity diagram: In lake A, we have three fishes, each one of a different species. On lake B, we have two fish, each of a different species. Moreover, we have four fish in lake C, each of different species." />
 </a>
-<em> Figure 1. Alpha diversity is represented by fishes in a pond. Here, alpha diversity is represented in its simplest way: Richness. <em/>
+<em> Figure 1. Alpha diversity is calculated according to fishes diversity in a pond. Here, alpha diversity is represented in its simplest way: Richness. <em/>
  
-- β Diversity: It is the difference (measured as distance) between two or more environments. 
+- β Diversity is the difference (measured as distance) between two or more environments. 
 It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance, or UniFrac distance, to name a few. Each one 
-of this distance metrics are focused on a characteristic of the community (*e.g.* Unifrac distance measures the phylogenetic relationship
+of this measures are focused on a characteristic of the community (*e.g.,* Unifrac distance measures the phylogenetic relationship
 between the species of the community).
 
 In the next example, we will look at the α and the β components of the diversity of a 
 dataset of fishes in three lakes. The most simple way to calculate the β-diversity 
-is to calculate the species that are distinct between two lakes (sites). Let's take 
-Lake A and Lake B to do an example. The number of species in Lake A is 3, to this 
-quantity we will substract the number of these species that are shared with the Lake 
+is to calculate the distinct species between two lakes (sites). Let us take as an example the diversity between
+Lake A and Lake B. The number of species in Lake A is 3. To this quantity, we will subtract the number of these species that are shared with the Lake 
 B: 2. So the number of unique species in Lake A compared to Lake B is (3-2) = 1. To 
-this number we will sum the result of the same operations but now take Lake B as 
+this number, we will sum the result of the same operations but now take Lake B as 
 our site of reference. In the end, the β diversity between Lake A and Lake B is 
-(3-2) + (3-2) = 2. This process can be repeated taking each pair of lakes as the 
+(3-2) + (3-2) = 2. This process can be repeated, taking each pair of lakes as the 
 focused sites.
 
 <a href="{{ page.root }}/fig/03-08-02.png">
-  <img src="{{ page.root }}/fig/03-08-02.png" alt=" Alpha and Beta diversity diagram: Each lake has a different number of species and each species has a different number of fish individuals. Both metrics are taken into account to measure alfa and beta diversity." />
+  <img src="{{ page.root }}/fig/03-08-02.png" alt=" Alpha and Beta diversity diagram: Each Lake has a different number of species, and each species has a different number of fish individuals. Both metrics are taken into account to measure alfa and beta diversity." />
 </a>
-<em> Figure 2. Alpha and Beta diversity represented by fishes in a pond.<em/>
+<em> Figure 2. Alpha and Beta diversity indexes of fishes in a pond.<em/>
 
 If you want to read more about diversity, we recommend to you this [paper](https://link.springer.com/article/10.1007/s00442-010-1812-0) on 
 the concept of diversity.
@@ -111,11 +109,10 @@ $ S_{chao1}=S_{Obs} $ | The number of observed species
  <!-- comment we use https://viereck.ch/latex-to-svg/ to convert from latex to SVG because Chao equation did not render correctly with GitHub math!-->
 
 ### β diversity  
-Diversity β measures how different two or more communities are, either in their composition (richness)
-or in the abundance of the organisms that compose it (abundance). 
+Diversity β measures how different two or more communities are, either in their composition (richness) or in the abundance of the organisms that compose it (abundance). 
 - Bray-Curtis dissimilarity: The difference in richness and abundance across environments (samples). Weight on abundance. Measures the differences 
 from 0 (equal communities) to 1 (different communities)
-- Jaccard distance: Based on presence/absence of species (diversity). 
+- Jaccard distance: Based on the presence/absence of species (diversity). 
 It goes from 0 (same species in the community) to 1 (no species in common)
 - UniFrac: Measures the phylogenetic distance; how alike the trees in each community are. 
 There are two types, without weights (diversity) and with weights (diversity and abundance)  
@@ -123,13 +120,13 @@ There are two types, without weights (diversity) and with weights (diversity and
 There are different ways to plot and show the results of such analysis. Among others, PCA, PCoA, or NMDS analysis are widely used.
 
 > ## Exercise 1: Simple measure of alpha and beta diversities.
-> In the next picture there are two lakes with different fish species:
+> In the next picture, there are two lakes with different fish species:
 > <a href="{{ page.root }}/fig/03-08-03.png">
->   <img src="{{ page.root }}/fig/03-08-03.png" alt="In lake A, we have four different species, two of these species have 3 specimens each one. This lake also has two specimens of a third species and only one specimen of a fourth specie. We got nine fish in total. Lake B has only three different species, the most populated species is also present in lake A and has five specimens, and we have only one specimen of each of the other two species. We got seven species total in lake B " />
+>   <img src="{{ page.root }}/fig/03-08-03.png" alt="In lake A, we have four different species, two of these species have three specimens each one. This Lake also has two specimens of a third species and only one specimen of a fourth specie. We got nine fish in total. Lake B has only three different species, the most populated species is also present in lake A and has five specimens, and we have only one specimen of each of the other two species. We got seven species total in lake B " />
 >  </a> 
 >  <em> Figure 3. <em/> 
 >  
-> Which of the options below is true for the alpha diversity in lake A, lake B, and beta diversity between lakes A and B, respectively?
+> Which of the options below is true for the alpha diversity in lakes A, B, and beta diversity between lakes A and B, respectively?
 > 1. 4, 3, 1
 > 2. 4, 3, 5
 > 3. 9, 7, 16
@@ -144,15 +141,15 @@ There are different ways to plot and show the results of such analysis. Among ot
 
 ## Plot alpha diversity 
 
-We want to know how is the bacterial diversity, so we will prune all of the 
-non-bacterial organisms that we have in our `merged_metagenomes` Phyloseq object. To do this we will make a subset 
+We want to know the bacterial diversity, so we will prune all  
+non-bacterial organisms in our `merged_metagenomes` Phyloseq object. To do this, we will make a subset 
 of all bacterial groups and save them.
 ~~~
 > merged_metagenomes <- subset_taxa(merged_metagenomes, Kingdom == "Bacteria")
 ~~~
 {: .language-r}
 
-Now let's look at some statistics of our metagenomes:
+Now let us look at some statistics of our metagenomes:
 
 ~~~
 > merged_metagenomes
@@ -189,10 +186,9 @@ tax_table()   Taxonomy Table:    [ 4024 taxa by 7 taxonomic ranks ]
 ~~~ 
 {: .output}
 
-By the output of the `sample_sums()` command we can see how many reads there are
-in the library. Also, the Max, Min, and Mean output on `summary()` can give us an
-idea of the evenness. Nevertheless, to have a more visual representation of the
-diversity inside the samples (i.e. α diversity) we can now look at a 
+By the output of the `sample_sums()` command, we can see how many reads there are
+in the library. Also, the Max, Min, and Mean output on `summary()` can give us a sense of the evenness. Nevertheless, to have a more visual representation of the
+diversity inside the samples (i.e., α diversity), we can now look at a 
 graph created using Phyloseq:
 
 ~~~
@@ -205,7 +201,7 @@ graph created using Phyloseq:
   <img src="{{ page.root }}/fig/03-08-04.png" alt="A figure divided in three 
   panels. Each of these panels represents a different alpha diversity index. 
   Inside this section, each point represents the value assigned on this index to 
-  the three different samples.The different indexes give 
+  the three different samples. The different indexes give 
   different values to the same sample." />
 </a>
 <em> Figure 4. Alpha diversity indexes for both samples. <em/>
@@ -213,12 +209,11 @@ graph created using Phyloseq:
 Each of these metrics can give an insight into the distribution of the OTUs inside 
 our samples. For example, the Chao1 diversity index gives more weight to singletons
 and doubletons observed in our samples, while Shannon is an entropy index 
-remarking the impossibility of taking two reads out of the metagenome "bag" 
-and that these two will belong to the same OTU.
+remarking the impossibility of taking two reads out of the metagenome "bag" and that these two will belong to the same OTU.
 
 
 > ## Exercise 2: Exploring function flags.
-> While using the help provided explore these options available for the function in `plot_richness()`:
+> While using the help provided, explore these options available for the function in `plot_richness()`:
 > 1. `nrow`
 > 2. `sortby`
 > 3. `title`
@@ -239,7 +234,7 @@ and that these two will belong to the same OTU.
 >> <a href="{{ page.root }}/fig/03-08-05.png">
 >>  <img src="{{ page.root }}/fig/03-08-05.png" alt="" />
 >> </a>
->> <em> Figure 5. Alpha diversity plot with title. <em/>
+>> <em> Figure 5. Alpha diversity plot with the title. <em/>
 >> 
 >> The "nrow" option arranges the graphics horizontally.
 >> ~~~
@@ -263,21 +258,21 @@ and that these two will belong to the same OTU.
 >> {: .language-r}
 >> 
 >> <a href="{{ page.root }}/fig/03-08-07.png">
->>  <img src="{{ page.root }}/fig/03-08-07.png" alt="The same panels as before but now the samples are arranged horizontaly according to the values in the Shannon index panel." />
+>>  <img src="{{ page.root }}/fig/03-08-07.png" alt="The same panels as before, but now the samples are arranged horizontally according to the values in the Shannon index panel." />
 >> </a>
 >> <em> Figure 7. Samples sorted by Shannon in alpha diversity index plots. <em/>
 >>
 >>
->>  Considering the above mentioned, together with the 3 graphs, we can say that the samples JP41 and JP4D present a high diversity with respect to the JC1A, but that the diversity of the sample JP41 is mainly given by singletons or doubletons, instead, the diversity of JP4D is given by species in much greater abundance. Although because the values of H (Shannon) above 3 are considered to have a lot of diversity.
+>>  Considering the above mentioned, together with the three graphs, we can say that JP41 and JP4D present a high diversity concerning the JC1A. Moreover, the diversity of the sample JP41 is mainly given by singletons or doubletons. Instead, the diversity of JP4D is given by species in much greater abundance. Although the values of H (Shannon) above three are considered to have a lot of diversity.
 >> 
 >  {: .solution}
 {: .challenge}  
   
 ## Absolute and relative abundances
 
-From the read counts that we just saw it is evident that there is a great difference in the number of total 
-sequenced reads in each sample. Before we further process our data, take a look if we have any 
-non-identified reads. Marked as blank (i.e "") on the different taxonomic levels:
+From the read counts that we just saw, it is evident that there is a great difference in the number of total 
+sequenced reads in each sample. Before we further process our data, look if we have any 
+non-identified reads. Marked as blank (i.e.,"") on the different taxonomic levels:
 
 ~~~
 > summary(merged_metagenomes@tax_table@.Data== "")
@@ -290,8 +285,8 @@ non-identified reads. Marked as blank (i.e "") on the different taxonomic levels
                                  TRUE :138       TRUE :9         TRUE :57        TRUE :158       TRUE :484      
 ~~~
 {: .output}
-With the command above, we can see that there are blanks on different taxonomic levels. Although we could
-expect to see some blanks at the species, or even at the genus level, we will get rid of the ones at 
+With the command above, we can see blanks on different taxonomic levels. Although we could
+expect to see some blanks at the species or even at the genus level; we will get rid of the ones at 
 the genus level to proceed with the analysis:
 
 ~~~
@@ -309,9 +304,9 @@ the genus level to proceed with the analysis:
 
 
 Next, since our metagenomes have different sizes, it is imperative to convert the number 
-of assigned reads (i.e. absolute abundance) into percentages (i.e. relative abundances) to be able to compare them. 
+of assigned reads (i.e., absolute abundance) into percentages (i.e., relative abundances) to compare them. 
 
-Right now our OTU table looks like this:
+Right now, our OTU table looks like this:
 ~~~
 > head(merged_metagenomes@otu_table@.Data)
 ~~~
@@ -327,7 +322,7 @@ Right now our OTU table looks like this:
 ~~~
 {: .output}
 
-To make this transformation to percentages we will take advantage of a function of Phyloseq.
+To make this transformation to percentages, we will take advantage of a function of Phyloseq.
 ~~~
 > percentages <- transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
 > head(percentages@otu_table@.Data)
@@ -348,7 +343,7 @@ To make this transformation to percentages we will take advantage of a function 
 
 ## Beta diversity
 
-As we mentioned before, the beta diversity is a measure of how alike or different are our samples (overlap between 
+As we mentioned before, the beta diversity is a measure of how alike or different our samples are (overlap between 
 discretely defined sets of species or operational taxonomic units).
 In order to measure this, we need to calculate an index that suits the objectives of our research. By the next code,
 we can display all the possible distance metrics that Phyloseq can use:
@@ -382,7 +377,7 @@ $designdist
 [1] "ANY"
 ~~~
 {: .output}
-Describing all these possible distance-metrics is beyond the scope 
+Describing all these possible distance metrics is beyond the scope 
 of this lesson, but here we show which are the ones that need a 
 phylogenetic relationship between the species-OTUs present in our samples:
 
@@ -391,13 +386,13 @@ phylogenetic relationship between the species-OTUs present in our samples:
 * DPCoA  
   
 We do not have a phylogenetic tree or phylogenetic relationships. 
-So we can not use any of those three. We will use [Bray-curtis](http://www.pelagicos.net/MARS6300/readings/Bray_&_Curtis_1957.pdf), 
-since is one of the most robust and widely use distance metrics to 
+So we can not use any of those three. We will use [Bray-curtis](http://www.pelagicos.net/MARS6300/readings/Bray_&_Curtis_1957.pdf) 
+since it is one of the most robust and widely used distance metrics to 
 calculate beta diversity.
 
-**Let's keep this up!** We already have all that we need to begin the beta diversity analysis. We will use 
+**Let's keep this up!** We already have all we need to begin the beta diversity analysis. We will use 
 the Phyloseq command `ordinate` to generate a new object where the distances between our samples will be 
-allocated after they are calculated. For this command, we need to specify which method we will use to generate
+allocated after calculating them. For this command, we need to specify which method we will use to generate
 a matrix. In this example, we will use Non-Metric Multidimensional Scaling or 
 [NMDS](https://academic.oup.com/bioinformatics/article/21/6/730/199398). NMDS attempts to represent 
 the pairwise dissimilarity between objects in a low-dimensional space, in this case, a two-dimensional plot.
@@ -407,38 +402,37 @@ the pairwise dissimilarity between objects in a low-dimensional space, in this c
 ~~~
 {: .language-r}
 
-If you get some warning messages after running this script, fear not. This is because we only have three samples
-, this makes the algorithm display a warning concerning the lack of difficulty in generating the distance 
+If you get some warning messages after running this script, fear not. It is because we only have three samples.
+Few samples make the algorithm warn about the lack of difficulty in generating the distance 
 matrix. 
 
-By now, we just need the command `plot_ordination()`, to see the results from our beta diversity analysis:
+By now, we just need the command `plot_ordination()` to see the results from our beta diversity analysis:
 ~~~
 > plot_ordination(physeq = percentages, ordination = meta_ord)
 ~~~
 {: .language-r}  
 
 <a href="{{ page.root }}/fig/03-08-08.png">
-  <img src="{{ page.root }}/fig/03-08-08.png" alt="Plot with NMDS1 as label in x-axis that goes from -0.4 to 0.2 and NMDS2 in y-axis that goes from -0.2 to 0.1. There are three dots in the plot that are not clustered in any way." />
+  <img src="{{ page.root }}/fig/03-08-08.png" alt="Plot with NMDS1 as a label in x-axis that goes from -0.4 to 0.2 and NMDS2 in y-axis that goes from -0.2 to 0.1. The plot has three dots that are not clustered in any way." />
 </a>
 <em> Figure 8. Beta diversity with NMDS of our three samples. <em/>
   
-In this NMDS plot each of the points represents the combined abundance of all its OTUs. As is depicted, 
-  each of the samples occupy its own space in the plot without forming any 
-  clusters. This is because each sample is different enough to be considered 
+In this NMDS plot, each point represents the combined abundance of all its OTUs. As depicted, each sample occupieses its space in the plot without forming any 
+  clusters. This output is because each sample is different enough to be considered 
   its own point in the NMDS space.
 
-> ## Discussion: Indeces of diversity  
-> Why do you think we need different indeces to asses diversity? What index you will use if you want to asses the impact of rare, low abundances taxa?
+> ## Discussion: Indexes of diversity  
+> Why do you think we need different indexes to asses diversity? What index will you use to assess the impact of rare, low-abundance taxa?
 > 
 >> ## Solution
 >> 
->> It will be difficult (if not impossible) to take two communities and observe the same distribution of all of the members. This is because 
->> there are a lot of **factors** affecting all these lineages. Some of the **environmnetal factors** are temperature, pH, nutrient concentration, to name 
->> some. But, also the interactions of these populations between each other is an important driver of variation (**biotic factor**). In order to have 
->> ways to assess hypothesis regarding which of these processes can be affecting the community, we use all these different indexes.
->> A combination the **above mentioned factors**, can interact to mantain some populations with low abundance (**rare taxa**). This can be 
->> competence, inhibition of other populations, growth speed, suboptimal pH or temperature. One index of alpha diversity widely used 
->> to assess the impact of low abundance lineages is the Chao1 index.
+>> It will be difficult (if not impossible) to take two communities and observe the same distribution of all members. This outcome is because 
+>> there are a lot of **factors** affecting all these lineages. Some of the **environmental factors** are temperature, pH, and nutrient concentration, to name 
+>> some. But, also, the interactions of these populations are an important driver of variation (**biotic factor**). In order to have 
+>> ways to assess hypotheses regarding which of these processes can be affecting the community, we use all these different indexes.
+>> A combination the **above mentioned factors**, can interact to mantain some populations with low abundance (**rare taxa**). These factors can be 
+>> competence, inhibition of other populations, growth speed, suboptimal pH or temperature. One index of alpha diversity is widely used 
+>> to assess the impact of low abundance lineages is, the Chao1 index.
 > {: .solution}
 {: .discussion}
                              
