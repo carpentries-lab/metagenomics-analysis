@@ -180,13 +180,18 @@ changed when the bacterial community underwent the treatment.
 > {: .solution}
 {: .challenge}
 
-Note that throughout the lesson, we will use the first four 
-characters of the file names (alias) to identify the data files 
-corresponding to a sample.
+Throughout the lesson, we will use the first four 
+characters of the `File names (alias)` to identify the data files 
+corresponding to a sample. We are going to use the first two sapmples for most of the lesson and the third one for one exercise at the end.
+
+|SRA Accession | File name (alias)    | Sample name in the lesson | Treatment        |
+|--------------|----------------------|---------------------------|------------------| 
+| ERS1949784   | JC1ASEDIMENT120627		| JC1A                      | Control mesocosm |
+| ERS1949801   | JP4DASH2120627WATERAMPRESIZED	| JC1A            | Fertilized pond  |
+| ERS1949770   | JP4110514WATERAMP		| JP41                      | Unenriched pond  |
 
 The results of this study, raw sequences, and metadata have 
-been submitted to the NCBI Sequence Read Archive (SRA) and stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811). There are other metagenomic
-databases where we can find metagenomics data. 
+been submitted to the NCBI Sequence Read Archive (SRA) and stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811). 
 
 > ## Other metagenomic databases
 > The NCBI SRA is not the only repository for metagenomic information. There are other public metagenomic databases such as [MG-RAST](https://www.mg-rast.org/index.html?stay=1), [MGnify](https://www.ebi.ac.uk/metagenomics/), [Marine Metagenomics Portal](https://mmp.sfb.uit.no/), [Terrestrial Metagenome DB](https://webapp.ufz.de/tmdb/) and the [GM Repo](https://gmrepo.humangut.info/home).   
