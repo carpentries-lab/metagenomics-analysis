@@ -188,7 +188,7 @@ corresponding to a sample. We are going to use the first two sapmples for most o
 |--------------|----------------------|---------------------------|------------------| 
 | ERS1949784   | JC1ASEDIMENT120627		| JC1A                      | Control mesocosm |
 | ERS1949801   | JP4DASH2120627WATERAMPRESIZED	| JP4D            | Fertilized pond  |
-| ERS1949770   | JP4110514WATERAMP		| JP41                      | Unenriched pond  |
+| ERS1949771   | JP4110514WATERRESIZE		| JP41                      | Unenriched pond  |
 
 The results of this study, raw sequences, and metadata have 
 been submitted to the NCBI Sequence Read Archive (SRA) and stored in the BioProject [PRJEB22811](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB22811). 
