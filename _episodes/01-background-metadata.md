@@ -99,10 +99,9 @@ of our experimental design to the metadata we expect to collect and record caref
 > Which type of metadata would be helpful to record?
 > 
 >> ## Solution
->> For a first exploration, 16S is a better idea since you could detect pathogens only by knowing the taxons in the community.
->> Nevertheless, new pathogenes can be discovered with shotgun metagenomics (that was the case of SARS CoV 2), and the genetic basis of the 
->> pathogenic phenotypes could be found with metagenomics.
->> 
+>> For a first exploration, 16S is a better idea since you could detect known pathogens by knowing the taxons in the community.
+>> Nevertheless, if the disease is the consequence of a viral infection, the pathogen can only be discovered with shotgun metagenomics (that was the case of SARS-CoV 2). 
+>> Also, metabarcoding does not provide insights into the genetic basis of the pathogenic phenotypes.
 >> Metadata will depend on the type of experiment. For this case, some helpful metadata could be sampling methodology, 
 >> date, place (country, state, region, city, etc.), patient's sex and age, the anatomical origin of the sample, symptoms, medical history, diet, lifestyle, and environment. 
 >> 
