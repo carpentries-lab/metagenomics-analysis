@@ -276,9 +276,9 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 ~~~
 {: .bash}
 
-> ## Exercise 2: Looking at metadata files
+> ## Exercise 2: Looking at metadata about the untrimmed-files
 > 
-> How would you see the size of the files in the `untrimmed_fastq\` directory?  
+> To know which files has more data you need to see metadata about untrimmed-files. How would you see the size of the files in the `untrimmed_fastq\` directory?  
 > (Hint: Look at the options for the `ls` command to see how to show file sizes.)  
 > a) `ls -a`  
 > b) `ls -S`  
