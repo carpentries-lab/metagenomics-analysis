@@ -187,7 +187,7 @@ corresponding to a sample. We are going to use the first two sapmples for most o
 |SRA Accession | File name (alias)    | Sample name in the lesson | Treatment        |
 |--------------|----------------------|---------------------------|------------------| 
 | ERS1949784   | JC1ASEDIMENT120627		| JC1A                      | Control mesocosm |
-| ERS1949801   | JP4DASH2120627WATERAMPRESIZED	| JC1A            | Fertilized pond  |
+| ERS1949801   | JP4DASH2120627WATERAMPRESIZED	| JP4D            | Fertilized pond  |
 | ERS1949770   | JP4110514WATERAMP		| JP41                      | Unenriched pond  |
 
 The results of this study, raw sequences, and metadata have 
