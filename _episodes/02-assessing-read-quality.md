@@ -278,7 +278,7 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 
 > ## Exercise 2: Looking at metadata about the untrimmed-files
 > 
-> To know which files has more data you need to see metadata about untrimmed-files. How would you see the size of the files in the `untrimmed_fastq\` directory?  
+> To know which files have more data, you need to see metadata about untrimmed files. In files, metadata includes owners of the file, state of the write, read, and execute permissions, size, and modification date. Using the `ls` command, how would you get the size of the files in the `untrimmed_fastq\` directory?  
 > (Hint: Look at the options for the `ls` command to see how to show file sizes.)  
 > a) `ls -a`  
 > b) `ls -S`  
@@ -290,15 +290,19 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >>  
 >> ~~~
 >>   
->> a) No. The flag `-a` shows all the contents, including hidden files and directories.  
->> b) No. The flag `-S` shows the content Sorted by size starting with the largest file.  
->> c) Yes. The flag `-l` shows the contents with metadata, including file size.    
+>> a) No. The flag `-a` shows all the contents, including hidden files and directories, but not the sizes.  
+>> b) No. The flag `-S` shows the content Sorted by size, starting with the most extensive file, but not the sizes.  
+>> c) Yes. The flag `-l` shows the contents with metadata, including file size. Other metadata are permissions, owners, and modification dates.    
 >> d) Yes. The flag `-lh` shows the content with metadata in a human-readable manner.  
 >> e) Yes. The combination of all the flags shows all the contents with metadata, including hidden files, sorted by size.  
 >> 
 >> ~~~
 >> {: .bash}
 >> 
+>> ~~~
+>> ls -ahls
+>> >> ~~~
+>> {: .bash}
 >> ~~~
 >> -rw-r--r-- 1 dcuser dcuser  24M Nov 26 21:34 JC1A_R1.fastq.gz                      
 >> -rw-r--r-- 1 dcuser dcuser  24M Nov 26 21:34 JC1A_R2.fastq.gz                      
@@ -307,7 +311,7 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >> ~~~
 >> {: .output}
 >> 
->> Four FASTQ files oscillate between 24M (24MB) to 616M. 
+>> Four FASTQ files oscillate between 24M (24MB) to 616M. The largest file is JP4D_R1.fastq with 616M. 
 >> 
 > {: .solution}
 {: .challenge}
