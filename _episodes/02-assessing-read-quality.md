@@ -295,14 +295,14 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 >> c) Yes. The flag `-l` shows the contents with metadata, including file size. Other metadata are permissions, owners, and modification dates.    
 >> d) Yes. The flag `-lh` shows the content with metadata in a human-readable manner.  
 >> e) Yes. The combination of all the flags shows all the contents with metadata, including hidden files, sorted by size.  
->> 
 >> ~~~
 >> {: .bash}
 >> 
 >> ~~~
 >> ls -ahls
->> >> ~~~
+>> ~~~
 >> {: .bash}
+>> 
 >> ~~~
 >> -rw-r--r-- 1 dcuser dcuser  24M Nov 26 21:34 JC1A_R1.fastq.gz                      
 >> -rw-r--r-- 1 dcuser dcuser  24M Nov 26 21:34 JC1A_R2.fastq.gz                      
@@ -399,30 +399,38 @@ $ cd ~/dc_workshop/results/fastqc_untrimmed_reads/
 If we were working on our local computers, we'd be able to look at 
 each of these HTML files by opening them in a web browser. However, these 
 files are currently sitting on our remote AWS instance, where our local 
-computer can't see them. Since we are only logging into the AWS instance
-via the command line on our remote computer, it doesn't have any web browser 
-setup to display these files either. So, the easiest way to look at these webpage 
-summary reports is to transfer them to our local computers (i.e., your laptop). 
-To copy a file from a remote server to our machines, we will use `scp`, 
-which we learned yesterday in the Introduction to the Command Line lesson. 
+computer can't see them. If we are working with the terminal provided by r-studio
+we can either: select the html files and with the secondary click chose the option
+open in a browser or export the files to our local computer as we learned in the 
+Introduction to the Command Line lesson. 
 
-First, open a new terminal on your local computer. We will make a new directory 
-on our computer to store the HTML files
-we're transferring. Let's put it on our desktop for now. Open a new
-tab in your terminal program (you can use the pull-down menu at the
-top of your screen or the Cmd+t keyboard shortcut) and type: 
+> ## Exercise 3: Downloading files by scp (optional)  
+> 
+> Suppose you only have access to a terminal and there is not a web browser available at the AWS remote machine.
+> The following are the steps needed to download your files to your computer. Observe the third step and answer false/true of each question about
+> the `scp` command.  
+> 1. Open a new terminal on your local computer.
+> 2. Make a new local directory on our computer to store the HTML files   `$ mkdir -p ~/Desktop/fastqc_html`  
+> 3. Transfer our HTML files to our local computer using `scp`.
+> `$ scp dcuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html`  
+> A) `dcuser` is your local user  
+> B) `ec2-34-238-162-94.compute-1.amazonaws.com` is the adress of your remote machine  
+> C) the current adress of the file goes after the second space in the `scp` command.  
+> D) `~/dc_workshop/results/fastqc_untrimmed_reads/*.html` is the path of the file you want to download
+> E) `~/Desktop/fastqc_html` is a remote direction.
+> F) `:` Divides the direction of your local computer and the path of the file.   
+> 
+>> ## Solution
+>>  A) False. `dcuser` is your remote user.  
+>>  B) True. `ec2-34-238-162-94.compute-1.amazonaws.com` is the adress of your remote machine  
+>>  C) False. The current adress of the file goes after the first space in the `scp` command.  
+>>  D) True. `~/dc_workshop/results/fastqc_untrimmed_reads/*.html` is the path of the file you want to download in the remote machine. 
+>>  E) False. `~/Desktop/fastqc_html` is a local direction where your file will be downloaded.
+>>  F) False. `:` Divides the direction of your remote computer and the path of the file.   
+> {: .solution}
+{: .challenge}
 
-~~~
-$ mkdir -p ~/Desktop/fastqc_html 
-~~~
-{: .bash}
 
-Now we can transfer our HTML files to our local computer using `scp`.
-
-~~~
-$ scp dcuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
-~~~
-{: .bash}
 
 As a reminder, the first part
 of the command `dcuser@ec2-34-238-162-94.compute-1.amazonaws.com` is
@@ -448,13 +456,13 @@ JP4D_R2_fastqc.html     100%  244KB 385.2KB/s   00:00
 ~~~
 {: .output}
 
-Now we can go to our new directory and open the 4 HTML files. 
+Now we can open the 4 HTML files. 
 
 Depending on your system, 
 you should be able to select and open them all at once via a right-click menu
 in your file browser.
 
-> ## Exercise 3: Discuss the quality of sequencing files
+> ## Exercise 4: Discuss the quality of sequencing files
 > 
 > Discuss your results with a neighbor. Which sample(s) looks the best
 > per base sequence quality? Which sample(s) look the
