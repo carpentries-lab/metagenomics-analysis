@@ -29,6 +29,18 @@ characteristics of the contigs, such as their GC content, the use of tetranucleo
 that distinguishes between contigs that belong to different bins according to their 
 coverage levels and the tetranucleotide frequencies they have.
 
+
+> ## Discussion 1: Relation between MAGs and depth 
+> The sequencing center has returned you a file with 18,412 reads. Given that the bacterial genome size range
+>  between 4Mbp and 13Mbp (Mb=10^6 bp) and that the size of the reads in this run is 150bp. With these data, 
+>  how many complete bacterial genomes can you reconstruct?
+>> ## Solution
+>>
+>> None, because 18,412 reads of 150bp give a total count of 2,761,800bp (~2Mbp). Even if no read maps to 
+>> the same region, the amount of base pairs is inferior to the size of a bacterial genome.
+> {: .solution}
+{: .discussion}
+
 Let us bin the sample we just assembled. The command for running MaxBin is `run_MaxBin.pl`, and the arguments it needs are the FASTA file of the assembly, the FASTQ with the forward and reverse reads, the output directory, and the name. 
 ~~~
 $ cd ~/dc_workshop/results/assembly_JC1A
