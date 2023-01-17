@@ -427,34 +427,18 @@ Introduction to the Command Line lesson.
 >>  D) True. `~/dc_workshop/results/fastqc_untrimmed_reads/*.html` is the path of the file you want to download in the remote machine. 
 >>  E) False. `~/Desktop/fastqc_html` is a local direction where your file will be downloaded.
 >>  F) False. `:` Divides the direction of your remote computer and the path of the file.   
+>>  
+>>  You should see a status output like this:
+>>  ~~~
+>>  JC1A_R1_fastqc.html     100%  253KB 320.0KB/s   00:00     
+>>  JC1A_R2_fastqc.html     100%  262KB 390.1KB/s   00:00     
+>>  JP4D_R1_fastqc.html     100%  237KB 360.8KB/s   00:00     
+>>  JP4D_R2_fastqc.html     100%  244KB 385.2KB/s   00:00
+>>  ~~~
+>>  {: .output}
 > {: .solution}
 {: .challenge}
 
-
-
-As a reminder, the first part
-of the command `dcuser@ec2-34-238-162-94.compute-1.amazonaws.com` is
-the address for your remote computer. Make sure you replace everything
-after `dcuser@` with your instance number (the one you used to log in). 
-
-The second part starts with a `:` and then gives the absolute path
-of the files you want to transfer from your remote computer. Don't
-forget the `:`. We used a wildcard (`*.html`) to indicate that we want all 
-the HTML files. 
-
-The third part of the command gives the absolute path of the location
-you want to put the files. This location is on your local computer and is the 
-directory we just created `~/Desktop/fastqc_html`. 
-
-You should see a status output like this:
-
-~~~
-JC1A_R1_fastqc.html     100%  253KB 320.0KB/s   00:00     
-JC1A_R2_fastqc.html     100%  262KB 390.1KB/s   00:00     
-JP4D_R1_fastqc.html     100%  237KB 360.8KB/s   00:00     
-JP4D_R2_fastqc.html     100%  244KB 385.2KB/s   00:00
-~~~
-{: .output}
 
 Now we can open the 4 HTML files. 
 
