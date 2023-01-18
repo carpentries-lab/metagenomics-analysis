@@ -262,7 +262,7 @@ We will take advantage of this information later on in our analyses.
 > Go into groups and choose one phylum that is interesting for your
 > group, and use the learned code to find out how many OTUs have been assigned to
 > your chosen phylum and what are the unique names of the genera inside it.
-> がんばれ! (ganbare; *good luck/keep it up!*):
+> がんばって! (ganbatte; *good luck*):
 >> ## Solution
 >> Change the name of a new phylum wherever needed and the name of the rank we are asking for to get the result.
 >> As an example, here is the solution for Proteobacteria:
@@ -283,7 +283,7 @@ We will take advantage of this information later on in our analyses.
 > Using the information from both the `tax_table` and the `otu_table`, find how many reads there are for
 > any species of your interest (one that can be found in the `tax_table`).  
 > **Hint**: Remember that you can access the contents of a data frame with the `["row_name", "column_name"]` syntax.  
-> がんばれ! (ganbare; *good luck/keep it up!*):
+> がんばって! (ganbatte; *good luck*):
 >> ## Solution
 >> Go to the `tax_table`: 
 >>   
