@@ -118,16 +118,12 @@ is a regular file, automatic format detection is attempted.
 ~~~  
 {: .output}
 
-In the help, we can see that in addition to our input files, we also need a database to compare them. There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
+In the help, we can see that in addition to our input files, we also need a database to compare them.  The database you use will determine the result you get for your data. Imagine you are searching for a recently discovered lineage that is not part of the available databases. Would you find it?
+
+There are [several databases](http://ccb.jhu.edu/software/kraken2/downloads.shtml) 
 compatible to be used with kraken2 in the taxonomical assignment process. 
 
-> ## Critical to know your database!
-> The database you use will determine the result you get for your data.
-> Imagine you are searching for a recently discovered lineage that is not part of the available databases. Would you find it?
-{: .callout}
-
-Minikraken is a popular database that attempts to conserve its sensitivity 
-despite its small size (It needs 8GB of RAM for the assignment). Unfortunately, although it is much smaller than most databases, it is not small enough to be run by the machines we are using, so we will not be able to run `kraken2`. We can check our available RAM with `free -h`to be sure of this.
+Unfortunately, even the smallest Kraken database Minikraken, which needs 8Gb of free RAM, is not small enough to be run by the machines we are using, so **we will not be able to run `kraken2`**. We can check our available RAM with `free -h`to be sure of this.
 ~~~
 $ free -h
 ~~~
@@ -139,14 +135,6 @@ Mem:           3.9G        272M        3.3G         48M        251M        3.3G
 Swap:            0B          0B          0B
 ~~~
 {: .output}
-
-If we were to download the database, we would use the following command:  
-**No need to run this**
-~~~
-$ curl -O ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/old/minikraken2_v2_8GB_201904.tgz
-$ tar -xvzf minikraken2_v2_8GB_201904.tgz
-~~~
-{: .language-bash}
   
 ### Taxonomic assignment of metagenomic reads
 
