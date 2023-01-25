@@ -135,7 +135,10 @@ There are different ways to plot and show the results of such analysis. Among ot
 > *Hic Sunt Leones!* (*Here be Lions!*)  
 >
 >> ## Solution
->> Answer: 4, 3, 5
+>> Answer: 2. 4, 3, 5
+> **Alpha diversity** in this case, is the sum of different species. Lake **A** has **4** different species and lake **B** has **3** different species.
+> **Beta diversity** brefers to the difference between lake A and lake B. If we use the formula in *Figure 2* we can se that to calculate beta diversitty, we have to detect the number of species as well as the number of shared species in both lakes. There is only one shared species, so we have to substract the number of shared species to the number of total species and sum the result. In this case, in lake A we have 4 different species and 1 shared species with lake B (4-1)=3, and in lake B we have 3 species and 1 shared species with lake A (3-1)=2. If we add 3+2 the result is 5. 
+  
 > {: .solution}
 {: .challenge}
 
