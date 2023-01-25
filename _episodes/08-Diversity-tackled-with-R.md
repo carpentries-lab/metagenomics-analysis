@@ -30,9 +30,9 @@ Here we will discuss the two most used diversity metrics, α diversity (within o
 <a href="{{ page.root }}/fig/03-08-01.png">
   <img src="{{ page.root }}/fig/03-08-01.png" alt="Alpha diversity diagram: In lake A, we have three fishes, each one of a different species. On lake B, we have two fish, each of a different species. Moreover, we have four fish in lake C, each of different species." />
 </a>
-<em> Figure 1. Alpha diversity is calculated according to fishes diversity in a pond. Here, alpha diversity is represented in its simplest way: Richness. <em/>
+<em> Figure 1. Alpha diversity is calculated according to fish diversity in a pond. Here, alpha diversity is represented in its simplest way: Richness. <em/>
  
-- β Diversity is the difference (measured as distance) between two or more environments. 
+- β diversity is the difference (measured as distance) between two or more environments. 
 It can be measured with metrics like Bray-Curtis dissimilarity, Jaccard distance, or UniFrac distance, to name a few. Each one 
 of this measures are focused on a characteristic of the community (*e.g.,* Unifrac distance measures the phylogenetic relationship
 between the species of the community).
@@ -50,7 +50,7 @@ focused sites.
 <a href="{{ page.root }}/fig/03-08-02.png">
   <img src="{{ page.root }}/fig/03-08-02.png" alt=" Alpha and Beta diversity diagram: Each Lake has a different number of species, and each species has a different number of fish individuals. Both metrics are taken into account to measure alfa and beta diversity." />
 </a>
-<em> Figure 2. Alpha and Beta diversity indexes of fishes in a pond.<em/>
+<em> Figure 2. Alpha and beta diversity indexes of fishes in a pond.<em/>
 
 If you want to read more about diversity, we recommend to you this [paper](https://link.springer.com/article/10.1007/s00442-010-1812-0) on 
 the concept of diversity.
@@ -137,7 +137,7 @@ There are different ways to plot and show the results of such analysis. Among ot
 >> ## Solution
 >> Answer: 2. 4, 3, 5
 >> **Alpha diversity** in this case, is the sum of different species. Lake **A** has **4** different species and lake **B** has **3** different species.
->> **Beta diversity** brefers to the difference between lake A and lake B. If we use the formula in *Figure 2* we can se that to calculate beta diversitty, we have to detect the number of species as well as the number of shared species in both lakes. There is only one shared species, so we have to substract the number of shared species to the number of total species and sum the result. In this case, in lake A we have 4 different species and 1 shared species with lake B (4-1)=3, and in lake B we have 3 species and 1 shared species with lake A (3-1)=2. If we add 3+2 the result is 5. 
+>> **Beta diversity** refers to the difference between lake A and lake B. If we use the formula in *Figure 2* we can see that to calculate beta diversity, we have to detect the number of species and the number of shared species in both lakes. There is only one shared species, so we have to subtract the number of shared species to the total species and sum the result. In this case, in lake A, we have 4 different species and one shared species with lake B (4-1)=3, and in lake B we have three species and one shared species with lake A (3-1)=2. If we add 3+2, the result is 5. 
 >>   
 > {: .solution}
 {: .challenge}
@@ -178,8 +178,8 @@ tax_table()   Taxonomy Table:    [ 4024 taxa by 7 taxonomic ranks ]
 {: .output}
 
 Also, the Max, Min, and Mean output on `summary()` can give us a sense of the evenness. 
-For example, the OTU that occurs more times in the sample JC1A occurs 399 times, and in average
-in sample JP4D an OTU occurs in 37.17 reads.  
+For example, the OTU that occurs more times in the sample JC1A occurs 399 times, and on average
+in sample JP4D, an OTU occurs in 37.17 reads.  
 
 ~~~
 > summary(merged_metagenomes@otu_table@.Data)
@@ -272,7 +272,7 @@ remarking the impossibility of taking two reads out of the metagenome "bag" and 
 >> <em> Figure 7. Samples sorted by Shannon in alpha diversity index plots. <em/>
 >>
 >>
->>  Considering the above mentioned, together with the three graphs, we can say that JP41 and JP4D present a high diversity concerning the JC1A. Moreover, the diversity of the sample JP41 is mainly given by singletons or doubletons. Instead, the diversity of JP4D is given by species in much greater abundance. Although the values of H (Shannon) above three are considered to have a lot of diversity.
+>>  Considering those mentioned above, together with the three graphs, we can say that JP41 and JP4D present a high diversity concerning the JC1A. Moreover, the diversity of the sample JP41 is mainly given by singletons or doubletons. Instead, the diversity of JP4D is given by species in much greater abundance. Although the values of H (Shannon) above three are considered to have a lot of diversity.
 >> 
 >  {: .solution}
 {: .challenge}  
@@ -302,7 +302,7 @@ non-identified reads. Marked as blank (i.e.,"") on the different taxonomic level
 ~~~
 {: .output}
 With the command above, we can see blanks on different taxonomic levels. 
-For example, we have 158 blanks at genus level. Although we could
+For example, we have 158 blanks at the genus level. Although we could
 expect to see some blanks at the species or even at the genus level; 
 we will get rid of the ones at the genus level to proceed with the analysis:
 
@@ -361,7 +361,7 @@ Now, we are ready to compare the abundaces given by percantages of the samples w
 
 As we mentioned before, the beta diversity is a measure of how alike or different our samples are (overlap between 
 discretely defined sets of species or operational taxonomic units).
-In order to measure this, we need to calculate an index that suits the objectives of our research. By the next code,
+To measure this, we need to calculate an index that suits the objectives of our research. By the next code,
 we can display all the possible distance metrics that Phyloseq can use:
 ~~~
 > distanceMethodList
@@ -433,7 +433,7 @@ By now, we just need the command `plot_ordination()` to see the results from our
 </a>
 <em> Figure 8. Beta diversity with NMDS of our three samples. <em/>
   
-In this NMDS plot, each point represents the combined abundance of all its OTUs. As depicted, each sample occupieses its space in the plot without forming any 
+In this NMDS plot, each point represents the combined abundance of all its OTUs. As depicted, each sample occupies space in the plot without forming any 
   clusters. This output is because each sample is different enough to be considered 
   its own point in the NMDS space.
   
@@ -468,11 +468,11 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
 >> It will be difficult (if not impossible) to take two communities and observe the same distribution of all members. This outcome is because 
 >> there are a lot of **factors** affecting these lineages. Some of the **environmental factors** are temperature, pH, and nutrient concentration.
 >> Also, the interactions of these populations, such as competence, inhibition of other populations, and growth speed, 
->> are an important driver of variation (**biotic factor**). A combination of the **above mentioned factors**, can interact to mantain some populations with low
+>> are an important driver of variation (**biotic factor**). A combination of the **factors mentioned above**, can interact to maintain some populations with low
 >> abundance (**rare taxa** In order to have 
->> ways to assess hypotheses regarding which of these processes can be affecting the community, we use all these different indexes. Some enphazise the number of 
->> species and other the eveness of the OTUs. 
->> To assess the impact of low abundance lineages one alpha diversity index widely used is the Chao1 index.
+>> ways to assess hypotheses regarding which of these processes can be affecting the community, we use all these different indexes. Some emphasize the number of 
+>> species and other the evenness of the OTUs. 
+>> To assess the impact of low abundance lineages, one alpha diversity index widely used is the Chao1 index.
 > {: .solution}
 {: .discussion}
                              
