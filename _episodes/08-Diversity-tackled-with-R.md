@@ -426,7 +426,7 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
   
 > ## Exercise 3: Add metadata to beta diversity visualization  
 > In the following figure, the beta diversity graph we produced earlier has been enriched. 
-> Look at the code below and answer:  
+> Look at the code below and answer:    
 > 1) Which instruction colored the samples by their corresponding treatment?    
 > 2) What other difference do you notice with our previous graph?  
 > 3) Do you see some clustering of the samples according to their treatment?   
