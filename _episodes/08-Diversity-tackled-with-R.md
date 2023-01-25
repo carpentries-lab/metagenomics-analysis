@@ -466,12 +466,13 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
 >> ## Solution
 >> 
 >> It will be difficult (if not impossible) to take two communities and observe the same distribution of all members. This outcome is because 
->> there are a lot of **factors** affecting all these lineages. Some of the **environmental factors** are temperature, pH, and nutrient concentration, to name 
->> some. But, also, the interactions of these populations are an important driver of variation (**biotic factor**). In order to have 
->> ways to assess hypotheses regarding which of these processes can be affecting the community, we use all these different indexes.
->> A combination the **above mentioned factors**, can interact to mantain some populations with low abundance (**rare taxa**). These factors can be 
->> competence, inhibition of other populations, growth speed, suboptimal pH or temperature. One index of alpha diversity is widely used 
->> to assess the impact of low abundance lineages is, the Chao1 index.
+>> there are a lot of **factors** affecting these lineages. Some of the **environmental factors** are temperature, pH, and nutrient concentration.
+>> Also, the interactions of these populations, such as competence, inhibition of other populations, and growth speed, 
+>> are an important driver of variation (**biotic factor**). A combination of the **above mentioned factors**, can interact to mantain some populations with low
+>> abundance (**rare taxa** In order to have 
+>> ways to assess hypotheses regarding which of these processes can be affecting the community, we use all these different indexes. Some enphazise the number of 
+>> species and other the eveness of the OTUs. 
+>> To assess the impact of low abundance lineages one alpha diversity index widely used is the Chao1 index.
 > {: .solution}
 {: .discussion}
                              
