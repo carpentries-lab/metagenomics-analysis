@@ -423,7 +423,21 @@ By now, we just need the command `plot_ordination()` to see the results from our
 In this NMDS plot, each point represents the combined abundance of all its OTUs. As depicted, each sample occupieses its space in the plot without forming any 
   clusters. This output is because each sample is different enough to be considered 
   its own point in the NMDS space.
-
+  
+> ## Exercise 3: Add metadata to beta diversity visualization  
+>
+> ~~~
+> MetaShotgun <- data.frame(SAMPLE=c("JC1A", "JP4D", "JP41"), SITE=c("Control mesocosm", "Fertilized pond", "Unenriched pond"))
+> rownames(MetaShotgun) <- MetaShotgun$SAMPLE
+> percentages@sam_data <- sample_data(MetaShotgun)
+> meta_ord <- ordinate(physeq = percentages, method = "NMDS", distance = "bray")
+> plot_ordination(physeq = percentages, ordination = meta_ord, color = "SITE") + geom_text(mapping = aes(label = SAMPLE))
+> ~~~
+> {: .language-r}
+>> ## Solution
+> {: .solution}
+{: .challenge}
+  
 > ## Discussion: Indexes of diversity  
 > Why do you think we need different indexes to asses diversity? What index will you use to assess the impact of rare, low-abundance taxa?
 > 
