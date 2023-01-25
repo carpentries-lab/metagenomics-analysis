@@ -277,12 +277,9 @@ remarking the impossibility of taking two reads out of the metagenome "bag" and 
 >  {: .solution}
 {: .challenge}  
   
-A caution when comparing samples is that differences in some alpha indexes, 
-such as `abundances`, may be the consequence of the difference in the total 
-number of reads of the samples. A sample with more reads is more likely to
-have more different OTUs, so some normalization is needed. Here we will 
-work with relative abundances, but other approaches, such as rarefaction, 
-could help reduce this bias. 
+A caution when comparing samples is that differences in some alpha indexes may be the consequence of the difference in the total number 
+of reads of the samples. A sample with more reads is more likely to have more different OTUs, so some normalization is needed. Here we will 
+work with relative abundances, but other approaches could help reduce this bias.
   
 ## Absolute and relative abundances
 
@@ -444,19 +441,21 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
 > 2) What did the instruction `geom_text` do?   
 > 3) What other difference do you notice with our previous graph?  
 > 4) Do you see some clustering of the samples according to their treatment?   
-><a href="{{ page.root }}/fig/betadiversity_metadata.jpg">
-> <img src="{{ page.root }}/fig/betadiversity_metadata.jpg" alt="The distance between the three samples, JC1A, JP4D and JP41 is shown in a plane. Each sample has a legend and a color. The color is according to the metadata treatment. There are three possible treatments in the legend: Control mesocosm, Fertilized pond, and Unenriched pond" />
+><a href="{{ page.root }}/fig/03-08-09.png">
+> <img src="{{ page.root }}/fig/03-08-09.png" alt="The distance between the three samples, JC1A, JP4D and JP41 is shown in a plane. Each sample has a legend and a color. The color is according to the metadata treatment. There are three possible treatments in the legend: Control mesocosm, Fertilized pond, and Unenriched pond" />
 > ~~~
-> MetaShotgun <- data.frame(SAMPLE=c("JC1A", "JP4D", "JP41"), TREATMENT=c("Control mesocosm", "Fertilized pond", "Unenriched pond")) #data frame with metadata
-> rownames(MetaShotgun) <- MetaShotgun$SAMPLE # naming row names of the dataframe
-> percentages@sam_data <- sample_data(MetaShotgun) # Adding metadata to sam_data table of phyloseq object percentages
-> meta_ord <- ordinate(physeq = percentages, method = "NMDS", distance = "bray") # Calculating beta diversity  
-> plot_ordination(physeq = percentages, ordination = meta_ord, color = "TREATMENT") + geom_text(mapping = aes(label = SAMPLE)) # plotting beta diversity. 
+> metadata_cuatroc <- data.frame(Sample=c("JC1A", "JP4D", "JP41"), Treatment=c("Control mesocosm", "Fertilized pond", "Unenriched pond")) # Making >dataframe with metadata  
+> rownames(metadata_cuatroc) <- metadata_cuatroc$Sample # Using sample names as row names  
+> percentages@sam_data <- sample_data(metadata_cuatroc) # Adding metadata to sam_data table of phyloseq object percentages  
+> meta_ord <- ordinate(physeq = percentages, method = "NMDS", distance = "bray") # Calculating beta diversity    
+> plot_ordination(physeq = percentages, ordination = meta_ord, color = "Treatment") + # Plotting beta diversity.  
+>     geom_text(mapping = aes(label = Sample), size = 4, vjust = 2, hjust = 1)   
 > ~~~
 > {: .language-r}
 >> ## Solution
 >> The flag `color = "TREATMENT"` applied a color to each sample according to its treatment, in the `plot_ordination` of the object `percentages`.  
->> The `geom_text` instruction added the names of the sample to the graph. This could have added any text, with the instruction `label = SAMPLE` we specified to add the names of the samples as text.     
+>> The `geom_text` instruction added the names of the sample to the graph. This could have added any text, with the instruction `label = SAMPLE` we >>specified to add the names of the samples as text. With `size` we adjusted the size of the text, and with `vjust` and `hjust` we adjusted the position
+>>so the text would not overlap with the dots.    
 >> There are three possible treatments, Control mesocosm, Fertilized, and Unfertilized pond.  
 >> We do not observe any kind of clustering in these three samples. More data would show if samples with similar treatments are clustered together.   
 > {: .solution}
