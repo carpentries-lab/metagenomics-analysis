@@ -144,7 +144,7 @@ There are different ways to plot and show the results of such analysis. Among ot
 
 ## Plot alpha diversity 
 
-We want to know the bacterial diversity, so we will prune all  
+We want to know the bacterial diversity, so we will prune all
 non-bacterial organisms in our `merged_metagenomes` Phyloseq object. To do this, we will make a subset 
 of all bacterial groups and save them.
 ~~~
@@ -152,8 +152,11 @@ of all bacterial groups and save them.
 ~~~
 {: .language-r}
 
-Now let us look at some statistics of our metagenomes:
-
+Now let us look at some statistics of our metagenomes.
+By the output of the `sample_sums()` command, we can see how many reads there are
+in the library. Library JC1A is the smallest with 18412 reads, while library JP4D is
+the largest with 149590 reads.
+ 
 ~~~
 > merged_metagenomes
 ~~~
@@ -174,6 +177,10 @@ tax_table()   Taxonomy Table:    [ 4024 taxa by 7 taxonomic ranks ]
 ~~~ 
 {: .output}
 
+Also, the Max, Min, and Mean output on `summary()` can give us a sense of the evenness. 
+For example, the OTU that occurs more times in the sample JC1A occurs 399 times, and in average
+in sample JP4D an OTU occurs in 37.17 reads.  
+
 ~~~
 > summary(merged_metagenomes@otu_table@.Data)
 ~~~
@@ -189,8 +196,7 @@ tax_table()   Taxonomy Table:    [ 4024 taxa by 7 taxonomic ranks ]
 ~~~ 
 {: .output}
 
-By the output of the `sample_sums()` command, we can see how many reads there are
-in the library. Also, the Max, Min, and Mean output on `summary()` can give us a sense of the evenness. Nevertheless, to have a more visual representation of the
+To have a more visual representation of the
 diversity inside the samples (i.e., α diversity), we can now look at a 
 graph created using Phyloseq:
 
@@ -271,6 +277,13 @@ remarking the impossibility of taking two reads out of the metagenome "bag" and 
 >  {: .solution}
 {: .challenge}  
   
+A caution when comparing samples is that differences in some alpha indexes, 
+such as `abundances`, may be the consequence of the difference in the total 
+number of reads of the samples. A sample with more reads is more likely to
+have more different OTUs, so some normalization is needed. Here we will 
+work with relative abundances, but other approaches, such as rarefaction, 
+could help reduce this bias. 
+  
 ## Absolute and relative abundances
 
 From the read counts that we just saw, it is evident that there is a great difference in the number of total 
@@ -288,12 +301,13 @@ non-identified reads. Marked as blank (i.e.,"") on the different taxonomic level
                                  TRUE :138       TRUE :9         TRUE :57        TRUE :158       TRUE :484      
 ~~~
 {: .output}
-With the command above, we can see blanks on different taxonomic levels. Although we could
-expect to see some blanks at the species or even at the genus level; we will get rid of the ones at 
-the genus level to proceed with the analysis:
+With the command above, we can see blanks on different taxonomic levels. 
+For example, we have 158 blanks at genus level. Although we could
+expect to see some blanks at the species or even at the genus level; 
+we will get rid of the ones at the genus level to proceed with the analysis:
 
 ~~~
-> merged_metagenomes <- subset_taxa(merged_metagenomes, Genus != "")
+> merged_metagenomes <- subset_taxa(merged_metagenomes, Genus != "") #Only genus that are no blank
 > summary(merged_metagenomes@tax_table@.Data== "")
 ~~~
 {: .language-r}
@@ -304,7 +318,6 @@ the genus level to proceed with the analysis:
                                  TRUE :127       TRUE :6         TRUE :8                         TRUE :339 
 ~~~
 {: .output}
-
 
 Next, since our metagenomes have different sizes, it is imperative to convert the number 
 of assigned reads (i.e., absolute abundance) into percentages (i.e., relative abundances) to compare them. 
@@ -342,8 +355,8 @@ To make this transformation to percentages, we will take advantage of a function
 265     0.2464066 0.7115490 0.2879052
 ~~~
 {: .output}
-
-
+Now, we are ready to compare the abundaces given by percantages of the samples with beta diversity indexes.  
+  
 ## Beta diversity
 
 As we mentioned before, the beta diversity is a measure of how alike or different our samples are (overlap between 
