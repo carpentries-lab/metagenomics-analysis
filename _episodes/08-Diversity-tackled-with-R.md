@@ -425,13 +425,13 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
   its own point in the NMDS space.
   
 > ## Exercise 3: Add metadata to beta diversity visualization  
-> In the following figure, the beta diversity graph that we produced earlier has been enriched. 
+> In the following figure, the beta diversity graph we produced earlier has been enriched. 
 > Look at the code below and answer:
 > 1) Which instruction colored the samples by their corresponding treatment?  
-> 2) What other diference do you noticed with our previous graph?
-> 3) Do you see some clustering of the samples according with their treatment? 
+> 2) What other difference do you notice with our previous graph?
+> 3) Do you see some clustering of the samples according to their treatment? 
 ><a href="{{ page.root }}/fig/betadiversity_metadata.jpg">
-> <img src="{{ page.root }}/fig/betadiversity_metadata.jpg" alt="The distance between the three samples, JC1A, JP4D and JP41 is shown in a plane. Each sample has a legend and a color, the color is according to the metadata site. There are three possible sites in the legend: Control mesocosm, Fertilized pond, and Unenriched pond" />
+> <img src="{{ page.root }}/fig/betadiversity_metadata.jpg" alt="The distance between the three samples, JC1A, JP4D and JP41 is shown in a plane. Each sample has a legend and a color. The color is according to the metadata site. There are three possible sites in the legend: Control mesocosm, Fertilized pond, and Unenriched pond" />
 > ~~~
 > MetaShotgun <- data.frame(SAMPLE=c("JC1A", "JP4D", "JP41"), TREATMENT=c("Control mesocosm", "Fertilized pond", "Unenriched pond")) #data frame with metadata
 > rownames(MetaShotgun) <- MetaShotgun$SAMPLE # naming row names of the data frame
@@ -443,7 +443,7 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
 >> ## Solution
 >> The flag `color = "TREATMENT"` applied in `plot_ordination` of the object `percentages` colors the samples by treatment.
 >> The legends of the sites are added to the graph with the flag `label = SAMPLE`  
->> There are three possible treatments, Control mesocosm, Fertilized and Unfertilized pond. We do not observe in this three samples any kind of clustering. More data would show if samples with similar treatment are clustered togheter. 
+>> There are three possible treatments, Control mesocosm, Fertilized, and Unfertilized pond. We do not observe any kind of clustering in these three samples. More data will show if samples with similar treatments are clustered together. 
 > {: .solution}
 {: .discussion}
   
