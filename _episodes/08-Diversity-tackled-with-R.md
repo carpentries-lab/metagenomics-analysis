@@ -444,7 +444,7 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
 ><a href="{{ page.root }}/fig/03-08-09.png">
 > <img src="{{ page.root }}/fig/03-08-09.png" alt="The distance between the three samples, JC1A, JP4D and JP41 is shown in a plane. Each sample has a legend and a color. The color is according to the metadata treatment. There are three possible treatments in the legend: Control mesocosm, Fertilized pond, and Unenriched pond" />
 > ~~~
-> metadata_cuatroc <- data.frame(Sample=c("JC1A", "JP4D", "JP41"), Treatment=c("Control mesocosm", "Fertilized pond", "Unenriched pond")) # Making >dataframe with metadata  
+> metadata_cuatroc <- data.frame(Sample=c("JC1A", "JP4D", "JP41"), Treatment=c("Control mesocosm", "Fertilized pond", "Unenriched pond")) # Making dataframe with metadata  
 > rownames(metadata_cuatroc) <- metadata_cuatroc$Sample # Using sample names as row names  
 > percentages@sam_data <- sample_data(metadata_cuatroc) # Adding metadata to sam_data table of phyloseq object percentages  
 > meta_ord <- ordinate(physeq = percentages, method = "NMDS", distance = "bray") # Calculating beta diversity    
@@ -453,8 +453,8 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
 > ~~~
 > {: .language-r}
 >> ## Solution
->> The flag `color = "TREATMENT"` applied a color to each sample according to its treatment, in the `plot_ordination` of the object `percentages`.  
->> The `geom_text` instruction added the names of the sample to the graph. This could have added any text, with the instruction `label = SAMPLE` we >>specified to add the names of the samples as text. With `size` we adjusted the size of the text, and with `vjust` we adjusted the position
+>> The flag `color = "Treatment"` applied a color to each sample according to its treatment, in the `plot_ordination` of the object `percentages`.   
+>> The `geom_text` instruction added the names of the sample to the graph. This could have added any text, with the instruction `label = SAMPLE` we specified to add the names of the samples as text. With `size` we adjusted the size of the text, and with `vjust` we adjusted the position
 >>so the text would not overlap with the dots.    
 >> There are three possible treatments, Control mesocosm, Fertilized, and Unfertilized pond.  
 >> We do not observe any kind of clustering in these three samples. More data would show if samples with similar treatments are clustered together.   
