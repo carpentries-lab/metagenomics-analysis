@@ -425,18 +425,27 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
   its own point in the NMDS space.
   
 > ## Exercise 3: Add metadata to beta diversity visualization  
->
+> In the following figure, the beta diversity graph that we produced earlier has been enriched. 
+> Look at the code below and answer:
+> 1) Which instruction colored the samples by their corresponding treatment?  
+> 2) What other diference do you noticed with our previous graph?
+> 3) Do you see some clustering of the samples according with their treatment? 
+><a href="{{ page.root }}/fig/betadiversity_metadata.jpg">
+> <img src="{{ page.root }}/fig/betadiversity_metadata.jpg" alt="The distance between the three samples, JC1A, JP4D and JP41 is shown in a plane. Each sample has a legend and a color, the color is according to the metadata site. There are three possible sites in the legend: Control mesocosm, Fertilized pond, and Unenriched pond" />
 > ~~~
-> MetaShotgun <- data.frame(SAMPLE=c("JC1A", "JP4D", "JP41"), SITE=c("Control mesocosm", "Fertilized pond", "Unenriched pond"))
-> rownames(MetaShotgun) <- MetaShotgun$SAMPLE
-> percentages@sam_data <- sample_data(MetaShotgun)
-> meta_ord <- ordinate(physeq = percentages, method = "NMDS", distance = "bray")
-> plot_ordination(physeq = percentages, ordination = meta_ord, color = "SITE") + geom_text(mapping = aes(label = SAMPLE))
+> MetaShotgun <- data.frame(SAMPLE=c("JC1A", "JP4D", "JP41"), TREATMENT=c("Control mesocosm", "Fertilized pond", "Unenriched pond")) #data frame with metadata
+> rownames(MetaShotgun) <- MetaShotgun$SAMPLE # naming row names of the data frame
+> percentages@sam_data <- sample_data(MetaShotgun) # Adding the metadata to the sam_data table of the phyloseq object percentages
+> meta_ord <- ordinate(physeq = percentages, method = "NMDS", distance = "bray") # Calculating beta diversity  
+> plot_ordination(physeq = percentages, ordination = meta_ord, color = "TREATMENT") + geom_text(mapping = aes(label = SAMPLE)) # plotting the beta diversity. 
 > ~~~
 > {: .language-r}
 >> ## Solution
+>> The flag `color = "TREATMENT"` applied in `plot_ordination` of the object `percentages` colors the samples by treatment.
+>> The legends of the sites are added to the graph with the flag `label = SAMPLE`  
+>> There are three possible treatments, Control mesocosm, Fertilized and Unfertilized pond. We do not observe in this three samples any kind of clustering. More data would show if samples with similar treatment are clustered togheter. 
 > {: .solution}
-{: .challenge}
+{: .discussion}
   
 > ## Discussion: Indexes of diversity  
 > Why do you think we need different indexes to asses diversity? What index will you use to assess the impact of rare, low-abundance taxa?
