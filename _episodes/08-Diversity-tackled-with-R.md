@@ -449,12 +449,12 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
 > percentages@sam_data <- sample_data(metadata_cuatroc) # Adding metadata to sam_data table of phyloseq object percentages  
 > meta_ord <- ordinate(physeq = percentages, method = "NMDS", distance = "bray") # Calculating beta diversity    
 > plot_ordination(physeq = percentages, ordination = meta_ord, color = "Treatment") + # Plotting beta diversity.  
->     geom_text(mapping = aes(label = Sample), size = 4, vjust = 2, hjust = 1)   
+>     geom_text(mapping = aes(label = Sample), size = 3, vjust = 1.5)   
 > ~~~
 > {: .language-r}
 >> ## Solution
 >> The flag `color = "TREATMENT"` applied a color to each sample according to its treatment, in the `plot_ordination` of the object `percentages`.  
->> The `geom_text` instruction added the names of the sample to the graph. This could have added any text, with the instruction `label = SAMPLE` we >>specified to add the names of the samples as text. With `size` we adjusted the size of the text, and with `vjust` and `hjust` we adjusted the position
+>> The `geom_text` instruction added the names of the sample to the graph. This could have added any text, with the instruction `label = SAMPLE` we >>specified to add the names of the samples as text. With `size` we adjusted the size of the text, and with `vjust` we adjusted the position
 >>so the text would not overlap with the dots.    
 >> There are three possible treatments, Control mesocosm, Fertilized, and Unfertilized pond.  
 >> We do not observe any kind of clustering in these three samples. More data would show if samples with similar treatments are clustered together.   
