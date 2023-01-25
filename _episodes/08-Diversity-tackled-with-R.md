@@ -440,8 +440,8 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
 > ## Exercise 3: Add metadata to beta diversity visualization  
 > In the following figure, the beta diversity graph we produced earlier has been enriched. 
 > Look at the code below and answer:    
-> 1) Which instruction colored the samples by their corresponding treatment?
-> 2) What did the instruction `geom_text` do?  
+> 1) Which instruction colored the samples by their corresponding treatment?  
+> 2) What did the instruction `geom_text` do?   
 > 3) What other difference do you notice with our previous graph?  
 > 4) Do you see some clustering of the samples according to their treatment?   
 ><a href="{{ page.root }}/fig/betadiversity_metadata.jpg">
@@ -455,9 +455,10 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
 > ~~~
 > {: .language-r}
 >> ## Solution
->> The flag `color = "TREATMENT"` applied a color to each sample according to its treatment, in the `plot_ordination` of the object `percentages`.
->> The `geom_text` instruction added the names of the sample to the graph. This could have added any text, with the instruction `label = SAMPLE` we specified to add the names of the samples as text.   
->> There are three possible treatments, Control mesocosm, Fertilized, and Unfertilized pond. We do not observe any kind of clustering in these three samples. More data will show if samples with similar treatments are clustered together.   
+>> The flag `color = "TREATMENT"` applied a color to each sample according to its treatment, in the `plot_ordination` of the object `percentages`.  
+>> The `geom_text` instruction added the names of the sample to the graph. This could have added any text, with the instruction `label = SAMPLE` we specified to add the names of the samples as text.     
+>> There are three possible treatments, Control mesocosm, Fertilized, and Unfertilized pond.  
+>> We do not observe any kind of clustering in these three samples. More data would show if samples with similar treatments are clustered together.   
 > {: .solution}
 {: .challenge}
   
