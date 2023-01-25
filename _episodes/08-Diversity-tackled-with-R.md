@@ -458,7 +458,7 @@ In this NMDS plot, each point represents the combined abundance of all its OTUs.
 >> The legends of the sites are added to the graph with the flag `label = SAMPLE`    
 >> There are three possible treatments, Control mesocosm, Fertilized, and Unfertilized pond. We do not observe any kind of clustering in these three samples. More data will show if samples with similar treatments are clustered together.   
 > {: .solution}
-{: .discussion}
+{: .challenge}
   
 > ## Discussion: Indexes of diversity  
 > Why do you think we need different indexes to asses diversity? What index will you use to assess the impact of rare, low-abundance taxa?
