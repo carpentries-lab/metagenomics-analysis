@@ -1,10 +1,9 @@
 ---
 title: "Other Resources"
 teaching: 5
-exercises: 0
+exercises: 10
 questions:
 - "Where are other metagenomic resources?"
-- "How can lessons be previewed?"
 objectives:
 - "Know some places where to find more information."
 keypoints:
