@@ -1,7 +1,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4285900.svg)](https://doi.org/10.5281/zenodo.4285900)
 
 [![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/) 
-[![Slack Status](https://img.shields.io/badge/Slack_Channel-dc--genomics-E01563.svg)](https://swcarpentry.slack.com/messages/C9N1K7DCY) 
+[![Slack Status](https://img.shields.io/badge/Slack_Channel-metagenomics-E01563.svg)](https://join.slack.com/t/metagenomicslesson/shared_invite/zt-1tikq2o0k-VMX7ceLfenbbKheZ7XNCRw) 
 
 [![The Carpentries Lab Review Status](http://badges.carpentries-lab.org/11_status.svg)](https://github.com/carpentries-lab/reviews/issues/11)
 
