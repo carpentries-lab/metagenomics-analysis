@@ -43,7 +43,7 @@ is to calculate the distinct species between two lakes (sites). Let us take as a
 Lake A and Lake B. The number of species in Lake A is 3. To this quantity, we will subtract the number of these species that are shared with the Lake 
 B: 2. So the number of unique species in Lake A compared to Lake B is (3-2) = 1. To 
 this number, we will sum the result of the same operations but now take Lake B as 
-our site of reference. In the end, the β diversity between Lake A and Lake B is 
+our reference site. In the end, the β diversity between Lake A and Lake B is 
 (3-2) + (3-2) = 2. This process can be repeated, taking each pair of lakes as the 
 focused sites.
 
