@@ -407,26 +407,26 @@ Introduction to the Command Line lesson.
 > ## Exercise 3: Downloading files by scp (optional)  
 > 
 > Suppose you only have access to a terminal and there is not a web browser available at the AWS remote machine.
-> The following are the steps needed to download your files to your computer. Observe the third step and answer false/true of each question about
+> The following are the steps needed to download your files to your computer. Observe the third step and answer false/true for each question about
 > the `scp` command.  
 > 1. Open a new terminal on your local computer.
 > 2. Make a new local directory on our computer to store the HTML files   `$ mkdir -p ~/Desktop/fastqc_html`  
 > 3. Transfer our HTML files to our local computer using `scp`.
 > `$ scp dcuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html`  
 > A) `dcuser` is your local user  
-> B) `ec2-34-238-162-94.compute-1.amazonaws.com` is the adress of your remote machine  
+> B) `ec2-34-238-162-94.compute-1.amazonaws.com` is the address of your remote machine  
 > C) the current adress of the file goes after the second space in the `scp` command.  
-> D) `~/dc_workshop/results/fastqc_untrimmed_reads/*.html` is the path of the file you want to download
-> E) `~/Desktop/fastqc_html` is a remote direction.
-> F) `:` Divides the direction of your local computer and the path of the file.   
+> D) `~/dc_workshop/results/fastqc_untrimmed_reads/*.html` is the path of the file you want to download  
+> E) `~/Desktop/fastqc_html` is a remote path.  
+> F) `:` Divides the host name of your local computer and the path of the file.   
 > 
 >> ## Solution
 >>  A) False. `dcuser` is your remote user.  
 >>  B) True. `ec2-34-238-162-94.compute-1.amazonaws.com` is the adress of your remote machine  
 >>  C) False. The current adress of the file goes after the first space in the `scp` command.  
 >>  D) True. `~/dc_workshop/results/fastqc_untrimmed_reads/*.html` is the path of the file you want to download in the remote machine. 
->>  E) False. `~/Desktop/fastqc_html` is a local direction where your file will be downloaded.
->>  F) False. `:` Divides the direction of your remote computer and the path of the file.   
+>>  E) False. `~/Desktop/fastqc_html` is a local path where your file will be downloaded.
+>>  F) False. `:` Divides the host name of a _remote_ computer and the path of the file on the remote computer.   
 >>  
 >>  You should see a status output like this:
 >>  ~~~
