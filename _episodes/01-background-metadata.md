@@ -115,7 +115,7 @@ of our experimental design to the metadata we expect to collect and record caref
 
 During this lesson, we will work with actual metagenomic information, 
 so we should be familiarized with it. The metagenomes that we will 
-use was collected in Cuatro Ciénegas, a region that has been
+use were collected in Cuatro Ciénegas, a region that has been
 extensively studied by [Valeria Souza](https://es.wikipedia.org/wiki/Valeria_Souza_Saldivar). 
 Cuatro Ciénegas is an oasis in the Mexican desert whose 
 environmental conditions are often linked to the ones present in
