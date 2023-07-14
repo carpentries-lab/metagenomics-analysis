@@ -29,7 +29,7 @@ research efficiency and productivity.
 > ## Prerequisites
 >
 > This lesson assumes a working understanding of the bash shell. If you haven’t already 
-> completed the [Shell metagenomics lesson](https://nselem.github.io/shell-metagenomics/), and you aren’t 
+> completed the [Introduction to the Command Line for Metagenomics lesson](https://carpentries-lab.github.io/metagenomics-shell/), and you aren’t 
 > familiar with the bash shell; please review those materials before starting this lesson.
 >
 > This lesson also assumes some familiarity with biological concepts, 
@@ -40,7 +40,7 @@ research efficiency and productivity.
 > will be given information on how to log in to the AMI during the workshop. Learners using 
 > these materials for the self-directed study will need to set up their own AMI. Information 
 > on setting up an AMI and accessing the required data is provided on the 
-> [Metagenomics Workshop setup page](https://carpentries-incubator.github.io/metagenomics-workshop/setup.html).
+> [Metagenomics Workshop setup page](https://carpentries-lab.github.io/metagenomics-workshop/setup.html).
 >
 {: .prereq}
 
@@ -53,7 +53,7 @@ research efficiency and productivity.
 
 {% include links.md %}
 
-This is the fourth lesson of the [Metagenomics Workshop](https://carpentries-incubator.github.io/metagenomics-workshop/) comprised of four lessons in total. 
+This is the fourth lesson of the [Metagenomics Workshop](https://carpentries-lab.github.io/metagenomics-workshop/) comprised of four lessons in total. 
 
 ## Lesson Reference
 Episodes 2. Assessing Read Quality, and 3. Trimming and Filtering are adapted from the corresponding episodes in the [Data Wrangling and Processing for Genomics](https://datacarpentry.org/wrangling-genomics/) lesson.
