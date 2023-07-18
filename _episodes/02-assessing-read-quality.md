@@ -407,26 +407,26 @@ Introduction to the Command Line lesson.
 > ## Exercise 3: Downloading files by scp (optional)  
 > 
 > Suppose you only have access to a terminal and there is not a web browser available at the AWS remote machine.
-> The following are the steps needed to download your files to your computer. Observe the third step and answer false/true of each question about
+> The following are the steps needed to download your files to your computer. Observe the third step and answer false/true for each question about
 > the `scp` command.  
 > 1. Open a new terminal on your local computer.
 > 2. Make a new local directory on our computer to store the HTML files   `$ mkdir -p ~/Desktop/fastqc_html`  
 > 3. Transfer our HTML files to our local computer using `scp`.
 > `$ scp dcuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html`  
 > A) `dcuser` is your local user  
-> B) `ec2-34-238-162-94.compute-1.amazonaws.com` is the adress of your remote machine  
+> B) `ec2-34-238-162-94.compute-1.amazonaws.com` is the address of your remote machine  
 > C) the current adress of the file goes after the second space in the `scp` command.  
-> D) `~/dc_workshop/results/fastqc_untrimmed_reads/*.html` is the path of the file you want to download
-> E) `~/Desktop/fastqc_html` is a remote direction.
-> F) `:` Divides the direction of your local computer and the path of the file.   
+> D) `~/dc_workshop/results/fastqc_untrimmed_reads/*.html` is the path of the file you want to download  
+> E) `~/Desktop/fastqc_html` is a remote path.  
+> F) `:` Divides the host name of your local computer and the path of the file.   
 > 
 >> ## Solution
 >>  A) False. `dcuser` is your remote user.  
 >>  B) True. `ec2-34-238-162-94.compute-1.amazonaws.com` is the adress of your remote machine  
 >>  C) False. The current adress of the file goes after the first space in the `scp` command.  
 >>  D) True. `~/dc_workshop/results/fastqc_untrimmed_reads/*.html` is the path of the file you want to download in the remote machine. 
->>  E) False. `~/Desktop/fastqc_html` is a local direction where your file will be downloaded.
->>  F) False. `:` Divides the direction of your remote computer and the path of the file.   
+>>  E) False. `~/Desktop/fastqc_html` is a local path where your file will be downloaded.
+>>  F) False. `:` Divides the host name of a _remote_ computer and the path of the file on the remote computer.   
 >>  
 >>  You should see a status output like this:
 >>  ~~~
@@ -469,7 +469,7 @@ We've now looked at quite a few "Per base sequence quality" FastQC graphs, but t
 + [**Sequence Length Distribution**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/7%20Sequence%20Length%20Distribution.html): the distribution of sequence lengths of all reads in the file. If the data is raw, there is often a sharp peak; however, if the reads have been trimmed, there may be a distribution of shorter lengths. 
 + [**Sequence Duplication Levels**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/8%20Duplicate%20Sequences.html): a distribution of duplicated sequences. In sequencing, we expect most reads to only occur once. If some sequences are occurring more than once, it might indicate enrichment bias (e.g. from PCR). This might not be true if the samples are high coverage (or RNA-seq or amplicon).  
 + [**Overrepresented sequences**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/9%20Overrepresented%20Sequences.html): a list of sequences that occur more frequently than would be expected by chance. 
-+ [**Adapter Content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html): a graph indicating where adapater sequences occur in the reads.
++ [**Adapter Content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html): a graph indicating where adapter sequences occur in the reads.
 + [**K-mer Content**](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/11%20Kmer%20Content.html): a graph showing any sequences which may show a positional bias within the reads.
 
 ## Working with the FastQC text output
@@ -513,7 +513,7 @@ caution: filename not matched:  JP4D_R2_fastqc.zip
 ~~~
 {: .output}
 
-This decompresion didn't work. It identified the first file and got a warning
+This decompression didn't work. It identified the first file and got a warning
 message for the other `.zip` files. This is because `unzip` 
 expects to get only one zip file as input. We could go through and 
 unzip each file one at a time, but this is very time-consuming and 
