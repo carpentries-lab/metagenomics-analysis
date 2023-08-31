@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4285900.svg)](https://doi.org/10.5281/zenodo.4285900)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7713386.svg)](https://doi.org/10.5281/zenodo.7713386)
 
 [![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/) 
 [![Slack Status](https://img.shields.io/badge/Slack_Channel-metagenomics-E01563.svg)](https://join.slack.com/t/metagenomicslesson/shared_invite/zt-1tikq2o0k-VMX7ceLfenbbKheZ7XNCRw) 
@@ -36,4 +36,5 @@ A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
 
 Please cite as:
 
-Nelly Sélem Mojica; Diego Garfias Gallegos; Claudia Zirión Martínez; Jesús Abraham Avelar Rivas; Aaron Jaime Espinosa; Abel Lovaco Flores; Tania Vanessa Arellano Fernandez (2022, Jan). Metagenomics for Software Carpentry lesson, Jan 2022. Zenodo. https://doi.org/10.5281/zenodo.4285900
+Claudia Zirión Martínez; Diego Garfias Gallegos; Tania Vanessa Arellano Fernández; Aarón Espinosa Jaime; Edder D Bustos Díaz; José Abel Lovaco Flores; Luis Gerardo Tejero Gómez; J Abraham Avelar Rivas; Nelly Sélem (March , 2023) A Data Carpentry- Style Metagenomics Workshop https://doi.org/10.5281/zenodo.7713386
+
