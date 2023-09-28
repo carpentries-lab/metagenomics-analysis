@@ -219,8 +219,8 @@ sample ID. If we need the files out of their folder, it is beneficial to rename 
 >> ## Solution
 >> 
 >> ~~~
->> $ grep “>” contigs.fasta | wc -l
->> $ grep “>” scaffolds.fasta | wc -l
+>> $ grep '>' contigs.fasta | wc -l
+>> $ grep '>' scaffolds.fasta | wc -l
 >> ~~~
 >> {: .bash}
 >>
