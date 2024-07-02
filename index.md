@@ -56,9 +56,7 @@ research efficiency and productivity.
 This is the fourth lesson of the [Metagenomics Workshop](https://carpentries-lab.github.io/metagenomics-workshop/) comprised of four lessons in total. 
 
 ## Lesson Reference
-Episodes 2. Assessing Read Quality, and 3. Trimming and Filtering are adapted from the corresponding episodes in the [Data Wrangling and Processing for Genomics](https://datacarpentry.org/wrangling-genomics/) lesson.
-Materials licensed under [CC-BY 4.0](https://datacarpentry.org/wrangling-genomics/instructor/LICENSE.html) by the authors
-Created by Josh Herr, Ming Tang, Lex Nederbragt, Fotis Psomopoulos (eds): Version 2017.11.0, November 2017.
+Episodes 2. Assessing Read Quality, and 3. Trimming and Filtering are adapted from the corresponding episodes in the [Data Wrangling and Processing for Genomics](https://datacarpentry.org/wrangling-genomics/) lesson that is Copyright (c) [The Carpentries](https://carpentries.org/). Materials licensed under [CC-BY 4.0](https://datacarpentry.org/wrangling-genomics/instructor/LICENSE.html) by the authors: Josh Herr, Ming Tang, Lex Nederbragt, Fotis Psomopoulos (eds): Version 2017.11.0, November 2017. THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Citation
 
