@@ -57,6 +57,8 @@ This is the fourth lesson of the [Metagenomics Workshop](https://carpentries-lab
 
 ## Lesson Reference
 Episodes 2. Assessing Read Quality, and 3. Trimming and Filtering are adapted from the corresponding episodes in the [Data Wrangling and Processing for Genomics](https://datacarpentry.org/wrangling-genomics/) lesson.
+Materials licensed under [CC-BY 4.0](https://datacarpentry.org/wrangling-genomics/instructor/LICENSE.html) by the authors
+Created by Josh Herr, Ming Tang, Lex Nederbragt, Fotis Psomopoulos (eds): Version 2017.11.0, November 2017.
 
 ## Citation
 
