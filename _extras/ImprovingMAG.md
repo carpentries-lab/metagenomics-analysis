@@ -48,6 +48,11 @@ of our experimental design to the metadata we expect to collect and record caref
   <img src="{{ page.root }}/fig/03-01-02.jpeg" alt="Photography of a pond in Cuatro Ciénegas" />
 </a>
 
+> ## Quality of large datasets
+>
+> Explore [MultiQC](https://multiqc.info/) if you want a tool that can show the quality of many samples at once.
+{: .callout}
+
 
 > ## Exercise 1: Reviewing metadata 
 > 
@@ -70,3 +75,13 @@ of our experimental design to the metadata we expect to collect and record caref
 >> 
 > {: .solution}
 {: .challenge}
+
+~~~
+library(matplotlib)
+~~~
+{: .rlanguage}
+
+~~~
+@MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:12622:2006 1:N:0:CTCAGA
+~~~
+{: .output}
