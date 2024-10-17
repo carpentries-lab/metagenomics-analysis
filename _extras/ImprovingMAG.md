@@ -12,13 +12,19 @@ keypoints:
 ---
 
 ## Metagenomics 
-Metagenomes are collections of genomic 
-sequences from various (micro)organisms that coexist in any 
-given space. They are like snapshots that can give us information 
-about the taxonomic and even metabolic or functional composition 
-of the communities we decide to study. Thus, metagenomes 
-are usually employed to investigate the ecology of defining 
-charac
+**El pozol** es un alimento ácido, fermentado a partir de maíz nixtamalizado, de importancia económica y cultural, se consume desde tiempos prehispánicos y se ha estudiado desde los años 50s.
+
+Algunos puntos importantes que conocemos son:
+
+<FONT COLOR="blue">
+
+-   No se inocula y al final de su fermentación tiene alta diversidad microbiana.
+
+-   Es muy nutritivo, tiene un alto contenido de aminoácidos esenciales.
+
+-   Es considerado como **prebiótico,** contiene fibras solubles y microorganismos benéficos para la salud intestinal humana**.**
+
+</FONT>
 ## On Metadata
 
 Once we have chosen an adequate methodology for our study, 
@@ -28,18 +34,14 @@ the differences that we observe when comparing metagenomes can be
 correlated to the metadata, which is why we must devote a whole section 
 of our experimental design to the metadata we expect to collect and record carefully. 
 
-> ## Discussion #1: Choosing amplicon or shotgun sequencing? 
+> ## Discussion #1: 1.  Responde
 >
-> Suppose you want to find the source of a nasty gut infection in people. Which type of sequencing methodology would you choose?  
-> Which type of metadata would be helpful to record?
+> ¿Cuántos bins se formaron? 
+> ¿Qué parámetros cambiarías o agregarías? 
 > 
 >> ## Solution
->> For a first exploration, 16S is a better idea since you could detect known pathogens by knowing the taxons in the community.
->> Nevertheless, if the disease is the consequence of a viral infection, the pathogen can only be discovered with shotgun metagenomics (that was the case of SARS-CoV 2). 
->> Also, metabarcoding does not provide insights into the genetic basis of the pathogenic phenotypes.
->> Metadata will depend on the type of experiment. For this case, some helpful metadata could be sampling methodology, 
->> date, place (country, state, region, city, etc.), patient's sex and age, the anatomical origin of the sample, symptoms, medical history, diet, lifestyle, and environment. 
->> 
+>> 1.  `ls results/04.metabat/`
+>> 2.  `metabat2 –-help`
 > {: .solution}  
 {: .discussion}
 
@@ -77,9 +79,9 @@ of our experimental design to the metadata we expect to collect and record caref
 {: .challenge}
 
 ~~~
-library(matplotlib)
+conda deactivate
 ~~~
-{: .rlanguage}
+{: .bash}
 
 ~~~
 @MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:12622:2006 1:N:0:CTCAGA
