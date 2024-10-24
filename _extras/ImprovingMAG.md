@@ -33,6 +33,7 @@ Para obtener MAGs podemos seguir el siguiente flujo de análisis:
   <img src="{{ page.root }}/fig/extrasMAGs/01.MAGs_workflow.png" alt="Flujo de trabajo para Metagenómica Centrada en Genomas" />
 </a>
 
+<br>
 
 Ya que discutimos como seguir un flujo de análisis para reconstruir genomas entremos en acción, para ello analizaremos el metagenoma del pozol.
  
@@ -45,6 +46,7 @@ se consume desde tiempos prehispánicos y se ha estudiado desde los años 50s.
   <img src="{{ page.root }}/fig/extrasMAGs/02.Pozolhistoria.png" alt="Proceso de elaboración del pozol" />
 </a>
 
+<br>
 Algunos puntos importantes que conocemos son:
 
 <FONT COLOR="darkblue">
@@ -62,15 +64,11 @@ Algunos puntos importantes que conocemos son:
 🧬🔊🦠 Imaginemos que se quiere impulsar la producción de esta bebida y para ello necesitan saber todo acerca de su naturaleza microbiana.
 
 Una importante industria alimenticia los contacta como `expertos en ecología microbiana` y les pide ayuda para descubrir los siguientes puntos:
-
+<br>
 
 <FONT COLOR="darkblue">
 * ¿Qué actores microbianos están presentes durante el proceso de fermentación?<br>
-</FONT>
-<FONT COLOR="darkblue">
 * ¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?<br>
-</FONT>
-<FONT COLOR="darkblue">
 * ¿Cambia la comunidad microbiana a lo largo del proceso?<br>
 </FONT> <br>
 
@@ -78,6 +76,7 @@ La empresa secuenció cuatro puntos de fermentación de muestras que se obtuvier
 Las muestras se secuenciaron con Illumina NextSeq500 con lecturas pareadas de 75 pb. 
 Los datos están públicos bajo el Bioproject: [PRJNA648868](https://www.ebi.ac.uk/ena/browser/view/PRJNA648868)
 
+<br>
 <a href="{{ page.root }}/fig/extrasMAGs/03.Pozol_fermentation.png">
   <img src="{{ page.root }}/fig/extrasMAGs/03.Pozol_fermentation.png" alt="Puntos de fermentación" />
 </a>
@@ -134,6 +133,8 @@ Cómo vamos a trabajar durante el taller?
 {: .callout}
 
 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
 ------------------------------------------------------------------------
 
 <p align="justify">
