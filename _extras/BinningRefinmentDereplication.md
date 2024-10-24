@@ -189,6 +189,309 @@ vamb --fasta results/02.ensambles/48hrs.fasta --jgi results/03.profundidad/48hrs
 > Recientemente se publicó COMEBin, que utiliza un enfoque distinto a lo que hemos usado en este tutorial. En el siguiente [link](https://github.com/ziyewang/COMEBin) encontrarás el manual y una explicación general sobre su funcionamiento.
 {: .callout}
 
+
+## Refinamiento
+
+Ya corrimos tres programas de *binning*, pero, recordemos que los agrupamientos pueden tener errores:
+
+<br>
+<p style="text-align: center;">
+  <a href="{{ page.root }}/fig/extrasMAGs/06.Refinamiento.png">
+    <img src="{{ page.root }}/fig/extrasMAGs/06.Refinamiento.png" alt="Refinamiento" width="373" />
+  </a>
+</p>
+<br>
+
+Para disminuir la contaminación e incrementar la completitud hay algunos programas que pueden ayudarnos. 
+Entre ellos están Binning_refiner y DASTool.
+
+### CheckM
+
+Antes de proceder al refinamiento es necesario tener claro cómo se evalúa la completitud y contaminación de los *bins.* Para esta evaluación se usa [CheckM](https://github.com/Ecogenomics/CheckM/wiki/Workflows#lineage-specific-workflow) que se ha convertido en una herramienta estándar para la evaluación de la calidad de genomas y MAGs, y es usada por la mayoría de programas de refinamiento.
+<br>
+Para hacer esta evaluación, CheckM utiliza una serie de herramientas: `tree` organiza los genomas en un árbol de referencia. `tree_qa` evalúa la cantidad de genes marcadores filogenéticos y su ubicación en el árbol. El comando `lineage_set` crea un archivo de marcadores específicos de linaje, que se usa en el comando `analyze` para evaluar la integridad y contaminación de los genomas. Finalmente, el comando `qa` genera tablas que resumen la calidad de los genomas.
+
+<br>
+<p style="text-align: center;">
+  <a href="https://genome.cshlp.org/content/25/7/1043/T3.expansion.html" target="_blank">
+    <img src="{{ page.root }}/fig/extrasMAGs/07.CheckM_workflow.png" alt="CheckM. Parks et al., 2015. https://genome.cshlp.org/content/25/7/1043.full" />
+  </a>
+  <br>
+  <em>CheckM. Parks et al., 2015. https://genome.cshlp.org/content/25/7/1043.full>
+</p>
+<br>
+
+En este taller no vamos a correr CheckM porque los programas de refinamiento que usaremos ya lo corren de forma interna, sin embargo, es útil correrlo para tener una idea clara sobre la calidad de los bins que obtengamos.
+
+Te dejamos la siguiente línea para que la uses en tus proyectos.
+~~~
+#ejemplo de como correrlo con los bins de vamb
+#se debe activar el ambiente metagenomics
+#checkm lineage_wf results/06.vamb/48hrs/bins results/checkm/ -x fna -t 4  -f results/checkm/checkm_vamb_bins.txt
+~~~
+{: .output}
+
+Y una captura de ejemplo de como se ve la salida de CheckM:
+
+<br>
+<p style="text-align: center;">
+  <a href="{{ page.root }}/fig/extrasMAGs/08.checkm_example.png">
+    <img src="{{ page.root }}/fig/extrasMAGs/08.checkm_example.png" alt="CheckM ejemplo"  width="828" />
+  </a>
+</p>
+<br>
+
+
+Y ahora si, a refinar los *bins* ... 🥳
+
+### Binning_refiner
+
+[Binning_refiner](https://doi.org/10.1093/bioinformatics/btx086) se enfoca en refinar y fusionar los bins para mejorar la integridad y reducir la contaminación. Identifica *bins* que pueden representar el mismo genoma y los fusiona. Después elimina posibles contaminaciones, durante el proceso, Binning_refiner evalúa la calidad de los bins.
+
+<br>
+<p style="text-align: center;">
+  <a href="https://doi.org/10.1093/bioinformatics/btx086" target="_blank">
+    <img src="{{ page.root }}/fig/extrasMAGs/09.Binning_refiner.png" alt="Binning_refiner. Wei-Zhi & Torsten, 2017. https://doi.org/10.1093/bioinformatics/btx086" />
+  </a>
+  <br>
+  <em>Binning_refiner. Wei-Zhi & Torsten, 2017. https://doi.org/10.1093/bioinformatics/btx086>
+</p>
+<br>
+
+Necesitamos crear el directorio de resultados para binning_refiner y un directorio con los bins generados por cada programa
+
+``` bash
+mkdir -p results/07.binning_refiner/48hrsbins/{metabat,maxbin,vamb}
+```
+<br>
+Ahora vamos a crear ligas simbólicas de los *bins* generados por cada herramienta.
+
+``` bash
+#metabat
+cd results/07.binning_refiner/48hrsbins/metabat/
+
+ln -s ../../../04.metabat/*.fa .
+
+#maxbin
+cd ../maxbin/
+ln -s ../../../05.maxbin/*.fasta .
+
+# vamb
+cd ../vamb/
+ln -s ../../../06.vamb/48hrs/bins/*.fna .
+
+
+#regresar
+cd ../../
+```
+<br>
+Ahora si, corramos Binning_refiner
+
+``` bash
+Binning_refiner -i 48hrsbins/ -p 48hrs
+```
+<br>
+Y regresemos a nuestro directorio principal
+
+``` bash
+cd && cd taller_metagenomica_pozol/
+```
+<br>
+Exploremos los resultados!
+
+``` bash
+cat results/07.binning_refiner/48hrs_Binning_refiner_outputs/48hrs_sources_and_length.txt
+```
+
+``` markdown
+Refined_bin     Size(Kbp)       Source
+48hrs_1 1535.49 48hrs_maxbin.004.fasta,metabat.5.fa,676.fna
+48hrs_2 1506.01 48hrs_maxbin.002.fasta,metabat.3.fa,6952.fna
+48hrs_3 1319.12 48hrs_maxbin.008.fasta,metabat.2.fa,28067.fna
+48hrs_4 1263.79 48hrs_maxbin.005.fasta,metabat.9.fa,3736.fna
+48hrs_5 1185.25 48hrs_maxbin.001.fasta,metabat.11.fa,15732.fna
+48hrs_6 1052.67 48hrs_maxbin.003.fasta,metabat.4.fa,15732.fna
+48hrs_7 557.49  48hrs_maxbin.006.fasta,metabat.1.fa,28990.fna
+```
+
+> ## Sankey plot
+> Puedes generar tu propio sankey plot para visualizar los resultados de Binning_refiner.
+> Te dejamos el código por si te es útil.
+>> ## código
+>> ``` r
+>> # Cargar las librerias
+>> library(dplyr)
+>> library(networkD3)
+>> 
+>> # revisa tu ubicación
+>> getwd()
+>> 
+>> # OJO
+>> setwd("/home/ELALUMNOQUEERES/taller_metagenomica_pozol")
+>> 
+>> # Cargar los datos
+>> sankey_data <- read.csv("results/07.binning_refiner/48hrs_Binning_refiner_outputs/48hrs_sankey.csv")
+>> 
+>> # Crear una lista de nodos únicos
+>> nodes <- data.frame(name = unique(c(sankey_data$C1, sankey_data$C2)))
+>> 
+>> # Crear el dataframe de enlaces
+>> links <- sankey_data %>%
+>>   mutate(source = match(C1, nodes$name) - 1,
+>>          target = match(C2, nodes$name) - 1,
+>>          value = Length_Kbp) %>%
+>>   select(source, target, value)
+>> 
+>> # Crear el gráfico Sankey
+>> sankey_plot <- sankeyNetwork(Links = links, Nodes = nodes,
+>>                              Source = "source", Target = "target",
+>>                              Value = "value", NodeID = "name",
+>>                              fontSize = 12, nodeWidth = 30)
+>> 
+>> # Mostrar el gráfico
+>> sankey_plot
+>> # Guardar
+>> library(htmlwidgets)
+>> saveWidget(sankey_plot, file = "48hrs_sankey_plot.html")
+>> ```
+> {: .solution}
+{: .challenge}
+
+
+
+![Binning_refiner sankey plot](Figures/07.sankey.png){fig-align="center"}
+
+### DASTool
+
+[DASTool](https://github.com/cmks/DAS_Tool) es una herramienta utilizada para mejorar la calidad de los *bins*. Evalúa la integridad, combina los resultados de diferentes *bineadores* y por consenso selecciona los mejores *bins* de cada herramienta. Una vez que DASTool ha seleccionado los mejores bins, realiza un proceso de refinamiento para optimizar los resultados.
+
+![DASTool](Figures/06.DASTool.png){fig-alt="Sieber et al. 2018. Recovery of genomes from metagenomes via a dereplication, aggregation and scoring strategy. Nat. Micro." fig-align="center" width="935"}
+
+Vamos a correr DASTool ...
+
+Primero crea el directorio para los resultados
+
+``` bash
+mkdir -p results/08.dastool
+```
+
+DASTool necesita como entrada un archivo tabular con información de los resultados de cada programa de *binning.*
+
+``` bash
+Fasta_to_Contig2Bin.sh -i results/04.metabat/ -e fa > results/08.dastool/48hrs_metabat.dastool.tsv
+
+Fasta_to_Contig2Bin.sh -i results/05.maxbin/ -e fasta > results/08.dastool/48hrs_maxbin.dastool.tsv
+
+Fasta_to_Contig2Bin.sh -i results/06.vamb/48hrs/bins/ -e fna > results/08.dastool/48hrs_vamb.dastool.tsv
+```
+
+Ya que tenemos los archivos tsv podemos empezar con el refinamiento!! 🥳
+
+``` bash
+DAS_Tool -i results/08.dastool/48hrs_metabat.dastool.tsv,results/08.dastool/48hrs_maxbin.dastool.tsv,results/08.dastool/48hrs_vamb.dastool.tsv -l metabat,maxbin,vamb -c results/02.ensambles/48hrs.fasta -o results/08.dastool/48hrs -t 4 --write_bins
+```
+
+### 
+
+## Dereplicación
+
+### dRep
+
+La desreplicación es el proceso de identificar conjuntos de genomas que son "iguales" en una lista de genomas y eliminar todos los genomas excepto el "mejor" de cada conjunto redundante. [dRep](https://drep.readthedocs.io/en/latest/overview.html) es una herramienta útil para esto.
+
+[![dRep](Figures/dRep.png){fig-align="center" width="423"}](https://drep.readthedocs.io/en/latest/overview.html)
+
+Ya que tenemos los resultados de los dos refinadores ejecutaremos dRep para desreplicar y seleccionar el mejor representante de cada *bin*.
+
+Primero vamos a crear el directorio de resultados para dRep.
+
+``` bash
+mkdir -p results/09.drep/bins
+```
+
+Y entraremos al directorio bins dentro del directorio de resultados para colocar los bins que queremos comparar. En este caso los generados por ambos refinadores.
+
+``` bash
+cd results/09.drep/bins/
+```
+
+Con las siguientes lineas podemos copiar los bins en este directorio:
+
+``` bash
+for i in $(ls ../../08.dastool/48hrs_DASTool_bins/*.fa) ; do name=$(basename $i .fa); cp $i $name".fasta" ; done
+
+cp ../../07.binning_refiner/48hrs_Binning_refiner_outputs/48hrs_refined_bins/*.fasta .
+```
+
+Ya que los copiamos, regresemos al directorio principal.
+
+``` bash
+cd && cd taller_metagenomica_pozol/
+```
+
+Y ahora si, vamos a correr dRep ...
+
+``` bash
+
+export PATH=/miniconda3/envs/metagenomics/bin:$PATH
+dRep dereplicate results/09.drep/ -d -comp 50 -con 10 --SkipSecondary -g results/09.drep/bins/*.fasta
+```
+
+Este es uno de los plots generados por dRep, que representa los mejores bins desreplicados.
+
+![dRepWinningGenomes](Figures/09.dRepWinningGenomes.png){fig-align="center"}
+
+Vamos a desactivar el ambiente de dRep
+
+``` bash
+conda deactivate
+```
+
+------------------------------------------------------------------------
+
+::: callout-important
+## Para reflexionar
+
+Para tomar en cuenta
+
+-   En la vida real, si el proyecto de metagenómica que estás desarrollando tiene librerías de diferentes muestras usarías dRep entre todos los conjuntos de *bins* ya refinados para no tener redundancia de genomas.
+
+-   Qué harías si antes de desreplicar tienes un bin que tiene 98 % de completitud y 11 % de contaminación?. dRep en automático lo descartaría.
+
+Propondrías alguna manera para quedarte con este bin y curarlo para reducir su contaminación?
+
+Por suerte hay más programas que pueden ayudarnos a curar nuestros bins manualmente, una herramienta útil para esto es [**mmgenome2**](https://kasperskytte.github.io/mmgenome2/articles/mmgenome2.html)
+:::
+
+Para tomar en consideración:
+
+::: callout-tip
+## Tip
+
+Ya que tenemos los *bins* refinados y desreplicados opcionalmente podrías reensamblarlos. La manera sería mapear las lecturas de toda la muestra a los *bins* finales y con las lecturas mapeadas y el *bin,* generar un ensamble genómico para cada uno. Con esta aproximación se genera un MAG más pulido y la contaminación se reduce.
+
+Aunque en muchos reportes verás que los autores reensamblan sus MAGs, en otros no lo hacen y no hacerlo no está mal, pero hacerlo mejora la calidad.
+:::
+
+------------------------------------------------------------------------
+
+Ahora te toca a tí
+
+::: callout-warning
+## Ejercicio 2
+
+Ahora te toca a tí.
+
+-   Reúnanse en equipos y repliquen todo el flujo hasta este punto con la muestra que les toca.
+
+-   Discutan cada resultado obtenido.
+
+-   En la [carpeta compartida de Drive](https://drive.google.com/drive/folders/1iKfhMz_JdfImmsCmkPg10r-NC-nrzhQ4?usp=sharing) busquen la presentación para el Ejercicio 2, en la diapositiva correspondiente resuman sus resultados obtenidos para que los presenten.
+
+Tiempo de actividad (1 hr)
+
+Tiempo de presentación de resultados (5 min por equipo)
+:::
 > ## 🧠 Para tenerlo presente
 > En bioinformática cualquier línea de comandos generará un resultado, de ahí a que esos resultados sean correctos puede haber una gran diferencia.
 > En cada paso detente a revisar la información de cada programa, lee el manual, visita foros de ayuda y selecciona los argumentos que se ajusten a las necesidades de tus datos.
