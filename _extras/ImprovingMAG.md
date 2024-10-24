@@ -6,6 +6,10 @@ questions:
 - "Cómo podemos obtener MAGs de buena calidad?" 
 objectives:
 - "Tener una visión global sobre como reconstruir genomas de buena calidad a partir de metagenomas."
+keypoints:
+- "Remover lecturas de hospedero mejora la calidad del metagenoma."
+- "La cobertura y composición nucleotídica son esneciales para el binning."
+- "Conocer bien nuestro objeto de estudio."
 ---
 
 ## Genomas a partir de metagenomas
@@ -45,11 +49,11 @@ Algunos puntos importantes que conocemos son:
 
 <FONT COLOR="blue">
 
--   No se inocula y al final de su fermentación tiene alta diversidad microbiana.
+* No se inocula y al final de su fermentación tiene alta diversidad microbiana.
 
--   Es muy nutritivo, tiene un alto contenido de aminoácidos esenciales.
+* Es muy nutritivo, tiene un alto contenido de aminoácidos esenciales.
 
--   Es considerado como **prebiótico**, contiene fibras solubles y microorganismos benéficos para la salud intestinal humana.
+* Es considerado como **prebiótico**, contiene fibras solubles y microorganismos benéficos para la salud intestinal humana.
 
 </FONT>
 
@@ -57,15 +61,16 @@ Algunos puntos importantes que conocemos son:
 
 🧬🔊🦠 Imaginemos que se quiere impulsar la producción de esta bebida y para ello necesitan saber todo acerca de su naturaleza microbiana.
 
-Una importante industria alimenticia los contacta como **expertos en ecología microbiana** y les pide ayuda para descubrir los siguientes puntos:
+Una importante industria alimenticia los contacta como `expertos en ecología microbiana` y les pide ayuda para descubrir los siguientes puntos:
+
 
 <FONT COLOR="darkblue">
 
--   ¿Qué actores microbianos están presentes durante el proceso de fermentación?
+* ¿Qué actores microbianos están presentes durante el proceso de fermentación?
 
--   ¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?
+* ¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?
 
--   ¿Cambia la comunidad microbiana a lo largo del proceso?
+* ¿Cambia la comunidad microbiana a lo largo del proceso?
 
 </FONT>
 
@@ -85,48 +90,3 @@ La empresa secuenció cuatro puntos de fermentación de muestras que se obtuvier
 > El artículo: López-Sánchez et al., 2023. Analysing the dynamics of the bacterial community in pozol,
 > a Mexican fermented corn dough. [10.1099/mic.0.001355](https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.001355) 
 {: .callout}
-
-
-
-## Cuatro Ciénegas  
-<a href="{{ page.root }}/fig/03-01-02.jpeg">
-  <img src="{{ page.root }}/fig/03-01-02.jpeg" alt="Photography of a pond in Cuatro Ciénegas" />
-</a>
-
-> ## Quality of large datasets
->
-> Explore [MultiQC](https://multiqc.info/) if you want a tool that can show the quality of many samples at once.
-{: .callout}
-
-
-> ## Exercise 1: Reviewing metadata 
-> 
-> According to the results described for this CCB study.
-> 1. What kind of sequencing method do you think they used, and why do you think so?  
->  A) Metabarcoding   
->  B) Shotgun metagenomics   
->  C) Genomics of axenic cultures  
->
->  2. In the table [samples treatment information](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv), what was the most critical piece of metadata that the authors took?  
-> 
->> ## Solution
->> A) Metabarcoding. False. With this technique, usually, only one region of the genome is amplified.   
->> B) Shotgun Metagenomics. True. Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.    
->> C) Genomics of axenic cultures. False. Information on the microbial community cannot be fully obtained with axenic cultures.    
->>  
->> The most crucial thing to know about our data is which community was and was not supplemented with fertilizers.  
->> However, any differences in the technical parts of the study, such as the DNA extraction protocol,
->> could have affected the results, so tracking those is also essential.
->> 
-> {: .solution}
-{: .challenge}
-
-~~~
-conda deactivate
-~~~
-{: .bash}
-
-~~~
-@MISEQ-LAB244-W7:156:000000000-A80CV:1:1101:12622:2006 1:N:0:CTCAGA
-~~~
-{: .output}
