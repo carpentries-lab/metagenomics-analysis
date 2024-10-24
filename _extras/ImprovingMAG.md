@@ -50,10 +50,8 @@ Algunos puntos importantes que conocemos son:
 <FONT COLOR="blue">
 
 * No se inocula y al final de su fermentación tiene alta diversidad microbiana.
-
 * Es muy nutritivo, tiene un alto contenido de aminoácidos esenciales.
-
-* Es considerado como **prebiótico**, contiene fibras solubles y microorganismos benéficos para la salud intestinal humana.
+* Es considerado como prebiótico, contiene fibras solubles y microorganismos benéficos para la salud intestinal humana.
 
 </FONT>
 
@@ -67,9 +65,7 @@ Una importante industria alimenticia los contacta como `expertos en ecología mi
 <FONT COLOR="darkblue">
 
 * ¿Qué actores microbianos están presentes durante el proceso de fermentación?
-
 * ¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?
-
 * ¿Cambia la comunidad microbiana a lo largo del proceso?
 
 </FONT>
@@ -81,12 +77,69 @@ La empresa secuenció cuatro puntos de fermentación de muestras que se obtuvier
 </a>
 
 
-> ## Importante
+> ## Limpieza de hospedero
 > Como las muestras contienen maíz, es indispensable remover las lecturas que correspondan a su genoma,
 > no hacerlo producirá un ensamble muy fragmentado, mayoritariamente del maíz y poco microbiano.
 > El autor del artículo amablemente nos proporcionó sus muestras libres del maíz y el código que usó
 > para ello está disponible en un repositorio público de [GitHub](https://github.com/RafaelLopez-Sanchez/pozol_shotgun).
 > 
-> El artículo: López-Sánchez et al., 2023. Analysing the dynamics of the bacterial community in pozol,
-> a Mexican fermented corn dough. [10.1099/mic.0.001355](https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.001355) 
+> [El artículo](https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.001355): López-Sánchez et al., 2023. Analysing the dynamics of the bacterial community in pozol, a Mexican fermented corn dough. 
+{: .callout}
+
+------------------------------------------------------------------------
+
+## Espacio de trabajo
+
+1.  Entra a tu cuenta en el servidor y sitúate en tu `$HOME`
+
+2.  Obten los datos y la estructura de tu directorio del proyecto corriendo lo siguiente:
+
+~~~
+# ve al $HOME
+cd
+
+# descarga
+wget https://zenodo.org/records/13911654/files/taller_metagenomica_pozol.tar.gz?download=1 -O taller_metagenomica_pozol.tar.gz
+
+# descomprime
+tar -xvzf taller_metagenomica_pozol.tar.gz
+~~~
+{: .bash}
+
+3.  Entra al directorio del proyecto
+
+~~~
+cd taller_metagenomica_pozol
+~~~ {: .bash}
+
+
+
+> ## Directorio principal del proyecto
+> Si en algún momento te pierdes entre directorios, puedes regresar al espacio principal asi:
+> ~~~
+> cd && cd taller_metagenomica_pozol/
+> ~~~ {: .bash}
+{: .tip}
+
+> ### Reglas del juego
+> * En este tutorial haremos el ejemplo corriendo la muestra de 48 hrs.
+> * Se formaran 6 equipos (2 de los tiempos 0, 9 y 24 hrs).
+> * Los equipos discutirán y presentarán sus resultados cuando se indique en el tutorial.
+{: .callout}
+
+
+------------------------------------------------------------------------
+
+<p align="justify">
+
+<FONT COLOR="darkblue">La presente práctica sólo es una representación del flujo de trabajo para el análisis metagenómico, sin embargo, `no sustituye los manuales` de cada programa y el flujo puede variar dependiendo del tipo de datos y pregunta de investigación, de hecho para fines del taller, con frecuencia se utilizan las lineas de comando más simples para eficientar tiempo y recursos, tómalo en cuenta.</FONT>
+
+</p>
+
+Cada programa tiene una ayuda y un manual de usuario, es `importante` revisarlo y conocer cada parámetro que se ejecute. En terminal se puede consultar el manual con el comando `man` y también se puede consultar la ayuda con `-h` o `--help`, por ejemplo `fastqc -h`.
+
+
+> ## 🧠 Para tenerlo presente
+> En bioinformática cualquier línea de comandos generará un resultado, de ahí a que esos resultados sean correctos puede haber una gran diferencia.
+> En cada paso detente a revisar la información de cada programa, lee el manual, visita foros de ayuda y selecciona los argumentos que se ajusten a las necesidades de tus datos.
 {: .callout}
