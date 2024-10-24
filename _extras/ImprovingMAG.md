@@ -115,14 +115,16 @@ cd taller_metagenomica_pozol
 {: .bash}
 
 
+Si en algún momento te pierdes entre directorios, puedes regresar al espacio principal asi:
 
 > ## Directorio principal del proyecto
-> Si en algún momento te pierdes entre directorios, puedes regresar al espacio principal asi:
 > ~~~
 > cd && cd taller_metagenomica_pozol/
 > ~~~
 > {: .bash}
-{: .callout-tip}
+{: .callout}
+
+Cómo vamos a trabajar durante el taller?
 
 > ## Reglas del juego
 > * En este tutorial haremos el ejemplo corriendo la muestra de 48 hrs.
