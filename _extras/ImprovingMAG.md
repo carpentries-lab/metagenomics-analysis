@@ -47,9 +47,13 @@ se consume desde tiempos prehispánicos y se ha estudiado desde los años 50s.
 
 Algunos puntos importantes que conocemos son:
 
-* No se inocula y al final de su fermentación tiene alta diversidad microbiana.
-* Es muy nutritivo, tiene un alto contenido de aminoácidos esenciales.
-* Es considerado como prebiótico, contiene fibras solubles y microorganismos benéficos para la salud intestinal humana.
+<FONT COLOR="darkblue">
+* No se inocula y al final de su fermentación tiene alta diversidad microbiana.<br>
+
+* Es muy nutritivo, tiene un alto contenido de aminoácidos esenciales.<br>
+
+* Es considerado como prebiótico, contiene fibras solubles y microorganismos benéficos para la salud intestinal humana.<br>
+</FONT>
 
 
 ------------------------------------------------------------------------
@@ -68,10 +72,11 @@ Una importante industria alimenticia los contacta como `expertos en ecología mi
 </FONT>
 <FONT COLOR="darkblue">
 * ¿Cambia la comunidad microbiana a lo largo del proceso?<br>
-</FONT>
+</FONT> <br>
 
-
-La empresa secuenció cuatro puntos de fermentación de muestras que se obtuvieron en un mercado de Tabasco. Las muestras se secuenciaron con Illumina NextSeq500 con lecturas pareadas de 75 pb. Los datos están públicos bajo el Bioproject: [PRJNA648868](https://www.ebi.ac.uk/ena/browser/view/PRJNA648868)
+La empresa secuenció cuatro puntos de fermentación de muestras que se obtuvieron en un mercado de Tabasco. 
+Las muestras se secuenciaron con Illumina NextSeq500 con lecturas pareadas de 75 pb. 
+Los datos están públicos bajo el Bioproject: [PRJNA648868](https://www.ebi.ac.uk/ena/browser/view/PRJNA648868)
 
 <a href="{{ page.root }}/fig/extrasMAGs/03.Pozol_fermentation.png">
   <img src="{{ page.root }}/fig/extrasMAGs/03.Pozol_fermentation.png" alt="Puntos de fermentación" />
