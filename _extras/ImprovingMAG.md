@@ -1,18 +1,40 @@
 ---
-title: "Starting a Metagenomics Project"
+title: "Reconstrucción de Genomas a partir de Metagenomas (MAGs)"
 teaching: 15 
 exercises: 15
 questions:
-- "How do you plan a metagenomics experiment?" 
+- "Cómo podemos obtener MAGs de buena calidad? " 
 objectives:
-- "Learn the differences between shotgun and metabarcoding (amplicon metagenomics) techniques."
-keypoints:    
-- "Shotgun metagenomics can be used for taxonomic and functional studies." 
-- "Metabarcoding can be used for taxonomic studies."
+- "Tener una visión global sobre como reconstruir genomas de buena calidad a partir de metagenomas"
 ---
 
-## Metagenomics 
-**El pozol** es un alimento ácido, fermentado a partir de maíz nixtamalizado, de importancia económica y cultural, se consume desde tiempos prehispánicos y se ha estudiado desde los años 50s.
+## Genomas a partir de metagenomas
+
+La metagenómica hace referencia al estudio de todo el ADN de los organismos que se encuentran en un ambiente. La secuenciación de este material genético produce lecturas que pueden ensamblarse para conocer la diversidad microbiana y sus funciones.
+
+Típicamente los metagenomas pueden estudiarse mediante dos aproximaciones:
+
+* La clasificación taxonómica de contigs o lecturas y la inferencia metabólica de los contigs.
+* La reconstrucción de genomas a a partir de metagenomas (MAGs), clasificación taxonómica y la inferencia metabólica de los MAGs.
+  
+En este apartado nos enfocaremos en la segunda aproximación. Los **MAGs** se reconstruyen a partir de un **ensamble metagenómico**, los contigs de dicho ensamble se agrupan mediante la información de **cobertura y frecuencia de tetranucleótidos**. Esta agrupación puede generar errores, por lo que es indispensable evaluar la calidad de los MAGs mediante la completitud y redundancia de genes de copia única [MerenLab y col.](https://anvio.org/vocabulary/)
+
+Para obtener MAGs podemos seguir el siguiente flujo de análisis:
+
+<a href="{{ page.root }}/fig/extrasMAGs/01.MAGs_workflow.png">
+  <img src="{{ page.root }}/fig/extrasMAGs/01.MAGs_workflow.png" alt="Flujo de trabajo para Metagenómica Centrada en Genomas" />
+</a>
+
+Ya que discutimos como seguir un flujo de análisis para reconstruir genomas entremos en acción, para ello analizaremos el metagenoma del pozol.
+ 
+## El pozol
+
+**El pozol** es un alimento ácido, fermentado a partir de maíz nixtamalizado, de importancia económica y cultural, 
+se consume desde tiempos prehispánicos y se ha estudiado desde los años 50s.
+
+<a href="{{ page.root }}/fig/extrasMAGs/02.Pozolhistoria.png">
+  <img src="{{ page.root }}/fig/extrasMAGs/02.Pozolhistoria.png" alt="Proceso de elaboración del pozol" />
+</a>
 
 Algunos puntos importantes que conocemos son:
 
@@ -22,28 +44,45 @@ Algunos puntos importantes que conocemos son:
 
 -   Es muy nutritivo, tiene un alto contenido de aminoácidos esenciales.
 
--   Es considerado como **prebiótico,** contiene fibras solubles y microorganismos benéficos para la salud intestinal humana**.**
+-   Es considerado como **prebiótico**, contiene fibras solubles y microorganismos benéficos para la salud intestinal humana.
 
 </FONT>
-## On Metadata
 
-Once we have chosen an adequate methodology for our study, 
-we must take extensive notes on the origin of our samples and how we treated them. These notes constitute the **metadata**, or data about our data, 
-and they are crucial to understanding and interpreting the results we will obtain later in our metagenomic analysis. Most of the time, 
-the differences that we observe when comparing metagenomes can be 
-correlated to the metadata, which is why we must devote a whole section 
-of our experimental design to the metadata we expect to collect and record carefully. 
+------------------------------------------------------------------------
 
-> ## Discussion #1: 1.  Responde
+🧬🔊🦠 Imaginemos que se quiere impulsar la producción de esta bebida y para ello necesitan saber todo acerca de su naturaleza microbiana.
+
+Una importante industria alimenticia los contacta como **expertos en ecología microbiana** y les pide ayuda para descubrir los siguientes puntos:
+
+<FONT COLOR="darkblue">
+
+-   ¿Qué actores microbianos están presentes durante el proceso de fermentación?
+
+-   ¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?
+
+-   ¿Cambia la comunidad microbiana a lo largo del proceso?
+
+</FONT>
+
+La empresa secuenció cuatro puntos de fermentación de muestras que se obtuvieron en un mercado de Tabasco. Las muestras se secuenciaron con Illumina NextSeq500 con lecturas pareadas de 75 pb. Los datos están públicos bajo el Bioproject: [PRJNA648868](https://www.ebi.ac.uk/ena/browser/view/PRJNA648868)
+
+<a href="{{ page.root }}/fig/extrasMAGs/03.Pozol_fermentation.png">
+  <img src="{{ page.root }}/fig/extrasMAGs/03.Pozol_fermentation.png" alt="Puntos de fermentación" />
+</a>
+
+
+> ## Importante
 >
-> ¿Cuántos bins se formaron? 
-> ¿Qué parámetros cambiarías o agregarías? 
+> Como las muestras contienen maíz, es indispensable remover las lecturas que correspondan a su genoma,
+> no hacerlo producirá un ensamble muy fragmentado, mayoritariamente del maíz y poco microbiano.
+
+> El autor del artículo amablemente nos proporcionó sus muestras libres del maíz y el código que usó
+> para ello está disponible en un repositorio público de [GitHub](https://github.com/RafaelLopez-Sanchez/pozol_shotgun).
 > 
->> ## Solution
->> 1.  `ls results/04.metabat/`
->> 2.  `metabat2 –-help`
-> {: .solution}  
-{: .discussion}
+> El artículo: López-Sánchez et al., 2023. Analysing the dynamics of the bacterial community in pozol,
+> a Mexican fermented corn dough. [10.1099/mic.0.001355](https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.001355) 
+{: .importante}
+
 
 ## Cuatro Ciénegas  
 <a href="{{ page.root }}/fig/03-01-02.jpeg">
