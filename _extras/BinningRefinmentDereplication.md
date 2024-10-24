@@ -1,5 +1,5 @@
 ---
-title: "Reconstrucción de Genomas a partir de Metagenomas (MAGs)"
+title: "Clasificación taxonómica y metabolismo"
 teaching: 15 
 exercises: 15
 questions:
