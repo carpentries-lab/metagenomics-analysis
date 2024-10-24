@@ -99,6 +99,7 @@ Se sabe que el valor mínimo de contig para reducir errores es 2000, lo puedes v
 >  ¿Qué parámetros cambiarías o agregarías?
 >> ## Solución 
 >>  `ls results/04.metabat/`
+>> 
 >>  `metabat2 –-help`
 > {: .solution}
 {: .challenge}
@@ -113,7 +114,7 @@ conda deactivate
 ### MaxBin2
 
 [MaxBin2](https://sourceforge.net/projects/maxbin/files/) agrupa los contigs de acuerdo a la información de cobertura, composición nucleotídica y `marcadores de copia única`.
-<br>
+
 <p style="text-align: center;">
   <a href=" https://doi.org/10.1186/2049-2618-2-26" target="_blank">
     <img src="{{ page.root }}/fig/extrasMAGs/05.Maxbin.png" alt="MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26" width="573" />
@@ -121,6 +122,7 @@ conda deactivate
   <br>
   <em>MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26>
 </p>
+    
 <br>
 
 Vamos a ejecutarlo, activemos el ambiente.
@@ -141,11 +143,13 @@ Ahora si, vamos a ejecutarlo.
 run_MaxBin.pl -thread 4 -min_contig_length 1500 -contig results/02.ensambles/48hrs.fasta -out results/05.maxbin/48hrs_maxbin -abund results/03.profundidad/48hrs.mgh_depth.txt
 ```
 
-> ## Responde 
->  1. ¿Cuántos bins se formaron?
->  2. ¿Qué porcentaje de completitud tienen?
+> ## Responde
+> 
+>  ¿Cuántos bins se formaron?
+>  ¿Qué porcentaje de completitud tienen?
 >> ## Solución 
 >>  `ls results/05.maxbin/*.fasta | wc -l`
+>> 
 >>  `cat results/05.maxbin/48hrs_maxbin.summary | column -t`
 > {: .solution}
 {: .challenge}
@@ -156,7 +160,6 @@ Desactiva el ambiente
 conda deactivate
 ```
 <br>
-
 ### Vamb
 
 [VAMB](https://vamb.readthedocs.io/en/latest/) utiliza una combinación de enfoques de aprendizaje profundo y técnicas de agrupamiento basándose en sus patrones de composición de nucleótidos y en la co-ocurrencia de sus frecuencias de cobertura.
