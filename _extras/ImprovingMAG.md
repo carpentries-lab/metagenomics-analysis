@@ -91,8 +91,8 @@ La empresa secuenció cuatro puntos de fermentación de muestras que se obtuvier
 ## Espacio de trabajo
 
 1.  Entra a tu cuenta en el servidor y sitúate en tu `$HOME`
-
-2.  Obten los datos y la estructura de tu directorio del proyecto corriendo lo siguiente:
+2.  Obten los datos y la estructura de tu directorio del proyecto
+3.  Entra al directorio del proyecto
 
 ~~~
 # ve al $HOME
@@ -103,13 +103,8 @@ wget https://zenodo.org/records/13911654/files/taller_metagenomica_pozol.tar.gz?
 
 # descomprime
 tar -xvzf taller_metagenomica_pozol.tar.gz
-~~~
-{: .bash}
 
-
-3. Entra al directorio del proyecto
-
-~~~
+# Entra al directorio del proyecto
 cd taller_metagenomica_pozol
 ~~~
 {: .bash}
