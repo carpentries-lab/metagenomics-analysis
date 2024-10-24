@@ -53,6 +53,7 @@ Algunos puntos importantes que conocemos son:
 
 
 ------------------------------------------------------------------------
+## Resolvamos preguntas biológicas mediante Metagenómica centrada en genomas
 
 🧬🔊🦠 Imaginemos que se quiere impulsar la producción de esta bebida y para ello necesitan saber todo acerca de su naturaleza microbiana.
 
@@ -60,13 +61,13 @@ Una importante industria alimenticia los contacta como `expertos en ecología mi
 
 
 <FONT COLOR="darkblue">
-* ¿Qué actores microbianos están presentes durante el proceso de fermentación?
+* ¿Qué actores microbianos están presentes durante el proceso de fermentación?<br>
 </FONT>
 <FONT COLOR="darkblue">
-* ¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?
+* ¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?<br>
 </FONT>
 <FONT COLOR="darkblue">
-* ¿Cambia la comunidad microbiana a lo largo del proceso?
+* ¿Cambia la comunidad microbiana a lo largo del proceso?<br>
 </FONT>
 
 
