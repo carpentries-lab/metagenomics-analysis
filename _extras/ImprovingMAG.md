@@ -1,6 +1,6 @@
 ---
 title: "Reconstrucción de Genomas a partir de Metagenomas (MAGs)"
-teaching: 15 
+teaching: 25 
 exercises: 15
 questions:
 - "Cómo podemos obtener MAGs de buena calidad?" 
@@ -21,8 +21,8 @@ Típicamente los metagenomas pueden estudiarse mediante dos aproximaciones:
 * La clasificación taxonómica de contigs o lecturas y la inferencia metabólica de los contigs.
 * La reconstrucción de genomas a a partir de metagenomas (MAGs), clasificación taxonómica y la inferencia metabólica de los MAGs.
   
-En este apartado nos enfocaremos en la segunda aproximación. Los **MAGs** se reconstruyen a partir de un **ensamble metagenómico**, 
-los contigs de dicho ensamble se agrupan mediante la información de **cobertura y frecuencia de tetranucleótidos**. 
+En este apartado nos enfocaremos en la segunda aproximación. Los `MAGs` se reconstruyen a partir de un `ensamble metagenómico`, 
+los contigs de dicho ensamble se agrupan mediante la información de `cobertura y frecuencia de tetranucleótidos`. 
 Esta agrupación puede generar errores, por lo que es indispensable evaluar la calidad de los MAGs mediante la completitud 
 y redundancia de genes de copia única [MerenLab y col.](https://anvio.org/vocabulary/)
 
@@ -47,13 +47,10 @@ se consume desde tiempos prehispánicos y se ha estudiado desde los años 50s.
 
 Algunos puntos importantes que conocemos son:
 
-<FONT COLOR="blue">
-
 * No se inocula y al final de su fermentación tiene alta diversidad microbiana.
 * Es muy nutritivo, tiene un alto contenido de aminoácidos esenciales.
 * Es considerado como prebiótico, contiene fibras solubles y microorganismos benéficos para la salud intestinal humana.
 
-</FONT>
 
 ------------------------------------------------------------------------
 
@@ -63,12 +60,15 @@ Una importante industria alimenticia los contacta como `expertos en ecología mi
 
 
 <FONT COLOR="darkblue">
-
 * ¿Qué actores microbianos están presentes durante el proceso de fermentación?
-* ¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?
-* ¿Cambia la comunidad microbiana a lo largo del proceso?
-
 </FONT>
+<FONT COLOR="darkblue">
+* ¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?
+</FONT>
+<FONT COLOR="darkblue">
+* ¿Cambia la comunidad microbiana a lo largo del proceso?
+</FONT>
+
 
 La empresa secuenció cuatro puntos de fermentación de muestras que se obtuvieron en un mercado de Tabasco. Las muestras se secuenciaron con Illumina NextSeq500 con lecturas pareadas de 75 pb. Los datos están públicos bajo el Bioproject: [PRJNA648868](https://www.ebi.ac.uk/ena/browser/view/PRJNA648868)
 
@@ -106,11 +106,13 @@ tar -xvzf taller_metagenomica_pozol.tar.gz
 ~~~
 {: .bash}
 
-3.  Entra al directorio del proyecto
+
+3. Entra al directorio del proyecto
 
 ~~~
 cd taller_metagenomica_pozol
-~~~ {: .bash}
+~~~
+{: .bash}
 
 
 
@@ -118,10 +120,11 @@ cd taller_metagenomica_pozol
 > Si en algún momento te pierdes entre directorios, puedes regresar al espacio principal asi:
 > ~~~
 > cd && cd taller_metagenomica_pozol/
-> ~~~ {: .bash}
-{: .tip}
+> ~~~
+> {: .bash}
+{: .callout-tip}
 
-> ### Reglas del juego
+> ## Reglas del juego
 > * En este tutorial haremos el ejemplo corriendo la muestra de 48 hrs.
 > * Se formaran 6 equipos (2 de los tiempos 0, 9 y 24 hrs).
 > * Los equipos discutirán y presentarán sus resultados cuando se indique en el tutorial.
@@ -132,9 +135,11 @@ cd taller_metagenomica_pozol
 
 <p align="justify">
 
-<FONT COLOR="darkblue">La presente práctica sólo es una representación del flujo de trabajo para el análisis metagenómico, sin embargo, `no sustituye los manuales` de cada programa y el flujo puede variar dependiendo del tipo de datos y pregunta de investigación, de hecho para fines del taller, con frecuencia se utilizan las lineas de comando más simples para eficientar tiempo y recursos, tómalo en cuenta.</FONT>
+<FONT COLOR="darkblue">La presente práctica sólo es una representación del flujo de trabajo para el análisis metagenómico, sin embargo, `no sustituye los manuales` de cada programa y el flujo puede variar dependiendo del tipo de datos y pregunta de investigación. 
+De hecho para fines del taller, con frecuencia se utilizan las lineas de comando más simples para eficientar tiempo y recursos, tómalo en cuenta.</FONT>
 
 </p>
+
 
 Cada programa tiene una ayuda y un manual de usuario, es `importante` revisarlo y conocer cada parámetro que se ejecute. En terminal se puede consultar el manual con el comando `man` y también se puede consultar la ayuda con `-h` o `--help`, por ejemplo `fastqc -h`.
 
