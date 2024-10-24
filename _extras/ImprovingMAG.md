@@ -3,9 +3,9 @@ title: "Reconstrucción de Genomas a partir de Metagenomas (MAGs)"
 teaching: 15 
 exercises: 15
 questions:
-- "Cómo podemos obtener MAGs de buena calidad? " 
+- "Cómo podemos obtener MAGs de buena calidad?" 
 objectives:
-- "Tener una visión global sobre como reconstruir genomas de buena calidad a partir de metagenomas"
+- "Tener una visión global sobre como reconstruir genomas de buena calidad a partir de metagenomas."
 ---
 
 ## Genomas a partir de metagenomas
@@ -17,13 +17,18 @@ Típicamente los metagenomas pueden estudiarse mediante dos aproximaciones:
 * La clasificación taxonómica de contigs o lecturas y la inferencia metabólica de los contigs.
 * La reconstrucción de genomas a a partir de metagenomas (MAGs), clasificación taxonómica y la inferencia metabólica de los MAGs.
   
-En este apartado nos enfocaremos en la segunda aproximación. Los **MAGs** se reconstruyen a partir de un **ensamble metagenómico**, los contigs de dicho ensamble se agrupan mediante la información de **cobertura y frecuencia de tetranucleótidos**. Esta agrupación puede generar errores, por lo que es indispensable evaluar la calidad de los MAGs mediante la completitud y redundancia de genes de copia única [MerenLab y col.](https://anvio.org/vocabulary/)
+En este apartado nos enfocaremos en la segunda aproximación. Los **MAGs** se reconstruyen a partir de un **ensamble metagenómico**, 
+los contigs de dicho ensamble se agrupan mediante la información de **cobertura y frecuencia de tetranucleótidos**. 
+Esta agrupación puede generar errores, por lo que es indispensable evaluar la calidad de los MAGs mediante la completitud 
+y redundancia de genes de copia única [MerenLab y col.](https://anvio.org/vocabulary/)
 
 Para obtener MAGs podemos seguir el siguiente flujo de análisis:
+
 
 <a href="{{ page.root }}/fig/extrasMAGs/01.MAGs_workflow.png">
   <img src="{{ page.root }}/fig/extrasMAGs/01.MAGs_workflow.png" alt="Flujo de trabajo para Metagenómica Centrada en Genomas" />
 </a>
+
 
 Ya que discutimos como seguir un flujo de análisis para reconstruir genomas entremos en acción, para ello analizaremos el metagenoma del pozol.
  
@@ -72,16 +77,15 @@ La empresa secuenció cuatro puntos de fermentación de muestras que se obtuvier
 
 
 > ## Importante
->
 > Como las muestras contienen maíz, es indispensable remover las lecturas que correspondan a su genoma,
 > no hacerlo producirá un ensamble muy fragmentado, mayoritariamente del maíz y poco microbiano.
-
 > El autor del artículo amablemente nos proporcionó sus muestras libres del maíz y el código que usó
 > para ello está disponible en un repositorio público de [GitHub](https://github.com/RafaelLopez-Sanchez/pozol_shotgun).
 > 
 > El artículo: López-Sánchez et al., 2023. Analysing the dynamics of the bacterial community in pozol,
 > a Mexican fermented corn dough. [10.1099/mic.0.001355](https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.001355) 
-{: .importante}
+{: .callout}
+
 
 
 ## Cuatro Ciénegas  
