@@ -1,97 +1,203 @@
 ---
-title: "Clasificación taxonómica y metabolismo"
-teaching: 15 
-exercises: 15
+title: "Binning, Refinamiento y Desreplicación"
+teaching: 2 h 
+exercises: 3 h
 questions:
-- "Cómo podemos obtener MAGs de buena calidad? " 
+- "Cómo podemos obtener MAGs de buena calidad?"
+- "Cómo eliminamos redundancia?" 
 objectives:
-- "Tener una visión global sobre como reconstruir genomas de buena calidad a partir de metagenomas"
+- "Obtener MAGs no redundantes de buena calidad"
+keypoints:
+- "Usar más de un programa de binning aumenta la probabilidad de agrupar más genomas"
+- "Conjuntar y refinar los bins es esencial para aumentar la calidad de los genomas"
+- "Eliminar redundancia genómica es necesario para describir bien la comunidad microbiana"
 ---
 
-## Genomas a partir de metagenomas
+## Mapeo
 
-La metagenómica hace referencia al estudio de todo el ADN de los organismos que se encuentran en un ambiente. La secuenciación de este material genético produce lecturas que pueden ensamblarse para conocer la diversidad microbiana y sus funciones.
+En los [días anteriores](https://carpentries-lab.github.io/metagenomics-analysis/) aprendieron a evaluar la calidad de las lecturas, filtrarlas y ensamblarlas, por lo que este apartado comenzará con un ensamble ya generado.
 
-Típicamente los metagenomas pueden estudiarse mediante dos aproximaciones:
+De acuerdo con el flujo de análisis (Figura 1), debemos partir de un ensamble, mapear las lecturas y obtener un archivo de profundidad de cada contig en el ensamble.
+<br>
 
-* La clasificación taxonómica de contigs o lecturas y la inferencia metabólica de los contigs.
-* La reconstrucción de genomas a a partir de metagenomas (MAGs), clasificación taxonómica y la inferencia metabólica de los MAGs.
-  
-En este apartado nos enfocaremos en la segunda aproximación. Los **MAGs** se reconstruyen a partir de un **ensamble metagenómico**, los contigs de dicho ensamble se agrupan mediante la información de **cobertura y frecuencia de tetranucleótidos**. Esta agrupación puede generar errores, por lo que es indispensable evaluar la calidad de los MAGs mediante la completitud y redundancia de genes de copia única [MerenLab y col.](https://anvio.org/vocabulary/)
+> ## Archivos de profundidad
+> El proceso de mapeo es demandante en tiempo de ejecución y recursos. Así que nos dimos a la tarea de generar el archivo de profundidad para comenzar directamente con el *binning*.
+>
+> El mapeo lo corrimos con [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#introduction) que es una herramienta confiable
+> y muy utilizada para alinear lecturas cortas a una referencia, en nuestro caso, la referencia es el ensamble metagenómico de la muestra de 48hrs.
+> Bowtie2 genera un archivo de mapeo (SAM) que debe convertirse a un formato binario (BAM), para esta conversión usamos [samtools](https://github.com/samtools/) que contiene multiples subherramientas para trabajar con archivos de mapeos.
+> Para generar este archivo se utilizaron las siguientes lineas de código.
+>> ~~~
+>> # Formatear el ensamble
+>> bowtie2-build results/02.ensambles/megahit/48hrs/48hrs.fasta results/03.profundidad/48hrs --threads 40
+>> # Mapear las lecturas contra el ensamble
+>> bowtie2 -x results/03.profundidad/48hrs -1 data/48hrs_sm_R1.fastq -2 data/48hrs_sm_R2.fastq -p 40 -S results/03.profundidad/48hrs.sam
+>> # Convertir de SAM a BAM y ordenar
+>> samtools view -Sb -O BAM -@ 40 results/03.profundidad/48hrs.sam | samtools sort -@ 40  -o results/03.profundidad/48hrs_sorted.bam
+>> # Obtener el índice
+>> samtools index results/03.profundidad/48hrs_sorted.bam
+>> ~~~
+>> {: .bash}
+>>
+>> Ya que generamos el archivo bam ordenado y el índice, obtuvimos un archivo con la información de cobertura de cada contig dentro del ensamble,
+>> este **archivo de profundidad** se generó con `jgi_summarize_bam_contig_depths` que es una herramienta desarrollada por el JGI.
+>>
+>> ~~~
+>> # Obtener el archivo de profundidad de cada contig
+>> jgi_summarize_bam_contig_depths  --outputDepth results/03.profundidad/48hrs.mgh_depth.txt results/03.profundidad/48hrs_sorted.bam
+>> ~~~
+>> {: .bash}
+> {: .callout}
+>
+> No las ejecutes, sólo son un ejemplo para que las puedas usar con tus propios datos en el futuro.
+{: .callout}
+<br>
 
-Para obtener MAGs podemos seguir el siguiente flujo de análisis:
-
-<a href="{{ page.root }}/fig/extrasMAGs/01.MAGs_workflow.png">
-  <img src="{{ page.root }}/fig/extrasMAGs/01.MAGs_workflow.png" alt="Flujo de trabajo para Metagenómica Centrada en Genomas" />
-</a>
-
-Ya que discutimos como seguir un flujo de análisis para reconstruir genomas entremos en acción, para ello analizaremos el metagenoma del pozol.
- 
-## El pozol
-
-**El pozol** es un alimento ácido, fermentado a partir de maíz nixtamalizado, de importancia económica y cultural, 
-se consume desde tiempos prehispánicos y se ha estudiado desde los años 50s.
-
-<a href="{{ page.root }}/fig/extrasMAGs/02.Pozolhistoria.png">
-  <img src="{{ page.root }}/fig/extrasMAGs/02.Pozolhistoria.png" alt="Proceso de elaboración del pozol" />
-</a>
-
-Algunos puntos importantes que conocemos son:
-
-<FONT COLOR="blue">
-
--   No se inocula y al final de su fermentación tiene alta diversidad microbiana.
-
--   Es muy nutritivo, tiene un alto contenido de aminoácidos esenciales.
-
--   Es considerado como **prebiótico**, contiene fibras solubles y microorganismos benéficos para la salud intestinal humana.
-
-</FONT>
+> ## Ejercicio 1. ¿Qué información requieren los programas de binning? 
+> Antes de comenzar, reúnete con tu equipo y juntos:
+> * Revisen nuevamente el contenido de los directorios `02.ensambles` y `03.profundidad.txt`
+> * En una diapositiva expliquen el `flujo teórico` que se siguió para obtener los archivos que están en esos directorios.
+> Usa [esta](https://drive.google.com/drive/folders/1rg-zjuASg9D-goa2SlL3HXalqj3BQFNX?usp=sharing) liga de drive para ir trabajando durante el taller.
+> Sólo un miembro de cada equipo escriba en la presentación
+{: .challenge}
 
 ------------------------------------------------------------------------
+## Binning
 
-🧬🔊🦠 Imaginemos que se quiere impulsar la producción de esta bebida y para ello necesitan saber todo acerca de su naturaleza microbiana.
+🧬 Ahora si, vamos a agrupar los contigs del metaensamble en *bins* ...
 
-Una importante industria alimenticia los contacta como **expertos en ecología microbiana** y les pide ayuda para descubrir los siguientes puntos:
+### Metabat2
 
-<FONT COLOR="darkblue">
+[Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/) es una herramienta que agrupa los contigs tomando la cobertura de cada contig y calcula su composición nucleotídica.
 
--   ¿Qué actores microbianos están presentes durante el proceso de fermentación?
+<p style="text-align: center;">
+  <a href="https://doi.org/10.7717/peerj.1165" target="_blank">
+    <img src="{{ page.root }}/fig/extrasMAGs/04.Metabat.png" alt="Metabat2. Kang et al., 2015. DOI:10.7717/peerj.1165" width="573" />
+  </a>
+  <br>
+  <em>Metabat2. Kang et al., 2015. DOI:10.7717/peerj.1165</em>
+</p>
+<br>
+Para correr metabat necesitamos activar el [ambiente conda](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment) donde se aloja.
+~~~
+conda activate binning
+~~~
+{: .bash}
+<br>
+Ahora que ya tenemos el ambiente activado ejecutemos metabat:
+~~~
+metabat2 -i results/02.ensambles/48hrs.fasta -a results/03.profundidad/48hrs.mgh_depth.txt -o results/04.metabat/metabat -t 4 -m 1500 -seed 123
+~~~
+{: .bash}
 
--   ¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?
+Se sabe que el valor mínimo de contig para reducir errores es 2000, lo puedes ver en la [figura 6 de este artículo](https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3103/MediaObjects/41592_2014_BFnmeth3103_MOESM187_ESM.pdf).
 
--   ¿Cambia la comunidad microbiana a lo largo del proceso?
+> ## Responde
+> ¿Cuántos bins se formaron?
+> ¿Qué parámetros cambiarías o agregarías?
+>> ## Solución 
+>> `ls results/04.metabat/`
+>> `metabat2 –-help`
+> {: .solution}
+{: .challenge}
 
-</FONT>
-
-La empresa secuenció cuatro puntos de fermentación de muestras que se obtuvieron en un mercado de Tabasco. Las muestras se secuenciaron con Illumina NextSeq500 con lecturas pareadas de 75 pb. Los datos están públicos bajo el Bioproject: [PRJNA648868](https://www.ebi.ac.uk/ena/browser/view/PRJNA648868)
-
-<a href="{{ page.root }}/fig/extrasMAGs/03.Pozol_fermentation.png">
-  <img src="{{ page.root }}/fig/extrasMAGs/03.Pozol_fermentation.png" alt="Puntos de fermentación" />
-</a>
-
-
-> ## Importante
->
-> Como las muestras contienen maíz, es indispensable remover las lecturas que correspondan a su genoma,
-> no hacerlo producirá un ensamble muy fragmentado, mayoritariamente del maíz y poco microbiano.
-
-> El autor del artículo amablemente nos proporcionó sus muestras libres del maíz y el código que usó
-> para ello está disponible en un repositorio público de [GitHub](https://github.com/RafaelLopez-Sanchez/pozol_shotgun).
-> 
-> El artículo: López-Sánchez et al., 2023. Analysing the dynamics of the bacterial community in pozol,
-> a Mexican fermented corn dough. [10.1099/mic.0.001355](https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.001355) 
-{: .importante}
+Ya que corrimos Metabat2 vamos a ejecutar MaxBin2, pero primero necesitamos desactivar el ambiente:
+~~~
+conda deactivate
+~~~
+{: .bash}
 
 
-## Cuatro Ciénegas  
-<a href="{{ page.root }}/fig/03-01-02.jpeg">
-  <img src="{{ page.root }}/fig/03-01-02.jpeg" alt="Photography of a pond in Cuatro Ciénegas" />
-</a>
+### MaxBin2
 
-> ## Quality of large datasets
->
-> Explore [MultiQC](https://multiqc.info/) if you want a tool that can show the quality of many samples at once.
+[MaxBin2](https://sourceforge.net/projects/maxbin/files/) agrupa los contigs de acuerdo a la información de cobertura, composición nucleotídica y genes **de marcadores de copia única**.
+
+Vamos a ejecutarlo, activemos el [ambiente conda](#0) para maxbin.
+
+::: callout-caution
+## Activar ambiente para MaxBin2
+
+-   betterlab
+
+    ``` bash
+    conda activate metagenomics
+    ```
+:::
+
+[![MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26](Figures/03.Maxbin.png){width="371"}](https://doi.org/10.1186/2049-2618-2-26)
+
+Crea el directorio para los resultados de MaxBin2
+
+``` bash
+mkdir -p results/05.maxbin
+```
+
+Ahora si, vamos a ejecutarlo.
+
+``` bash
+
+run_MaxBin.pl -thread 4 -min_contig_length 1500 -contig results/02.ensambles/48hrs.fasta -out results/05.maxbin/48hrs_maxbin -abund results/03.profundidad/48hrs.mgh_depth.txt
+```
+
+::: {.callout-important collapse="true" title="Ejercicio:"}
+1\. ¿Cuántos bins se formaron?
+
+2\. ¿Qué porcentaje de completitud tienen??
+
+::: {.callout-tip collapse="true" title="Solución"}
+1.  `ls results/05.maxbin/*.fasta | wc -l`
+2.  `cat results/05.maxbin/48hrs_maxbin.summary | column -t`
+:::
+:::
+
+::: callout-caution
+## Desactiva el ambiente
+
+``` bash
+conda deactivate
+```
+:::
+
+### Vamb
+
+[VAMB](https://vamb.readthedocs.io/en/latest/) utiliza una combinación de enfoques de aprendizaje profundo y técnicas de agrupamiento basándose en sus patrones de composición de nucleótidos y en la co-ocurrencia de sus frecuencias de cobertura.
+
+::: callout-caution
+## Activa el ambiente binning
+
+-   betterlab
+
+    ``` bash
+    conda activate binning
+    ```
+:::
+
+Vamos a correr vamb, pero primero crea el directorio de resultados
+
+``` bash
+mkdir -p results/06.vamb
+```
+
+Ejecutemos vamb:
+
+``` bash
+vamb --fasta results/02.ensambles/48hrs.fasta --jgi results/03.profundidad/48hrs.mgh_depth.txt --minfasta 500000 --outdir results/06.vamb/48hrs
+```
+
+::: callout-important
+Si quisieras recuperar los genomas de virus ¿Qué parámetro cambiarías?
+:::
+
+::: callout-tip
+## Otros programas para binning
+
+Recientemente se publicó COMEBin, que utiliza un enfoque distinto a lo que hemos usado en este tutorial. En el siguiente [link](https://github.com/ziyewang/COMEBin) encontrarás el manual y una explicación general sobre su funcionamiento.
+:::
+
+
+> ## 🧠 Para tenerlo presente
+> En bioinformática cualquier línea de comandos generará un resultado, de ahí a que esos resultados sean correctos puede haber una gran diferencia.
+> En cada paso detente a revisar la información de cada programa, lee el manual, visita foros de ayuda y selecciona los argumentos que se ajusten a las necesidades de tus datos.
 {: .callout}
 
 
