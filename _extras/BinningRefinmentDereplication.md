@@ -26,7 +26,7 @@ De acuerdo con el flujo de análisis (Figura 1), debemos partir de un ensamble, 
 > El mapeo lo corrimos con [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#introduction) que es una herramienta confiable
 > y muy utilizada para alinear lecturas cortas a una referencia, en nuestro caso, la referencia es el ensamble metagenómico de la muestra de 48hrs.
 > Bowtie2 genera un archivo de mapeo (SAM) que debe convertirse a un formato binario (BAM), para esta conversión usamos [samtools](https://github.com/samtools/) que contiene multiples subherramientas para trabajar con archivos de mapeos.
-> Para generar este archivo se utilizaron las siguientes lineas de código.
+> Para generar este archivo se utilizaron las siguientes lineas de código:
 >> ~~~
 >> # Formatear el ensamble
 >> bowtie2-build results/02.ensambles/megahit/48hrs/48hrs.fasta results/03.profundidad/48hrs --threads 40
@@ -49,7 +49,7 @@ De acuerdo con el flujo de análisis (Figura 1), debemos partir de un ensamble, 
 >> {: .bash}
 > {: .callout}
 >
-> No las ejecutes, sólo son un ejemplo para que las puedas usar con tus propios datos en el futuro.
+> 🔊 🔊 No las ejecutes, sólo son un ejemplo para que las puedas usar con tus propios datos en el futuro.
 {: .callout}
 <br>
 
@@ -57,7 +57,9 @@ De acuerdo con el flujo de análisis (Figura 1), debemos partir de un ensamble, 
 > Antes de comenzar, reúnete con tu equipo y juntos:
 > * Revisen nuevamente el contenido de los directorios `02.ensambles` y `03.profundidad.txt`
 > * En una diapositiva expliquen el `flujo teórico` que se siguió para obtener los archivos que están en esos directorios.
+> 
 > Usa [esta](https://drive.google.com/drive/folders/1rg-zjuASg9D-goa2SlL3HXalqj3BQFNX?usp=sharing) liga de drive para ir trabajando durante el taller.
+> 
 > Sólo un miembro de cada equipo escriba en la presentación
 {: .challenge}
 
@@ -69,7 +71,7 @@ De acuerdo con el flujo de análisis (Figura 1), debemos partir de un ensamble, 
 ### Metabat2
 
 [Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/) es una herramienta que agrupa los contigs tomando la cobertura de cada contig y calcula su composición nucleotídica.
-
+<br>
 <p style="text-align: center;">
   <a href="https://doi.org/10.7717/peerj.1165" target="_blank">
     <img src="{{ page.root }}/fig/extrasMAGs/04.Metabat.png" alt="Metabat2. Kang et al., 2015. DOI:10.7717/peerj.1165" width="573" />
@@ -85,19 +87,19 @@ conda activate binning
 {: .bash}
 <br>
 Ahora que ya tenemos el ambiente activado ejecutemos metabat:
-~~~
+
+``` bash
 metabat2 -i results/02.ensambles/48hrs.fasta -a results/03.profundidad/48hrs.mgh_depth.txt -o results/04.metabat/metabat -t 4 -m 1500 -seed 123
-~~~
-{: .bash}
-
+```
+<br>
 Se sabe que el valor mínimo de contig para reducir errores es 2000, lo puedes ver en la [figura 6 de este artículo](https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3103/MediaObjects/41592_2014_BFnmeth3103_MOESM187_ESM.pdf).
-
+<br>
 > ## Responde
-> ¿Cuántos bins se formaron?
-> ¿Qué parámetros cambiarías o agregarías?
+>  ¿Cuántos bins se formaron?
+>  ¿Qué parámetros cambiarías o agregarías?
 >> ## Solución 
->> `ls results/04.metabat/`
->> `metabat2 –-help`
+>>  `ls results/04.metabat/`
+>>  `metabat2 –-help`
 > {: .solution}
 {: .challenge}
 
@@ -110,21 +112,22 @@ conda deactivate
 
 ### MaxBin2
 
-[MaxBin2](https://sourceforge.net/projects/maxbin/files/) agrupa los contigs de acuerdo a la información de cobertura, composición nucleotídica y genes **de marcadores de copia única**.
+[MaxBin2](https://sourceforge.net/projects/maxbin/files/) agrupa los contigs de acuerdo a la información de cobertura, composición nucleotídica y `marcadores de copia única`.
+<br>
+<p style="text-align: center;">
+  <a href=" https://doi.org/10.1186/2049-2618-2-26" target="_blank">
+    <img src="{{ page.root }}/fig/extrasMAGs/05.Maxbin.png" alt="MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26" width="573" />
+  </a>
+  <br>
+  <em>MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26>
+</p>
+<br>
 
-Vamos a ejecutarlo, activemos el [ambiente conda](#0) para maxbin.
+Vamos a ejecutarlo, activemos el ambiente.
 
-::: callout-caution
-## Activar ambiente para MaxBin2
-
--   betterlab
-
-    ``` bash
-    conda activate metagenomics
-    ```
-:::
-
-[![MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26](Figures/03.Maxbin.png){width="371"}](https://doi.org/10.1186/2049-2618-2-26)
+``` bash
+conda activate metagenomics
+```
 
 Crea el directorio para los resultados de MaxBin2
 
@@ -135,42 +138,35 @@ mkdir -p results/05.maxbin
 Ahora si, vamos a ejecutarlo.
 
 ``` bash
-
 run_MaxBin.pl -thread 4 -min_contig_length 1500 -contig results/02.ensambles/48hrs.fasta -out results/05.maxbin/48hrs_maxbin -abund results/03.profundidad/48hrs.mgh_depth.txt
 ```
 
-::: {.callout-important collapse="true" title="Ejercicio:"}
-1\. ¿Cuántos bins se formaron?
+> ## Responde 
+>  1. ¿Cuántos bins se formaron?
+>  2. ¿Qué porcentaje de completitud tienen?
+>> ## Solución 
+>>  `ls results/05.maxbin/*.fasta | wc -l`
+>>  `cat results/05.maxbin/48hrs_maxbin.summary | column -t`
+> {: .solution}
+{: .challenge}
 
-2\. ¿Qué porcentaje de completitud tienen??
-
-::: {.callout-tip collapse="true" title="Solución"}
-1.  `ls results/05.maxbin/*.fasta | wc -l`
-2.  `cat results/05.maxbin/48hrs_maxbin.summary | column -t`
-:::
-:::
-
-::: callout-caution
-## Desactiva el ambiente
-
+<br>
+Desactiva el ambiente
 ``` bash
 conda deactivate
 ```
-:::
+<br>
 
 ### Vamb
 
 [VAMB](https://vamb.readthedocs.io/en/latest/) utiliza una combinación de enfoques de aprendizaje profundo y técnicas de agrupamiento basándose en sus patrones de composición de nucleótidos y en la co-ocurrencia de sus frecuencias de cobertura.
 
-::: callout-caution
-## Activa el ambiente binning
+<br>
+Activa el ambiente binning
 
--   betterlab
-
-    ``` bash
-    conda activate binning
-    ```
-:::
+``` bash
+conda activate binning
+```
 
 Vamos a correr vamb, pero primero crea el directorio de resultados
 
@@ -184,16 +180,14 @@ Ejecutemos vamb:
 vamb --fasta results/02.ensambles/48hrs.fasta --jgi results/03.profundidad/48hrs.mgh_depth.txt --minfasta 500000 --outdir results/06.vamb/48hrs
 ```
 
-::: callout-important
-Si quisieras recuperar los genomas de virus ¿Qué parámetro cambiarías?
-:::
+> ## Responde
+> Si quisieras recuperar los genomas de virus ¿Qué parámetro cambiarías?
+{: .challenge}
 
-::: callout-tip
-## Otros programas para binning
 
-Recientemente se publicó COMEBin, que utiliza un enfoque distinto a lo que hemos usado en este tutorial. En el siguiente [link](https://github.com/ziyewang/COMEBin) encontrarás el manual y una explicación general sobre su funcionamiento.
-:::
-
+> ## Otros programas para binning
+> Recientemente se publicó COMEBin, que utiliza un enfoque distinto a lo que hemos usado en este tutorial. En el siguiente [link](https://github.com/ziyewang/COMEBin) encontrarás el manual y una explicación general sobre su funcionamiento.
+{: .callout}
 
 > ## 🧠 Para tenerlo presente
 > En bioinformática cualquier línea de comandos generará un resultado, de ahí a que esos resultados sean correctos puede haber una gran diferencia.
