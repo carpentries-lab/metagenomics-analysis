@@ -114,15 +114,14 @@ conda deactivate
 ### MaxBin2
 
 [MaxBin2](https://sourceforge.net/projects/maxbin/files/) agrupa los contigs de acuerdo a la información de cobertura, composición nucleotídica y `marcadores de copia única`.
-
+<br>
 <p style="text-align: center;">
-  <a href=" https://doi.org/10.1186/2049-2618-2-26" target="_blank">
+  <a href="https://doi.org/10.1186/2049-2618-2-26" target="_blank">
     <img src="{{ page.root }}/fig/extrasMAGs/05.Maxbin.png" alt="MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26" width="573" />
   </a>
   <br>
-  <em>MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26>
-</p>
-    
+  <em>MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26</em>
+</p>    
 <br>
 
 Vamos a ejecutarlo, activemos el ambiente.
@@ -200,7 +199,7 @@ Ya corrimos tres programas de *binning*, pero, recordemos que los agrupamientos 
 <br>
 <p style="text-align: center;">
   <a href="{{ page.root }}/fig/extrasMAGs/06.Refinamiento.png">
-    <img src="{{ page.root }}/fig/extrasMAGs/06.Refinamiento.png" alt="Refinamiento" width="373" />
+    <img src="{{ page.root }}/fig/extrasMAGs/06.Refinamiento.png" alt="Refinamiento" width="373"/>
   </a>
 </p>
 <br>
@@ -217,10 +216,10 @@ Para hacer esta evaluación, CheckM utiliza una serie de herramientas: `tree` or
 <br>
 <p style="text-align: center;">
   <a href="https://genome.cshlp.org/content/25/7/1043/T3.expansion.html" target="_blank">
-    <img src="{{ page.root }}/fig/extrasMAGs/07.CheckM_workflow.png" alt="CheckM. Parks et al., 2015. https://genome.cshlp.org/content/25/7/1043.full" />
+    <img src="{{ page.root }}/fig/extrasMAGs/07.CheckM_workflow.png" alt="CheckM. Parks et al., 2015. https://genome.cshlp.org/content/25/7/1043.full"/>
   </a>
   <br>
-  <em>CheckM. Parks et al., 2015. https://genome.cshlp.org/content/25/7/1043.full>
+  <em>CheckM. Parks et al., 2015. https://genome.cshlp.org/content/25/7/1043.full</em>
 </p>
 <br>
 
@@ -239,7 +238,7 @@ Y una captura de ejemplo de como se ve la salida de CheckM:
 <br>
 <p style="text-align: center;">
   <a href="{{ page.root }}/fig/extrasMAGs/08.checkm_example.png">
-    <img src="{{ page.root }}/fig/extrasMAGs/08.checkm_example.png" alt="CheckM ejemplo"  width="828" />
+    <img src="{{ page.root }}/fig/extrasMAGs/08.checkm_example.png" alt="CheckM ejemplo"  width="828"/>
   </a>
 </p>
 <br>
@@ -254,10 +253,10 @@ Y ahora si, a refinar los *bins* ... 🥳
 <br>
 <p style="text-align: center;">
   <a href="https://doi.org/10.1093/bioinformatics/btx086" target="_blank">
-    <img src="{{ page.root }}/fig/extrasMAGs/09.Binning_refiner.png" alt="Binning_refiner. Wei-Zhi & Torsten, 2017. https://doi.org/10.1093/bioinformatics/btx086" />
+    <img src="{{ page.root }}/fig/extrasMAGs/09.Binning_refiner.png" alt="Binning_refiner. Wei-Zhi & Torsten, 2017. https://doi.org/10.1093/bioinformatics/btx086"/>
   </a>
   <br>
-  <em>Binning_refiner. Wei-Zhi & Torsten, 2017. https://doi.org/10.1093/bioinformatics/btx086>
+  <em>Binning_refiner. Wei-Zhi & Torsten, 2017. https://doi.org/10.1093/bioinformatics/btx086</em>
 </p>
 <br>
 
@@ -360,9 +359,6 @@ Refined_bin     Size(Kbp)       Source
 > {: .solution}
 {: .challenge}
 
-
-
-![Binning_refiner sankey plot](Figures/07.sankey.png){fig-align="center"}
 
 ### DASTool
 
