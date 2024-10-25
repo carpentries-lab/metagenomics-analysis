@@ -253,7 +253,7 @@ Y ahora si, a refinar los *bins* ... 🥳
 <br>
 <p style="text-align: center;">
   <a href="https://doi.org/10.1093/bioinformatics/btx086" target="_blank">
-    <img src="{{ page.root }}/fig/extrasMAGs/09.Binning_refiner.png" alt="Binning_refiner. Wei-Zhi & Torsten, 2017. https://doi.org/10.1093/bioinformatics/btx086"/>
+    <img src="{{ page.root }}/fig/extrasMAGs/09.Binning_refiner.png" alt="Binning_refiner. Wei-Zhi & Torsten, 2017." width="578" />
   </a>
   <br>
   <em>Binning_refiner. Wei-Zhi & Torsten, 2017. https://doi.org/10.1093/bioinformatics/btx086</em>
@@ -359,12 +359,29 @@ Refined_bin     Size(Kbp)       Source
 > {: .solution}
 {: .challenge}
 
+<br>
+<p style="text-align: center;">
+  <a href="{{ page.root }}/fig/extrasMAGs/10.BRsankeyEx.png">
+    <img src="{{ page.root }}/fig/extrasMAGs/10.BRsankeyEx.png" alt="Binning Refiner output"  width="528"/>
+  </a>
+</p>
+<br>
 
 ### DASTool
 
 [DASTool](https://github.com/cmks/DAS_Tool) es una herramienta utilizada para mejorar la calidad de los *bins*. Evalúa la integridad, combina los resultados de diferentes *bineadores* y por consenso selecciona los mejores *bins* de cada herramienta. Una vez que DASTool ha seleccionado los mejores bins, realiza un proceso de refinamiento para optimizar los resultados.
 
 ![DASTool](Figures/06.DASTool.png){fig-alt="Sieber et al. 2018. Recovery of genomes from metagenomes via a dereplication, aggregation and scoring strategy. Nat. Micro." fig-align="center" width="935"}
+
+<br>
+<p style="text-align: center;">
+  <a href="https://doi.org/10.1038/s41564-018-0171-1." target="_blank">
+    <img src="{{ page.root }}/fig/extrasMAGs/11.DASTool.png" alt="DASTool. Sieber et al., 2018." width="678" />
+  </a>
+  <br>
+  <em>DASTool. Sieber et al., 2018. https://doi.org/10.1038/s41564-018-0171-1.</em>
+</p>
+<br>
 
 Vamos a correr DASTool ...
 
@@ -390,7 +407,6 @@ Ya que tenemos los archivos tsv podemos empezar con el refinamiento!! 🥳
 DAS_Tool -i results/08.dastool/48hrs_metabat.dastool.tsv,results/08.dastool/48hrs_maxbin.dastool.tsv,results/08.dastool/48hrs_vamb.dastool.tsv -l metabat,maxbin,vamb -c results/02.ensambles/48hrs.fasta -o results/08.dastool/48hrs -t 4 --write_bins
 ```
 
-### 
 
 ## Dereplicación
 
@@ -398,17 +414,26 @@ DAS_Tool -i results/08.dastool/48hrs_metabat.dastool.tsv,results/08.dastool/48hr
 
 La desreplicación es el proceso de identificar conjuntos de genomas que son "iguales" en una lista de genomas y eliminar todos los genomas excepto el "mejor" de cada conjunto redundante. [dRep](https://drep.readthedocs.io/en/latest/overview.html) es una herramienta útil para esto.
 
-[![dRep](Figures/dRep.png){fig-align="center" width="423"}](https://drep.readthedocs.io/en/latest/overview.html)
+<br>
+<p style="text-align: center;">
+  <a href="https://academic.oup.com/ismej/article/11/12/2864/7537826" target="_blank">
+    <img src="{{ page.root }}/fig/extrasMAGs/12.dRep.png" alt="DASTool. Olm et al., 2017." width="678" />
+  </a>
+  <br>
+  <em>DASTool. Olm et al., 2017. https://academic.oup.com/ismej/article/11/12/2864/7537826.</em>
+</p>
+<br>
 
 Ya que tenemos los resultados de los dos refinadores ejecutaremos dRep para desreplicar y seleccionar el mejor representante de cada *bin*.
 
+<br>
 Primero vamos a crear el directorio de resultados para dRep.
 
 ``` bash
 mkdir -p results/09.drep/bins
 ```
 
-Y entraremos al directorio bins dentro del directorio de resultados para colocar los bins que queremos comparar. En este caso los generados por ambos refinadores.
+Y entraremos al directorio bins dentro del directorio de resultados para colocar los bins que queremos comparar. En este caso los generados por ambos refinadores (pero podrían ser los bins refinados de cada punto de muestreo).
 
 ``` bash
 cd results/09.drep/bins/
@@ -421,13 +446,13 @@ for i in $(ls ../../08.dastool/48hrs_DASTool_bins/*.fa) ; do name=$(basename $i 
 
 cp ../../07.binning_refiner/48hrs_Binning_refiner_outputs/48hrs_refined_bins/*.fasta .
 ```
-
+<br>
 Ya que los copiamos, regresemos al directorio principal.
 
 ``` bash
 cd && cd taller_metagenomica_pozol/
 ```
-
+<br>
 Y ahora si, vamos a correr dRep ...
 
 ``` bash
@@ -436,9 +461,22 @@ export PATH=/miniconda3/envs/metagenomics/bin:$PATH
 dRep dereplicate results/09.drep/ -d -comp 50 -con 10 --SkipSecondary -g results/09.drep/bins/*.fasta
 ```
 
+> ### Nota
+>
+> El argumento `--SkipSecondary` no se aconseja poner, en la vida real queremos que se hagan todas las agrupaciones
+> para discriminar genomas. En este ejemplo fue necesario ponerlo porque no logramos llamar a ANIm
+{: .callout} 
+
+
 Este es uno de los plots generados por dRep, que representa los mejores bins desreplicados.
 
-![dRepWinningGenomes](Figures/09.dRepWinningGenomes.png){fig-align="center"}
+<br>
+<p style="text-align: center;">
+  <a href="{{ page.root }}/fig/extrasMAGs/13.dRepWinningGenomes.png">
+    <img src="{{ page.root }}/fig/extrasMAGs/13.dRepWinningGenomes.png" alt="dRep output" />
+  </a>
+</p>
+<br>
 
 Vamos a desactivar el ambiente de dRep
 
@@ -448,78 +486,32 @@ conda deactivate
 
 ------------------------------------------------------------------------
 
-::: callout-important
-## Para reflexionar
-
-Para tomar en cuenta
-
--   En la vida real, si el proyecto de metagenómica que estás desarrollando tiene librerías de diferentes muestras usarías dRep entre todos los conjuntos de *bins* ya refinados para no tener redundancia de genomas.
-
--   Qué harías si antes de desreplicar tienes un bin que tiene 98 % de completitud y 11 % de contaminación?. dRep en automático lo descartaría.
-
-Propondrías alguna manera para quedarte con este bin y curarlo para reducir su contaminación?
-
-Por suerte hay más programas que pueden ayudarnos a curar nuestros bins manualmente, una herramienta útil para esto es [**mmgenome2**](https://kasperskytte.github.io/mmgenome2/articles/mmgenome2.html)
-:::
-
-Para tomar en consideración:
-
-::: callout-tip
-## Tip
-
-Ya que tenemos los *bins* refinados y desreplicados opcionalmente podrías reensamblarlos. La manera sería mapear las lecturas de toda la muestra a los *bins* finales y con las lecturas mapeadas y el *bin,* generar un ensamble genómico para cada uno. Con esta aproximación se genera un MAG más pulido y la contaminación se reduce.
-
-Aunque en muchos reportes verás que los autores reensamblan sus MAGs, en otros no lo hacen y no hacerlo no está mal, pero hacerlo mejora la calidad.
-:::
-
+> ## 🧠 Discusión
+> 
+> Para tomar en cuenta
+> * En la vida real, si el proyecto de metagenómica que estás desarrollando tiene librerías de diferentes muestras usarías dRep entre todos los conjuntos de *bins* ya refinados para no tener redundancia de genomas.
+> * Qué harías si antes de desreplicar tienes un bin que tiene 98 % de completitud y 11 % de contaminación?. dRep en automático lo descartaría.
+> 
+> Propondrías alguna manera para quedarte con este bin y curarlo para reducir su contaminación?
+>
+> Por suerte hay más programas que pueden ayudarnos a curar nuestros bins manualmente, una herramienta útil para esto es [**mmgenome2**](https://kasperskytte.github.io/mmgenome2/articles/mmgenome2.html)
+> Ya que tenemos los *bins* refinados y desreplicados opcionalmente podrías reensamblarlos. La manera sería mapear las lecturas de toda la muestra a los *bins* finales y con las lecturas mapeadas y el *bin,* generar un ensamble genómico para cada uno. Con esta aproximación se genera un MAG más pulido y la contaminación se reduce.
+> Aunque en muchos reportes verás que los autores reensamblan sus MAGs, en otros no lo hacen y no hacerlo no está mal, pero hacerlo mejora la calidad.
+{: .callout}
 ------------------------------------------------------------------------
 
-Ahora te toca a tí
+<br>
 
-::: callout-warning
-## Ejercicio 2
-
-Ahora te toca a tí.
-
--   Reúnanse en equipos y repliquen todo el flujo hasta este punto con la muestra que les toca.
-
--   Discutan cada resultado obtenido.
-
--   En la [carpeta compartida de Drive](https://drive.google.com/drive/folders/1iKfhMz_JdfImmsCmkPg10r-NC-nrzhQ4?usp=sharing) busquen la presentación para el Ejercicio 2, en la diapositiva correspondiente resuman sus resultados obtenidos para que los presenten.
-
-Tiempo de actividad (1 hr)
-
-Tiempo de presentación de resultados (5 min por equipo)
-:::
-> ## 🧠 Para tenerlo presente
-> En bioinformática cualquier línea de comandos generará un resultado, de ahí a que esos resultados sean correctos puede haber una gran diferencia.
-> En cada paso detente a revisar la información de cada programa, lee el manual, visita foros de ayuda y selecciona los argumentos que se ajusten a las necesidades de tus datos.
-{: .callout}
+🧬🦠🥳 Ahora te toca a tí
 
 
-> ## Exercise 1: Reviewing metadata 
+> ## Ejercicio 2
 > 
-> According to the results described for this CCB study.
-> 1. What kind of sequencing method do you think they used, and why do you think so?  
->  A) Metabarcoding   
->  B) Shotgun metagenomics   
->  C) Genomics of axenic cultures  
->
->  2. In the table [samples treatment information](https://github.com/carpentries-incubator/metagenomics/blob/gh-pages/files/Samples_treatment_information.tsv), what was the most critical piece of metadata that the authors took?  
-> 
->> ## Solution
->> A) Metabarcoding. False. With this technique, usually, only one region of the genome is amplified.   
->> B) Shotgun Metagenomics. True. Only shotgun metagenomics could have been used to investigate the total number of tRNA genes.    
->> C) Genomics of axenic cultures. False. Information on the microbial community cannot be fully obtained with axenic cultures.    
->>  
->> The most crucial thing to know about our data is which community was and was not supplemented with fertilizers.  
->> However, any differences in the technical parts of the study, such as the DNA extraction protocol,
->> could have affected the results, so tracking those is also essential.
->> 
-> {: .solution}
+> Ahora te toca a tí.
+> Reúnanse en equipos y repliquen todo el flujo hasta este punto con la muestra que les toca.
+> Discutan cada resultado obtenido.
+> En la [carpeta compartida de Drive](https://drive.google.com/drive/folders/1rg-zjuASg9D-goa2SlL3HXalqj3BQFNX) busquen la diapositiva para el Ejercicio 2. En la diapositiva correspondiente resuman sus resultados obtenidos.
+> Tiempo de actividad (2 hr)
+> Tiempo de presentación de resultados (5 min por equipo)
 {: .challenge}
 
-~~~
-conda deactivate
-~~~
-{: .bash}
