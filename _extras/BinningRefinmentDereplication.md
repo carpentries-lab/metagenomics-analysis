@@ -356,6 +356,13 @@ Refined_bin     Size(Kbp)       Source
 >> library(htmlwidgets)
 >> saveWidget(sankey_plot, file = "48hrs_sankey_plot.html")
 >> ```
+>>
+>> <p style="text-align: center;">
+>>  <a href="{{ page.root }}/fig/extrasMAGs/10.BRsankeyEx.png">
+>>    <img src="{{ page.root }}/fig/extrasMAGs/10.BRsankeyEx.png" alt="Binning Refiner output"  width="528"/>
+>>   </a>
+>> </p>
+>> 
 > {: .solution}
 {: .challenge}
 
@@ -370,8 +377,6 @@ Refined_bin     Size(Kbp)       Source
 ### DASTool
 
 [DASTool](https://github.com/cmks/DAS_Tool) es una herramienta utilizada para mejorar la calidad de los *bins*. Evalúa la integridad, combina los resultados de diferentes *bineadores* y por consenso selecciona los mejores *bins* de cada herramienta. Una vez que DASTool ha seleccionado los mejores bins, realiza un proceso de refinamiento para optimizar los resultados.
-
-![DASTool](Figures/06.DASTool.png){fig-alt="Sieber et al. 2018. Recovery of genomes from metagenomes via a dereplication, aggregation and scoring strategy. Nat. Micro." fig-align="center" width="935"}
 
 <br>
 <p style="text-align: center;">
@@ -408,7 +413,7 @@ DAS_Tool -i results/08.dastool/48hrs_metabat.dastool.tsv,results/08.dastool/48hr
 ```
 
 
-## Dereplicación
+## Desreplicación
 
 ### dRep
 
@@ -442,7 +447,10 @@ cd results/09.drep/bins/
 Con las siguientes lineas podemos copiar los bins en este directorio:
 
 ``` bash
-for i in $(ls ../../08.dastool/48hrs_DASTool_bins/*.fa) ; do name=$(basename $i .fa); cp $i $name".fasta" ; done
+
+for i in $(ls ../../08.dastool/48hrs_DASTool_bins/*.fa); do
+    name=$(basename $i .fa); cp $i $name".fasta"
+done
 
 cp ../../07.binning_refiner/48hrs_Binning_refiner_outputs/48hrs_refined_bins/*.fasta .
 ```
@@ -460,13 +468,13 @@ Y ahora si, vamos a correr dRep ...
 export PATH=/miniconda3/envs/metagenomics/bin:$PATH
 dRep dereplicate results/09.drep/ -d -comp 50 -con 10 --SkipSecondary -g results/09.drep/bins/*.fasta
 ```
-
+<br>
 > ### Nota
 >
 > El argumento `--SkipSecondary` no se aconseja poner, en la vida real queremos que se hagan todas las agrupaciones
 > para discriminar genomas. En este ejemplo fue necesario ponerlo porque no logramos llamar a ANIm
 {: .callout} 
-
+<br>
 
 Este es uno de los plots generados por dRep, que representa los mejores bins desreplicados.
 
@@ -495,7 +503,9 @@ conda deactivate
 > Propondrías alguna manera para quedarte con este bin y curarlo para reducir su contaminación?
 >
 > Por suerte hay más programas que pueden ayudarnos a curar nuestros bins manualmente, una herramienta útil para esto es [**mmgenome2**](https://kasperskytte.github.io/mmgenome2/articles/mmgenome2.html)
+> 
 > Ya que tenemos los *bins* refinados y desreplicados opcionalmente podrías reensamblarlos. La manera sería mapear las lecturas de toda la muestra a los *bins* finales y con las lecturas mapeadas y el *bin,* generar un ensamble genómico para cada uno. Con esta aproximación se genera un MAG más pulido y la contaminación se reduce.
+> 
 > Aunque en muchos reportes verás que los autores reensamblan sus MAGs, en otros no lo hacen y no hacerlo no está mal, pero hacerlo mejora la calidad.
 {: .callout}
 ------------------------------------------------------------------------
@@ -508,10 +518,14 @@ conda deactivate
 > ## Ejercicio 2
 > 
 > Ahora te toca a tí.
-> Reúnanse en equipos y repliquen todo el flujo hasta este punto con la muestra que les toca.
-> Discutan cada resultado obtenido.
-> En la [carpeta compartida de Drive](https://drive.google.com/drive/folders/1rg-zjuASg9D-goa2SlL3HXalqj3BQFNX) busquen la diapositiva para el Ejercicio 2. En la diapositiva correspondiente resuman sus resultados obtenidos.
+> 
+> * Reúnanse en equipos y repliquen todo el flujo hasta este punto con la muestra que les toca.
+> * Discutan cada resultado obtenido.
+> * En la [carpeta compartida de Drive](https://drive.google.com/drive/folders/1rg-zjuASg9D-goa2SlL3HXalqj3BQFNX) busquen la diapositiva para el Ejercicio 2.
+> * En la diapositiva correspondiente resuman sus resultados obtenidos.
+> 
 > Tiempo de actividad (2 hr)
+> 
 > Tiempo de presentación de resultados (5 min por equipo)
 {: .challenge}
 
