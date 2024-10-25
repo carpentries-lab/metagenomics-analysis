@@ -367,11 +367,6 @@ Refined_bin     Size(Kbp)       Source
 {: .challenge}
 
 <br>
-<p style="text-align: center;">
-  <a href="{{ page.root }}/fig/extrasMAGs/10.BRsankeyEx.png">
-    <img src="{{ page.root }}/fig/extrasMAGs/10.BRsankeyEx.png" alt="Binning Refiner output"  width="528"/>
-  </a>
-</p>
 <br>
 
 ### DASTool
@@ -389,7 +384,7 @@ Refined_bin     Size(Kbp)       Source
 <br>
 
 Vamos a correr DASTool ...
-
+<br>
 Primero crea el directorio para los resultados
 
 ``` bash
