@@ -97,7 +97,7 @@ $ metaspades.py
 {: .bash}
 
 ~~~
-SPAdes genome assembler v3.15.0 [metaSPAdes mode]
+SPAdes genome assembler v4.2.0 [metaSPAdes mode]
 
 Usage: spades.py [options] -o <output_dir>
 
@@ -146,7 +146,10 @@ When the run is finished, it shows this message:
 
 SPAdes log can be found here: /home/dcuser/dc_workshop/results/assembly_JC1A/spades.log
 
-Thank you for using SPAdes!
+Thank you for using metaSPAdes! If you use it in your research, please cite:
+
+  Nurk, S., Meleshko, D., Korobeynikov, A. and Pevzner, P.A., 2017. metaSPAdes: a new versatile metagenomic assembler. Genome research, 27(5), pp.824-834.
+  doi.org/10.1101/gr.213959.116
 
 ~~~
 {: .bash}
